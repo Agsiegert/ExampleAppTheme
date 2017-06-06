@@ -1,5 +1,9 @@
 export default function App() {
   return (
-    <div>Hello World!</div>
+    <div>
+      <scrivito.React.CurrentPage />
+      <scrivito.React.NotFoundErrorPage />
+      <scrivito.React.InternalErrorPage />
+    </div>
   );
 }

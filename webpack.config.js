@@ -31,7 +31,8 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: '../static' }
+      { from: '../static' },
+      { from: '../vendor/scrivito', to: 'scrivito' },
     ])
   ],
   resolve: {

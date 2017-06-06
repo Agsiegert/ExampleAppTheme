@@ -13,6 +13,7 @@
   "globals": {
     "React": true,
     "ReactDOM": true,
+    "scrivito": true,
   },
   rules: {
     "arrow-body-style": 0,
