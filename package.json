@@ -4,5 +4,10 @@
   "license": "MIT",
   "devDependencies": {
     "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "build:scrivito": "cd ../rails_connector && bundle && bundle exec rake package:js",
+    "copy:scrivito": "rm -rf vendor/scrivito && mkdir -p vendor/scrivito && cp ../rails_connector/pkg/js/scrivito/* vendor/scrivito",
+    "scrivito": "yarn build:scrivito && yarn copy:scrivito"
   }
 }
