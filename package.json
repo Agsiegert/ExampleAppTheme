@@ -13,13 +13,14 @@
     "eslint-loader": "^1.7.1",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-react": "^4.2.3",
-    "webpack": "^2.6.1"
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "scripts": {
     "build": "yarn build:clean && yarn build:package",
     "build:clean": "rm -rf build/ && mkdir -p build/",
     "build:package": "NODE_ENV=production webpack",
-    "serve": "cd build && ruby -run -ehttpd . -p3000",
+    "serve": "NODE_ENV=development webpack-dev-server --port 3000",
     "scrivito": "yarn scrivito:build && yarn scrivito:copy",
     "scrivito:build": "cd ../rails_connector && bundle && bundle exec rake package:js",
     "scrivito:copy": "rm -rf vendor/scrivito && mkdir -p vendor/scrivito && cp ../rails_connector/pkg/js/scrivito/* vendor/scrivito"
