@@ -3,11 +3,20 @@
   "description": "Scrivito Example App JS",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.0.1",
     "webpack": "^2.6.1"
   },
   "scripts": {
-    "build:scrivito": "cd ../rails_connector && bundle && bundle exec rake package:js",
-    "copy:scrivito": "rm -rf vendor/scrivito && mkdir -p vendor/scrivito && cp ../rails_connector/pkg/js/scrivito/* vendor/scrivito",
-    "scrivito": "yarn build:scrivito && yarn copy:scrivito"
+    "build": "yarn build:clean && yarn package",
+    "build:clean": "rm -rf build/ && mkdir -p build/",
+    "package": "NODE_ENV=production webpack",
+    "serve": "cd build && ruby -run -ehttpd . -p3000",
+    "scrivito": "yarn scrivito:build && yarn scrivito:copy",
+    "scrivito:build": "cd ../rails_connector && bundle && bundle exec rake package:js",
+    "scrivito:copy": "rm -rf vendor/scrivito && mkdir -p vendor/scrivito && cp ../rails_connector/pkg/js/scrivito/* vendor/scrivito"
   }
 }
