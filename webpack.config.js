@@ -17,6 +17,10 @@ module.exports = {
               cacheDirectory: 'tmp/babel-cache',
             },
           },
+          {
+            loader: 'eslint-loader',
+            options: { failOnError: true },
+          },
         ],
       },
     ],
