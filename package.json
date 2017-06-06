@@ -1,5 +1,8 @@
 {
   "name": "example_app_js",
   "description": "Scrivito Example App JS",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^2.6.1"
+  }
 }
