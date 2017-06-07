@@ -1,0 +1,19 @@
+# Scrivito Example App JS
+
+This is a showcase app, how [Scrivito](https://scrivito.com) is working as a JavaScript application.
+
+## Prerequisites
+
+You need [`node`](https://nodejs.org/en/) installed. If you are on MacOS a simple `brew install nodejs@7.10` should do the trick (given, that you have [`brew`](https://brew.sh) installed).
+
+You also need [`yarn`](https://yarnpkg.com/lang/en/) installed. On MacOS a simple `brew install yarn` should do the trick.
+
+Now simply call `yarn` in the commandline to install all js dependencies (which are places in the folder `node_modules/`).
+
+## How to build/compile
+
+Calling `yarn build` will compile all js, html and css and place it in the `build/` folder.
+
+## How to develop
+
+Calling `yarn serve` will start a webserver, which listens to [localhost:3000](http://localhost:3000/). It should also automatically reload the page, once changes to the code (in `src/` have been made).
