@@ -3,7 +3,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
-  entry: './index.js',
+  entry: {
+    application: './index.js',
+    dependencies: './dependencies.js',
+  },
   module: {
     rules: [
       {
@@ -26,7 +29,7 @@ module.exports = {
     ],
   },
   output: {
-    filename: 'application.js',
+    filename: '[name].js',
     path: path.join(__dirname, 'build'),
   },
   plugins: [
