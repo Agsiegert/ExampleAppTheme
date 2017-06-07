@@ -1,11 +1,17 @@
+const process = require('process');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const env = process.env.NODE_ENV || 'production';
+const isDevelopment = env === 'development';
 
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: {
     index: './index.js',
     dependencies: './dependencies.js',
+    'index.css': './stylesheets/index.scss',
   },
   module: {
     rules: [
@@ -26,6 +32,21 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: !isDevelopment,
+              },
+            }, {
+              loader: 'sass-loader',
+            },
+          ],
+        }),
+      },
     ],
   },
   output: {
@@ -36,7 +57,10 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: '../static' },
       { from: '../vendor/scrivito', to: 'scrivito' },
-    ])
+    ]),
+    new ExtractTextPlugin({
+      filename: '[name]',
+    }),
   ],
   resolve: {
     extensions: ['.js', '.js.jsx'],
