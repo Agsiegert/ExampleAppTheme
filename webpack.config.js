@@ -10,7 +10,6 @@ module.exports = {
   context: path.join(__dirname, 'src'),
   entry: {
     index: './index.js',
-    dependencies: './dependencies.js',
     'index.css': './stylesheets/index.scss',
   },
   module: {
@@ -63,6 +62,9 @@ module.exports = {
     }),
   ],
   resolve: {
+    alias: {
+      scrivito_with_js_sdk: path.join(__dirname, 'vendor/scrivito/scrivito_with_js_sdk.js'),
+    },
     extensions: ['.js', '.js.jsx'],
     modules: ['src', 'node_modules'],
   },

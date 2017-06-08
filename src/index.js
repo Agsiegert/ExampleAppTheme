@@ -1,3 +1,5 @@
+import 'globals';
+import 'scrivito_with_js_sdk';
 import App from 'app';
 
 scrivito.configure({
