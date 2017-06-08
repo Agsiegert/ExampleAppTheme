@@ -1,5 +1,7 @@
-import 'setup';
-
 import App from 'app';
+
+scrivito.configure({
+  tenant: 'c1bd936ef25b6dcccfd7b72b71fe969d',
+});
 
 ReactDOM.render(<App />, document.getElementById('application'));
