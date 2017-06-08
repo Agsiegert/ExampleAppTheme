@@ -1,6 +1,7 @@
 import 'globals';
 import 'scrivito_with_js_sdk';
 import 'objs/index';
+import 'widgets/index';
 import App from 'app';
 
 scrivito.configure({
