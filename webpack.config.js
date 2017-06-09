@@ -68,4 +68,13 @@ module.exports = {
     extensions: ['.js', '.js.jsx'],
     modules: ['src', 'node_modules'],
   },
+  devServer: {
+    port: 3000,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/scrivito/, to: '/scrivito/index.html' },
+        { from: /./, to: '/index.html' },
+      ],
+    },
+  },
 };
