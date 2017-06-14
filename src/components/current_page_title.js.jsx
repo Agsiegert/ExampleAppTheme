@@ -1,9 +1,9 @@
 import Helmet from 'react-helmet';
 
-const CurrentPageTitle = scrivito.createComponent(() => {
+const CurrentPageTitle = Scrivito.createComponent(() => {
   let title = '';
-  if (scrivito.currentPage()) {
-    title = scrivito.currentPage().get('title');
+  if (Scrivito.currentPage()) {
+    title = Scrivito.currentPage().get('title');
   }
   return <Helmet title={ title } />;
 });

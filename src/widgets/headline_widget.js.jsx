@@ -1,4 +1,4 @@
-const HeadlineWidget = scrivito.createWidgetClass({
+const HeadlineWidget = Scrivito.createWidgetClass({
   name: 'HeadlineWidget',
   attributes: {
     headline: 'string',
@@ -6,12 +6,12 @@ const HeadlineWidget = scrivito.createWidgetClass({
   },
 });
 
-scrivito.provideComponent(HeadlineWidget, {
+Scrivito.provideComponent(HeadlineWidget, {
   render() {
     const widget = this.props.widget;
     const level = widget.get('level') || 'h1';
 
-    return <scrivito.React.Content tag={ level } content={ widget } attribute="headline" />;
+    return <Scrivito.React.Content tag={ level } content={ widget } attribute="headline" />;
   },
 });
 

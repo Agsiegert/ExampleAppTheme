@@ -1,4 +1,4 @@
-const Page = scrivito.createObjClass({
+const Page = Scrivito.createObjClass({
   name: 'Page',
   attributes: {
     title: 'string',
@@ -7,10 +7,10 @@ const Page = scrivito.createObjClass({
   },
 });
 
-scrivito.provideComponent(Page, obj =>
+Scrivito.provideComponent(Page, obj =>
   <div>
-    <scrivito.React.Content tag="h1" content={ obj } attribute="title" />
-    <scrivito.React.Content tag="div" content={ obj } attribute="body" />
+    <Scrivito.React.Content tag="h1" content={ obj } attribute="title" />
+    <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
   </div>
 );
 

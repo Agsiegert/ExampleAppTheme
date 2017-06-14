@@ -4,9 +4,9 @@ import NotFoundErrorPage from 'components/not_found_error_page';
 export default function App() {
   return (
     <div>
-      <scrivito.React.CurrentPage />
+      <Scrivito.React.CurrentPage />
       <NotFoundErrorPage />
-      <scrivito.React.InternalErrorPage />
+      <Scrivito.React.InternalErrorPage />
       <CurrentPageTitle />
     </div>
   );

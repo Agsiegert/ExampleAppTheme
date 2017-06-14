@@ -1,13 +1,13 @@
-const Blog = scrivito.createObjClass({
+const Blog = Scrivito.createObjClass({
   name: 'Blog',
   attributes: {
     title: 'string',
   },
 });
 
-scrivito.provideComponent(Blog, obj =>
+Scrivito.provideComponent(Blog, obj =>
   <div>
-    <scrivito.React.Content tag="h1" content={ obj } attribute="title" />
+    <Scrivito.React.Content tag="h1" content={ obj } attribute="title" />
   </div>
 );
 
