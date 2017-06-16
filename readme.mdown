@@ -20,4 +20,4 @@ Calling `yarn serve` will start a webserver, which listens to [localhost:3000](h
 
 ## How to develop design
 
-Calling `yarn serve:design` will start a webserver, which listens to [localhost:4000](http://localhost:4000/). It will serve all files from the folder `design/` and the file `src/stylesheets/index.scss` as [http://localhost:4000/index.css](http://localhost:4000/index.css).
+Calling `yarn serve:design` will start a webserver, which listens to [localhost:4000](http://localhost:4000/). It will serve all files from the folder `design/` and the file `src/assets/stylesheets/index.scss` as [http://localhost:4000/index.css](http://localhost:4000/index.css).

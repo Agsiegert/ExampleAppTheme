@@ -9,7 +9,7 @@ const isDevelopment = env === 'development';
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: {
-    'index.css': './stylesheets/index.scss',
+    'index.css': './assets/stylesheets/index.scss',
   },
   module: {
     rules: [
@@ -27,6 +27,12 @@ module.exports = {
             },
           ],
         }),
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          'file-loader',
+        ],
       },
     ],
   },
