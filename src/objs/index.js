@@ -1,11 +1,9 @@
 import Blog from './blog';
-window.ExampleApp.Blog = Blog;
-
 import BlogPost from './blog_post';
-window.ExampleApp.BlogPost = BlogPost;
-
 import Homepage from './homepage';
-window.ExampleApp.Homepage = Homepage;
-
 import Page from './page';
+
+window.ExampleApp.Blog = Blog;
+window.ExampleApp.BlogPost = BlogPost;
+window.ExampleApp.Homepage = Homepage;
 window.ExampleApp.Page = Page;
