@@ -69,7 +69,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      scrivito_with_js_sdk: path.join(__dirname, 'vendor/scrivito/scrivito_with_js_sdk.js'),
+      scrivito_sdk: path.join(__dirname, 'vendor/scrivito/scrivito_sdk.js'),
     },
     extensions: ['.js', '.js.jsx'],
     modules: ['src', 'node_modules'],
