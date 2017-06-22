@@ -7,6 +7,7 @@ export default () => {
   const home = window.ExampleApp.Page.create({
     _path: '/home_2',
     title: 'Homepage variant 2',
+    navigationTitle: 'Home',
     childOrder: [home3],
   });
 

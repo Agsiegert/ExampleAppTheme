@@ -8,6 +8,11 @@ const Navigation = Scrivito.createComponent(() => {
   />;
 });
 
+function navigationTitle(child) {
+  const content = child.get('navigationTitle') || child.get('title');
+  return content.toUpperCase();
+}
+
 function renderChild(child) {
   if (child.children.length > 0) {
     return <ChildrenDropdown page= { child } />;
@@ -15,7 +20,7 @@ function renderChild(child) {
 
   return <li className={ isActive(child) ? 'active' : '' }>
     <Scrivito.React.Link to={ child }>
-      { child.get('title') }
+      { navigationTitle(child) }
     </Scrivito.React.Link>
   </li>;
 }
@@ -28,7 +33,7 @@ function isActive(child) {
 
 const ChildrenDropdown = Scrivito.createComponent(({ page }) => {
   return <NavDropdown
-      title={ page.get('title') }
+      title={ navigationTitle(page) }
       id="nav-dropdown"
       className={ isActive(page) && 'active' }>
     <DropdownItem page={ page } key={ page.id } />
