@@ -18,24 +18,33 @@ function renderChild(child) {
     return <ChildrenDropdown page= { child } />;
   }
 
-  return <li className={ isActive(child) ? 'active' : '' }>
+  return <li className={ isActiveSection(child) && 'active' }>
     <Scrivito.React.Link to={ child }>
       { navigationTitle(child) }
     </Scrivito.React.Link>
   </li>;
 }
 
-function isActive(child) {
-  const currentId = (Scrivito.currentPage() || {}).id;
+function isActiveSection(page) {
+  if (!Scrivito.currentPage()) { return false; }
 
-  return currentId === child.id;
+  const currentPath = Scrivito.currentPage().path;
+  if (!currentPath || currentPath === '/') { return false; }
+
+  return currentPath.startsWith(page.path);
+}
+
+function isActive(page) {
+  if (!Scrivito.currentPage()) { return false; }
+
+  return Scrivito.currentPage().id === page.id;
 }
 
 const ChildrenDropdown = Scrivito.createComponent(({ page }) => {
   return <NavDropdown
       title={ navigationTitle(page) }
       id="nav-dropdown"
-      className={ isActive(page) && 'active' }>
+      className={ isActiveSection(page) && 'active' }>
     <DropdownItem page={ page } key={ page.id } />
     {
       page.children.map(grandchild => {
@@ -48,7 +57,7 @@ const ChildrenDropdown = Scrivito.createComponent(({ page }) => {
 const DropdownItem = Scrivito.createComponent(({ page, ...props }) => {
   const onClick = () => Scrivito.navigateTo(() => page);
 
-  return <MenuItem { ...props } onClick={ onClick }>
+  return <MenuItem { ...props } onClick={ onClick } className={ isActive(page) && 'active' }>
     { page.get('title') }
   </MenuItem>;
 });
