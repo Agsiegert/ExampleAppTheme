@@ -2,6 +2,7 @@ const Page = Scrivito.createObjClass({
   name: 'Page',
   attributes: {
     title: 'string',
+    navigationTitle: 'string',
     body: 'widgetlist',
     childOrder: 'referencelist',
   },
