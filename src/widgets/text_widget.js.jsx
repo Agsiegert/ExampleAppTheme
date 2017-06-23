@@ -1,12 +1,12 @@
 const TextWidget = Scrivito.createWidgetClass({
   name: 'TextWidget',
   attributes: {
-    content: 'html',
+    text: 'html',
   },
 });
 
 Scrivito.provideComponent(TextWidget, widget =>
-  <Scrivito.React.Content tag="div" content={ widget } attribute="content" />
+  <Scrivito.React.Content tag="div" content={ widget } attribute="text" />
 );
 
 export default TextWidget;
