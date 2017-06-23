@@ -7,6 +7,22 @@ const BlogPost = Scrivito.createObjClass({
   },
 });
 
+Scrivito.provideUiConfig(BlogPost, {
+  title: 'BlogPost',
+  description: 'A BlogPost.',
+  attributes: {
+    title: {
+      title: 'Title',
+      description: 'Description of title',
+    },
+    publishedAt: {
+      title: 'Published At',
+      description: 'When will this BlogPost be published.',
+    },
+  },
+  titleForContent: obj => obj.get('title'),
+});
+
 Scrivito.provideComponent(BlogPost, obj =>
   <div>
     <Scrivito.React.Content tag="h1" content={ obj } attribute="title" />
