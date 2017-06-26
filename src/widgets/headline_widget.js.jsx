@@ -6,6 +6,18 @@ const HeadlineWidget = Scrivito.createWidgetClass({
   },
 });
 
+Scrivito.provideUiConfig(HeadlineWidget, {
+  title: 'HeadlineWidget',
+  description: 'A widget with a headline.',
+  attributes: {
+    level: {
+      title: 'Level',
+      description: 'The level of the headline',
+    },
+  },
+  titleForContent: widget => widget.get('headline'),
+});
+
 Scrivito.provideComponent(HeadlineWidget, {
   render() {
     const widget = this.props.widget;
