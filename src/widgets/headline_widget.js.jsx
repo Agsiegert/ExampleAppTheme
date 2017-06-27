@@ -2,7 +2,7 @@ const HeadlineWidget = Scrivito.createWidgetClass({
   name: 'HeadlineWidget',
   attributes: {
     headline: 'string',
-    level: ['enum', { values: ['h1', 'h2', 'h3', 'h4'] }],
+    level: ['enum', { validValues: ['h1', 'h2', 'h3', 'h4'] }],
   },
 });
 
