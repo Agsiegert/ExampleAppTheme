@@ -41,7 +41,7 @@ export default () => {
   });
 
   // ALL WIDGETS
-  const allWidgets = window.ExampleApp.Blog.create({
+  const allWidgets = window.ExampleApp.Page.create({
     _path: '/all_widgets',
     title: 'All Widgets',
   });

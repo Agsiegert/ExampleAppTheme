@@ -5,6 +5,11 @@ const TextWidget = Scrivito.createWidgetClass({
   },
 });
 
+Scrivito.provideUiConfig(TextWidget, {
+  title: 'TextWidget',
+  description: 'A widget with html text.',
+});
+
 Scrivito.provideComponent(TextWidget, widget =>
   <Scrivito.React.Content tag="div" content={ widget } attribute="text" />
 );

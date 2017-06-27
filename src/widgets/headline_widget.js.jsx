@@ -2,8 +2,20 @@ const HeadlineWidget = Scrivito.createWidgetClass({
   name: 'HeadlineWidget',
   attributes: {
     headline: 'string',
-    level: ['enum', { values: ['h1', 'h2', 'h3', 'h4'] }],
+    level: ['enum', { validValues: ['h1', 'h2', 'h3', 'h4'] }],
   },
+});
+
+Scrivito.provideUiConfig(HeadlineWidget, {
+  title: 'HeadlineWidget',
+  description: 'A widget with a headline.',
+  attributes: {
+    level: {
+      title: 'Level',
+      description: 'The level of the headline',
+    },
+  },
+  titleForContent: widget => widget.get('headline'),
 });
 
 Scrivito.provideComponent(HeadlineWidget, {

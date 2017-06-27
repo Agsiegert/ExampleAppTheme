@@ -4,7 +4,7 @@ const Navigation = Scrivito.createComponent(() => {
   return <Scrivito.React.ChildList
     className="nav nav-pills"
     parent={ Scrivito.Obj.root() }
-    render={ renderChild }
+    renderChild={ renderChild }
   />;
 });
 
