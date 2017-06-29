@@ -19,6 +19,7 @@
     "jquery": true,
   },
   "globals": {
+    "Blob": true,
     "console": true,
     "document": true,
     "React": true,
