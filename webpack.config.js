@@ -28,7 +28,17 @@ module.exports = {
           },
           {
             loader: 'eslint-loader',
-            options: { failOnError: true },
+            options: {
+              failOnError: !isDevelopment,
+              // emit warnings instead of errors to ensure the build
+              // succeeds even when there are eslint errors.
+              // (otherwise webpack devserver would refuse to reload,
+              // which is super-annoying during development.)
+              emitWarning: isDevelopment,
+              // emit errors instead of warnings to ensure the build
+              // fails even when there are only eslint warnings.
+              emitError: !isDevelopment,
+            },
           },
         ],
       },
