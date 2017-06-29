@@ -1,3 +1,6 @@
+/* eslint no-console: 0 */
+import logoSvgData from './logo_svg_data';
+
 export default () => {
   // HOME VARIANTS
   const home3 = window.ExampleApp.Page.create({
@@ -46,10 +49,22 @@ export default () => {
     title: 'All Widgets',
   });
 
+  // navigation logo
+  const svgBlob = new Blob([logoSvgData], { type: 'image/svg+xml' });
+  const binary = window.Scrivito.Binary.upload(svgBlob, { filename: 'scrivito_logo_sw.svg' });
+  const logo = window.ExampleApp.Image.create({
+    title: 'Scrivito Logo SW',
+  });
+  binary.into(logo).then(newBinary => {
+    logo.update({ blob: newBinary });
+    console.log('Import done');
+  });
+
   // Obj.root
   window.ExampleApp.Homepage.create({
     _path: '/',
     title: 'Welcome to the Scrivito Example App JS!',
     childOrder: [home, product, about, blog, allWidgets],
+    logo: logo,
   });
 };

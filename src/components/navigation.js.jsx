@@ -1,11 +1,18 @@
 import { NavDropdown, MenuItem } from 'react-bootstrap';
 
 const Navigation = Scrivito.createComponent(() => {
-  return <Scrivito.React.ChildList
-    className="nav nav-pills"
-    parent={ Scrivito.Obj.root() }
-    renderChild={ renderChild }
-  />;
+  return (
+    <header>
+      <Scrivito.React.Link to={ Scrivito.Obj.root() } className="logo">
+        <Scrivito.React.Image src={ Scrivito.Obj.root() } attribute="logo" />
+      </Scrivito.React.Link>
+      <Scrivito.React.ChildList
+        className="nav nav-pills"
+        parent={ Scrivito.Obj.root() }
+        renderChild={ renderChild }
+      />
+    </header>
+  );
 });
 
 function navigationTitle(child) {
