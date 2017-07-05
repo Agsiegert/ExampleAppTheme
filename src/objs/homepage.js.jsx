@@ -16,6 +16,10 @@ Scrivito.provideUiConfig(Homepage, {
       title: 'Title',
       description: 'Description of title',
     },
+    logo: {
+      title: 'Logo',
+      description: 'The logo of your site',
+    },
   },
   titleForContent: obj => obj.get('title'),
   descriptionForContent: obj => `path: ${obj.path}`,
