@@ -1,10 +1,11 @@
 const Homepage = Scrivito.createObjClass({
   name: 'Homepage',
   attributes: {
-    title: 'string',
     body: 'widgetlist',
     childOrder: 'referencelist',
+    footer: 'widgetlist',
     logo: 'reference',
+    title: 'string',
   },
 });
 
