@@ -1,10 +1,13 @@
 /* eslint no-console: 0 */
+import loremIpsum from 'lorem-ipsum';
+
 import Blog from 'objs/blog';
 import Homepage from 'objs/homepage';
 import Image from 'objs/image';
 import Page from 'objs/page';
 
 import ColumnWidget from 'widgets/column_widget';
+import HeadlineWidget from 'widgets/headline_widget';
 import ImageWidget from 'widgets/image_widget';
 import PageListWidget from 'widgets/page_list_widget';
 import TextWidget from 'widgets/text_widget';
@@ -73,6 +76,26 @@ export default () => {
   });
   const imprint = Page.create({
     title: 'Imprint',
+    _permalink: 'imprint',
+    body: [
+      new HeadlineWidget({
+        level: 'h1',
+        headline: 'Lorem ipsum dolor sit amet',
+      }),
+      new HeadlineWidget({
+        level: 'h2',
+        headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
+      }),
+      new TextWidget({
+        text: loremIpsum({
+          units: 'paragraphs',
+          format: 'html',
+          count: 9,
+          paragraphLowerBound: 1,
+          paragraphUpperBound: 10,
+        }),
+      }),
+    ],
   });
   const login = Page.create({
     title: 'Login',
