@@ -2,7 +2,6 @@ const Page = Scrivito.createObjClass({
   name: 'Page',
   attributes: {
     title: 'string',
-    navigationTitle: 'string',
     body: 'widgetlist',
     childOrder: 'referencelist',
   },
@@ -15,10 +14,6 @@ Scrivito.provideUiConfig(Page, {
     title: {
       title: 'Title',
       description: 'Description of title',
-    },
-    navigationTitle: {
-      title: 'Navigation Title',
-      description: 'The title of the navigation section',
     },
   },
   titleForContent: obj => obj.get('title'),
