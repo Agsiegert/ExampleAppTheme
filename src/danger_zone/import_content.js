@@ -6,18 +6,6 @@ import Page from 'objs/page';
 import logoSvgData from './logo_svg_data';
 
 export default () => {
-  // HOME VARIANTS
-  const home3 = Page.create({
-    _path: '/home_2/home_3',
-    title: 'Homepage variant 3',
-  });
-  const home = Page.create({
-    _path: '/home_2',
-    title: 'Homepage variant 2',
-    navigationTitle: 'Home',
-    childOrder: [home3],
-  });
-
   // PRODUCT
   const product = Page.create({
     _path: '/product',
@@ -40,6 +28,12 @@ export default () => {
     childOrder: [ourWork, ourClients],
   });
 
+  // PRICING
+  const pricing = Page.create({
+    _path: '/pricing',
+    title: 'Pricing',
+  });
+
   // BLOG
   const blog = Blog.create({
     _path: '/blog',
@@ -47,10 +41,19 @@ export default () => {
     title: 'Blog',
   });
 
-  // ALL WIDGETS
-  const allWidgets = Page.create({
-    _path: '/all_widgets',
-    title: 'All Widgets',
+  // WIDGETS AND PAGES
+  const homeV1 = Page.create({
+    _path: '/widgets_and_pages/home_v1',
+    title: 'Homepage variant 1',
+  });
+  const homeV2 = Page.create({
+    _path: '/widgets_and_pages/home_v2',
+    title: 'Homepage variant 2',
+  });
+  const widgetsAndPages = Page.create({
+    _path: '/widgets_and_pages',
+    title: 'Widgets & Pages',
+    childOrder: [homeV1, homeV2],
   });
 
   // navigation logo
@@ -66,7 +69,7 @@ export default () => {
   Homepage.create({
     _path: '/',
     title: 'Welcome to the Scrivito Example App JS!',
-    childOrder: [home, product, about, blog, allWidgets],
+    childOrder: [product, about, pricing, blog, widgetsAndPages],
     logo: logo,
   });
 };
