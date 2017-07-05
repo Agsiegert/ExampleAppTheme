@@ -30,7 +30,6 @@ Scrivito.provideComponent(Homepage, obj =>
   <div>
     <Scrivito.React.Content tag="h1" content={ obj } attribute="title" />
     <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
-    <Scrivito.React.Content tag="section" className="footer" content={ obj } attribute="footer" />
   </div>
 );
 
