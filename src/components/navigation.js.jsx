@@ -4,7 +4,7 @@ const Navigation = Scrivito.createComponent(() => {
   return (
     <header>
       <Scrivito.React.Link to={ Scrivito.Obj.root() } className="logo">
-        <Scrivito.React.Image src={ Scrivito.Obj.root() } attribute="logo" />
+        <img src={ Scrivito.Obj.root().get('logo').get('blob').url } />
       </Scrivito.React.Link>
       <Scrivito.React.ChildList
         className="nav nav-pills"

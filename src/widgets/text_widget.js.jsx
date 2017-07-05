@@ -6,7 +6,7 @@ const TextWidget = Scrivito.createWidgetClass({
 });
 
 Scrivito.provideUiConfig(TextWidget, {
-  title: 'TextWidget',
+  title: 'Text',
   description: 'A widget with html text.',
 });
 

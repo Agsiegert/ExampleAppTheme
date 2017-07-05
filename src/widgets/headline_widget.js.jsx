@@ -7,7 +7,7 @@ const HeadlineWidget = Scrivito.createWidgetClass({
 });
 
 Scrivito.provideUiConfig(HeadlineWidget, {
-  title: 'HeadlineWidget',
+  title: 'Headline',
   description: 'A widget with a headline.',
   attributes: {
     level: {
