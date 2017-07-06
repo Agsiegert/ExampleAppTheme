@@ -4717,7 +4717,7 @@ var _attribute_content_class2 = _interopRequireDefault(_attribute_content_class)
 
 var _valid_rails_page_classes = __webpack_require__(93);
 
-var _use_rails_engine = __webpack_require__(29);
+var _use_rails_engine = __webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15872,7 +15872,7 @@ module.exports = ret;
 
 },{"./es5":13}]},{},[4])(4)
 });                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27), __webpack_require__(24), __webpack_require__(207).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28), __webpack_require__(24), __webpack_require__(207).setImmediate))
 
 /***/ }),
 
@@ -15906,20 +15906,33 @@ ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
   name: 'scrivito_anchor',
   proxy: null,
   contentDefault: '<i class="scrivito_customer_icon sci_link"></i>',
+  init: function() {
+    var _ref;
+    MediumEditor.extensions.anchor.prototype.init.apply(this, arguments);
+    return this.targetCheckbox = (_ref = this.getEditorOption('anchor')) != null ? _ref.targetCheckbox : void 0;
+  },
   handleClick: function(event) {
-    var firstTextElement, linkElement, linkValue, selectedParent, selectionRange;
+    var linkElement, selectedParent, selectionRange;
+    event.preventDefault();
+    event.stopPropagation();
     if (!this.isDisplayed()) {
       selectionRange = MediumEditor.selection.getSelectionRange(this.document);
       selectedParent = MediumEditor.selection.getSelectedParentElement(selectionRange);
-      firstTextElement = MediumEditor.util.getFirstTextNode(selectedParent);
-      linkElement = MediumEditor.util.getClosestTag(firstTextElement, 'a');
-      linkValue = $(linkElement).attr('href');
-      this.showForm(linkValue);
+      linkElement = MediumEditor.util.getClosestTag(selectedParent, 'a');
+      this.showForm({
+        value: $(linkElement).attr('href') || null,
+        target: $(linkElement).attr('target') || null
+      });
     }
     return false;
   },
   getTemplate: function() {
-    return "<i class='medium-editor-toolbar-browse scrivito_customer_icon sci_collection'></i>" + ("<input type='text' class='medium-editor-toolbar-input' placeholder='" + this.placeholderText + "'>") + "<i class='medium-editor-toolbar-save scrivito_customer_icon sci_check'></i>" + "<i class='medium-editor-toolbar-close scrivito_customer_icon sci_cross'></i>";
+    var targetCheckboxTemplate;
+    targetCheckboxTemplate = "";
+    if (this.targetCheckbox) {
+      targetCheckboxTemplate = "<div class='medium-editor-toolbar-form-row medium-editor-toolbar-anchor-target-toggle'>\n  <label>\n    <input type='checkbox' class='medium-editor-toolbar-anchor-target'>\n    <i class='scrivito_customer_icon sci_inv_check'></i>\n    <i class='scrivito_customer_icon sci_rounded_square'></i>\n    " + this.targetCheckboxText + "\n  </label>\n</div>";
+    }
+    return ("<i class='medium-editor-toolbar-browse scrivito_customer_icon sci_collection'></i>\n<input type='text' class='medium-editor-toolbar-input' placeholder='" + this.placeholderText + "'>\n<i class='medium-editor-toolbar-save scrivito_customer_icon sci_check'></i>\n<i class='medium-editor-toolbar-close scrivito_customer_icon sci_cross'></i>\n" + targetCheckboxTemplate).replace(/\n\s*/g, "");
   },
   attachFormEvents: function(form) {
     var input;
@@ -24851,7 +24864,7 @@ MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
     return MediumEditor;
 }()));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
 /***/ }),
 
@@ -25045,7 +25058,7 @@ MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24), __webpack_require__(27)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24), __webpack_require__(28)))
 
 /***/ }),
 
@@ -27023,6 +27036,30 @@ module.exports = g;
 /***/ }),
 
 /***/ 27:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var isUsingRailsEngine = void 0;
+
+function useRailsEngine() {
+  return isUsingRailsEngine;
+}
+
+function initUseRailsEngine(state) {
+  isUsingRailsEngine = state;
+}
+
+exports.useRailsEngine = useRailsEngine;
+exports.initUseRailsEngine = initUseRailsEngine;
+
+/***/ }),
+
+/***/ 28:
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -27206,30 +27243,6 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-
-/***/ }),
-
-/***/ 29:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var isUsingRailsEngine = void 0;
-
-function useRailsEngine() {
-  return isUsingRailsEngine;
-}
-
-function initUseRailsEngine(state) {
-  isUsingRailsEngine = state;
-}
-
-exports.useRailsEngine = useRailsEngine;
-exports.initUseRailsEngine = initUseRailsEngine;
 
 /***/ }),
 
