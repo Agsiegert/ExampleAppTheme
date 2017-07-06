@@ -41,6 +41,6 @@
     "scrivito": "yarn scrivito:build && yarn scrivito:copy && yarn scrivito:commit",
     "scrivito:build": "cd ../rails_connector && bundle && bundle exec rake package:js",
     "scrivito:copy": "rm -rf vendor/scrivito && mkdir -p vendor/scrivito && cp ../rails_connector/pkg/js/scrivito/* vendor/scrivito",
-    "scrivito:commit": "git add vendor/scrivito && git commit -m \"Updated Scrivito SDK to version `cd ../rails_connector && git describe`\""
+    "scrivito:commit": "git add vendor/scrivito && git commit -m \"[sdk] Updated Scrivito SDK to version `cd ../rails_connector && git describe`\""
   }
 }
