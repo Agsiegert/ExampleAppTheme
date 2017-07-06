@@ -4,6 +4,7 @@ const Homepage = Scrivito.createObjClass({
     body: 'widgetlist',
     childOrder: 'referencelist',
     footer: 'widgetlist',
+    socialButtons: ['widgetlist', { only: 'FontAwesomeIconWidget' }],
     logo: 'reference',
     title: 'string',
   },

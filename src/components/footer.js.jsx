@@ -1,7 +1,10 @@
 const Footer = Scrivito.createComponent(() => {
   const root = Scrivito.Obj.root();
   return (
-    <Scrivito.React.Content tag="section" className="footer" content={ root } attribute="footer" />
+    <section className="footer">
+      <Scrivito.React.Content content={ root } attribute="footer" />
+      <Scrivito.React.Content content={ root } attribute="socialButtons" />
+    </section>
   );
 });
 

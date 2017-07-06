@@ -7,6 +7,7 @@ import Image from 'objs/image';
 import Page from 'objs/page';
 
 import ColumnWidget from 'widgets/column_widget';
+import FontAwesomeIconWidget from 'widgets/font_awesome_icon_widget';
 import HeadlineWidget from 'widgets/headline_widget';
 import ImageWidget from 'widgets/image_widget';
 import PageListWidget from 'widgets/page_list_widget';
@@ -118,12 +119,47 @@ export default () => {
     console.log('Import done');
   });
 
+  // social buttons
+  const twitterIcon = new FontAwesomeIconWidget({
+    icon: 'fa-twitter',
+    link: new Scrivito.Link({
+      title: 'Twitter',
+      target: '_blank',
+      url: 'https://twitter.com/scrivito',
+    }),
+  });
+  const facebookIcon = new FontAwesomeIconWidget({
+    icon: 'fa-facebook-f',
+    link: new Scrivito.Link({
+      title: 'Facebook',
+      target: '_blank',
+      url: 'https://www.facebook.com/Scrivito/',
+    }),
+  });
+  const xingIcon = new FontAwesomeIconWidget({
+    icon: 'fa-xing',
+    link: new Scrivito.Link({
+      title: 'Xing',
+      target: '_blank',
+      url: 'https://www.xing.com/companies/infoparkag',
+    }),
+  });
+  const linkedinIcon = new FontAwesomeIconWidget({
+    icon: 'fa-linkedin',
+    link: new Scrivito.Link({
+      title: 'Linkedin',
+      target: '_blank',
+      url: 'https://www.linkedin.com/company/infopark',
+    }),
+  });
+
   // Obj.root
   const root = Homepage.create({
     _path: '/',
     title: 'Welcome to the Scrivito Example App JS!',
     childOrder: [product, about, pricing, blog, widgetsAndPages],
     logo: logo,
+    socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
   });
 
   // Footer
