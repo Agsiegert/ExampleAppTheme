@@ -1,4 +1,5 @@
 /* eslint no-console: 0 */
+/* global fetch */
 import loremIpsum from 'lorem-ipsum';
 
 import Blog from 'objs/blog';
@@ -13,7 +14,23 @@ import ImageWidget from 'widgets/image_widget';
 import PageListWidget from 'widgets/page_list_widget';
 import TextWidget from 'widgets/text_widget';
 
-import logoSvgData from './logo_svg_data';
+import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
+import scrivitoLogoGreyData from './binary_data/scrivito_logo_grey';
+import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
+import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
+
+function uploadImage({ url, filename }, title) {
+  const image = Image.create({ title });
+
+  fetch(url)
+    .then(res => res.blob())
+    .then(blob => Scrivito.Binary.upload(blob, { filename }))
+    .then(binary => binary.into(image))
+    .then(newBinary => image.update({ blob: newBinary }))
+    .then(() => { console.log(`Upload of ${title} done`); });
+
+  return image;
+}
 
 export default () => {
   // PRODUCT
@@ -110,14 +127,13 @@ export default () => {
     title: 'Landing Page',
   });
 
-  // navigation logo
-  const svgBlob = new Blob([logoSvgData], { type: 'image/svg+xml' });
-  const binary = Scrivito.Binary.upload(svgBlob, { filename: 'scrivito_logo_sw.svg' });
-  const logo = Image.create({ title: 'Scrivito Logo SW' });
-  binary.into(logo).then(newBinary => {
-    logo.update({ blob: newBinary });
-    console.log('Import done');
-  });
+  // Logos
+  const scrivitoLogoGrey = uploadImage(scrivitoLogoGreyData, 'Scrivito Logo (Grey)');
+  uploadImage(scrivitoLogoBWData, 'Scrivito Logo (Black & White)');
+  uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
+
+  // Images
+  uploadImage(unsplashOfficeWindowData, 'Office Window');
 
   // social buttons
   const twitterIcon = new FontAwesomeIconWidget({
@@ -158,13 +174,13 @@ export default () => {
     _path: '/',
     title: 'Welcome to the Scrivito Example App JS!',
     childOrder: [product, about, pricing, blog, widgetsAndPages],
-    logo: logo,
+    logo: scrivitoLogoGrey,
     socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
   });
 
   // Footer
   const logoWidget = new ImageWidget({
-    image: logo,
+    image: scrivitoLogoGrey,
   });
   const address = new TextWidget({
     text: `<p class="address">
