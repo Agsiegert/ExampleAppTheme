@@ -17,6 +17,7 @@ import TextWidget from 'widgets/text_widget';
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
 import scrivitoLogoGreyData from './binary_data/scrivito_logo_grey';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
+import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
 
 function uploadImage({ url, filename }, title) {
   const image = Image.create({ title });
@@ -130,6 +131,9 @@ export default () => {
   const scrivitoLogoGrey = uploadImage(scrivitoLogoGreyData, 'Scrivito Logo (Grey)');
   uploadImage(scrivitoLogoBWData, 'Scrivito Logo (Black & White)');
   uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
+
+  // Images
+  uploadImage(unsplashOfficeWindowData, 'Office Window');
 
   // social buttons
   const twitterIcon = new FontAwesomeIconWidget({
