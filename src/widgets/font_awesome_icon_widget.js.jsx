@@ -21,6 +21,7 @@ Scrivito.provideUiConfig(FontAwesomeIconWidget, {
       description: 'The link where this icon should lead (optional)',
     },
   },
+  titleForContent: widget => widget.get('icon'),
 });
 
 Scrivito.provideComponent(FontAwesomeIconWidget, FontAwesomeIconPlainComponent);
