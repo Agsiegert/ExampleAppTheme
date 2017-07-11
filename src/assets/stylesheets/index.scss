@@ -38,6 +38,7 @@ $theme-grey: #2E353C;
 $theme-greydark: #3D4142;
 $theme-greylight: #DADADA;
 $theme-greymiddle: #716F73;
+$theme-greywhite: #FBFBFB;
 
 /* ---- */
 
@@ -91,7 +92,7 @@ $input-border-focus:             $btn-primary-color !default;
 @import "_bootstrap";
 @import "_fontawesome";
 
-@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Source+Sans+Pro:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Source+Sans+Pro:300,400,600,700');
 
 /* gutter with zero space
 ================================================== */
@@ -140,7 +141,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: normal;
   font-size: 16px;
-  line-height:1.7em;
+  line-height:1.5em;
   color: $theme-greymiddle;
   background:transparent;
 }
@@ -167,9 +168,16 @@ h1, h2, h3, h4, h5, h6,
 h1, .h1 { font-size: 60px; line-height: 70px; }
 h2, .h2 { font-size: 42px; line-height: 50px; }
 h3, .h3 { font-size: 30px; line-height: 40px; }
-h4, .h4 { font-size: 22px; line-height: 30px; }
+h4, .h4 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300; font-size: 22px; line-height: 30px;
+  color: $theme-greymiddle;
+  }
 h5, .h5 { font-size: 14px; }
 h6, .h6 { font-size: 10px; }
+
+
+
 
 .border-bottom {
   display: block; position: relative;
@@ -264,8 +272,8 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 =================================================================== */
 
 .bg-white,
-.bg-dark-image { padding: 60px 0; }
-
+.bg-dark-image,
+.bg-greywhite { padding: 60px 0; }
 
 .bg-brand-primary { background: $brand-primary; }
 .bg-brand-secondary { background: $brand-secondary; }
@@ -274,6 +282,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greylight { background: $theme-greylight; }
 .bg-greydark { background: $theme-greydark; }
 .bg-greymiddle { background: $theme-greymiddle; }
+.bg-greywhite { background: $theme-greywhite; }
 
 /* content adaptions */
 
@@ -314,7 +323,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   min-height: 75px; border: none;
   }
 .navbar-brand {
-  background: $logo-dark no-repeat center center / contain;
+  /* background: $logo-dark no-repeat center center / contain; */
   width: 120px; @extend .text-hide;
   height: 75px; padding: 25px 10px;
   }
@@ -329,25 +338,31 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 
 .navbar .caret {
-  position: absolute;
-  bottom: 12px; left: 50%;
-  display: block; margin:0 0 0 -4px;
+  border: none; position: absolute;
+  bottom: 25px; left: 50%;
+  margin: 0 0 0 -5px; display: block;
   }
+.navbar .caret:after { font-weight: normal; font-size: 16px; content:'\f107'; font-family: FontAwesome;}
 
-.nav > li.active > a,
-.nav > li > a:hover,
-.nav > li > a:focus { background: $brand-primary !important; color: #fff !important; }
+.nav > li:hover > a,
+.nav > li:focus > a { background: transparent; }
+.nav > li.active > a { background: $brand-primary !important; color: #fff !important; }
 .nav > li:hover > ul { display: block; }
 
 
 .navbar-nav > li > .dropdown-menu {
   border: none; left: 50%; margin-top: 0px;
   right: auto; text-align: left;
-  transform: translate(-50%, 0px);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, 20px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1), 0 -20px 10px rgba(44, 44, 44, 0.04);;
   padding: 10px;
   }
 
+.navbar-nav > li > .dropdown-menu:before {
+  content:''; display: block;
+  width: 100%; height: 20px;
+  position: absolute; top: -20px; left: 0; right: 0;
+  }
 .navbar-nav > li > .dropdown-menu:after {
 	bottom: 100%;	left: 50%;
 	border: solid transparent;
@@ -374,7 +389,8 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .navbar-transparent-dark .navbar-brand { background: $logo-white no-repeat center center / contain; }
 .navbar-transparent-dark .navbar-nav > li > a { color: #fff; }
 
-.scrolled .navbar-transparent-dark .navbar-brand { background: $logo-dark no-repeat center center / contain; }
+/* .scrolled .navbar-transparent-dark .navbar-brand { background: $logo-dark no-repeat center center / contain; } */
+
 .scrolled .navbar,
 .scrolled .navbar-transparent-dark { background: rgba(255,255,255,.9); box-shadow: 0 0 3px rgba(0,0,0,.2); }
 .scrolled .navbar-transparent-dark .navbar-nav > li > a { color: $theme-greydark; }
@@ -395,8 +411,14 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   display: block; height: 75px; width: 40px;
   padding: 25px 0; text-align: center;
   }
+
 .navbar-search-toggle:hover { cursor: pointer; }
 .navbar-search-toggle .fa { font-size: 20px; padding: 0; color: $brand-secondary; }
+.navbar-search-toggle:after {
+  font-size: 18px; content:'|'; color: #ddd;
+  position: absolute; top:22px; left: -9px;
+  }
+
 
 .navbar-header,
 .navbar-collapse,
@@ -405,7 +427,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .search-box {
   opacity: 0; position: absolute;
   top: 20px; right: 5px; left: 20px;
-
+  z-index: -1;
   }
 .show-search .search-box { opacity: 1; z-index: 1;}
 .show-search .navbar-header,
@@ -471,7 +493,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .nav .open > a:focus { background: $brand-primary !important; color: #fff !important; border-top: 1px solid rgba(255,255,255,.2); }
   .navbar-nav .open .dropdown-menu { background: darken( $brand-primary, 6%); padding: 0; }
   .navbar-nav .open .dropdown-menu a { border-top: 1px solid rgba(255,255,255,.2);}
-
+  .navbar-search-toggle:after { display: none; }
   .mobile-toggle {
     display: block; position: absolute;
     right: 0; top: 0; bottom: 0; width: 40px;
@@ -497,6 +519,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 
 footer {
 
+  [class*="bg-"]:first-of-type { border-top: 1px solid rgba(0,0,0,.05); }
   .logo {
     background: $logo-dark no-repeat center center / contain;
     width: 150px; height: 50px; margin-bottom: 20px;
