@@ -32,11 +32,9 @@ Scrivito.provideComponent(FontAwesomeIconWidget, {
 
     const title = link.title || '';
 
-    return (
-      <Scrivito.React.Link to={ link }>
-        <i className= { ['fa', icon].join(' ') } aria-hidden="true" title={ title }></i>
-      </Scrivito.React.Link>
-    );
+    return <Scrivito.React.Link to={ link }>
+      <i className= { ['fa', icon].join(' ') } aria-hidden="true" title={ title }></i>
+    </Scrivito.React.Link>;
   },
 });
 
