@@ -183,18 +183,17 @@ export default () => {
     image: scrivitoLogoGrey,
   });
   const address = new TextWidget({
-    text: `<p class="address">
-      Infopark<br>
-      Kitzingstraße, 15<br>
-      12277 Berlin<br>
-    </p>
-    <p>
-      Phone: 800 123 3456<br>
-      Fax: 8888888888
-    </p>
-    <p>
-        Mail: <a href="mainlto:info@scrivito.com">info@scrivito.com</a>
-    </p>`,
+    text: `<address>
+      25, Lorem Lis Street, Orange <br>
+      California, US<br>
+      <br>
+      <table>
+        <tr><td>Phone: </td><td><a href="tel:+8001233567">800 123 3567</a></td></tr>
+        <tr><td>Fax:   </td><td><a href="tel:+8004664422">800 466 4422</a></td></tr>
+        <tr><td>Mail:  </td><td><a href="mailto:info@scrivito.com">info@scrivito.com</a></td></tr>
+      </table>
+    </address>
+    `,
   });
   const footerLinks1 = new PageListWidget({
     headline: 'Homepages',

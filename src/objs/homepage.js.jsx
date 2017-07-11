@@ -22,6 +22,10 @@ Scrivito.provideUiConfig(Homepage, {
       title: 'Logo',
       description: 'The logo of your site',
     },
+    socialButtons: {
+      title: 'Social Buttons',
+      description: 'All widgets',
+    },
   },
   titleForContent: obj => obj.get('title'),
   descriptionForContent: obj => `path: ${obj.path}`,
