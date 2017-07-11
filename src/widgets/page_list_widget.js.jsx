@@ -30,18 +30,20 @@ Scrivito.provideComponent(PageListWidget, {
       return <div></div>;
     }
 
-    return <div className="PageListWidget">
-      <b>{ widget.get('headline').toUpperCase() }</b>
-      <ul>
-        {
-          pages.map(page => <li key={ page.id }>
-             <Scrivito.React.Link to={ page }>
-               { page.get('title') }
-             </Scrivito.React.Link>
-          </li>)
-        }
-      </ul>
-    </div>;
+    return (<ul>
+      <li>
+        <span className="border-bottom">
+          { widget.get('headline') }
+        </span>
+      </li>
+      {
+        pages.map(page => <li key={ page.id }>
+           <Scrivito.React.Link to={ page }>
+             { page.get('title') }
+           </Scrivito.React.Link>
+        </li>)
+      }
+    </ul>);
   },
 });
 
