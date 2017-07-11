@@ -12,6 +12,7 @@ import FontAwesomeIconWidget from 'widgets/font_awesome_icon_widget';
 import HeadlineWidget from 'widgets/headline_widget';
 import ImageWidget from 'widgets/image_widget';
 import PageListWidget from 'widgets/page_list_widget';
+import SectionWidget from 'widgets/section_widget';
 import TextWidget from 'widgets/text_widget';
 
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
@@ -96,22 +97,26 @@ export default () => {
     title: 'Imprint',
     _permalink: 'imprint',
     body: [
-      new HeadlineWidget({
-        level: 'h1',
-        headline: 'Lorem ipsum dolor sit amet',
-      }),
-      new HeadlineWidget({
-        level: 'h2',
-        headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
-      }),
-      new TextWidget({
-        text: loremIpsum({
-          units: 'paragraphs',
-          format: 'html',
-          count: 9,
-          paragraphLowerBound: 1,
-          paragraphUpperBound: 10,
-        }),
+      new SectionWidget({
+        content: [
+          new HeadlineWidget({
+            level: 'h1',
+            headline: 'Lorem ipsum dolor sit amet',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
+          }),
+          new TextWidget({
+            text: loremIpsum({
+              units: 'paragraphs',
+              format: 'html',
+              count: 9,
+              paragraphLowerBound: 1,
+              paragraphUpperBound: 10,
+            }),
+          }),
+        ],
       }),
     ],
   });
