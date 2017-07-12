@@ -4,7 +4,7 @@ const Footer = Scrivito.createComponent(() => {
   const root = Scrivito.Obj.root();
   return (
     <footer>
-      <div className="bg-white">
+      <div className="bg-greywhite">
         <div className="container">
           <Scrivito.React.Content content={ root } attribute="footer" />
         </div>
