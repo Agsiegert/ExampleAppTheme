@@ -100,11 +100,11 @@ export default () => {
       new SectionWidget({
         content: [
           new HeadlineWidget({
-            level: 'h1',
+            level: 'h2',
             headline: 'Lorem ipsum dolor sit amet',
           }),
           new HeadlineWidget({
-            level: 'h2',
+            level: 'h4',
             headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
           }),
           new TextWidget({
