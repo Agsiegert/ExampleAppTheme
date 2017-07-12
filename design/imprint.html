@@ -19,172 +19,178 @@
 
   <body class="navbar-fixed">
 
-    <!-- section:start -->
-    <section class="bg-white">
-      <nav class="navbar navbar-fixed-top">
-        <div class="container">
+    <!-- application:start -->
+    <div id="application">
 
-          <div class="search-box">
+      <!-- section:start -->
+      <section class="bg-white">
+        <nav class="navbar navbar-fixed-top navbar-default">
+          <div class="container">
 
-            <div class="input-group">
-              <input class="form-control" placeholder="Search...">
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-search">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-                <button type="button" class="btn btn-clear-white" onclick="$('.navbar').toggleClass('show-search');">
-                  <i class="fa fa-times-circle " aria-hidden="true"></i>
-                </button>
+            <div class="search-box">
+
+              <div class="input-group">
+                <input class="form-control" placeholder="Search...">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-clear-white" onclick="$('.navbar').toggleClass('show-search');">
+                    <i class="fa fa-times-circle " aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
+
+            </div>
+
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"></a>
+              <span class="navbar-search-toggle" onclick="$('.navbar').toggleClass('show-search');">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+
+
+
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li class=""><a href="#">Home</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Product<span class="caret"></span></a>
+                  <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="http://google.de" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+                  <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li><a href="#contact">Pricing</a></li>
+                <li><a href="#contact">Blog</a></li>
+                <li class="dropdown active">
+                  <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">All widgets<span class="caret"></span></a>
+                  <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+
+              </ul>
             </div>
 
           </div>
-
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"></a>
-            <span class="navbar-search-toggle" onclick="$('.navbar').toggleClass('show-search');">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </span>
-          </div>
-
-
-
-          <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class=""><a href="#">Home</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Product<span class="caret"></span></a>
-                <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="http://google.de" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
-                <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-              <li><a href="#contact">Pricing</a></li>
-              <li><a href="#contact">Blog</a></li>
-              <li class="dropdown active">
-                <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">All widgets<span class="caret"></span></a>
-                <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-      <div class="container">
-        <h1 class="h2">Lorem Ipsum Management for Ruby on Rails Apps</h1>
-        <h2 class="h4">Ad nostrud exercit Ipsum Management for Ruby on Rails Apps</h2>
-
-        <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-        <p>Lorem enim ad minim veniam, qim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-        <p>Lorem enim ad minim veniam, quis citation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquinostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-        <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, em enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-
-        <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit,citation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-        <p>Lcitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquictetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-
-    </section>
-    <!-- section:end -->
-
-
-
-
-
-
-    <footer>
-      <div class="bg-greywhite">
+        </nav>
         <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="logo"></div>
-              <address>
-                25, Lorem Lis Street, Orange <br>
-                California, US<br>
-                <br>
-                <table>
-                  <tr><td>Phone:</td><td><a href="tel:+8001233567">800 123 3567</a></td></tr>
-                  <tr><td>Fax:</td><td><a href="tel:+8004664422">800 466 4422</a></td></tr>
-                  <tr><td>Mail:</td><td><a href="mailto:info@scrivito.com">info@scrivito.com</a></td></tr>
-                </table>
-              </address>
-            </div>
+          <h1 class="h2">Lorem Ipsum Management for Ruby on Rails Apps</h1>
+          <h2 class="h4">Ad nostrud exercit Ipsum Management for Ruby on Rails Apps</h2>
 
-            <div class="col-md-3">
-              <ul>
-                <li><span class="border-bottom">Main Pages</span></li>
-                <li><a href="#">Home v1</a></li>
-                <li><a href="#">Home v2</a></li>
-                <li><a href="#">Home v3</a></li>
-                <li><a href="#">Product</a></li>
-                <li><a href="#">Work</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <ul>
-                <li><span class="border-bottom">About</span></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Jobs</a></li>
-                <li><a href="#">Our clients</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Pricing</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <ul>
-                <li><span class="border-bottom">Specials</span></li>
-                <li><a href="#">Signup</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Blog detail</a></li>
-                <li><a href="#">404</a></li>
-                <li><a href="#">500</a></li>
-              </ul>
-            </div>
+          <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
+          <p>Lorem enim ad minim veniam, qim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>Lorem enim ad minim veniam, quis citation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquinostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, em enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+
+          <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit,citation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>Lcitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquictetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+      </section>
+      <!-- section:end -->
+
+
+
+
+
+
+      <footer>
+        <div class="bg-greywhite">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="logo"></div>
+                <address>
+                  25, Lorem Lis Street, Orange <br>
+                  California, US<br>
+                  <br>
+                  <table>
+                    <tr><td>Phone:</td><td><a href="tel:+8001233567">800 123 3567</a></td></tr>
+                    <tr><td>Fax:</td><td><a href="tel:+8004664422">800 466 4422</a></td></tr>
+                    <tr><td>Mail:</td><td><a href="mailto:info@scrivito.com">info@scrivito.com</a></td></tr>
+                  </table>
+                </address>
+              </div>
+
+              <div class="col-md-3">
+                <ul>
+                  <li><span class="border-bottom">Main Pages</span></li>
+                  <li><a href="#">Home v1</a></li>
+                  <li><a href="#">Home v2</a></li>
+                  <li><a href="#">Home v3</a></li>
+                  <li><a href="#">Product</a></li>
+                  <li><a href="#">Work</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <ul>
+                  <li><span class="border-bottom">About</span></li>
+                  <li><a href="#">About us</a></li>
+                  <li><a href="#">Jobs</a></li>
+                  <li><a href="#">Our clients</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Pricing</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <ul>
+                  <li><span class="border-bottom">Specials</span></li>
+                  <li><a href="#">Signup</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Blog detail</a></li>
+                  <li><a href="#">404</a></li>
+                  <li><a href="#">500</a></li>
+                </ul>
+              </div>
+
+            </div>
           </div>
         </div>
-      </div>
-      <div class="bg-greydark height-center social-footer">
-        <div class="container">
-          <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-          <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href=""><i class="fa fa-xing" aria-hidden="true"></i></a>
-          <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-        </div>
-       </div>
-    </footer>
+        <div class="bg-greydark height-center social-footer">
+          <div class="container">
+            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-xing" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          </div>
+         </div>
+      </footer>
+
+    </div>
+    <!-- application:end -->
 
 
     <script type="text/javascript">
