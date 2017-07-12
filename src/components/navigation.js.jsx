@@ -33,19 +33,41 @@ const Navigation = Scrivito.createComponent({
       <section className={ topSectionClassName }>
         <nav className="navbar navbar-fixed-top">
           <div className="container">
-            <div id="navbar" className="collapse navbar-collapse">
-              <Scrivito.React.ChildList
-                className="nav navbar-nav navbar-right"
-                parent={ Scrivito.Obj.root() }
-                renderChild={ renderChild }
-              />
+            <div className="navbar-header">
+              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+              <Scrivito.React.Link to={ Scrivito.Obj.root() } className="navbar-brand">
+                <img src={ Scrivito.Obj.root().get('logo').get('blob').url } />
+              </Scrivito.React.Link>
+              <span className="navbar-search-toggle">
+                <i className="fa fa-search" aria-hidden="true"></i>
+              </span>
             </div>
+            <NavBar />
           </div>
         </nav>
       </section>
     );
   },
 });
+
+const NavBar = Scrivito.createComponent(() => {
+  return (
+    <div id="navbar" className="collapse navbar-collapse">
+      <Scrivito.React.ChildList
+        className="nav navbar-nav navbar-right"
+        parent={ Scrivito.Obj.root() }
+        renderChild={ renderChild }
+      />
+    </div>
+  );
+});
+
 
 function renderChild(child) {
   if (child.children.length === 0) {
