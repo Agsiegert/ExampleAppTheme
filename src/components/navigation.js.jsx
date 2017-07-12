@@ -1,19 +1,50 @@
-const Navigation = Scrivito.createComponent(() => {
-  return (
-    <section className="bg-white">
-      <nav className="navbar navbar-fixed-top">
-        <div className="container">
-          <div id="navbar" className="collapse navbar-collapse">
-            <Scrivito.React.ChildList
-              className="nav navbar-nav navbar-right"
-              parent={ Scrivito.Obj.root() }
-              renderChild={ renderChild }
-            />
+const Navigation = Scrivito.createComponent({
+  getInitialState() {
+    return {
+      scrolled: false,
+    };
+  },
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+
+  handleScroll(event) {
+    const scrollTop = event.srcElement.body.scrollTop;
+    const scrolledToBe = scrollTop !== 0;
+
+    if (this.state.scrolled !== scrolledToBe) {
+      // only set state, if needed. Otherwise a render will be triggered on _every_ scroll.
+      this.setState({ scrolled: scrolledToBe });
+    }
+  },
+
+  render() {
+    let topSectionClassName = 'bg-white navbar-fixed';
+    if (this.state.scrolled) {
+      topSectionClassName += ' scrolled';
+    }
+
+    return (
+      <section className={ topSectionClassName }>
+        <nav className="navbar navbar-fixed-top">
+          <div className="container">
+            <div id="navbar" className="collapse navbar-collapse">
+              <Scrivito.React.ChildList
+                className="nav navbar-nav navbar-right"
+                parent={ Scrivito.Obj.root() }
+                renderChild={ renderChild }
+              />
+            </div>
           </div>
-        </div>
-      </nav>
-    </section>
-  );
+        </nav>
+      </section>
+    );
+  },
 });
 
 function renderChild(child) {
