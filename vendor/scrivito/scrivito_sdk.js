@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1142);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1143);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1985,11 +1985,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _controller_content_proxy = __webpack_require__(54);
+var _controller_content_proxy = __webpack_require__(53);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(53);
+var _apply_placeholder_to_element = __webpack_require__(52);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
@@ -2071,11 +2071,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _controller_content_proxy = __webpack_require__(54);
+var _controller_content_proxy = __webpack_require__(53);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(53);
+var _apply_placeholder_to_element = __webpack_require__(52);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
@@ -2150,8 +2150,8 @@ appContext.keys().forEach(appContext);
 __webpack_require__(182);
 
 __webpack_require__(184);
-__webpack_require__(70);
-__webpack_require__(68);
+__webpack_require__(67);
+__webpack_require__(65);
 var reactContext = __webpack_require__(211);
 reactContext.keys().forEach(reactContext);
 
@@ -2466,7 +2466,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 1142:
+/***/ 1143:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2857,7 +2857,7 @@ var _future_binary = __webpack_require__(21);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
-var _metadata_collection = __webpack_require__(58);
+var _metadata_collection = __webpack_require__(57);
 
 var _metadata_collection2 = _interopRequireDefault(_metadata_collection);
 
@@ -3789,11 +3789,11 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 var _errors = __webpack_require__(1);
 
-var _auth_failure_counter = __webpack_require__(46);
+var _auth_failure_counter = __webpack_require__(43);
 
 var _auth_failure_counter2 = _interopRequireDefault(_auth_failure_counter);
 
-var _public_authentication = __webpack_require__(59);
+var _public_authentication = __webpack_require__(70);
 
 var _public_authentication2 = _interopRequireDefault(_public_authentication);
 
@@ -7413,7 +7413,7 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _obj_facet_value = __webpack_require__(38);
+var _obj_facet_value = __webpack_require__(37);
 
 var _obj_facet_value2 = _interopRequireDefault(_obj_facet_value);
 
@@ -10139,7 +10139,7 @@ var _current_page = __webpack_require__(9);
 
 var _provide_ui_config = __webpack_require__(36);
 
-var _configure = __webpack_require__(55);
+var _configure = __webpack_require__(54);
 
 var _configure2 = _interopRequireDefault(_configure);
 
@@ -10155,39 +10155,35 @@ var _future_binary = __webpack_require__(21);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
-var _obj_facet_value = __webpack_require__(38);
+var _obj_facet_value = __webpack_require__(37);
 
 var _obj_facet_value2 = _interopRequireDefault(_obj_facet_value);
 
 var _errors = __webpack_require__(1);
 
-var _errors2 = __webpack_require__(66);
+var _errors2 = __webpack_require__(63);
 
-var _provide_component = __webpack_require__(71);
+var _provide_component = __webpack_require__(68);
 
-var _child_list = __webpack_require__(63);
+var _child_list = __webpack_require__(60);
 
 var _child_list2 = _interopRequireDefault(_child_list);
 
-var _content = __webpack_require__(39);
+var _content = __webpack_require__(38);
 
 var _content2 = _interopRequireDefault(_content);
 
-var _current_page2 = __webpack_require__(65);
+var _current_page2 = __webpack_require__(62);
 
 var _current_page3 = _interopRequireDefault(_current_page2);
 
-var _image = __webpack_require__(67);
+var _image = __webpack_require__(64);
 
 var _image2 = _interopRequireDefault(_image);
 
-var _link = __webpack_require__(41);
+var _link = __webpack_require__(40);
 
 var _link2 = _interopRequireDefault(_link);
-
-var _load_script = __webpack_require__(37);
-
-var _load_script2 = _interopRequireDefault(_load_script);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10219,9 +10215,6 @@ Scrivito.React.Image = _image2.default;
 Scrivito.React.InternalErrorPage = _errors2.InternalErrorPage;
 Scrivito.React.Link = _link2.default;
 Scrivito.React.NotFoundErrorPage = _errors2.NotFoundErrorPage;
-
-// Exporting for an integrative testing in the acceptance test.
-Scrivito.loadScript = _load_script2.default;
 
 window.Scrivito = Scrivito;
 
@@ -26859,7 +26852,7 @@ var map = {
 	"./app_adapter.es6.js": 111,
 	"./browser_location.es6.js": 112,
 	"./change_location.es6.js": 113,
-	"./configure.es6.js": 55,
+	"./configure.es6.js": 54,
 	"./current_page.es6.js": 9,
 	"./editor_registry.es6.js": 114,
 	"./is_editing_mode.es6.js": 115,
@@ -26997,7 +26990,7 @@ var map = {
 	"./async_methods.es6.js": 122,
 	"./attribute_inflection.es6.js": 7,
 	"./attribute_serializer.es6.js": 123,
-	"./auth_failure_counter.es6.js": 46,
+	"./auth_failure_counter.js": 43,
 	"./batch_retrieval.es6.js": 124,
 	"./batched_state_updater.es6.js": 125,
 	"./binary_utils.es6.js": 126,
@@ -27013,12 +27006,12 @@ var map = {
 	"./find_widget_placement.es6.js": 135,
 	"./initialization.es6.js": 136,
 	"./iterable.es6.js": 137,
-	"./load_script.es6.js": 37,
+	"./load_script.js": 69,
 	"./loadable/load.es6.js": 6,
 	"./loadable/load_all_until.es6.js": 138,
-	"./loadable/load_handler.es6.js": 56,
+	"./loadable/load_handler.es6.js": 55,
 	"./loadable/loadable_data.es6.js": 3,
-	"./loadable/loadable_value.es6.js": 57,
+	"./loadable/loadable_value.es6.js": 56,
 	"./loadable/loadable_with_default.es6.js": 139,
 	"./loadable/map_and_load_parallel.es6.js": 140,
 	"./loadable/not_loaded_error.es6.js": 141,
@@ -27037,8 +27030,8 @@ var map = {
 	"./models/binary.es6.js": 12,
 	"./models/future_binary.es6.js": 21,
 	"./models/link_factory.es6.js": 153,
-	"./models/metadata_collection.es6.js": 58,
-	"./models/obj_facet_value.es6.js": 38,
+	"./models/metadata_collection.es6.js": 57,
+	"./models/obj_facet_value.es6.js": 37,
 	"./models/obj_factory.es6.js": 154,
 	"./models/obj_search_iterable_factory.es6.js": 155,
 	"./models/widget_factory.es6.js": 156,
@@ -27056,14 +27049,14 @@ var map = {
 	"./parse_url.es6.js": 168,
 	"./pretty_print.es6.js": 15,
 	"./promise.es6.js": 169,
-	"./public_authentication.es6.js": 59,
+	"./public_authentication.js": 70,
 	"./public_promise.es6.js": 170,
 	"./random.es6.js": 33,
 	"./realm.es6.js": 171,
 	"./registry.es6.js": 172,
 	"./request_custom_user_session.es6.js": 94,
 	"./schema.es6.js": 173,
-	"./session.es6.js": 60,
+	"./session.es6.js": 58,
 	"./session_keeper.es6.js": 35,
 	"./slug.es6.js": 174,
 	"./state_tree.es6.js": 175,
@@ -27071,8 +27064,8 @@ var map = {
 	"./throttle.es6.js": 177,
 	"./type_info.es6.js": 178,
 	"./types.es6.js": 179,
-	"./update_buffer.es6.js": 61,
-	"./verificator_functions.es6.js": 62,
+	"./update_buffer.es6.js": 59,
+	"./verificator_functions.js": 71,
 	"./wrap_in_app_class.es6.js": 180
 };
 function webpackContext(req) {
@@ -27099,23 +27092,23 @@ webpackContext.id = 210;
 
 var map = {
 	"./component_registry.es6.js": 185,
-	"./components/child_list.js.jsx": 63,
-	"./components/content.js.jsx": 39,
-	"./components/content/attribute_value.js.jsx": 40,
-	"./components/content/editor.js.jsx": 64,
-	"./components/current_page.js.jsx": 65,
-	"./components/errors.js.jsx": 66,
-	"./components/image.js.jsx": 67,
-	"./components/link.js.jsx": 41,
-	"./components/option_marker.js.jsx": 47,
-	"./create_react_class.js.jsx": 68,
-	"./edit_controller.es6.js": 69,
+	"./components/child_list.js.jsx": 60,
+	"./components/content.js.jsx": 38,
+	"./components/content/attribute_value.js.jsx": 39,
+	"./components/content/editor.js.jsx": 61,
+	"./components/current_page.js.jsx": 62,
+	"./components/errors.js.jsx": 63,
+	"./components/image.js.jsx": 64,
+	"./components/link.js.jsx": 40,
+	"./components/option_marker.js.jsx": 46,
+	"./create_react_class.js.jsx": 65,
+	"./edit_controller.es6.js": 66,
 	"./editor_event.es6.js": 186,
 	"./image_placeholder.js": 72,
 	"./internal_links.es6.js": 187,
-	"./key_for_basic_content.es6.js": 48,
-	"./prop_types.es6.js": 70,
-	"./provide_component.es6.js": 71,
+	"./key_for_basic_content.es6.js": 47,
+	"./prop_types.es6.js": 67,
+	"./provide_component.es6.js": 68,
 	"./widget_focus.es6.js": 188,
 	"./window_info.js": 73
 };
@@ -27418,11 +27411,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _errors = __webpack_require__(1);
 
-var _load_handler = __webpack_require__(56);
+var _load_handler = __webpack_require__(55);
 
 var LoadHandler = _interopRequireWildcard(_load_handler);
 
-var _loadable_value = __webpack_require__(57);
+var _loadable_value = __webpack_require__(56);
 
 var _loadable_value2 = _interopRequireDefault(_loadable_value);
 
@@ -27905,7 +27898,7 @@ var _loadable_data2 = _interopRequireDefault(_loadable_data);
 
 var _errors = __webpack_require__(1);
 
-var _session = __webpack_require__(60);
+var _session = __webpack_require__(58);
 
 var _session2 = _interopRequireDefault(_session);
 
@@ -28074,29 +28067,6 @@ exports.getUiConfigPropertyFor = getUiConfigPropertyFor;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = loadScript;
-function loadScript(verificatorUrl, onError) {
-  var doc = window.document;
-  var loader = doc.createElement('script');
-  loader.src = verificatorUrl;
-  loader.onerror = function (e) {
-    loader.parentNode.removeChild(loader);
-    onError(e);
-  };
-  doc.head.appendChild(loader);
-}
-
-/***/ }),
-
-/***/ 38:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -28144,7 +28114,7 @@ exports.default = ObjFacetValue;
 
 /***/ }),
 
-/***/ 39:
+/***/ 38:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28160,15 +28130,15 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 var _errors = __webpack_require__(1);
 
-var _key_for_basic_content = __webpack_require__(48);
+var _key_for_basic_content = __webpack_require__(47);
 
 var _key_for_basic_content2 = _interopRequireDefault(_key_for_basic_content);
 
-var _attribute_value = __webpack_require__(40);
+var _attribute_value = __webpack_require__(39);
 
 var _attribute_value2 = _interopRequireDefault(_attribute_value);
 
-var _editor = __webpack_require__(64);
+var _editor = __webpack_require__(61);
 
 var _editor2 = _interopRequireDefault(_editor);
 
@@ -28252,7 +28222,7 @@ exports.default = Content;
 
 /***/ }),
 
-/***/ 40:
+/***/ 39:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28276,7 +28246,7 @@ var _window_registry = __webpack_require__(20);
 
 var _errors = __webpack_require__(1);
 
-var _option_marker = __webpack_require__(47);
+var _option_marker = __webpack_require__(46);
 
 var _option_marker2 = _interopRequireDefault(_option_marker);
 
@@ -28631,7 +28601,7 @@ exports.default = AttributeValue;
 
 /***/ }),
 
-/***/ 41:
+/***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28684,6 +28654,61 @@ var Link = scrivito.createReactClass({
 });
 
 exports.default = Link;
+
+/***/ }),
+
+/***/ 43:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var FRAGMENT_VALUE_LOCATOR = '&scrivito.authFailedCount=';
+var failureCount = void 0;
+
+function init(addressWindow) {
+  reset();
+  var location = addressWindow.location;
+  var fragment = location.hash;
+  var offset = fragment.indexOf(FRAGMENT_VALUE_LOCATOR);
+  if (offset < 0) {
+    return;
+  }
+  var countAsString = fragment.substr(offset + FRAGMENT_VALUE_LOCATOR.length, 3);
+  var remainingFragment = fragment.substring(0, offset);
+  if (remainingFragment === '#') {
+    remainingFragment = '';
+  }
+  var newLocation = location.href.toString().replace(fragment, remainingFragment);
+  failureCount = parseInt(countAsString, 10) || 0;
+  addressWindow.history.replaceState({}, '', newLocation);
+}
+
+function reset() {
+  failureCount = 0;
+}
+
+function augmentedRedirectUrl(currentLocation) {
+  var returnTo = currentLocation.toString();
+  if (!currentLocation.hash) {
+    returnTo = returnTo + '#';
+  }
+  return '' + returnTo + FRAGMENT_VALUE_LOCATOR + (failureCount + 1);
+}
+
+function currentFailureCount() {
+  return failureCount;
+}
+
+exports.default = {
+  init: init,
+  augmentedRedirectUrl: augmentedRedirectUrl,
+  reset: reset,
+  currentFailureCount: currentFailureCount
+};
 
 /***/ }),
 
@@ -28899,61 +28924,6 @@ exports.default = AttributeContentClass;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var FRAGMENT_VALUE_LOCATOR = '&scrivito.authFailedCount=';
-var failureCount = void 0;
-
-function init(addressWindow) {
-  reset();
-  var location = addressWindow.location;
-  var fragment = location.hash;
-  var offset = fragment.indexOf(FRAGMENT_VALUE_LOCATOR);
-  if (offset < 0) {
-    return;
-  }
-  var countAsString = fragment.substr(offset + FRAGMENT_VALUE_LOCATOR.length, 3);
-  var remainingFragment = fragment.substring(0, offset);
-  if (remainingFragment === '#') {
-    remainingFragment = '';
-  }
-  var newLocation = location.href.toString().replace(fragment, remainingFragment);
-  failureCount = parseInt(countAsString, 10) || 0;
-  addressWindow.history.replaceState({}, '', newLocation);
-}
-
-function reset() {
-  failureCount = 0;
-}
-
-function augmentedRedirectUrl(currentLocation) {
-  var returnTo = currentLocation.toString();
-  if (!currentLocation.hash) {
-    returnTo = returnTo + '#';
-  }
-  return '' + returnTo + FRAGMENT_VALUE_LOCATOR + (failureCount + 1);
-}
-
-function currentFailureCount() {
-  return failureCount;
-}
-
-exports.default = {
-  init: init,
-  augmentedRedirectUrl: augmentedRedirectUrl,
-  reset: reset,
-  currentFailureCount: currentFailureCount
-};
-
-/***/ }),
-
-/***/ 47:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 var OptionMarker = scrivito.createReactClass({
   displayName: 'scrivito.React.OptionMarker',
 
@@ -28994,7 +28964,7 @@ exports.default = OptionMarker;
 
 /***/ }),
 
-/***/ 48:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29028,7 +28998,7 @@ function keyForBasicContent(content) {
 
 /***/ }),
 
-/***/ 53:
+/***/ 52:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29048,7 +29018,7 @@ exports.default = applyPlaceholderToElement;
 
 /***/ }),
 
-/***/ 54:
+/***/ 53:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29115,7 +29085,7 @@ exports.default = ControllerContentProxy;
 
 /***/ }),
 
-/***/ 55:
+/***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29178,7 +29148,7 @@ exports.default = configure;
 
 /***/ }),
 
-/***/ 56:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29277,7 +29247,7 @@ var CaptureReport = function () {
 
 /***/ }),
 
-/***/ 57:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29386,7 +29356,7 @@ exports.default = LoadableValue;
 
 /***/ }),
 
-/***/ 58:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29498,201 +29468,7 @@ exports.default = MetadataCollection;
 
 /***/ }),
 
-/***/ 59:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _errors = __webpack_require__(1);
-
-var _verificator_functions = __webpack_require__(62);
-
-var _verificator_functions2 = _interopRequireDefault(_verificator_functions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ERROR_CODE_CLIENT_VERIFICATION_REQUIRED = 'client_verification_required';
-
-var computation = void 0;
-var verification = void 0;
-
-function perform(callback) {
-  return new scrivito.Promise(function (resolve) {
-    return resolve(callback(currentAuthorization()));
-  }).catch(function (error) {
-    if (!(error instanceof _errors.UnauthorizedError)) {
-      throw error;
-    }
-    if (error.backendCode !== ERROR_CODE_CLIENT_VERIFICATION_REQUIRED) {
-      throw error;
-    }
-    return computeVerification(error.details.verificator, error.details.data).then(function (computedVerification) {
-      return callback(computedVerification.authorization);
-    });
-  });
-}
-
-// If a pending computation is present, verificator and data are ignored.
-// It is about to return any authorization, and have not more than one
-// computation at any time.
-function computeVerification(verificator, data) {
-  // isPending() is Bluebird
-  if (!(computation && computation.isPending())) {
-    computation = _verificator_functions2.default.fetch(verificator.id, verificator.url).then(function (computeAuthorization) {
-      return new scrivito.Promise(function (r) {
-        return computeAuthorization(data, r);
-      });
-    });
-    computation.then(forgetComputationAndRememberVerification);
-    computation.challenge = { verificator: verificator, data: data };
-  }
-  return computation;
-}
-
-function forgetComputationAndRememberVerification(verificationToRemember) {
-  computation = undefined;
-  verification = verificationToRemember;
-}
-
-function reset() {
-  forgetComputationAndRememberVerification();
-}
-
-function currentAuthorization() {
-  if (!verification) {
-    return;
-  }
-  if (verification.expiresAfter < new Date()) {
-    verification = undefined;
-    return;
-  }
-  return verification.authorization;
-}
-
-// integration test support
-function currentState() {
-  var authorization = currentAuthorization();
-  if (authorization) {
-    return 'Authorization: ' + authorization;
-  }
-
-  if (!computation) {
-    return null;
-  }
-
-  var challenge = computation.challenge;
-  var verificator = challenge.verificator;
-  var verificatorId = verificator.id;
-  var data = challenge.data;
-  if (computation.isPending()) {
-    return 'Pending computation: ' + verificatorId + ' with ' + data;
-  }
-
-  // The following states are not expected to ever be returned.
-  // It indicates a computation that has finished unsucessfully.
-  var orphaned = 'Orphaned computation: ' + verificatorId + ' with ' + data;
-  if (!verification) {
-    return orphaned + ' (verification not present?!?)';
-  }
-
-  var expiresAfter = verification && verification.expiresAfter;
-  if (!expiresAfter) {
-    return orphaned + ' (verification present, but without expiry?)';
-  }
-
-  var expireDescription = '(verification expiresAfter: ' + expiresAfter + ')';
-  if (new Date() <= expiresAfter) {
-    return orphaned + ' ' + expireDescription;
-  }
-  return orphaned + ' ' + expireDescription + ' (expired)';
-}
-
-reset();
-
-exports.default = { perform: perform, reset: reset, currentState: currentState, ERROR_CODE_CLIENT_VERIFICATION_REQUIRED: ERROR_CODE_CLIENT_VERIFICATION_REQUIRED };
-
-/***/ }),
-
-/***/ 6:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _loadable_data = __webpack_require__(3);
-
-var _loadable_data2 = _interopRequireDefault(_loadable_data);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// load triggers the loading of all resource that the passed in
-// function needs and returns a Promise to the result of the function.
-//
-// It can be used to convert synchronous code (the loadable function)
-// into asynchronous code (Promise to the return value).
-//
-// A loadable function is a function that:
-// * may throw a NotLoadedError
-// * is pure, i.e. idempotent, doesn't perform I/O, is free of side-effects
-//
-// load will run the provided function as many times as needed,
-// and trigger loading of any NotLoadedError that should occur.
-//
-// It returns a Promise that fulfills once the function returns a value.
-// If the function throws an Exception (other than NotLoadedError),
-// the Promise is rejected.
-function load(loadableFunction) {
-  function tryToSettle() {
-    var run = void 0;
-    var error = void 0;
-
-    var captured = _loadable_data2.default.capture(function () {
-      try {
-        run = _loadable_data2.default.run(loadableFunction);
-      } catch (e) {
-        error = e;
-      }
-    });
-
-    if (!captured.isAllDataUpToDate()) {
-      captured.loadRequiredData();
-
-      var deferred = new scrivito.Deferred();
-
-      var unsubscribe = scrivito.globalState.subscribe(function () {
-        deferred.resolve();
-        unsubscribe();
-      });
-
-      return deferred.promise.then(tryToSettle);
-    }
-
-    if (error) {
-      throw error;
-    }
-
-    return run.result;
-  }
-
-  return new scrivito.Promise(function (resolve) {
-    return resolve(tryToSettle());
-  });
-}
-
-exports.default = load;
-
-/***/ }),
-
-/***/ 60:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29816,7 +29592,7 @@ exports.default = Session;
 
 /***/ }),
 
-/***/ 61:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29907,7 +29683,7 @@ exports.default = UpdateBuffer;
 
 /***/ }),
 
-/***/ 62:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29917,45 +29693,71 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _load_script = __webpack_require__(37);
+var _loadable_data = __webpack_require__(3);
 
-var _load_script2 = _interopRequireDefault(_load_script);
+var _loadable_data2 = _interopRequireDefault(_loadable_data);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var registry = void 0;
+// load triggers the loading of all resource that the passed in
+// function needs and returns a Promise to the result of the function.
+//
+// It can be used to convert synchronous code (the loadable function)
+// into asynchronous code (Promise to the return value).
+//
+// A loadable function is a function that:
+// * may throw a NotLoadedError
+// * is pure, i.e. idempotent, doesn't perform I/O, is free of side-effects
+//
+// load will run the provided function as many times as needed,
+// and trigger loading of any NotLoadedError that should occur.
+//
+// It returns a Promise that fulfills once the function returns a value.
+// If the function throws an Exception (other than NotLoadedError),
+// the Promise is rejected.
+function load(loadableFunction) {
+  function tryToSettle() {
+    var run = void 0;
+    var error = void 0;
 
-function reset() {
-  registry = {};
-}
-
-function fetch(verificatorId, verificatorUrl) {
-  var deferred = registry[verificatorId];
-  if (!deferred) {
-    deferred = new scrivito.Deferred();
-    registry[verificatorId] = deferred;
-    (0, _load_script2.default)(verificatorUrl, function (e) {
-      deferred.reject(e);
-      delete registry[verificatorId];
+    var captured = _loadable_data2.default.capture(function () {
+      try {
+        run = _loadable_data2.default.run(loadableFunction);
+      } catch (e) {
+        error = e;
+      }
     });
+
+    if (!captured.isAllDataUpToDate()) {
+      captured.loadRequiredData();
+
+      var deferred = new scrivito.Deferred();
+
+      var unsubscribe = scrivito.globalState.subscribe(function () {
+        deferred.resolve();
+        unsubscribe();
+      });
+
+      return deferred.promise.then(tryToSettle);
+    }
+
+    if (error) {
+      throw error;
+    }
+
+    return run.result;
   }
-  return deferred.promise;
+
+  return new scrivito.Promise(function (resolve) {
+    return resolve(tryToSettle());
+  });
 }
 
-reset();
-
-window._scrivitoRegisterVerificator = function (verificatorId, verificatorFunction) {
-  registry[verificatorId].resolve(verificatorFunction);
-};
-
-exports.default = {
-  fetch: fetch,
-  reset: reset
-};
+exports.default = load;
 
 /***/ }),
 
-/***/ 63:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29971,7 +29773,7 @@ var _current_page = __webpack_require__(9);
 
 var _window_context = __webpack_require__(10);
 
-var _link = __webpack_require__(41);
+var _link = __webpack_require__(40);
 
 var _link2 = _interopRequireDefault(_link);
 
@@ -30106,7 +29908,7 @@ exports.default = ChildList;
 
 /***/ }),
 
-/***/ 64:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30120,11 +29922,11 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _attribute_value = __webpack_require__(40);
+var _attribute_value = __webpack_require__(39);
 
 var _attribute_value2 = _interopRequireDefault(_attribute_value);
 
-var _edit_controller = __webpack_require__(69);
+var _edit_controller = __webpack_require__(66);
 
 var _edit_controller2 = _interopRequireDefault(_edit_controller);
 
@@ -30229,7 +30031,7 @@ exports.default = Editor;
 
 /***/ }),
 
-/***/ 65:
+/***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30268,7 +30070,7 @@ exports.default = CurrentPage;
 
 /***/ }),
 
-/***/ 66:
+/***/ 63:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30352,7 +30154,7 @@ exports.NotFoundErrorPage = NotFoundErrorPage;
 
 /***/ }),
 
-/***/ 67:
+/***/ 64:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30372,7 +30174,7 @@ var _binary = __webpack_require__(12);
 
 var _binary2 = _interopRequireDefault(_binary);
 
-var _content = __webpack_require__(39);
+var _content = __webpack_require__(38);
 
 var _content2 = _interopRequireDefault(_content);
 
@@ -30470,7 +30272,7 @@ exports.default = Image;
 
 /***/ }),
 
-/***/ 68:
+/***/ 65:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30562,7 +30364,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 69:
+/***/ 66:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30574,7 +30376,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _update_buffer = __webpack_require__(61);
+var _update_buffer = __webpack_require__(59);
 
 var _update_buffer2 = _interopRequireDefault(_update_buffer);
 
@@ -30615,70 +30417,7 @@ exports.default = EditController;
 
 /***/ }),
 
-/***/ 7:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var CONVERT_TO_CAMELCASE = /(_+)(\w)/g;
-var CONVERT_TO_UNDERSCORE = /([A-Z])/g;
-
-var TEST_CAMEL_CASE = /^_?(_+[A-Z0-9]|[^_])+$/;
-var TEST_UNDERSCORE = /^[a-z0-9_:]+$/;
-
-function isUnderscore(name) {
-  return TEST_UNDERSCORE.test(name);
-}
-
-function isCamelCase(name) {
-  return TEST_CAMEL_CASE.test(name);
-}
-
-function underscore(name) {
-  return name.replace(CONVERT_TO_UNDERSCORE, function (_match, group) {
-    return "_" + group.toLowerCase();
-  });
-}
-
-function camelCase(name) {
-  return name.replace(CONVERT_TO_CAMELCASE, function (match, underscores, nextChar, index) {
-    if (!index) {
-      return match;
-    }
-    if (nextChar.toUpperCase() === nextChar) {
-      return match;
-    }
-
-    return "" + underscores.substr(1) + nextChar.toUpperCase();
-  });
-}
-
-function classify(name) {
-  var camelCased = camelCase(name);
-  return camelCased.charAt(0).toUpperCase() + camelCased.slice(1);
-}
-
-scrivito.attributeInflection = {
-  camelCase: camelCase,
-  classify: classify,
-  isCamelCase: isCamelCase,
-  isUnderscore: isUnderscore,
-  underscore: underscore
-};
-
-exports.camelCase = camelCase;
-exports.classify = classify;
-exports.isCamelCase = isCamelCase;
-exports.isUnderscore = isUnderscore;
-exports.underscore = underscore;
-
-/***/ }),
-
-/***/ 70:
+/***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30746,7 +30485,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 71:
+/***/ 68:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30821,6 +30560,255 @@ function createComponentForAppClass(appClass, componentSpec) {
 
 exports.createComponent = createComponent;
 exports.provideComponent = provideComponent;
+
+/***/ }),
+
+/***/ 69:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = loadScript;
+function loadScript(src) {
+  var script = document.createElement('script');
+  script.src = src;
+  document.head.appendChild(script);
+}
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var CONVERT_TO_CAMELCASE = /(_+)(\w)/g;
+var CONVERT_TO_UNDERSCORE = /([A-Z])/g;
+
+var TEST_CAMEL_CASE = /^_?(_+[A-Z0-9]|[^_])+$/;
+var TEST_UNDERSCORE = /^[a-z0-9_:]+$/;
+
+function isUnderscore(name) {
+  return TEST_UNDERSCORE.test(name);
+}
+
+function isCamelCase(name) {
+  return TEST_CAMEL_CASE.test(name);
+}
+
+function underscore(name) {
+  return name.replace(CONVERT_TO_UNDERSCORE, function (_match, group) {
+    return "_" + group.toLowerCase();
+  });
+}
+
+function camelCase(name) {
+  return name.replace(CONVERT_TO_CAMELCASE, function (match, underscores, nextChar, index) {
+    if (!index) {
+      return match;
+    }
+    if (nextChar.toUpperCase() === nextChar) {
+      return match;
+    }
+
+    return "" + underscores.substr(1) + nextChar.toUpperCase();
+  });
+}
+
+function classify(name) {
+  var camelCased = camelCase(name);
+  return camelCased.charAt(0).toUpperCase() + camelCased.slice(1);
+}
+
+scrivito.attributeInflection = {
+  camelCase: camelCase,
+  classify: classify,
+  isCamelCase: isCamelCase,
+  isUnderscore: isUnderscore,
+  underscore: underscore
+};
+
+exports.camelCase = camelCase;
+exports.classify = classify;
+exports.isCamelCase = isCamelCase;
+exports.isUnderscore = isUnderscore;
+exports.underscore = underscore;
+
+/***/ }),
+
+/***/ 70:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _errors = __webpack_require__(1);
+
+var _verificator_functions = __webpack_require__(71);
+
+var _verificator_functions2 = _interopRequireDefault(_verificator_functions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ERROR_CODE_CLIENT_VERIFICATION_REQUIRED = 'client_verification_required';
+
+var computation = void 0;
+var verification = void 0;
+
+function perform(callback) {
+  return new scrivito.Promise(function (resolve) {
+    return resolve(callback(currentAuthorization()));
+  }).catch(function (error) {
+    if (!(error instanceof _errors.UnauthorizedError)) {
+      throw error;
+    }
+    if (error.backendCode !== ERROR_CODE_CLIENT_VERIFICATION_REQUIRED) {
+      throw error;
+    }
+    return computeVerification(error.details.verificator, error.details.data).then(function (computedVerification) {
+      return callback(computedVerification.authorization);
+    });
+  });
+}
+
+// If a pending computation is present, verificator and data are ignored.
+// It is about to return any authorization, and have not more than one
+// computation at any time.
+function computeVerification(verificator, data) {
+  // isPending() is Bluebird
+  if (!(computation && computation.isPending())) {
+    computation = _verificator_functions2.default.fetch(verificator.id, verificator.url).then(function (computeAuthorization) {
+      return new scrivito.Promise(function (r) {
+        return computeAuthorization(data, r);
+      });
+    });
+    computation.then(forgetComputationAndRememberVerification);
+    computation.challenge = { verificator: verificator, data: data };
+  }
+  return computation;
+}
+
+function forgetComputationAndRememberVerification(verificationToRemember) {
+  computation = undefined;
+  verification = verificationToRemember;
+}
+
+function reset() {
+  forgetComputationAndRememberVerification();
+}
+
+function currentAuthorization() {
+  if (!verification) {
+    return;
+  }
+  if (verification.expiresAfter < new Date()) {
+    verification = undefined;
+    return;
+  }
+  return verification.authorization;
+}
+
+// integration test support
+function currentState() {
+  var authorization = currentAuthorization();
+  if (authorization) {
+    return 'Authorization: ' + authorization;
+  }
+
+  if (!computation) {
+    return null;
+  }
+
+  var challenge = computation.challenge;
+  var verificator = challenge.verificator;
+  var verificatorId = verificator.id;
+  var data = challenge.data;
+  if (computation.isPending()) {
+    return 'Pending computation: ' + verificatorId + ' with ' + data;
+  }
+
+  // The following states are not expected to ever be returned.
+  // It indicates a computation that has finished unsucessfully.
+  var orphaned = 'Orphaned computation: ' + verificatorId + ' with ' + data;
+  if (!verification) {
+    return orphaned + ' (verification not present?!?)';
+  }
+
+  var expiresAfter = verification && verification.expiresAfter;
+  if (!expiresAfter) {
+    return orphaned + ' (verification present, but without expiry?)';
+  }
+
+  var expireDescription = '(verification expiresAfter: ' + expiresAfter + ')';
+  if (new Date() <= expiresAfter) {
+    return orphaned + ' ' + expireDescription;
+  }
+  return orphaned + ' ' + expireDescription + ' (expired)';
+}
+
+reset();
+
+exports.default = { perform: perform, reset: reset, currentState: currentState, ERROR_CODE_CLIENT_VERIFICATION_REQUIRED: ERROR_CODE_CLIENT_VERIFICATION_REQUIRED };
+
+/***/ }),
+
+/***/ 71:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _load_script = __webpack_require__(69);
+
+var _load_script2 = _interopRequireDefault(_load_script);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var registry = void 0;
+
+function reset() {
+  registry = {};
+}
+
+function fetch(verificatorId, verificatorUrl) {
+  var deferred = registry[verificatorId];
+  if (!deferred) {
+    deferred = new scrivito.Deferred();
+    registry[verificatorId] = deferred;
+    (0, _load_script2.default)(verificatorUrl, function (e) {
+      deferred.reject(e);
+      delete registry[verificatorId];
+    });
+  }
+  return deferred.promise;
+}
+
+reset();
+
+window._scrivitoRegisterVerificator = function (verificatorId, verificatorFunction) {
+  registry[verificatorId].resolve(verificatorFunction);
+};
+
+exports.default = {
+  fetch: fetch,
+  reset: reset
+};
 
 /***/ }),
 
