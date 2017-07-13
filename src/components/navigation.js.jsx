@@ -1,11 +1,13 @@
 import { Navbar as BootstrapNavbar } from 'react-bootstrap';
 import Navbar from './navigation/navbar';
 import Logo from './navigation/logo';
+import { SearchBox, SearchIcon } from './navigation/search';
 
 const Navigation = Scrivito.createComponent({
   getInitialState() {
     return {
       scrolled: false,
+      showSearch: false,
     };
   },
 
@@ -27,6 +29,10 @@ const Navigation = Scrivito.createComponent({
     }
   },
 
+  toggleSearch() {
+    this.setState({ showSearch: !this.state.showSearch });
+  },
+
   render() {
     let topSectionClassName = 'bg-white navbar-fixed';
     if (this.state.scrolled) {
@@ -35,13 +41,14 @@ const Navigation = Scrivito.createComponent({
 
     return (
       <section className={ topSectionClassName }>
-        <BootstrapNavbar collapseOnSelect fixedTop>
+        <BootstrapNavbar collapseOnSelect fixedTop
+            className={ this.state.showSearch && 'show-search' }>
+          <SearchBox toggleSearch={ this.toggleSearch } />
+
           <BootstrapNavbar.Header>
             <BootstrapNavbar.Toggle />
             <Logo />
-            <span className="navbar-search-toggle">
-              <i className="fa fa-search" aria-hidden="true"></i>
-            </span>
+            <SearchIcon toggleSearch={ this.toggleSearch } />
           </BootstrapNavbar.Header>
 
           <BootstrapNavbar.Collapse>
