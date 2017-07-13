@@ -14,7 +14,7 @@ function renderChild(child) {
 }
 
 function renderSingleChild(child) {
-  return (<li>
+  return (<li className={ isActive(child) && 'active' }>
     <Scrivito.React.Link to={ child }>
       { child.get('title') }
     </Scrivito.React.Link>
@@ -35,8 +35,12 @@ const Dropdown = Scrivito.createComponent({
   render() {
     const child = this.props.child;
 
+    const classNames = ['dropdown'];
+    if (this.state.open) { classNames.push('open'); }
+    if (isActive(child)) { classNames.push('active'); }
+
     return (
-      <li className={ `dropdown ${this.state.open && 'open'}` }>
+      <li className={ classNames.join(' ') }>
         <Scrivito.React.Link
             to={ child }
             className="dropdown-toggle"
@@ -57,5 +61,14 @@ const Dropdown = Scrivito.createComponent({
     );
   },
 });
+
+function isActive(page) {
+  if (!Scrivito.currentPage()) { return false; }
+
+  const currentPath = Scrivito.currentPage().path;
+  if (!currentPath || currentPath === '/') { return false; }
+
+  return currentPath.startsWith(page.path);
+}
 
 export default Navbar;
