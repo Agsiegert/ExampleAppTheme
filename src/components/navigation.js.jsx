@@ -1,4 +1,6 @@
 import { Navbar as BootstrapNavbar } from 'react-bootstrap';
+import Navbar from './navigation/navbar';
+import Logo from './navigation/logo';
 
 const Navigation = Scrivito.createComponent({
   getInitialState() {
@@ -36,9 +38,7 @@ const Navigation = Scrivito.createComponent({
         <BootstrapNavbar collapseOnSelect fixedTop>
           <BootstrapNavbar.Header>
             <BootstrapNavbar.Toggle />
-            <Scrivito.React.Link to={ Scrivito.Obj.root() } className="navbar-brand">
-              <img src={ Scrivito.Obj.root().get('logo').get('blob').url } />
-            </Scrivito.React.Link>
+            <Logo />
             <span className="navbar-search-toggle">
               <i className="fa fa-search" aria-hidden="true"></i>
             </span>
@@ -52,50 +52,5 @@ const Navigation = Scrivito.createComponent({
     );
   },
 });
-
-const Navbar = Scrivito.createComponent(() => {
-  return (
-    <Scrivito.React.ChildList
-      className="nav navbar-nav navbar-right"
-      parent={ Scrivito.Obj.root() }
-      renderChild={ renderChild }
-    />
-  );
-});
-
-function renderChild(child) {
-  if (child.children.length === 0) {
-    return renderSingleChild(child);
-  }
-
-  return (
-    <li className="dropdown">
-      <Scrivito.React.Link
-          to={ child }
-          className="dropdown-toggle"
-          role="button"
-          aria-haspopup="true"
-          aria-expanded="false">
-        { child.get('title') }<span className="caret"></span>
-      </Scrivito.React.Link>
-      <span className="mobile-toggle">
-        <i className="fa fa-angle-down" aria-hidden="true"></i>
-      </span>
-      <Scrivito.React.ChildList
-        className="dropdown-menu"
-        parent={ child }
-        renderChild={ renderSingleChild }
-      />
-    </li>
-  );
-}
-
-function renderSingleChild(child) {
-  return (<li>
-    <Scrivito.React.Link to={ child }>
-      { child.get('title') }
-    </Scrivito.React.Link>
-  </li>);
-}
 
 export default Navigation;
