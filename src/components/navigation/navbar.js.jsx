@@ -28,7 +28,7 @@ const Dropdown = Scrivito.createComponent({
     };
   },
 
-  mobileToggle() {
+  toggleOpen() {
     this.setState({ open: !this.state.open });
   },
 
@@ -45,7 +45,7 @@ const Dropdown = Scrivito.createComponent({
             aria-expanded="false">
           { child.get('title') }<span className="caret"></span>
         </Scrivito.React.Link>
-        <span className="mobile-toggle" onClick={ this.mobileToggle }>
+        <span className="mobile-toggle" onClick={ this.toggleOpen }>
           <i className="fa fa-angle-down" aria-hidden="true"></i>
         </span>
         <Scrivito.React.ChildList
