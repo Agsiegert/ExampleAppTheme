@@ -184,6 +184,14 @@ export default () => {
     logoWhite: scrivitoLogoWhite,
     navigationBackgroundImage: unsplashHandcraft,
     navigationStyle: 'transparentDark',
+    navigationSection: [
+      new HeadlineWidget({ headline: 'Amazing hero widget' }),
+      new TextWidget({ text: '<p>Lorem ad minim veniam, quis nostrud exercitation ullamco' +
+        ' laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,' +
+        ' consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore' +
+        ' et dolore magna aliqua.</p>' }),
+      // TODO ButtomWidget,
+    ],
     socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
     title: 'Welcome to the Scrivito Example App JS!',
   });
