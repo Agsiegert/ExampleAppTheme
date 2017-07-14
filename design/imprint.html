@@ -22,108 +22,96 @@
     <!-- application:start -->
     <div id="application">
 
-      <!-- section:start -->
-      <section class="bg-white">
-        <nav class="navbar navbar-fixed-top navbar-default">
-          <div class="container">
 
-            <div class="search-box">
+      <div class="content-wrapper">
+        <!-- section:start -->
+        <section class="bg-white">
+          <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
 
-              <div class="input-group">
-                <input class="form-control" placeholder="Search...">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-search">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
-                  <button type="button" class="btn btn-clear-white" onclick="$('.navbar').toggleClass('show-search');">
-                    <i class="fa fa-times-circle " aria-hidden="true"></i>
-                  </button>
+              <div class="search-box">
+
+                <div class="input-group">
+                  <input class="form-control" placeholder="Search...">
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-search">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="btn btn-clear-white" onclick="$('.navbar').toggleClass('show-search');">
+                      <i class="fa fa-times-circle " aria-hidden="true"></i>
+                    </button>
+                  </div>
                 </div>
+
+              </div>
+
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+                <span class="navbar-search-toggle" onclick="$('.navbar').toggleClass('show-search');">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </span>
+              </div>
+
+
+
+              <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li class=""><a href="#">Home</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Product<span class="caret"></span></a>
+                    <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="http://google.de" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+                    <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#contact">Pricing</a></li>
+                  <li><a href="#contact">Blog</a></li>
+                  <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">All widgets<span class="caret"></span></a>
+                    <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
+                  </li>
+
+                </ul>
               </div>
 
             </div>
+          </nav>
+          <div class="container">
+            <h1 class="h2">Lorem Ipsum Management for Ruby on Rails Apps</h1>
+            <h2 class="h4">Ad nostrud exercit Ipsum Management for Ruby on Rails Apps</h2>
 
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#"></a>
-              <span class="navbar-search-toggle" onclick="$('.navbar').toggleClass('show-search');">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </span>
-            </div>
-
-
-
-            <div id="navbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li class=""><a href="#">Home</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Product<span class="caret"></span></a>
-                  <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="http://google.de" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
-                  <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-                <li><a href="#contact">Pricing</a></li>
-                <li><a href="#contact">Blog</a></li>
-                <li class="dropdown active">
-                  <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">All widgets<span class="caret"></span></a>
-                  <span class="mobile-toggle" onClick="$(this).parent().toggleClass('open')"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-
-              </ul>
-            </div>
-
+            <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
           </div>
-        </nav>
-        <div class="container">
-          <h1 class="h2">Lorem Ipsum Management for Ruby on Rails Apps</h1>
-          <h2 class="h4">Ad nostrud exercit Ipsum Management for Ruby on Rails Apps</h2>
-
-          <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-          <p>Lorem enim ad minim veniam, qim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-          <p>Lorem enim ad minim veniam, quis citation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquinostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-          <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, em enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-
-          <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit,citation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-          <p>Lcitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquictetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-
-      </section>
-      <!-- section:end -->
-
-
-
+        </section>
+        <!-- section:end -->
+      </div>
 
 
 
