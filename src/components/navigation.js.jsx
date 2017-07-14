@@ -34,22 +34,45 @@ const Navigation = Scrivito.createComponent({
   },
 
   render() {
-    let topSectionClassName = 'navbar-fixed';
-    if (this.state.scrolled) {
-      topSectionClassName += ' scrolled';
-    }
     const { transparent, bgColor } = currentPageNavigationStyle();
 
+    const topSectionClassNames = ['navbar-fixed'];
+    if (this.state.scrolled) {
+      topSectionClassNames.push('scrolled');
+    }
+
     if (transparent) {
-      topSectionClassName += ' bg-dark-image full-height-center';
+      topSectionClassNames.push('bg-dark-image');
     } else {
-      topSectionClassName += ' bg-white';
+      topSectionClassNames.push('bg-white');
+    }
+
+    const bootstrapNavbarClassNames = [];
+    if (this.state.showSearch) {
+      bootstrapNavbarClassNames.push('show-search');
+    }
+    if (bgColor === 'dark') {
+      bootstrapNavbarClassNames.push('navbar-transparent-dark');
+    }
+
+    const topSectionStyle = {};
+    if (transparent) {
+      const navigationBackgroundImage = Scrivito.currentPage().get('navigationBackgroundImage');
+      if (navigationBackgroundImage) {
+        topSectionClassNames.push('full-height-center');
+        const backgroundUrl = navigationBackgroundImage.get('blob').url;
+        topSectionStyle.background = [
+          'linear-gradient(rgba(46, 53, 60, 0.7)',
+          'rgba(46, 53, 60, 0.7))',
+          `url(${backgroundUrl}) no-repeat center / cover`,
+        ].join(', ');
+      }
     }
 
     return (
-      <section className={ topSectionClassName }>
+      <section className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
         <BootstrapNavbar collapseOnSelect fixedTop
-            className={ this.state.showSearch && 'show-search' }>
+            className={ bootstrapNavbarClassNames.join(' ') }>
           <SearchBox toggleSearch={ this.toggleSearch } />
 
           <BootstrapNavbar.Header>
