@@ -4,8 +4,12 @@ const Homepage = Scrivito.createObjClass({
     body: 'widgetlist',
     childOrder: 'referencelist',
     footer: 'widgetlist',
+    logoDark: 'reference',
+    logoWhite: 'reference',
+    navigationBackgroundImage: 'reference',
+    navigationStyle: ['enum', { validValues: ['solidWhite', 'transparentDark'] }],
+    navigationSection: 'widgetlist',
     socialButtons: ['widgetlist', { only: 'FontAwesomeIconWidget' }],
-    logo: 'reference',
     title: 'string',
   },
 });
@@ -18,13 +22,25 @@ Scrivito.provideUiConfig(Homepage, {
       title: 'Title',
       description: 'Description of title',
     },
-    logo: {
-      title: 'Logo',
-      description: 'The logo of your site',
+    logoWhite: {
+      title: 'Logo White',
+      description: 'The logo of your site (white version for dark backgrounds)',
+    },
+    logoDark: {
+      title: 'Logo Dark',
+      description: 'The logo of your site (dark version for light backgrounds)',
     },
     socialButtons: {
       title: 'Social Buttons',
       description: 'All widgets',
+    },
+    navigationStyle: {
+      title: 'Navigation Style',
+      description: 'The style of the navigation',
+    },
+    navigationBackgroundImage: {
+      title: 'Navigation Background Image',
+      description: 'The background image of the navigation',
     },
   },
   titleForContent: obj => obj.get('title'),

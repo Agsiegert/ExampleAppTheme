@@ -16,9 +16,10 @@ import SectionWidget from 'widgets/section_widget';
 import TextWidget from 'widgets/text_widget';
 
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
-import scrivitoLogoGreyData from './binary_data/scrivito_logo_grey';
+import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
+import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 
 function uploadImage({ url, filename }, title) {
   const image = Image.create({ title });
@@ -133,12 +134,13 @@ export default () => {
   });
 
   // Logos
-  const scrivitoLogoGrey = uploadImage(scrivitoLogoGreyData, 'Scrivito Logo (Grey)');
+  const scrivitoLogoDark = uploadImage(scrivitoLogoDarkData, 'Scrivito Logo (Dark)');
   uploadImage(scrivitoLogoBWData, 'Scrivito Logo (Black & White)');
-  uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
+  const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
   // Images
   uploadImage(unsplashOfficeWindowData, 'Office Window');
+  const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft');
 
   // social buttons
   const twitterIcon = new FontAwesomeIconWidget({
@@ -177,15 +179,26 @@ export default () => {
   // Obj.root
   const root = Homepage.create({
     _path: '/',
-    title: 'Welcome to the Scrivito Example App JS!',
     childOrder: [product, about, pricing, blog, widgetsAndPages],
-    logo: scrivitoLogoGrey,
+    logoDark: scrivitoLogoDark,
+    logoWhite: scrivitoLogoWhite,
+    navigationBackgroundImage: unsplashHandcraft,
+    navigationStyle: 'transparentDark',
+    navigationSection: [
+      new HeadlineWidget({ headline: 'Amazing hero widget' }),
+      new TextWidget({ text: '<p>Lorem ad minim veniam, quis nostrud exercitation ullamco' +
+        ' laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,' +
+        ' consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore' +
+        ' et dolore magna aliqua.</p>' }),
+      // TODO ButtomWidget,
+    ],
     socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
+    title: 'Welcome to the Scrivito Example App JS!',
   });
 
   // Footer
   const logoWidget = new ImageWidget({
-    image: scrivitoLogoGrey,
+    image: scrivitoLogoDark,
   });
   const address = new TextWidget({
     text: `<address>

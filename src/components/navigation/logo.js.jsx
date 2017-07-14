@@ -1,16 +1,25 @@
-function logoStyle() {
-  const logoUrl = Scrivito.Obj.root().get('logo').get('blob').url;
+function logoStyle({ scrolled, bgColor }) {
+  let logoVersion;
+  if (scrolled) {
+    logoVersion = 'logoDark';
+  } else if (bgColor === 'dark') {
+    logoVersion = 'logoWhite';
+  } else {
+    logoVersion = 'logoDark';
+  }
+
+  const logoUrl = Scrivito.Obj.root().get(logoVersion).get('blob').url;
 
   return {
     background: `rgba(0, 0, 0, 0) url(${logoUrl}) no-repeat scroll center center / contain`,
   };
 }
 
-const Logo = Scrivito.createComponent(() =>
+const Logo = Scrivito.createComponent(({ scrolled, bgColor }) =>
   <Scrivito.React.Link
       to={ Scrivito.Obj.root() }
       className="navbar-brand"
-      style={ logoStyle() }>
+      style={ logoStyle({ scrolled, bgColor }) }>
   </Scrivito.React.Link>
 );
 
