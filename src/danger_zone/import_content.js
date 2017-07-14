@@ -179,12 +179,13 @@ export default () => {
   // Obj.root
   const root = Homepage.create({
     _path: '/',
-    title: 'Welcome to the Scrivito Example App JS!',
     childOrder: [product, about, pricing, blog, widgetsAndPages],
     logoDark: scrivitoLogoDark,
     logoWhite: scrivitoLogoWhite,
-    socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
     navigationBackgroundImage: unsplashHandcraft,
+    navigationStyle: 'transparentDark',
+    socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
+    title: 'Welcome to the Scrivito Example App JS!',
   });
 
   // Footer
