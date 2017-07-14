@@ -1,6 +1,7 @@
 import { Navbar as BootstrapNavbar } from 'react-bootstrap';
-import Navbar from './navigation/navbar';
 import Logo from './navigation/logo';
+import Navbar from './navigation/navbar';
+import NavigationSection from './navigation/navigation_section';
 import { SearchBox, SearchIcon } from './navigation/search';
 
 const Navigation = Scrivito.createComponent({
@@ -85,6 +86,7 @@ const Navigation = Scrivito.createComponent({
             <Navbar />
           </BootstrapNavbar.Collapse>
         </BootstrapNavbar>
+        <NavigationSection show={ transparent } />
       </section>
     );
   },
