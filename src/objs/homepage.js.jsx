@@ -5,7 +5,8 @@ const Homepage = Scrivito.createObjClass({
     childOrder: 'referencelist',
     footer: 'widgetlist',
     socialButtons: ['widgetlist', { only: 'FontAwesomeIconWidget' }],
-    logo: 'reference',
+    logoWhite: 'reference',
+    logoDark: 'reference',
     title: 'string',
   },
 });
@@ -18,9 +19,13 @@ Scrivito.provideUiConfig(Homepage, {
       title: 'Title',
       description: 'Description of title',
     },
-    logo: {
-      title: 'Logo',
-      description: 'The logo of your site',
+    logoWhite: {
+      title: 'Logo White',
+      description: 'The logo of your site (white version for dark backgrounds)',
+    },
+    logoDark: {
+      title: 'Logo Dark',
+      description: 'The logo of your site (dark version for light backgrounds)',
     },
     socialButtons: {
       title: 'Social Buttons',

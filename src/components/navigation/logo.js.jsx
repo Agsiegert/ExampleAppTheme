@@ -1,5 +1,5 @@
 function logoStyle() {
-  const logoUrl = Scrivito.Obj.root().get('logo').get('blob').url;
+  const logoUrl = Scrivito.Obj.root().get('logoDark').get('blob').url;
 
   return {
     background: `rgba(0, 0, 0, 0) url(${logoUrl}) no-repeat scroll center center / contain`,
