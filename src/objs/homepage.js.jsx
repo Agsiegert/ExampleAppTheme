@@ -8,6 +8,7 @@ const Homepage = Scrivito.createObjClass({
     logoWhite: 'reference',
     logoDark: 'reference',
     navigationStyle: ['enum', { validValues: ['solidWhite', 'transparentDark'] }],
+    navigationBackgroundImage: 'reference',
     title: 'string',
   },
 });
@@ -35,6 +36,10 @@ Scrivito.provideUiConfig(Homepage, {
     navigationStyle: {
       title: 'Navigation Style',
       description: 'The style of the navigation',
+    },
+    navigationBackgroundImage: {
+      title: 'Navigation Background Image',
+      description: 'The background image of the navigation',
     },
   },
   titleForContent: obj => obj.get('title'),

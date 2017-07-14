@@ -19,6 +19,7 @@ import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
 import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
+import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 
 function uploadImage({ url, filename }, title) {
   const image = Image.create({ title });
@@ -139,6 +140,7 @@ export default () => {
 
   // Images
   uploadImage(unsplashOfficeWindowData, 'Office Window');
+  const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft');
 
   // social buttons
   const twitterIcon = new FontAwesomeIconWidget({
@@ -182,6 +184,7 @@ export default () => {
     logoDark: scrivitoLogoDark,
     logoWhite: scrivitoLogoWhite,
     socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
+    navigationBackgroundImage: unsplashHandcraft,
   });
 
   // Footer
