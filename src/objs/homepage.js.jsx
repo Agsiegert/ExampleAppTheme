@@ -7,6 +7,7 @@ const Homepage = Scrivito.createObjClass({
     socialButtons: ['widgetlist', { only: 'FontAwesomeIconWidget' }],
     logoWhite: 'reference',
     logoDark: 'reference',
+    navigationStyle: ['enum', { validValues: ['solidWhite', 'transparentDark'] }],
     title: 'string',
   },
 });
@@ -30,6 +31,10 @@ Scrivito.provideUiConfig(Homepage, {
     socialButtons: {
       title: 'Social Buttons',
       description: 'All widgets',
+    },
+    navigationStyle: {
+      title: 'Navigation Style',
+      description: 'The style of the navigation',
     },
   },
   titleForContent: obj => obj.get('title'),

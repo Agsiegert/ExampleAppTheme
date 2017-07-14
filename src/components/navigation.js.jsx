@@ -34,9 +34,16 @@ const Navigation = Scrivito.createComponent({
   },
 
   render() {
-    let topSectionClassName = 'bg-white navbar-fixed';
+    let topSectionClassName = 'navbar-fixed';
     if (this.state.scrolled) {
       topSectionClassName += ' scrolled';
+    }
+    const { transparent, bgColor } = currentPageNavigationStyle();
+
+    if (transparent) {
+      topSectionClassName += ' bg-dark-image full-height-center';
+    } else {
+      topSectionClassName += ' bg-white';
     }
 
     return (
@@ -47,7 +54,7 @@ const Navigation = Scrivito.createComponent({
 
           <BootstrapNavbar.Header>
             <BootstrapNavbar.Toggle />
-            <Logo />
+            <Logo scrolled={ this.state.scrolled } bgColor={ bgColor } />
             <SearchIcon toggleSearch={ this.toggleSearch } />
           </BootstrapNavbar.Header>
 
@@ -59,5 +66,19 @@ const Navigation = Scrivito.createComponent({
     );
   },
 });
+
+function currentPageNavigationStyle() {
+  let currentNavigationStyle;
+
+  if (Scrivito.currentPage()) {
+    currentNavigationStyle = Scrivito.currentPage().get('navigationStyle');
+  }
+
+  switch (currentNavigationStyle) {
+    case 'solidWhite': return { transparent: false, bgColor: 'white' };
+    case 'transparentDark': return { transparent: true, bgColor: 'dark' };
+    default: return { transparent: false, bgColor: 'white' };
+  }
+}
 
 export default Navigation;
