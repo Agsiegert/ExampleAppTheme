@@ -24,6 +24,7 @@ Scrivito.provideUiConfig(ButtomWidget, {
 Scrivito.provideComponent(ButtomWidget, widget =>
   <Scrivito.React.Link to={ widget.get('target') } className="btn btn-primary">
     { widget.get('text') }<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
-  </Scrivito.React.Link>);
+  </Scrivito.React.Link>
+);
 
 export default ButtomWidget;

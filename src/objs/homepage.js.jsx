@@ -1,16 +1,14 @@
+import { defaultPageAttributes, defaultPageUiConfigAttributes } from './_default_page_attributes';
+
 const Homepage = Scrivito.createObjClass({
   name: 'Homepage',
   attributes: {
-    body: 'widgetlist',
+    ...defaultPageAttributes,
     childOrder: 'referencelist',
     footer: 'widgetlist',
     logoDark: 'reference',
     logoWhite: 'reference',
-    navigationBackgroundImage: 'reference',
-    navigationStyle: ['enum', { validValues: ['solidWhite', 'transparentDark'] }],
-    navigationSection: 'widgetlist',
     socialButtons: ['widgetlist', { only: 'FontAwesomeIconWidget' }],
-    title: 'string',
   },
 });
 
@@ -18,10 +16,7 @@ Scrivito.provideUiConfig(Homepage, {
   title: 'Homepage',
   description: 'A Homepage. This class is only intended for Obj.root (aka "_path" "/")',
   attributes: {
-    title: {
-      title: 'Title',
-      description: 'Description of title',
-    },
+    ...defaultPageUiConfigAttributes,
     logoWhite: {
       title: 'Logo White',
       description: 'The logo of your site (white version for dark backgrounds)',
@@ -34,24 +29,13 @@ Scrivito.provideUiConfig(Homepage, {
       title: 'Social Buttons',
       description: 'All widgets',
     },
-    navigationStyle: {
-      title: 'Navigation Style',
-      description: 'The style of the navigation',
-    },
-    navigationBackgroundImage: {
-      title: 'Navigation Background Image',
-      description: 'The background image of the navigation',
-    },
   },
   titleForContent: obj => obj.get('title'),
   descriptionForContent: obj => `path: ${obj.path}`,
 });
 
 Scrivito.provideComponent(Homepage, obj =>
-  <div>
-    <Scrivito.React.Content tag="h1" content={ obj } attribute="title" />
-    <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
-  </div>
+  <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
 );
 
 export default Homepage;
