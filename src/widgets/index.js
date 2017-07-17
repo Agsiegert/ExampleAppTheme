@@ -1,5 +1,6 @@
 /* eslint no-unused-vars: "off" */
 
+import ButtomWidget from './buttom_widget';
 import ColumnWidget from './column_widget';
 import FontAwesomeIconWidget from './font_awesome_icon_widget';
 import HeadlineWidget from './headline_widget';
