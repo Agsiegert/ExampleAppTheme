@@ -1,5 +1,5 @@
 const defaultPageAttributes = {
-  body: 'widgetlist',
+  body: ['widgetlist', { only: 'SectionWidget' }],
   navigationBackgroundImage: 'reference',
   navigationSection: 'widgetlist',
   navigationStyle: ['enum', { validValues: ['solidWhite', 'transparentDark'] }],
