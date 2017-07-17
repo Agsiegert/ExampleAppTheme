@@ -199,6 +199,7 @@ export default () => {
   // Footer
   const logoWidget = new ImageWidget({
     image: scrivitoLogoDark,
+    cssClass: 'logo',
   });
   const address = new TextWidget({
     text: `<address>
