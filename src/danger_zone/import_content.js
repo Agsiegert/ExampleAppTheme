@@ -40,28 +40,53 @@ export default () => {
   const product = Page.create({
     _path: '/product',
     title: 'Product',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Product' }),
+      ] }),
+    ],
   });
 
   // ABOUT
   const ourWork = Page.create({
     _path: '/about/our_work',
     title: 'Our Work',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Our Work' }),
+      ] }),
+    ],
   });
   const ourClients = Page.create({
     _path: '/about/our_clients',
     title: 'Our Clients',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Our Clients' }),
+      ] }),
+    ],
   });
   const about = Page.create({
     _path: '/about',
     _permalink: 'about',
     title: 'About',
     childOrder: [ourWork, ourClients],
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'About' }),
+      ] }),
+    ],
   });
 
   // PRICING
   const pricing = Page.create({
     _path: '/pricing',
     title: 'Pricing',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Pricing' }),
+      ] }),
+    ],
   });
 
   // BLOG
@@ -75,25 +100,50 @@ export default () => {
   const homeV1 = Page.create({
     _path: '/widgets_and_pages/home_v1',
     title: 'Homepage variant 1',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Homepage variant 1' }),
+      ] }),
+    ],
   });
   const homeV2 = Page.create({
     _path: '/widgets_and_pages/home_v2',
     title: 'Homepage variant 2',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Homepage variant 2' }),
+      ] }),
+    ],
   });
   const widgetsAndPages = Page.create({
     _path: '/widgets_and_pages',
     title: 'Widgets & Pages',
     childOrder: [homeV1, homeV2],
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Widgets & Pages' }),
+      ] }),
+    ],
   });
 
   // Path less Objs
   const jobs = Page.create({
     _permalink: 'jobs',
     title: 'Jobs',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Jobs' }),
+      ] }),
+    ],
   });
   const contact = Page.create({
     _permalink: 'contact',
     title: 'Contact',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Contact' }),
+      ] }),
+    ],
   });
   const imprint = Page.create({
     title: 'Imprint',
@@ -124,14 +174,29 @@ export default () => {
   });
   const login = Page.create({
     title: 'Login',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Login' }),
+      ] }),
+    ],
   });
   const events = Page.create({
     _permalink: 'events',
     title: 'Events & Conferences',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Events' }),
+      ] }),
+    ],
   });
   const landingPage = Page.create({
     _permalink: 'landing_page',
     title: 'Landing Page',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Landing Page' }),
+      ] }),
+    ],
   });
 
   // Logos
@@ -195,6 +260,11 @@ export default () => {
     ],
     socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
     title: 'Welcome to the Scrivito Example App JS!',
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({ headline: 'Our top feature' }),
+      ] }),
+    ],
   });
 
   // Footer
