@@ -20,7 +20,13 @@ Scrivito.provideUiConfig(Blog, {
 
 Scrivito.provideComponent(Blog, obj =>
   <div>
-    <Scrivito.React.Content tag="h1" content={ obj } attribute="title" />
+    <section>
+      <div className="container">
+        <div>
+          <Scrivito.React.Content tag="h1" content={ obj } attribute="title" />
+        </div>
+      </div>
+    </section>
   </div>
 );
 

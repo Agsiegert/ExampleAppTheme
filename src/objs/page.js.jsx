@@ -19,10 +19,7 @@ Scrivito.provideUiConfig(Page, {
 });
 
 Scrivito.provideComponent(Page, obj =>
-  <div>
-    <Scrivito.React.Content tag="h1" content={ obj } attribute="title" />
-    <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
-  </div>
+  <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
 );
 
 export default Page;
