@@ -9476,6 +9476,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       // return current state
       value: function get() {
+        var _this = this;
+
+        var valueWhenAccessed = this.untrackedGet();
+
+        this.recordDetector(function () {
+          return valueWhenAccessed !== _this.untrackedGet();
+        });
+
+        return valueWhenAccessed;
+      }
+    }, {
+      key: 'recordDetector',
+      value: function recordDetector(detector) {
+        this.tree().recordDetector(detector);
+      }
+    }, {
+      key: 'tree',
+      value: function tree() {
+        throw new _errors.InternalError('implement in subclass');
+      }
+    }, {
+      key: 'untrackedGet',
+      value: function untrackedGet() {
         throw (0, _errors.InternalError)('implement in subclass');
       }
 
@@ -9510,7 +9533,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: 'setSubState',
       value: function setSubState(key, newState) {
-        var priorState = this.get();
+        var priorState = this.untrackedGet();
 
         if (priorState === undefined) {
           this.set(_defineProperty({}, key, newState));
@@ -9527,7 +9550,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: 'getSubState',
       value: function getSubState(key) {
-        var state = this.get();
+        var state = this.untrackedGet();
         if (state !== undefined) {
           return state[key];
         }
@@ -9547,18 +9570,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function StateTree() {
       _classCallCheck(this, StateTree);
 
-      var _this = _possibleConstructorReturn(this, (StateTree.__proto__ || Object.getPrototypeOf(StateTree)).call(this));
+      var _this2 = _possibleConstructorReturn(this, (StateTree.__proto__ || Object.getPrototypeOf(StateTree)).call(this));
 
-      _this._id = (treeIdCounter++).toString();
-      _this.clearListeners();
-      _this._batchUpdates = false;
-      _this._version = 0;
-      return _this;
+      _this2._id = (treeIdCounter++).toString();
+      _this2.clearListeners();
+      _this2._batchUpdates = false;
+      _this2._version = 0;
+      return _this2;
     }
 
     _createClass(StateTree, [{
-      key: 'get',
-      value: function get() {
+      key: 'untrackedGet',
+      value: function untrackedGet() {
         return this._state;
       }
     }, {
@@ -9572,10 +9595,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this._notifyListeners();
         }
       }
+
+      /* Executes the given function and tracks read access to this tree.
+       * All substates that are accessed while the function runs are considered "relevant".
+       *
+       * Returns a change detector function. The detector function returns:
+       * - truthy if any relevant state has changed in the meantime
+       * - falsey if all relevant state is still as it was
+       *
+       * The detector function can be used for cache invalidation:
+       * If the detector returns false, then running the function again
+       * will yield the same result - provided that all relevant data is stored inside this tree.
+       */
+
     }, {
-      key: 'currentVersion',
-      value: function currentVersion() {
-        return this._version;
+      key: 'trackChanges',
+      value: function trackChanges(fn) {
+        var _this3 = this;
+
+        var versionBefore = this._version;
+
+        var individualDetectors = this._recordDetectors(fn);
+
+        // checking the version first, to avoid running all detectors
+        // when the tree is unchanged
+        var overallDetector = function overallDetector() {
+          return _this3._version !== versionBefore && _underscore2.default.find(individualDetectors, function (detector) {
+            return detector();
+          });
+        };
+
+        return overallDetector;
+      }
+    }, {
+      key: 'recordDetector',
+      value: function recordDetector(detector) {
+        var recording = this._detectorRecording;
+
+        if (recording !== undefined) {
+          recording.push(detector);
+        }
+      }
+    }, {
+      key: 'tree',
+      value: function tree() {
+        return this;
       }
     }, {
       key: 'id',
@@ -9585,7 +9649,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: 'subscribe',
       value: function subscribe(listener) {
-        var _this2 = this;
+        var _this4 = this;
 
         if (!listener) {
           throw new _errors.InternalError('subscribe needs an argument');
@@ -9603,9 +9667,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         return function () {
           active = false;
-          var index = _this2._listeners.indexOf(guardedListener);
-          _this2._ensureCanMutateListeners();
-          _this2._listeners.splice(index, 1);
+          var index = _this4._listeners.indexOf(guardedListener);
+          _this4._ensureCanMutateListeners();
+          _this4._listeners.splice(index, 1);
         };
       }
     }, {
@@ -9639,6 +9703,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       key: 'clearListeners',
       value: function clearListeners() {
         this._listeners = [];
+      }
+    }, {
+      key: '_recordDetectors',
+      value: function _recordDetectors(fn) {
+        if (this._detectorRecording !== undefined) {
+          throw new _errors.InternalError('no nested detector recording!');
+        }
+
+        try {
+          this._detectorRecording = [];
+
+          fn();
+
+          return this._detectorRecording;
+        } finally {
+          this._detectorRecording = undefined;
+        }
       }
     }, {
       key: '_notifyListeners',
@@ -9676,16 +9757,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         throw new _errors.InternalError(key + ' is not a string');
       }
 
-      var _this3 = _possibleConstructorReturn(this, (StateTreeNode.__proto__ || Object.getPrototypeOf(StateTreeNode)).call(this));
+      var _this5 = _possibleConstructorReturn(this, (StateTreeNode.__proto__ || Object.getPrototypeOf(StateTreeNode)).call(this));
 
-      _this3._parentState = parentState;
-      _this3._key = key;
-      return _this3;
+      _this5._parentState = parentState;
+      _this5._key = key;
+
+      // cache tree locally (performance)
+      _this5._tree = parentState.tree();
+      return _this5;
     }
 
     _createClass(StateTreeNode, [{
-      key: 'get',
-      value: function get() {
+      key: 'tree',
+      value: function tree() {
+        return this._tree;
+      }
+    }, {
+      key: 'untrackedGet',
+      value: function untrackedGet() {
         return this._parentState.getSubState(this._key);
       }
     }, {
@@ -30330,8 +30419,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         var _this = this;
 
         this._scrivitoUnsubscribeModelState = scrivito.globalState.subscribe(function () {
-          var currentVersion = scrivito.globalState.currentVersion();
-          if (_this._scrivitoLastRenderedVersion !== currentVersion) {
+          if (_this._scrivitoIsStateChangeDetected && _this._scrivitoIsStateChangeDetected()) {
             _this.forceUpdate();
           }
         });
@@ -30350,8 +30438,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       render: function render() {
         var _this2 = this;
 
-        this._scrivitoLastRenderedVersion = scrivito.globalState.currentVersion();
-
         var handleError = function handleError(error) {
           scrivito.printError(error);
 
@@ -30362,27 +30448,37 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
           return shouldRenderLoader ? React.createElement(scrivito.LoaderError, null) : null;
         };
 
-        try {
-          var run = void 0;
-
-          _loadable_data2.default.capture(function () {
-            run = _loadable_data2.default.run(function () {
-              return _render.apply(_this2);
-            });
-          }).loadRequiredData();
-
-          if (run.success) {
-            return run.result;
-          }
-
-          if (this.renderWhileLoading) {
-            return this.renderWhileLoading();
+        var handleLoading = function handleLoading() {
+          if (_this2.renderWhileLoading) {
+            return _this2.renderWhileLoading();
           }
 
           return shouldRenderLoader ? React.createElement(scrivito.Loader, null) : null;
-        } catch (error) {
-          return handleError(error);
-        }
+        };
+
+        var rendered = void 0;
+
+        this._scrivitoIsStateChangeDetected = scrivito.globalState.trackChanges(function () {
+          try {
+            var run = void 0;
+
+            _loadable_data2.default.capture(function () {
+              run = _loadable_data2.default.run(function () {
+                return _render.apply(_this2);
+              });
+            }).loadRequiredData();
+
+            if (run.success) {
+              rendered = run.result;
+            } else {
+              rendered = handleLoading();
+            }
+          } catch (error) {
+            rendered = handleError(error);
+          }
+        });
+
+        return rendered;
       }
     }));
   }
