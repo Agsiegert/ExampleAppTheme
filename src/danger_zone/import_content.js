@@ -152,11 +152,13 @@ export default () => {
       new SectionWidget({
         content: [
           new HeadlineWidget({
-            level: 'h2',
+            level: 'h1',
+            style: 'h2',
             headline: 'Lorem ipsum dolor sit amet',
           }),
           new HeadlineWidget({
-            level: 'h4',
+            level: 'h2',
+            style: 'h4',
             headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
           }),
           new TextWidget({
@@ -262,7 +264,12 @@ export default () => {
     title: 'Welcome to the Scrivito Example App JS!',
     body: [
       new SectionWidget({ content: [
-        new HeadlineWidget({ headline: 'Our top feature' }),
+        new HeadlineWidget({
+          headline: 'Our top feature',
+          level: 'h1',
+          style: 'h2',
+          centered: 'yes',
+        }),
       ] }),
     ],
   });
