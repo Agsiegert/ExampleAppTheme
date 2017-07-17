@@ -1,8 +1,9 @@
+import { defaultPageAttributes, defaultPageUiConfigAttributes } from './_default_page_attributes';
+
 const Page = Scrivito.createObjClass({
   name: 'Page',
   attributes: {
-    title: 'string',
-    body: 'widgetlist',
+    ...defaultPageAttributes,
     childOrder: 'referencelist',
   },
 });
@@ -11,10 +12,7 @@ Scrivito.provideUiConfig(Page, {
   title: 'Page',
   description: 'A regular page.',
   attributes: {
-    title: {
-      title: 'Title',
-      description: 'Description of title',
-    },
+    ...defaultPageUiConfigAttributes,
   },
   titleForContent: obj => obj.get('title'),
   descriptionForContent: obj => `path: ${obj.path}`,
