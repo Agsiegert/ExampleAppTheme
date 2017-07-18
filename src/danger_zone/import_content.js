@@ -34,7 +34,7 @@ function uploadImage({ url, filename }, title, tags = []) {
     .then(blob => Scrivito.Binary.upload(blob, { filename }))
     .then(binary => binary.into(image))
     .then(newBinary => image.update({ blob: newBinary }))
-    .then(() => { console.log(`Upload of ${title} done`); });
+    .then(() => { console.log(`Upload of "${title}" done`); });
 
   return image;
 }
