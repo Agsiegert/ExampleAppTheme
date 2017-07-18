@@ -24,8 +24,8 @@ $zindex-modal:             100050 !default;
 /* logo versions
 ================================================== */
 
-$logo-white: url(../images/scrivito_logo_white.svg);
-$logo-dark: url(../images/scrivito_logo.svg);
+/* $logo-white: url(../images/scrivito_logo_white.svg); */
+/* $logo-dark: url(../images/scrivito_logo.svg); */
 
 
 /* colors
@@ -392,7 +392,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .navbar-fixed section:first-of-type { padding-top: 120px; }
 
 .navbar-transparent-dark { background: transparent; @include transition(all .3s ease-in-out); box-shadow: none; }
-.navbar-transparent-dark .navbar-brand { background: $logo-white no-repeat center center / contain; }
+/* .navbar-transparent-dark .navbar-brand { background: $logo-white no-repeat center center / contain; } */
 .navbar-transparent-dark .navbar-nav > li > a { color: #fff!important; }
 
 /* .scrolled .navbar-transparent-dark .navbar-brand { background: $logo-dark no-repeat center center / contain; } */
