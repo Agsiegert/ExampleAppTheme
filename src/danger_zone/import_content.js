@@ -19,11 +19,15 @@ import TextWidget from 'widgets/text_widget';
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
 import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
-import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
+import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
+import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
+import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
 
-function uploadImage({ url, filename }, title) {
-  const image = Image.create({ title });
+const UNSPLASH_TAGS = ['source: unsplash.com'];
+
+function uploadImage({ url, filename }, title, tags = []) {
+  const image = Image.create({ title, tags });
 
   fetch(url)
     .then(res => res.blob())
@@ -207,8 +211,11 @@ export default () => {
   const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
   // Images
-  uploadImage(unsplashOfficeWindowData, 'Office Window');
-  const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft');
+  uploadImage(unsplashOfficeWindowData, 'Office Window', UNSPLASH_TAGS);
+  const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
+  const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
+  const unsplashLaptopKeyboard = uploadImage(
+    unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
 
   // social buttons
   const twitterIcon = new FontAwesomeIconWidget({
@@ -269,6 +276,52 @@ export default () => {
           level: 'h1',
           style: 'h2',
           centered: 'yes',
+        }),
+        new ColumnWidget({
+          nrOfColumns: 2,
+          column1: [new ImageWidget({ image: unsplashLaptopKeyboard })],
+          column2: [
+            new HeadlineWidget({
+              level: 'h3',
+              style: 'h2',
+              headline: 'Content Management for Ruby on Rails Apps',
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 3,
+                paragraphUpperBound: 5,
+              }),
+            }),
+            new ButtomWidget({
+              text: 'Call to action',
+            }),
+          ],
+        }),
+        new ColumnWidget({
+          nrOfColumns: 2,
+          column1: [
+            new HeadlineWidget({
+              level: 'h3',
+              style: 'h2',
+              headline: 'Content Management for Ruby on Rails Apps',
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 3,
+                paragraphUpperBound: 5,
+              }),
+            }),
+            new ButtomWidget({
+              text: 'Call to action',
+            }),
+          ],
+          column2: [new ImageWidget({ image: unsplashDeskRuler })],
         }),
       ] }),
     ],

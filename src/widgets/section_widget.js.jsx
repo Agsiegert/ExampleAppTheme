@@ -10,7 +10,7 @@ Scrivito.provideUiConfig(SectionWidget, {
   description: 'A section',
 });
 
-Scrivito.provideComponent(SectionWidget, widget => <section>
+Scrivito.provideComponent(SectionWidget, widget => <section className='bg-white'>
     <Scrivito.React.Content className="container" content={ widget } attribute="content" />
   </section>);
 
