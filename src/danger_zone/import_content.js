@@ -16,6 +16,8 @@ import PageListWidget from 'widgets/page_list_widget';
 import SectionWidget from 'widgets/section_widget';
 import TextWidget from 'widgets/text_widget';
 
+import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
+import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
 import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
@@ -34,7 +36,7 @@ function uploadImage({ url, filename }, title, tags = []) {
     .then(blob => Scrivito.Binary.upload(blob, { filename }))
     .then(binary => binary.into(image))
     .then(newBinary => image.update({ blob: newBinary }))
-    .then(() => { console.log(`Upload of ${title} done`); });
+    .then(() => { console.log(`Upload of "${title}" done`); });
 
   return image;
 }
@@ -216,6 +218,10 @@ export default () => {
   const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
   const unsplashLaptopKeyboard = uploadImage(
     unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
+  const homepage1Screenshot = uploadImage(
+    homepage1ScreenshotData, 'Homepage variant 1 screenshot');
+  const homepage2Screenshot = uploadImage(
+    homepage2ScreenshotData, 'Homepage variant 2 screenshot');
 
   // social buttons
   const twitterIcon = new FontAwesomeIconWidget({
@@ -275,7 +281,7 @@ export default () => {
           headline: 'Our top feature',
           level: 'h1',
           style: 'h2',
-          centered: 'yes',
+          showDividingLine: 'yes',
         }),
         new ColumnWidget({
           nrOfColumns: 2,
@@ -322,6 +328,63 @@ export default () => {
             }),
           ],
           column2: [new ImageWidget({ image: unsplashDeskRuler })],
+        }),
+      ] }),
+      new SectionWidget({ content: [
+        new HeadlineWidget({
+          headline: 'Different homepage variants',
+          level: 'h1',
+          style: 'h2',
+          showDividingLine: 'yes',
+        }),
+        new ColumnWidget({
+          nrOfColumns: 2,
+          column1: [
+            new ImageWidget({ image: homepage1Screenshot }),
+            new HeadlineWidget({
+              headline: 'Choose a different homepage version',
+              centered: 'yes',
+              level: 'h3',
+            }),
+            new TextWidget({
+              centered: 'yes',
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 3,
+                paragraphUpperBound: 5,
+              }),
+            }),
+            new ButtomWidget({
+              centered: 'yes',
+              text: 'Open home version',
+              target: homeV1,
+            }),
+          ],
+          column2: [
+            new ImageWidget({ image: homepage2Screenshot }),
+            new HeadlineWidget({
+              headline: 'Choose a different homepage version',
+              centered: 'yes',
+              level: 'h3',
+            }),
+            new TextWidget({
+              centered: 'yes',
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 3,
+                paragraphUpperBound: 5,
+              }),
+            }),
+            new ButtomWidget({
+              centered: 'yes',
+              text: 'Open home version',
+              target: homeV2,
+            }),
+          ],
         }),
       ] }),
     ],
