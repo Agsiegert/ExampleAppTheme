@@ -275,7 +275,7 @@ export default () => {
           headline: 'Our top feature',
           level: 'h1',
           style: 'h2',
-          centered: 'yes',
+          showDividingLine: 'yes',
         }),
         new ColumnWidget({
           nrOfColumns: 2,

@@ -5,6 +5,7 @@ const HeadlineWidget = Scrivito.createWidgetClass({
     level: ['enum', { validValues: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
     style: ['enum', { validValues: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
     centered: ['enum', { validValues: ['yes', 'no'] }],
+    showDividingLine: ['enum', { validValues: ['yes', 'no'] }],
   },
 });
 
@@ -22,7 +23,11 @@ Scrivito.provideUiConfig(HeadlineWidget, {
     },
     centered: {
       title: 'Centered',
-      description: 'Should this headline be centered',
+      description: 'Should this headline be centered?',
+    },
+    showDividingLine: {
+      title: 'Show dividing line',
+      description: 'Should this headline show a dividing line?',
     },
   },
   titleForContent: widget => widget.get('headline'),
@@ -36,6 +41,9 @@ Scrivito.provideComponent(HeadlineWidget, {
     const style = widget.get('style') || level;
     const classNames = [style];
     if (widget.get('centered') === 'yes') {
+      classNames.push('text-center');
+    }
+    if (widget.get('showDividingLine') === 'yes') {
       classNames.push('border-bottom');
     }
 
