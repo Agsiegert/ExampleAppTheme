@@ -61,7 +61,7 @@ const Navigation = Scrivito.createComponent({
       const navigationBackgroundImage = Scrivito.currentPage().get('navigationBackgroundImage');
       if (navigationBackgroundImage) {
         topSectionClassNames.push('full-height-center');
-        const backgroundUrl = navigationBackgroundImage.get('blob').url;
+        const backgroundUrl = fullWidthTransformedUrl(navigationBackgroundImage);
         topSectionStyle.background = [
           'linear-gradient(rgba(46, 53, 60, 0.7)',
           'rgba(46, 53, 60, 0.7))',
@@ -104,6 +104,17 @@ function currentPageNavigationStyle() {
     case 'transparentDark': return { transparent: true, bgColor: 'dark' };
     default: return { transparent: false, bgColor: 'white' };
   }
+}
+
+function fullWidthTransformedUrl(obj) {
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const screenWidth = window.screen.width;
+
+  const binary = obj.get('blob');
+  // The binary service never scales up, so we transform all images, regardless of their width.
+  const transformedBinary = binary.transform({ width: screenWidth * devicePixelRatio });
+
+  return transformedBinary.url;
 }
 
 export default Navigation;
