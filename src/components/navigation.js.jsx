@@ -106,13 +106,20 @@ function currentPageNavigationStyle() {
   }
 }
 
-function fullWidthTransformedUrl(obj) {
-  const devicePixelRatio = window.devicePixelRatio || 1;
+function devicePixelRatio() {
+  return window.devicePixelRatio || 1;
+}
+
+function fullScreenWidthPixels() {
   const screenWidth = window.screen.width;
 
+  return screenWidth * devicePixelRatio();
+}
+
+function fullWidthTransformedUrl(obj) {
   const binary = obj.get('blob');
   // The binary service never scales up, so we transform all images, regardless of their width.
-  const transformedBinary = binary.transform({ width: screenWidth * devicePixelRatio });
+  const transformedBinary = binary.transform({ width: fullScreenWidthPixels() });
 
   return transformedBinary.url;
 }
