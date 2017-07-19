@@ -10,6 +10,8 @@ import Page from 'objs/page';
 import ButtomWidget from 'widgets/buttom_widget';
 import ColumnWidget from 'widgets/column_widget';
 import FontAwesomeIconWidget from 'widgets/font_awesome_icon_widget';
+import GalleryImageWidget from 'widgets/gallery_image_widget';
+import GalleryWidget from 'widgets/gallery_widget';
 import HeadlineWidget from 'widgets/headline_widget';
 import ImageWidget from 'widgets/image_widget';
 import PageListWidget from 'widgets/page_list_widget';
@@ -25,6 +27,10 @@ import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
+import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glass';
+import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
+import unsplashScreenWithClockData from './binary_data/unsplash_screen_with_clock';
+import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
 
 const UNSPLASH_TAGS = ['source: unsplash.com'];
 
@@ -213,15 +219,23 @@ export default () => {
   const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
   // Images
-  uploadImage(unsplashOfficeWindowData, 'Office Window', UNSPLASH_TAGS);
   const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
   const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
-  const unsplashLaptopKeyboard = uploadImage(
-    unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
-  const homepage1Screenshot = uploadImage(
-    homepage1ScreenshotData, 'Homepage variant 1 screenshot');
-  const homepage2Screenshot = uploadImage(
-    homepage2ScreenshotData, 'Homepage variant 2 screenshot');
+  const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard',
+    UNSPLASH_TAGS);
+  const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window',
+    UNSPLASH_TAGS);
+  const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office',
+    UNSPLASH_TAGS);
+  const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting',
+    UNSPLASH_TAGS);
+  const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock',
+    UNSPLASH_TAGS);
+  const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room',
+    UNSPLASH_TAGS);
+
+  const homepage1Screenshot = uploadImage(homepage1ScreenshotData, 'Homepage variant 1 screenshot');
+  const homepage2Screenshot = uploadImage(homepage2ScreenshotData, 'Homepage variant 2 screenshot');
 
   // social buttons
   const twitterIcon = new FontAwesomeIconWidget({
@@ -387,6 +401,73 @@ export default () => {
           ],
         }),
       ] }),
+      new SectionWidget({ content: [
+        new HeadlineWidget({
+          headline: 'Short collection of our awarded work',
+          level: 'h1',
+          style: 'h2',
+          showDividingLine: 'yes',
+        }),
+        new TextWidget({
+          centered: 'yes',
+          text: loremIpsum({
+            units: 'paragraphs',
+            format: 'html',
+            count: 1,
+            paragraphLowerBound: 3,
+            paragraphUpperBound: 5,
+          }),
+        }),
+      ] }),
+      new SectionWidget({
+        useFullWidth: 'yes',
+        content: [
+          new GalleryWidget({
+            images: [
+              new GalleryImageWidget({
+                title: 'Project 01',
+                subtitle: loremIpsum({ units: 'words', count: 5 }),
+                image: unsplashWhiteMeetingRoom,
+              }),
+              new GalleryImageWidget({
+                title: 'Project 02',
+                subtitle: loremIpsum({ units: 'words', count: 5 }),
+                image: unsplashHandcraft,
+              }),
+              new GalleryImageWidget({
+                title: 'Project 03',
+                subtitle: loremIpsum({ units: 'words', count: 5 }),
+                image: unsplashLaptopKeyboard,
+              }),
+              new GalleryImageWidget({
+                title: 'Project 04',
+                subtitle: loremIpsum({ units: 'words', count: 5 }),
+                image: unsplashDeskRuler,
+              }),
+              new GalleryImageWidget({
+                title: 'Project 05',
+                subtitle: loremIpsum({ units: 'words', count: 5 }),
+                image: unsplashOfficeWithGlass,
+              }),
+              new GalleryImageWidget({
+                title: 'Project 06',
+                subtitle: loremIpsum({ units: 'words', count: 5 }),
+                image: unsplashOfficeWindow,
+              }),
+              new GalleryImageWidget({
+                title: 'Project 07',
+                subtitle: loremIpsum({ units: 'words', count: 5 }),
+                image: unsplashOutdoorMeeting,
+              }),
+              new GalleryImageWidget({
+                title: 'Project 08',
+                subtitle: loremIpsum({ units: 'words', count: 5 }),
+                image: unsplashScreenWithClock,
+              }),
+            ],
+          }),
+        ],
+      }),
     ],
   });
 
