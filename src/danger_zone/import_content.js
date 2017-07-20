@@ -421,6 +421,7 @@ export default () => {
       ] }),
       new SectionWidget({
         useFullWidth: 'yes',
+        paddingDisabled: 'yes',
         content: [
           new GalleryWidget({
             images: [
