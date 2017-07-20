@@ -3,6 +3,7 @@ const SectionWidget = Scrivito.createWidgetClass({
   attributes: {
     content: 'widgetlist',
     useFullWidth: ['enum', { validValues: ['yes', 'no'] }],
+    paddingDisabled: ['enum', { validValues: ['yes', 'no'] }],
   },
 });
 
@@ -14,17 +15,26 @@ Scrivito.provideUiConfig(SectionWidget, {
       title: 'Use full width?',
       description: 'Should this section use the full screen width?',
     },
+    paddingDisabled: {
+      title: 'Disable padding?',
+      description: 'Should this section use no padding (empty space around this section)?',
+    },
   },
 });
 
 Scrivito.provideComponent(SectionWidget, widget => {
-  let className = 'container';
-  if (widget.get('useFullWidth') === 'yes') {
-    className = 'container-fluid gutter0';
+  const sectionClassNames = ['bg-white'];
+  if (widget.get('paddingDisabled') === 'yes') {
+    sectionClassNames.push('no-padding');
   }
 
-  return (<section className='bg-white'>
-    <Scrivito.React.Content className={ className } content={ widget } attribute="content" />
+  let contentClassName = 'container';
+  if (widget.get('useFullWidth') === 'yes') {
+    contentClassName = 'container-fluid gutter0';
+  }
+
+  return (<section className={ sectionClassNames.join(' ') }>
+    <Scrivito.React.Content className={ contentClassName } content={ widget } attribute="content" />
   </section>);
 });
 
