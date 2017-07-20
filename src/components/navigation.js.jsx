@@ -21,7 +21,8 @@ const Navigation = Scrivito.createComponent({
   },
 
   handleScroll(event) {
-    const scrollTop = event.srcElement.body.scrollTop;
+    // see https://stackoverflow.com/q/28633221/881759 for discussion about pageYOffset
+    const scrollTop = event.currentTarget.pageYOffset;
     const scrolledToBe = scrollTop !== 0;
 
     if (this.state.scrolled !== scrolledToBe) {
