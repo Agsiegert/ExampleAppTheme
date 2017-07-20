@@ -4,6 +4,10 @@ const SectionWidget = Scrivito.createWidgetClass({
     content: 'widgetlist',
     useFullWidth: ['enum', { validValues: ['yes', 'no'] }],
     paddingDisabled: ['enum', { validValues: ['yes', 'no'] }],
+    backgroundColor: [
+      'enum',
+      { validValues: ['white', 'greywhite', 'greylight', 'greymiddle', 'greydark', 'grey'] },
+    ],
   },
 });
 
@@ -11,6 +15,10 @@ Scrivito.provideUiConfig(SectionWidget, {
   title: 'Section',
   description: 'A section',
   attributes: {
+    backgroundColor: {
+      title: 'Background Color',
+      description: 'Which background color should this section have?',
+    },
     useFullWidth: {
       title: 'Use full width?',
       description: 'Should this section use the full screen width?',
@@ -23,7 +31,11 @@ Scrivito.provideUiConfig(SectionWidget, {
 });
 
 Scrivito.provideComponent(SectionWidget, widget => {
-  const sectionClassNames = ['bg-white'];
+  const sectionClassNames = [];
+
+  const backgroundColor = widget.get('backgroundColor') || 'white';
+  sectionClassNames.push(`bg-${backgroundColor}`);
+
   if (widget.get('paddingDisabled') === 'yes') {
     sectionClassNames.push('no-padding');
   }
