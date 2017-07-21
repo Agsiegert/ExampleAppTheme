@@ -164,7 +164,7 @@ export default () => {
             text: loremIpsum({
               units: 'paragraphs',
               format: 'html',
-              count: 9,
+              count: 3,
               paragraphLowerBound: 1,
               paragraphUpperBound: 10,
             }),
@@ -174,7 +174,7 @@ export default () => {
             text: loremIpsum({
               units: 'paragraphs',
               format: 'html',
-              count: 9,
+              count: 3,
               paragraphLowerBound: 1,
               paragraphUpperBound: 10,
             }),
@@ -198,7 +198,7 @@ export default () => {
             text: loremIpsum({
               units: 'paragraphs',
               format: 'html',
-              count: 9,
+              count: 3,
               paragraphLowerBound: 1,
               paragraphUpperBound: 10,
             }),
@@ -208,7 +208,7 @@ export default () => {
             text: loremIpsum({
               units: 'paragraphs',
               format: 'html',
-              count: 9,
+              count: 3,
               paragraphLowerBound: 1,
               paragraphUpperBound: 10,
             }),
