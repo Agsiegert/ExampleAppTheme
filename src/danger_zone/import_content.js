@@ -2,7 +2,9 @@
 /* global fetch */
 import loremIpsum from 'lorem-ipsum';
 
+import Author from 'objs/author';
 import Blog from 'objs/blog';
+import BlogPost from 'objs/blog_post';
 import Homepage from 'objs/homepage';
 import Image from 'objs/image';
 import Page from 'objs/page';
@@ -24,8 +26,11 @@ import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
 import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
 import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
+import unsplashFemaleBehindWindowData from './binary_data/unsplash_female_behind_window';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
+import unsplashLadyInCoffeeShopData from './binary_data/unsplash_lady_in_coffee_shop';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
+import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sunglasses';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
 import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glass';
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
@@ -48,6 +53,36 @@ function uploadImage({ url, filename }, title, tags = []) {
 }
 
 export default () => {
+  // Logos
+  const scrivitoLogoDark = uploadImage(scrivitoLogoDarkData, 'Scrivito Logo (Dark)');
+  uploadImage(scrivitoLogoBWData, 'Scrivito Logo (Black & White)');
+  const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
+
+  // Images
+  const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
+  const unsplashFemaleBehindWindow = uploadImage(
+    unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
+  const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
+  const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop',
+    UNSPLASH_TAGS);
+  const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard',
+    UNSPLASH_TAGS);
+  const unsplashMaleWithSunglasses = uploadImage(
+    unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
+  const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window',
+    UNSPLASH_TAGS);
+  const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office',
+    UNSPLASH_TAGS);
+  const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting',
+    UNSPLASH_TAGS);
+  const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock',
+    UNSPLASH_TAGS);
+  const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room',
+    UNSPLASH_TAGS);
+
+  const homepage1Screenshot = uploadImage(homepage1ScreenshotData, 'Homepage variant 1 screenshot');
+  const homepage2Screenshot = uploadImage(homepage2ScreenshotData, 'Homepage variant 2 screenshot');
+
   // PRODUCT
   const product = Page.create({
     _path: '/product',
@@ -98,6 +133,88 @@ export default () => {
       new SectionWidget({ content: [
         new HeadlineWidget({ headline: 'Pricing' }),
       ] }),
+    ],
+  });
+
+  // Authors for BlogPosts
+  const janeDoe = Author.create({
+    name: 'Jane Doe',
+    description: loremIpsum({ units: 'sentences', count: 3 }),
+    picture: unsplashFemaleBehindWindow,
+  });
+
+  const johnDoe = Author.create({
+    name: 'John Doe',
+    description: loremIpsum({ units: 'sentences', count: 3 }),
+    picture: unsplashMaleWithSunglasses,
+  });
+
+  // BlogPosts
+  BlogPost.create({
+    author: janeDoe,
+    title: loremIpsum({ units: 'words', count: 5 }),
+    titleImage: unsplashLadyInCoffeeShop,
+    subtitle: loremIpsum({ units: 'words', count: 7 }),
+    tags: ['Design', 'Marketing'],
+    publishedAt: new Date(2017, 6, 15, 12),
+    body: [
+      new SectionWidget({
+        content: [
+          new TextWidget({
+            text: loremIpsum({
+              units: 'paragraphs',
+              format: 'html',
+              count: 9,
+              paragraphLowerBound: 1,
+              paragraphUpperBound: 10,
+            }),
+          }),
+          new ImageWidget({ image: unsplashDeskRuler }),
+          new TextWidget({
+            text: loremIpsum({
+              units: 'paragraphs',
+              format: 'html',
+              count: 9,
+              paragraphLowerBound: 1,
+              paragraphUpperBound: 10,
+            }),
+          }),
+        ],
+      }),
+    ],
+  });
+
+  BlogPost.create({
+    author: johnDoe,
+    title: loremIpsum({ units: 'words', count: 5 }),
+    // no titleImage
+    subtitle: loremIpsum({ units: 'words', count: 7 }),
+    tags: ['Development', 'Business'],
+    publishedAt: new Date(2017, 6, 13, 12),
+    body: [
+      new SectionWidget({
+        content: [
+          new TextWidget({
+            text: loremIpsum({
+              units: 'paragraphs',
+              format: 'html',
+              count: 9,
+              paragraphLowerBound: 1,
+              paragraphUpperBound: 10,
+            }),
+          }),
+          new ImageWidget({ image: unsplashLaptopKeyboard }),
+          new TextWidget({
+            text: loremIpsum({
+              units: 'paragraphs',
+              format: 'html',
+              count: 9,
+              paragraphLowerBound: 1,
+              paragraphUpperBound: 10,
+            }),
+          }),
+        ],
+      }),
     ],
   });
 
@@ -212,30 +329,6 @@ export default () => {
       ] }),
     ],
   });
-
-  // Logos
-  const scrivitoLogoDark = uploadImage(scrivitoLogoDarkData, 'Scrivito Logo (Dark)');
-  uploadImage(scrivitoLogoBWData, 'Scrivito Logo (Black & White)');
-  const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
-
-  // Images
-  const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
-  const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
-  const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard',
-    UNSPLASH_TAGS);
-  const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window',
-    UNSPLASH_TAGS);
-  const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office',
-    UNSPLASH_TAGS);
-  const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting',
-    UNSPLASH_TAGS);
-  const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock',
-    UNSPLASH_TAGS);
-  const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room',
-    UNSPLASH_TAGS);
-
-  const homepage1Screenshot = uploadImage(homepage1ScreenshotData, 'Homepage variant 1 screenshot');
-  const homepage2Screenshot = uploadImage(homepage2ScreenshotData, 'Homepage variant 2 screenshot');
 
   // social buttons
   const twitterIcon = new FontAwesomeIconWidget({
