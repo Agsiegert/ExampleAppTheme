@@ -11,6 +11,7 @@ module.exports = {
   entry: {
     index: './index.js',
     'index.css': './assets/stylesheets/index.scss',
+    danger_zone: './danger_zone.js',
   },
   module: {
     rules: [
