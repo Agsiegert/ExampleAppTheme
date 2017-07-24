@@ -1,5 +1,5 @@
-const ButtomWidget = Scrivito.createWidgetClass({
-  name: 'ButtomWidget',
+const ButtonWidget = Scrivito.createWidgetClass({
+  name: 'ButtonWidget',
   attributes: {
     text: 'string',
     target: 'reference',
@@ -7,41 +7,41 @@ const ButtomWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(ButtomWidget, {
-  title: 'Buttom',
-  description: 'A widget with a buttom',
+Scrivito.provideUiConfig(ButtonWidget, {
+  title: 'Button',
+  description: 'A widget with a button',
   attributes: {
     text: {
       title: 'Text',
-      description: 'The text of the buttom',
+      description: 'The text of the button',
     },
     centered: {
       title: 'Centered',
-      description: 'Should this buttom be centered?',
+      description: 'Should this button be centered?',
     },
     target: {
       title: 'Target',
-      description: 'The target of the buttom',
+      description: 'The target of the button',
     },
   },
 });
 
-const ButtomWidgetComponent = Scrivito.createComponent(({ widget }) =>
+const ButtonWidgetComponent = Scrivito.createComponent(({ widget }) =>
   <Scrivito.React.Link to={ widget.get('target') } className="btn btn-primary">
     { widget.get('text') }<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
   </Scrivito.React.Link>
 );
 
-Scrivito.provideComponent(ButtomWidget, widget => {
+Scrivito.provideComponent(ButtonWidget, widget => {
   if (widget.get('centered') === 'yes') {
     return (
       <div className='text-center'>
-        <ButtomWidgetComponent widget={ widget } />
+        <ButtonWidgetComponent widget={ widget } />
       </div>
     );
   }
 
-  return <ButtomWidgetComponent widget={ widget } />;
+  return <ButtonWidgetComponent widget={ widget } />;
 });
 
-export default ButtomWidget;
+export default ButtonWidget;

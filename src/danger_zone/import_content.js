@@ -9,7 +9,7 @@ import Homepage from 'objs/homepage';
 import Image from 'objs/image';
 import Page from 'objs/page';
 
-import ButtomWidget from 'widgets/buttom_widget';
+import ButtonWidget from 'widgets/button_widget';
 import ColumnWidget from 'widgets/column_widget';
 import FontAwesomeIconWidget from 'widgets/font_awesome_icon_widget';
 import GalleryImageWidget from 'widgets/gallery_image_widget';
@@ -378,7 +378,7 @@ export default () => {
         ' laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,' +
         ' consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore' +
         ' et dolore magna aliqua.</p>' }),
-      new ButtomWidget({ text: 'Call to action' }),
+      new ButtonWidget({ text: 'Call to action' }),
     ],
     socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
     title: 'Welcome to the Scrivito Example App JS!',
@@ -408,7 +408,7 @@ export default () => {
                 paragraphUpperBound: 5,
               }),
             }),
-            new ButtomWidget({
+            new ButtonWidget({
               text: 'Call to action',
             }),
           ],
@@ -430,7 +430,7 @@ export default () => {
                 paragraphUpperBound: 5,
               }),
             }),
-            new ButtomWidget({
+            new ButtonWidget({
               text: 'Call to action',
             }),
           ],
@@ -463,7 +463,7 @@ export default () => {
                 paragraphUpperBound: 5,
               }),
             }),
-            new ButtomWidget({
+            new ButtonWidget({
               centered: 'yes',
               text: 'Open home version',
               target: homeV1,
@@ -486,7 +486,7 @@ export default () => {
                 paragraphUpperBound: 5,
               }),
             }),
-            new ButtomWidget({
+            new ButtonWidget({
               centered: 'yes',
               text: 'Open home version',
               target: homeV2,
