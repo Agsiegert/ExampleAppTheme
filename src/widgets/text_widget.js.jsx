@@ -14,6 +14,10 @@ Scrivito.provideUiConfig(TextWidget, {
       title: 'Centered',
       description: 'Should this text be centered?',
     },
+    text: {
+      title: 'Text',
+      description: 'The actual source code of this text',
+    },
   },
 });
 
