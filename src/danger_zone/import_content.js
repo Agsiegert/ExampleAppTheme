@@ -2,24 +2,6 @@
 /* global fetch */
 import loremIpsum from 'lorem-ipsum';
 
-import Author from 'objs/author';
-import Blog from 'objs/blog';
-import BlogPost from 'objs/blog_post';
-import Homepage from 'objs/homepage';
-import Image from 'objs/image';
-import Page from 'objs/page';
-
-import ButtonWidget from 'widgets/button_widget';
-import ColumnWidget from 'widgets/column_widget';
-import FontAwesomeIconWidget from 'widgets/font_awesome_icon_widget';
-import GalleryImageWidget from 'widgets/gallery_image_widget';
-import GalleryWidget from 'widgets/gallery_widget';
-import HeadlineWidget from 'widgets/headline_widget';
-import ImageWidget from 'widgets/image_widget';
-import PageListWidget from 'widgets/page_list_widget';
-import SectionWidget from 'widgets/section_widget';
-import TextWidget from 'widgets/text_widget';
-
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
@@ -36,6 +18,24 @@ import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glas
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
 import unsplashScreenWithClockData from './binary_data/unsplash_screen_with_clock';
 import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
+
+const Author = Scrivito.getClass('Author');
+const Blog = Scrivito.getClass('Blog');
+const BlogPost = Scrivito.getClass('BlogPost');
+const Homepage = Scrivito.getClass('Homepage');
+const Image = Scrivito.getClass('Image');
+const Page = Scrivito.getClass('Page');
+
+const ButtonWidget = Scrivito.getClass('ButtonWidget');
+const ColumnWidget = Scrivito.getClass('ColumnWidget');
+const FontAwesomeIconWidget = Scrivito.getClass('FontAwesomeIconWidget');
+const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
+const GalleryWidget = Scrivito.getClass('GalleryWidget');
+const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
+const ImageWidget = Scrivito.getClass('ImageWidget');
+const PageListWidget = Scrivito.getClass('PageListWidget');
+const SectionWidget = Scrivito.getClass('SectionWidget');
+const TextWidget = Scrivito.getClass('TextWidget');
 
 const UNSPLASH_TAGS = ['source: unsplash.com'];
 
