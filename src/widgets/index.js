@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: "off" */
 
-import ButtomWidget from './buttom_widget';
+import ButtonWidget from './button_widget';
 import ColumnWidget from './column_widget';
 import FontAwesomeIconWidget from './font_awesome_icon_widget';
 import GalleryImageWidget from './gallery_image_widget';
