@@ -273,9 +273,13 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 /* sections
 =================================================================== */
 
-.bg-white,
 .bg-dark-image,
-.bg-greywhite { padding: 60px 0; }
+.bg-grey,
+.bg-greydark,
+.bg-greylight,
+.bg-greymiddle,
+.bg-greywhite,
+.bg-white { padding: 60px 0; }
 
 .bg-brand-primary { background: $brand-primary; }
 .bg-brand-secondary { background: $brand-secondary; }
@@ -404,24 +408,24 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 
 .navbar-fixed section:first-of-type { padding-top: 120px; }
 
-.navbar-transparent-dark { background: transparent; @include transition(all .3s ease-in-out); box-shadow: none; }
-/* .navbar-transparent-dark .navbar-brand { background: $logo-white no-repeat center center / contain; } */
-.navbar-transparent-dark .navbar-nav > li > a { color: #fff!important; }
+.navbar-transparent { background: transparent; @include transition(all .3s ease-in-out); box-shadow: none; }
+/* .bg-dark-image .navbar-brand { background: $logo-white no-repeat center center / contain; } */
+.bg-dark-image .navbar-nav > li > a { color: #fff!important; }
 
-/* .scrolled .navbar-transparent-dark .navbar-brand { background: $logo-dark no-repeat center center / contain; } */
+/* .scrolled.bg-dark-image .navbar-brand { background: $logo-dark no-repeat center center / contain; } */
 
 .scrolled .navbar,
-.scrolled .navbar-transparent-dark { background: rgba(255,255,255,.9); box-shadow: 0 0 3px rgba(0,0,0,.2); }
-.scrolled .navbar-transparent-dark .navbar-nav > li > a { color: $theme-greydark!important; }
-.scrolled .navbar-transparent-dark .navbar-nav > li.active > a { color: #fff!important; }
+.scrolled.bg-dark-image { background: rgba(255,255,255,.9); box-shadow: 0 0 3px rgba(0,0,0,.2); }
+.scrolled.bg-dark-image .navbar-nav > li > a { color: $theme-greydark!important; }
+.scrolled.bg-dark-image .navbar-nav > li.active > a { color: #fff!important; }
 
 .navbar-toggle { margin: 20px 0 0 0; padding: 9px 20px; border: none!important; }
 .navbar-toggle:hover,
 .navbar-toggle:focus { background: transparent!important; }
 .navbar-toggle .icon-bar { background: $brand-secondary; }
 
-.navbar-transparent-dark .navbar-toggle .icon-bar { background: #fff; }
-.scrolled .navbar-transparent-dark .navbar-toggle .icon-bar { background: $brand-secondary; }
+.bg-dark-image .navbar-toggle .icon-bar { background: #fff; }
+.scrolled.bg-dark-image .navbar-toggle .icon-bar { background: $brand-secondary; }
 
 .mobile-toggle { display: none; }
 
@@ -493,7 +497,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 
   .navbar-nav { margin: 0; background: rgba(255,255,255,.9); }
   .navbar-nav > li > a,
-  .navbar-transparent-dark .navbar-nav > li > a { color: $theme-greydark!important; }
+  .bg-dark-image .navbar-nav > li > a { color: $theme-greydark!important; }
   .navbar-nav .dropdown-menu > li > a { text-align: left; padding: 10px 20px; color: #fff; }
 
   .navbar-collapse { padding: 0; }

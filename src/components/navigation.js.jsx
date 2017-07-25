@@ -43,7 +43,7 @@ const Navigation = Scrivito.createComponent({
       topSectionClassNames.push('scrolled');
     }
 
-    if (transparent) {
+    if (bgColor === 'dark') {
       topSectionClassNames.push('bg-dark-image');
     } else {
       topSectionClassNames.push('bg-white');
@@ -53,8 +53,8 @@ const Navigation = Scrivito.createComponent({
     if (this.state.showSearch) {
       bootstrapNavbarClassNames.push('show-search');
     }
-    if (bgColor === 'dark') {
-      bootstrapNavbarClassNames.push('navbar-transparent-dark');
+    if (transparent) {
+      bootstrapNavbarClassNames.push('navbar-transparent');
     }
 
     const topSectionStyle = {};
