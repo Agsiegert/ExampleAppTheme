@@ -2,7 +2,7 @@ const Blog = Scrivito.createObjClass({
   name: 'Blog',
   attributes: {
     title: 'string',
-    titleImage: 'reference',
+    navigationBackgroundImage: 'reference',
     body: 'widgetlist',
   },
 });
@@ -15,9 +15,9 @@ Scrivito.provideUiConfig(Blog, {
       title: 'Title',
       description: 'Title of the blog. Only used for the navigation',
     },
-    titleImage: {
-      title: 'Title image',
-      description: 'The title image of the blogpost',
+    navigationBackgroundImage: {
+      title: 'Navigation Background Image',
+      description: 'The background image of the navigation',
     },
   },
   titleForContent: obj => obj.get('title'),
@@ -25,7 +25,6 @@ Scrivito.provideUiConfig(Blog, {
 
 Scrivito.provideComponent(Blog, obj =>
   <div>
-    <Scrivito.React.Image src={ obj } attribute="titleImage" />
     <section>
       <Scrivito.React.Content className="container" content={ obj } attribute="body" />
     </section>
