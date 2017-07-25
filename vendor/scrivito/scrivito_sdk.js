@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1267);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1269);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2847,7 +2847,7 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _window_registry = __webpack_require__(24);
+var _window_registry = __webpack_require__(25);
 
 var _errors = __webpack_require__(1);
 
@@ -3263,7 +3263,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 1267:
+/***/ 1269:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3761,7 +3761,7 @@ var _underscore = __webpack_require__(0);
 
 var _errors = __webpack_require__(1);
 
-var _future_binary = __webpack_require__(25);
+var _future_binary = __webpack_require__(26);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
@@ -5568,7 +5568,7 @@ var _attribute_content_class2 = _interopRequireDefault(_attribute_content_class)
 
 var _valid_rails_page_classes = __webpack_require__(97);
 
-var _use_rails_engine = __webpack_require__(23);
+var _use_rails_engine = __webpack_require__(24);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6130,7 +6130,7 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 var _errors = __webpack_require__(1);
 
-var _future_binary = __webpack_require__(25);
+var _future_binary = __webpack_require__(26);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
@@ -7436,7 +7436,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _errors = __webpack_require__(1);
 
-var _app_model_accessor = __webpack_require__(32);
+var _app_model_accessor = __webpack_require__(33);
 
 var _app_model_accessor2 = _interopRequireDefault(_app_model_accessor);
 
@@ -7872,7 +7872,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _errors = __webpack_require__(1);
 
-var _app_model_accessor = __webpack_require__(32);
+var _app_model_accessor = __webpack_require__(33);
 
 var _app_model_accessor2 = _interopRequireDefault(_app_model_accessor);
 
@@ -9267,7 +9267,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _errors = __webpack_require__(1);
 
-var _app_model_accessor = __webpack_require__(32);
+var _app_model_accessor = __webpack_require__(33);
 
 var _app_model_accessor2 = _interopRequireDefault(_app_model_accessor);
 
@@ -10562,7 +10562,7 @@ var _binary = __webpack_require__(13);
 
 var _binary2 = _interopRequireDefault(_binary);
 
-var _future_binary = __webpack_require__(25);
+var _future_binary = __webpack_require__(26);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
@@ -37508,7 +37508,7 @@ var map = {
 	"./scroll_window_to_top.es6.js": 122,
 	"./url_for.es6.js": 123,
 	"./window_context.es6.js": 11,
-	"./window_registry.es6.js": 24
+	"./window_registry.es6.js": 25
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -37564,7 +37564,7 @@ var map = {
 	"./loadable/map_and_load_parallel.es6.js": 144,
 	"./loadable/not_loaded_error.es6.js": 145,
 	"./models/app_class_factory.es6.js": 146,
-	"./models/app_model_accessor.es6.js": 32,
+	"./models/app_model_accessor.es6.js": 33,
 	"./models/attribute.es6.js": 147,
 	"./models/attribute_content_factory.es6.js": 148,
 	"./models/attribute_deserializer.es6.js": 149,
@@ -37576,7 +37576,7 @@ var map = {
 	"./models/basic_obj_search_iterable.es6.js": 155,
 	"./models/basic_widget.es6.js": 156,
 	"./models/binary.es6.js": 13,
-	"./models/future_binary.es6.js": 25,
+	"./models/future_binary.es6.js": 26,
 	"./models/link_factory.es6.js": 157,
 	"./models/metadata_collection.es6.js": 40,
 	"./models/obj_facet_value.es6.js": 41,
@@ -37639,7 +37639,7 @@ webpackContext.id = 212;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./component_registry.js": 33,
+	"./component_registry.js": 34,
 	"./components/child_list.js.jsx": 63,
 	"./components/content.js.jsx": 42,
 	"./components/content/attribute_value.js.jsx": 43,
@@ -37706,7 +37706,7 @@ function initializeSdk(ui) {
 
 /***/ }),
 
-/***/ 23:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37730,7 +37730,7 @@ exports.initUseRailsEngine = initUseRailsEngine;
 
 /***/ }),
 
-/***/ 24:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37751,7 +37751,7 @@ exports.getWindowRegistry = getWindowRegistry;
 
 /***/ }),
 
-/***/ 25:
+/***/ 26:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38065,7 +38065,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 32:
+/***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38160,7 +38160,7 @@ exports.default = AppModelAccessor;
 
 /***/ }),
 
-/***/ 33:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38171,7 +38171,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.reset = exports.registerForAppClass = exports.register = exports.getByAppClass = exports.get = undefined;
 
-var _window_registry = __webpack_require__(24);
+var _window_registry = __webpack_require__(25);
 
 var registry = {};
 
@@ -38376,7 +38376,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getUiConfigPropertyFor = exports.provideUiConfig = undefined;
 
-var _window_registry = __webpack_require__(24);
+var _window_registry = __webpack_require__(25);
 
 var _errors = __webpack_require__(1);
 
@@ -39075,7 +39075,7 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 var _current_page = __webpack_require__(10);
 
-var _window_registry = __webpack_require__(24);
+var _window_registry = __webpack_require__(25);
 
 var _errors = __webpack_require__(1);
 
@@ -39087,7 +39087,7 @@ var _setup_dragstart_event = __webpack_require__(84);
 
 var _setup_dragstart_event2 = _interopRequireDefault(_setup_dragstart_event);
 
-var _component_registry = __webpack_require__(33);
+var _component_registry = __webpack_require__(34);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40728,7 +40728,7 @@ var _current_page = __webpack_require__(10);
 
 var _errors = __webpack_require__(1);
 
-var _component_registry = __webpack_require__(33);
+var _component_registry = __webpack_require__(34);
 
 var CurrentPage = scrivito.createReactClass({
   displayName: 'Scrivito.React.CurrentPage',
@@ -41268,7 +41268,7 @@ var _window_context = __webpack_require__(11);
 
 var _errors = __webpack_require__(1);
 
-var _component_registry = __webpack_require__(33);
+var _component_registry = __webpack_require__(34);
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
