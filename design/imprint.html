@@ -188,23 +188,19 @@
 
     <script type="text/javascript">
 
-
     if($('.navbar-fixed-top').length) {
       $(window).scroll(function() {    // this will work when your window scrolled.
-      		var height = $(window).scrollTop();  //getting the scrolling height of window
-      		if(height  > 1) {
-      			$('body').addClass('scrolled');
-      		} else{
-      			$('body').removeClass('scrolled');
-      		}
-      	});
-      }
+        var height = $(window).scrollTop();  //getting the scrolling height of window
+        if(height  > 1) {
+          $('body').addClass('scrolled');
+        } else{
+          $('body').removeClass('scrolled');
+        }
+      });
+    }
 
     $('.navbar-brand').css('background', 'rgba(0, 0, 0, 0) url(scrivito_logo.svg) no-repeat scroll center center / contain');
 
-
-
-    </script>
     </script>
 
   </body>
