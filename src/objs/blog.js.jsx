@@ -1,4 +1,4 @@
-const Blog = Scrivito.createObjClass({
+const BaseBlog = Scrivito.createObjClass({
   name: 'Blog',
   attributes: {
     title: 'string',
@@ -6,6 +6,18 @@ const Blog = Scrivito.createObjClass({
     body: 'widgetlist',
   },
 });
+
+class Blog extends BaseBlog {
+  navigationOptions() {
+    return {
+      navigationStyle: 'transparentDark',
+      backgroundImage: this.get('navigationBackgroundImage') || null,
+      heigthClassName: null,
+    };
+  }
+}
+
+Scrivito.registerClass('Blog', Blog);
 
 Scrivito.provideUiConfig(Blog, {
   title: 'Blog',
@@ -25,9 +37,16 @@ Scrivito.provideUiConfig(Blog, {
 
 Scrivito.provideComponent(Blog, obj =>
   <div>
-    <section>
-      <Scrivito.React.Content className="container" content={ obj } attribute="body" />
+    <section className="bg-nav-content">
+      <div className="container">
+        <div className="nav-centered">
+          <ul className="nav nav-pills">
+            <li role="presentation" className="active"><a href="#">All</a></li>
+          </ul>
+        </div>
+      </div>
     </section>
+    <Scrivito.React.Content className="div" content={ obj } attribute="body" />
   </div>
 );
 
