@@ -72,10 +72,17 @@ const BlogDate = Scrivito.createComponent(({ date }) => {
 });
 
 const BlogNav = Scrivito.createComponent(({ post }) =>
-  <div>
-    <Scrivito.React.Image src={ post } attribute="titleImage" />
-    <BlogDate date={ post.get('publishedAt') } />
-  </div>
+  <section className="bg-nav-content">
+    <div className="container">
+      <div className="nav-centered">
+        <ul className="nav nav-pills">
+          <li role="presentation"><a href="#">Left button</a></li>
+          <li role="presentation"><BlogDate date={ post.get('publishedAt') } /></li>
+          <li role="presentation"><a href="#">Right button</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 );
 
 const AuthorPicture = Scrivito.createComponent(({ picture }) => {
@@ -90,40 +97,63 @@ const AuthorComponent = Scrivito.createComponent(({ author }) => {
   if (author.objClass !== 'Author') { return null; }
 
   return (
-    <div className="row">
-      <div className="col-md-1 col-sm-4 col-xs-4">
-        <AuthorPicture picture={ author.get('picture') }/>
+    <section className="bg-white">
+      <div className="container">
+        <hr />
+        <div className="row">
+          <div className="col-md-1 col-sm-4 col-xs-4">
+            <AuthorPicture picture={ author.get('picture') }/>
+          </div>
+          <div className="col-md-11 col-sm-8 col-xs-8">
+            <Scrivito.React.Content content={ author } attribute="name" tag="strong" />
+            <Scrivito.React.Content content={ author } attribute="description" tag="p" />
+          </div>
+        </div>
       </div>
-      <div className="col-md-11 col-sm-8 col-xs-8">
-        <Scrivito.React.Content content={ author } attribute="name" className='h4' />
-        <Scrivito.React.Content content={ author } attribute="description" />
-      </div>
-    </div>
+    </section>
   );
 });
 
-const TagList = Scrivito.createComponent(({ tags }) =>
-  <div>
-    {
-      tags.map(tag => <span key={ tag }>{ tag } </span>)
-    }
-  </div>
+const TagListComponent = Scrivito.createComponent(({ tags }) =>
+  <section className="bg-nav-content">
+    <div className="container">
+      <div className="nav-centered">
+        <ul className="nav nav-pills">
+          {
+            tags.map(tag => <li key={ tag } role="presentation"><a href="#">{ tag }</a></li>)
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
 );
 
+const MoreBlogPostsComponent = Scrivito.createComponent(({ author }) => {
+  if (!author) { return null; }
+  if (author.objClass !== 'Author') { return null; }
+
+  return (
+    <section className="bg-white">
+      <div className="container gutter0">
+        <h1 className="h2 border-bottom">More great blog posts from { author.get('name') }</h1>
+      </div>
+    </section>
+  );
+});
+
 Scrivito.provideComponent(BlogPost, obj =>
-  <div className='no-padding'>
+  <div>
     <BlogNav post={ obj }/>
     <section className='bg-white'>
       <div className='container'>
         <Scrivito.React.Content tag="h1" className="h2" content={ obj } attribute="title" />
         <Scrivito.React.Content tag="h2" className="h4" content={ obj } attribute="subtitle" />
-        <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
-        <hr />
-        <AuthorComponent author={ obj.get('author') } />
-        <hr />
-        <TagList tags={ obj.get('tags') } />
       </div>
     </section>
+    <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
+    <AuthorComponent author={ obj.get('author') } />
+    <TagListComponent tags={ obj.get('tags') } />
+    <MoreBlogPostsComponent author={ obj.get('author') } />
   </div>
 );
 
