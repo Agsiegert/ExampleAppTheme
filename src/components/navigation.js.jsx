@@ -87,7 +87,7 @@ const Navigation = Scrivito.createComponent({
             <Navbar />
           </BootstrapNavbar.Collapse>
         </BootstrapNavbar>
-        <NavigationSection show={ transparent } />
+        <NavigationSection />
       </section>
     );
   },
