@@ -25,7 +25,7 @@
 
       <div class="content-wrapper">
         <!-- section:start -->
-        <section class="bg-white">
+        <section class="navbar-fixed bg-white">
           <nav class="navbar navbar-fixed-top navbar-default">
             <div class="container">
 
@@ -190,8 +190,6 @@
 
 
     if($('.navbar-fixed-top').length) {
-      $('body').addClass('navbar-fixed');
-
       $(window).scroll(function() {    // this will work when your window scrolled.
       		var height = $(window).scrollTop();  //getting the scrolling height of window
       		if(height  > 1) {
