@@ -1,4 +1,4 @@
-const BlogPost = Scrivito.createObjClass({
+const BaseBlogPost = Scrivito.createObjClass({
   name: 'BlogPost',
   attributes: {
     author: 'reference',
@@ -10,6 +10,26 @@ const BlogPost = Scrivito.createObjClass({
     titleImage: 'reference',
   },
 });
+
+class BlogPost extends BaseBlogPost {
+  navigationOptions() {
+    let backgroundImage = this.get('titleImage');
+    if (!backgroundImage) {
+      const blog = Scrivito.Obj.getByPermalink('blog');
+      if (blog) {
+        backgroundImage = blog.get('navigationBackgroundImage');
+      }
+    }
+
+    return {
+      navigationStyle: 'transparentDark',
+      backgroundImage: backgroundImage || null,
+      heigthClassName: null,
+    };
+  }
+}
+
+Scrivito.registerClass('BlogPost', BlogPost);
 
 Scrivito.provideUiConfig(BlogPost, {
   title: 'BlogPost',
