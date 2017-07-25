@@ -16,6 +16,7 @@ import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sun
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
 import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glass';
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
+import unsplashPlantData from './binary_data/unsplash_plant';
 import unsplashScreenWithClockData from './binary_data/unsplash_screen_with_clock';
 import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
 
@@ -75,6 +76,7 @@ export default () => {
     UNSPLASH_TAGS);
   const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting',
     UNSPLASH_TAGS);
+  const unsplashPlant = uploadImage(unsplashPlantData, 'Plant on desk', UNSPLASH_TAGS);
   const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock',
     UNSPLASH_TAGS);
   const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room',
@@ -223,6 +225,7 @@ export default () => {
     _path: '/blog',
     _permalink: 'blog',
     title: 'Blog',
+    navigationBackgroundImage: unsplashPlant,
   });
 
   // WIDGETS AND PAGES
