@@ -273,9 +273,13 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 /* sections
 =================================================================== */
 
-.bg-white,
 .bg-dark-image,
-.bg-greywhite { padding: 60px 0; }
+.bg-grey,
+.bg-greydark,
+.bg-greylight,
+.bg-greymiddle,
+.bg-greywhite,
+.bg-white { padding: 60px 0; }
 
 .bg-brand-primary { background: $brand-primary; }
 .bg-brand-secondary { background: $brand-secondary; }
