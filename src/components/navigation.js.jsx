@@ -99,18 +99,16 @@ const Navigation = Scrivito.createComponent({
 });
 
 function currentPageNavigationOptions() {
-  let navigationStyle;
-  let backgroundImage;
-
   if (Scrivito.currentPage()) {
-    navigationStyle = Scrivito.currentPage().get('navigationStyle');
-    backgroundImage = Scrivito.currentPage().get('navigationBackgroundImage');
+    if (Scrivito.currentPage().navigationOptions) {
+      return Scrivito.currentPage().navigationOptions();
+    }
   }
 
   return {
-    navigationStyle: navigationStyle || 'solidWhite',
-    backgroundImage: backgroundImage || null,
-    heigthClassName: 'full-height-center' || null,
+    navigationStyle: 'solidWhite',
+    backgroundImage: null,
+    heigthClassName: null,
   };
 }
 

@@ -21,7 +21,16 @@ const defaultPageUiConfigAttributes = {
   },
 };
 
+function defaultNavigationOptions(obj) {
+  return {
+    navigationStyle: obj.get('navigationStyle') || 'solidWhite',
+    backgroundImage: obj.get('navigationBackgroundImage') || null,
+    heigthClassName: 'full-height-center',
+  };
+}
+
 export {
+  defaultNavigationOptions,
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 };
