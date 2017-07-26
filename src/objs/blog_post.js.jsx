@@ -65,9 +65,9 @@ const BlogDate = Scrivito.createComponent(({ date }) => {
   const dayOfMonth = date.getDate(); // getDate returns 1 to 31.
 
   return (
-    <div>
+    <time dateTime={ date.toISOString() }>
       { twoDigitNumber(month) }/{ twoDigitNumber(dayOfMonth) }
-    </div>
+    </time>
   );
 });
 
