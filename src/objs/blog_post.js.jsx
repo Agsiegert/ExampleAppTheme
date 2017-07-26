@@ -2,7 +2,7 @@ const BaseBlogPost = Scrivito.createObjClass({
   name: 'BlogPost',
   attributes: {
     author: 'reference',
-    body: 'widgetlist',
+    body: ['widgetlist', { only: 'SectionWidget' }],
     publishedAt: 'date',
     subtitle: 'string',
     tags: 'stringlist',

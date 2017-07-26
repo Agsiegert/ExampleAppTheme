@@ -3,7 +3,7 @@ const BaseBlog = Scrivito.createObjClass({
   attributes: {
     title: 'string',
     navigationBackgroundImage: 'reference',
-    body: 'widgetlist',
+    body: ['widgetlist', { only: 'SectionWidget' }],
   },
 });
 
