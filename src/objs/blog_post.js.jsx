@@ -1,4 +1,5 @@
 import BlogPostAuthor from 'components/blog_post/blog_post_author';
+import BlogPostMorePosts from 'components/blog_post/blog_post_more_posts';
 import BlogPostNavigation from 'components/blog_post/blog_post_navigation';
 import BlogPostTagList from 'components/blog_post/blog_post_tag_list';
 
@@ -57,19 +58,6 @@ Scrivito.provideUiConfig(BlogPost, {
     },
   },
   titleForContent: obj => obj.get('title'),
-});
-
-const BlogPostMorePosts = Scrivito.createComponent(({ author }) => {
-  if (!author) { return null; }
-  if (author.objClass !== 'Author') { return null; }
-
-  return (
-    <section className="bg-white">
-      <div className="container gutter0">
-        <h1 className="h2 border-bottom">More great blog posts from { author.get('name') }</h1>
-      </div>
-    </section>
-  );
 });
 
 Scrivito.provideComponent(BlogPost, obj =>
