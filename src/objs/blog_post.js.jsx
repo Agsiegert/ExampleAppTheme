@@ -59,7 +59,7 @@ function twoDigitNumber(number) {
   return (`0${number}`).slice(-2);
 }
 
-const BlogPostDateComponent = Scrivito.createComponent(({ date }) => {
+const BlogPostDate = Scrivito.createComponent(({ date }) => {
   if (!date) { return null; }
   const month = date.getMonth() + 1; // getMonth return 0 to 11.
   const dayOfMonth = date.getDate(); // getDate returns 1 to 31.
@@ -71,7 +71,7 @@ const BlogPostDateComponent = Scrivito.createComponent(({ date }) => {
   );
 });
 
-const NextBlogPostLinkComponent = Scrivito.createComponent(({ currentBlogPost }) => {
+const BlogPostNextLink = Scrivito.createComponent(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
   if (!currentDate) { return null; }
 
@@ -90,7 +90,7 @@ const NextBlogPostLinkComponent = Scrivito.createComponent(({ currentBlogPost })
   );
 });
 
-const PreviousBlogPostLinkComponent = Scrivito.createComponent(({ currentBlogPost }) => {
+const BlogPostPreviousLink = Scrivito.createComponent(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
   if (!currentDate) { return null; }
 
@@ -111,19 +111,19 @@ const PreviousBlogPostLinkComponent = Scrivito.createComponent(({ currentBlogPos
   );
 });
 
-const BlogPostNavigation = Scrivito.createComponent(({ post }) =>
+const BlogPostNavigation = Scrivito.createComponent(({ currentPost }) =>
   <section className="bg-nav-content">
     <div className="container">
       <div className="nav-centered">
         <ul className="nav nav-pills">
           <li role="presentation">
-            <NextBlogPostLinkComponent currentBlogPost={ post } />
+            <BlogPostNextLink currentBlogPost={ currentPost } />
           </li>
           <li role="presentation">
-            <BlogPostDateComponent date={ post.get('publishedAt') } />
+            <BlogPostDate date={ currentPost.get('publishedAt') } />
           </li>
           <li role="presentation">
-            <PreviousBlogPostLinkComponent currentBlogPost={ post } />
+            <BlogPostPreviousLink currentBlogPost={ currentPost } />
           </li>
         </ul>
       </div>
@@ -138,7 +138,7 @@ const AuthorPicture = Scrivito.createComponent(({ picture }) => {
   return (<img src={ image.url } className="img-circle" />);
 });
 
-const AuthorComponent = Scrivito.createComponent(({ author }) => {
+const BlogPostAuthor = Scrivito.createComponent(({ author }) => {
   if (!author) { return null; }
   if (author.objClass !== 'Author') { return null; }
 
@@ -160,7 +160,7 @@ const AuthorComponent = Scrivito.createComponent(({ author }) => {
   );
 });
 
-const TagListComponent = Scrivito.createComponent(({ tags }) =>
+const BlogPostTagList = Scrivito.createComponent(({ tags }) =>
   <section className="bg-nav-content">
     <div className="container">
       <div className="nav-centered">
@@ -174,7 +174,7 @@ const TagListComponent = Scrivito.createComponent(({ tags }) =>
   </section>
 );
 
-const MoreBlogPostsComponent = Scrivito.createComponent(({ author }) => {
+const BlogPostMorePosts = Scrivito.createComponent(({ author }) => {
   if (!author) { return null; }
   if (author.objClass !== 'Author') { return null; }
 
@@ -189,7 +189,7 @@ const MoreBlogPostsComponent = Scrivito.createComponent(({ author }) => {
 
 Scrivito.provideComponent(BlogPost, obj =>
   <div>
-    <BlogPostNavigation post={ obj }/>
+    <BlogPostNavigation currentPost={ obj }/>
     <section className='bg-white'>
       <div className='container'>
         <Scrivito.React.Content tag="h1" className="h2" content={ obj } attribute="title" />
@@ -197,9 +197,9 @@ Scrivito.provideComponent(BlogPost, obj =>
       </div>
     </section>
     <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
-    <AuthorComponent author={ obj.get('author') } />
-    <TagListComponent tags={ obj.get('tags') } />
-    <MoreBlogPostsComponent author={ obj.get('author') } />
+    <BlogPostAuthor author={ obj.get('author') } />
+    <BlogPostTagList tags={ obj.get('tags') } />
+    <BlogPostMorePosts author={ obj.get('author') } />
   </div>
 );
 
