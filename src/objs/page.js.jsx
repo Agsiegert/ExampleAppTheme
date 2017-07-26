@@ -1,12 +1,24 @@
-import { defaultPageAttributes, defaultPageUiConfigAttributes } from './_default_page_attributes';
+import {
+  defaultNavigationOptions,
+  defaultPageAttributes,
+  defaultPageUiConfigAttributes,
+} from './_default_page_attributes';
 
-const Page = Scrivito.createObjClass({
+const BasePage = Scrivito.createObjClass({
   name: 'Page',
   attributes: {
     ...defaultPageAttributes,
     childOrder: 'referencelist',
   },
 });
+
+class Page extends BasePage {
+  navigationOptions() {
+    return defaultNavigationOptions(this);
+  }
+}
+
+Scrivito.registerClass('Page', Page);
 
 Scrivito.provideUiConfig(Page, {
   title: 'Page',

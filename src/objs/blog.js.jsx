@@ -1,11 +1,23 @@
-const Blog = Scrivito.createObjClass({
+const BaseBlog = Scrivito.createObjClass({
   name: 'Blog',
   attributes: {
     title: 'string',
-    titleImage: 'reference',
-    body: 'widgetlist',
+    navigationBackgroundImage: 'reference',
+    body: ['widgetlist', { only: 'SectionWidget' }],
   },
 });
+
+class Blog extends BaseBlog {
+  navigationOptions() {
+    return {
+      navigationStyle: 'transparentDark',
+      backgroundImage: this.get('navigationBackgroundImage') || null,
+      heigthClassName: null,
+    };
+  }
+}
+
+Scrivito.registerClass('Blog', Blog);
 
 Scrivito.provideUiConfig(Blog, {
   title: 'Blog',
@@ -15,9 +27,9 @@ Scrivito.provideUiConfig(Blog, {
       title: 'Title',
       description: 'Title of the blog. Only used for the navigation',
     },
-    titleImage: {
-      title: 'Title image',
-      description: 'The title image of the blogpost',
+    navigationBackgroundImage: {
+      title: 'Navigation Background Image',
+      description: 'The background image of the navigation',
     },
   },
   titleForContent: obj => obj.get('title'),
@@ -25,10 +37,16 @@ Scrivito.provideUiConfig(Blog, {
 
 Scrivito.provideComponent(Blog, obj =>
   <div>
-    <Scrivito.React.Image src={ obj } attribute="titleImage" />
-    <section>
-      <Scrivito.React.Content className="container" content={ obj } attribute="body" />
+    <section className="bg-nav-content">
+      <div className="container">
+        <div className="nav-centered">
+          <ul className="nav nav-pills">
+            <li role="presentation" className="active"><a href="#">All</a></li>
+          </ul>
+        </div>
+      </div>
     </section>
+    <Scrivito.React.Content className="div" content={ obj } attribute="body" />
   </div>
 );
 

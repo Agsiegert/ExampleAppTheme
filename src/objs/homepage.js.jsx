@@ -1,6 +1,10 @@
-import { defaultPageAttributes, defaultPageUiConfigAttributes } from './_default_page_attributes';
+import {
+  defaultNavigationOptions,
+  defaultPageAttributes,
+  defaultPageUiConfigAttributes,
+} from './_default_page_attributes';
 
-const Homepage = Scrivito.createObjClass({
+const BaseHomepage = Scrivito.createObjClass({
   name: 'Homepage',
   attributes: {
     ...defaultPageAttributes,
@@ -11,6 +15,14 @@ const Homepage = Scrivito.createObjClass({
     socialButtons: ['widgetlist', { only: 'FontAwesomeIconWidget' }],
   },
 });
+
+class Homepage extends BaseHomepage {
+  navigationOptions() {
+    return defaultNavigationOptions(this);
+  }
+}
+
+Scrivito.registerClass('Homepage', Homepage);
 
 Scrivito.provideUiConfig(Homepage, {
   title: 'Homepage',

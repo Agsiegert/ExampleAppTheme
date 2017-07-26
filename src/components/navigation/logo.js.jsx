@@ -1,8 +1,8 @@
-function logoStyle({ scrolled, bgColor }) {
+function logoStyle({ scrolled, navigationStyle }) {
   let logoVersion;
   if (scrolled) {
     logoVersion = 'logoDark';
-  } else if (bgColor === 'dark') {
+  } else if (navigationStyle === 'transparentDark') {
     logoVersion = 'logoWhite';
   } else {
     logoVersion = 'logoDark';
@@ -15,11 +15,11 @@ function logoStyle({ scrolled, bgColor }) {
   };
 }
 
-const Logo = Scrivito.createComponent(({ scrolled, bgColor }) =>
+const Logo = Scrivito.createComponent(({ scrolled, navigationStyle }) =>
   <Scrivito.React.Link
       to={ Scrivito.Obj.root() }
       className="navbar-brand"
-      style={ logoStyle({ scrolled, bgColor }) }>
+      style={ logoStyle({ scrolled, navigationStyle }) }>
   </Scrivito.React.Link>
 );
 

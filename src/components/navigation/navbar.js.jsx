@@ -66,9 +66,15 @@ function isActive(page) {
   if (!Scrivito.currentPage()) { return false; }
 
   const currentPath = Scrivito.currentPage().path;
-  if (!currentPath || currentPath === '/') { return false; }
+  if (currentPath) {
+    return currentPath.startsWith(page.path);
+  }
 
-  return currentPath.startsWith(page.path);
+  if (Scrivito.currentPage().objClass === 'BlogPost') {
+    return page.objClass === 'Blog';
+  }
+
+  return false;
 }
 
 export default Navbar;

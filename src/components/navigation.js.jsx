@@ -36,14 +36,18 @@ const Navigation = Scrivito.createComponent({
   },
 
   render() {
-    const { transparent, bgColor } = currentPageNavigationStyle();
+    const {
+      navigationStyle,
+      backgroundImage,
+      heigthClassName,
+    } = currentPageNavigationOptions();
 
     const topSectionClassNames = ['navbar-fixed'];
     if (this.state.scrolled) {
       topSectionClassNames.push('scrolled');
     }
 
-    if (bgColor === 'dark') {
+    if (navigationStyle === 'transparentDark') {
       topSectionClassNames.push('bg-dark-image');
     } else {
       topSectionClassNames.push('bg-white');
@@ -53,21 +57,22 @@ const Navigation = Scrivito.createComponent({
     if (this.state.showSearch) {
       bootstrapNavbarClassNames.push('show-search');
     }
-    if (transparent) {
+    if (navigationStyle === 'transparentDark') {
       bootstrapNavbarClassNames.push('navbar-transparent');
     }
 
     const topSectionStyle = {};
-    if (transparent) {
-      const navigationBackgroundImage = Scrivito.currentPage().get('navigationBackgroundImage');
-      if (navigationBackgroundImage) {
-        topSectionClassNames.push('full-height-center');
-        const backgroundUrl = fullWidthTransformedUrl(navigationBackgroundImage);
+    if (navigationStyle === 'transparentDark') {
+      if (backgroundImage) {
+        const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
         topSectionStyle.background = [
           'linear-gradient(rgba(46, 53, 60, 0.7)',
           'rgba(46, 53, 60, 0.7))',
           `url(${backgroundUrl}) no-repeat center / cover`,
         ].join(', ');
+      }
+      if (heigthClassName) {
+        topSectionClassNames.push(heigthClassName);
       }
     }
 
@@ -79,7 +84,7 @@ const Navigation = Scrivito.createComponent({
 
           <BootstrapNavbar.Header>
             <BootstrapNavbar.Toggle />
-            <Logo scrolled={ this.state.scrolled } bgColor={ bgColor } />
+            <Logo scrolled={ this.state.scrolled } navigationStyle={ navigationStyle } />
             <SearchIcon toggleSearch={ this.toggleSearch } />
           </BootstrapNavbar.Header>
 
@@ -87,24 +92,24 @@ const Navigation = Scrivito.createComponent({
             <Navbar />
           </BootstrapNavbar.Collapse>
         </BootstrapNavbar>
-        <NavigationSection show={ transparent } />
+        <NavigationSection />
       </section>
     );
   },
 });
 
-function currentPageNavigationStyle() {
-  let currentNavigationStyle;
-
+function currentPageNavigationOptions() {
   if (Scrivito.currentPage()) {
-    currentNavigationStyle = Scrivito.currentPage().get('navigationStyle');
+    if (Scrivito.currentPage().navigationOptions) {
+      return Scrivito.currentPage().navigationOptions();
+    }
   }
 
-  switch (currentNavigationStyle) {
-    case 'solidWhite': return { transparent: false, bgColor: 'white' };
-    case 'transparentDark': return { transparent: true, bgColor: 'dark' };
-    default: return { transparent: false, bgColor: 'white' };
-  }
+  return {
+    navigationStyle: 'solidWhite',
+    backgroundImage: null,
+    heigthClassName: null,
+  };
 }
 
 function devicePixelRatio() {
