@@ -1,5 +1,6 @@
-import BlogPostNavigation from 'components/blog_post/blog_post_navigation';
 import BlogPostAuthor from 'components/blog_post/blog_post_author';
+import BlogPostNavigation from 'components/blog_post/blog_post_navigation';
+import BlogPostTagList from 'components/blog_post/blog_post_tag_list';
 
 const BaseBlogPost = Scrivito.createObjClass({
   name: 'BlogPost',
@@ -57,20 +58,6 @@ Scrivito.provideUiConfig(BlogPost, {
   },
   titleForContent: obj => obj.get('title'),
 });
-
-const BlogPostTagList = Scrivito.createComponent(({ tags }) =>
-  <section className="bg-nav-content">
-    <div className="container">
-      <div className="nav-centered">
-        <ul className="nav nav-pills">
-          {
-            tags.map(tag => <li key={ tag } role="presentation"><a href="#">{ tag }</a></li>)
-          }
-        </ul>
-      </div>
-    </div>
-  </section>
-);
 
 const BlogPostMorePosts = Scrivito.createComponent(({ author }) => {
   if (!author) { return null; }
