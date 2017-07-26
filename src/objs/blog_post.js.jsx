@@ -76,9 +76,9 @@ const BlogNav = Scrivito.createComponent(({ post }) =>
     <div className="container">
       <div className="nav-centered">
         <ul className="nav nav-pills">
-          <li role="presentation"><a href="#">Left button</a></li>
+          <li role="presentation"><a href="#">Left (newer) button</a></li>
           <li role="presentation"><BlogDate date={ post.get('publishedAt') } /></li>
-          <li role="presentation"><a href="#">Right button</a></li>
+          <li role="presentation"><a href="#">Right (older) button</a></li>
         </ul>
       </div>
     </div>
