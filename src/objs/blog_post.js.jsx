@@ -59,7 +59,7 @@ function twoDigitNumber(number) {
   return (`0${number}`).slice(-2);
 }
 
-const BlogDate = Scrivito.createComponent(({ date }) => {
+const BlogPostDateComponent = Scrivito.createComponent(({ date }) => {
   if (!date) { return null; }
   const month = date.getMonth() + 1; // getMonth return 0 to 11.
   const dayOfMonth = date.getDate(); // getDate returns 1 to 31.
@@ -71,14 +71,60 @@ const BlogDate = Scrivito.createComponent(({ date }) => {
   );
 });
 
-const BlogNav = Scrivito.createComponent(({ post }) =>
+const NextBlogPostLinkComponent = Scrivito.createComponent(({ currentBlogPost }) => {
+  const currentDate = currentBlogPost.get('publishedAt');
+  if (!currentDate) { return null; }
+
+  // find greater than publishedAt
+  const [newerPost] = BlogPost
+    .where('publishedAt', 'isGreaterThan', currentDate)
+    .order('publishedAt', 'asc')
+    .batchSize(1);
+
+  if (!newerPost) { return null; }
+
+  return (
+    <Scrivito.React.Link to={ newerPost }>
+      Left (newer) button
+    </Scrivito.React.Link>
+  );
+});
+
+const PreviousBlogPostLinkComponent = Scrivito.createComponent(({ currentBlogPost }) => {
+  const currentDate = currentBlogPost.get('publishedAt');
+  if (!currentDate) { return null; }
+
+  // find less than or equal publishedAt
+  const [olderPost] = BlogPost
+    .all()
+    .andNot('id', 'equals', currentBlogPost.id)
+    .andNot('publishedAt', 'isGreaterThan', currentDate)
+    .order('publishedAt', 'desc')
+    .batchSize(1);
+
+  if (!olderPost) { return null; }
+
+  return (
+    <Scrivito.React.Link to={ olderPost }>
+      Right (older) button
+    </Scrivito.React.Link>
+  );
+});
+
+const BlogPostNavigation = Scrivito.createComponent(({ post }) =>
   <section className="bg-nav-content">
     <div className="container">
       <div className="nav-centered">
         <ul className="nav nav-pills">
-          <li role="presentation"><a href="#">Left (newer) button</a></li>
-          <li role="presentation"><BlogDate date={ post.get('publishedAt') } /></li>
-          <li role="presentation"><a href="#">Right (older) button</a></li>
+          <li role="presentation">
+            <NextBlogPostLinkComponent currentBlogPost={ post } />
+          </li>
+          <li role="presentation">
+            <BlogPostDateComponent date={ post.get('publishedAt') } />
+          </li>
+          <li role="presentation">
+            <PreviousBlogPostLinkComponent currentBlogPost={ post } />
+          </li>
         </ul>
       </div>
     </div>
@@ -143,7 +189,7 @@ const MoreBlogPostsComponent = Scrivito.createComponent(({ author }) => {
 
 Scrivito.provideComponent(BlogPost, obj =>
   <div>
-    <BlogNav post={ obj }/>
+    <BlogPostNavigation post={ obj }/>
     <section className='bg-white'>
       <div className='container'>
         <Scrivito.React.Content tag="h1" className="h2" content={ obj } attribute="title" />
