@@ -1990,7 +1990,7 @@ function currentPage() {
     });
   } catch (error) {
     scrivito.nextTick(function () {
-      return changeLocationOrSetCurrentPage({ error: error }, nextVersion);
+      return advanceWithError(nextVersion, error);
     });
     return;
   }
@@ -2049,12 +2049,20 @@ function setCurrentPage(fn, beforeSetCallback) {
         url = _ref.url;
 
     beforeSetCallback(obj);
-    changeLocationOrSetCurrentPage({ obj: obj, url: url }, version);
+    if (url) {
+      advance(version, function () {
+        return scrivito.changeLocation(url);
+      });
+    } else {
+      advance(version, function () {
+        return setStateForObj(obj);
+      });
+    }
   }).catch(function (error) {
     if (error instanceof _errors.NavigateToEmptyBinaryError) {
       return;
     }
-    return changeLocationOrSetCurrentPage({ error: error }, version);
+    advanceWithError(version, error);
   });
 }
 
@@ -2140,25 +2148,24 @@ function extractObjOrUrl(target) {
   }
 }
 
-function changeLocationOrSetCurrentPage(_ref2, version) {
-  var url = _ref2.url,
-      obj = _ref2.obj,
-      error = _ref2.error;
-
-  if (nextVersion !== version) {
-    return;
+function advance(version, changeTheState) {
+  if (nextVersion === version) {
+    changeTheState();
   }
+}
 
-  if (url) {
-    scrivito.changeLocation(url);
-  } else if (error) {
+function advanceWithError(version, error) {
+  advance(version, function () {
+    scrivito.logError(error);
     setState({ objId: null, error: error });
     setUiCurrentPage(null);
-  } else {
-    var objId = obj && obj.id || null;
-    setState({ objId: objId });
-    setUiCurrentPage(objId);
-  }
+  });
+}
+
+function setStateForObj(obj) {
+  var objId = obj && obj.id || null;
+  setState({ objId: objId });
+  setUiCurrentPage(objId);
 }
 
 function setUiCurrentPage(objId) {
