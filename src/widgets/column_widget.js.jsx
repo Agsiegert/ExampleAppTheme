@@ -1,4 +1,6 @@
-const ColumnWidget = Scrivito.createWidgetClass({
+import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+
+const BaseColumnWidget = Scrivito.createWidgetClass({
   name: 'ColumnWidget',
   attributes: {
     nrOfColumns: 'integer',
@@ -8,6 +10,21 @@ const ColumnWidget = Scrivito.createWidgetClass({
     column4: 'widgetlist',
   },
 });
+
+class ColumnWidget extends BaseColumnWidget {
+  textExtract() {
+    return [
+      'column1',
+      'column2',
+      'column3',
+      'column4',
+    ].map(
+      attributeName => textExtractFromWidgetlist(this.get(attributeName))
+    ).join(' ');
+  }
+}
+
+Scrivito.registerClass('ColumnWidget', ColumnWidget);
 
 Scrivito.provideUiConfig(ColumnWidget, {
   title: 'Column',

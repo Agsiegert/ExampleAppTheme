@@ -1,4 +1,4 @@
-const HeadlineWidget = Scrivito.createWidgetClass({
+const BaseHeadlineWidget = Scrivito.createWidgetClass({
   name: 'HeadlineWidget',
   attributes: {
     headline: 'string',
@@ -8,6 +8,14 @@ const HeadlineWidget = Scrivito.createWidgetClass({
     showDividingLine: ['enum', { validValues: ['yes', 'no'] }],
   },
 });
+
+class HeadlineWidget extends BaseHeadlineWidget {
+  textExtract() {
+    return this.get('headline');
+  }
+}
+
+Scrivito.registerClass('HeadlineWidget', HeadlineWidget);
 
 Scrivito.provideUiConfig(HeadlineWidget, {
   title: 'Headline',
