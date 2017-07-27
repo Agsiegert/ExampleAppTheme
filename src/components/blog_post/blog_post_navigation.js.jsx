@@ -1,3 +1,5 @@
+import BlogPostDate from './blog_post_date';
+
 const BlogPostNavigation = Scrivito.createComponent(({ currentPost }) =>
   <section className="bg-nav-content">
     <div className="container">
@@ -17,22 +19,6 @@ const BlogPostNavigation = Scrivito.createComponent(({ currentPost }) =>
     </div>
   </section>
 );
-
-function twoDigitNumber(number) {
-  return (`0${number}`).slice(-2);
-}
-
-const BlogPostDate = Scrivito.createComponent(({ date }) => {
-  if (!date) { return null; }
-  const month = date.getMonth() + 1; // getMonth return 0 to 11.
-  const dayOfMonth = date.getDate(); // getDate returns 1 to 31.
-
-  return (
-    <time dateTime={ date.toISOString() }>
-      { twoDigitNumber(month) }/{ twoDigitNumber(dayOfMonth) }
-    </time>
-  );
-});
 
 const BlogPostNextLink = Scrivito.createComponent(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
