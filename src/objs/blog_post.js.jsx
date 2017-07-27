@@ -2,6 +2,7 @@ import BlogPostAuthor from 'components/blog_post/blog_post_author';
 import BlogPostMorePosts from 'components/blog_post/blog_post_more_posts';
 import BlogPostNavigation from 'components/blog_post/blog_post_navigation';
 import BlogPostTagList from 'components/blog_post/blog_post_tag_list';
+import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 
 const BaseBlogPost = Scrivito.createObjClass({
   name: 'BlogPost',
@@ -31,6 +32,10 @@ class BlogPost extends BaseBlogPost {
       backgroundImage: backgroundImage || null,
       heigthClassName: null,
     };
+  }
+
+  textExtract() {
+    return textExtractFromWidgetlist(this.get('body'));
   }
 }
 

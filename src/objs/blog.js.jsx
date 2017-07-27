@@ -1,3 +1,5 @@
+import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+
 const BaseBlog = Scrivito.createObjClass({
   name: 'Blog',
   attributes: {
@@ -14,6 +16,10 @@ class Blog extends BaseBlog {
       backgroundImage: this.get('navigationBackgroundImage') || null,
       heigthClassName: null,
     };
+  }
+
+  textExtract() {
+    return textExtractFromWidgetlist(this.get('body'));
   }
 }
 
