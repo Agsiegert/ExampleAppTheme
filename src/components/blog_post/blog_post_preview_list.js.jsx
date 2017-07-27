@@ -1,4 +1,21 @@
+import twoDigitNumber from 'utils/two_digit_number';
+import { groupBy } from 'underscore';
 import BlogPostDate from './blog_post_date';
+
+const MONTH_MAPPING = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
 const BlogPostTitleImage = Scrivito.createComponent(({ post }) => {
   const titleImage = post.get('titleImage');
@@ -34,14 +51,19 @@ const BlogPostPreview = Scrivito.createComponent(({ post }) => {
   );
 });
 
-const BlogPostPreviewList = Scrivito.createComponent(({ blogPosts }) => {
-  const posts = Array.from(blogPosts.order('publishedAt', 'desc'));
+const BlogPostMonthPreviewList = Scrivito.createComponent(({ posts }) => {
+  const firstDate = posts[0].get('publishedAt');
+  const monthHumanReadable = `${MONTH_MAPPING[firstDate.getMonth()]} ${firstDate.getFullYear()}`;
 
   return (
     <section className="bg-white no-padding">
       <div className="container gutter0">
         <ul className="timeline">
-          <li className="timeline-divider"><time dateTime="2017-06">June 2017</time></li>
+          <li className="timeline-divider">
+            <time dateTime={ yearMonthCombination(firstDate) }>
+              { monthHumanReadable }
+            </time>
+          </li>
           {
             posts.map(post => <BlogPostPreview key={ post.id } post={ post } />)
           }
@@ -51,5 +73,28 @@ const BlogPostPreviewList = Scrivito.createComponent(({ blogPosts }) => {
     </section>
   );
 });
+
+const BlogPostPreviewList = Scrivito.createComponent(({ blogPosts }) => {
+  const posts = Array.from(blogPosts.order('publishedAt', 'desc'));
+
+  const postsByMonth = groupBy(posts, post => {
+    const publishedAt = post.get('publishedAt');
+    if (!publishedAt) { return 'undated'; }
+    return yearMonthCombination(publishedAt);
+  });
+
+  return (
+    <div>
+      {
+        Object.values(postsByMonth).map(monthPosts =>
+          <BlogPostMonthPreviewList key={ monthPosts[0].id } posts={ monthPosts } />)
+      }
+    </div>
+  );
+});
+
+function yearMonthCombination(date) {
+  return `${date.getFullYear()}-${twoDigitNumber(date.getMonth())}`;
+}
 
 export default BlogPostPreviewList;

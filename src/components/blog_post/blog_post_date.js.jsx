@@ -1,6 +1,4 @@
-function twoDigitNumber(number) {
-  return (`0${number}`).slice(-2);
-}
+import twoDigitNumber from 'utils/two_digit_number';
 
 const BlogPostDate = Scrivito.createComponent(({ post }) => {
   const date = post.get('publishedAt');
