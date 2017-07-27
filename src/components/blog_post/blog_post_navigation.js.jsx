@@ -1,28 +1,31 @@
 import BlogPostDate from './blog_post_date';
 
-const BlogPostNavigation = Scrivito.createComponent(({ currentPost }) =>
-  <section className="bg-nav-content">
-    <div className="container">
-      <div className="nav-centered">
-        <ul className="nav nav-pills">
-          <li role="presentation">
-            <BlogPostNextLink currentBlogPost={ currentPost } />
-          </li>
-          <li role="presentation">
-            <BlogPostDate post={ currentPost } />
-          </li>
-          <li role="presentation">
-            <BlogPostPreviousLink currentBlogPost={ currentPost } />
-          </li>
-        </ul>
+const BlogPostNavigation = Scrivito.createComponent(({ currentPost }) => {
+  if (!currentPost.get('publishedAt')) { return null; }
+
+  return (
+    <section className="bg-nav-content">
+      <div className="container">
+        <div className="nav-centered">
+          <ul className="nav nav-pills">
+            <li role="presentation">
+              <BlogPostNextLink currentBlogPost={ currentPost } />
+            </li>
+            <li role="presentation">
+              <BlogPostDate post={ currentPost } />
+            </li>
+            <li role="presentation">
+              <BlogPostPreviousLink currentBlogPost={ currentPost } />
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+});
 
 const BlogPostNextLink = Scrivito.createComponent(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
-  if (!currentDate) { return null; }
 
   // find greater than publishedAt
   const [newerPost] = Scrivito.getClass('BlogPost')
@@ -41,7 +44,6 @@ const BlogPostNextLink = Scrivito.createComponent(({ currentBlogPost }) => {
 
 const BlogPostPreviousLink = Scrivito.createComponent(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
-  if (!currentDate) { return null; }
 
   // find less than or equal publishedAt
   const [olderPost] = Scrivito.getClass('BlogPost')
