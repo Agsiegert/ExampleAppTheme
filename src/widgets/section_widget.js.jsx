@@ -1,4 +1,6 @@
-const SectionWidget = Scrivito.createWidgetClass({
+import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+
+const BaseSectionWidget = Scrivito.createWidgetClass({
   name: 'SectionWidget',
   attributes: {
     content: 'widgetlist',
@@ -10,6 +12,14 @@ const SectionWidget = Scrivito.createWidgetClass({
     ],
   },
 });
+
+class SectionWidget extends BaseSectionWidget {
+  textExtract() {
+    return textExtractFromWidgetlist(this.get('content'));
+  }
+}
+
+Scrivito.registerClass('SectionWidget', SectionWidget);
 
 Scrivito.provideUiConfig(SectionWidget, {
   title: 'Section',
