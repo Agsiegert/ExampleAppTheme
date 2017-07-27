@@ -9,7 +9,7 @@ const BlogPostNavigation = Scrivito.createComponent(({ currentPost }) =>
             <BlogPostNextLink currentBlogPost={ currentPost } />
           </li>
           <li role="presentation">
-            <BlogPostDate date={ currentPost.get('publishedAt') } />
+            <BlogPostDate post={ currentPost } />
           </li>
           <li role="presentation">
             <BlogPostPreviousLink currentBlogPost={ currentPost } />
