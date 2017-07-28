@@ -17,8 +17,11 @@ const MONTH_MAPPING = [
   'December',
 ];
 
-const BlogPostPreviewList = Scrivito.createComponent(({ maxItems }) => {
-  const blogPosts = Scrivito.getClass('BlogPost').all().order('publishedAt', 'desc');
+const BlogPostPreviewList = Scrivito.createComponent(({ maxItems, author }) => {
+  let blogPosts = Scrivito.getClass('BlogPost').all().order('publishedAt', 'desc');
+  if (author) {
+    blogPosts = blogPosts.and('author', 'refersTo', author);
+  }
 
   let posts;
   if (maxItems) {
