@@ -1,7 +1,8 @@
+import { decode } from 'ent';
+import striptags from 'striptags';
+
 function textExtractFromHtml(html) {
-  const element = document.createElement('div');
-  element.innerHTML = html;
-  return element.innerText || element.textContent;
+  return decode(striptags(html));
 }
 
 export default textExtractFromHtml;
