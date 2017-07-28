@@ -53,6 +53,10 @@ function uploadImage({ url, filename }, title, tags = []) {
   return image;
 }
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 export default () => {
   // Logos
   const scrivitoLogoDark = uploadImage(scrivitoLogoDarkData, 'Scrivito Logo (Dark)');
@@ -154,9 +158,9 @@ export default () => {
   // BlogPosts
   BlogPost.create({
     author: janeDoe,
-    title: loremIpsum({ units: 'words', count: 5 }),
+    title: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
     titleImage: unsplashLadyInCoffeeShop,
-    subtitle: loremIpsum({ units: 'words', count: 7 }),
+    subtitle: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 7 })),
     tags: ['Design', 'Marketing'],
     publishedAt: new Date(2017, 6, 15, 12),
     body: [
@@ -188,9 +192,9 @@ export default () => {
 
   BlogPost.create({
     author: johnDoe,
-    title: loremIpsum({ units: 'words', count: 5 }),
+    title: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
     // no titleImage
-    subtitle: loremIpsum({ units: 'words', count: 7 }),
+    subtitle: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 7 })),
     tags: ['Development', 'Business'],
     publishedAt: new Date(2017, 6, 13, 12),
     body: [
