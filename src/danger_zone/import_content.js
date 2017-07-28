@@ -27,6 +27,7 @@ const Homepage = Scrivito.getClass('Homepage');
 const Image = Scrivito.getClass('Image');
 const Page = Scrivito.getClass('Page');
 
+const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const FontAwesomeIconWidget = Scrivito.getClass('FontAwesomeIconWidget');
@@ -582,6 +583,23 @@ export default () => {
                 image: unsplashScreenWithClock,
               }),
             ],
+          }),
+        ],
+      }),
+      new SectionWidget({
+        useFullWidth: 'yes',
+        content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Our latest blog news',
+          }),
+          new BlogOverviewWidget({}),
+          new ButtonWidget({
+            centered: 'yes',
+            text: 'Load all blog entries',
+            target: blog,
           }),
         ],
       }),
