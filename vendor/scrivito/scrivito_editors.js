@@ -68,27 +68,34 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 1273:
+/***/ 100:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(147);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = __webpack_require__(35);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function applyPlaceholderToElement(domNode) {
+  var $cmsField = (0, _jquery2.default)(domNode);
+  if ($cmsField.not('[data-scrivito-editors-placeholder]')) {
+    $cmsField.attr('data-scrivito-editors-placeholder', 'Click to edit');
+  }
+}
+
+exports.default = applyPlaceholderToElement;
 
 /***/ }),
 
-/***/ 147:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(246);
-
-/***/ }),
-
-/***/ 171:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104,15 +111,113 @@ var _jquery = __webpack_require__(35);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _controller_content_proxy = __webpack_require__(97);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ControllerContentProxy = function () {
+  function ControllerContentProxy(domNode, controller) {
+    _classCallCheck(this, ControllerContentProxy);
+
+    this.domNode = domNode;
+    this.controller = controller;
+  }
+
+  _createClass(ControllerContentProxy, [{
+    key: 'content',
+    value: function content() {
+      return this.controller.content;
+    }
+  }, {
+    key: 'idFromPath',
+    value: function idFromPath(path) {
+      if (path.match(/^objid:/)) {
+        return path.replace(/^objid:/, '');
+      }
+    }
+  }, {
+    key: 'edQuery',
+    value: function edQuery() {
+      return _jquery2.default.apply(undefined, arguments);
+    }
+  }, {
+    key: 'jQueryElement',
+    value: function jQueryElement() {
+      return this.edQuery(this.domNode);
+    }
+  }, {
+    key: 'pathForId',
+    value: function pathForId(id) {
+      return 'objid:' + id;
+    }
+  }, {
+    key: 'save',
+    value: function save(content) {
+      this.controller.content = content;
+      var promise = { done: function done(callback) {
+          callback();return promise;
+        } };
+      return promise;
+    }
+  }, {
+    key: 'trigger',
+    value: function trigger() {
+      // ignore
+    }
+  }]);
+
+  return ControllerContentProxy;
+}();
+
+exports.default = ControllerContentProxy;
+
+/***/ }),
+
+/***/ 1273:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(154);
+
+/***/ }),
+
+/***/ 154:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(250);
+
+/***/ }),
+
+/***/ 177:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(35);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _controller_content_proxy = __webpack_require__(101);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(96);
+var _apply_placeholder_to_element = __webpack_require__(100);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _medium_editor = __webpack_require__(253);
+var _medium_editor = __webpack_require__(258);
 
 var _medium_editor2 = _interopRequireDefault(_medium_editor);
 
@@ -160,7 +265,7 @@ exports.default = HtmlEditor;
 
 /***/ }),
 
-/***/ 172:
+/***/ 178:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -172,15 +277,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _controller_content_proxy = __webpack_require__(97);
+var _controller_content_proxy = __webpack_require__(101);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(96);
+var _apply_placeholder_to_element = __webpack_require__(100);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _string_editor = __webpack_require__(254);
+var _string_editor = __webpack_require__(259);
 
 var _string_editor2 = _interopRequireDefault(_string_editor);
 
@@ -230,7 +335,7 @@ exports.default = StringEditor;
 
 /***/ }),
 
-/***/ 245:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -267,9 +372,9 @@ var ReferenceEditor = function () {
     value: function onClick() {
       var _this = this;
 
-      scrivito.content_browser.open({
+      Scrivito.openContentBrowser({
         selection: this._currentSelection(),
-        selection_mode: 'single'
+        selectionMode: 'single'
       }).then(function (ids) {
         return _this._saveContentBrowserSelection(ids);
       });
@@ -293,21 +398,21 @@ exports.default = ReferenceEditor;
 
 /***/ }),
 
-/***/ 246:
+/***/ 250:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _html_editor = __webpack_require__(171);
+var _html_editor = __webpack_require__(177);
 
 var _html_editor2 = _interopRequireDefault(_html_editor);
 
-var _reference_editor = __webpack_require__(245);
+var _reference_editor = __webpack_require__(249);
 
 var _reference_editor2 = _interopRequireDefault(_reference_editor);
 
-var _string_editor = __webpack_require__(172);
+var _string_editor = __webpack_require__(178);
 
 var _string_editor2 = _interopRequireDefault(_string_editor);
 
@@ -319,14 +424,14 @@ scrivito.registerEditor(_string_editor2.default);
 
 /***/ }),
 
-/***/ 253:
+/***/ 258:
 /***/ (function(module, exports, __webpack_require__) {
 
 var MediumButton, MediumEditor, ScrivitoAnchor, activateMediumEditorWithProxy, buttonsOption, defaultOptions;
 
-MediumEditor = __webpack_require__(275);
+MediumEditor = __webpack_require__(279);
 
-MediumButton = __webpack_require__(274);
+MediumButton = __webpack_require__(278);
 
 ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
   name: 'scrivito_anchor',
@@ -376,14 +481,16 @@ ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
         var cmsField, id, selection;
         selection = (id = _this.proxy.idFromPath(input.val())) ? [id] : [];
         cmsField = _this.proxy.edQuery(_this.base.origElements);
-        scrivito.content_browser.open({
-          filter: cmsField.data('scrivitoEditorsFilter'),
-          filter_context: cmsField.data('scrivitoEditorsFilterContext'),
+        Scrivito.openContentBrowser({
+          filters: cmsField.data('scrivitoEditorsFilter'),
+          filterContext: cmsField.data('scrivitoEditorsFilterContext'),
           selection: selection,
-          selection_mode: 'single'
-        }).always(function() {
-          return input.focus();
-        }).done(function(selection) {
+          selectionMode: 'single'
+        })["catch"](function(e) {
+          input.focus();
+          throw e;
+        }).then(function(selection) {
+          input.focus();
           if (selection.length) {
             return input.val(_this.proxy.pathForId(selection[0]));
           } else {
@@ -451,7 +558,7 @@ module.exports = activateMediumEditorWithProxy;
 
 /***/ }),
 
-/***/ 254:
+/***/ 259:
 /***/ (function(module, exports) {
 
 var DOUBLE_CLICK_MS, activateStringEditorWithProxy, cleanUp, cmsFieldAndPastedContent, finishEditing, getCurrentContent, isNewlineAllowed, onBlur, onFocus, onInput, onKey, prepareForEditing, save;
@@ -596,7 +703,7 @@ module.exports = activateStringEditorWithProxy;
 
 /***/ }),
 
-/***/ 274:
+/***/ 278:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -735,7 +842,7 @@ if (true) {
 
 /***/ }),
 
-/***/ 275:
+/***/ 279:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var __WEBPACK_AMD_DEFINE_RESULT__;/*global self, document, DOMException */
@@ -19128,111 +19235,6 @@ return jQuery;
 
 }));
 
-
-/***/ }),
-
-/***/ 96:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _jquery = __webpack_require__(35);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function applyPlaceholderToElement(domNode) {
-  var $cmsField = (0, _jquery2.default)(domNode);
-  if ($cmsField.not('[data-scrivito-editors-placeholder]')) {
-    $cmsField.attr('data-scrivito-editors-placeholder', 'Click to edit');
-  }
-}
-
-exports.default = applyPlaceholderToElement;
-
-/***/ }),
-
-/***/ 97:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = __webpack_require__(35);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var ControllerContentProxy = function () {
-  function ControllerContentProxy(domNode, controller) {
-    _classCallCheck(this, ControllerContentProxy);
-
-    this.domNode = domNode;
-    this.controller = controller;
-  }
-
-  _createClass(ControllerContentProxy, [{
-    key: 'content',
-    value: function content() {
-      return this.controller.content;
-    }
-  }, {
-    key: 'idFromPath',
-    value: function idFromPath(path) {
-      if (path.match(/^objid:/)) {
-        return path.replace(/^objid:/, '');
-      }
-    }
-  }, {
-    key: 'edQuery',
-    value: function edQuery() {
-      return _jquery2.default.apply(undefined, arguments);
-    }
-  }, {
-    key: 'jQueryElement',
-    value: function jQueryElement() {
-      return this.edQuery(this.domNode);
-    }
-  }, {
-    key: 'pathForId',
-    value: function pathForId(id) {
-      return 'objid:' + id;
-    }
-  }, {
-    key: 'save',
-    value: function save(content) {
-      this.controller.content = content;
-      var promise = { done: function done(callback) {
-          callback();return promise;
-        } };
-      return promise;
-    }
-  }, {
-    key: 'trigger',
-    value: function trigger() {
-      // ignore
-    }
-  }]);
-
-  return ControllerContentProxy;
-}();
-
-exports.default = ControllerContentProxy;
 
 /***/ })
 
