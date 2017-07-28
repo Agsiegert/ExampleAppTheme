@@ -1,3 +1,5 @@
+import BlogPostPreviewList from 'components/blog_post/blog_post_preview_list';
+
 const BlogPostMorePosts = Scrivito.createComponent(({ author }) => {
   if (!author) { return null; }
   if (author.objClass !== 'Author') { return null; }
@@ -6,6 +8,7 @@ const BlogPostMorePosts = Scrivito.createComponent(({ author }) => {
     <section className="bg-white">
       <div className="container gutter0">
         <h1 className="h2 border-bottom">More great blog posts from { author.get('name') }</h1>
+        <BlogPostPreviewList author={ author } />
       </div>
     </section>
   );

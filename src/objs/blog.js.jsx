@@ -56,7 +56,7 @@ Scrivito.provideComponent(Blog, obj =>
 );
 
 const TagList = Scrivito.createComponent(() => {
-  const tags = Array.from(BlogPost.all().facet('tags')).map(facet => facet.name);
+  const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name);
 
   return (
     <section className="bg-nav-content">
