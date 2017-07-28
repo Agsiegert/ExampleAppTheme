@@ -17,13 +17,46 @@ const MONTH_MAPPING = [
   'December',
 ];
 
-const BlogPostTitleImage = Scrivito.createComponent(({ post }) => {
-  const titleImage = post.get('titleImage');
-  if (!titleImage) { return null; }
+const BlogPostPreviewList = Scrivito.createComponent(({ blogPosts }) => {
+  const posts = Array.from(blogPosts.order('publishedAt', 'desc'));
 
-  const image = titleImage.get('blob').transform({ width: 1000 });
+  const postsByMonth = groupBy(posts, post => {
+    const publishedAt = post.get('publishedAt');
+    if (!publishedAt) { return 'undated'; }
+    return yearMonthCombination(publishedAt);
+  });
 
-  return (<img src={ image.url } className="img-responsive" />);
+  return (
+    <div>
+      {
+        Object.values(postsByMonth).map(monthPosts =>
+          <BlogPostMonthPreviewList key={ monthPosts[0].id } posts={ monthPosts } />)
+      }
+    </div>
+  );
+});
+
+const BlogPostMonthPreviewList = Scrivito.createComponent(({ posts }) => {
+  const firstDate = posts[0].get('publishedAt');
+  const monthHumanReadable = `${MONTH_MAPPING[firstDate.getMonth()]} ${firstDate.getFullYear()}`;
+
+  return (
+    <section className="bg-white no-padding">
+      <div className="container gutter0">
+        <ul className="timeline">
+          <li className="timeline-divider">
+            <time dateTime={ yearMonthCombination(firstDate) }>
+              { monthHumanReadable }
+            </time>
+          </li>
+          {
+            posts.map(post => <BlogPostPreview key={ post.id } post={ post } />)
+          }
+          <li className="clearfix" style={ { float: 'none' } }></li>
+        </ul>
+      </div>
+    </section>
+  );
 });
 
 const BlogPostPreview = Scrivito.createComponent(({ post }) => {
@@ -51,46 +84,13 @@ const BlogPostPreview = Scrivito.createComponent(({ post }) => {
   );
 });
 
-const BlogPostMonthPreviewList = Scrivito.createComponent(({ posts }) => {
-  const firstDate = posts[0].get('publishedAt');
-  const monthHumanReadable = `${MONTH_MAPPING[firstDate.getMonth()]} ${firstDate.getFullYear()}`;
+const BlogPostTitleImage = Scrivito.createComponent(({ post }) => {
+  const titleImage = post.get('titleImage');
+  if (!titleImage) { return null; }
 
-  return (
-    <section className="bg-white no-padding">
-      <div className="container gutter0">
-        <ul className="timeline">
-          <li className="timeline-divider">
-            <time dateTime={ yearMonthCombination(firstDate) }>
-              { monthHumanReadable }
-            </time>
-          </li>
-          {
-            posts.map(post => <BlogPostPreview key={ post.id } post={ post } />)
-          }
-          <li className="clearfix" style={ { float: 'none' } }></li>
-        </ul>
-      </div>
-    </section>
-  );
-});
+  const image = titleImage.get('blob').transform({ width: 1000 });
 
-const BlogPostPreviewList = Scrivito.createComponent(({ blogPosts }) => {
-  const posts = Array.from(blogPosts.order('publishedAt', 'desc'));
-
-  const postsByMonth = groupBy(posts, post => {
-    const publishedAt = post.get('publishedAt');
-    if (!publishedAt) { return 'undated'; }
-    return yearMonthCombination(publishedAt);
-  });
-
-  return (
-    <div>
-      {
-        Object.values(postsByMonth).map(monthPosts =>
-          <BlogPostMonthPreviewList key={ monthPosts[0].id } posts={ monthPosts } />)
-      }
-    </div>
-  );
+  return (<img src={ image.url } className="img-responsive" />);
 });
 
 function yearMonthCombination(date) {
