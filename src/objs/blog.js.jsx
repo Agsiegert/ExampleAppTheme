@@ -45,19 +45,34 @@ Scrivito.provideUiConfig(Blog, {
 
 Scrivito.provideComponent(Blog, obj =>
   <div>
+    <TagList />
+    <Scrivito.React.Content className="div" content={ obj } attribute="body" />
+    <AllBlogPosts />
+  </div>
+);
+
+const TagList = Scrivito.createComponent(() => {
+  const tags = Array.from(BlogPost.all().facet('tags')).map(facet => facet.name);
+
+  return (
     <section className="bg-nav-content">
       <div className="container">
         <div className="nav-centered">
           <ul className="nav nav-pills">
             <li role="presentation" className="active"><a href="#">All</a></li>
+            {
+              tags.map(tag =>
+                <li role="presentation" key={ tag }>
+                  <a href="#">{ tag }</a>
+                </li>
+              )
+            }
           </ul>
         </div>
       </div>
     </section>
-    <Scrivito.React.Content className="div" content={ obj } attribute="body" />
-    <AllBlogPosts />
-  </div>
-);
+  );
+});
 
 const AllBlogPosts = Scrivito.createComponent(() =>
   <BlogPostPreviewList blogPosts={ BlogPost.all() }/>
