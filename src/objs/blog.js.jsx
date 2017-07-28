@@ -1,3 +1,5 @@
+import BlogPost from 'objs/blog_post';
+import BlogPostPreviewList from 'components/blog_post/blog_post_preview_list';
 import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 
 const BaseBlog = Scrivito.createObjClass({
@@ -43,17 +45,37 @@ Scrivito.provideUiConfig(Blog, {
 
 Scrivito.provideComponent(Blog, obj =>
   <div>
+    <TagList />
+    <Scrivito.React.Content className="div" content={ obj } attribute="body" />
+    <section className="bg-white no-padding">
+      <div className="container gutter0">
+        <BlogPostPreviewList />
+      </div>
+    </section>
+  </div>
+);
+
+const TagList = Scrivito.createComponent(() => {
+  const tags = Array.from(BlogPost.all().facet('tags')).map(facet => facet.name);
+
+  return (
     <section className="bg-nav-content">
       <div className="container">
         <div className="nav-centered">
           <ul className="nav nav-pills">
             <li role="presentation" className="active"><a href="#">All</a></li>
+            {
+              tags.map(tag =>
+                <li role="presentation" key={ tag }>
+                  <a href="#">{ tag }</a>
+                </li>
+              )
+            }
           </ul>
         </div>
       </div>
     </section>
-    <Scrivito.React.Content className="div" content={ obj } attribute="body" />
-  </div>
-);
+  );
+});
 
 export default Blog;

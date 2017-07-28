@@ -27,6 +27,7 @@ const Homepage = Scrivito.getClass('Homepage');
 const Image = Scrivito.getClass('Image');
 const Page = Scrivito.getClass('Page');
 
+const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const FontAwesomeIconWidget = Scrivito.getClass('FontAwesomeIconWidget');
@@ -51,6 +52,10 @@ function uploadImage({ url, filename }, title, tags = []) {
     .then(() => { console.log(`Upload of "${title}" done`); });
 
   return image;
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export default () => {
@@ -154,9 +159,9 @@ export default () => {
   // BlogPosts
   BlogPost.create({
     author: janeDoe,
-    title: loremIpsum({ units: 'words', count: 5 }),
+    title: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
     titleImage: unsplashLadyInCoffeeShop,
-    subtitle: loremIpsum({ units: 'words', count: 7 }),
+    subtitle: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 7 })),
     tags: ['Design', 'Marketing'],
     publishedAt: new Date(2017, 6, 15, 12),
     body: [
@@ -188,9 +193,9 @@ export default () => {
 
   BlogPost.create({
     author: johnDoe,
-    title: loremIpsum({ units: 'words', count: 5 }),
+    title: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
     // no titleImage
-    subtitle: loremIpsum({ units: 'words', count: 7 }),
+    subtitle: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 7 })),
     tags: ['Development', 'Business'],
     publishedAt: new Date(2017, 6, 13, 12),
     body: [
@@ -226,6 +231,22 @@ export default () => {
     _permalink: 'blog',
     title: 'Blog',
     navigationBackgroundImage: unsplashPlant,
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({
+          level: 'h1',
+          style: 'h2',
+          showDividingLine: 'yes',
+          headline: 'Latest news from our blog',
+        }),
+        new HeadlineWidget({
+          level: 'h2',
+          style: 'h4',
+          centered: 'yes',
+          headline: loremIpsum({ count: 2 }),
+        }),
+      ] }),
+    ],
   });
 
   // WIDGETS AND PAGES
@@ -562,6 +583,23 @@ export default () => {
                 image: unsplashScreenWithClock,
               }),
             ],
+          }),
+        ],
+      }),
+      new SectionWidget({
+        useFullWidth: 'yes',
+        content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Our latest blog news',
+          }),
+          new BlogOverviewWidget({}),
+          new ButtonWidget({
+            centered: 'yes',
+            text: 'Load all blog entries',
+            target: blog,
           }),
         ],
       }),
