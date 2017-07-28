@@ -9,13 +9,7 @@ const ImageWidget = Scrivito.createWidgetClass({
 Scrivito.provideUiConfig(ImageWidget, {
   title: 'Image',
   description: 'A widget with an image.',
-  // TODO: Remove "image" attribute from widget properties,
-  // once https://github.com/infopark/rails_connector/issues/3207 is fixed.
   attributes: {
-    image: {
-      title: 'Image',
-      description: 'The image',
-    },
     cssClass: {
       title: 'CSS Class',
       description: 'Optional css class for the img tag',
