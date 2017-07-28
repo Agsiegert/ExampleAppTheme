@@ -41,21 +41,17 @@ const BlogPostMonthPreviewList = Scrivito.createComponent(({ posts }) => {
   const monthHumanReadable = `${MONTH_MAPPING[firstDate.getMonth()]} ${firstDate.getFullYear()}`;
 
   return (
-    <section className="bg-white no-padding">
-      <div className="container gutter0">
-        <ul className="timeline">
-          <li className="timeline-divider">
-            <time dateTime={ yearMonthCombination(firstDate) }>
-              { monthHumanReadable }
-            </time>
-          </li>
-          {
-            posts.map(post => <BlogPostPreview key={ post.id } post={ post } />)
-          }
-          <li className="clearfix" style={ { float: 'none' } }></li>
-        </ul>
-      </div>
-    </section>
+    <ul className="timeline">
+      <li className="timeline-divider">
+        <time dateTime={ yearMonthCombination(firstDate) }>
+          { monthHumanReadable }
+        </time>
+      </li>
+      {
+        posts.map(post => <BlogPostPreview key={ post.id } post={ post } />)
+      }
+      <li className="clearfix" style={ { float: 'none' } }></li>
+    </ul>
   );
 });
 

@@ -47,7 +47,11 @@ Scrivito.provideComponent(Blog, obj =>
   <div>
     <TagList />
     <Scrivito.React.Content className="div" content={ obj } attribute="body" />
-    <AllBlogPosts />
+    <section className="bg-white no-padding">
+      <div className="container gutter0">
+        <AllBlogPosts />
+      </div>
+    </section>
   </div>
 );
 
