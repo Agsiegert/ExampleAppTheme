@@ -43,10 +43,6 @@ Scrivito.provideUiConfig(Blog, {
   titleForContent: obj => obj.get('title'),
 });
 
-const AllBlogPosts = Scrivito.createComponent(() =>
-  <BlogPostPreviewList blogPosts={ BlogPost.all() }/>
-);
-
 Scrivito.provideComponent(Blog, obj =>
   <div>
     <section className="bg-nav-content">
@@ -61,6 +57,10 @@ Scrivito.provideComponent(Blog, obj =>
     <Scrivito.React.Content className="div" content={ obj } attribute="body" />
     <AllBlogPosts />
   </div>
+);
+
+const AllBlogPosts = Scrivito.createComponent(() =>
+  <BlogPostPreviewList blogPosts={ BlogPost.all() }/>
 );
 
 export default Blog;
