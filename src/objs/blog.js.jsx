@@ -49,7 +49,7 @@ Scrivito.provideComponent(Blog, obj =>
     <Scrivito.React.Content className="div" content={ obj } attribute="body" />
     <section className="bg-white no-padding">
       <div className="container gutter0">
-        <AllBlogPosts />
+        <BlogPostPreviewList />
       </div>
     </section>
   </div>
@@ -77,9 +77,5 @@ const TagList = Scrivito.createComponent(() => {
     </section>
   );
 });
-
-const AllBlogPosts = Scrivito.createComponent(() =>
-  <BlogPostPreviewList blogPosts={ BlogPost.all() }/>
-);
 
 export default Blog;

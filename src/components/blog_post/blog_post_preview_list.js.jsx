@@ -1,4 +1,5 @@
 import twoDigitNumber from 'utils/two_digit_number';
+import { take } from 'wu';
 import BlogPostDate from './blog_post_date';
 
 const MONTH_MAPPING = [
@@ -16,8 +17,12 @@ const MONTH_MAPPING = [
   'December',
 ];
 
-const BlogPostPreviewList = Scrivito.createComponent(({ blogPosts }) => {
-  const posts = Array.from(blogPosts.order('publishedAt', 'desc'));
+const BlogPostPreviewList = Scrivito.createComponent(({ maxItems }) => {
+  let blogPosts = Scrivito.getClass('BlogPost').all().order('publishedAt', 'desc');
+  if (maxItems) {
+    blogPosts = take(maxItems, blogPosts.batchSize(maxItems));
+  }
+  const posts = Array.from(blogPosts);
 
   let dateHeadline = null;
   const listElements = [];
