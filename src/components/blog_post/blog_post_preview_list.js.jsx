@@ -1,5 +1,4 @@
 import twoDigitNumber from 'utils/two_digit_number';
-import { groupBy } from 'underscore';
 import BlogPostDate from './blog_post_date';
 
 const MONTH_MAPPING = [
@@ -20,40 +19,33 @@ const MONTH_MAPPING = [
 const BlogPostPreviewList = Scrivito.createComponent(({ blogPosts }) => {
   const posts = Array.from(blogPosts.order('publishedAt', 'desc'));
 
-  const postsByMonth = groupBy(posts, post => {
+  let dateHeadline = null;
+  const listElements = [];
+  posts.forEach(post => {
     const publishedAt = post.get('publishedAt');
-    if (!publishedAt) { return 'undated'; }
-    return yearMonthCombination(publishedAt);
+    if (publishedAt && dateHeadline !== humanReadableMonth(publishedAt)) {
+      dateHeadline = humanReadableMonth(publishedAt);
+      listElements.push(<MonthHeadline date={ publishedAt } key={ publishedAt }/>);
+    }
+
+    listElements.push(<BlogPostPreview key={ post.id } post={ post } />);
   });
 
   return (
-    <div>
-      {
-        Object.values(postsByMonth).map(monthPosts =>
-          <BlogPostMonthPreviewList key={ monthPosts[0].id } posts={ monthPosts } />)
-      }
-    </div>
-  );
-});
-
-const BlogPostMonthPreviewList = Scrivito.createComponent(({ posts }) => {
-  const firstDate = posts[0].get('publishedAt');
-  const monthHumanReadable = `${MONTH_MAPPING[firstDate.getMonth()]} ${firstDate.getFullYear()}`;
-
-  return (
     <ul className="timeline">
-      <li className="timeline-divider">
-        <time dateTime={ yearMonthCombination(firstDate) }>
-          { monthHumanReadable }
-        </time>
-      </li>
-      {
-        posts.map(post => <BlogPostPreview key={ post.id } post={ post } />)
-      }
+      { listElements }
       <li className="clearfix" style={ { float: 'none' } }></li>
     </ul>
   );
 });
+
+const MonthHeadline = Scrivito.createComponent(({ date }) =>
+  <li className="timeline-divider">
+    <time dateTime={ yearMonthCombination(date) }>
+      { humanReadableMonth(date) }
+    </time>
+  </li>
+);
 
 const BlogPostPreview = Scrivito.createComponent(({ post }) => {
   return (
@@ -88,6 +80,10 @@ const BlogPostTitleImage = Scrivito.createComponent(({ post }) => {
 
   return (<img src={ image.url } className="img-responsive" />);
 });
+
+function humanReadableMonth(date) {
+  return `${MONTH_MAPPING[date.getMonth()]} ${date.getFullYear()}`;
+}
 
 function yearMonthCombination(date) {
   return `${date.getFullYear()}-${twoDigitNumber(date.getMonth())}`;
