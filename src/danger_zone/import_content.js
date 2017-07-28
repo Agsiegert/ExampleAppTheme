@@ -226,6 +226,22 @@ export default () => {
     _permalink: 'blog',
     title: 'Blog',
     navigationBackgroundImage: unsplashPlant,
+    body: [
+      new SectionWidget({ content: [
+        new HeadlineWidget({
+          level: 'h1',
+          style: 'h2',
+          showDividingLine: 'yes',
+          headline: 'Latest news from our blog',
+        }),
+        new HeadlineWidget({
+          level: 'h2',
+          style: 'h4',
+          centered: 'yes',
+          headline: loremIpsum({ count: 2 }),
+        }),
+      ] }),
+    ],
   });
 
   // WIDGETS AND PAGES
