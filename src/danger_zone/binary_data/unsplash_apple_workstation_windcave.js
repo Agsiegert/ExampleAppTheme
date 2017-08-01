@@ -2,5 +2,5 @@
 
 export default {
   filename: 'andreas-palmer-284310.jpg',
-  url: 'http://unsplash.com/photos/UJSjxFNLFWY/download?force=true',
+  url: 'https://unsplash.com/photos/UJSjxFNLFWY/download?force=true',
 };
