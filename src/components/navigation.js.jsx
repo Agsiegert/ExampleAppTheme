@@ -1,4 +1,5 @@
 import { Navbar as BootstrapNavbar } from 'react-bootstrap';
+import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import Logo from './navigation/logo';
 import Navbar from './navigation/navbar';
 import NavigationSection from './navigation/navigation_section';
@@ -116,24 +117,6 @@ function currentPageNavigationOptions() {
     backgroundImage: null,
     heigthClassName: null,
   };
-}
-
-function devicePixelRatio() {
-  return window.devicePixelRatio || 1;
-}
-
-function fullScreenWidthPixels() {
-  const screenWidth = window.screen.width;
-
-  return screenWidth * devicePixelRatio();
-}
-
-function fullWidthTransformedUrl(obj) {
-  const binary = obj.get('blob');
-  // The binary service never scales up, so we transform all images, regardless of their width.
-  const transformedBinary = binary.transform({ width: fullScreenWidthPixels() });
-
-  return transformedBinary.url;
 }
 
 export default Scrivito.React.connect(Navigation);
