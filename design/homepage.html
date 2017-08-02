@@ -15,6 +15,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.7.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -488,6 +489,19 @@
         </section>
         <!-- section:end -->
 
+        <!-- section:start -->
+        <section class="bg-dark-image height-center" style="background: linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7)), url(content-images/breather-163396.jpg) no-repeat center / cover;">
+          <div class="container slickDemo" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+            <div><h3>1</h3></div>
+            <div><h3>2</h3></div>
+            <div><h3>3</h3></div>
+            <div><h3>4</h3></div>
+            <div><h3>5</h3></div>
+            <div><h3>6</h3></div>
+          </div>
+        </section>
+        <!-- section:end -->
+
       </div>
 
       <footer>
@@ -577,6 +591,7 @@
         $('.navbar-brand').css('background', 'rgba(0, 0, 0, 0) url(scrivito_logo_white.svg) no-repeat scroll center center / contain');
       }
 
+      $('.slickDemo').slick();
     </script>
 
   </body>
