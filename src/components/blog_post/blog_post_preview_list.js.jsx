@@ -17,7 +17,7 @@ const MONTH_MAPPING = [
   'December',
 ];
 
-const BlogPostPreviewList = Scrivito.createComponent(({ maxItems, author }) => {
+const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author }) => {
   let blogPosts = Scrivito.getClass('BlogPost').all().order('publishedAt', 'desc');
   if (author) {
     blogPosts = blogPosts.and('author', 'refersTo', author);
@@ -50,7 +50,7 @@ const BlogPostPreviewList = Scrivito.createComponent(({ maxItems, author }) => {
   );
 });
 
-const MonthHeadline = Scrivito.createComponent(({ date }) =>
+const MonthHeadline = Scrivito.React.connect(({ date }) =>
   <li className="timeline-divider">
     <time dateTime={ yearMonthCombination(date) }>
       { humanReadableMonth(date) }
@@ -58,7 +58,7 @@ const MonthHeadline = Scrivito.createComponent(({ date }) =>
   </li>
 );
 
-const BlogPostPreview = Scrivito.createComponent(({ post }) => {
+const BlogPostPreview = Scrivito.React.connect(({ post }) => {
   return (
     <li>
       <BlogPostDate post={ post } />
@@ -83,7 +83,7 @@ const BlogPostPreview = Scrivito.createComponent(({ post }) => {
   );
 });
 
-const BlogPostTitleImage = Scrivito.createComponent(({ post }) => {
+const BlogPostTitleImage = Scrivito.React.connect(({ post }) => {
   const titleImage = post.get('titleImage');
   if (!titleImage) { return null; }
 

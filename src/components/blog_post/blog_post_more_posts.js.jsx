@@ -1,6 +1,6 @@
 import BlogPostPreviewList from 'components/blog_post/blog_post_preview_list';
 
-const BlogPostMorePosts = Scrivito.createComponent(({ author }) => {
+function BlogPostMorePosts({ author }) {
   if (!author) { return null; }
   if (author.objClass !== 'Author') { return null; }
 
@@ -12,6 +12,6 @@ const BlogPostMorePosts = Scrivito.createComponent(({ author }) => {
       </div>
     </section>
   );
-});
+}
 
-export default BlogPostMorePosts;
+export default Scrivito.React.connect(BlogPostMorePosts);

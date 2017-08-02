@@ -54,32 +54,39 @@ Scrivito.provideUiConfig(GalleryImageWidget, {
   titleForContent: widget => `${widget.get('title')} - ${widget.get('subtitle')}`,
 });
 
-const GalleryImageWidgetComponent = Scrivito.createComponent(({ widget, openLightbox }) => {
-  const title = widget.get('title');
-  const subtitle = widget.get('subtitle');
-  const image = widget.get('image');
+class BaseGalleryImageWidgetComponent extends React.Component {
+  render() {
+    const widget = this.props.widget;
+    const openLightbox = this.props.openLightbox;
 
-  let imageUrl = '';
-  if (image) {
-    // Transform image to max. 50% of the screen width
-    const binary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
-    imageUrl = binary.url;
+    const title = widget.get('title');
+    const subtitle = widget.get('subtitle');
+    const image = widget.get('image');
+
+    let imageUrl = '';
+    if (image) {
+      // Transform image to max. 50% of the screen width
+      const binary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
+      imageUrl = binary.url;
+    }
+
+    return (<div className="col-md-3 col-sm-4 col-xs-6 gallery-box">
+      <div
+        className="gallery-box-image"
+        style={ { background: `url(${imageUrl}) no-repeat center / cover` } }>
+      </div>
+      <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
+        <span className="gallery-box-content">
+          <i className="fa fa-camera" aria-hidden="true"></i>
+          <span className="title">{ title }</span>
+          <span className="subtitle">{ subtitle }</span>
+        </span>
+      </a>
+    </div>);
   }
+}
 
-  return (<div className="col-md-3 col-sm-4 col-xs-6 gallery-box">
-    <div
-      className="gallery-box-image"
-      style={ { background: `url(${imageUrl}) no-repeat center / cover` } }>
-    </div>
-    <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
-      <span className="gallery-box-content">
-        <i className="fa fa-camera" aria-hidden="true"></i>
-        <span className="title">{ title }</span>
-        <span className="subtitle">{ subtitle }</span>
-      </span>
-    </a>
-  </div>);
-});
+const GalleryImageWidgetComponent = Scrivito.React.connect(BaseGalleryImageWidgetComponent);
 
 function devicePixelRatio() {
   return window.devicePixelRatio || 1;

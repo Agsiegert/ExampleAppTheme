@@ -1,7 +1,8 @@
 import FontAwesomeIconComponent from 'components/font_awesome_icon';
 
-const Footer = Scrivito.createComponent(() => {
+function Footer() {
   const root = Scrivito.Obj.root();
+
   return (
     <footer>
       <div className="bg-greywhite">
@@ -23,6 +24,6 @@ const Footer = Scrivito.createComponent(() => {
       </div>
     </footer>
   );
-});
+}
 
-export default Footer;
+export default Scrivito.React.connect(Footer);

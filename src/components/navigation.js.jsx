@@ -4,21 +4,27 @@ import Navbar from './navigation/navbar';
 import NavigationSection from './navigation/navigation_section';
 import { SearchBox, SearchIcon } from './navigation/search';
 
-const Navigation = Scrivito.createComponent({
-  getInitialState() {
-    return {
+class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       scrolled: false,
       showSearch: false,
     };
-  },
+
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.toggleSearch = this.toggleSearch.bind(this);
+  }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-  },
+  }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
-  },
+  }
 
   handleScroll(event) {
     // see https://stackoverflow.com/q/28633221/881759 for discussion about pageYOffset
@@ -29,11 +35,11 @@ const Navigation = Scrivito.createComponent({
       // only set state, if needed. Otherwise a render will be triggered on _every_ scroll.
       this.setState({ scrolled: scrolledToBe });
     }
-  },
+  }
 
   toggleSearch() {
     this.setState({ showSearch: !this.state.showSearch });
-  },
+  }
 
   render() {
     const {
@@ -95,8 +101,8 @@ const Navigation = Scrivito.createComponent({
         <NavigationSection />
       </section>
     );
-  },
-});
+  }
+}
 
 function currentPageNavigationOptions() {
   if (Scrivito.currentPage()) {
@@ -130,4 +136,4 @@ function fullWidthTransformedUrl(obj) {
   return transformedBinary.url;
 }
 
-export default Navigation;
+export default Scrivito.React.connect(Navigation);

@@ -1,4 +1,4 @@
-const NavigationSection = Scrivito.createComponent(() => {
+function NavigationSection() {
   if (!Scrivito.currentPage()) { return null; }
   const obj = Scrivito.currentPage();
 
@@ -10,6 +10,6 @@ const NavigationSection = Scrivito.createComponent(() => {
       className="container"
       content={ obj }
       attribute="navigationSection" />;
-});
+}
 
-export default NavigationSection;
+export default Scrivito.React.connect(NavigationSection);

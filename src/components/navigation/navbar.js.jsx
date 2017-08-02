@@ -1,9 +1,12 @@
-const Navbar = Scrivito.createComponent(() => <Scrivito.React.ChildList
-    className="nav navbar-nav navbar-right"
-    parent={ Scrivito.Obj.root() }
-    renderChild={ renderChild }
-  />
-);
+function Navbar() {
+  return (
+    <Scrivito.React.ChildList
+      className="nav navbar-nav navbar-right"
+      parent={ Scrivito.Obj.root() }
+      renderChild={ renderChild }
+    />
+  );
+}
 
 function renderChild(child) {
   if (child.children.length === 0) {
@@ -21,16 +24,20 @@ function renderSingleChild(child) {
   </li>);
 }
 
-const Dropdown = Scrivito.createComponent({
-  getInitialState() {
-    return {
+class BaseDropdown extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
       open: false,
     };
-  },
+
+    this.toggleOpen = this.toggleOpen.bind(this);
+  }
 
   toggleOpen() {
     this.setState({ open: !this.state.open });
-  },
+  }
 
   render() {
     const child = this.props.child;
@@ -59,8 +66,10 @@ const Dropdown = Scrivito.createComponent({
         />
       </li>
     );
-  },
-});
+  }
+}
+
+const Dropdown = Scrivito.React.connect(BaseDropdown);
 
 function isActive(page) {
   if (!Scrivito.currentPage()) { return false; }
@@ -77,4 +86,4 @@ function isActive(page) {
   return false;
 }
 
-export default Navbar;
+export default Scrivito.React.connect(Navbar);
