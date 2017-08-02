@@ -19,6 +19,14 @@ $zindex-modal-background:  100040 !default;
 $zindex-modal:             100050 !default;
 
 
+/* react-slick
+================================================== */
+
+$slick-loader-path: "~slick-carousel/slick/";
+$slick-font-path: "~slick-carousel/slick/fonts/";
+
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
 
 
 /* logo versions
