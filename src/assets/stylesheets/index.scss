@@ -128,7 +128,21 @@ $input-border-focus:             $btn-primary-color !default;
   }
 }
 
-
+.gutter10 { padding-left: 5px; padding-right: 5px; }
+.gutter10 .row { margin-left:-5px; margin-right:-5px; }
+.gutter10 .row > {
+  .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12, .col-xs-11, .col-sm-11,
+  .col-md-11, .col-lg-11, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+  .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-8, .col-sm-8, .col-md-8,
+  .col-lg-8, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-6, .col-sm-6,
+  .col-md-6, .col-lg-6, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-4,
+  .col-sm-4, .col-md-4, .col-lg-4, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
+  .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-1, .col-sm-1, .col-md-1,
+  .col-lg-1 {
+  padding-left: 5px;
+  padding-right: 5px;
+  }
+}
 
 /* Style
 =================================================================== */
@@ -146,7 +160,10 @@ body {
   background:transparent;
 }
 
-.container, .container-fluid { position:relative;}
+.container,
+.container-fluid { position:relative;}
+
+.container-fluid img { margin: 0; }
 
 a { color:$brand-primary; text-decoration: none; }
 a:hover, a:active, a:focus { color: darken($brand-primary,5%); text-decoration: underline; }
@@ -279,7 +296,8 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greylight,
 .bg-greymiddle,
 .bg-greywhite,
-.bg-white { padding: 60px 0; }
+.bg-white { padding: 60px 0; clear: both; }
+.nav-only { padding: 0!important; height: 75px;}
 
 .bg-brand-primary { background: $brand-primary; }
 .bg-brand-secondary { background: $brand-secondary; }
@@ -311,9 +329,6 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 
 .height-center { display: flex; text-align: center; }
 .height-center .container { margin: auto!important; }
-
-
-
 
 /* special navbar
 =================================================================== */
@@ -709,9 +724,82 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .timeline-footer { padding: 0 20px 10px 20px; }
 
   .timeline > li.timeline-divider time { text-align: center; }
-
-
 }
+
+/* panel-theme
+=================================================================== */
+
+.panel-theme { box-shadow: none; }
+.panel-theme .panel-body { padding: 20px 0; }
+.panel-theme .fa { padding: 20px 0; color: $brand-secondary;}
+.panel-theme a:hover { text-decoration: none; }
+
+
+
+/* gallery thumbs
+=================================================================== */
+
+.gallery-thumbs img { border: 7px solid #fff; border-left: none;}
+.gallery-thumbs [class*="col-"]:first-child img { border-left: 7px solid #fff; }
+
+.margin-neg-offset { margin-top: -4%;}
+
+
+
+
+
+
+/* pricing
+================================================== */
+
+.charts { margin-top: 40px; margin-bottom: 25px;}
+.charts .chart {
+  background-color: $theme-greywhite; border-radius: 5px;
+  border: 1px solid #eee; padding: 50px 20px 80px 20px;
+  text-align: center; width: 97%; min-height: 344px;
+  position: relative; top: 30px;
+  }
+.charts .chart.first { @media(min-width: 992px) { float: right;  left: 45px;}}
+.charts .chart.last { @media(min-width: 992px) { left: -45px;  }}
+
+.charts .chart { @media (max-width: 991px) { float: none !important; left: 0px !important; top: 0px !important;  margin: 0 auto; width: 55%;  margin-bottom: 25px !important; }}
+.charts .chart.last { @media (max-width: 991px) {  margin-bottom: 0px !important;}}
+.charts .chart { @media (max-width: 600px) {  width: 90% !important;}}
+
+.charts .chart.featured { z-index: 999; background:#fff; overflow:hidden; position:relative; box-shadow: 0 0 20px rgba(0,0,0,.1);}
+.charts .chart.featured { @media(min-width: 992px) { margin: 0 auto;  top: 0px; min-height: 430px; }}
+
+
+.charts .chart .plan-name {
+  font-size:13px; font-weight: 700; color: $theme-grey;
+  margin: 0 auto; margin: 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  }
+.charts .chart .quantity { color: $theme-grey; margin-top: 40px;}
+.charts .chart .quantity .dollar {font-size: 40px; position: relative;top: -27px;}
+.charts .chart .quantity .price { font-size: 85px; }
+.charts .chart .quantity .period {
+  color: $theme-greymiddle; font-size: 20px;
+  position: relative; top: -3px; margin-left: 0;
+  }
+
+.charts .chart .specs { margin: 10px 0 20px; font-size: 14px; }
+.charts .chart .specs .spec { color: $theme-greymiddle; margin-bottom: 5px; }
+.charts .chart .specs .variable { padding: 0 5px; font-weight: 700; color: $theme-grey; }
+
+.charts .chart.featured:after {
+  content:'popular'; color:#fff;
+  background: $brand-secondary;
+  font-size:12px; font-weight: 700;
+  padding: 0 8px; border-radius: 3px;
+  z-index:12111; text-transform: uppercase;
+  position:absolute; top:20px; right:20px;
+  }
+
+.charts .chart .btn { position: absolute; bottom: 30px; left: 20%; right: 20%; }
+
+
 
 
 
