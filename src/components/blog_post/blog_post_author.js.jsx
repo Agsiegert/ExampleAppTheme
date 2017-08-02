@@ -1,4 +1,4 @@
-const BlogPostAuthor = Scrivito.createComponent(({ author }) => {
+function BlogPostAuthor({ author }) {
   if (!author) { return null; }
   if (author.objClass !== 'Author') { return null; }
 
@@ -18,13 +18,13 @@ const BlogPostAuthor = Scrivito.createComponent(({ author }) => {
       </div>
     </section>
   );
-});
+}
 
-const AuthorPicture = Scrivito.createComponent(({ picture }) => {
+const AuthorPicture = Scrivito.React.connect(({ picture }) => {
   if (!picture) { return null; }
   const image = picture.get('blob').transform({ width: 200, height: 200, fit: 'crop' });
 
   return (<img src={ image.url } className="img-circle" />);
 });
 
-export default BlogPostAuthor;
+export default Scrivito.React.connect(BlogPostAuthor);

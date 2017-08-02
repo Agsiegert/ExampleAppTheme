@@ -19,13 +19,20 @@ Scrivito.provideUiConfig(GalleryWidget, {
   },
 });
 
-Scrivito.provideComponent(GalleryWidget, {
-  getInitialState() {
-    return {
+class GalleryWidgetComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       currentImage: 0,
       lightboxIsOpen: false,
     };
-  },
+
+    this.openLightbox = this.openLightbox.bind(this);
+    this.closeLightbox = this.closeLightbox.bind(this);
+    this.gotoPrevious = this.gotoPrevious.bind(this);
+    this.gotoNext = this.gotoNext.bind(this);
+    this.gotoImage = this.gotoImage.bind(this);
+  }
 
   openLightbox(index, event) {
     event.preventDefault();
@@ -33,32 +40,32 @@ Scrivito.provideComponent(GalleryWidget, {
       currentImage: index,
       lightboxIsOpen: true,
     });
-  },
+  }
 
   closeLightbox() {
     this.setState({
       currentImage: 0,
       lightboxIsOpen: false,
     });
-  },
+  }
 
   gotoPrevious() {
     this.setState({
       currentImage: this.state.currentImage - 1,
     });
-  },
+  }
 
   gotoNext() {
     this.setState({
       currentImage: this.state.currentImage + 1,
     });
-  },
+  }
 
   gotoImage(index) {
     this.setState({
       currentImage: index,
     });
-  },
+  }
 
   render() {
     const widget = this.props.widget;
@@ -89,7 +96,9 @@ Scrivito.provideComponent(GalleryWidget, {
         />
       </div>
     );
-  },
-});
+  }
+}
+
+Scrivito.provideComponent(GalleryWidget, GalleryWidgetComponent);
 
 export default GalleryWidget;

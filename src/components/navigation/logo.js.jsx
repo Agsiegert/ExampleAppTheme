@@ -15,12 +15,14 @@ function logoStyle({ scrolled, navigationStyle }) {
   };
 }
 
-const Logo = Scrivito.createComponent(({ scrolled, navigationStyle }) =>
-  <Scrivito.React.Link
-      to={ Scrivito.Obj.root() }
-      className="navbar-brand"
-      style={ logoStyle({ scrolled, navigationStyle }) }>
-  </Scrivito.React.Link>
-);
+function Logo({ scrolled, navigationStyle }) {
+  return (
+    <Scrivito.React.Link
+        to={ Scrivito.Obj.root() }
+        className="navbar-brand"
+        style={ logoStyle({ scrolled, navigationStyle }) }>
+    </Scrivito.React.Link>
+  );
+}
 
-export default Logo;
+export default Scrivito.React.connect(Logo);

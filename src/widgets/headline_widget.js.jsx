@@ -41,27 +41,24 @@ Scrivito.provideUiConfig(HeadlineWidget, {
   titleForContent: widget => widget.get('headline'),
 });
 
-Scrivito.provideComponent(HeadlineWidget, {
-  render() {
-    const widget = this.props.widget;
-    const level = widget.get('level') || 'h1';
+Scrivito.provideComponent(HeadlineWidget, widget => {
+  const level = widget.get('level') || 'h1';
 
-    const style = widget.get('style') || level;
-    const classNames = [style];
-    if (widget.get('centered') === 'yes') {
-      classNames.push('text-center');
-    }
-    if (widget.get('showDividingLine') === 'yes') {
-      classNames.push('border-bottom');
-    }
+  const style = widget.get('style') || level;
+  const classNames = [style];
+  if (widget.get('centered') === 'yes') {
+    classNames.push('text-center');
+  }
+  if (widget.get('showDividingLine') === 'yes') {
+    classNames.push('border-bottom');
+  }
 
-    return <Scrivito.React.Content
-        tag={ level }
-        content={ widget }
-        attribute="headline"
-        className={ classNames.join(' ') }
-      />;
-  },
+  return <Scrivito.React.Content
+      tag={ level }
+      content={ widget }
+      attribute="headline"
+      className={ classNames.join(' ') }
+    />;
 });
 
 export default HeadlineWidget;

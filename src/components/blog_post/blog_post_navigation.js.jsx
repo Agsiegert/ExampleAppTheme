@@ -1,6 +1,6 @@
 import BlogPostDate from './blog_post_date';
 
-const BlogPostNavigation = Scrivito.createComponent(({ currentPost }) => {
+const BlogPostNavigation = Scrivito.React.connect(({ currentPost }) => {
   if (!currentPost.get('publishedAt')) { return null; }
 
   return (
@@ -24,7 +24,7 @@ const BlogPostNavigation = Scrivito.createComponent(({ currentPost }) => {
   );
 });
 
-const BlogPostNextLink = Scrivito.createComponent(({ currentBlogPost }) => {
+const BlogPostNextLink = Scrivito.React.connect(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
 
   // find greater than publishedAt
@@ -42,7 +42,7 @@ const BlogPostNextLink = Scrivito.createComponent(({ currentBlogPost }) => {
   );
 });
 
-const BlogPostPreviousLink = Scrivito.createComponent(({ currentBlogPost }) => {
+const BlogPostPreviousLink = Scrivito.React.connect(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
 
   // find less than or equal publishedAt

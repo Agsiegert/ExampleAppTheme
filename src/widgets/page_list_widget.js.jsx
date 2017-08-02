@@ -21,30 +21,27 @@ Scrivito.provideUiConfig(PageListWidget, {
   },
 });
 
-Scrivito.provideComponent(PageListWidget, {
-  render() {
-    const widget = this.props.widget;
-    const pages = widget.get('pages');
+Scrivito.provideComponent(PageListWidget, widget => {
+  const pages = widget.get('pages');
 
-    if (pages.size === 0) {
-      return <div></div>;
+  if (pages.size === 0) {
+    return <div></div>;
+  }
+
+  return (<ul>
+    <li>
+      <span className="border-bottom">
+        { widget.get('headline') }
+      </span>
+    </li>
+    {
+      pages.map(page => <li key={ page.id }>
+         <Scrivito.React.Link to={ page }>
+           { page.get('title') }
+         </Scrivito.React.Link>
+      </li>)
     }
-
-    return (<ul>
-      <li>
-        <span className="border-bottom">
-          { widget.get('headline') }
-        </span>
-      </li>
-      {
-        pages.map(page => <li key={ page.id }>
-           <Scrivito.React.Link to={ page }>
-             { page.get('title') }
-           </Scrivito.React.Link>
-        </li>)
-      }
-    </ul>);
-  },
+  </ul>);
 });
 
 export default PageListWidget;

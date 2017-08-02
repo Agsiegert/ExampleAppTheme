@@ -55,7 +55,7 @@ Scrivito.provideComponent(Blog, obj =>
   </div>
 );
 
-const TagList = Scrivito.createComponent(() => {
+const TagList = Scrivito.React.connect(() => {
   const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name);
 
   return (

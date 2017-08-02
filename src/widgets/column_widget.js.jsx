@@ -37,35 +37,32 @@ Scrivito.provideUiConfig(ColumnWidget, {
   },
 });
 
-Scrivito.provideComponent(ColumnWidget, {
-  render() {
-    const widget = this.props.widget;
-    let nrOfColumns = widget.get('nrOfColumns');
-    if (![1, 2, 3, 4].includes(nrOfColumns)) {
-      // fallback value, if missing or invalid
-      nrOfColumns = 2;
-    }
-    const colSize = 12 / nrOfColumns;
-    const cols = [];
-    [...Array(nrOfColumns).keys()].forEach(index => {
-      const colNr = index + 1;
+Scrivito.provideComponent(ColumnWidget, widget => {
+  let nrOfColumns = widget.get('nrOfColumns');
+  if (![1, 2, 3, 4].includes(nrOfColumns)) {
+    // fallback value, if missing or invalid
+    nrOfColumns = 2;
+  }
+  const colSize = 12 / nrOfColumns;
+  const cols = [];
+  [...Array(nrOfColumns).keys()].forEach(index => {
+    const colNr = index + 1;
 
-      cols.push(
-        <Scrivito.React.Content
-          tag="div"
-          className={ `col-md-${colSize}` }
-          content={ widget }
-          attribute={ `column${colNr}` }
-          key={ colNr } />
-      );
-    });
-
-    return (
-      <div className="row">
-        { cols }
-      </div>
+    cols.push(
+      <Scrivito.React.Content
+        tag="div"
+        className={ `col-md-${colSize}` }
+        content={ widget }
+        attribute={ `column${colNr}` }
+        key={ colNr } />
     );
-  },
+  });
+
+  return (
+    <div className="row">
+      { cols }
+    </div>
+  );
 });
 
 export default ColumnWidget;

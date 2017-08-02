@@ -1,6 +1,6 @@
 import twoDigitNumber from 'utils/two_digit_number';
 
-const BlogPostDate = Scrivito.createComponent(({ post }) => {
+function BlogPostDate({ post }) {
   const date = post.get('publishedAt');
 
   if (!date) { return null; }
@@ -12,6 +12,6 @@ const BlogPostDate = Scrivito.createComponent(({ post }) => {
       { twoDigitNumber(month) }/{ twoDigitNumber(dayOfMonth) }
     </time>
   );
-});
+}
 
-export default BlogPostDate;
+export default Scrivito.React.connect(BlogPostDate);
