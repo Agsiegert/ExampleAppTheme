@@ -19,6 +19,14 @@ $zindex-modal-background:  100040 !default;
 $zindex-modal:             100050 !default;
 
 
+/* react-slick
+================================================== */
+
+$slick-loader-path: "~slick-carousel/slick/";
+$slick-font-path: "~slick-carousel/slick/fonts/";
+
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
 
 
 /* logo versions
@@ -572,8 +580,12 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   margin: 5px;
   }
 .quote-portrait-wrapper a:hover img,
-.quote-portrait-wrapper a.active img { width: 75px;}
+.quote-portrait-wrapper .slick-active img { width: 75px; }
 
+.quote-portrait-wrapper li {
+  position: relative;
+  display: inline-block;
+}
 
 /* gallery-box with zoom hover
 =================================================================== */

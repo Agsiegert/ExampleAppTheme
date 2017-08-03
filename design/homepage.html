@@ -15,6 +15,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.7.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -467,24 +468,51 @@
           </section>
         <!-- section:end -->
 
+
         <!-- section:start -->
         <section class="bg-dark-image height-center" style="background: linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7)), url(content-images/breather-163396.jpg) no-repeat center / cover;">
-
-          <div class="container">
-            <h1 class="quote-headline">"</h1>
-            <p class="h4 text-center">Lorem ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <p class="small text-center">Jane Doe, CEO @ Scrivito</p>
-            <div class="quote-portrait-wrapper">
-              <a href=""><img src="content-images/user-man.png" alt=""></a>
-              <a href=""><img src="content-images/user-woman.png" alt=""></a>
-              <a class="active" href=""><img src="content-images/user-woman.png" alt=""></a>
-              <a href=""><img src="content-images/user-man.png" alt=""></a>
-              <a href=""><img src="content-images/user-man.png" alt=""></a>
+          <div class="container slickDemo">
+            <div>
+              <h1 class="quote-headline">"</h1>
+              <p class="h4 text-center">
+                Lorem ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p class="small text-center">Jane Doe, CEO @ Scrivito</p>
             </div>
-
+            <div>
+              <h1 class="quote-headline">"</h1>
+              <p class="h4 text-center">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                ea commodo consequat.
+              </p>
+              <p class="small text-center">John Doe, CEO @ Scrivito</p>
+            </div>
+            <div>
+              <h1 class="quote-headline">"</h1>
+              <p class="h4 text-center">
+                Simply Amazing!
+              </p>
+              <p class="small text-center">John Doe, CEO @ Scrivito</p>
+            </div>
+            <div>
+              <h1 class="quote-headline">"</h1>
+              <p class="h4 text-center">
+                A revolutionary product.
+              </p>
+              <p class="small text-center">Jane Doe, CEO @ Scrivito</p>
+            </div>
+            <div>
+              <h1 class="quote-headline">"</h1>
+              <p class="h4 text-center">
+                Best in class!
+              </p>
+              <p class="small text-center">Jane Doe, CEO @ Scrivito</p>
+            </div>
           </div>
-
         </section>
         <!-- section:end -->
 
@@ -577,6 +605,18 @@
         $('.navbar-brand').css('background', 'rgba(0, 0, 0, 0) url(scrivito_logo_white.svg) no-repeat scroll center center / contain');
       }
 
+      $('.slickDemo').slick({
+        dots: true,
+        infinite: true,
+        dotsClass: 'quote-portrait-wrapper',
+        customPaging: (slider, i) => {
+          if (i % 2) {
+            return '<a><img src="content-images/user-woman.png" alt=""/></a>';
+          } else {
+            return '<a><img src="content-images/user-man.png" alt=""/></a>';
+          }
+        }
+      });
     </script>
 
   </body>
