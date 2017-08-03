@@ -618,6 +618,16 @@ export default () => {
         ],
       }),
       new SectionWidget({
+        content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'What people say',
+          }),
+        ],
+      }),
+      new SectionWidget({
         backgroundColor: 'dark-image',
         backgroundImage: unsplashWhiteMeetingRoom,
         content: [
