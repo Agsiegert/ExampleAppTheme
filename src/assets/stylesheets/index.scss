@@ -580,8 +580,12 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   margin: 5px;
   }
 .quote-portrait-wrapper a:hover img,
-.quote-portrait-wrapper a.active img { width: 75px;}
+.quote-portrait-wrapper .slick-active img { width: 75px; }
 
+.quote-portrait-wrapper li {
+  position: relative;
+  display: inline-block;
+}
 
 /* gallery-box with zoom hover
 =================================================================== */
