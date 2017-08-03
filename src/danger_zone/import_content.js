@@ -9,9 +9,13 @@ import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
 import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
 import unsplashFemaleBehindWindowData from './binary_data/unsplash_female_behind_window';
+import unsplashFemalePortrait1Data from './binary_data/unsplash_female_portrait_1';
+import unsplashFemalePortrait2Data from './binary_data/unsplash_female_portrait_2';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 import unsplashLadyInCoffeeShopData from './binary_data/unsplash_lady_in_coffee_shop';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
+import unsplashMalePortrait1Data from './binary_data/unsplash_male_portrait_1';
+import unsplashMalePortrait2Data from './binary_data/unsplash_male_portrait_2';
 import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sunglasses';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
 import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glass';
@@ -37,6 +41,8 @@ const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
+const TestimonialSliderWidget = Scrivito.getClass('TestimonialSliderWidget');
+const TestimonialWidget = Scrivito.getClass('TestimonialWidget');
 const TextWidget = Scrivito.getClass('TextWidget');
 
 const UNSPLASH_TAGS = ['source: unsplash.com'];
@@ -68,11 +74,19 @@ export default () => {
   const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
   const unsplashFemaleBehindWindow = uploadImage(
     unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
+  const unsplashFemalePortrait1 = uploadImage(
+    unsplashFemalePortrait1Data, 'Female Portrait 1', UNSPLASH_TAGS);
+  const unsplashFemalePortrait2 = uploadImage(
+    unsplashFemalePortrait2Data, 'Female Portrait 2', UNSPLASH_TAGS);
   const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
   const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop',
     UNSPLASH_TAGS);
   const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard',
     UNSPLASH_TAGS);
+  const unsplashMalePortrait1 = uploadImage(
+    unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
+  const unsplashMalePortrait2 = uploadImage(
+    unsplashMalePortrait2Data, 'Male Portrait 1', UNSPLASH_TAGS);
   const unsplashMaleWithSunglasses = uploadImage(
     unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
   const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window',
@@ -600,6 +614,46 @@ export default () => {
             centered: 'yes',
             text: 'Load all blog entries',
             target: blog,
+          }),
+        ],
+      }),
+      new SectionWidget({
+        content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'What people say',
+          }),
+        ],
+      }),
+      new SectionWidget({
+        backgroundColor: 'dark-image',
+        backgroundImage: unsplashWhiteMeetingRoom,
+        content: [
+          new TestimonialSliderWidget({
+            testimonials: [
+              new TestimonialWidget({
+                testimonial: loremIpsum({ units: 'sentences', count: 2 }),
+                author: 'Alice Smith, CEO @ Acme',
+                authorImage: unsplashFemalePortrait1,
+              }),
+              new TestimonialWidget({
+                testimonial: loremIpsum({ units: 'sentences', count: 2 }),
+                author: 'Bob Johnson, CTO @ MegaCorp',
+                authorImage: unsplashMalePortrait1,
+              }),
+              new TestimonialWidget({
+                testimonial: loremIpsum({ units: 'sentences', count: 2 }),
+                author: 'Mary Williams, CTO @ The Company',
+                authorImage: unsplashFemalePortrait2,
+              }),
+              new TestimonialWidget({
+                testimonial: loremIpsum({ units: 'sentences', count: 2 }),
+                author: 'Robert Jones, CEO @ Next Big Thing',
+                authorImage: unsplashMalePortrait2,
+              }),
+            ],
           }),
         ],
       }),

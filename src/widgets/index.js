@@ -10,4 +10,6 @@ import HeadlineWidget from './headline_widget';
 import ImageWidget from './image_widget';
 import PageListWidget from './page_list_widget';
 import SectionWidget from './section_widget';
+import TestimonialSliderWidget from './testimonial_slider_widget';
+import TestimonialWidget from './testimonial_widget';
 import TextWidget from './text_widget';

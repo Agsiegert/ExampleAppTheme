@@ -52,6 +52,7 @@
     "no-use-before-define": 0,
     "no-useless-constructor": 0,
     "object-shorthand": 0,
+    "react/display-name": 0,
     "react/jsx-curly-spacing": [2, "always"],
     "react/jsx-no-undef": ["error", { "allowGlobals": true }],
     "react/no-danger": 0,
