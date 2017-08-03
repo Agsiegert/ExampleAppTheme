@@ -610,7 +610,11 @@
         infinite: true,
         dotsClass: 'quote-portrait-wrapper',
         customPaging: (slider, i) => {
-          return '<a><img src="content-images/user-man.png" alt=""/></a>';
+          if (i % 2) {
+            return '<a><img src="content-images/user-woman.png" alt=""/></a>';
+          } else {
+            return '<a><img src="content-images/user-man.png" alt=""/></a>';
+          }
         }
       });
     </script>
