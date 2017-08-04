@@ -7,6 +7,14 @@ import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
 import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
+import unsplashAllesCandleWoodTableData from './binary_data/unsplash_alles_candle_wood_table';
+import unsplashAppleWorkstationCalendarIpadData from './binary_data/unsplash_apple_workstation_calendar_ipad';
+import unsplashAppleWorkstationWindcaveData from './binary_data/unsplash_apple_workstation_windcave';
+import unsplashBikelaneData from './binary_data/unsplash_bikelane';
+import unsplashBlackTablesWhiteChairsData from './binary_data/unsplash_black_tables_white_chairs';
+import unsplashBuildingCornerCloudsData from './binary_data/unsplash_building_corner_clouds';
+import unsplashBusinessPaperRedSocksData from './binary_data/unsplash_business_paper_red_socks';
+import unsplashBusinessPaperWristwatchData from './binary_data/unsplash_business_paper_wristwatch';
 import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
 import unsplashFemaleBehindWindowData from './binary_data/unsplash_female_behind_window';
 import unsplashFemalePortrait1Data from './binary_data/unsplash_female_portrait_1';
@@ -84,6 +92,21 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function random(array) {
+  const randomNumber = Math.floor(Math.random() * (array.length));
+  return array[randomNumber];
+}
+
+function randomShuffle(array) {
+  const shuffled = array.sort(() => { return 0.5 - Math.random(); });
+  return shuffled.slice(0, Math.floor(Math.random() * ((array.length) + 1)));
+}
+
+// Returns a random date in the past ~5 months(9960000000)
+function randomPastDate() {
+  return new Date(+(new Date()) - (Math.floor(Math.random() * 9960000000)));
+}
+
 function importContent() {
   allExistingImages().then(images => {
     existingImages = images;
@@ -94,6 +117,20 @@ function importContent() {
     const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
     // Images
+    const unsplashAllesCandleWoodTable = uploadImage(
+      unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
+    const unsplashAppleWorkstationCalendarIpad = uploadImage(
+      unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
+    const unsplashAppleWorkstationWindcave = uploadImage(
+      unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
+    const unsplashBikelane = uploadImage(unsplashBikelaneData, 'Bikelane', UNSPLASH_TAGS);
+    const unsplashBlackTablesWhiteChairs = uploadImage(
+      unsplashBlackTablesWhiteChairsData, 'Black tables with white chairs', UNSPLASH_TAGS);
+    const unsplashBuildingCornerClouds = uploadImage(
+      unsplashBuildingCornerCloudsData, 'Building corner with clouds', UNSPLASH_TAGS);
+    const unsplashBusinessPaperRedSocks = uploadImage(
+      unsplashBusinessPaperRedSocksData, 'Business paper guy in red socks', UNSPLASH_TAGS);
+    const unsplashBusinessPaperWristwatch = uploadImage(unsplashBusinessPaperWristwatchData, 'Ruler on a desk', UNSPLASH_TAGS);
     const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
     const unsplashFemaleBehindWindow = uploadImage(
       unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
@@ -195,74 +232,71 @@ function importContent() {
       picture: unsplashMaleWithSunglasses,
     });
 
-    // BlogPosts
-    BlogPost.create({
-      author: janeDoe,
-      title: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
-      titleImage: unsplashLadyInCoffeeShop,
-      subtitle: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 7 })),
-      tags: ['Design', 'Marketing'],
-      publishedAt: new Date(2017, 6, 15, 12),
-      body: [
-        new SectionWidget({
-          content: [
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 3,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-            new ImageWidget({ image: unsplashDeskRuler }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 3,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
-    });
+    const authors = [janeDoe, johnDoe];
 
-    BlogPost.create({
-      author: johnDoe,
-      title: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
-      // no titleImage
-      subtitle: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 7 })),
-      tags: ['Development', 'Business'],
-      publishedAt: new Date(2017, 6, 13, 12),
-      body: [
-        new SectionWidget({
-          content: [
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 3,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
+    const postImages = [
+      unsplashAllesCandleWoodTable,
+      unsplashAppleWorkstationCalendarIpad,
+      unsplashAppleWorkstationWindcave,
+      unsplashBikelane,
+      unsplashBlackTablesWhiteChairs,
+      unsplashBuildingCornerClouds,
+      unsplashBusinessPaperRedSocks,
+      unsplashBusinessPaperWristwatch,
+      unsplashDeskRuler,
+      unsplashLadyInCoffeeShop,
+      unsplashLaptopKeyboard,
+      unsplashOfficeWindow,
+      unsplashOfficeWithGlass,
+      unsplashOutdoorMeeting,
+      unsplashPlant,
+      unsplashScreenWithClock,
+      unsplashWhiteMeetingRoom,
+      null,
+      null,
+      null,
+      null,
+    ];
+
+    const tags = ['Design', 'Development', 'Marketing', 'Business'];
+
+
+    // BlogPosts
+    for (let i = 0; i < 20; i += 1) {
+      BlogPost.create({
+        author: random(authors),
+        title: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
+        titleImage: random(postImages),
+        subtitle: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 7 })),
+        tags: randomShuffle(tags),
+        publishedAt: randomPastDate(),
+        body: [
+          new SectionWidget({
+            content: [
+              new TextWidget({
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 3,
+                  paragraphLowerBound: 1,
+                  paragraphUpperBound: 10,
+                }),
               }),
-            }),
-            new ImageWidget({ image: unsplashLaptopKeyboard }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 3,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
+              new ImageWidget({ image: random(postImages) }),
+              new TextWidget({
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 3,
+                  paragraphLowerBound: 1,
+                  paragraphUpperBound: 10,
+                }),
               }),
-            }),
-          ],
-        }),
-      ],
-    });
+            ],
+          }),
+        ],
+      });
+    }
 
     // BLOG
     const blog = Blog.create({
@@ -448,7 +482,7 @@ function importContent() {
       body: [
         new SectionWidget({ content: [
           new HeadlineWidget({
-            headline: 'Our top feature',
+            headline: 'Our top features',
             level: 'h1',
             style: 'h2',
             showDividingLine: 'yes',
@@ -460,7 +494,7 @@ function importContent() {
               new HeadlineWidget({
                 level: 'h3',
                 style: 'h2',
-                headline: 'Content Management for Ruby on Rails Apps',
+                headline: 'Content Management for Professionals',
               }),
               new TextWidget({
                 text: loremIpsum({
@@ -482,7 +516,7 @@ function importContent() {
               new HeadlineWidget({
                 level: 'h3',
                 style: 'h2',
-                headline: 'Content Management for Ruby on Rails Apps',
+                headline: 'Content Management for Professionals',
               }),
               new TextWidget({
                 text: loremIpsum({
@@ -648,7 +682,7 @@ function importContent() {
               level: 'h1',
               style: 'h2',
               showDividingLine: 'yes',
-              headline: 'What people say',
+              headline: 'What people are saying',
             }),
           ],
         }),
