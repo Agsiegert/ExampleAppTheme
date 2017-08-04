@@ -256,6 +256,8 @@ function importContent() {
       null,
       null,
       null,
+      null,
+      null,
     ];
 
     const tags = ['Design', 'Development', 'Marketing', 'Business'];
@@ -282,7 +284,7 @@ function importContent() {
                   paragraphUpperBound: 10,
                 }),
               }),
-              new ImageWidget({ image: random(postImages) }),
+              new ImageWidget({ image: random(postImages.filter(Boolean)) }),
               new TextWidget({
                 text: loremIpsum({
                   units: 'paragraphs',
