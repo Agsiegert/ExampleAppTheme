@@ -205,6 +205,20 @@ function importContent() {
             }),
           ],
         }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Great feature overview',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            centered: 'yes',
+            headline: loremIpsum({ count: 2 }),
+          }),
+        ] }),
       ],
     });
 
