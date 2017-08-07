@@ -74,7 +74,7 @@ let existingImages;
 function uploadImage({ url, filename }, title, tags = []) {
   const existingImage = existingImages.filter(i => i.filename === filename);
   if (existingImage.length) {
-    console.log(`Image "${title}" is already uploaded. Skipping.`);
+    console.log(`Skipping image "${title}" - already uploaded.`);
     return Image.get(existingImage[0].id);
   }
 
@@ -786,6 +786,8 @@ function importContent() {
     });
 
     root.update({ footer: [footerRow] });
+
+    console.log('Created all objs/widget. Now uploading images...');
   });
 }
 
