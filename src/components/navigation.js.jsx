@@ -58,6 +58,7 @@ class Navigation extends React.Component {
       topSectionClassNames.push('bg-dark-image');
     } else {
       topSectionClassNames.push('bg-white');
+      topSectionClassNames.push('nav-only');
     }
 
     const bootstrapNavbarClassNames = [];
