@@ -2442,6 +2442,8 @@ var loadIdCounter = 0;
 
 var captureNotLoadedStackTrace = true;
 
+var allDataLoadedDuringRun = void 0;
+
 // An instance of LoadableData might be in one of these states:
 var MISSING = undefined;
 var AVAILABLE = 'AVAILABLE';
@@ -2467,6 +2469,7 @@ var LoadableData = function () {
   _createClass(LoadableData, null, [{
     key: 'throwNotLoaded',
     value: function throwNotLoaded() {
+      allDataLoadedDuringRun = false;
       throw new scrivito.NotLoadedError(captureNotLoadedStackTrace);
     }
   }, {
@@ -2477,19 +2480,29 @@ var LoadableData = function () {
   }, {
     key: 'run',
     value: function run(loadableFunction) {
+      var allDataLoadedBefore = allDataLoadedDuringRun;
+
+      allDataLoadedDuringRun = true;
+
       try {
+        var result = withoutNotLoadedStackTrace(loadableFunction);
+
         return {
           success: true,
-          result: withoutNotLoadedStackTrace(loadableFunction)
+          result: result,
+          allDataLoaded: allDataLoadedDuringRun
         };
       } catch (error) {
-        if (!scrivito.isNotLoadedError(error)) {
+        if (allDataLoadedDuringRun) {
           throw error;
         }
 
         return {
-          success: false
+          success: false,
+          allDataLoaded: false
         };
+      } finally {
+        allDataLoadedDuringRun = allDataLoadedBefore;
       }
     }
 
@@ -2537,6 +2550,7 @@ var LoadableData = function () {
         throw this._hydrateError(this._value.value());
       }
 
+      allDataLoadedDuringRun = false;
       LoadHandler.notifyMissingData(function () {
         return _this._progressLoading();
       });
@@ -2559,15 +2573,6 @@ var LoadableData = function () {
   }, {
     key: 'setError',
     value: function setError(error) {
-      if (scrivito.isNotLoadedError(error)) {
-        // prevent setting a NotLoadedError, since that would
-        // unravel the space-time continuum and destroy the world.
-        var warning = new _errors.InternalError('tried to set a Loadable to a NotLoadedError');
-        this._transitionToError(warning);
-
-        throw warning;
-      }
-
       this._transitionToError(error);
     }
 
@@ -2694,18 +2699,6 @@ var LoadableData = function () {
       }
 
       throw new _errors.InternalError('could not hydrate error');
-    }
-  }, {
-    key: '_promiseForNextChange',
-    value: function _promiseForNextChange() {
-      var deferred = new scrivito.Deferred();
-
-      var unsubscribe = this._value.subscribe(function () {
-        deferred.resolve();
-        unsubscribe();
-      });
-
-      return deferred.promise;
     }
   }, {
     key: '_reloadIfOutdated',
@@ -20673,7 +20666,7 @@ var _option_marker = __webpack_require__(96);
 
 var _option_marker2 = _interopRequireDefault(_option_marker);
 
-var _setup_dragstart_event = __webpack_require__(160);
+var _setup_dragstart_event = __webpack_require__(161);
 
 var _setup_dragstart_event2 = _interopRequireDefault(_setup_dragstart_event);
 
@@ -21197,10 +21190,11 @@ function connectReactClass(classComponent) {
               });
             }).loadRequiredData();
 
-            if (run.success) {
+            if (run.allDataLoaded) {
               reactElement = run.result;
             } else {
-              reactElement = _this3._scrivitoHandleLoading();
+              var preliminaryResult = run.success ? run.result : null;
+              reactElement = _this3._scrivitoHandleLoading(preliminaryResult);
             }
           } catch (error) {
             reactElement = _this3._scrivitoHandleError(error);
@@ -21211,12 +21205,12 @@ function connectReactClass(classComponent) {
       }
     }, {
       key: '_scrivitoHandleLoading',
-      value: function _scrivitoHandleLoading() {
+      value: function _scrivitoHandleLoading(preliminaryResult) {
         if (this._scrivitoRenderWhileLoading) {
           return this._scrivitoRenderWhileLoading();
         }
 
-        return null;
+        return preliminaryResult;
       }
     }, {
       key: '_scrivitoHandleError',
@@ -24635,11 +24629,6 @@ var LoadableValue = function () {
       return loadingState[this._id];
     }
   }, {
-    key: 'subscribe',
-    value: function subscribe(listener) {
-      return this._container.subscribe(listener);
-    }
-  }, {
     key: 'status',
     value: function status() {
       return this._getState().status;
@@ -25458,12 +25447,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
           return shouldRenderLoader ? React.createElement(scrivito.LoaderError, null) : null;
         };
 
-        var handleLoading = function handleLoading() {
+        var handleLoading = function handleLoading(preliminaryResult) {
           if (_this2.renderWhileLoading) {
             return _this2.renderWhileLoading();
           }
 
-          return shouldRenderLoader ? React.createElement(scrivito.Loader, null) : null;
+          return shouldRenderLoader ? React.createElement(scrivito.Loader, null) : preliminaryResult;
         };
 
         var rendered = void 0;
@@ -25478,10 +25467,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
               });
             }).loadRequiredData();
 
-            if (run.success) {
+            if (run.allDataLoaded) {
               rendered = run.result;
             } else {
-              rendered = handleLoading();
+              rendered = handleLoading(run.success ? run.result : null);
             }
           } catch (error) {
             rendered = handleError(error);
@@ -29544,7 +29533,8 @@ function connectToUi() {
 /***/ }),
 /* 158 */,
 /* 159 */,
-/* 160 */
+/* 160 */,
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29569,12 +29559,12 @@ function setupDragstartEvent(e) {
 exports.default = setupDragstartEvent;
 
 /***/ }),
-/* 161 */,
 /* 162 */,
 /* 163 */,
 /* 164 */,
 /* 165 */,
-/* 166 */
+/* 166 */,
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29601,7 +29591,6 @@ reactContext.keys().forEach(reactContext);
 __webpack_require__(253);
 
 /***/ }),
-/* 167 */,
 /* 168 */,
 /* 169 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -32461,7 +32450,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       return iterator.next();
     });
 
-    if (!run.success) {
+    if (!run.allDataLoaded) {
       return { done: false, objs: objs };
     }
 
@@ -32497,7 +32486,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   function loadableWithDefault(theDefault, loadableFunction) {
     var run = _loadable_data2.default.run(loadableFunction);
 
-    return run.success ? run.result : theDefault;
+    return run.allDataLoaded ? run.result : theDefault;
   }
 
   // export
@@ -32555,8 +32544,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _errors = __webpack_require__(1);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32580,28 +32567,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
       return _possibleConstructorReturn(this, (NotLoadedError.__proto__ || Object.getPrototypeOf(NotLoadedError)).call(this, 'Data is not yet loaded.', captureStackTrace));
     }
 
-    // this getter has an extravagant name, in order to avoid name clashes
-
-
-    _createClass(NotLoadedError, [{
-      key: 'scrivitoPrivateIsNotLoadedError',
-      get: function get() {
-        return true;
-      }
-    }]);
-
     return NotLoadedError;
   }(_errors.ScrivitoError);
 
-  function isNotLoadedError(error) {
-    // using duck-typing instead of "instanceof", so that these errors
-    // can be recognized across javascript (iframe) boundaries.
-    return error && error.scrivitoPrivateIsNotLoadedError;
-  }
-
   // export
+
+
   scrivito.NotLoadedError = NotLoadedError;
-  scrivito.isNotLoadedError = isNotLoadedError;
 })();
 
 /***/ }),
@@ -33561,7 +33533,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     _path: 'path',
     _permalink: 'permalink',
     _created_at: 'createdAt',
-    _last_changed: 'lastChanged'
+    _created_by: 'createdBy',
+    _last_changed: 'lastChanged',
+    _last_changed_by: 'lastChangedBy'
   };
 
   scrivito.BasicObj = function (_scrivito$BasicAttrib) {
@@ -33967,7 +33941,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         delete serializedAttributes._conflicts;
         delete serializedAttributes._modification;
         delete serializedAttributes._created_at;
+        delete serializedAttributes._created_by;
         delete serializedAttributes._last_changed;
+        delete serializedAttributes._last_changed_by;
 
         return serializedAttributes;
       }
@@ -34059,17 +34035,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }, {
       key: 'createdAt',
       get: function get() {
-        if (this._current._created_at) {
-          return scrivito.types.parseStringToDate(this._current._created_at);
-        }
-
-        return null;
+        return scrivito.types.parseStringToDate(this._current._created_at);
+      }
+    }, {
+      key: 'createdBy',
+      get: function get() {
+        return this._current._created_by;
       }
     }, {
       key: 'lastChanged',
       get: function get() {
         if (this._current._last_changed) {
           return scrivito.types.parseStringToDate(this._current._last_changed);
+        }
+
+        return null;
+      }
+    }, {
+      key: 'lastChangedBy',
+      get: function get() {
+        if (this._current._last_changed_by) {
+          return this._current._last_changed_by;
         }
 
         return null;
@@ -35820,6 +35806,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var FALLBACK_RESPONSE = { results: [] };
+
 (function () {
   scrivito.ObjQueryBatch = function () {
     _createClass(ObjQueryBatch, null, [{
@@ -35887,7 +35875,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: '_response',
       value: function _response() {
-        return this._data().get();
+        return this._data().get() || FALLBACK_RESPONSE;
       }
     }, {
       key: '_data',
@@ -35899,8 +35887,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           loader: function loader() {
             return _this._load();
           },
-          invalidation: invalidationFn(this._continuation),
-          throwNotLoaded: true
+          invalidation: invalidationFn(this._continuation)
         });
       }
     }, {
@@ -66088,7 +66075,7 @@ var _connect_to_ui = __webpack_require__(157);
 
 var _connect_to_ui2 = _interopRequireDefault(_connect_to_ui);
 
-__webpack_require__(166);
+__webpack_require__(167);
 
 __webpack_require__(156);
 
