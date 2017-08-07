@@ -4069,7 +4069,7 @@ var Binary = function () {
     get: function get() {
       this._assertNotTransformed('Content length');
 
-      return this.metadata.get('contentLength');
+      return this.metadata.get('contentLength') || 0;
     }
   }, {
     key: 'extname',
@@ -20402,8 +20402,7 @@ var MetadataCollection = function () {
         state: modelState(binaryId),
         loader: function loader() {
           return _this._loadData();
-        },
-        throwNotLoaded: true
+        }
       });
     }
   }
@@ -20416,7 +20415,12 @@ var MetadataCollection = function () {
     value: function get(name) {
       var underscoredName = underscoreMetadataName(name);
       if (this._binaryId) {
-        return this._loadableData.get()[underscoredName];
+        var data = this._loadableData.get();
+        if (!data) {
+          return;
+        }
+
+        return data[underscoredName];
       }
     }
 
@@ -32088,15 +32092,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loader: function loader() {
           return _this._loadData();
         },
-        invalidation: invalidation,
-        throwNotLoaded: true
+        invalidation: invalidation
       });
     }
 
     _createClass(FacetQuery, [{
       key: 'result',
       value: function result() {
-        var firstFacetResult = _underscore2.default.first(this._loadableData.get().facets);
+        var restApiResult = this._loadableData.get();
+        if (!restApiResult) {
+          return [];
+        }
+
+        var firstFacetResult = _underscore2.default.first(restApiResult.facets);
 
         return _underscore2.default.map(firstFacetResult, function (rawFacetValue) {
           var name = rawFacetValue.value;
