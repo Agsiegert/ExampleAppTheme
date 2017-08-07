@@ -4,6 +4,7 @@ import loremIpsum from 'lorem-ipsum';
 
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
+import iphoneData from './binary_data/iphone';
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
 import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
@@ -30,6 +31,7 @@ import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glas
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
 import unsplashPlantData from './binary_data/unsplash_plant';
 import unsplashScreenWithClockData from './binary_data/unsplash_screen_with_clock';
+import unsplashTidyDeskTouchScreenData from './binary_data/unsplash_tidy_desk_touch_screen';
 import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
 
 const Author = Scrivito.getClass('Author');
@@ -158,6 +160,8 @@ function importContent() {
     const unsplashPlant = uploadImage(unsplashPlantData, 'Plant on desk', UNSPLASH_TAGS);
     const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock',
       UNSPLASH_TAGS);
+    const unsplashTidyDeskTouchScreen = uploadImage(
+      unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
     const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room',
       UNSPLASH_TAGS);
 
@@ -165,15 +169,42 @@ function importContent() {
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
     const homepage2Screenshot = uploadImage(
       homepage2ScreenshotData, 'Homepage variant 2 screenshot');
+    const iphone = uploadImage(iphoneData, 'iPhone screenshot');
 
     // PRODUCT
     const product = Page.create({
       _path: '/product',
       title: 'Product',
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Product' }),
-        ] }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashTidyDeskTouchScreen,
+          content: [
+            new ColumnWidget({
+              nrOfColumns: 2,
+              column1: [
+                new HeadlineWidget({
+                  level: 'h1',
+                  style: 'h1',
+                  headline: 'Amazing video hero widget',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
+                }),
+                new ButtonWidget({
+                  text: 'Call to action',
+                }),
+              ],
+              column2: [new ImageWidget({ image: iphone })],
+            }),
+          ],
+        }),
       ],
     });
 
