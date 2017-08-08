@@ -5,7 +5,7 @@ const BlogPostNavigation = Scrivito.React.connect(({ currentPost }) => {
 
   return (
     <section className="bg-nav-content">
-      <div className="container-fluid">
+      <div className="container">
         <div className="nav-centered">
           <ul className="nav-blog">
             <li>

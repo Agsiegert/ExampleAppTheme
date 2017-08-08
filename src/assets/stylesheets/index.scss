@@ -305,6 +305,30 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greymiddle,
 .bg-greywhite,
 .bg-white { padding: 60px 0; clear: both; }
+
+
+.bg-dark-image,
+.bg-grey,
+.bg-greydark,
+.bg-greylight,
+.bg-greymiddle,
+.bg-greywhite,
+.bg-white {
+  &.min-height { min-height: 450px; }
+}
+@media (max-width: $screen-xs-max) {
+  .bg-dark-image,
+  .bg-grey,
+  .bg-greydark,
+  .bg-greylight,
+  .bg-greymiddle,
+  .bg-greywhite,
+  .bg-white {
+    &.min-height { min-height: 0; }
+  }
+}
+
+
 .nav-only { padding: 0!important; height: 75px;}
 
 .bg-brand-primary { background: $brand-primary; }
@@ -342,6 +366,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 =================================================================== */
 
 .bg-nav-content { height: 0; position: relative; z-index: 1000; }
+.bg-nav-content.auto-height {  height: auto; }
 .bg-nav-content .nav-centered { text-align: center; width: 100%; position: relative; }
 .bg-nav-content .nav-centered .nav {
   border: 10px solid #fff;
@@ -352,7 +377,33 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   padding: 0;
   text-transform: uppercase;
 }
-.bg-nav-content .nav-centered .nav a { color: $theme-greydark;}
+.bg-nav-content .nav-centered .nav a { color: $theme-greydark; border: 1px solid $theme-greylight; }
+.bg-nav-content .nav-centered .nav .active a { border: 1px solid $brand-primary; }
+.bg-nav-content .nav-centered .nav li + li { margin-left: 10px; }
+
+.bg-nav-content .nav-centered select {
+  background: #fff; border: 5px solid #fff;
+  box-shadow: 0 0 0 1px $theme-greylight inset;
+  border-radius: 0; outline: none;
+  -webkit-border-radius: 0px; -webkit-appearance: none;
+  display: block;
+  font-size: 15px; line-height: 20px;
+  margin: -20px 0 0 0; padding: 8px 12px;
+  position: relative; width: 100%; z-index: 2;
+  }
+@media (max-width: $screen-xs-max) {
+  .bg-nav-content .nav-centered:after {
+    content:''; z-index: 3; display: block;
+    position: absolute; top: 12px; right: 20px;
+    border-right: 2px solid #333;
+    border-top: 2px solid #333;
+    height: 14px;  width: 14px;
+    transform: rotate(135deg);
+    click-events: none;
+  }
+}
+
+
 
 /* navbar
 =================================================================== */

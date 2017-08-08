@@ -25,7 +25,7 @@
 
 
         <!-- section:start -->
-        <section class="navbar-fixed bg-dark-image" style="background: linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7)), url(content-images/alvin-engler-48444.jpg) no-repeat center / cover;">
+        <section class="navbar-fixed bg-dark-image min-height" style="background: linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7)), url(content-images/alvin-engler-48444.jpg) no-repeat center / cover;">
           <nav class="navbar navbar-transparent navbar-fixed-top navbar-default">
             <div class="container">
 
@@ -116,13 +116,20 @@
         <section class="bg-nav-content">
           <div class="container">
             <div class="nav-centered">
-              <ul class="nav nav-pills">
-                <li role="presentation" class="active"><a href="#">All</a></li>
-                <li role="presentation"><a href="#">Design</a></li>
-                <li role="presentation"><a href="#">Development</a></li>
-                <li role="presentation"><a href="#">Marketing</a></li>
-                <li role="presentation"><a href="#">Business</a></li>
+              <ul class="nav nav-pills hidden-xs">
+                <li class="active"><a href="#">All</a></li>
+                <li><a href="#">Design</a></li>
+                <li><a href="#">Development</a></li>
+                <li><a href="#">Marketing</a></li>
+                <li><a href="#">Business</a></li>
               </ul>
+              <select class="visible-xs">
+                <option value="All">All</option>
+                <option value="Design">Design</option>
+                <option value="Development">Development</option>
+                <option value="Development">Marketing</option>
+                <option value="Development">Business</option>
+              </select>
             </div>
           </div>
         </section>
