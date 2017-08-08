@@ -87,6 +87,8 @@ module.exports = {
     modules: ['src', 'node_modules'],
   },
   devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true,
     port: 3000,
     historyApiFallback: {
       rewrites: [
