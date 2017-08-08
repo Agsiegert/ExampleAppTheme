@@ -5,16 +5,18 @@ const BlogPostNavigation = Scrivito.React.connect(({ currentPost }) => {
 
   return (
     <section className="bg-nav-content">
-      <div className="container">
+      <div className="container-fluid">
         <div className="nav-centered">
-          <ul className="nav nav-pills">
-            <li role="presentation">
+          <ul className="nav-blog">
+            <li>
               <BlogPostNextLink currentBlogPost={ currentPost } />
             </li>
-            <li role="presentation">
-              <BlogPostDate post={ currentPost } />
+            <li>
+              <span>
+                <BlogPostDate post={ currentPost } />
+              </span>
             </li>
-            <li role="presentation">
+            <li>
               <BlogPostPreviousLink currentBlogPost={ currentPost } />
             </li>
           </ul>
@@ -37,7 +39,7 @@ const BlogPostNextLink = Scrivito.React.connect(({ currentBlogPost }) => {
 
   return (
     <Scrivito.React.Link to={ newerPost }>
-      Left (newer) button
+      <i className="fa fa-chevron-circle-left  " aria-hidden="true"></i>
     </Scrivito.React.Link>
   );
 });
@@ -57,7 +59,7 @@ const BlogPostPreviousLink = Scrivito.React.connect(({ currentBlogPost }) => {
 
   return (
     <Scrivito.React.Link to={ olderPost }>
-      Right (older) button
+      <i className="fa fa-chevron-circle-right " aria-hidden="true"></i>
     </Scrivito.React.Link>
   );
 });
