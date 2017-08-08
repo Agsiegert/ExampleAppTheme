@@ -3,7 +3,7 @@ import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 const BaseColumnWidget = Scrivito.createWidgetClass({
   name: 'ColumnWidget',
   attributes: {
-    nrOfColumns: 'integer',
+    nrOfColumns: ['enum', { validValues: ['1', '2', '3', '4'] }],
     column1: 'widgetlist',
     column2: 'widgetlist',
     column3: 'widgetlist',
@@ -38,7 +38,7 @@ Scrivito.provideUiConfig(ColumnWidget, {
 });
 
 Scrivito.provideComponent(ColumnWidget, widget => {
-  let nrOfColumns = widget.get('nrOfColumns');
+  let nrOfColumns = parseInt(widget.get('nrOfColumns'), 10);
   if (![1, 2, 3, 4].includes(nrOfColumns)) {
     // fallback value, if missing or invalid
     nrOfColumns = 2;

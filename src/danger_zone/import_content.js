@@ -181,7 +181,7 @@ function importContent() {
           backgroundImage: unsplashTidyDeskTouchScreen,
           content: [
             new ColumnWidget({
-              nrOfColumns: 2,
+              nrOfColumns: '2',
               column1: [
                 new HeadlineWidget({
                   level: 'h1',
@@ -535,7 +535,7 @@ function importContent() {
             showDividingLine: 'yes',
           }),
           new ColumnWidget({
-            nrOfColumns: 2,
+            nrOfColumns: '2',
             column1: [new ImageWidget({ image: unsplashLaptopKeyboard })],
             column2: [
               new HeadlineWidget({
@@ -558,7 +558,7 @@ function importContent() {
             ],
           }),
           new ColumnWidget({
-            nrOfColumns: 2,
+            nrOfColumns: '2',
             column1: [
               new HeadlineWidget({
                 level: 'h3',
@@ -589,7 +589,7 @@ function importContent() {
             showDividingLine: 'yes',
           }),
           new ColumnWidget({
-            nrOfColumns: 2,
+            nrOfColumns: '2',
             column1: [
               new ImageWidget({ image: homepage1Screenshot }),
               new HeadlineWidget({
@@ -793,7 +793,7 @@ function importContent() {
       pages: [jobs, contact, imprint, events, login],
     });
     const footerRow = new ColumnWidget({
-      nrOfColumns: 3,
+      nrOfColumns: '3',
       column1: [logoWidget, address],
       column2: [footerLinks1],
       column3: [footerLinks2],
