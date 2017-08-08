@@ -638,6 +638,20 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   display: inline-block;
 }
 
+/* fact
+=================================================================== */
+
+.fact { padding: 30px 0; }
+.fact .value,
+.fact .key { display: block; text-align: center; }
+
+.fact .value {
+  color: $brand-secondary;
+  font-size: 80px; line-height: 80px;
+  font-family: "PT Sans Narrow"; font-weight: 700;
+  }
+.fact .key  { color: $theme-greylight; font-size: 18px; line-height: 22px; }
+
 /* gallery-box with zoom hover
 =================================================================== */
 
@@ -825,8 +839,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .panel-theme .panel-body { padding: 20px 0; }
 .panel-theme .fa { padding: 20px 0; color: $brand-secondary;}
 .panel-theme a:hover { text-decoration: none; }
-
-
+.panel-theme .social-links i { padding: 20px; }
 
 /* gallery thumbs
 =================================================================== */
@@ -835,10 +848,6 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .gallery-thumbs [class*="col-"]:first-child img { border-left: 7px solid #fff; }
 
 .margin-neg-offset { margin-top: -4%;}
-
-
-
-
 
 
 /* pricing
