@@ -17,10 +17,13 @@ const MONTH_MAPPING = [
   'December',
 ];
 
-const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author }) => {
+const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author, tag }) => {
   let blogPosts = Scrivito.getClass('BlogPost').all().order('publishedAt', 'desc');
   if (author) {
     blogPosts = blogPosts.and('author', 'refersTo', author);
+  }
+  if (tag) {
+    blogPosts = blogPosts.and('tags', 'equals', tag);
   }
 
   let posts;
