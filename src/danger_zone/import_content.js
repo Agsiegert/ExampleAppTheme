@@ -525,11 +525,18 @@ function importContent() {
       navigationBackgroundImage: unsplashHandcraft,
       navigationStyle: 'transparentDark',
       navigationSection: [
-        new HeadlineWidget({ headline: 'Amazing hero widget' }),
-        new TextWidget({ text: '<p>Lorem ad minim veniam, quis nostrud exercitation ullamco' +
-          ' laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,' +
-          ' consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore' +
-          ' et dolore magna aliqua.</p>' }),
+        new HeadlineWidget({
+          headline: 'Amazing hero widget',
+        }),
+        new TextWidget({
+          text: loremIpsum({
+            units: 'paragraphs',
+            format: 'html',
+            count: 1,
+            paragraphLowerBound: 3,
+            paragraphUpperBound: 5,
+          }),
+        }),
         new ButtonWidget({
           target: new Scrivito.Link({
             title: 'Call to action',
