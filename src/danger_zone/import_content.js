@@ -707,7 +707,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          useFullWidth: 'yes',
           content: [
             new HeadlineWidget({
               level: 'h1',
