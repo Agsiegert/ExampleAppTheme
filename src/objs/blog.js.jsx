@@ -16,7 +16,7 @@ class Blog extends BaseBlog {
     return {
       navigationStyle: 'transparentDark',
       backgroundImage: this.get('navigationBackgroundImage') || null,
-      heigthClassName: null,
+      heigthClassName: 'min-height',
     };
   }
 

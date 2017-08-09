@@ -30,7 +30,7 @@ class BlogPost extends BaseBlogPost {
     return {
       navigationStyle: 'transparentDark',
       backgroundImage: backgroundImage || null,
-      heigthClassName: null,
+      heigthClassName: 'min-height',
     };
   }
 
