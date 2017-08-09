@@ -619,7 +619,7 @@ function importContent() {
             column1: [
               new ImageWidget({ image: homepage1Screenshot }),
               new HeadlineWidget({
-                headline: 'Choose a different homepage version',
+                headline: 'Choose a different homepage variant',
                 centered: 'yes',
                 level: 'h3',
               }),
@@ -644,7 +644,7 @@ function importContent() {
             column2: [
               new ImageWidget({ image: homepage2Screenshot }),
               new HeadlineWidget({
-                headline: 'Choose a different homepage version',
+                headline: 'Choose a different homepage variant',
                 centered: 'yes',
                 level: 'h3',
               }),
