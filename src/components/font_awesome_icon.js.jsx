@@ -3,8 +3,9 @@ class FontAwesomeIconPlainComponent extends React.Component {
     const widget = this.props.widget;
     const icon = widget.get('icon') || 'fa-coffee';
     const link = widget.get('link');
+    const size = widget.get('size');
     if (!link) {
-      return <i className= { ['fa', icon].join(' ') } aria-hidden="true"></i>;
+      return <i className= { ['fa', icon, size].join(' ') } aria-hidden="true"></i>;
     }
 
     const title = link.title || '';
