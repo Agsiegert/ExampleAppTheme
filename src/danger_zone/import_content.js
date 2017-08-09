@@ -374,6 +374,7 @@ function importContent() {
             centered: 'yes',
             headline: loremIpsum({ count: 2 }),
           }),
+          new BlogOverviewWidget({}),
         ] }),
       ],
     });
@@ -744,7 +745,9 @@ function importContent() {
               showDividingLine: 'yes',
               headline: 'Our latest blog news',
             }),
-            new BlogOverviewWidget({}),
+            new BlogOverviewWidget({
+              maxItems: 5,
+            }),
             new ButtonWidget({
               centered: 'yes',
               target: new Scrivito.Link({
