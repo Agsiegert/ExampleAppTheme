@@ -1,6 +1,6 @@
 function BlogPostTagList({ tags }) {
   return (
-    <section className="bg-nav-content">
+    <section className="bg-nav-content auto-height">
       <div className="container">
         <div className="nav-centered">
           <ul className="nav nav-pills">
