@@ -17,10 +17,13 @@ const MONTH_MAPPING = [
   'December',
 ];
 
-const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author }) => {
+const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author, tag }) => {
   let blogPosts = Scrivito.getClass('BlogPost').all().order('publishedAt', 'desc');
   if (author) {
     blogPosts = blogPosts.and('author', 'refersTo', author);
+  }
+  if (tag) {
+    blogPosts = blogPosts.and('tags', 'equals', tag);
   }
 
   let posts;
@@ -89,7 +92,11 @@ const BlogPostTitleImage = Scrivito.React.connect(({ post }) => {
 
   const image = titleImage.get('blob').transform({ width: 1000 });
 
-  return (<img src={ image.url } className="img-responsive" />);
+  return (
+    <Scrivito.React.Link to={ post }>
+      <img src={ image.url } className="img-responsive" />
+    </Scrivito.React.Link>
+  );
 });
 
 function humanReadableMonth(date) {
