@@ -1,5 +1,4 @@
 import BlogPost from 'objs/blog_post';
-import BlogPostPreviewList from 'components/blog_post/blog_post_preview_list';
 import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 
 const BaseBlog = Scrivito.createObjClass({
@@ -47,11 +46,6 @@ Scrivito.provideComponent(Blog, obj =>
   <div>
     <TagList />
     <Scrivito.React.Content className="div" content={ obj } attribute="body" />
-    <section className="bg-white no-padding">
-      <div className="container gutter0">
-        <BlogPostPreviewList />
-      </div>
-    </section>
   </div>
 );
 
