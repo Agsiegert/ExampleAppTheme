@@ -356,8 +356,8 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 
 /* content align */
 
-.full-height-center { display: flex; min-height: 100vh; text-align: center; }
-.full-height-center .container { margin: auto!important; }
+.full-height { display: flex; min-height: 100vh; }
+.full-height .container { margin: auto!important; }
 
 .height-center { display: flex; text-align: center; }
 .height-center .container { margin: auto!important; }
