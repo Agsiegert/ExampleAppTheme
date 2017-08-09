@@ -171,6 +171,12 @@ function importContent() {
       homepage2ScreenshotData, 'Homepage variant 2 screenshot');
     const iphone = uploadImage(iphoneData, 'iPhone screenshot');
 
+    // Obj.root
+    const root = Homepage.create({
+      _path: '/',
+      // Content is at the bottom of the file
+    });
+
     // PRODUCT
     const product = Page.create({
       _path: '/product',
@@ -198,7 +204,10 @@ function importContent() {
                   }),
                 }),
                 new ButtonWidget({
-                  text: 'Call to action',
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
                 }),
               ],
               column2: [new ImageWidget({ image: iphone })],
@@ -509,20 +518,31 @@ function importContent() {
     });
 
     // Obj.root
-    const root = Homepage.create({
-      _path: '/',
+    root.update({
       childOrder: [product, about, pricing, blog, widgetsAndPages],
       logoDark: scrivitoLogoDark,
       logoWhite: scrivitoLogoWhite,
       navigationBackgroundImage: unsplashHandcraft,
       navigationStyle: 'transparentDark',
       navigationSection: [
-        new HeadlineWidget({ headline: 'Amazing hero widget' }),
-        new TextWidget({ text: '<p>Lorem ad minim veniam, quis nostrud exercitation ullamco' +
-          ' laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,' +
-          ' consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore' +
-          ' et dolore magna aliqua.</p>' }),
-        new ButtonWidget({ text: 'Call to action' }),
+        new HeadlineWidget({
+          headline: 'Amazing hero widget',
+        }),
+        new TextWidget({
+          text: loremIpsum({
+            units: 'paragraphs',
+            format: 'html',
+            count: 1,
+            paragraphLowerBound: 3,
+            paragraphUpperBound: 5,
+          }),
+        }),
+        new ButtonWidget({
+          target: new Scrivito.Link({
+            title: 'Call to action',
+            obj: root,
+          }),
+        }),
       ],
       socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
       title: 'Welcome to the Scrivito Example App JS!',
@@ -553,7 +573,10 @@ function importContent() {
                 }),
               }),
               new ButtonWidget({
-                text: 'Call to action',
+                target: new Scrivito.Link({
+                  title: 'Call to action',
+                  obj: root,
+                }),
               }),
             ],
           }),
@@ -575,7 +598,10 @@ function importContent() {
                 }),
               }),
               new ButtonWidget({
-                text: 'Call to action',
+                target: new Scrivito.Link({
+                  title: 'Call to action',
+                  obj: root,
+                }),
               }),
             ],
             column2: [new ImageWidget({ image: unsplashDeskRuler })],
@@ -593,7 +619,7 @@ function importContent() {
             column1: [
               new ImageWidget({ image: homepage1Screenshot }),
               new HeadlineWidget({
-                headline: 'Choose a different homepage version',
+                headline: 'Choose a different homepage variant',
                 centered: 'yes',
                 level: 'h3',
               }),
@@ -609,14 +635,16 @@ function importContent() {
               }),
               new ButtonWidget({
                 centered: 'yes',
-                text: 'Open home version',
-                target: homeV1,
+                target: new Scrivito.Link({
+                  title: 'Open Homepage variant 1',
+                  obj: homeV1,
+                }),
               }),
             ],
             column2: [
               new ImageWidget({ image: homepage2Screenshot }),
               new HeadlineWidget({
-                headline: 'Choose a different homepage version',
+                headline: 'Choose a different homepage variant',
                 centered: 'yes',
                 level: 'h3',
               }),
@@ -632,8 +660,10 @@ function importContent() {
               }),
               new ButtonWidget({
                 centered: 'yes',
-                text: 'Open home version',
-                target: homeV2,
+                target: new Scrivito.Link({
+                  title: 'Open Homepage variant 2',
+                  obj: homeV2,
+                }),
               }),
             ],
           }),
@@ -717,8 +747,10 @@ function importContent() {
             new BlogOverviewWidget({}),
             new ButtonWidget({
               centered: 'yes',
-              text: 'Load all blog entries',
-              target: blog,
+              target: new Scrivito.Link({
+                title: 'Load all blog entries',
+                obj: blog,
+              }),
             }),
           ],
         }),
