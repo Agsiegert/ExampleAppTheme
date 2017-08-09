@@ -50,6 +50,7 @@ const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
+const PanelWidget = Scrivito.getClass('PanelWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
 const TestimonialSliderWidget = Scrivito.getClass('TestimonialSliderWidget');
 const TestimonialWidget = Scrivito.getClass('TestimonialWidget');
@@ -107,6 +108,34 @@ function randomShuffle(array) {
 // Returns a random date in the past ~5 months(9960000000)
 function randomPastDate() {
   return new Date(+(new Date()) - (Math.floor(Math.random() * 9960000000)));
+}
+
+function createFeaturePanelWidget(icon, headline) {
+  return new PanelWidget({
+    body: [
+      new FontAwesomeIconWidget({
+        icon: icon,
+        size: 'fa-4x',
+        centered: 'yes',
+      }),
+      new HeadlineWidget({
+        level: 'h3',
+        style: 'h3',
+        centered: 'yes',
+        headline: headline,
+      }),
+      new TextWidget({
+        centered: 'yes',
+        text: loremIpsum({
+          units: 'paragraphs',
+          format: 'html',
+          count: 1,
+          paragraphLowerBound: 1,
+          paragraphUpperBound: 2,
+        }),
+      }),
+    ],
+  });
 }
 
 function importContent() {
@@ -226,6 +255,37 @@ function importContent() {
             style: 'h4',
             centered: 'yes',
             headline: loremIpsum({ count: 2 }),
+          }),
+          new ColumnWidget({
+            nrOfColumns: '3',
+            column1: [
+              createFeaturePanelWidget('fa-picture-o', 'Drag & drop widgets'),
+            ],
+            column2: [
+              createFeaturePanelWidget('fa-mouse-pointer', 'WYSIWYG editing'),
+            ],
+            column3: [
+              createFeaturePanelWidget('fa-cogs', 'Easy customization'),
+            ],
+          }),
+          new ColumnWidget({
+            nrOfColumns: '3',
+            column1: [
+              createFeaturePanelWidget('fa-comments-o', 'Full support'),
+            ],
+            column2: [
+              createFeaturePanelWidget('fa-clone', 'Tons of widgets'),
+            ],
+            column3: [
+              createFeaturePanelWidget('fa-mobile', 'Fully responsive'),
+            ],
+          }),
+          new ButtonWidget({
+            centered: 'yes',
+            target: new Scrivito.Link({
+              title: 'Call to action',
+              obj: root,
+            }),
           }),
         ] }),
       ],
