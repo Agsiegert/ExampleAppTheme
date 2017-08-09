@@ -62,7 +62,7 @@ const TagList = Scrivito.React.connect(() => {
     <section className="bg-nav-content">
       <div className="container">
         <div className="nav-centered">
-          <ul className="nav nav-pills">
+          <ul className="nav nav-pills hidden-xs">
             <li role="presentation" className="active"><a href="#">All</a></li>
             {
               tags.map(tag =>
@@ -72,6 +72,12 @@ const TagList = Scrivito.React.connect(() => {
               )
             }
           </ul>
+          <select className="visible-xs">
+            <option value="All">All</option>
+            {
+              tags.map(tag => <option key={ tag } value={ tag }>{ tag }</option>)
+            }
+          </select>
         </div>
       </div>
     </section>
