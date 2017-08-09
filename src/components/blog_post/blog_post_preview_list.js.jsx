@@ -92,7 +92,11 @@ const BlogPostTitleImage = Scrivito.React.connect(({ post }) => {
 
   const image = titleImage.get('blob').transform({ width: 1000 });
 
-  return (<img src={ image.url } className="img-responsive" />);
+  return (
+    <Scrivito.React.Link to={ post }>
+      <img src={ image.url } className="img-responsive" />
+    </Scrivito.React.Link>
+  );
 });
 
 function humanReadableMonth(date) {
