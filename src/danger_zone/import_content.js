@@ -527,9 +527,11 @@ function importContent() {
       navigationStyle: 'transparentDark',
       navigationSection: [
         new HeadlineWidget({
+          centered: 'yes',
           headline: 'Amazing hero widget',
         }),
         new TextWidget({
+          centered: 'yes',
           text: loremIpsum({
             units: 'paragraphs',
             format: 'html',
@@ -539,6 +541,7 @@ function importContent() {
           }),
         }),
         new ButtonWidget({
+          centered: 'yes',
           target: new Scrivito.Link({
             title: 'Call to action',
             obj: root,
