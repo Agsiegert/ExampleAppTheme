@@ -221,31 +221,38 @@
         <!-- section:end -->
 
 
-
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 
 
         <!-- section:start -->
-        <section class="bbg-white no-padding">
+        <section class="bg-white no-padding">
           <div class="container-fluid gutter0">
-            <img src="content-images/nastuh-abootalebi-284883.jpg" alt="" class="img-responsive">
-          </div>
-        </section>
-        <!-- section:end -->
-        <!-- section:start -->
-        <section class="bg-nav-content">
-          <div class="container gutter0 gallery-thumbs margin-neg-offset">
-            <div class="row">
-              <div class="col-xs-2"><img src="content-images/nastuh-abootalebi-284883.jpg" alt="" class="img-responsive border"></div>
-              <div class="col-xs-2"><img src="content-images/alvin-engler-48444.jpg" alt="" class="img-responsive"></div>
-              <div class="col-xs-2"><img src="content-images/breather-163396.jpg" alt="" class="img-responsive"></div>
-              <div class="col-xs-2"><img src="content-images/glenn-carstens-peters-203007.jpg" alt="" class="img-responsive"></div>
-              <div class="col-xs-2"><img src="content-images/rawpixel-com-252127.jpg" alt="" class="img-responsive"></div>
-              <div class="col-xs-2"><img src="content-images/sabri-tuzcu-182689.jpg" alt="" class="img-responsive"></div>
 
+            <div class="slick-gallary-fluid">
+              <ul class="slickslide">
+                <li style="background: url(content-images/nastuh-abootalebi-284883.jpg) no-repeat center / cover;"></li>
+                <li style="background: url(content-images/alvin-engler-48444.jpg) no-repeat center / cover;" ></li>
+                <li style="background: url(content-images/breather-163396.jpg) no-repeat center / cover;" ></li>
+                <li style="background: url(content-images/glenn-carstens-peters-203007.jpg) no-repeat center / cover;" ></li>
+                <li style="background: url(content-images/rawpixel-com-252127.jpg) no-repeat center / cover;" ></li>
+                <li style="background: url(content-images/sabri-tuzcu-182689.jpg) no-repeat center / cover;" ></li>
+              </ul>
+              <div class="slick-thumbs">
+                <ul>
+                  <li><img src="content-images/nastuh-abootalebi-284883.jpg" alt="" /></li>
+                  <li><img src="content-images/alvin-engler-48444.jpg" alt="" /></li>
+                  <li><img src="content-images/breather-163396.jpg" alt="" /></li>
+                  <li><img src="content-images/glenn-carstens-peters-203007.jpg" alt=""/></li>
+                  <li><img src="content-images/rawpixel-com-252127.jpg" alt=""/></li>
+                  <li><img src="content-images/sabri-tuzcu-182689.jpg" alt=""/></li>
+                </ul>
+              </div>
             </div>
+
           </div>
         </section>
         <!-- section:end -->
+
 
 
 
@@ -411,6 +418,44 @@
     }
 
     $('.navbar-brand').css('background', 'rgba(0, 0, 0, 0) url(scrivito_logo.svg) no-repeat scroll center center / contain');
+
+
+
+    $().ready(function (e) {
+
+        $('.slickslide').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: false,
+            slide: 'li',
+            cssEase: 'linear',
+            centerMode: true,
+            centerPadding: '0px',
+            slidesToShow: 1,
+            variableWidth: false,
+            autoplay: true,
+            autoplaySpeed: 24000,
+            responsive: [{
+                breakpoint: 800,
+                settings: {
+                    arrows: true,
+                    centerMode: false,
+                    centerPadding: '0px',
+                    variableWidth: false,
+                    slidesToShow: 1,
+                    dots: true
+                }
+
+            }],
+            customPaging: function (slider, i) {
+                return '<button class="tab">' + $('.slick-thumbs li:nth-child(' + (i + 1) + ')').html() + '</button>';
+            }
+        });
+
+
+    });
+
 
     </script>
 
