@@ -4,6 +4,8 @@ const FontAwesomeIconWidget = Scrivito.createWidgetClass({
   name: 'FontAwesomeIconWidget',
   attributes: {
     icon: 'string',
+    size: ['enum', { validValues: ['fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x'] }],
+    centered: ['enum', { validValues: ['yes', 'no'] }],
     link: 'link',
   },
 });
@@ -15,6 +17,14 @@ Scrivito.provideUiConfig(FontAwesomeIconWidget, {
     icon: {
       title: 'Icon',
       description: 'The name of the icon. E.g. "fa-address-book"',
+    },
+    size: {
+      title: 'Size',
+      description: 'Size of the icon',
+    },
+    centered: {
+      title: 'Centered',
+      description: 'Should this icon be centered?',
     },
     link: {
       title: 'Link',
