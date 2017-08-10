@@ -114,15 +114,15 @@ function createFeaturePanelWidget(icon, headline) {
   return new PanelWidget({
     body: [
       new FontAwesomeIconWidget({
-        icon: icon,
+        icon,
         size: 'fa-4x',
         centered: 'yes',
       }),
       new HeadlineWidget({
+        headline,
         level: 'h3',
         style: 'h3',
         centered: 'yes',
-        headline: headline,
       }),
       new TextWidget({
         centered: 'yes',
@@ -130,8 +130,8 @@ function createFeaturePanelWidget(icon, headline) {
           units: 'paragraphs',
           format: 'html',
           count: 1,
-          paragraphLowerBound: 1,
-          paragraphUpperBound: 2,
+          paragraphLowerBound: 2,
+          paragraphUpperBound: 3,
         }),
       }),
     ],
