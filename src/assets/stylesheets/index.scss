@@ -18,6 +18,20 @@ $border-radius-small:       0 !default;
 $zindex-modal-background:  100040 !default;
 $zindex-modal:             100050 !default;
 
+@mixin transition-performance() {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  }
+
+
+
 
 /* react-slick
 ================================================== */
@@ -651,16 +665,19 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 .fact .key  { color: $theme-greylight; font-size: 18px; line-height: 22px; }
 
-/* gallery-box with zoom hover
+/* gallery-box with zoom hover + filter gallery
 =================================================================== */
 
-.gallery-box { overflow: hidden;}
+.gallery-box { overflow: hidden; }
 .gallery-box-image:before {
   content: "";
   display: block;
   padding-top: 80%;
   }
-.gallery-box-image { @include transition(all .5s ease-in-out); }
+.gallery-box-image {
+  @include transition(all .5s ease-in-out);
+  @include transition-performance;
+  }
 .gallery-box:hover .gallery-box-image  {
   transform: scale(1.2);
   }
@@ -687,6 +704,18 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .gallery-box .gallery-box-content .title { font-size: 18px; }
   .gallery-box .gallery-box-content .subtitle { font-size: 12px; }
 }
+
+/* filter gallery */
+
+.gallery-box {
+  max-height: 800px; max-width: 800px; opacity: 1;
+  @include transition(all .5s ease-in-out);
+  @include transition-performance;
+  }
+.squeezed { max-height: 0; max-width: 0; opacity: 0; }
+
+
+
 
 
 /* timeline for blog
@@ -1015,14 +1044,6 @@ footer {
     transform: rotate(360deg);
   }
 }
-
-
-/* filter gallery
-=================================================================== */
-
-
-.gallery-box { @include transition(all .5s ease-in-out); max-height: 800px; max-width: 800px; opacity: 1; }
-.squeezed { max-height: 0; max-width: 0; opacity: 0;}
 
 
 /* slick thumb gallery
