@@ -51,6 +51,8 @@ const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
+const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
+const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
 const TestimonialSliderWidget = Scrivito.getClass('TestimonialSliderWidget');
 const TestimonialWidget = Scrivito.getClass('TestimonialWidget');
@@ -286,6 +288,50 @@ function importContent() {
               title: 'Call to action',
               obj: root,
             }),
+          }),
+        ] }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Choose your plan',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            centered: 'yes',
+            headline: loremIpsum({ count: 2 }),
+          }),
+          new PricingWidget({
+            currency: '€',
+            smallPlanName: 'Basic Plan',
+            mediumPlanName: 'Team Plan',
+            largePlanName: 'Corporate Plan',
+            smallPlanPrice: '29',
+            mediumPlanPrice: '59',
+            largePlanPrice: '199',
+            smallPlanPeriod: '/mo',
+            mediumPlanPeriod: '/mo',
+            largePlanPeriod: '/mo',
+            smallPlanSpecs: [
+              new PricingSpecWidget({ variable: '5', unit: 'projects' }),
+              new PricingSpecWidget({ variable: '20', unit: 'images' }),
+              new PricingSpecWidget({ variable: '9/5', unit: 'support' }),
+            ],
+            mediumPlanSpecs: [
+              new PricingSpecWidget({ variable: '15', unit: 'projects' }),
+              new PricingSpecWidget({ variable: '50', unit: 'images' }),
+              new PricingSpecWidget({ variable: '12/7', unit: 'support' }),
+            ],
+            largePlanSpecs: [
+              new PricingSpecWidget({ variable: 'unlimited', unit: 'projects' }),
+              new PricingSpecWidget({ variable: 'unlimited', unit: 'images' }),
+              new PricingSpecWidget({ variable: '24/7', unit: 'support' }),
+            ],
+            smallPlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
+            mediumPlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
+            largePlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
           }),
         ] }),
       ],
