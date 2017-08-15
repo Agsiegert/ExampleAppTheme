@@ -55,7 +55,7 @@ const TagList = Scrivito.React.connect(() => {
   return (
     <section className="bg-nav-content">
       <div className="container">
-        <div className="nav-centered">
+        <div className="nav-centered select-icon">
           <ul className="nav nav-pills hidden-xs">
             <li role="presentation" className="active"><a href="#">All</a></li>
             {
