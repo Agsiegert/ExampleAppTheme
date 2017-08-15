@@ -107,8 +107,18 @@ Scrivito.provideComponent(PricingWidget, widget => {
           />
           <div className="quantity">
             <span className="dollar">{ currency }</span>
-            <span className="price">{ widget.get('smallPlanPrice') }</span>
-            <span className="period">{ widget.get('smallPlanPeriod') || '/mo' }</span>
+            <Scrivito.React.Content
+              content={ widget }
+              attribute="smallPlanPrice"
+              className="price"
+              tag="span"
+            />
+            <Scrivito.React.Content
+              content={ widget }
+              attribute="smallPlanPeriod"
+              className="period"
+              tag="span"
+            />
           </div>
           <Scrivito.React.Content content={ widget } attribute="smallPlanSpecs" className="specs" />
           <PlanButton target={ widget.get('smallPlanButton') } className="btn-default" />
@@ -124,8 +134,18 @@ Scrivito.provideComponent(PricingWidget, widget => {
         />
           <div className="quantity">
             <span className="dollar">{ currency }</span>
-            <span className="price">{ widget.get('mediumPlanPrice') }</span>
-            <span className="period">{ widget.get('mediumPlanPeriod') || '/mo' }</span>
+            <Scrivito.React.Content
+              content={ widget }
+              attribute="mediumPlanPrice"
+              className="price"
+              tag="span"
+            />
+            <Scrivito.React.Content
+              content={ widget }
+              attribute="mediumPlanPeriod"
+              className="period"
+              tag="span"
+            />
           </div>
           <Scrivito.React.Content
             content={ widget } attribute="mediumPlanSpecs" className="specs" />
@@ -137,8 +157,18 @@ Scrivito.provideComponent(PricingWidget, widget => {
         <Scrivito.React.Content content={ widget } attribute="largePlanName" className="plan-name"/>
           <div className="quantity">
             <span className="dollar">{ currency }</span>
-            <span className="price">{ widget.get('largePlanPrice') }</span>
-            <span className="period">{ widget.get('largePlanPeriod') || '/mo' }</span>
+            <Scrivito.React.Content
+              content={ widget }
+              attribute="largePlanPrice"
+              className="price"
+              tag="span"
+            />
+            <Scrivito.React.Content
+              content={ widget }
+              attribute="largePlanPeriod"
+              className="period"
+              tag="span"
+            />
           </div>
           <Scrivito.React.Content content={ widget } attribute="largePlanSpecs" className="specs" />
           <PlanButton target={ widget.get('largePlanButton') } className="btn-default" />
