@@ -544,7 +544,7 @@ function importContent() {
       ],
     });
 
-    // social buttons
+    // icon buttons for Footer
     const twitterIcon = new FontAwesomeIconWidget({
       icon: 'fa-twitter',
       link: new Scrivito.Link({
@@ -608,7 +608,7 @@ function importContent() {
           }),
         }),
       ],
-      socialButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
+      iconButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
       title: 'Welcome to the Scrivito Example App JS!',
       body: [
         new SectionWidget({ content: [

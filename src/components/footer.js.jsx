@@ -13,10 +13,10 @@ function Footer() {
       <div className="bg-greydark height-center social-footer">
         <div className="container">
           {
-            root.get('socialButtons').map(socialButton =>
+            root.get('iconButtons').map(iconButton =>
               <FontAwesomeIconComponent
-                  widget={ socialButton }
-                  key= { socialButton.id }
+                  widget={ iconButton }
+                  key= { iconButton.id }
                 />
             )
           }
