@@ -960,6 +960,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 
 .charts .chart .specs { margin: 10px 0 20px; font-size: 14px; }
+.charts .chart .specs span:empty { min-width: 50px!important; display: inline-block; }
 .charts .chart .specs .spec { color: $theme-greymiddle; margin-bottom: 5px; }
 .charts .chart .specs .variable { padding: 0 5px; font-weight: 700; color: $theme-grey; }
 
