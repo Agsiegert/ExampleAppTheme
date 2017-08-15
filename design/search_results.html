@@ -25,7 +25,7 @@
 
 
         <!-- section:start -->
-        <section class="navbar-fixed bg-dark-image" style="background: linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7)), url(content-images/alvin-engler-48444.jpg) no-repeat center / cover;">
+        <section class="navbar-fixed bg-dark-image min-height" style="background: linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7)), url(content-images/alvin-engler-48444.jpg) no-repeat center / cover;">
           <nav class="navbar navbar-transparent navbar-fixed-top navbar-default">
             <div class="container">
 
@@ -102,8 +102,13 @@
 
             </div>
           </nav>
+
+
         </section>
         <!-- section:end -->
+
+
+
 
 
 
@@ -111,11 +116,12 @@
         <section class="bg-nav-content">
           <div class="container">
             <div class="nav-centered">
-              <ul class="nav-blog">
-                <li><a href="#"><i class="fa fa-chevron-circle-left  " aria-hidden="true"></i></a></li>
-                <li><span>10/15</span></li>
-                <li><a href="#"><i class="fa fa-chevron-circle-right " aria-hidden="true"></i></a></li>
-              </ul>
+
+              <div class="input-group">
+                <input class="form-control" placeholder="Search for..." value="foo bar">
+                <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="hidden-xs">Search again</span><i class="fa fa-search fa-1" aria-hidden="true"></i></button></span>
+              </div>
+
             </div>
           </div>
         </section>
@@ -124,51 +130,93 @@
 
 
 
-        <!-- section:start -->
-        <section class='bg-white'>
-          <div class="container">
-            <div>
-              <h1 class="h2">Lorem upsum dolor sit amet</h1>
-            </div>
-            <div>
-              <h2 class="h4">
-                Lorem enim ad minim veniam quis ad minim veniam quis.
-              </h2>
-            </div>
-          </div>
-        </section>
-        <!-- section:end -->
 
-        <!-- section:start -->
-        <section class='bg-white'>
-          <div class="container">
-            <div>
-              <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-              <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquirem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p><p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-              <img class="img-responsive" src="content-images/giovanni-randisi-219945.jpg" alt="">
-
-              <p>Lorem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidrem enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulm enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-            </div>
-          </div>
-        </section>
-        <!-- section:end -->
 
 
 
         <!-- section:start -->
-        <section class="">
+        <section class="bg-white">
           <div class="container">
-            <div class="nav-centered">
-              <ul class="nav nav-pills">
+            <h1 class="h2 border-bottom">53 search results</h1>
+            <div class="nav-centered select-icon">
+              <ul class="nav nav-pills hidden-xs">
+                <li class="active"><a href="#">All</a></li>
                 <li><a href="#">Design</a></li>
                 <li><a href="#">Development</a></li>
                 <li><a href="#">Marketing</a></li>
                 <li><a href="#">Business</a></li>
               </ul>
+              <select class="visible-xs">
+                <option value="All">All</option>
+                <option value="Design">Design</option>
+                <option value="Development">Development</option>
+                <option value="Development">Marketing</option>
+                <option value="Development">Business</option>
+              </select>
             </div>
           </div>
         </section>
         <!-- section:end -->
+
+
+
+
+
+
+
+        <!-- section:start -->
+        <section class="bg-white no-padding">
+          <div class="container ">
+
+            <div class="result-item">
+              <div class="result-image"><img class="" src="content-images/breather-163396.jpg" alt=""></div>
+              <div class="result-content">
+                <h3 class="h3">Lorem <mark>foo bar</mark> dolor ist amet</h3>
+                <p>Use this document as a way to quickly start any new project.
+                All you get is this text and a mostly barebones HTML document.</p>
+                <small>3 years ago // by Anthony <mark>foo</mark> // 234,683 views</small>
+              </div>
+              <div class="result-options "><a href="#" class="btn btn-clear">Read more<i class="fa fa-angle-right fa-4" aria-hidden="true"></i></a></div>
+            </div>
+
+            <div class="result-item">
+              <div class="result-content">
+                <h3 class="h3">Lorem this document ipsum dolor ist amet</h3>
+                <p>Use this document as a <mark>foo</mark> to quickly start any new project.
+                All you get is this text and a mostly barebones HTML document.</p>
+                <small>3 years ago // by Anthony Quinn // 234,683 views</small>
+              </div>
+              <div class="result-options "><a href="#" class="btn btn-clear">Read more<i class="fa fa-angle-right fa-4" aria-hidden="true"></i></a></div>
+            </div>
+
+            <div class="result-item">
+              <div class="result-image"><img class="" src="content-images/sabri-tuzcu-182689.jpg" alt=""></div>
+              <div class="result-content">
+                <h3 class="h3">Lorem dorem this document dolor ist <mark>foo</mark></h3>
+                <p>Use this document as a way to quickly start any new project.
+                All you get is this text and a mostly barebones HTML document.</p>
+                <small>3 years ago // by Anthony <mark>foo</mark> // 234,683 views</small>
+              </div>
+              <div class="result-options "><a href="#" class="btn btn-clear">Read more<i class="fa fa-angle-right fa-4" aria-hidden="true"></i></a></div>
+            </div>
+
+            <div class="result-item">
+              <div class="result-content">
+                <h3 class="h3">Lorem <mark>foo bar</mark> document ipsum dolor ist amet</h3>
+                <p>Use this document as a way to quickly start any new project.
+                All you get is this text and a mostly <mark>foo</mark> HTML document.</p>
+                <small>3 years ago // by Anthony Quinn // 234,683 views</small>
+              </div>
+              <div class="result-options "><a href="#" class="btn btn-clear">Read more<i class="fa fa-angle-right fa-4" aria-hidden="true"></i></a></div>
+            </div>
+
+            <br>
+            <div class="text-center"><a class="btn btn-primary" href="">Load more<i class="fa fa-angle-right fa-4" aria-hidden="true"></i></a></div>
+            <br><br>
+          </div>
+        </section>
+        <!-- section:end -->
+
 
 
       </div>
