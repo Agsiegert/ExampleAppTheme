@@ -15,9 +15,6 @@
     "airbnb/base",
     "plugin:react/recommended",
   ],
-  "env": {
-    "jquery": true,
-  },
   "globals": {
     "Blob": true,
     "console": true,
