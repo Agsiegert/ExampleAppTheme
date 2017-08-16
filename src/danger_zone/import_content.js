@@ -150,51 +150,31 @@ function importContent() {
     const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
     // Images
-    const unsplashAllesCandleWoodTable = uploadImage(
-      unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
-    const unsplashAppleWorkstationCalendarIpad = uploadImage(
-      unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
-    const unsplashAppleWorkstationWindcave = uploadImage(
-      unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
+    const unsplashAllesCandleWoodTable = uploadImage(unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
+    const unsplashAppleWorkstationCalendarIpad = uploadImage(unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
+    const unsplashAppleWorkstationWindcave = uploadImage(unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
     const unsplashBikelane = uploadImage(unsplashBikelaneData, 'Bikelane', UNSPLASH_TAGS);
-    const unsplashBlackTablesWhiteChairs = uploadImage(
-      unsplashBlackTablesWhiteChairsData, 'Black tables with white chairs', UNSPLASH_TAGS);
-    const unsplashBuildingCornerClouds = uploadImage(
-      unsplashBuildingCornerCloudsData, 'Building corner with clouds', UNSPLASH_TAGS);
-    const unsplashBusinessPaperRedSocks = uploadImage(
-      unsplashBusinessPaperRedSocksData, 'Business paper guy in red socks', UNSPLASH_TAGS);
+    const unsplashBlackTablesWhiteChairs = uploadImage(unsplashBlackTablesWhiteChairsData, 'Black tables with white chairs', UNSPLASH_TAGS);
+    const unsplashBuildingCornerClouds = uploadImage(unsplashBuildingCornerCloudsData, 'Building corner with clouds', UNSPLASH_TAGS);
+    const unsplashBusinessPaperRedSocks = uploadImage(unsplashBusinessPaperRedSocksData, 'Business paper guy in red socks', UNSPLASH_TAGS);
     const unsplashBusinessPaperWristwatch = uploadImage(unsplashBusinessPaperWristwatchData, 'Ruler on a desk', UNSPLASH_TAGS);
     const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
-    const unsplashFemaleBehindWindow = uploadImage(
-      unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
-    const unsplashFemalePortrait1 = uploadImage(
-      unsplashFemalePortrait1Data, 'Female Portrait 1', UNSPLASH_TAGS);
-    const unsplashFemalePortrait2 = uploadImage(
-      unsplashFemalePortrait2Data, 'Female Portrait 2', UNSPLASH_TAGS);
+    const unsplashFemaleBehindWindow = uploadImage(unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
+    const unsplashFemalePortrait1 = uploadImage(unsplashFemalePortrait1Data, 'Female Portrait 1', UNSPLASH_TAGS);
+    const unsplashFemalePortrait2 = uploadImage(unsplashFemalePortrait2Data, 'Female Portrait 2', UNSPLASH_TAGS);
     const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
-    const unsplashLadyInCoffeeShop = uploadImage(
-      unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
-    const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard',
-      UNSPLASH_TAGS);
-    const unsplashMalePortrait1 = uploadImage(
-      unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
-    const unsplashMalePortrait2 = uploadImage(
-      unsplashMalePortrait2Data, 'Male Portrait 1', UNSPLASH_TAGS);
-    const unsplashMaleWithSunglasses = uploadImage(
-      unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
-    const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window',
-      UNSPLASH_TAGS);
-    const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office',
-      UNSPLASH_TAGS);
-    const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting',
-      UNSPLASH_TAGS);
+    const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
+    const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
+    const unsplashMalePortrait1 = uploadImage(unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
+    const unsplashMalePortrait2 = uploadImage(unsplashMalePortrait2Data, 'Male Portrait 1', UNSPLASH_TAGS);
+    const unsplashMaleWithSunglasses = uploadImage(unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
+    const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window', UNSPLASH_TAGS);
+    const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office', UNSPLASH_TAGS);
+    const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting', UNSPLASH_TAGS);
     const unsplashPlant = uploadImage(unsplashPlantData, 'Plant on desk', UNSPLASH_TAGS);
-    const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock',
-      UNSPLASH_TAGS);
-    const unsplashTidyDeskTouchScreen = uploadImage(
-      unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
-    const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room',
-      UNSPLASH_TAGS);
+    const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock', UNSPLASH_TAGS);
+    const unsplashTidyDeskTouchScreen = uploadImage(unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
+    const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room', UNSPLASH_TAGS);
 
     const homepage1Screenshot = uploadImage(
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
