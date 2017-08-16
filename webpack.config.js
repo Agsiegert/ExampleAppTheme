@@ -1,5 +1,6 @@
 const process = require('process');
 const path = require('path');
+const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -78,6 +79,7 @@ module.exports = {
     new ExtractTextPlugin({
       filename: '[name]',
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
   ],
   resolve: {
     alias: {
