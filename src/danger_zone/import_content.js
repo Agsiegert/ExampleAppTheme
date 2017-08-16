@@ -610,7 +610,7 @@ function importContent() {
       logoDark: scrivitoLogoDark,
       logoWhite: scrivitoLogoWhite,
       navigationBackgroundImage: unsplashHandcraft,
-      navigationStyle: 'transparentDark',
+      navigationStyle: 'transparentDark full-height',
       navigationSection: [
         new HeadlineWidget({
           centered: 'yes',
