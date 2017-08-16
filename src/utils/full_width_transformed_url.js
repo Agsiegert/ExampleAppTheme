@@ -13,7 +13,7 @@ function fullWidthTransformedUrl(obj) {
   // The binary service never scales up, so we transform all images, regardless of their width.
   const transformedBinary = binary.transform({ width: fullScreenWidthPixels() });
 
-  return transformedBinary.url;
+  return transformedBinary.url();
 }
 
 export default fullWidthTransformedUrl;

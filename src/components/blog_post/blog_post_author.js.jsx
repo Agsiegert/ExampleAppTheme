@@ -24,7 +24,7 @@ const AuthorPicture = Scrivito.React.connect(({ picture }) => {
   if (!picture) { return null; }
   const image = picture.get('blob').transform({ width: 200, height: 200, fit: 'crop' });
 
-  return (<img src={ image.url } className="img-circle" />);
+  return (<img src={ image.url() } className="img-circle" />);
 });
 
 export default Scrivito.React.connect(BlogPostAuthor);

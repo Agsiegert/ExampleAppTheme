@@ -35,7 +35,7 @@ function sliderSettings(testimonials) {
 
     const binary = authorImage.get('blob');
     const croppedBinary = binary.transform({ width: 200, height: 200, fit: 'crop' });
-    return croppedBinary.url;
+    return croppedBinary.url();
   });
 
   return {

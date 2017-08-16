@@ -8,7 +8,7 @@ function logoStyle({ scrolled, navigationStyle }) {
     logoVersion = 'logoDark';
   }
 
-  const logoUrl = Scrivito.Obj.root().get(logoVersion).get('blob').url;
+  const logoUrl = Scrivito.Obj.root().get(logoVersion).get('blob').url();
 
   return {
     background: `rgba(0, 0, 0, 0) url(${logoUrl}) no-repeat scroll center center / contain`,

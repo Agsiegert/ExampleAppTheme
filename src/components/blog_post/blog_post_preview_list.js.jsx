@@ -94,7 +94,7 @@ const BlogPostTitleImage = Scrivito.React.connect(({ post }) => {
 
   return (
     <Scrivito.React.Link to={ post }>
-      <img src={ image.url } className="img-responsive" />
+      <img src={ image.url() } className="img-responsive" />
     </Scrivito.React.Link>
   );
 });
