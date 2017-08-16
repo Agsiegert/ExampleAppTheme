@@ -17,11 +17,11 @@ class GalleryImageWidget extends BaseGalleryImageWidget {
     if (image) {
       const binary = image.get('blob');
 
-      srcUrl = binary.transform({ width: fullScreenWidthPixels() }).url;
+      srcUrl = binary.transform({ width: fullScreenWidthPixels() }).url();
 
       const thumbnailSize = 50 * devicePixelRatio();
       thumbnailUrl = binary.transform(
-        { width: thumbnailSize, height: thumbnailSize, fit: 'crop' }).url;
+        { width: thumbnailSize, height: thumbnailSize, fit: 'crop' }).url();
     }
 
     return {
@@ -67,7 +67,7 @@ class BaseGalleryImageWidgetComponent extends React.Component {
     if (image) {
       // Transform image to max. 50% of the screen width
       const binary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
-      imageUrl = binary.url;
+      imageUrl = binary.url();
     }
 
     return (<div className="col-md-3 col-sm-4 col-xs-6 gallery-box">
