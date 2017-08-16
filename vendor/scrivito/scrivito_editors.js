@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1276);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1280);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 103:
+/***/ 104:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -78,7 +78,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _jquery = __webpack_require__(35);
+var _jquery = __webpack_require__(38);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -95,7 +95,7 @@ exports.default = applyPlaceholderToElement;
 
 /***/ }),
 
-/***/ 104:
+/***/ 105:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107,7 +107,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _jquery = __webpack_require__(35);
+var _jquery = __webpack_require__(38);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -173,27 +173,27 @@ exports.default = ControllerContentProxy;
 
 /***/ }),
 
-/***/ 1276:
+/***/ 1280:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(157);
+__webpack_require__(158);
 
 /***/ }),
 
-/***/ 157:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(253);
+__webpack_require__(254);
 
 /***/ }),
 
-/***/ 180:
+/***/ 181:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -205,19 +205,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _jquery = __webpack_require__(35);
+var _jquery = __webpack_require__(38);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _controller_content_proxy = __webpack_require__(104);
+var _controller_content_proxy = __webpack_require__(105);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(103);
+var _apply_placeholder_to_element = __webpack_require__(104);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _medium_editor = __webpack_require__(261);
+var _medium_editor = __webpack_require__(262);
 
 var _medium_editor2 = _interopRequireDefault(_medium_editor);
 
@@ -265,7 +265,7 @@ exports.default = HtmlEditor;
 
 /***/ }),
 
-/***/ 181:
+/***/ 182:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -277,15 +277,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _controller_content_proxy = __webpack_require__(104);
+var _controller_content_proxy = __webpack_require__(105);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(103);
+var _apply_placeholder_to_element = __webpack_require__(104);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _string_editor = __webpack_require__(262);
+var _string_editor = __webpack_require__(263);
 
 var _string_editor2 = _interopRequireDefault(_string_editor);
 
@@ -335,7 +335,7 @@ exports.default = StringEditor;
 
 /***/ }),
 
-/***/ 252:
+/***/ 253:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -398,21 +398,21 @@ exports.default = ReferenceEditor;
 
 /***/ }),
 
-/***/ 253:
+/***/ 254:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _html_editor = __webpack_require__(180);
+var _html_editor = __webpack_require__(181);
 
 var _html_editor2 = _interopRequireDefault(_html_editor);
 
-var _reference_editor = __webpack_require__(252);
+var _reference_editor = __webpack_require__(253);
 
 var _reference_editor2 = _interopRequireDefault(_reference_editor);
 
-var _string_editor = __webpack_require__(181);
+var _string_editor = __webpack_require__(182);
 
 var _string_editor2 = _interopRequireDefault(_string_editor);
 
@@ -424,14 +424,14 @@ scrivito.registerEditor(_string_editor2.default);
 
 /***/ }),
 
-/***/ 261:
+/***/ 262:
 /***/ (function(module, exports, __webpack_require__) {
 
 var MediumButton, MediumEditor, ScrivitoAnchor, activateMediumEditorWithProxy, buttonsOption, defaultOptions;
 
-MediumEditor = __webpack_require__(282);
+MediumEditor = __webpack_require__(284);
 
-MediumButton = __webpack_require__(281);
+MediumButton = __webpack_require__(283);
 
 ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
   name: 'scrivito_anchor',
@@ -558,7 +558,7 @@ module.exports = activateMediumEditorWithProxy;
 
 /***/ }),
 
-/***/ 262:
+/***/ 263:
 /***/ (function(module, exports) {
 
 var DOUBLE_CLICK_MS, activateStringEditorWithProxy, cleanUp, cmsFieldAndPastedContent, finishEditing, getCurrentContent, isNewlineAllowed, onBlur, onFocus, onInput, onKey, prepareForEditing, save;
@@ -703,7 +703,7 @@ module.exports = activateStringEditorWithProxy;
 
 /***/ }),
 
-/***/ 281:
+/***/ 283:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -842,7 +842,7 @@ if (true) {
 
 /***/ }),
 
-/***/ 282:
+/***/ 284:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var __WEBPACK_AMD_DEFINE_RESULT__;/*global self, document, DOMException */
@@ -8723,11 +8723,11 @@ MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
     return MediumEditor;
 }()));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
 
-/***/ 29:
+/***/ 32:
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -8914,7 +8914,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 35:
+/***/ 38:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
