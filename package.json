@@ -35,7 +35,8 @@
     "slick-carousel": "^1.6.0",
     "striptags": "^3.0.1",
     "webpack": "^3.5.4",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "wu": "^2.1.0"
   },
   "scripts": {
     "build": "yarn build:clean && yarn build:package",
@@ -48,7 +49,5 @@
     "scrivito:copy": "rm -rf vendor/scrivito && mkdir -p vendor/scrivito && cp ../rails_connector/pkg/js/scrivito/* vendor/scrivito",
     "scrivito:commit": "git add vendor/scrivito && git commit -m \"[sdk] Updated Scrivito SDK to version `cd ../rails_connector && git describe`\""
   },
-  "dependencies": {
-    "wu": "^2.1.0"
-  }
+  "dependencies": {}
 }
