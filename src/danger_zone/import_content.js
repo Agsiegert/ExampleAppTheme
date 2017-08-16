@@ -17,6 +17,7 @@ import unsplashBuildingCornerCloudsData from './binary_data/unsplash_building_co
 import unsplashBusinessPaperRedSocksData from './binary_data/unsplash_business_paper_red_socks';
 import unsplashBusinessPaperWristwatchData from './binary_data/unsplash_business_paper_wristwatch';
 import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
+import unsplashDimLaptopStandData from './binary_data/unsplash_dim_laptop_stand';
 import unsplashFemaleBehindWindowData from './binary_data/unsplash_female_behind_window';
 import unsplashFemalePortrait1Data from './binary_data/unsplash_female_portrait_1';
 import unsplashFemalePortrait2Data from './binary_data/unsplash_female_portrait_2';
@@ -159,6 +160,7 @@ function importContent() {
     const unsplashBusinessPaperRedSocks = uploadImage(unsplashBusinessPaperRedSocksData, 'Business paper guy in red socks', UNSPLASH_TAGS);
     const unsplashBusinessPaperWristwatch = uploadImage(unsplashBusinessPaperWristwatchData, 'Ruler on a desk', UNSPLASH_TAGS);
     const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
+    const unsplashDimLaptopStand = uploadImage(unsplashDimLaptopStandData, 'Dim laptop stand', UNSPLASH_TAGS);
     const unsplashFemaleBehindWindow = uploadImage(unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
     const unsplashFemalePortrait1 = uploadImage(unsplashFemalePortrait1Data, 'Female Portrait 1', UNSPLASH_TAGS);
     const unsplashFemalePortrait2 = uploadImage(unsplashFemalePortrait2Data, 'Female Portrait 2', UNSPLASH_TAGS);
@@ -341,10 +343,32 @@ function importContent() {
       _permalink: 'about',
       title: 'About',
       childOrder: [ourWork, ourClients],
+      navigationStyle: 'transparentDark min-height',
+      navigationBackgroundImage: unsplashDimLaptopStand,
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'About' }),
-        ] }),
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              headline: 'Who we are',
+              level: 'h1',
+              style: 'h2',
+            }),
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              headline: loremIpsum({ count: 3 }),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 4,
+                paragraphLowerBound: 4,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
       ],
     });
 
