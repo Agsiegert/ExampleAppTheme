@@ -719,6 +719,8 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greydark,
 .bg-dark-image {.fact .key {color: $theme-greylight; }}
 
+.fact span:empty { min-width: 20px!important; display: inline-block; background: rgba(0,255,0,.2); }
+
 /* gallery-box with zoom hover + filter gallery
 =================================================================== */
 
