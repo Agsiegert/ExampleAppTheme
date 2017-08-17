@@ -10,16 +10,6 @@ const PricingSpecWidget = Scrivito.createWidgetClass({
 Scrivito.provideUiConfig(PricingSpecWidget, {
   title: 'PricingSpec',
   description: 'A Pricing Spec - Can only live inside a PricingWidget',
-  attributes: {
-    variable: {
-      title: 'Variable',
-      description: 'The variable of the spec (e.g. 10 or 24/7)',
-    },
-    unit: {
-      title: 'Unit',
-      description: 'The unit of the variable (e.g. projects or images)',
-    },
-  },
 });
 
 Scrivito.provideComponent(PricingSpecWidget, widget =>

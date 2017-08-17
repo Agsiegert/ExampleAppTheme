@@ -52,34 +52,6 @@ Scrivito.provideUiConfig(PricingWidget, {
       title: 'Large Plan Button',
       description: 'Where should the large plan button lead?',
     },
-
-    // Plan Prices
-    smallPlanPrice: {
-      title: 'Small Plan Price',
-      description: 'How much should the small plan cost? E.g. 29',
-    },
-    mediumPlanPrice: {
-      title: 'Medium Plan Price',
-      description: 'How much should the medium plan cost? E.g. 59',
-    },
-    largePlanPrice: {
-      title: 'Large Plan Price',
-      description: 'How much should the large plan cost? E.g. 199',
-    },
-
-    // Plan Periods
-    smallPlanPeriod: {
-      title: 'Small Plan Period',
-      description: 'How often is the small price charged? E.g. /mo',
-    },
-    mediumPlanPeriod: {
-      title: 'Medium Plan Period',
-      description: 'How often is the medium price charged? E.g. /mo',
-    },
-    largePlanPeriod: {
-      title: 'Large Plan Period',
-      description: 'How often is the large price charged? E.g. /mo',
-    },
   },
 });
 
