@@ -712,7 +712,12 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   font-size: 80px; line-height: 80px;
   font-family: "PT Sans Narrow"; font-weight: 700;
   }
-.fact .key  { color: $theme-greylight; font-size: 18px; line-height: 22px; }
+.fact .key  { color: $theme-greydark; font-size: 18px; line-height: 22px; }
+
+.bg-grey,
+.bg-greymiddle,
+.bg-greydark,
+.bg-dark-image {.fact .key {color: $theme-greylight; }}
 
 /* gallery-box with zoom hover + filter gallery
 =================================================================== */
