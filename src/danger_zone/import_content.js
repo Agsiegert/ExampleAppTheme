@@ -27,6 +27,7 @@ import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
 import unsplashMalePortrait1Data from './binary_data/unsplash_male_portrait_1';
 import unsplashMalePortrait2Data from './binary_data/unsplash_male_portrait_2';
 import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sunglasses';
+import unsplashNeonTrueData from './binary_data/unsplash_neon_true';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
 import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glass';
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
@@ -50,6 +51,7 @@ const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
+const NumberWidget = Scrivito.getClass('NumberWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
@@ -170,6 +172,7 @@ function importContent() {
     const unsplashMalePortrait1 = uploadImage(unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
     const unsplashMalePortrait2 = uploadImage(unsplashMalePortrait2Data, 'Male Portrait 1', UNSPLASH_TAGS);
     const unsplashMaleWithSunglasses = uploadImage(unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
+    const unsplashNeonTrue = uploadImage(unsplashNeonTrueData, 'Neon true', UNSPLASH_TAGS);
     const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window', UNSPLASH_TAGS);
     const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office', UNSPLASH_TAGS);
     const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting', UNSPLASH_TAGS);
@@ -366,6 +369,39 @@ function importContent() {
                 paragraphLowerBound: 4,
                 paragraphUpperBound: 10,
               }),
+            }),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashNeonTrue,
+          content: [
+            new ColumnWidget({
+              nrOfColumns: '4',
+              column1: [
+                new NumberWidget({
+                  value: '134',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column2: [
+                new NumberWidget({
+                  value: '43',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column3: [
+                new NumberWidget({
+                  value: '13',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column4: [
+                new NumberWidget({
+                  value: '65',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
             }),
           ],
         }),
