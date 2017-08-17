@@ -17,6 +17,7 @@ import unsplashBuildingCornerCloudsData from './binary_data/unsplash_building_co
 import unsplashBusinessPaperRedSocksData from './binary_data/unsplash_business_paper_red_socks';
 import unsplashBusinessPaperWristwatchData from './binary_data/unsplash_business_paper_wristwatch';
 import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
+import unsplashDimLaptopStandData from './binary_data/unsplash_dim_laptop_stand';
 import unsplashFemaleBehindWindowData from './binary_data/unsplash_female_behind_window';
 import unsplashFemalePortrait1Data from './binary_data/unsplash_female_portrait_1';
 import unsplashFemalePortrait2Data from './binary_data/unsplash_female_portrait_2';
@@ -26,6 +27,7 @@ import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
 import unsplashMalePortrait1Data from './binary_data/unsplash_male_portrait_1';
 import unsplashMalePortrait2Data from './binary_data/unsplash_male_portrait_2';
 import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sunglasses';
+import unsplashNeonTrueData from './binary_data/unsplash_neon_true';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
 import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glass';
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
@@ -49,6 +51,7 @@ const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
+const NumberWidget = Scrivito.getClass('NumberWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
@@ -150,51 +153,33 @@ function importContent() {
     const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
     // Images
-    const unsplashAllesCandleWoodTable = uploadImage(
-      unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
-    const unsplashAppleWorkstationCalendarIpad = uploadImage(
-      unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
-    const unsplashAppleWorkstationWindcave = uploadImage(
-      unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
+    const unsplashAllesCandleWoodTable = uploadImage(unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
+    const unsplashAppleWorkstationCalendarIpad = uploadImage(unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
+    const unsplashAppleWorkstationWindcave = uploadImage(unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
     const unsplashBikelane = uploadImage(unsplashBikelaneData, 'Bikelane', UNSPLASH_TAGS);
-    const unsplashBlackTablesWhiteChairs = uploadImage(
-      unsplashBlackTablesWhiteChairsData, 'Black tables with white chairs', UNSPLASH_TAGS);
-    const unsplashBuildingCornerClouds = uploadImage(
-      unsplashBuildingCornerCloudsData, 'Building corner with clouds', UNSPLASH_TAGS);
-    const unsplashBusinessPaperRedSocks = uploadImage(
-      unsplashBusinessPaperRedSocksData, 'Business paper guy in red socks', UNSPLASH_TAGS);
+    const unsplashBlackTablesWhiteChairs = uploadImage(unsplashBlackTablesWhiteChairsData, 'Black tables with white chairs', UNSPLASH_TAGS);
+    const unsplashBuildingCornerClouds = uploadImage(unsplashBuildingCornerCloudsData, 'Building corner with clouds', UNSPLASH_TAGS);
+    const unsplashBusinessPaperRedSocks = uploadImage(unsplashBusinessPaperRedSocksData, 'Business paper guy in red socks', UNSPLASH_TAGS);
     const unsplashBusinessPaperWristwatch = uploadImage(unsplashBusinessPaperWristwatchData, 'Ruler on a desk', UNSPLASH_TAGS);
     const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
-    const unsplashFemaleBehindWindow = uploadImage(
-      unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
-    const unsplashFemalePortrait1 = uploadImage(
-      unsplashFemalePortrait1Data, 'Female Portrait 1', UNSPLASH_TAGS);
-    const unsplashFemalePortrait2 = uploadImage(
-      unsplashFemalePortrait2Data, 'Female Portrait 2', UNSPLASH_TAGS);
+    const unsplashDimLaptopStand = uploadImage(unsplashDimLaptopStandData, 'Dim laptop stand', UNSPLASH_TAGS);
+    const unsplashFemaleBehindWindow = uploadImage(unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
+    const unsplashFemalePortrait1 = uploadImage(unsplashFemalePortrait1Data, 'Female Portrait 1', UNSPLASH_TAGS);
+    const unsplashFemalePortrait2 = uploadImage(unsplashFemalePortrait2Data, 'Female Portrait 2', UNSPLASH_TAGS);
     const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
-    const unsplashLadyInCoffeeShop = uploadImage(
-      unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
-    const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard',
-      UNSPLASH_TAGS);
-    const unsplashMalePortrait1 = uploadImage(
-      unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
-    const unsplashMalePortrait2 = uploadImage(
-      unsplashMalePortrait2Data, 'Male Portrait 1', UNSPLASH_TAGS);
-    const unsplashMaleWithSunglasses = uploadImage(
-      unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
-    const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window',
-      UNSPLASH_TAGS);
-    const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office',
-      UNSPLASH_TAGS);
-    const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting',
-      UNSPLASH_TAGS);
+    const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
+    const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
+    const unsplashMalePortrait1 = uploadImage(unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
+    const unsplashMalePortrait2 = uploadImage(unsplashMalePortrait2Data, 'Male Portrait 1', UNSPLASH_TAGS);
+    const unsplashMaleWithSunglasses = uploadImage(unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
+    const unsplashNeonTrue = uploadImage(unsplashNeonTrueData, 'Neon true', UNSPLASH_TAGS);
+    const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window', UNSPLASH_TAGS);
+    const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office', UNSPLASH_TAGS);
+    const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting', UNSPLASH_TAGS);
     const unsplashPlant = uploadImage(unsplashPlantData, 'Plant on desk', UNSPLASH_TAGS);
-    const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock',
-      UNSPLASH_TAGS);
-    const unsplashTidyDeskTouchScreen = uploadImage(
-      unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
-    const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room',
-      UNSPLASH_TAGS);
+    const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock', UNSPLASH_TAGS);
+    const unsplashTidyDeskTouchScreen = uploadImage(unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
+    const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room', UNSPLASH_TAGS);
 
     const homepage1Screenshot = uploadImage(
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
@@ -361,10 +346,65 @@ function importContent() {
       _permalink: 'about',
       title: 'About',
       childOrder: [ourWork, ourClients],
+      navigationStyle: 'transparentDark min-height',
+      navigationBackgroundImage: unsplashDimLaptopStand,
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'About' }),
-        ] }),
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              headline: 'Who we are',
+              level: 'h1',
+              style: 'h2',
+            }),
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              headline: loremIpsum({ count: 3 }),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 4,
+                paragraphLowerBound: 4,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashNeonTrue,
+          content: [
+            new ColumnWidget({
+              nrOfColumns: '4',
+              column1: [
+                new NumberWidget({
+                  value: '134',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column2: [
+                new NumberWidget({
+                  value: '43',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column3: [
+                new NumberWidget({
+                  value: '13',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column4: [
+                new NumberWidget({
+                  value: '65',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+            }),
+          ],
+        }),
       ],
     });
 
@@ -630,7 +670,7 @@ function importContent() {
       logoDark: scrivitoLogoDark,
       logoWhite: scrivitoLogoWhite,
       navigationBackgroundImage: unsplashHandcraft,
-      navigationStyle: 'transparentDark',
+      navigationStyle: 'transparentDark full-height',
       navigationSection: [
         new HeadlineWidget({
           centered: 'yes',

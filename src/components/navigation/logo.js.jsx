@@ -8,7 +8,10 @@ function logoStyle({ scrolled, navigationStyle }) {
     logoVersion = 'logoDark';
   }
 
-  const logoUrl = Scrivito.Obj.root().get(logoVersion).get('blob').url();
+  const logoObj = Scrivito.Obj.root().get(logoVersion);
+  if (!logoObj) { return {}; }
+
+  const logoUrl = logoObj.get('blob').url();
 
   return {
     background: `rgba(0, 0, 0, 0) url(${logoUrl}) no-repeat scroll center center / contain`,
@@ -16,6 +19,8 @@ function logoStyle({ scrolled, navigationStyle }) {
 }
 
 function Logo({ scrolled, navigationStyle }) {
+  if (!Scrivito.Obj.root()) { return null; }
+
   return (
     <Scrivito.React.Link
         to={ Scrivito.Obj.root() }
