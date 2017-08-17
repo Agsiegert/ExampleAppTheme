@@ -3,6 +3,8 @@ import FontAwesomeIconComponent from 'components/font_awesome_icon';
 function Footer() {
   const root = Scrivito.Obj.root();
 
+  if (!root) { return null; }
+
   return (
     <footer>
       <div className="bg-greywhite">
