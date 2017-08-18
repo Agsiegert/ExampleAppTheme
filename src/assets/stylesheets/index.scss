@@ -211,8 +211,8 @@ h4, .h4 {
   font-weight: 300; font-size: 22px; line-height: 30px;
   color: $theme-greymiddle;
   }
-h5, .h5 { font-size: 14px; }
-h6, .h6 { font-size: 10px; }
+h5, .h5 { font-family: 'Source Sans Pro', sans-serif; font-size: 16px; }
+h6, .h6 { font-size: 14px; }
 
 .border-bottom {
   display: block; position: relative;
@@ -712,7 +712,14 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   font-size: 80px; line-height: 80px;
   font-family: "PT Sans Narrow"; font-weight: 700;
   }
-.fact .key  { color: $theme-greylight; font-size: 18px; line-height: 22px; }
+.fact .key  { color: $theme-greydark; font-size: 18px; line-height: 22px; }
+
+.bg-grey,
+.bg-greymiddle,
+.bg-greydark,
+.bg-dark-image {.fact .key {color: $theme-greylight; }}
+
+.fact span:empty { min-width: 20px!important; display: inline-block; background: rgba(0,255,0,.2); }
 
 /* gallery-box with zoom hover + filter gallery
 =================================================================== */
@@ -914,6 +921,29 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .panel-theme .fa { padding: 20px 0; color: $brand-secondary;}
 .panel-theme a:hover { text-decoration: none; }
 .panel-theme .social-links i { padding: 20px; }
+
+
+
+.panel-theme.panel-list .panel-icon { text-align: center; width: 22%; float: left; }
+.panel-theme.panel-list .panel-body { text-align: left; width: 78%; float: left; }
+.panel-theme.panel-list .panel-body h3 { position: relative; }
+.panel-theme.panel-list .panel-body h3:after {
+  background: rgba(111, 111, 111, 0.2);
+  left: -19px; top: 5px; content: "";display: block;
+  height: 30px; position: absolute; width: 1px;
+  }
+
+@media (max-width: $screen-md-max) {
+  .panel-theme.panel-list .panel-icon { width: 25%; }
+  .panel-theme.panel-list .panel-body { width: 75%; }
+  }
+
+@media (max-width: $screen-sm-max) {
+  .panel-theme.panel-list .panel-icon,
+  .panel-theme.panel-list .panel-body { text-align: center; width: 100%; float: none; }
+  .panel-theme.panel-list .panel-body h3:after { display: none;}
+ }
+
 
 /* gallery thumbs
 =================================================================== */
