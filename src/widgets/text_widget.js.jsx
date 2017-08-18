@@ -31,7 +31,7 @@ Scrivito.provideUiConfig(TextWidget, {
   },
 });
 
-Scrivito.provideComponent(TextWidget, widget =>
+Scrivito.provideComponent(TextWidget, ({ widget }) =>
   <Scrivito.React.Content
     tag="div"
     className={ widget.get('centered') === 'yes' && 'text-center' }

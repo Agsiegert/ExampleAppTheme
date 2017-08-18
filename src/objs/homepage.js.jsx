@@ -57,7 +57,7 @@ Scrivito.provideUiConfig(Homepage, {
   descriptionForContent: obj => `path: ${obj.path}`,
 });
 
-Scrivito.provideComponent(Homepage, obj =>
+Scrivito.provideComponent(Homepage, ({ obj }) =>
   <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
 );
 

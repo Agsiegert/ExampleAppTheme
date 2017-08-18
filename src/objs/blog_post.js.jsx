@@ -65,7 +65,7 @@ Scrivito.provideUiConfig(BlogPost, {
   titleForContent: obj => obj.get('title'),
 });
 
-Scrivito.provideComponent(BlogPost, obj =>
+Scrivito.provideComponent(BlogPost, ({ obj }) =>
   <div>
     <BlogPostNavigation currentPost={ obj }/>
     <section className='bg-white'>

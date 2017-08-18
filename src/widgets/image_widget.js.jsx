@@ -17,7 +17,7 @@ Scrivito.provideUiConfig(ImageWidget, {
   },
 });
 
-Scrivito.provideComponent(ImageWidget, widget =>
+Scrivito.provideComponent(ImageWidget, ({ widget }) =>
   <Scrivito.React.Image src={ widget } attribute="image" className={ widget.get('cssClass') } />);
 
 export default ImageWidget;

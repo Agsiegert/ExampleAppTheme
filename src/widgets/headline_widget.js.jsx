@@ -41,7 +41,7 @@ Scrivito.provideUiConfig(HeadlineWidget, {
   titleForContent: widget => widget.get('headline'),
 });
 
-Scrivito.provideComponent(HeadlineWidget, widget => {
+Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
   const level = widget.get('level') || 'h1';
 
   const style = widget.get('style') || level;

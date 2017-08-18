@@ -41,7 +41,7 @@ Scrivito.provideUiConfig(Page, {
   descriptionForContent: obj => `path: ${obj.path}`,
 });
 
-Scrivito.provideComponent(Page, obj =>
+Scrivito.provideComponent(Page, ({ obj }) =>
   <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
 );
 

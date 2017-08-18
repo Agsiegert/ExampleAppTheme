@@ -12,7 +12,7 @@ Scrivito.provideUiConfig(PricingSpecWidget, {
   description: 'A Pricing Spec - Can only live inside a PricingWidget',
 });
 
-Scrivito.provideComponent(PricingSpecWidget, widget =>
+Scrivito.provideComponent(PricingSpecWidget, ({ widget }) =>
   <div className="spec">
     <Scrivito.React.Content
       content={ widget }

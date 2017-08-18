@@ -56,7 +56,7 @@ Scrivito.provideUiConfig(SectionWidget, {
   },
 });
 
-Scrivito.provideComponent(SectionWidget, widget => {
+Scrivito.provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames = [];
 
   const backgroundColor = widget.get('backgroundColor') || 'white';
