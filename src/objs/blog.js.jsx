@@ -42,10 +42,10 @@ Scrivito.provideUiConfig(Blog, {
   titleForContent: obj => obj.get('title'),
 });
 
-Scrivito.provideComponent(Blog, ({ obj }) =>
+Scrivito.provideComponent(Blog, ({ page }) =>
   <div>
     <TagList />
-    <Scrivito.React.Content className="div" content={ obj } attribute="body" />
+    <Scrivito.React.Content className="div" content={ page } attribute="body" />
   </div>
 );
 

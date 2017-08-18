@@ -65,19 +65,19 @@ Scrivito.provideUiConfig(BlogPost, {
   titleForContent: obj => obj.get('title'),
 });
 
-Scrivito.provideComponent(BlogPost, ({ obj }) =>
+Scrivito.provideComponent(BlogPost, ({ page }) =>
   <div>
-    <BlogPostNavigation currentPost={ obj }/>
+    <BlogPostNavigation currentPost={ page }/>
     <section className='bg-white'>
       <div className='container'>
-        <Scrivito.React.Content tag="h1" className="h2" content={ obj } attribute="title" />
-        <Scrivito.React.Content tag="h2" className="h4" content={ obj } attribute="subtitle" />
+        <Scrivito.React.Content tag="h1" className="h2" content={ page } attribute="title" />
+        <Scrivito.React.Content tag="h2" className="h4" content={ page } attribute="subtitle" />
       </div>
     </section>
-    <Scrivito.React.Content tag="div" content={ obj } attribute="body" />
-    <BlogPostAuthor author={ obj.get('author') } />
-    <BlogPostTagList tags={ obj.get('tags') } />
-    <BlogPostMorePosts author={ obj.get('author') } />
+    <Scrivito.React.Content tag="div" content={ page } attribute="body" />
+    <BlogPostAuthor author={ page.get('author') } />
+    <BlogPostTagList tags={ page.get('tags') } />
+    <BlogPostMorePosts author={ page.get('author') } />
   </div>
 );
 
