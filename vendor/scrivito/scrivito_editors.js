@@ -68,7 +68,7 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 105:
+/***/ 103:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -78,7 +78,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _jquery = __webpack_require__(41);
+var _jquery = __webpack_require__(42);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -95,7 +95,7 @@ exports.default = applyPlaceholderToElement;
 
 /***/ }),
 
-/***/ 106:
+/***/ 104:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107,7 +107,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _jquery = __webpack_require__(41);
+var _jquery = __webpack_require__(42);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -205,15 +205,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _jquery = __webpack_require__(41);
+var _jquery = __webpack_require__(42);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _controller_content_proxy = __webpack_require__(106);
+var _controller_content_proxy = __webpack_require__(104);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(105);
+var _apply_placeholder_to_element = __webpack_require__(103);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
@@ -277,11 +277,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _controller_content_proxy = __webpack_require__(106);
+var _controller_content_proxy = __webpack_require__(104);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(105);
+var _apply_placeholder_to_element = __webpack_require__(103);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
@@ -8723,11 +8723,11 @@ MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
     return MediumEditor;
 }()));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(35)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ }),
 
-/***/ 35:
+/***/ 36:
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -8914,7 +8914,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 41:
+/***/ 42:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
