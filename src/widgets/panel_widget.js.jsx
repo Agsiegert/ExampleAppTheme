@@ -18,7 +18,7 @@ Scrivito.provideUiConfig(PanelWidget, {
   description: 'A panel widget',
 });
 
-Scrivito.provideComponent(PanelWidget, widget =>
+Scrivito.provideComponent(PanelWidget, ({ widget }) =>
   <div className="panel panel-theme">
     <Scrivito.React.Content content={ widget } attribute="body" className="panel-body" />
   </div>

@@ -32,7 +32,7 @@ const ButtonWidgetComponent = Scrivito.React.connect(({ widget }) => {
   );
 });
 
-Scrivito.provideComponent(ButtonWidget, widget => {
+Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
   if (widget.get('centered') === 'yes') {
     return (
       <div className='text-center'>

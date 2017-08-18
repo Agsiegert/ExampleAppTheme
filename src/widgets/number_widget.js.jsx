@@ -19,7 +19,7 @@ Scrivito.provideUiConfig(NumberWidget, {
   description: 'A number',
 });
 
-Scrivito.provideComponent(NumberWidget, widget =>
+Scrivito.provideComponent(NumberWidget, ({ widget }) =>
   <div className="fact">
     <Scrivito.React.Content
       content={ widget }

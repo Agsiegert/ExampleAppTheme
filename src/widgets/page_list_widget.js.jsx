@@ -21,7 +21,7 @@ Scrivito.provideUiConfig(PageListWidget, {
   },
 });
 
-Scrivito.provideComponent(PageListWidget, widget => {
+Scrivito.provideComponent(PageListWidget, ({ widget }) => {
   const pages = widget.get('pages');
 
   if (pages.size === 0) {

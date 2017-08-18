@@ -37,7 +37,7 @@ Scrivito.provideUiConfig(ColumnWidget, {
   },
 });
 
-Scrivito.provideComponent(ColumnWidget, widget => {
+Scrivito.provideComponent(ColumnWidget, ({ widget }) => {
   let nrOfColumns = parseInt(widget.get('nrOfColumns'), 10);
   if (![1, 2, 3, 4].includes(nrOfColumns)) {
     // fallback value, if missing or invalid
