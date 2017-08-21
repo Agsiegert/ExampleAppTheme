@@ -43,6 +43,7 @@ import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glas
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
 import unsplashPlantData from './binary_data/unsplash_plant';
 import unsplashScreenWithClockData from './binary_data/unsplash_screen_with_clock';
+import unsplashSilhouetteDancingData from './binary_data/unsplash_silhouette_dancing';
 import unsplashTidyDeskTouchScreenData from './binary_data/unsplash_tidy_desk_touch_screen';
 import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
 
@@ -239,6 +240,7 @@ function importContent() {
     const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting', UNSPLASH_TAGS);
     const unsplashPlant = uploadImage(unsplashPlantData, 'Plant on desk', UNSPLASH_TAGS);
     const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock', UNSPLASH_TAGS);
+    const unsplashSilhouetteDancing = uploadImage(unsplashSilhouetteDancingData, 'Silhouette dancing', UNSPLASH_TAGS);
     const unsplashTidyDeskTouchScreen = uploadImage(unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
     const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room', UNSPLASH_TAGS);
 
@@ -252,6 +254,81 @@ function importContent() {
     const root = Homepage.create({
       _path: '/',
       // Content is at the bottom of the file
+    });
+
+    // Path less Objs
+    const jobs = Page.create({
+      _permalink: 'jobs',
+      title: 'Jobs',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Jobs' }),
+        ] }),
+      ],
+    });
+    const contact = Page.create({
+      _permalink: 'contact',
+      title: 'Contact',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Contact' }),
+        ] }),
+      ],
+    });
+    const imprint = Page.create({
+      title: 'Imprint',
+      _permalink: 'imprint',
+      body: [
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h1',
+              style: 'h2',
+              headline: 'Lorem ipsum dolor sit amet',
+            }),
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 9,
+                paragraphLowerBound: 1,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+      ],
+    });
+    const login = Page.create({
+      title: 'Login',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Login' }),
+        ] }),
+      ],
+    });
+    const events = Page.create({
+      _permalink: 'events',
+      title: 'Events & Conferences',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Events' }),
+        ] }),
+      ],
+    });
+    const landingPage = Page.create({
+      _permalink: 'landing_page',
+      title: 'Landing Page',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Landing Page' }),
+        ] }),
+      ],
     });
 
     // PRODUCT
@@ -602,6 +679,33 @@ function importContent() {
             }),
           ],
         }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashSilhouetteDancing,
+          content: [
+            new HeadlineWidget({
+              headline: 'We are hiring',
+              centered: 'yes',
+            }),
+            new TextWidget({
+              centered: 'yes',
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 2,
+                paragraphUpperBound: 3,
+              }),
+            }),
+            new ButtonWidget({
+              centered: 'yes',
+              target: new Scrivito.Link({
+                title: 'See full job list',
+                obj: jobs,
+              }),
+            }),
+          ],
+        }),
       ],
     });
 
@@ -748,81 +852,6 @@ function importContent() {
       body: [
         new SectionWidget({ content: [
           new HeadlineWidget({ headline: 'Widgets & Pages' }),
-        ] }),
-      ],
-    });
-
-    // Path less Objs
-    const jobs = Page.create({
-      _permalink: 'jobs',
-      title: 'Jobs',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Jobs' }),
-        ] }),
-      ],
-    });
-    const contact = Page.create({
-      _permalink: 'contact',
-      title: 'Contact',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Contact' }),
-        ] }),
-      ],
-    });
-    const imprint = Page.create({
-      title: 'Imprint',
-      _permalink: 'imprint',
-      body: [
-        new SectionWidget({
-          content: [
-            new HeadlineWidget({
-              level: 'h1',
-              style: 'h2',
-              headline: 'Lorem ipsum dolor sit amet',
-            }),
-            new HeadlineWidget({
-              level: 'h2',
-              style: 'h4',
-              headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 9,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
-    });
-    const login = Page.create({
-      title: 'Login',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Login' }),
-        ] }),
-      ],
-    });
-    const events = Page.create({
-      _permalink: 'events',
-      title: 'Events & Conferences',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Events' }),
-        ] }),
-      ],
-    });
-    const landingPage = Page.create({
-      _permalink: 'landing_page',
-      title: 'Landing Page',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Landing Page' }),
         ] }),
       ],
     });
