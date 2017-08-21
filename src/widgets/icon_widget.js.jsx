@@ -1,4 +1,4 @@
-import { IconWithLinkComponent } from 'components/icon';
+import IconComponent from 'components/icon';
 
 const IconWidget = Scrivito.createWidgetClass({
   name: 'IconWidget',
@@ -42,12 +42,12 @@ Scrivito.provideComponent(IconWidget, ({ widget }) => {
   if (widget.get('centered') === 'yes') {
     return (
       <div className='text-center'>
-        <IconWithLinkComponent icon={ icon } size={ size } link={ link } />
+        <IconComponent icon={ icon } size={ size } link={ link } />
       </div>
     );
   }
 
-  return <IconWithLinkComponent icon={ icon } size={ size } link={ link } />;
+  return <IconComponent icon={ icon } size={ size } link={ link } />;
 });
 
 export default IconWidget;

@@ -1,5 +1,3 @@
-import IconComponent from 'components/icon';
-
 function Footer() {
   const root = Scrivito.Obj.root();
 
@@ -13,16 +11,7 @@ function Footer() {
         </div>
       </div>
       <div className="bg-greydark height-center social-footer">
-        <div className="container">
-          {
-            root.get('iconButtons').map(iconButton =>
-              <IconComponent
-                  widget={ iconButton }
-                  key= { iconButton.id }
-                />
-            )
-          }
-        </div>
+        <Scrivito.React.Content content={ root } attribute="footerIconList" className="container" />
       </div>
     </footer>
   );

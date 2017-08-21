@@ -14,7 +14,7 @@ const BaseHomepage = Scrivito.createObjClass({
     footer: 'widgetlist',
     logoDark: 'reference',
     logoWhite: 'reference',
-    iconButtons: ['widgetlist', { only: 'IconWidget' }],
+    footerIconList: ['widgetlist', { only: 'IconListWidget' }],
   },
 });
 
@@ -47,10 +47,6 @@ Scrivito.provideUiConfig(Homepage, {
     logoDark: {
       title: 'Logo Dark',
       description: 'The logo of your site (dark version for light backgrounds)',
-    },
-    iconButtons: {
-      title: 'Icon Buttons',
-      description: 'The icon buttons, which are shown at the very bottom of the page',
     },
   },
   titleForContent: obj => obj.get('title'),

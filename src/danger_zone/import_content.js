@@ -60,6 +60,8 @@ const FactWidget = Scrivito.getClass('FactWidget');
 const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
+const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
+const IconListWidget = Scrivito.getClass('IconListWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
@@ -781,7 +783,7 @@ function importContent() {
     });
 
     // icon buttons for Footer
-    const twitterIcon = new IconWidget({
+    const twitterIcon = new IconListItemWidget({
       icon: 'fa-twitter',
       link: new Scrivito.Link({
         title: 'Twitter',
@@ -789,7 +791,7 @@ function importContent() {
         url: 'https://twitter.com/scrivito',
       }),
     });
-    const facebookIcon = new IconWidget({
+    const facebookIcon = new IconListItemWidget({
       icon: 'fa-facebook-f',
       link: new Scrivito.Link({
         title: 'Facebook',
@@ -797,7 +799,7 @@ function importContent() {
         url: 'https://www.facebook.com/Scrivito/',
       }),
     });
-    const xingIcon = new IconWidget({
+    const xingIcon = new IconListItemWidget({
       icon: 'fa-xing',
       link: new Scrivito.Link({
         title: 'Xing',
@@ -805,7 +807,7 @@ function importContent() {
         url: 'https://www.xing.com/companies/infoparkag',
       }),
     });
-    const linkedinIcon = new IconWidget({
+    const linkedinIcon = new IconListItemWidget({
       icon: 'fa-linkedin',
       link: new Scrivito.Link({
         title: 'Linkedin',
@@ -844,7 +846,11 @@ function importContent() {
           }),
         }),
       ],
-      iconButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
+      footerIconList: [
+        new IconListWidget({
+          iconList: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
+        }),
+      ],
       title: 'Welcome to the Scrivito Example App JS!',
       body: [
         new SectionWidget({ content: [

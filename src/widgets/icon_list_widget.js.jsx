@@ -1,4 +1,4 @@
-import { IconWithLinkComponent } from 'components/icon';
+import IconComponent from 'components/icon';
 
 const IconListWidget = Scrivito.createWidgetClass({
   name: 'IconListWidget',
@@ -26,7 +26,7 @@ Scrivito.provideComponent(IconListWidget, ({ widget }) =>
         const link = iconListItem.get('link');
         const size = iconListItem.get('size');
 
-        return <IconWithLinkComponent
+        return <IconComponent
           icon={ icon }
           size={ size }
           link={ link }
