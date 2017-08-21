@@ -14,7 +14,7 @@ const BaseHomepage = Scrivito.createObjClass({
     footer: 'widgetlist',
     logoDark: 'reference',
     logoWhite: 'reference',
-    iconButtons: ['widgetlist', { only: 'FontAwesomeIconWidget' }],
+    iconButtons: ['widgetlist', { only: 'IconWidget' }],
   },
 });
 

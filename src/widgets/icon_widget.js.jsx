@@ -1,7 +1,7 @@
 import { IconPlainComponent } from 'components/icon';
 
-const FontAwesomeIconWidget = Scrivito.createWidgetClass({
-  name: 'FontAwesomeIconWidget',
+const IconWidget = Scrivito.createWidgetClass({
+  name: 'IconWidget',
   attributes: {
     icon: 'string',
     size: ['enum', { validValues: ['fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x'] }],
@@ -10,8 +10,8 @@ const FontAwesomeIconWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(FontAwesomeIconWidget, {
-  title: 'Font Awesome Icon',
+Scrivito.provideUiConfig(IconWidget, {
+  title: 'Icon',
   description: 'A widget with a font awesome icon. See http://fontawesome.io/icons/ for all icons.',
   attributes: {
     icon: {
@@ -34,6 +34,6 @@ Scrivito.provideUiConfig(FontAwesomeIconWidget, {
   titleForContent: widget => widget.get('icon'),
 });
 
-Scrivito.provideComponent(FontAwesomeIconWidget, IconPlainComponent);
+Scrivito.provideComponent(IconWidget, IconPlainComponent);
 
-export default FontAwesomeIconWidget;
+export default IconWidget;

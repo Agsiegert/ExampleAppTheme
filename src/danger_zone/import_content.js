@@ -57,10 +57,10 @@ const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
-const FontAwesomeIconWidget = Scrivito.getClass('FontAwesomeIconWidget');
 const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
+const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
@@ -128,7 +128,7 @@ function randomPastDate() {
 function createFeaturePanelWidget(icon, headline) {
   return new PanelWidget({
     body: [
-      new FontAwesomeIconWidget({
+      new IconWidget({
         icon,
         size: 'fa-4x',
         centered: 'yes',
@@ -781,7 +781,7 @@ function importContent() {
     });
 
     // icon buttons for Footer
-    const twitterIcon = new FontAwesomeIconWidget({
+    const twitterIcon = new IconWidget({
       icon: 'fa-twitter',
       link: new Scrivito.Link({
         title: 'Twitter',
@@ -789,7 +789,7 @@ function importContent() {
         url: 'https://twitter.com/scrivito',
       }),
     });
-    const facebookIcon = new FontAwesomeIconWidget({
+    const facebookIcon = new IconWidget({
       icon: 'fa-facebook-f',
       link: new Scrivito.Link({
         title: 'Facebook',
@@ -797,7 +797,7 @@ function importContent() {
         url: 'https://www.facebook.com/Scrivito/',
       }),
     });
-    const xingIcon = new FontAwesomeIconWidget({
+    const xingIcon = new IconWidget({
       icon: 'fa-xing',
       link: new Scrivito.Link({
         title: 'Xing',
@@ -805,7 +805,7 @@ function importContent() {
         url: 'https://www.xing.com/companies/infoparkag',
       }),
     });
-    const linkedinIcon = new FontAwesomeIconWidget({
+    const linkedinIcon = new IconWidget({
       icon: 'fa-linkedin',
       link: new Scrivito.Link({
         title: 'Linkedin',
