@@ -6,6 +6,7 @@ const BaseHeadlineWidget = Scrivito.createWidgetClass({
     style: ['enum', { validValues: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
     centered: ['enum', { validValues: ['yes', 'no'] }],
     showDividingLine: ['enum', { validValues: ['yes', 'no'] }],
+    marginDisabled: ['enum', { validValues: ['yes', 'no'] }],
   },
 });
 
@@ -37,6 +38,10 @@ Scrivito.provideUiConfig(HeadlineWidget, {
       title: 'Show dividing line',
       description: 'Should this headline show a dividing line?',
     },
+    marginDisabled: {
+      title: 'Disable Margin?',
+      description: 'Should this headline use no margin (empty space around this headline)?',
+    },
   },
   titleForContent: widget => widget.get('headline'),
 });
@@ -51,6 +56,9 @@ Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
   }
   if (widget.get('showDividingLine') === 'yes') {
     classNames.push('border-bottom');
+  }
+  if (widget.get('marginDisabled') === 'yes') {
+    classNames.push('no-margin');
   }
 
   return <Scrivito.React.Content
