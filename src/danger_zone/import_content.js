@@ -56,12 +56,12 @@ const Page = Scrivito.getClass('Page');
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
+const FactWidget = Scrivito.getClass('FactWidget');
 const FontAwesomeIconWidget = Scrivito.getClass('FontAwesomeIconWidget');
 const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
-const NumberWidget = Scrivito.getClass('NumberWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
@@ -399,25 +399,25 @@ function importContent() {
             new ColumnWidget({
               nrOfColumns: '4',
               column1: [
-                new NumberWidget({
+                new FactWidget({
                   value: '134',
                   key: loremIpsum({ units: 'words', count: 3 }),
                 }),
               ],
               column2: [
-                new NumberWidget({
+                new FactWidget({
                   value: '43',
                   key: loremIpsum({ units: 'words', count: 3 }),
                 }),
               ],
               column3: [
-                new NumberWidget({
+                new FactWidget({
                   value: '13',
                   key: loremIpsum({ units: 'words', count: 3 }),
                 }),
               ],
               column4: [
-                new NumberWidget({
+                new FactWidget({
                   value: '65',
                   key: loremIpsum({ units: 'words', count: 3 }),
                 }),
