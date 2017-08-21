@@ -545,6 +545,18 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
+            new HeadlineWidget({
+              level: 'h1',
+              style: 'h2',
+              showDividingLine: 'yes',
+              headline: 'Meet our awarded team',
+            }),
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              centered: 'yes',
+              headline: loremIpsum({ count: 2 }),
+            }),
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
@@ -693,8 +705,8 @@ function importContent() {
                 units: 'paragraphs',
                 format: 'html',
                 count: 1,
-                paragraphLowerBound: 2,
-                paragraphUpperBound: 3,
+                paragraphLowerBound: 4,
+                paragraphUpperBound: 5,
               }),
             }),
             new ButtonWidget({
