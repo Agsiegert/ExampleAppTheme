@@ -155,6 +155,45 @@ function createFeaturePanelWidget(icon, headline) {
   });
 }
 
+function createRandomIconListWidget() {
+  return new IconListWidget({
+    iconList: [
+      new IconListItemWidget({
+        icon: 'fa-twitter',
+        link: new Scrivito.Link({
+          title: 'Twitter',
+          url: 'https://twitter.com',
+          target: '_blank',
+        }),
+      }),
+      new IconListItemWidget({
+        icon: 'fa-facebook',
+        link: new Scrivito.Link({
+          title: 'Facebook',
+          url: 'https://www.facebook.com',
+          target: '_blank',
+        }),
+      }),
+      new IconListItemWidget({
+        icon: 'fa-instagram',
+        link: new Scrivito.Link({
+          title: 'Instagram',
+          url: 'https://www.instagram.com',
+          target: '_blank',
+        }),
+      }),
+      new IconListItemWidget({
+        icon: 'fa-linkedin',
+        link: new Scrivito.Link({
+          title: 'Linked In',
+          url: 'https://www.linkedin.com',
+          target: '_blank',
+        }),
+      }),
+    ],
+  });
+}
+
 function importContent() {
   allExistingImages().then(images => {
     existingImages = images;
@@ -448,6 +487,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -468,6 +508,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -488,6 +529,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -511,6 +553,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -531,6 +574,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -551,6 +595,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -782,40 +827,6 @@ function importContent() {
       ],
     });
 
-    // icon buttons for Footer
-    const twitterIcon = new IconListItemWidget({
-      icon: 'fa-twitter',
-      link: new Scrivito.Link({
-        title: 'Twitter',
-        target: '_blank',
-        url: 'https://twitter.com/scrivito',
-      }),
-    });
-    const facebookIcon = new IconListItemWidget({
-      icon: 'fa-facebook-f',
-      link: new Scrivito.Link({
-        title: 'Facebook',
-        target: '_blank',
-        url: 'https://www.facebook.com/Scrivito/',
-      }),
-    });
-    const xingIcon = new IconListItemWidget({
-      icon: 'fa-xing',
-      link: new Scrivito.Link({
-        title: 'Xing',
-        target: '_blank',
-        url: 'https://www.xing.com/companies/infoparkag',
-      }),
-    });
-    const linkedinIcon = new IconListItemWidget({
-      icon: 'fa-linkedin',
-      link: new Scrivito.Link({
-        title: 'Linkedin',
-        target: '_blank',
-        url: 'https://www.linkedin.com/company/infopark',
-      }),
-    });
-
     // Obj.root
     root.update({
       childOrder: [product, about, pricing, blog, widgetsAndPages],
@@ -846,11 +857,7 @@ function importContent() {
           }),
         }),
       ],
-      footerIconList: [
-        new IconListWidget({
-          iconList: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
-        }),
-      ],
+      footerIconList: [createRandomIconListWidget()],
       title: 'Welcome to the Scrivito Example App JS!',
       body: [
         new SectionWidget({ content: [
