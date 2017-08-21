@@ -21,11 +21,21 @@ import unsplashDimLaptopStandData from './binary_data/unsplash_dim_laptop_stand'
 import unsplashFemaleBehindWindowData from './binary_data/unsplash_female_behind_window';
 import unsplashFemalePortrait1Data from './binary_data/unsplash_female_portrait_1';
 import unsplashFemalePortrait2Data from './binary_data/unsplash_female_portrait_2';
+import unsplashFemalePortrait3Data from './binary_data/unsplash_female_portrait_3';
+import unsplashFemalePortrait3SquareData from './binary_data/unsplash_female_portrait_3_square';
+import unsplashFemalePortrait4Data from './binary_data/unsplash_female_portrait_4';
+import unsplashFemalePortrait4SquareData from './binary_data/unsplash_female_portrait_4_square';
+import unsplashFemalePortrait5Data from './binary_data/unsplash_female_portrait_5';
+import unsplashFemalePortrait5SquareData from './binary_data/unsplash_female_portrait_5_square';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 import unsplashLadyInCoffeeShopData from './binary_data/unsplash_lady_in_coffee_shop';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
 import unsplashMalePortrait1Data from './binary_data/unsplash_male_portrait_1';
+import unsplashMalePortrait1SquareData from './binary_data/unsplash_male_portrait_1_square';
 import unsplashMalePortrait2Data from './binary_data/unsplash_male_portrait_2';
+import unsplashMalePortrait2SquareData from './binary_data/unsplash_male_portrait_2_square';
+import unsplashMalePortrait3Data from './binary_data/unsplash_male_portrait_3';
+import unsplashMalePortrait3SquareData from './binary_data/unsplash_male_portrait_3_square';
 import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sunglasses';
 import unsplashNeonTrueData from './binary_data/unsplash_neon_true';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
@@ -46,12 +56,12 @@ const Page = Scrivito.getClass('Page');
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
+const FactWidget = Scrivito.getClass('FactWidget');
 const FontAwesomeIconWidget = Scrivito.getClass('FontAwesomeIconWidget');
 const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
-const NumberWidget = Scrivito.getClass('NumberWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
@@ -166,11 +176,21 @@ function importContent() {
     const unsplashFemaleBehindWindow = uploadImage(unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
     const unsplashFemalePortrait1 = uploadImage(unsplashFemalePortrait1Data, 'Female Portrait 1', UNSPLASH_TAGS);
     const unsplashFemalePortrait2 = uploadImage(unsplashFemalePortrait2Data, 'Female Portrait 2', UNSPLASH_TAGS);
+    uploadImage(unsplashFemalePortrait3Data, 'Female Portrait 3', UNSPLASH_TAGS);
+    const unsplashFemalePortrait3Square = uploadImage(unsplashFemalePortrait3SquareData, 'Female Portrait 3 (Square)', [...UNSPLASH_TAGS, 'square']);
+    uploadImage(unsplashFemalePortrait4Data, 'Female Portrait 4', UNSPLASH_TAGS);
+    const unsplashFemalePortrait4Square = uploadImage(unsplashFemalePortrait4SquareData, 'Female Portrait 4 (Square)', [...UNSPLASH_TAGS, 'square']);
+    uploadImage(unsplashFemalePortrait5Data, 'Female Portrait 5', UNSPLASH_TAGS);
+    const unsplashFemalePortrait5Square = uploadImage(unsplashFemalePortrait5SquareData, 'Female Portrait 5 (Square)', [...UNSPLASH_TAGS, 'square']);
     const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
     const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
     const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
     const unsplashMalePortrait1 = uploadImage(unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
-    const unsplashMalePortrait2 = uploadImage(unsplashMalePortrait2Data, 'Male Portrait 1', UNSPLASH_TAGS);
+    const unsplashMalePortrait1Square = uploadImage(unsplashMalePortrait1SquareData, 'Male Portrait 1 (Square)', [...UNSPLASH_TAGS, 'square']);
+    const unsplashMalePortrait2 = uploadImage(unsplashMalePortrait2Data, 'Male Portrait 2', UNSPLASH_TAGS);
+    const unsplashMalePortrait2Square = uploadImage(unsplashMalePortrait2SquareData, 'Male Portrait 2 (Square)', [...UNSPLASH_TAGS, 'square']);
+    uploadImage(unsplashMalePortrait3Data, 'Male Portrait 3', UNSPLASH_TAGS);
+    const unsplashMalePortrait3Square = uploadImage(unsplashMalePortrait3SquareData, 'Male Portrait 3 (Square)', [...UNSPLASH_TAGS, 'square']);
     const unsplashMaleWithSunglasses = uploadImage(unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
     const unsplashNeonTrue = uploadImage(unsplashNeonTrueData, 'Neon true', UNSPLASH_TAGS);
     const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window', UNSPLASH_TAGS);
@@ -379,27 +399,157 @@ function importContent() {
             new ColumnWidget({
               nrOfColumns: '4',
               column1: [
-                new NumberWidget({
+                new FactWidget({
                   value: '134',
                   key: loremIpsum({ units: 'words', count: 3 }),
                 }),
               ],
               column2: [
-                new NumberWidget({
+                new FactWidget({
                   value: '43',
                   key: loremIpsum({ units: 'words', count: 3 }),
                 }),
               ],
               column3: [
-                new NumberWidget({
+                new FactWidget({
                   value: '13',
                   key: loremIpsum({ units: 'words', count: 3 }),
                 }),
               ],
               column4: [
-                new NumberWidget({
+                new FactWidget({
                   value: '65',
                   key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
+            new ColumnWidget({
+              nrOfColumns: '3',
+              column1: [
+                new PanelWidget({
+                  body: [
+                    new ImageWidget({ image: unsplashFemalePortrait3Square }),
+                    new HeadlineWidget({
+                      headline: 'Jane Morgan',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Product Research Director',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
+                  ],
+                }),
+              ],
+              column2: [
+                new PanelWidget({
+                  body: [
+                    new ImageWidget({ image: unsplashMalePortrait3Square }),
+                    new HeadlineWidget({
+                      headline: 'Peter Doe',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Internal Applications Supervisor',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
+                  ],
+                }),
+              ],
+              column3: [
+                new PanelWidget({
+                  body: [
+                    new ImageWidget({ image: unsplashFemalePortrait4Square }),
+                    new HeadlineWidget({
+                      headline: 'Susan Summer',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Regional Agent',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '3',
+              column1: [
+                new PanelWidget({
+                  body: [
+                    new ImageWidget({ image: unsplashMalePortrait2Square }),
+                    new HeadlineWidget({
+                      headline: 'Clarius Ceasar',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Dynamic Operations Representative',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
+                  ],
+                }),
+              ],
+              column2: [
+                new PanelWidget({
+                  body: [
+                    new ImageWidget({ image: unsplashFemalePortrait5Square }),
+                    new HeadlineWidget({
+                      headline: 'Anna Corn',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Regional Brand Producer',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
+                  ],
+                }),
+              ],
+              column3: [
+                new PanelWidget({
+                  body: [
+                    new ImageWidget({ image: unsplashMalePortrait1Square }),
+                    new HeadlineWidget({
+                      headline: 'Jason John',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Dynamic Paradigm Director',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
+                  ],
                 }),
               ],
             }),

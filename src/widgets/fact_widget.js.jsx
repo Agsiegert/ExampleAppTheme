@@ -1,25 +1,25 @@
-const BaseNumberWidget = Scrivito.createWidgetClass({
-  name: 'NumberWidget',
+const BaseFactWidget = Scrivito.createWidgetClass({
+  name: 'FactWidget',
   attributes: {
     key: 'string',
     value: 'string',
   },
 });
 
-class NumberWidget extends BaseNumberWidget {
+class FactWidget extends BaseFactWidget {
   textExtract() {
     return [this.get('key'), this.get('value')].join(' ');
   }
 }
 
-Scrivito.registerClass('NumberWidget', NumberWidget);
+Scrivito.registerClass('FactWidget', FactWidget);
 
-Scrivito.provideUiConfig(NumberWidget, {
-  title: 'Number',
-  description: 'A number',
+Scrivito.provideUiConfig(FactWidget, {
+  title: 'Fact',
+  description: 'A fact',
 });
 
-Scrivito.provideComponent(NumberWidget, ({ widget }) =>
+Scrivito.provideComponent(FactWidget, ({ widget }) =>
   <div className="fact">
     <Scrivito.React.Content
       content={ widget }
@@ -36,4 +36,4 @@ Scrivito.provideComponent(NumberWidget, ({ widget }) =>
   </div>
 );
 
-export default NumberWidget;
+export default FactWidget;
