@@ -1,4 +1,4 @@
-import FontAwesomeIconComponent from 'components/font_awesome_icon';
+import IconComponent from 'components/icon';
 
 function Footer() {
   const root = Scrivito.Obj.root();
@@ -16,7 +16,7 @@ function Footer() {
         <div className="container">
           {
             root.get('iconButtons').map(iconButton =>
-              <FontAwesomeIconComponent
+              <IconComponent
                   widget={ iconButton }
                   key= { iconButton.id }
                 />

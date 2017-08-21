@@ -1,4 +1,4 @@
-import { FontAwesomeIconPlainComponent } from 'components/font_awesome_icon';
+import { IconPlainComponent } from 'components/icon';
 
 const FontAwesomeIconWidget = Scrivito.createWidgetClass({
   name: 'FontAwesomeIconWidget',
@@ -34,6 +34,6 @@ Scrivito.provideUiConfig(FontAwesomeIconWidget, {
   titleForContent: widget => widget.get('icon'),
 });
 
-Scrivito.provideComponent(FontAwesomeIconWidget, FontAwesomeIconPlainComponent);
+Scrivito.provideComponent(FontAwesomeIconWidget, IconPlainComponent);
 
 export default FontAwesomeIconWidget;

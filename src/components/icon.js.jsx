@@ -1,22 +1,22 @@
-function IconComponent({ icon, size, title }) {
+function Icon({ icon, size, title }) {
   return <i className= { ['fa', icon, size].join(' ') } aria-hidden="true" title={ title }/>;
 }
 
 function IconWithLinkComponent({ icon, size, link }) {
   if (!link) {
-    return <IconComponent icon={ icon } size={ size } />;
+    return <Icon icon={ icon } size={ size } />;
   }
 
   const title = link.title || '';
 
   return (
     <Scrivito.React.Link to={ link }>
-      <IconComponent icon={ icon } size={ size } title={ title } />
+      <Icon icon={ icon } size={ size } title={ title } />
     </Scrivito.React.Link>
   );
 }
 
-class FontAwesomeIconPlainComponent extends React.Component {
+class IconPlainComponent extends React.Component {
   render() {
     const widget = this.props.widget;
     const icon = widget.get('icon') || 'fa-coffee';
@@ -35,7 +35,7 @@ class FontAwesomeIconPlainComponent extends React.Component {
   }
 }
 
-const FontAwesomeIconComponent = Scrivito.React.connect(FontAwesomeIconPlainComponent);
+const IconComponent = Scrivito.React.connect(IconPlainComponent);
 
-export { FontAwesomeIconPlainComponent };
-export default FontAwesomeIconComponent;
+export { IconPlainComponent };
+export default IconComponent;
