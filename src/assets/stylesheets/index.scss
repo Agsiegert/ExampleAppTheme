@@ -922,8 +922,6 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .panel-theme a:hover { text-decoration: none; }
 .panel-theme .social-links i { padding: 20px; }
 
-
-
 .panel-theme.panel-list .panel-icon { text-align: center; width: 22%; float: left; }
 .panel-theme.panel-list .panel-body { text-align: left; width: 78%; float: left; }
 .panel-theme.panel-list .panel-body h3 { position: relative; }
@@ -944,6 +942,51 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .panel-theme.panel-list .panel-body h3:after { display: none;}
  }
 
+
+/* box-card
+=================================================================== */
+
+.box-card {
+  display: block; min-height: 250px;
+  position: relative; margin-bottom: 25px;
+  overflow: hidden; outline: 4px solid transparent;
+  @include transition(outline .5s ease-in-out);
+
+  }
+.box-card:hover { text-decoration: none; outline: 4px solid $brand-secondary; }
+.box-card .box-date {
+  position: absolute; top: 25px; left: 25px;
+  display: block; width: 60px; height: 60px;
+  background: $brand-secondary; color: #fff;
+  border-radius:50%; line-height: 60px; text-align: center;
+  font-family: "PT Sans Narrow",sans-serif; font-weight: 600;
+  }
+.box-card .box-image {
+  display: block; position: absolute;
+  top:0; bottom: 0; left: 0; right: 0;
+  }
+.box-card .box-topic {
+  display: block; background: #fff;
+  padding: 15px 25px; position: absolute;
+  bottom: 0; left: 0; right: 0;
+  border: 2px solid #eee; border-top: none;
+  }
+.box-card .box-topic .fa-angle-right {
+  font-size: 50px; position: absolute; display: block;
+  bottom: 28px; right: 30px;color: $brand-secondary;
+  }
+.box-card .box-topic .h3 { margin:0; color: $theme-greydark;}
+.box-card .box-topic span i { color: $brand-secondary; padding: 0 10px 0 0; }
+.box-card .box-topic span { display: table; }
+.box-card .box-topic span span {
+  display: table-cell; vertical-align: middle;
+  font-size: 18px; color: $theme-greymiddle;
+  }
+.box-card .box-topic.dark-background { background: transparent; border: none; }
+.box-card .box-topic.dark-background {
+  .h3,
+  span { color: #fff; }
+}
 
 /* gallery thumbs
 =================================================================== */
