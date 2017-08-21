@@ -27,8 +27,7 @@ Calling `yarn serve:design` will start a webserver, which listens to [localhost:
 * Visit http://localhost:3000/scrivito
 * Create a working copy and choose the "edit" mode
 * Open the browser console
-* Choose the application frame in the browser console (`scrivito_application (localhost/)`)
-* Delete all previous content: `ExampleApp.DangerZone.reset()`. Please be aware, that this will delete _all_ contents from your tenant!
-* Import all contents: `ExampleApp.DangerZone.importContent()`. This can take several minutes, depending on your upload speed. Wait until _no_ saving indicator is shown at the right top corner.
+* Delete all previous content: `scrivito_application.ExampleApp.DangerZone.reset()`. Please be aware, that this will delete _all_ contents from your tenant!
+* Import all contents: `scrivito_application.ExampleApp.DangerZone.importContent()`. This can take several minutes, depending on your upload speed. Wait until _no_ saving indicator is shown at the right top corner.
 * Once the saving indicator says "Changes saved" or is no longer visible, reload the browser window.
 * If you are happy with the new content, publish the working copy.

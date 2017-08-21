@@ -43,6 +43,7 @@ import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glas
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
 import unsplashPlantData from './binary_data/unsplash_plant';
 import unsplashScreenWithClockData from './binary_data/unsplash_screen_with_clock';
+import unsplashSilhouetteDancingData from './binary_data/unsplash_silhouette_dancing';
 import unsplashTidyDeskTouchScreenData from './binary_data/unsplash_tidy_desk_touch_screen';
 import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
 
@@ -57,10 +58,12 @@ const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
-const FontAwesomeIconWidget = Scrivito.getClass('FontAwesomeIconWidget');
 const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
+const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
+const IconListWidget = Scrivito.getClass('IconListWidget');
+const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
@@ -128,7 +131,7 @@ function randomPastDate() {
 function createFeaturePanelWidget(icon, headline) {
   return new PanelWidget({
     body: [
-      new FontAwesomeIconWidget({
+      new IconWidget({
         icon,
         size: 'fa-4x',
         centered: 'yes',
@@ -147,6 +150,45 @@ function createFeaturePanelWidget(icon, headline) {
           count: 1,
           paragraphLowerBound: 2,
           paragraphUpperBound: 3,
+        }),
+      }),
+    ],
+  });
+}
+
+function createRandomIconListWidget() {
+  return new IconListWidget({
+    iconList: [
+      new IconListItemWidget({
+        icon: 'fa-twitter',
+        link: new Scrivito.Link({
+          title: 'Twitter',
+          url: 'https://twitter.com',
+          target: '_blank',
+        }),
+      }),
+      new IconListItemWidget({
+        icon: 'fa-facebook',
+        link: new Scrivito.Link({
+          title: 'Facebook',
+          url: 'https://www.facebook.com',
+          target: '_blank',
+        }),
+      }),
+      new IconListItemWidget({
+        icon: 'fa-instagram',
+        link: new Scrivito.Link({
+          title: 'Instagram',
+          url: 'https://www.instagram.com',
+          target: '_blank',
+        }),
+      }),
+      new IconListItemWidget({
+        icon: 'fa-linkedin',
+        link: new Scrivito.Link({
+          title: 'Linked In',
+          url: 'https://www.linkedin.com',
+          target: '_blank',
         }),
       }),
     ],
@@ -198,6 +240,7 @@ function importContent() {
     const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting', UNSPLASH_TAGS);
     const unsplashPlant = uploadImage(unsplashPlantData, 'Plant on desk', UNSPLASH_TAGS);
     const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock', UNSPLASH_TAGS);
+    const unsplashSilhouetteDancing = uploadImage(unsplashSilhouetteDancingData, 'Silhouette dancing', UNSPLASH_TAGS);
     const unsplashTidyDeskTouchScreen = uploadImage(unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
     const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room', UNSPLASH_TAGS);
 
@@ -211,6 +254,81 @@ function importContent() {
     const root = Homepage.create({
       _path: '/',
       // Content is at the bottom of the file
+    });
+
+    // Path less Objs
+    const jobs = Page.create({
+      _permalink: 'jobs',
+      title: 'Jobs',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Jobs' }),
+        ] }),
+      ],
+    });
+    const contact = Page.create({
+      _permalink: 'contact',
+      title: 'Contact',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Contact' }),
+        ] }),
+      ],
+    });
+    const imprint = Page.create({
+      title: 'Imprint',
+      _permalink: 'imprint',
+      body: [
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h1',
+              style: 'h2',
+              headline: 'Lorem ipsum dolor sit amet',
+            }),
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 9,
+                paragraphLowerBound: 1,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+      ],
+    });
+    const login = Page.create({
+      title: 'Login',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Login' }),
+        ] }),
+      ],
+    });
+    const events = Page.create({
+      _permalink: 'events',
+      title: 'Events & Conferences',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Events' }),
+        ] }),
+      ],
+    });
+    const landingPage = Page.create({
+      _permalink: 'landing_page',
+      title: 'Landing Page',
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({ headline: 'Landing Page' }),
+        ] }),
+      ],
     });
 
     // PRODUCT
@@ -427,6 +545,18 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
+            new HeadlineWidget({
+              level: 'h1',
+              style: 'h2',
+              showDividingLine: 'yes',
+              headline: 'Meet our awarded team',
+            }),
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              centered: 'yes',
+              headline: loremIpsum({ count: 2 }),
+            }),
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
@@ -446,6 +576,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -466,6 +597,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -486,6 +618,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -509,6 +642,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -529,6 +663,7 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
@@ -549,9 +684,37 @@ function importContent() {
                       showDividingLine: 'yes',
                       marginDisabled: 'yes',
                     }),
+                    createRandomIconListWidget(),
                   ],
                 }),
               ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashSilhouetteDancing,
+          content: [
+            new HeadlineWidget({
+              headline: 'We are hiring',
+              centered: 'yes',
+            }),
+            new TextWidget({
+              centered: 'yes',
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 4,
+                paragraphUpperBound: 5,
+              }),
+            }),
+            new ButtonWidget({
+              centered: 'yes',
+              target: new Scrivito.Link({
+                title: 'See full job list',
+                obj: jobs,
+              }),
             }),
           ],
         }),
@@ -705,115 +868,6 @@ function importContent() {
       ],
     });
 
-    // Path less Objs
-    const jobs = Page.create({
-      _permalink: 'jobs',
-      title: 'Jobs',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Jobs' }),
-        ] }),
-      ],
-    });
-    const contact = Page.create({
-      _permalink: 'contact',
-      title: 'Contact',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Contact' }),
-        ] }),
-      ],
-    });
-    const imprint = Page.create({
-      title: 'Imprint',
-      _permalink: 'imprint',
-      body: [
-        new SectionWidget({
-          content: [
-            new HeadlineWidget({
-              level: 'h1',
-              style: 'h2',
-              headline: 'Lorem ipsum dolor sit amet',
-            }),
-            new HeadlineWidget({
-              level: 'h2',
-              style: 'h4',
-              headline: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 9,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
-    });
-    const login = Page.create({
-      title: 'Login',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Login' }),
-        ] }),
-      ],
-    });
-    const events = Page.create({
-      _permalink: 'events',
-      title: 'Events & Conferences',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Events' }),
-        ] }),
-      ],
-    });
-    const landingPage = Page.create({
-      _permalink: 'landing_page',
-      title: 'Landing Page',
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Landing Page' }),
-        ] }),
-      ],
-    });
-
-    // icon buttons for Footer
-    const twitterIcon = new FontAwesomeIconWidget({
-      icon: 'fa-twitter',
-      link: new Scrivito.Link({
-        title: 'Twitter',
-        target: '_blank',
-        url: 'https://twitter.com/scrivito',
-      }),
-    });
-    const facebookIcon = new FontAwesomeIconWidget({
-      icon: 'fa-facebook-f',
-      link: new Scrivito.Link({
-        title: 'Facebook',
-        target: '_blank',
-        url: 'https://www.facebook.com/Scrivito/',
-      }),
-    });
-    const xingIcon = new FontAwesomeIconWidget({
-      icon: 'fa-xing',
-      link: new Scrivito.Link({
-        title: 'Xing',
-        target: '_blank',
-        url: 'https://www.xing.com/companies/infoparkag',
-      }),
-    });
-    const linkedinIcon = new FontAwesomeIconWidget({
-      icon: 'fa-linkedin',
-      link: new Scrivito.Link({
-        title: 'Linkedin',
-        target: '_blank',
-        url: 'https://www.linkedin.com/company/infopark',
-      }),
-    });
-
     // Obj.root
     root.update({
       childOrder: [product, about, pricing, blog, widgetsAndPages],
@@ -844,7 +898,7 @@ function importContent() {
           }),
         }),
       ],
-      iconButtons: [twitterIcon, facebookIcon, xingIcon, linkedinIcon],
+      footerIconList: [createRandomIconListWidget()],
       title: 'Welcome to the Scrivito Example App JS!',
       body: [
         new SectionWidget({ content: [
