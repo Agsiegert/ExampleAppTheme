@@ -433,6 +433,19 @@ function importContent() {
                 new PanelWidget({
                   body: [
                     new ImageWidget({ image: unsplashFemalePortrait3Square }),
+                    new HeadlineWidget({
+                      headline: 'Jane Morgan',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Product Research Director',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
                   ],
                 }),
               ],
@@ -440,6 +453,19 @@ function importContent() {
                 new PanelWidget({
                   body: [
                     new ImageWidget({ image: unsplashMalePortrait3Square }),
+                    new HeadlineWidget({
+                      headline: 'Peter Doe',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Internal Applications Supervisor',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
                   ],
                 }),
               ],
@@ -447,6 +473,19 @@ function importContent() {
                 new PanelWidget({
                   body: [
                     new ImageWidget({ image: unsplashFemalePortrait4Square }),
+                    new HeadlineWidget({
+                      headline: 'Susan Summer',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Regional Agent',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
                   ],
                 }),
               ],
@@ -457,6 +496,19 @@ function importContent() {
                 new PanelWidget({
                   body: [
                     new ImageWidget({ image: unsplashMalePortrait2Square }),
+                    new HeadlineWidget({
+                      headline: 'Clarius Ceasar',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Dynamic Operations Representative',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
                   ],
                 }),
               ],
@@ -464,6 +516,19 @@ function importContent() {
                 new PanelWidget({
                   body: [
                     new ImageWidget({ image: unsplashFemalePortrait5Square }),
+                    new HeadlineWidget({
+                      headline: 'Anna Corn',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Regional Brand Producer',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
                   ],
                 }),
               ],
@@ -471,6 +536,19 @@ function importContent() {
                 new PanelWidget({
                   body: [
                     new ImageWidget({ image: unsplashMalePortrait1Square }),
+                    new HeadlineWidget({
+                      headline: 'Jason John',
+                      level: 'h3',
+                      style: 'h3',
+                      centered: 'yes',
+                    }),
+                    new HeadlineWidget({
+                      headline: 'Dynamic Paradigm Director',
+                      level: 'h5',
+                      style: 'h5',
+                      showDividingLine: 'yes',
+                      marginDisabled: 'yes',
+                    }),
                   ],
                 }),
               ],
