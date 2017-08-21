@@ -1,5 +1,6 @@
 function Icon({ icon, size, title }) {
-  return <i className= { ['fa', icon, size].join(' ') } aria-hidden="true" title={ title }/>;
+  const actualIcon = icon || 'fa-coffee';
+  return <i className= { ['fa', actualIcon, size].join(' ') } aria-hidden="true" title={ title }/>;
 }
 
 function IconWithLinkComponent({ icon, size, link }) {
@@ -37,5 +38,5 @@ class IconPlainComponent extends React.Component {
 
 const IconComponent = Scrivito.React.connect(IconPlainComponent);
 
-export { IconPlainComponent };
+export { IconPlainComponent, IconWithLinkComponent };
 export default IconComponent;

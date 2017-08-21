@@ -7,6 +7,8 @@ import FactWidget from './fact_widget';
 import GalleryImageWidget from './gallery_image_widget';
 import GalleryWidget from './gallery_widget';
 import HeadlineWidget from './headline_widget';
+import IconListItemWidget from './icon_list_item_widget';
+import IconListWidget from './icon_list_widget';
 import IconWidget from './icon_widget';
 import ImageWidget from './image_widget';
 import PageListWidget from './page_list_widget';
