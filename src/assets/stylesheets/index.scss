@@ -1371,6 +1371,31 @@ footer {
  .slick-gallary-fluid  .slick-dots li button img { max-width:40px;}
  }
 
+/* section google map
+=================================================================== */
+
+.bg-map { overflow: hidden; position:relative; min-height:350px; }
+.bg-map iframe { left:0; top:0; height:100%; width:100%; position:absolute; }
+
+.bg-map .box-white { padding: 30px; margin: 40px 0 100px 0; background: #fff; }
+.bg-map .logo { margin-bottom: 20px; width: 150px; }
+
+.bg-map {
+  a,
+  a:hover,
+  a:focus { color: $theme-greydark; text-decoration: none; }
+
+  .border-bottom { padding: 0 0 20px 0; }
+
+
+  table td { padding: 0 5px 0 0; }
+ .social-links i { padding: 10px 15px; }
+}
+ @media (max-width: $screen-xs-max) { .bg-map .box-white { margin: 200px 0 -10px 0; } }
+
+
+.box-white.box-offset { padding: 20px; margin: -120px 0 0 0; background: #fff; }
+@media (max-width: $screen-xs-max) { .box-white.box-offset  { margin: -65px 0 0 0; } }
 
 
 /* Text image widget
