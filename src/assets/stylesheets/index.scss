@@ -255,7 +255,7 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 .date,
 .author { font-size: 11px; padding-right: 5px; line-height: 1.5em; }
 
-
+.fa { color: $brand-secondary; }
 
 
 /* button adaoptions
@@ -263,6 +263,13 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 
 .btn { font-size: 16px; font-weight: 700; text-transform: uppercase; padding: 13px 20px 10px; vertical-align: middle; }
 .btn .fa { padding: 0 0 3px 15px; font-size: 26px; vertical-align: middle; }
+
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger { .fa { color: #fff;} }
+.btn-link .fa { color: $theme-grey;}
 
 .btn-clear { color: $theme-greydark; padding-left: 0; padding-right: 0; }
 .btn-clear .fa { color: $brand-primary;}
@@ -1187,7 +1194,7 @@ footer { height: 1px; }
 */
 
 footer {
-  [class*="bg-"]:first-of-type { border-top: 1px solid rgba(0,0,0,.05); }
+  [class*="bg-"]:first-of-type { border-top: 1px solid rgba(0,0,0,.05); padding: 60px 0; }
   .logo {
     /* background: $logo-dark no-repeat center center / contain; height: 50px; */
     width: 150px; margin-bottom: 20px;
@@ -1212,8 +1219,8 @@ footer {
 
   table td { padding: 0 5px 0 0; }
 
-  .social-footer { padding: 20px 0; }
-  .social-footer i { color: $brand-secondary; font-size: 20px; padding: 0 20px; }
+  .social-links { padding: 20px 0; }
+  .social-links i { color: $brand-secondary; font-size: 20px; padding: 0 20px; }
 }
 
 
