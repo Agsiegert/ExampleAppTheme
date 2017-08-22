@@ -1,4 +1,7 @@
-window.React = require('react');
-window.ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+window.React = React;
+window.ReactDOM = ReactDOM;
 
 window.ExampleApp = {};
