@@ -255,6 +255,21 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 .date,
 .author { font-size: 11px; padding-right: 5px; line-height: 1.5em; }
 
+.fa { color: $brand-secondary; }
+
+.hero-bold {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700; font-size: 180px;
+  text-transform: uppercase;
+  color: $brand-secondary!important;
+  line-height: 1; margin: 0 0 20px 0;
+  }
+.hero-small {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300; font-size: 30px;
+  line-height: 1; margin: 0 0 40px 0;
+  }
+@media (max-width: $screen-sm-max) { .hero-bold {font-size: 80px;} }
 
 
 
@@ -263,6 +278,13 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 
 .btn { font-size: 16px; font-weight: 700; text-transform: uppercase; padding: 13px 20px 10px; vertical-align: middle; }
 .btn .fa { padding: 0 0 3px 15px; font-size: 26px; vertical-align: middle; }
+
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger { .fa { color: #fff;} }
+.btn-link .fa { color: $theme-grey;}
 
 .btn-clear { color: $theme-greydark; padding-left: 0; padding-right: 0; }
 .btn-clear .fa { color: $brand-primary;}
@@ -1187,7 +1209,7 @@ footer { height: 1px; }
 */
 
 footer {
-  [class*="bg-"]:first-of-type { border-top: 1px solid rgba(0,0,0,.05); }
+  [class*="bg-"]:first-of-type { border-top: 1px solid rgba(0,0,0,.05); padding: 60px 0; }
   .logo {
     /* background: $logo-dark no-repeat center center / contain; height: 50px; */
     width: 150px; margin-bottom: 20px;
@@ -1212,8 +1234,8 @@ footer {
 
   table td { padding: 0 5px 0 0; }
 
-  .social-footer { padding: 20px 0; }
-  .social-footer i { color: $brand-secondary; font-size: 20px; padding: 0 20px; }
+  .social-links { padding: 20px 0; }
+  .social-links i { color: $brand-secondary; font-size: 20px; padding: 0 20px; }
 }
 
 
@@ -1349,6 +1371,31 @@ footer {
  .slick-gallary-fluid  .slick-dots li button img { max-width:40px;}
  }
 
+/* section google map
+=================================================================== */
+
+.bg-map { overflow: hidden; position:relative; min-height:350px; }
+.bg-map iframe { left:0; top:0; height:100%; width:100%; position:absolute; }
+
+.bg-map .box-white { padding: 30px; margin: 40px 0 100px 0; background: #fff; }
+.bg-map .logo { margin-bottom: 20px; width: 150px; }
+
+.bg-map {
+  a,
+  a:hover,
+  a:focus { color: $theme-greydark; text-decoration: none; }
+
+  .border-bottom { padding: 0 0 20px 0; }
+
+
+  table td { padding: 0 5px 0 0; }
+ .social-links i { padding: 10px 15px; }
+}
+ @media (max-width: $screen-xs-max) { .bg-map .box-white { margin: 200px 0 -10px 0; } }
+
+
+.box-white.box-offset { padding: 20px; margin: -120px 0 0 0; background: #fff; }
+@media (max-width: $screen-xs-max) { .box-white.box-offset  { margin: -65px 0 0 0; } }
 
 
 /* Text image widget
