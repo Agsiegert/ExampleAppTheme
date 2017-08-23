@@ -927,7 +927,6 @@ function importContent() {
           }),
         }),
       ],
-      footerIconList: [createRandomIconListWidget()],
       title: 'Welcome to the Scrivito Example App JS!',
       body: [
         new SectionWidget({ content: [
@@ -1209,14 +1208,29 @@ function importContent() {
       headline: 'About',
       pages: [jobs, contact, imprint, events, login],
     });
-    const footerRow = new ColumnWidget({
-      nrOfColumns: '3',
-      column1: [logoWidget, address],
-      column2: [footerLinks1],
-      column3: [footerLinks2],
-    });
 
-    root.update({ footer: [footerRow] });
+    root.update({
+      footer: [
+        new SectionWidget({
+          backgroundColor: 'greywhite',
+          content: [
+            new ColumnWidget({
+              nrOfColumns: '3',
+              column1: [logoWidget, address],
+              column2: [footerLinks1],
+              column3: [footerLinks2],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'greydark',
+          paddingDisabled: 'yes',
+          content: [
+            createRandomIconListWidget(),
+          ],
+        }),
+      ],
+    });
 
     console.log('Created all objs/widget. Now uploading images...');
   });
