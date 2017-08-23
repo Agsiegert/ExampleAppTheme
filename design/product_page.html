@@ -424,29 +424,24 @@
     $().ready(function (e) {
 
         $('.slickslide').slick({
-            dots: true,
-            infinite: true,
-            speed: 500,
-            fade: false,
-            slide: 'li',
-            cssEase: 'linear',
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 7000,
             centerMode: true,
             centerPadding: '0px',
+            cssEase: 'linear',
+            dots: true,
+            fade: true,
+            infinite: true,
+            slide: 'li',
             slidesToShow: 1,
+            speed: 500,
             variableWidth: false,
-            autoplay: true,
-            autoplaySpeed: 24000,
             responsive: [{
                 breakpoint: 800,
                 settings: {
-                    arrows: true,
                     centerMode: false,
-                    centerPadding: '0px',
-                    variableWidth: false,
-                    slidesToShow: 1,
-                    dots: true
                 }
-
             }],
             customPaging: function (slider, i) {
                 return '<button class="tab">' + $('.slick-thumbs li:nth-child(' + (i + 1) + ')').html() + '</button>';

@@ -27,7 +27,9 @@ import unsplashFemalePortrait4Data from './binary_data/unsplash_female_portrait_
 import unsplashFemalePortrait4SquareData from './binary_data/unsplash_female_portrait_4_square';
 import unsplashFemalePortrait5Data from './binary_data/unsplash_female_portrait_5';
 import unsplashFemalePortrait5SquareData from './binary_data/unsplash_female_portrait_5_square';
+import unsplashGrandCentralStationData from './binary_data/unsplash_grand_central_station';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
+import unsplashHighriseData from './binary_data/unsplash_highrise';
 import unsplashLadyInCoffeeShopData from './binary_data/unsplash_lady_in_coffee_shop';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
 import unsplashMalePortrait1Data from './binary_data/unsplash_male_portrait_1';
@@ -44,6 +46,10 @@ import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
 import unsplashPlantData from './binary_data/unsplash_plant';
 import unsplashScreenWithClockData from './binary_data/unsplash_screen_with_clock';
 import unsplashSilhouetteDancingData from './binary_data/unsplash_silhouette_dancing';
+import unsplashSkylineDuskData from './binary_data/unsplash_skyline_dusk';
+import unsplashSkylineHarborData from './binary_data/unsplash_skyline_harbor';
+import unsplashSkylineNightData from './binary_data/unsplash_skyline_night';
+import unsplashSolePalmtreeHighriseData from './binary_data/unsplash_sole_palmtree_highrise';
 import unsplashTidyDeskTouchScreenData from './binary_data/unsplash_tidy_desk_touch_screen';
 import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
 
@@ -224,7 +230,9 @@ function importContent() {
     const unsplashFemalePortrait4Square = uploadImage(unsplashFemalePortrait4SquareData, 'Female Portrait 4 (Square)', [...UNSPLASH_TAGS, 'square']);
     uploadImage(unsplashFemalePortrait5Data, 'Female Portrait 5', UNSPLASH_TAGS);
     const unsplashFemalePortrait5Square = uploadImage(unsplashFemalePortrait5SquareData, 'Female Portrait 5 (Square)', [...UNSPLASH_TAGS, 'square']);
+    const unsplashGrandCentralStation = uploadImage(unsplashGrandCentralStationData, 'Grand Central Station', UNSPLASH_TAGS);
     const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
+    const unsplashHighrise = uploadImage(unsplashHighriseData, 'Highrise', UNSPLASH_TAGS);
     const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
     const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
     const unsplashMalePortrait1 = uploadImage(unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
@@ -241,6 +249,10 @@ function importContent() {
     const unsplashPlant = uploadImage(unsplashPlantData, 'Plant on desk', UNSPLASH_TAGS);
     const unsplashScreenWithClock = uploadImage(unsplashScreenWithClockData, 'Screen with clock', UNSPLASH_TAGS);
     const unsplashSilhouetteDancing = uploadImage(unsplashSilhouetteDancingData, 'Silhouette dancing', UNSPLASH_TAGS);
+    const unsplashSkylineDusk = uploadImage(unsplashSkylineDuskData, 'Skyline dusk', UNSPLASH_TAGS);
+    const unsplashSkylineHarbor = uploadImage(unsplashSkylineHarborData, 'Skyline harbor', UNSPLASH_TAGS);
+    const unsplashSkylineNight = uploadImage(unsplashSkylineNightData, 'Skyline night', UNSPLASH_TAGS);
+    const unsplashSolePalmtreeHighrise = uploadImage(unsplashSolePalmtreeHighriseData, 'Sole palmtree highrise', UNSPLASH_TAGS);
     const unsplashTidyDeskTouchScreen = uploadImage(unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
     const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room', UNSPLASH_TAGS);
 
@@ -413,6 +425,23 @@ function importContent() {
             }),
           }),
         ] }),
+        new SectionWidget({
+          useFullWidth: 'yes',
+          paddingDisabled: 'yes',
+          content: [
+            new GalleryWidget({
+              galleryStyle: 'slider',
+              images: [
+                new GalleryImageWidget({ image: unsplashSkylineHarbor }),
+                new GalleryImageWidget({ image: unsplashHighrise }),
+                new GalleryImageWidget({ image: unsplashGrandCentralStation }),
+                new GalleryImageWidget({ image: unsplashSkylineNight }),
+                new GalleryImageWidget({ image: unsplashSolePalmtreeHighrise }),
+                new GalleryImageWidget({ image: unsplashSkylineDusk }),
+              ],
+            }),
+          ],
+        }),
         new SectionWidget({ content: [
           new HeadlineWidget({
             level: 'h1',
@@ -1045,6 +1074,7 @@ function importContent() {
           paddingDisabled: 'yes',
           content: [
             new GalleryWidget({
+              galleryStyle: 'thumbnail',
               images: [
                 new GalleryImageWidget({
                   title: 'Project 01',
