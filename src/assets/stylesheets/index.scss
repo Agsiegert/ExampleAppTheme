@@ -1394,8 +1394,28 @@ footer {
  @media (max-width: $screen-xs-max) { .bg-map .box-white { margin: 200px 0 -10px 0; } }
 
 
-.box-white.box-offset { padding: 20px; margin: -120px 0 0 0; background: #fff; }
-@media (max-width: $screen-xs-max) { .box-white.box-offset  { margin: -65px 0 0 0; } }
+/* contact form
+=================================================================== */
+
+
+.box-white.box-offset { padding: 80px 100px; margin: -120px 0 0 0; background: #fff; }
+@media (max-width: $screen-xs-max) { .box-white.box-offset  { padding: 20px; margin: -65px 0 0 0; } }
+
+
+.floating-label label {
+  font-size: 11px; line-height: 16px;
+  color: #bbb; font-weight: 400;
+  padding: 2px 5px; margin: 0 0 0 10px;
+  background: #fff;
+  }
+.floating-label .form-control { margin-top: -11px; border: 1px solid $theme-greylight; }
+.floating-label .form-control:focus { box-shadow: 0 0 0 2px $brand-secondary; }
+
+.floating-label .checkbox label {
+  font-size: 13px; line-height: 18px;
+  padding: 2px 5px 2px 20px;
+  color: $theme-greymiddle;
+  }
 
 
 /* Text image widget
