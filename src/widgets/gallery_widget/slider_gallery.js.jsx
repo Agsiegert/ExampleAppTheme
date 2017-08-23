@@ -1,8 +1,7 @@
 import Slider from 'react-slick';
 
-function sliderSettings(items) {
-  const imageUrls = items.map(item => {
-    const image = item.get('image');
+function sliderSettings(images) {
+  const imageUrls = images.map(image => {
     const binary = image.get('blob');
     const croppedBinary = binary.transform({ width: 300, height: 200, fit: 'crop' });
     return croppedBinary.url();
@@ -43,7 +42,9 @@ function sliderSettings(items) {
 }
 
 function SliderGallery({ widget }) {
-  const images = widget.get('images');
+  const images = widget.get('images')
+    .map(item => item.get('image'))
+    .filter(item => item);
 
   if (!images.length) { return null; }
 
@@ -52,7 +53,8 @@ function SliderGallery({ widget }) {
     <div className="slick-gallary-fluid">
       <Slider { ...settings } className="slickslide">
         {
-          images.map(image => <Scrivito.React.Image src={ image.get('image') } key={ image.id } />)
+          images.map((image, index) =>
+            <Scrivito.React.Image src={ image } key={ `${image.id}${index}` } />)
         }
       </Slider>
     </div>
