@@ -8,26 +8,23 @@ function sliderSettings(images) {
   });
 
   return {
-    dots: true,
-    infinite: true,
+    arrows: false,
     autoplay: true,
-    cssEase: 'linear',
+    autoplaySpeed: 7000,
     centerMode: true,
     centerPadding: '0px',
-    autoplaySpeed: 7000,
-    slidesToShow: 1,
-    variableWidth: false,
-    arrows: false,
+    cssEase: 'linear',
+    dots: true,
     fade: true,
+    infinite: true,
+    slide: 'li',
+    slidesToShow: 1,
+    speed: 500,
+    variableWidth: false,
     responsive: [{
       breakpoint: 800,
       settings: {
-        arrows: true,
         centerMode: false,
-        centerPadding: '0px',
-        variableWidth: false,
-        slidesToShow: 1,
-        dots: true,
       },
     }],
     customPaging: i => {
