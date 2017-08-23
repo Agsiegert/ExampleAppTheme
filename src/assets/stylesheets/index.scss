@@ -1314,10 +1314,10 @@ footer {
 
 
 .slick-gallary-fluid { width: 100%; margin: 0 auto; padding: 0 0 100px 0; position: relative; }
-.slick-gallary-fluid .slick-slide { height: 650px;}
+.slick-gallary-fluid .slick-slide { height: 100%;}
 
 
-
+.slick-gallary-fluid .slick-list { max-height: 650px; }
 .slick-gallary-fluid .slick-slider { margin: 0; padding: 0; position:relative; }
 .slick-gallary-fluid .slickslide { padding: 0; max-width:100%; }
 .slick-gallary-fluid .slick-slider .slick-track { min-width:100%;}
@@ -1326,7 +1326,7 @@ footer {
 
 .slick-gallary-fluid {
   .slick-dots {
-    bottom:-75px;
+    bottom:-60px;
     top:auto;
     left:auto;
     right:auto;
@@ -1359,7 +1359,7 @@ footer {
 
 
 @media (min-width: $screen-md-min) {
-  .slick-gallary-fluid .slick-dots { bottom: -75px; }
+  .slick-gallary-fluid .slick-dots { bottom: -60px; }
   .slick-gallary-fluid  .slick-dots li button img { max-width:150px;}
  }
 @media (max-width: $screen-sm-max) {
