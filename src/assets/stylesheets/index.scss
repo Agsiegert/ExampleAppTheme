@@ -1417,6 +1417,15 @@ footer {
   color: $theme-greymiddle;
   }
 
+/* login
+=================================================================== */
+
+.box-login { background: #fff; padding: 30px; }
+.box-login .h3 { color: $theme-greydark; }
+.box-login a {
+  font-size: 13px; display: block;
+  text-align: center; color: $theme-greydark;
+  }
 
 /* Text image widget
 =================================================================== */
