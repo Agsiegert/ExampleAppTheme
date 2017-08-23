@@ -11,10 +11,9 @@ const BaseHomepage = Scrivito.createObjClass({
   attributes: {
     ...defaultPageAttributes,
     childOrder: 'referencelist',
-    footer: 'widgetlist',
+    footer: ['widgetlist', { only: 'SectionWidget' }],
     logoDark: 'reference',
     logoWhite: 'reference',
-    footerIconList: ['widgetlist', { only: 'IconListWidget' }],
   },
 });
 
