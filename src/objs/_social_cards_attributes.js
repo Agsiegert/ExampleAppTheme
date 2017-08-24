@@ -5,7 +5,7 @@ const socialCardsAttributes = {
   tcDescription: 'string', // fallback to item.textExtract()
   tcImage: 'reference',  // fallback to titleImage
   tcSite: 'string', // e.g. @Scrivito
-  tcTitle: 'title', // fallback to title
+  tcTitle: 'string', // fallback to title
 
   // Open Graph attributes
   ogDescription: 'string', // fallback to item.textExtract()
