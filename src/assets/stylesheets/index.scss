@@ -166,6 +166,22 @@ $input-border-focus:             $btn-primary-color !default;
   }
 }
 
+/* special vertical alignment
+=================================================================== */
+
+.vertical-align { display: flex; flex-direction: row; }
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+  display: flex;
+  align-items: center;     /* Align the flex-items vertically */
+  justify-content: center; /* Optional, to align inner flex-items horizontally within the column  */
+  }
+
+@media (max-width: 767px) {
+  .row.vertical-align { display: block; /* Turn off the flexible box layout */ }
+  }
+
+
 /* Style
 =================================================================== */
 
@@ -224,10 +240,13 @@ h6, .h6 { font-size: 14px; }
   background: rgba(111,111,111,.2);
   }
 
+.bg-greydark .border-bottom:after { background: rgba(111,111,111,.7); }
+
+
 hr { margin: 20px 0; border: 0;
   border-top: 0 solid #fff;
   border-bottom: 1px solid #ddd;
-  clear:both;
+  clear:both; position: relative;
 }
 
 .strong { font-weight: 700;}
@@ -292,6 +311,15 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 .btn-clear:active,
 .btn-clear:focus  { box-shadow: none!important; }
 
+
+.btn-white-transparent { background: rgba(255, 255, 255, 0.1); color: $brand-secondary; }
+.btn-white-transparent:hover { background: rgba(255, 255, 255, 0.2); }
+.btn-round { display: inline-block; width: 50px; height: 50px; border-radius: 50%; text-align: center; }
+.btn-round i { font-size: 33px; line-height: 50px; }
+
+.bg-dark-image .btn-round { position: absolute; bottom: 30px; left: 50%; margin:0 0 0 -25px;}
+
+
 /* animated hamburger
 =================================================================== */
 
@@ -341,7 +369,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greylight,
 .bg-greymiddle,
 .bg-greywhite,
-.bg-white { padding: 60px 0; clear: both; }
+.bg-white { padding: 60px 0; clear: both; position: relative; }
 
 
 .bg-dark-image,
@@ -938,7 +966,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 /* panel-theme
 =================================================================== */
 
-.panel-theme { box-shadow: none; }
+.panel-theme { background: transparent; box-shadow: none; }
 .panel-theme .panel-body { padding: 20px 0; }
 .panel-theme .fa { padding: 20px 0; color: $brand-secondary;}
 .panel-theme a:hover { text-decoration: none; }
@@ -1058,6 +1086,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .charts .chart .specs .spec { color: $theme-greymiddle; margin-bottom: 5px; }
 .charts .chart .specs .variable { padding: 0 5px; font-weight: 700; color: $theme-grey; }
 
+.charts .chart.featured { padding-top: 75px; }
 .charts .chart.featured:after {
   content:'popular'; color:#fff;
   background: $brand-secondary;
@@ -1426,6 +1455,32 @@ footer {
   font-size: 13px; display: block;
   text-align: center; color: $theme-greydark;
   }
+
+/* landing page
+=================================================================== */
+
+
+.hr-icon { margin: 60px 0; border-bottom: 1px solid #666; }
+.hr-icon:after {
+  	background: $theme-greydark  url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE0Ny40IDE0Ny40IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNDcuNCAxNDcuNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRjZCNkIiIGQ9Ik0xMDAuNiwzNmwtMTMuMS03LjZMNTIuMSw4QzI4LjYtNS42LDcuOCw1LjcsNy42LDQzLjlsMCwxLjFMNDksNjQuOWM1LjYsMi43LDEuNywxMy45LTYuOSw5LjdMNy41LDU3LjdsLTAuMiw0NGMtMC4yLDMxLjgsMTcsNTIuNiw0My4xLDM5LjJsMzcuMS0yMS40bDEzLTcuNWMtMTEuMi05LjItMTUuNC0zMS40LTEyLjgtNDkuOEw1MS42LDQ0LjdjLTUuNi0yLjctMS43LTEzLjksNi45LTkuN2wzMS45LDE1LjZDOTIuNyw0NC4yLDk2LjEsMzguOSwxMDAuNiwzNiIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkY2QjZCIiBkPSJNMTI0LjcsNDkuOWwtMTMuNS03LjhjLTIwLjMsNy42LTE2LDU5LjktMC4xLDYzLjdsMTEuOS02LjhDMTQ3LjgsODQuNiwxNDMuNCw2MC43LDEyNC43LDQ5LjkiLz48L2c+PC9zdmc+) no-repeat center / contain;
+  content:''; display: block; margin: 0 0 0 -30px;
+  width: 60px; height: 40px; position: absolute; left: 50%; top: -20px;
+  }
+
+@media (max-width: 767px) {
+  .text-right,
+  .text-left { text-align: center; }
+  }
+
+
+.box-white-transparent { background: rgba(255,255,255,.1); margin: 10px 0; padding: 30px 20px; width: 100%; }
+.box-white-transparent .checkbox label {
+  color: rgba(255,255,255,.8);
+  font-size: 13px; line-height: 18px;
+  }
+
+
+
 
 /* Text image widget
 =================================================================== */
