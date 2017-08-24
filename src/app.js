@@ -2,6 +2,7 @@ import CurrentPageTitle from 'components/current_page_title';
 import Footer from 'components/footer';
 import Navigation from 'components/navigation';
 import NotFoundErrorPage from 'components/not_found_error_page';
+import InternalErrorPage from 'components/internal_error_page';
 
 export default function App() {
   return (
@@ -10,7 +11,7 @@ export default function App() {
         <Navigation />
         <Scrivito.React.CurrentPage />
         <NotFoundErrorPage />
-        <Scrivito.React.InternalErrorPage />
+        <InternalErrorPage />
       </div>
       <Footer />
       <CurrentPageTitle />
