@@ -30,6 +30,7 @@ import unsplashFemalePortrait5SquareData from './binary_data/unsplash_female_por
 import unsplashGrandCentralStationData from './binary_data/unsplash_grand_central_station';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 import unsplashHighriseData from './binary_data/unsplash_highrise';
+import unsplashHotpinkData from './binary_data/unsplash_hotpink_nails_iphone_macbook_fob';
 import unsplashLadyInCoffeeShopData from './binary_data/unsplash_lady_in_coffee_shop';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
 import unsplashMalePortrait1Data from './binary_data/unsplash_male_portrait_1';
@@ -234,6 +235,7 @@ function importContent() {
     const unsplashGrandCentralStation = uploadImage(unsplashGrandCentralStationData, 'Grand Central Station', UNSPLASH_TAGS);
     const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
     const unsplashHighrise = uploadImage(unsplashHighriseData, 'Highrise', UNSPLASH_TAGS);
+    const unsplashHotpink = uploadImage(unsplashHotpinkData, 'Hotpink', UNSPLASH_TAGS);
     const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
     const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
     const unsplashMalePortrait1 = uploadImage(unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
@@ -323,7 +325,7 @@ function importContent() {
       body: [
         new SectionWidget({
           backgroundColor: 'dark-image',
-          backgroundImage: unsplashLaptopKeyboard,
+          backgroundImage: unsplashHotpink,
           useFullHeight: 'yes',
           content: [
             new LoginWidget({}),
