@@ -12,7 +12,7 @@ Scrivito.provideUiConfig(LoginWidget, {
 Scrivito.provideComponent(LoginWidget, () =>
   <div className="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
     <div className="box-login floating-label">
-      <h1 className="h3 text-center">Login to scrivito</h1>
+      <h1 className="h3 text-center">Login</h1>
       <div className="form-group">
         <label>Your username</label>
         <input
@@ -33,13 +33,17 @@ Scrivito.provideComponent(LoginWidget, () =>
       </div>
       <div className="checkbox">
         <label>
-          <input type="checkbox" value=""/> Remember me next time
+          <input type="checkbox" value="" /> Remember me next time
         </label>
       </div>
       <button className="btn btn-primary btn-block">Log me in now</button>
       <br/>
-      <a href="#">Lost your password?</a>
-      <a href="#">No account? Register here.</a>
+      <Scrivito.React.Link to={ Scrivito.currentPage() }>
+        Lost your password?
+      </Scrivito.React.Link>
+      <Scrivito.React.Link to={ Scrivito.currentPage() }>
+        No account? Register here.
+      </Scrivito.React.Link>
     </div>
   </div>
 );
