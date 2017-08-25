@@ -71,6 +71,7 @@ const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
 const IconListWidget = Scrivito.getClass('IconListWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
+const LoginWidget = Scrivito.getClass('LoginWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
@@ -318,10 +319,16 @@ function importContent() {
     });
     const login = Page.create({
       title: 'Login',
+      _permalink: 'login',
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Login' }),
-        ] }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashLaptopKeyboard,
+          useFullHeight: 'yes',
+          content: [
+            new LoginWidget({}),
+          ],
+        }),
       ],
     });
     const events = Page.create({
