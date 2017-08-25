@@ -6,6 +6,7 @@ const BaseSectionWidget = Scrivito.createWidgetClass({
   attributes: {
     content: 'widgetlist',
     useFullWidth: ['enum', { validValues: ['yes', 'no'] }],
+    useFullHeight: ['enum', { validValues: ['yes', 'no'] }],
     paddingDisabled: ['enum', { validValues: ['yes', 'no'] }],
     backgroundColor: [
       'enum',
@@ -45,6 +46,10 @@ Scrivito.provideUiConfig(SectionWidget, {
       title: 'Use full width?',
       description: 'Should this section use the full screen width?',
     },
+    useFullHeight: {
+      title: 'Use full height?',
+      description: 'Should this section use the full screen height?',
+    },
     paddingDisabled: {
       title: 'Disable padding?',
       description: 'Should this section use no padding (empty space around this section)?',
@@ -69,6 +74,10 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
   let contentClassName = 'container';
   if (widget.get('useFullWidth') === 'yes') {
     contentClassName = 'container-fluid gutter0';
+  }
+
+  if (widget.get('useFullHeight') === 'yes') {
+    sectionClassNames.push('full-height');
   }
 
   const sectionStyle = {};
