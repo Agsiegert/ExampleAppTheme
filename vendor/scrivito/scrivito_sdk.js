@@ -20854,6 +20854,10 @@ var ObjIdQuery = function () {
       var currentIndex = 0;
 
       function next() {
+        if (!currentBatch) {
+          return { done: true };
+        }
+
         var currentObjIds = currentBatch.objIds();
 
         if (currentIndex < currentObjIds.length) {
@@ -20872,15 +20876,10 @@ var ObjIdQuery = function () {
           };
         }
 
-        var nextBatch = currentBatch.nextBatch();
-        if (nextBatch) {
-          currentBatch = nextBatch;
-          currentIndex = 0;
+        currentBatch = currentBatch.nextBatch();
+        currentIndex = 0;
 
-          return next();
-        }
-
-        return { done: true };
+        return next();
       }
 
       return { next: next };
@@ -23900,7 +23899,7 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function arrayFromIterable(iterable) {
+function arrayFromIterable(iterable, size) {
   var iterator = iterable.iterator();
 
   var result = [];
@@ -23913,6 +23912,10 @@ function arrayFromIterable(iterable) {
       done = true;
     } else {
       result.push(next.value);
+
+      if (result.length === size) {
+        done = true;
+      }
     }
   }
 
@@ -24803,7 +24806,6 @@ var ObjDataQueryIterator = function () {
 
       try {
         var objData = scrivito.ObjDataStore.get(id);
-        this._nextId = null;
 
         if (isFinallyDeleted(objData)) {
           return this.next();
@@ -24812,7 +24814,6 @@ var ObjDataQueryIterator = function () {
         return { value: objData, done: false };
       } catch (error) {
         if (error instanceof _errors.ResourceNotFoundError) {
-          this._nextId = null;
           return this.next();
         }
 
@@ -24822,14 +24823,7 @@ var ObjDataQueryIterator = function () {
   }, {
     key: '_fetchNextId',
     value: function _fetchNextId() {
-      if (!this._nextId) {
-        var _iterator$next = this._iterator.next(),
-            value = _iterator$next.value;
-
-        this._nextId = value;
-      }
-
-      return this._nextId;
+      return this._iterator.next().value;
     }
   }]);
 
