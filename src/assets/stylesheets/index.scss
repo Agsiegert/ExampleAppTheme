@@ -403,7 +403,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greylight { background: $theme-greylight; }
 .bg-greydark { background: $theme-greydark; }
 .bg-greymiddle { background: $theme-greymiddle; }
-.bg-greywhite { background: $theme-greywhite; }
+.bg-greywhite { background: $theme-greywhite; border-top: 1px solid rgba(0,0,0,.05); border-bottom: 1px solid rgba(0,0,0,.05); }
 
 /* content adaptions */
 
@@ -1238,7 +1238,7 @@ footer { height: 1px; }
 */
 
 footer {
-  [class*="bg-"]:first-of-type { border-top: 1px solid rgba(0,0,0,.05); padding: 60px 0; }
+  [class*="bg-"]:first-of-type { padding: 60px 0; }
   .logo {
     /* background: $logo-dark no-repeat center center / contain; height: 50px; */
     width: 150px; margin-bottom: 20px;
@@ -1472,6 +1472,13 @@ footer {
   .text-left { text-align: center; }
   }
 
+.box-white { background: #fff; margin: 10px 0; padding: 30px 20px; width: 100%; }
+.box-white .checkbox label { font-size: 13px; line-height: 18px; }
+.box-white {
+  .h1,.h2,.h3,.h4,.h5,.h6 { color: $theme-grey;}
+}
+
+
 
 .box-white-transparent { background: rgba(255,255,255,.1); margin: 10px 0; padding: 30px 20px; width: 100%; }
 .box-white-transparent .checkbox label {
@@ -1517,68 +1524,18 @@ footer {
 /* list *
 =================================================================== */
 
-.arrow-list1,
-.arrow-list2,
-.tick-list1,
-.tick-list2,
-.doc-list,
-.magazine-list {list-style-type: none; padding-left: 15px; overflow: hidden; }
+.tick-list  {list-style-type: none; padding-left: 15px; overflow: hidden; }
+.tick-list li {
+  position: relative; padding: 0 0 20px 17px;
+  font-family: "PT Sans Narrow",sans-serif;
+  font-weight: 400; font-size: 20px;
+  }
 
-.arrow-list1,
-.arrow-list2,
-.tick-list1,
-.tick-list2,
-.doc-list,
-.magazine-list {
-  &.smaller { font-size: 13px; }
-}
+.tick-list li:before { display: block; position: absolute; top: 2px; left: -15px;
+  @extend .fa;
+  @extend .fa-check;
+  }
 
-.arrow-list1 li,
-.arrow-list2 li,
-.tick-list1 li,
-.tick-list2 li,
-.doc-list li,
-.magazine-list li { position: relative; padding: 0 0 5px 10px;}
-
-.arrow-list1 li:before { display: block; position: absolute; top: 1px; left: -15px; content: "\f002";}
-.arrow-list2 li:before { display: block; position: absolute; top: 1px; left: -12px; content: "\f006";}
-.tick-list1 li:before { display: block; position: absolute; top: 1px; left: -15px; content: "\f009";}
-.tick-list2 li:before { display: block; position: absolute; top: 1px; left: -15px; content: "\f00a";}
-.doc-list li:before { display: block; position: absolute; top: 1px; left: -15px; content: "\f016";}
-.magazine-list li:before { display: block; position: absolute; top: 1px; left: -15px; content: "\f018";}
-
-.arrow-list1.inline,
-.arrow-list2.inline,
-.tick-list1.inline,
-.tick-list2.inline,
-.doc-list.inline,
-.magazine-list.inline { padding: 0; }
-
-.arrow-list1.inline li,
-.arrow-list2.inline li,
-.tick-list1.inline li,
-.tick-list2.inline li,
-.doc-list.inline li,
-.magazine-list.inline li{ float: left; margin-left: 15px; }
-
-.arrow-list1,
-.arrow-list2,
-.tick-list1,
-.tick-list2,
-.doc-list,
-.magazine-list {
-  a:hover,
-  a:focus {text-decoration: none;}
-}
-
-.arrow-list1,
-.arrow-list2,
-.tick-list1,
-.tick-list2,
-.doc-list,
-.magazine-list {
-  a span {display: block; font-size: 12px; line-height: 16px;}
-}
 
 
 /* google maps fix
