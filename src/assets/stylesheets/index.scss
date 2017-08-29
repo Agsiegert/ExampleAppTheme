@@ -824,7 +824,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 /* timeline for blog
 =================================================================== */
 
-.timeline { list-style: none; padding: 0 0 20px 0; position: relative; }
+.timeline { list-style: none; padding: 0 0 20px 0; position: relative; overflow: hidden; }
 
 .timeline:before {
   top: 0; bottom: 0; position: absolute;

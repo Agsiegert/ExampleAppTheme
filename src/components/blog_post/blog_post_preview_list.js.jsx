@@ -48,7 +48,6 @@ const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author, tag }) =
   return (
     <ul className="timeline">
       { listElements }
-      <li className="clearfix" style={ { float: 'none' } }></li>
     </ul>
   );
 });
