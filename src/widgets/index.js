@@ -18,6 +18,7 @@ import PanelWidget from './panel_widget';
 import PricingSpecWidget from './pricing_spec_widget';
 import PricingWidget from './pricing_widget';
 import SectionWidget from './section_widget';
+import TableWidget from './table_widget/table_widget';
 import TestimonialSliderWidget from './testimonial_slider_widget';
 import TestimonialWidget from './testimonial_widget';
 import TextWidget from './text_widget';
