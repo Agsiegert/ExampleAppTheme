@@ -2,9 +2,11 @@
 
 import BlogOverviewWidget from './blog_overview_widget';
 import ButtonWidget from './button_widget';
+import CallToActionWidget from './call_to_action_widget';
 import CarouselWidget from './carousel_widget';
 import ColumnWidget from './column_widget';
 import FactWidget from './fact_widget';
+import FeaturePanelWidget from './feature_panel_widget';
 import GalleryImageWidget from './gallery_image_widget';
 import GalleryWidget from './gallery_widget';
 import HeadlineWidget from './headline_widget';
