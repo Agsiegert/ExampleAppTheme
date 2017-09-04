@@ -97,7 +97,7 @@ Scrivito.provideComponent(TableWidget, ({ widget }) =>
     </tbody>
     <tfoot>
       <tr>
-        <th><Scrivito.React.Content content={ widget } attribute="pricingRow" /></th>
+        <Scrivito.React.Content tag="th" content={ widget } attribute="pricingRow" />
           { ['basic', 'team', 'corporate'].map((planName, index) => {
             return (
               <td key={ `${planName}${index}` }>
