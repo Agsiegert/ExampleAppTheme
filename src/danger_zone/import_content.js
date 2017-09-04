@@ -5,6 +5,7 @@ import loremIpsum from 'lorem-ipsum';
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import iphoneData from './binary_data/iphone';
+import ipadData from './binary_data/ipad';
 import logo1Data from './binary_data/logo_1';
 import logo2Data from './binary_data/logo_2';
 import logo3Data from './binary_data/logo_3';
@@ -80,9 +81,11 @@ const Page = Scrivito.getClass('Page');
 
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
+const CallToActionWidget = Scrivito.getClass('CallToActionWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
+const FeaturePanelWidget = Scrivito.getClass('FeaturePanelWidget');
 const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
@@ -96,6 +99,8 @@ const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
+const TableWidget = Scrivito.getClass('TableWidget');
+const TableRowWidget = Scrivito.getClass('TableRowWidget');
 const TestimonialSliderWidget = Scrivito.getClass('TestimonialSliderWidget');
 const TestimonialWidget = Scrivito.getClass('TestimonialWidget');
 const TextWidget = Scrivito.getClass('TextWidget');
@@ -182,6 +187,39 @@ function createFeaturePanelWidget(icon, headline) {
   });
 }
 
+function createPricingWidget(root) {
+  return new PricingWidget({
+    currency: '€',
+    smallPlanName: 'Basic Plan',
+    mediumPlanName: 'Team Plan',
+    largePlanName: 'Corporate Plan',
+    smallPlanPrice: '29',
+    mediumPlanPrice: '59',
+    largePlanPrice: '199',
+    smallPlanPeriod: '/mo',
+    mediumPlanPeriod: '/mo',
+    largePlanPeriod: '/mo',
+    smallPlanSpecs: [
+      new PricingSpecWidget({ variable: '5', unit: 'projects' }),
+      new PricingSpecWidget({ variable: '20', unit: 'images' }),
+      new PricingSpecWidget({ variable: '9/5', unit: 'support' }),
+    ],
+    mediumPlanSpecs: [
+      new PricingSpecWidget({ variable: '15', unit: 'projects' }),
+      new PricingSpecWidget({ variable: '50', unit: 'images' }),
+      new PricingSpecWidget({ variable: '12/7', unit: 'support' }),
+    ],
+    largePlanSpecs: [
+      new PricingSpecWidget({ variable: 'unlimited', unit: 'projects' }),
+      new PricingSpecWidget({ variable: 'unlimited', unit: 'images' }),
+      new PricingSpecWidget({ variable: '24/7', unit: 'support' }),
+    ],
+    smallPlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
+    mediumPlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
+    largePlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
+  });
+}
+
 function createRandomIconListWidget() {
   return new IconListWidget({
     iconList: [
@@ -218,6 +256,15 @@ function createRandomIconListWidget() {
         }),
       }),
     ],
+  });
+}
+
+function createTableRowWidget({ feature, inBasic, inTeam, inCorporate } = {}) {
+  return new TableRowWidget({
+    feature: feature,
+    basicFeature: inBasic ? [new IconWidget({ icon: 'fa-check' })] : null,
+    teamFeature: inTeam ? [new IconWidget({ icon: 'fa-check' })] : null,
+    corporateFeature: inCorporate ? [new IconWidget({ icon: 'fa-check' })] : null,
   });
 }
 
@@ -298,6 +345,7 @@ function importContent() {
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
     const homepage2Screenshot = uploadImage(
       homepage2ScreenshotData, 'Homepage variant 2 screenshot');
+    const ipad = uploadImage(ipadData, 'iPad screenshot');
     const iphone = uploadImage(iphoneData, 'iPhone screenshot');
 
     // Obj.root
@@ -499,36 +547,7 @@ function importContent() {
             centered: 'yes',
             headline: loremIpsum({ count: 2 }),
           }),
-          new PricingWidget({
-            currency: '€',
-            smallPlanName: 'Basic Plan',
-            mediumPlanName: 'Team Plan',
-            largePlanName: 'Corporate Plan',
-            smallPlanPrice: '29',
-            mediumPlanPrice: '59',
-            largePlanPrice: '199',
-            smallPlanPeriod: '/mo',
-            mediumPlanPeriod: '/mo',
-            largePlanPeriod: '/mo',
-            smallPlanSpecs: [
-              new PricingSpecWidget({ variable: '5', unit: 'projects' }),
-              new PricingSpecWidget({ variable: '20', unit: 'images' }),
-              new PricingSpecWidget({ variable: '9/5', unit: 'support' }),
-            ],
-            mediumPlanSpecs: [
-              new PricingSpecWidget({ variable: '15', unit: 'projects' }),
-              new PricingSpecWidget({ variable: '50', unit: 'images' }),
-              new PricingSpecWidget({ variable: '12/7', unit: 'support' }),
-            ],
-            largePlanSpecs: [
-              new PricingSpecWidget({ variable: 'unlimited', unit: 'projects' }),
-              new PricingSpecWidget({ variable: 'unlimited', unit: 'images' }),
-              new PricingSpecWidget({ variable: '24/7', unit: 'support' }),
-            ],
-            smallPlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
-            mediumPlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
-            largePlanButton: new Scrivito.Link({ title: 'Buy now', obj: root }),
-          }),
+          createPricingWidget(root),
         ] }),
       ],
     });
@@ -909,11 +928,213 @@ function importContent() {
     // PRICING
     const pricing = Page.create({
       _path: '/pricing',
+      _permalink: 'pricing',
       title: 'Pricing',
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Pricing' }),
-        ] }),
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              headline: 'A great solution with great features',
+              level: 'h1',
+              showDividingLine: 'yes',
+              style: 'h2',
+            }),
+            new HeadlineWidget({
+              headline: loremIpsum({ count: 2 }),
+              level: 'h2',
+              style: 'h4',
+              centered: 'yes',
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              column1: [new ImageWidget({ image: ipad })],
+              column2: [
+                new HeadlineWidget({
+                  level: 'h3',
+                  style: 'h2',
+                  headline: 'Content Management for Ruby on Rails Apps',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 5,
+                    paragraphUpperBound: 5,
+                  }),
+                }),
+                new CallToActionWidget({ icon: 'a-angle-right' }),
+              ],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              column1: [
+                new HeadlineWidget({
+                  level: 'h3',
+                  style: 'h2',
+                  headline: 'Fully Fledged CMS Service',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 5,
+                    paragraphUpperBound: 5,
+                  }),
+                }),
+                new CallToActionWidget({ icon: 'fa-angle-right' }),
+              ],
+              column2: [new ImageWidget({ image: iphone })],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              column1: [
+                new FeaturePanelWidget({
+                  description: loremIpsum({ count: 2 }),
+                  headline: 'Drag & drop widgets',
+                  icon: 'fa-check',
+                }),
+                new FeaturePanelWidget({
+                  description: loremIpsum({ count: 2 }),
+                  headline: 'Ensures safe collaboration',
+                  icon: 'fa-check',
+                }),
+                new FeaturePanelWidget({
+                  description: loremIpsum({ count: 2 }),
+                  headline: 'Image editing tools',
+                  icon: 'fa-check',
+                }),
+                new FeaturePanelWidget({
+                  description: loremIpsum({ count: 2 }),
+                  headline: 'Customizable page components',
+                  icon: 'fa-check',
+                }),
+              ],
+              column2: [
+                new FeaturePanelWidget({
+                  description: loremIpsum({ count: 2 }),
+                  headline: 'WYSIWYG editing',
+                  icon: 'fa-check',
+                }),
+                new FeaturePanelWidget({
+                  description: loremIpsum({ count: 2 }),
+                  headline: 'Asset management',
+                  icon: 'fa-check',
+                }),
+                new FeaturePanelWidget({
+                  description: loremIpsum({ count: 2 }),
+                  headline: 'Integrates with any Rails app',
+                  icon: 'fa-check',
+                }),
+                new FeaturePanelWidget({
+                  description: loremIpsum({ count: 2 }),
+                  headline: 'Based on Bootstrap Framework',
+                  icon: 'fa-check',
+                }),
+              ],
+            }),
+            new HeadlineWidget({
+              headline: 'Choose your plan',
+              level: 'h1',
+              showDividingLine: 'yes',
+              style: 'h2',
+            }),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashHotpink,
+          content: [
+            createPricingWidget(root),
+          ],
+        }),
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              headline: 'Compare all features',
+              level: 'h3',
+              showDividingLine: 'yes',
+              style: 'h2',
+            }),
+            new HeadlineWidget({
+              centered: 'yes',
+              headline: loremIpsum({ count: '2' }),
+              level: 'h2',
+              style: 'h4',
+            }),
+            new TableWidget({
+              rows: [
+                createTableRowWidget({
+                  feature: 'Key feature 1',
+                  inBasic: true,
+                  inTeam: true,
+                  inCorporate: true,
+                }),
+                createTableRowWidget({
+                  feature: 'Key feature 2',
+                  inBasic: true,
+                  inTeam: true,
+                  inCorporate: true,
+                }),
+                createTableRowWidget({
+                  feature: 'Key feature 3',
+                  inBasic: true,
+                  inTeam: true,
+                  inCorporate: true,
+                }),
+                createTableRowWidget({
+                  feature: 'Key feature 4',
+                  inBasic: true,
+                  inTeam: true,
+                  inCorporate: true,
+                }),
+                createTableRowWidget({
+                  feature: 'Key feature 5',
+                  inBasic: true,
+                  inTeam: true,
+                  inCorporate: true,
+                }),
+                createTableRowWidget({
+                  feature: 'Key feature 6',
+                  inBasic: false,
+                  inTeam: true,
+                  inCorporate: true,
+                }),
+                createTableRowWidget({
+                  feature: 'Key feature 7',
+                  inBasic: false,
+                  inTeam: true,
+                  inCorporate: true,
+                }),
+                createTableRowWidget({
+                  feature: 'Key feature 8',
+                  inBasic: false,
+                  inTeam: false,
+                  inCorporate: true,
+                }),
+                createTableRowWidget({
+                  feature: 'Key feature 9',
+                  inBasic: false,
+                  inTeam: false,
+                  inCorporate: true,
+                }),
+              ],
+              featureHeadline: 'Features',
+              basicPlanHeadline: 'Basic',
+              teamPlanHeadline: 'Team',
+              corporatePlanHeadline: 'Corporate',
+              pricingRow: 'Prices',
+              currency: '€',
+              basicPlanPrice: '29',
+              teamPlanPrice: '59',
+              corporatePlanPrice: '199',
+              basicPlanPeriod: '/mo',
+              teamPlanPeriod: '/mo',
+              corporatePlanPeriod: '/mo',
+            }),
+          ],
+        }),
       ],
     });
 
