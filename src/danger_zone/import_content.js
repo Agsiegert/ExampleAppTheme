@@ -29,6 +29,7 @@ import unsplashClosingLaptopData from './binary_data/unsplash_closing_laptop';
 import unsplashDeskLaptopData from './binary_data/unsplash_desk_laptop_speaker';
 import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
 import unsplashDimLaptopStandData from './binary_data/unsplash_dim_laptop_stand';
+import unsplashDoMoreDeskData from './binary_data/unsplash_do_more';
 import unsplashDualingLaptopsData from './binary_data/unsplash_dualing_laptops_blur';
 import unsplashEurekaTowerData from './binary_data/unsplash_eureka_tower_night';
 import unsplashFemaleBehindWindowData from './binary_data/unsplash_female_behind_window';
@@ -44,9 +45,11 @@ import unsplashGrandCentralStationData from './binary_data/unsplash_grand_centra
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 import unsplashHighriseData from './binary_data/unsplash_highrise';
 import unsplashHotpinkData from './binary_data/unsplash_hotpink_nails_iphone_macbook_fob';
+import unsplashiPadChartsData from './binary_data/unsplash_strips_and_charts';
 import unsplashLadyInCoffeeShopData from './binary_data/unsplash_lady_in_coffee_shop';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
 import unsplashLongWhiteTableData from './binary_data/unsplash_long_white_tables_black_chairs';
+import unsplashMacbookDeveloperData from './binary_data/unsplash_macbook_developer';
 import unsplashMalePortrait1Data from './binary_data/unsplash_male_portrait_1';
 import unsplashMalePortrait1SquareData from './binary_data/unsplash_male_portrait_1_square';
 import unsplashMalePortrait2Data from './binary_data/unsplash_male_portrait_2';
@@ -56,6 +59,7 @@ import unsplashMalePortrait3SquareData from './binary_data/unsplash_male_portrai
 import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sunglasses';
 import unsplashNeonTrueData from './binary_data/unsplash_neon_true';
 import unsplashNightBuildingData from './binary_data/unsplash_night_building';
+import unsplashNotebookPencilData from './binary_data/unsplash_notebook_pencil';
 import unsplashOfficeWindowData from './binary_data/unsplash_office_window';
 import unsplashOfficeWithGlassData from './binary_data/unsplash_office_with_glass';
 import unsplashOutdoorMeetingData from './binary_data/unsplash_outdoor_meeting';
@@ -70,13 +74,18 @@ import unsplashSolePalmtreeHighriseData from './binary_data/unsplash_sole_palmtr
 import unsplashSparseDeskData from './binary_data/unsplash_neutral_sparse_desk';
 import unsplashSpeakerShelfData from './binary_data/unsplash_speaker_monitor_shelf';
 import unsplashTidyDeskTouchScreenData from './binary_data/unsplash_tidy_desk_touch_screen';
+import unsplashTwoLaptopsPencilData from './binary_data/unsplash_two_laptops_pencil';
+import unsplashTypistLaptopData from './binary_data/unsplash_ringed_typist_laptop';
+import unsplashUxDesignerData from './binary_data/unsplash_ux_designer';
 import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
+import unsplashWoodTableData from './binary_data/unsplash_wood_table_conversation';
 
 const Author = Scrivito.getClass('Author');
 const Blog = Scrivito.getClass('Blog');
 const BlogPost = Scrivito.getClass('BlogPost');
 const Homepage = Scrivito.getClass('Homepage');
 const Image = Scrivito.getClass('Image');
+const Job = Scrivito.getClass('Job');
 const Page = Scrivito.getClass('Page');
 
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
@@ -92,6 +101,7 @@ const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
 const IconListWidget = Scrivito.getClass('IconListWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
+const JobPreviewWidget = Scrivito.getClass('JobPreviewWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const LoginWidget = Scrivito.getClass('LoginWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
@@ -298,6 +308,7 @@ function importContent() {
     const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
     const unsplashDeskLaptop = uploadImage(unsplashDeskLaptopData, 'Laptop on a desk', UNSPLASH_TAGS);
     const unsplashDimLaptopStand = uploadImage(unsplashDimLaptopStandData, 'Dim laptop stand', UNSPLASH_TAGS);
+    const unsplashDoMoreDesk = uploadImage(unsplashDoMoreDeskData, 'Do more desk', UNSPLASH_TAGS);
     const unsplashDualingLaptops = uploadImage(unsplashDualingLaptopsData, 'Blurred laptop on a table', UNSPLASH_TAGS);
     const unsplashEurekaTower = uploadImage(unsplashEurekaTowerData, 'Eureka tower at night', UNSPLASH_TAGS);
     const unsplashFemaleBehindWindow = uploadImage(unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
@@ -313,9 +324,11 @@ function importContent() {
     const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
     const unsplashHighrise = uploadImage(unsplashHighriseData, 'Highrise', UNSPLASH_TAGS);
     const unsplashHotpink = uploadImage(unsplashHotpinkData, 'Hotpink', UNSPLASH_TAGS);
+    const unsplashiPadCharts = uploadImage(unsplashiPadChartsData, 'iPad charts', UNSPLASH_TAGS);
     const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
     const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
     const unsplashLongWhiteTable = uploadImage(unsplashLongWhiteTableData, 'Long white table', UNSPLASH_TAGS);
+    const unsplashMacbookDeveloper = uploadImage(unsplashMacbookDeveloperData, 'Developer MacBook', UNSPLASH_TAGS);
     const unsplashMalePortrait1 = uploadImage(unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
     const unsplashMalePortrait1Square = uploadImage(unsplashMalePortrait1SquareData, 'Male Portrait 1 (Square)', [...UNSPLASH_TAGS, 'square']);
     const unsplashMalePortrait2 = uploadImage(unsplashMalePortrait2Data, 'Male Portrait 2', UNSPLASH_TAGS);
@@ -325,6 +338,7 @@ function importContent() {
     const unsplashMaleWithSunglasses = uploadImage(unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
     const unsplashNeonTrue = uploadImage(unsplashNeonTrueData, 'Neon true', UNSPLASH_TAGS);
     const unsplashNightBuilding = uploadImage(unsplashNightBuildingData, 'Building at night', UNSPLASH_TAGS);
+    const unsplashNotebookPencil = uploadImage(unsplashNotebookPencilData, 'Notebook with pencil', UNSPLASH_TAGS);
     const unsplashOfficeWindow = uploadImage(unsplashOfficeWindowData, 'Office Window', UNSPLASH_TAGS);
     const unsplashOfficeWithGlass = uploadImage(unsplashOfficeWithGlassData, 'Glass office', UNSPLASH_TAGS);
     const unsplashOutdoorMeeting = uploadImage(unsplashOutdoorMeetingData, 'Outdoor meeting', UNSPLASH_TAGS);
@@ -339,7 +353,11 @@ function importContent() {
     const unsplashSparseDesk = uploadImage(unsplashSparseDeskData, 'Sparse desk', UNSPLASH_TAGS);
     const unsplashSpeakerShelf = uploadImage(unsplashSpeakerShelfData, 'Shelf with speaker', UNSPLASH_TAGS);
     const unsplashTidyDeskTouchScreen = uploadImage(unsplashTidyDeskTouchScreenData, 'Tidy desk with touch screen', UNSPLASH_TAGS);
+    const unsplashTwoLaptopsPencil = uploadImage(unsplashTwoLaptopsPencilData, 'Two laptops with pencil', UNSPLASH_TAGS);
+    const unsplashTypistLaptop = uploadImage(unsplashTypistLaptopData, 'Typist on laptop', UNSPLASH_TAGS);
+    const unsplashUxDesigner = uploadImage(unsplashUxDesignerData, 'UX Designer desk', UNSPLASH_TAGS);
     const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room', UNSPLASH_TAGS);
+    const unsplashWoodTable = uploadImage(unsplashWoodTableData, 'Wooden table', UNSPLASH_TAGS);
 
     const homepage1Screenshot = uploadImage(
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
@@ -359,9 +377,87 @@ function importContent() {
       _permalink: 'jobs',
       title: 'Jobs',
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Jobs' }),
-        ] }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashWoodTable,
+          content: [
+            new HeadlineWidget({
+              centered: 'yes',
+              level: 'h1',
+              style: 'h1',
+              headline: 'Join our awarded team',
+            }),
+            new HeadlineWidget({
+              centered: 'yes',
+              level: 'h2',
+              style: 'h4',
+              headline: loremIpsum({ count: 3 }),
+            }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              headline: 'Join our awarded team',
+              level: 'h1',
+              showDividingLine: 'yes',
+              style: 'h2',
+            }),
+            new JobPreviewWidget({}),
+          ],
+        }),
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              headline: "Why it's great to work with us",
+              level: 'h1',
+              showDividingLine: 'yes',
+              style: 'h2',
+            }),
+            new HeadlineWidget({
+              centered: 'yes',
+              headline: loremIpsum({ count: 2 }),
+              level: 'h2',
+              style: 'h4',
+            }),
+          ],
+        }),
+        new SectionWidget({
+          useFullWidth: 'yes',
+          content: [
+            new CarouselWidget({
+              images: [unsplashWhiteMeetingRoom, unsplashDoMoreDesk, unsplashTwoLaptopsPencil],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
+            new ColumnWidget({
+              nrOfColumns: '3',
+              column1: [
+                createFeaturePanelWidget('fa-star', 'Great environment'),
+              ],
+              column2: [
+                createFeaturePanelWidget('fa-users', 'Awarded team'),
+              ],
+              column3: [
+                createFeaturePanelWidget('fa-money', 'Fair payment'),
+              ],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '3',
+              column1: [
+                createFeaturePanelWidget('fa-child', 'Daily free meal'),
+              ],
+              column2: [
+                createFeaturePanelWidget('fa-laptop', 'The best equipment'),
+              ],
+              column3: [
+                createFeaturePanelWidget('fa-heartbeat', 'Sport activity'),
+              ],
+            }),
+          ],
+        }),
       ],
     });
     const contact = Page.create({
@@ -1136,6 +1232,42 @@ function importContent() {
           ],
         }),
       ],
+    });
+
+    Job.create({
+      image: unsplashLaptopKeyboard,
+      location: 'Berlin',
+      title: 'SEO specialist',
+    });
+
+    Job.create({
+      image: unsplashiPadCharts,
+      location: 'Berlin',
+      title: 'Marketing Manager',
+    });
+
+    Job.create({
+      image: unsplashUxDesigner,
+      location: 'Berlin',
+      title: 'UX Designer',
+    });
+
+    Job.create({
+      image: unsplashTypistLaptop,
+      location: 'Berlin',
+      title: 'Full Stack Developer',
+    });
+
+    Job.create({
+      image: unsplashNotebookPencil,
+      location: 'Berlin',
+      title: 'Texter',
+    });
+
+    Job.create({
+      image: unsplashMacbookDeveloper,
+      location: 'Frankfurt',
+      title: 'Full Stack Developer',
     });
 
     // Authors for BlogPosts
