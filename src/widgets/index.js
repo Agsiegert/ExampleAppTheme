@@ -25,3 +25,4 @@ import TableWidget from './table_widget/table_widget';
 import TestimonialSliderWidget from './testimonial_slider_widget';
 import TestimonialWidget from './testimonial_widget';
 import TextWidget from './text_widget';
+import VideoWidget from './video_widget';
