@@ -49,8 +49,6 @@ function descriptionBox(widget) {
             open project
             <i className="fa fa-angle-right fa-4" aria-hidden="true" />
           </Scrivito.React.Link>
-          <br/>
-          <br/>
         </div>
       </div>
     </div>
