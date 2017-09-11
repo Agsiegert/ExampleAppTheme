@@ -34,7 +34,9 @@ function descriptionBox(widget) {
         <div className="client-logo">
           <Scrivito.React.Image src={ widget } attribute="descriptionLogo" />
         </div>
-        <Scrivito.React.Content content={ widget } attribute="description" className="client-text"/>
+        <div className="client-text">
+          <Scrivito.React.Content content={ widget } attribute="description" className=""/>
+        </div>
       </div>
     </div>
   );
