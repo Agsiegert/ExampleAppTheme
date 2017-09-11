@@ -1,5 +1,4 @@
 import { Carousel } from 'react-bootstrap';
-import fallbackImageUrl from 'utils/fallback_image_url';
 
 const CarouselWidget = Scrivito.createWidgetClass({
   name: 'CarouselWidget',
@@ -36,21 +35,12 @@ Scrivito.provideUiConfig(CarouselWidget, {
   },
 });
 
-function descriptionLogoUrl(descriptionLogo) {
-  if (!descriptionLogo) { return fallbackImageUrl; }
-
-  const binary = descriptionLogo.get('blob');
-  const croppedBinary = binary.transform({ width: 500, height: 200, fit: 'crop' });
-
-  return croppedBinary.url();
-}
-
 function descriptionBox(widget) {
   return (
     <div className="container">
       <div className="client-wrapper row">
         <div className="client-logo">
-          <img src={ descriptionLogoUrl(widget.get('descriptionLogo')) } alt="" />
+          <Scrivito.React.Image src={ widget } attribute="descriptionLogo" />
         </div>
         <div className="client-text">
           <strong>What we did?</strong>
