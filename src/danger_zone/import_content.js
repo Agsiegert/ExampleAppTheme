@@ -560,6 +560,7 @@ function importContent() {
           content: [
             new ColumnWidget({
               nrOfColumns: '2',
+              verticallyAligned: 'yes',
               column1: [
                 new HeadlineWidget({
                   level: 'h1',
@@ -1069,6 +1070,7 @@ function importContent() {
             }),
             new ColumnWidget({
               nrOfColumns: '2',
+              verticallyAligned: 'yes',
               column1: [new ImageWidget({ image: ipad })],
               column2: [
                 new HeadlineWidget({
@@ -1090,6 +1092,7 @@ function importContent() {
             }),
             new ColumnWidget({
               nrOfColumns: '2',
+              verticallyAligned: 'yes',
               column1: [
                 new HeadlineWidget({
                   level: 'h3',
@@ -1111,6 +1114,7 @@ function importContent() {
             }),
             new ColumnWidget({
               nrOfColumns: '2',
+              verticallyAligned: 'yes',
               column1: [
                 new FeaturePanelWidget({
                   description: loremIpsum({ count: 2 }),
@@ -1473,6 +1477,7 @@ function importContent() {
           }),
           new ColumnWidget({
             nrOfColumns: '2',
+            verticallyAligned: 'yes',
             column1: [new ImageWidget({ image: unsplashLaptopKeyboard })],
             column2: [
               new HeadlineWidget({
@@ -1499,6 +1504,7 @@ function importContent() {
           }),
           new ColumnWidget({
             nrOfColumns: '2',
+            verticallyAligned: 'yes',
             column1: [
               new HeadlineWidget({
                 level: 'h3',
