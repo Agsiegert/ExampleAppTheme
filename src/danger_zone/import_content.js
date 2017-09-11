@@ -278,6 +278,24 @@ function createTableRowWidget({ feature, inBasic, inTeam, inCorporate } = {}) {
   });
 }
 
+function carouselProjectDescription({ target }) {
+  return [
+    new TextWidget({
+      text: `
+        <p><b>What we did</b></p>
+        <p>${loremIpsum({ count: 3 })}</p>
+      `,
+    }),
+    new ButtonWidget({
+      target: new Scrivito.Link({
+        title: 'Open project',
+        obj: target,
+      }),
+      style: 'btn-clear',
+    }),
+  ];
+}
+
 function importContent() {
   allExistingImages().then(images => {
     existingImages = images;
@@ -658,10 +676,13 @@ function importContent() {
         ] }),
       ],
     });
+
     const ourClients = Page.create({
       _path: '/about/our_clients',
       _permalink: 'clients',
       title: 'Our Clients',
+    });
+    ourClients.update({
       body: [
         new SectionWidget({ content: [
           new HeadlineWidget({
@@ -687,19 +708,19 @@ function importContent() {
               images: [unsplashDualingLaptops, unsplashClosingLaptop, unsplashDeskLaptop],
               showDescription: 'yes',
               descriptionLogo: logo1,
-              descriptionText: `Project 1 ${loremIpsum({ count: 3 })}`,
+              description: carouselProjectDescription({ target: ourClients }),
             }),
             new CarouselWidget({
               images: [unsplashEurekaTower, unsplashNightBuilding, unsplashSkyscraperNight],
               showDescription: 'yes',
               descriptionLogo: logo2,
-              descriptionText: `Project 2 ${loremIpsum({ count: 3 })}`,
+              description: carouselProjectDescription({ target: ourClients }),
             }),
             new CarouselWidget({
               images: [unsplashLongWhiteTable, unsplashSpeakerShelf, unsplashSparseDesk],
               showDescription: 'yes',
               descriptionLogo: logo3,
-              descriptionText: `Project 3 ${loremIpsum({ count: 3 })}`,
+              description: carouselProjectDescription({ target: ourClients }),
             }),
           ],
         }),
@@ -779,6 +800,7 @@ function importContent() {
         }),
       ],
     });
+
     const about = Page.create({
       _path: '/about',
       _permalink: 'about',

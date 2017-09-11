@@ -6,7 +6,7 @@ const CarouselWidget = Scrivito.createWidgetClass({
     images: 'referencelist',
     showDescription: ['enum', { validValues: ['yes', 'no'] }],
     descriptionLogo: 'reference',
-    descriptionText: 'html',
+    description: 'widgetlist',
   },
 });
 
@@ -24,14 +24,6 @@ Scrivito.provideUiConfig(CarouselWidget, {
       title: 'Show description',
       description: 'Should there be a description?',
     },
-    descriptionLogo: {
-      title: 'Description logo',
-      description: 'The logo next to the description.',
-    },
-    descriptionText: {
-      title: 'Description text',
-      description: 'The text of the description.',
-    },
   },
 });
 
@@ -42,14 +34,7 @@ function descriptionBox(widget) {
         <div className="client-logo">
           <Scrivito.React.Image src={ widget } attribute="descriptionLogo" />
         </div>
-        <div className="client-text">
-          <strong>What we did?</strong>
-            <Scrivito.React.Content tag="p" content={ widget } attribute="descriptionText" />
-          <Scrivito.React.Link className="btn btn-clear" to={ Scrivito.currentPage() }>
-            open project
-            <i className="fa fa-angle-right fa-4" aria-hidden="true" />
-          </Scrivito.React.Link>
-        </div>
+        <Scrivito.React.Content content={ widget } attribute="description" className="client-text"/>
       </div>
     </div>
   );
