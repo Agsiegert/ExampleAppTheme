@@ -57,7 +57,12 @@ function descriptionBox(widget) {
 
 Scrivito.provideComponent(CarouselWidget, ({ widget }) =>
   <div>
-    <Carousel>
+    <Carousel
+      indicators={ false }
+      className="carousel-images row"
+      prevIcon={ <span className="fa fa-arrow-left" aria-hidden="true" /> }
+      nextIcon={ <span className="fa fa-arrow-right" aria-hidden="true" /> }
+    >
       { widget.get('images').map((image, index) => {
         return (
           <Carousel.Item key={ `${image.id}${index}` }>
