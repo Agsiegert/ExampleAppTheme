@@ -1,5 +1,4 @@
 import { Carousel } from 'react-bootstrap';
-import fallbackImageUrl from 'utils/fallback_image_url';
 
 const CarouselWidget = Scrivito.createWidgetClass({
   name: 'CarouselWidget',
@@ -7,7 +6,7 @@ const CarouselWidget = Scrivito.createWidgetClass({
     images: 'referencelist',
     showDescription: ['enum', { validValues: ['yes', 'no'] }],
     descriptionLogo: 'reference',
-    descriptionText: 'html',
+    description: 'widgetlist',
   },
 });
 
@@ -25,43 +24,17 @@ Scrivito.provideUiConfig(CarouselWidget, {
       title: 'Show description',
       description: 'Should there be a description?',
     },
-    descriptionLogo: {
-      title: 'Description logo',
-      description: 'The logo next to the description.',
-    },
-    descriptionText: {
-      title: 'Description text',
-      description: 'The text of the description.',
-    },
   },
 });
-
-function descriptionLogoUrl(descriptionLogo) {
-  if (!descriptionLogo) { return fallbackImageUrl; }
-
-  const binary = descriptionLogo.get('blob');
-  const croppedBinary = binary.transform({ width: 500, height: 200, fit: 'crop' });
-
-  return croppedBinary.url();
-}
 
 function descriptionBox(widget) {
   return (
     <div className="container">
       <div className="client-wrapper row">
         <div className="client-logo">
-          <img src={ descriptionLogoUrl(widget.get('descriptionLogo')) } alt="" />
+          <Scrivito.React.Image src={ widget } attribute="descriptionLogo" />
         </div>
-        <div className="client-text">
-          <strong>What we did?</strong>
-            <Scrivito.React.Content tag="p" content={ widget } attribute="descriptionText" />
-          <Scrivito.React.Link className="btn btn-clear" to={ Scrivito.currentPage() }>
-            open project
-            <i className="fa fa-angle-right fa-4" aria-hidden="true" />
-          </Scrivito.React.Link>
-          <br/>
-          <br/>
-        </div>
+        <Scrivito.React.Content content={ widget } attribute="description" className="client-text"/>
       </div>
     </div>
   );
@@ -69,7 +42,12 @@ function descriptionBox(widget) {
 
 Scrivito.provideComponent(CarouselWidget, ({ widget }) =>
   <div>
-    <Carousel>
+    <Carousel
+      indicators={ false }
+      className="carousel-images row"
+      prevIcon={ <span className="fa fa-arrow-left" aria-hidden="true" /> }
+      nextIcon={ <span className="fa fa-arrow-right" aria-hidden="true" /> }
+    >
       { widget.get('images').map((image, index) => {
         return (
           <Carousel.Item key={ `${image.id}${index}` }>

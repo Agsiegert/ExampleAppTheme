@@ -278,6 +278,24 @@ function createTableRowWidget({ feature, inBasic, inTeam, inCorporate } = {}) {
   });
 }
 
+function carouselProjectDescription({ target }) {
+  return [
+    new TextWidget({
+      text: `
+        <p><b>What we did</b></p>
+        <p>${loremIpsum({ count: 3 })}</p>
+      `,
+    }),
+    new ButtonWidget({
+      target: new Scrivito.Link({
+        title: 'Open project',
+        obj: target,
+      }),
+      style: 'btn-clear',
+    }),
+  ];
+}
+
 function importContent() {
   allExistingImages().then(images => {
     existingImages = images;
@@ -658,10 +676,13 @@ function importContent() {
         ] }),
       ],
     });
+
     const ourClients = Page.create({
       _path: '/about/our_clients',
       _permalink: 'clients',
       title: 'Our Clients',
+    });
+    ourClients.update({
       body: [
         new SectionWidget({ content: [
           new HeadlineWidget({
@@ -687,56 +708,60 @@ function importContent() {
               images: [unsplashDualingLaptops, unsplashClosingLaptop, unsplashDeskLaptop],
               showDescription: 'yes',
               descriptionLogo: logo1,
-              descriptionText: `Project 1 ${loremIpsum({ count: 3 })}`,
+              description: carouselProjectDescription({ target: ourClients }),
             }),
             new CarouselWidget({
               images: [unsplashEurekaTower, unsplashNightBuilding, unsplashSkyscraperNight],
               showDescription: 'yes',
               descriptionLogo: logo2,
-              descriptionText: `Project 2 ${loremIpsum({ count: 3 })}`,
+              description: carouselProjectDescription({ target: ourClients }),
             }),
             new CarouselWidget({
               images: [unsplashLongWhiteTable, unsplashSpeakerShelf, unsplashSparseDesk],
               showDescription: 'yes',
               descriptionLogo: logo3,
-              descriptionText: `Project 3 ${loremIpsum({ count: 3 })}`,
+              description: carouselProjectDescription({ target: ourClients }),
             }),
           ],
         }),
         new SectionWidget({ content: [
           new HeadlineWidget({
-            headline: 'Clients and references',
+            headline: 'And many many more...',
             level: 'h1',
             style: 'h2',
             showDividingLine: 'yes',
           }),
           new ColumnWidget({
             nrOfColumns: '4',
-            column1: [new ImageWidget({ image: logo1 })],
-            column2: [new ImageWidget({ image: logo2 })],
-            column3: [new ImageWidget({ image: logo3 })],
-            column4: [new ImageWidget({ image: logo4 })],
+            verticallyAligned: 'yes',
+            column1: [new ImageWidget({ image: logo1, centered: 'yes' })],
+            column2: [new ImageWidget({ image: logo2, centered: 'yes' })],
+            column3: [new ImageWidget({ image: logo3, centered: 'yes' })],
+            column4: [new ImageWidget({ image: logo4, centered: 'yes' })],
           }),
           new ColumnWidget({
             nrOfColumns: '4',
-            column1: [new ImageWidget({ image: logo5 })],
-            column2: [new ImageWidget({ image: logo6 })],
-            column3: [new ImageWidget({ image: logo7 })],
-            column4: [new ImageWidget({ image: logo8 })],
+            verticallyAligned: 'yes',
+            column1: [new ImageWidget({ image: logo5, centered: 'yes' })],
+            column2: [new ImageWidget({ image: logo6, centered: 'yes' })],
+            column3: [new ImageWidget({ image: logo7, centered: 'yes' })],
+            column4: [new ImageWidget({ image: logo8, centered: 'yes' })],
           }),
           new ColumnWidget({
             nrOfColumns: '4',
-            column1: [new ImageWidget({ image: logo8 })],
-            column2: [new ImageWidget({ image: logo4 })],
-            column3: [new ImageWidget({ image: logo5 })],
-            column4: [new ImageWidget({ image: logo2 })],
+            verticallyAligned: 'yes',
+            column1: [new ImageWidget({ image: logo8, centered: 'yes' })],
+            column2: [new ImageWidget({ image: logo4, centered: 'yes' })],
+            column3: [new ImageWidget({ image: logo5, centered: 'yes' })],
+            column4: [new ImageWidget({ image: logo2, centered: 'yes' })],
           }),
           new ColumnWidget({
             nrOfColumns: '4',
-            column1: [new ImageWidget({ image: logo1 })],
-            column2: [new ImageWidget({ image: logo8 })],
-            column3: [new ImageWidget({ image: logo2 })],
-            column4: [new ImageWidget({ image: logo3 })],
+            verticallyAligned: 'yes',
+            column1: [new ImageWidget({ image: logo1, centered: 'yes' })],
+            column2: [new ImageWidget({ image: logo8, centered: 'yes' })],
+            column3: [new ImageWidget({ image: logo2, centered: 'yes' })],
+            column4: [new ImageWidget({ image: logo3, centered: 'yes' })],
           }),
         ] }),
         new SectionWidget({ content: [
@@ -779,6 +804,7 @@ function importContent() {
         }),
       ],
     });
+
     const about = Page.create({
       _path: '/about',
       _permalink: 'about',
