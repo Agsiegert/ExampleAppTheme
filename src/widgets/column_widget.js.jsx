@@ -54,12 +54,9 @@ Scrivito.provideComponent(ColumnWidget, ({ widget }) => {
     const colNr = index + 1;
 
     cols.push(
-      <Scrivito.React.Content
-        tag="div"
-        className={ `col-md-${colSize}` }
-        content={ widget }
-        attribute={ `column${colNr}` }
-        key={ colNr } />
+      <div key={ colNr } className={ `col-md-${colSize}` }>
+        <Scrivito.React.Content content={ widget } attribute={ `column${colNr}` } />
+      </div>
     );
   });
 
