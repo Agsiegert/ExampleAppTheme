@@ -16,7 +16,7 @@ function BaseThumbnail({ widget, openLightbox }) {
     <div className="col-md-3 col-sm-4 col-xs-6 gallery-box">
       <div
         className="gallery-box-image"
-        style={ { background: `url(${imageUrl}) no-repeat center / cover` } }>
+        style={ { background: 'no-repeat center / cover', backgroundImage: `url(${imageUrl})` } }>
       </div>
       <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
         <span className="gallery-box-content">

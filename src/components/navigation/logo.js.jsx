@@ -1,4 +1,4 @@
-function logoStyle({ scrolled, navigationStyle }) {
+function logoObj({ scrolled, navigationStyle }) {
   let logoVersion;
   if (scrolled) {
     logoVersion = 'logoDark';
@@ -8,24 +8,18 @@ function logoStyle({ scrolled, navigationStyle }) {
     logoVersion = 'logoDark';
   }
 
-  const logoObj = Scrivito.Obj.root().get(logoVersion);
-  if (!logoObj) { return {}; }
-
-  const logoUrl = logoObj.get('blob').url();
-
-  return {
-    background: `rgba(0, 0, 0, 0) url(${logoUrl}) no-repeat scroll center center / contain`,
-  };
+  return Scrivito.Obj.root().get(logoVersion);
 }
 
 function Logo({ scrolled, navigationStyle }) {
   if (!Scrivito.Obj.root()) { return null; }
 
+  const logo = logoObj({ scrolled, navigationStyle });
+  if (!logo) { return null; }
+
   return (
-    <Scrivito.React.Link
-        to={ Scrivito.Obj.root() }
-        className="navbar-brand"
-        style={ logoStyle({ scrolled, navigationStyle }) }>
+    <Scrivito.React.Link to={ Scrivito.Obj.root() } className="navbar-brand">
+      <Scrivito.React.Image src={ logo } />
     </Scrivito.React.Link>
   );
 }
