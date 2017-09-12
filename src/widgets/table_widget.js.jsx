@@ -1,4 +1,4 @@
-import TableRowWidgetComponent from './table_row_widget';
+import { TableRowWidgetComponent } from './table_row_widget';
 
 const TableWidget = Scrivito.createWidgetClass({
   name: 'TableWidget',
