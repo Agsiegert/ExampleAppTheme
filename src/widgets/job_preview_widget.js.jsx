@@ -23,7 +23,8 @@ Scrivito.provideComponent(JobPreviewWidget, () => {
                 <span
                     className="box-image"
                     style={ {
-                      background: `url(${getImageUrl(job.get('image'))}) no-repeat center / cover`,
+                      background: 'no-repeat center / cover',
+                      backgroundImage: `url(${getImageUrl(job.get('image'))})`,
                     } }
                   />
                 <span className="box-topic arrow-right">

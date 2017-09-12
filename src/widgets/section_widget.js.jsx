@@ -85,10 +85,11 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
     const backgroundImage = widget.get('backgroundImage');
     if (backgroundImage) {
       const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
-      sectionStyle.background = [
+      sectionStyle.background = 'no-repeat center / cover';
+      sectionStyle.backgroundImage = [
         'linear-gradient(rgba(46, 53, 60, 0.7)',
         'rgba(46, 53, 60, 0.7))',
-        `url(${backgroundUrl}) no-repeat center / cover`,
+        `url(${backgroundUrl})`,
       ].join(', ');
     }
   }
