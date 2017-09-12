@@ -45,6 +45,7 @@ Scrivito.provideUiConfig(TableRowWidget, {
       description: 'The feature described for the corporate plan.',
     },
   },
+  titleForContent: widget => widget.get('feature'),
 });
 
 export { TableRowWidgetComponent };
