@@ -11,7 +11,7 @@ const TableRowWidget = Scrivito.createWidgetClass({
 
 Scrivito.registerClass('TableRowWidget', TableRowWidget);
 
-function TableRowWidgetComponent({ widget }) {
+function PlainTableRowWidgetComponent({ widget }) {
   return (
     <tr>
       <Scrivito.React.Content tag="th" content={ widget } attribute="feature" />
@@ -21,6 +21,8 @@ function TableRowWidgetComponent({ widget }) {
     </tr>
   );
 }
+
+const TableRowWidgetComponent = Scrivito.React.connect(PlainTableRowWidgetComponent);
 
 Scrivito.provideUiConfig(TableRowWidget, {
   title: 'TableRowWidget',
@@ -43,7 +45,8 @@ Scrivito.provideUiConfig(TableRowWidget, {
       description: 'The feature described for the corporate plan.',
     },
   },
+  titleForContent: widget => widget.get('feature'),
 });
 
-export default Scrivito.React.connect(TableRowWidgetComponent);
-
+export { TableRowWidgetComponent };
+export default TableRowWidget;
