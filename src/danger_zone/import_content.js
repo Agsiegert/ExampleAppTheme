@@ -90,7 +90,6 @@ const Page = Scrivito.getClass('Page');
 
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
-const CallToActionWidget = Scrivito.getClass('CallToActionWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
@@ -169,7 +168,7 @@ function randomPastDate() {
   return new Date(+(new Date()) - (Math.floor(Math.random() * 9960000000)));
 }
 
-function createFeaturePanelWidget(icon, headline) {
+function createPanelWidgetWithIconHeadlineAndText(icon, headline) {
   return new PanelWidget({
     body: [
       new IconWidget({
@@ -194,6 +193,14 @@ function createFeaturePanelWidget(icon, headline) {
         }),
       }),
     ],
+  });
+}
+
+function createFeaturePanelWidget(icon, headline) {
+  return new FeaturePanelWidget({
+    icon,
+    headline,
+    description: loremIpsum({ count: 2 }),
   });
 }
 
@@ -453,25 +460,25 @@ function importContent() {
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
-                createFeaturePanelWidget('fa-star', 'Great environment'),
+                createPanelWidgetWithIconHeadlineAndText('fa-star', 'Great environment'),
               ],
               column2: [
-                createFeaturePanelWidget('fa-users', 'Awarded team'),
+                createPanelWidgetWithIconHeadlineAndText('fa-users', 'Awarded team'),
               ],
               column3: [
-                createFeaturePanelWidget('fa-money', 'Fair payment'),
+                createPanelWidgetWithIconHeadlineAndText('fa-money', 'Fair payment'),
               ],
             }),
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
-                createFeaturePanelWidget('fa-child', 'Daily free meal'),
+                createPanelWidgetWithIconHeadlineAndText('fa-child', 'Daily free meal'),
               ],
               column2: [
-                createFeaturePanelWidget('fa-laptop', 'The best equipment'),
+                createPanelWidgetWithIconHeadlineAndText('fa-laptop', 'The best equipment'),
               ],
               column3: [
-                createFeaturePanelWidget('fa-heartbeat', 'Sport activity'),
+                createPanelWidgetWithIconHeadlineAndText('fa-heartbeat', 'Sport activity'),
               ],
             }),
           ],
@@ -603,25 +610,25 @@ function importContent() {
           new ColumnWidget({
             nrOfColumns: '3',
             column1: [
-              createFeaturePanelWidget('fa-picture-o', 'Drag & drop widgets'),
+              createPanelWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
             ],
             column2: [
-              createFeaturePanelWidget('fa-mouse-pointer', 'WYSIWYG editing'),
+              createPanelWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
             ],
             column3: [
-              createFeaturePanelWidget('fa-cogs', 'Easy customization'),
+              createPanelWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
             ],
           }),
           new ColumnWidget({
             nrOfColumns: '3',
             column1: [
-              createFeaturePanelWidget('fa-comments-o', 'Full support'),
+              createPanelWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
             ],
             column2: [
-              createFeaturePanelWidget('fa-clone', 'Tons of widgets'),
+              createPanelWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
             ],
             column3: [
-              createFeaturePanelWidget('fa-mobile', 'Fully responsive'),
+              createPanelWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
             ],
           }),
           new ButtonWidget({
@@ -1068,6 +1075,10 @@ function importContent() {
               style: 'h4',
               centered: 'yes',
             }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
             new ColumnWidget({
               nrOfColumns: '2',
               verticallyAligned: 'yes',
@@ -1076,7 +1087,7 @@ function importContent() {
                 new HeadlineWidget({
                   level: 'h3',
                   style: 'h2',
-                  headline: 'Content Management for Ruby on Rails Apps',
+                  headline: 'Content Management for React Apps',
                 }),
                 new TextWidget({
                   text: loremIpsum({
@@ -1087,7 +1098,12 @@ function importContent() {
                     paragraphUpperBound: 5,
                   }),
                 }),
-                new CallToActionWidget({ icon: 'a-angle-right' }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
               ],
             }),
             new ColumnWidget({
@@ -1108,57 +1124,33 @@ function importContent() {
                     paragraphUpperBound: 5,
                   }),
                 }),
-                new CallToActionWidget({ icon: 'fa-angle-right' }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
               ],
               column2: [new ImageWidget({ image: iphone })],
             }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
             new ColumnWidget({
               nrOfColumns: '2',
-              verticallyAligned: 'yes',
-              column1: [
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Drag & drop widgets',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Ensures safe collaboration',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Image editing tools',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Customizable page components',
-                  icon: 'fa-check',
-                }),
-              ],
-              column2: [
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'WYSIWYG editing',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Asset management',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Integrates with any Rails app',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Based on Bootstrap Framework',
-                  icon: 'fa-check',
-                }),
-              ],
+              column1: [createFeaturePanelWidget('fa-check', 'Drag & drop widgets')],
+              column2: [createFeaturePanelWidget('fa-cogs', 'Easy customization')],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              column1: [createFeaturePanelWidget('fa-file-text-o', 'Full documentation')],
+              column2: [createFeaturePanelWidget('fa-comments-o', 'Full support')],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              column1: [createFeaturePanelWidget('fa-clone', 'Tons of widgets')],
+              column2: [createFeaturePanelWidget('fa-mobile', 'Fully responsive')],
             }),
             new HeadlineWidget({
               headline: 'Choose your plan',

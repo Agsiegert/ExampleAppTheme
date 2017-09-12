@@ -9,6 +9,18 @@ const FeaturePanelWidget = Scrivito.createWidgetClass({
 
 Scrivito.registerClass('FeaturePanelWidget', FeaturePanelWidget);
 
+Scrivito.provideUiConfig(FeaturePanelWidget, {
+  title: 'Feature Panel',
+  description:
+    'A feature panel, with an icon to the left and a headline and description to the right.',
+  attributes: {
+    icon: {
+      title: 'Icon',
+      description: 'Which icon should be shown? Default: fa-check',
+    },
+  },
+});
+
 Scrivito.provideComponent(FeaturePanelWidget, ({ widget }) => {
   return (
     <div className="panel panel-theme panel-list">
