@@ -196,6 +196,14 @@ function createPanelWidgetWithIconHeadlineAndText(icon, headline) {
   });
 }
 
+function createFeaturePanelWidget(icon, headline) {
+  return new FeaturePanelWidget({
+    icon,
+    headline,
+    description: loremIpsum({ count: 2 }),
+  });
+}
+
 function createPricingWidget(root) {
   return new PricingWidget({
     currency: '€',
@@ -1123,51 +1131,18 @@ function importContent() {
             }),
             new ColumnWidget({
               nrOfColumns: '2',
-              verticallyAligned: 'yes',
-              column1: [
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Drag & drop widgets',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Ensures safe collaboration',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Image editing tools',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Customizable page components',
-                  icon: 'fa-check',
-                }),
-              ],
-              column2: [
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'WYSIWYG editing',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Asset management',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Integrates with any Rails app',
-                  icon: 'fa-check',
-                }),
-                new FeaturePanelWidget({
-                  description: loremIpsum({ count: 2 }),
-                  headline: 'Based on Bootstrap Framework',
-                  icon: 'fa-check',
-                }),
-              ],
+              column1: [createFeaturePanelWidget('fa-check', 'Drag & drop widgets')],
+              column2: [createFeaturePanelWidget('fa-cogs', 'Easy customization')],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              column1: [createFeaturePanelWidget('fa-file-text-o', 'Full documentation')],
+              column2: [createFeaturePanelWidget('fa-comments-o', 'Full support')],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              column1: [createFeaturePanelWidget('fa-clone', 'Tons of widgets')],
+              column2: [createFeaturePanelWidget('fa-mobile', 'Fully responsive')],
             }),
             new HeadlineWidget({
               headline: 'Choose your plan',
