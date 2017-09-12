@@ -90,7 +90,6 @@ const Page = Scrivito.getClass('Page');
 
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
-const CallToActionWidget = Scrivito.getClass('CallToActionWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
@@ -1087,7 +1086,12 @@ function importContent() {
                     paragraphUpperBound: 5,
                   }),
                 }),
-                new CallToActionWidget({ icon: 'a-angle-right' }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
               ],
             }),
             new ColumnWidget({
@@ -1108,7 +1112,12 @@ function importContent() {
                     paragraphUpperBound: 5,
                   }),
                 }),
-                new CallToActionWidget({ icon: 'fa-angle-right' }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
               ],
               column2: [new ImageWidget({ image: iphone })],
             }),
