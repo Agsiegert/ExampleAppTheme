@@ -53,7 +53,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"></a>
+                <a class="navbar-brand" href="#"><img /></a>
                 <span class="navbar-search-toggle" onclick="$('.navbar').toggleClass('show-search');">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </span>
@@ -612,18 +612,18 @@
           var height = $(window).scrollTop();  //getting the scrolling height of window
           if(height  > 1) {
             $('section.navbar-fixed').addClass('scrolled');
-            $('.navbar-brand').css('background', 'rgba(0, 0, 0, 0) url(scrivito_logo.svg) no-repeat scroll center center / contain');
+            $('.navbar-brand img').attr('src', 'scrivito_logo.svg');
 
           } else{
             $('section.navbar-fixed').removeClass('scrolled');
-            $('.navbar-brand').css('background', 'rgba(0, 0, 0, 0) url(scrivito_logo_white.svg) no-repeat scroll center center / contain');
+            $('.navbar-brand img').attr('src', 'scrivito_logo_white.svg');
 
           }
         });
       }
 
       if($('.bg-dark-image nav').length) {
-        $('.navbar-brand').css('background', 'rgba(0, 0, 0, 0) url(scrivito_logo_white.svg) no-repeat scroll center center / contain');
+        $('.navbar-brand img').attr('src', 'scrivito_logo_white.svg');
       }
 
       $('.slickDemo').slick({
