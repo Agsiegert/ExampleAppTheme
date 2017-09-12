@@ -423,7 +423,7 @@ function importContent() {
         new SectionWidget({
           content: [
             new HeadlineWidget({
-              headline: 'Join our awarded team',
+              headline: 'We are hiring the following positions',
               level: 'h1',
               showDividingLine: 'yes',
               style: 'h2',
