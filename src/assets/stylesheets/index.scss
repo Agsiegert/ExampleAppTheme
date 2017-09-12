@@ -1163,7 +1163,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .carousel-images .item  { height: 550px; }
 
 @media (max-width: $screen-xs-max) {
-  .carousel-images .item  { height: 350px; }
+  .carousel-images .item  { height: 250px; }
  }
 
 .carousel-control { background: transparent!important; opacity: 1; }
@@ -1184,6 +1184,13 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .client-wrapper { margin-top: -50px; }
 .client-wrapper .client-logo,
 .client-wrapper .client-text { padding: 15px; background: #fff; float: left;}
+
+.client-wrapper .client-logo img { display: block; margin: 0 auto; }
+
+.client-wrapper { display: flex; flex-direction: row; }
+.client-wrapper .client-logo,
+.client-wrapper .client-text { display: flex; align-items: center; justify-content: center; }
+
 .client-wrapper .client-text strong { display: inline-block; margin-bottom: 10px; color: $theme-greydark;}
 .client-wrapper .client-text p { margin: 0; }
 
@@ -1192,6 +1199,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .client-wrapper .client-text { width: 70%; }
  }
 @media (max-width: $screen-sm-max) {
+  .client-wrapper { display: block; }
   .client-wrapper .client-logo { width: 60%; margin-left: 20%; text-align: center; }
   .client-wrapper .client-text { width: 100%; text-align: center; }
  }
