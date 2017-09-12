@@ -19,7 +19,7 @@ Scrivito.provideComponent(JobPreviewWidget, () => {
         [...jobs].map((job, index) => {
           return (
             <div key={ `${job.id}${index}` } className="col-sm-6">
-              <a href="#" className="box-card">
+              <Scrivito.React.Link to={ job } className="box-card">
                 <span
                     className="box-image"
                     style={ {
@@ -39,7 +39,7 @@ Scrivito.provideComponent(JobPreviewWidget, () => {
                   </span>
                   <i className="fa fa-angle-right" aria-hidden="true"></i>
                 </span>
-              </a>
+              </Scrivito.React.Link>
             </div>
           );
         })
