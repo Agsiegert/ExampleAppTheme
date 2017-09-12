@@ -1075,6 +1075,10 @@ function importContent() {
               style: 'h4',
               centered: 'yes',
             }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
             new ColumnWidget({
               nrOfColumns: '2',
               verticallyAligned: 'yes',
@@ -1129,6 +1133,10 @@ function importContent() {
               ],
               column2: [new ImageWidget({ image: iphone })],
             }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
             new ColumnWidget({
               nrOfColumns: '2',
               column1: [createFeaturePanelWidget('fa-check', 'Drag & drop widgets')],
