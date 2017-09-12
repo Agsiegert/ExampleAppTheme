@@ -1075,7 +1075,7 @@ function importContent() {
                 new HeadlineWidget({
                   level: 'h3',
                   style: 'h2',
-                  headline: 'Content Management for Ruby on Rails Apps',
+                  headline: 'Content Management for React Apps',
                 }),
                 new TextWidget({
                   text: loremIpsum({
