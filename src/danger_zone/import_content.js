@@ -1258,37 +1258,37 @@ function importContent() {
 
     Job.create({
       image: unsplashLaptopKeyboard,
-      location: 'Berlin',
+      location: 'Berlin, Germany',
       title: 'SEO specialist',
     });
 
     Job.create({
       image: unsplashiPadCharts,
-      location: 'Berlin',
+      location: 'Berlin, Germany',
       title: 'Marketing Manager',
     });
 
     Job.create({
       image: unsplashUxDesigner,
-      location: 'Berlin',
+      location: 'Berlin, Germany',
       title: 'UX Designer',
     });
 
     Job.create({
       image: unsplashTypistLaptop,
-      location: 'Berlin',
+      location: 'Berlin, Germany',
       title: 'Full Stack Developer',
     });
 
     Job.create({
       image: unsplashNotebookPencil,
-      location: 'Berlin',
+      location: 'Paris, France',
       title: 'Texter',
     });
 
     Job.create({
       image: unsplashMacbookDeveloper,
-      location: 'Frankfurt',
+      location: 'Frankfurt, Germany',
       title: 'Full Stack Developer',
     });
 
