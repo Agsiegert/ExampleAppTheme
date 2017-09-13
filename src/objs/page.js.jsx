@@ -38,7 +38,7 @@ Scrivito.provideUiConfig(Page, {
     ...defaultPageUiConfigAttributes,
   },
   titleForContent: obj => obj.get('title'),
-  descriptionForContent: obj => `path: ${obj.path}`,
+  descriptionForContent: obj => `path: ${obj.path()}`,
 });
 
 Scrivito.provideComponent(Page, ({ page }) =>
