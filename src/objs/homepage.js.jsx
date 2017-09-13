@@ -36,7 +36,7 @@ Scrivito.registerClass('Homepage', Homepage);
 
 Scrivito.provideUiConfig(Homepage, {
   title: 'Homepage',
-  description: 'A Homepage. This class is only intended for Obj.root (aka "_path" "/")',
+  description: 'A Homepage. This class is only intended for Obj.root() (aka "_path" "/")',
   attributes: {
     ...defaultPageUiConfigAttributes,
     logoWhite: {
