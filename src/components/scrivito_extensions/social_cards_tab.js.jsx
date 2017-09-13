@@ -140,7 +140,7 @@ function lookupMetaData(obj, value) {
   if (value.includes('og:')) {
     const ogData = metaData.find(x => x.property === value);
     if (ogData) { return ogData.content; }
-    }
+  }
 
   if (value.includes('twitter:')) {
     const twitterData = metaData.find(x => x.name === value);
