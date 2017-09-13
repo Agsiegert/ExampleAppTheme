@@ -391,7 +391,7 @@ function importContent() {
     const ipad = uploadImage(ipadData, 'iPad screenshot');
     const iphone = uploadImage(iphoneData, 'iPhone screenshot');
 
-    // Obj.root
+    // Obj.root()
     const root = Homepage.create({
       _path: '/',
       // Content is at the bottom of the file
@@ -1428,7 +1428,7 @@ function importContent() {
       ],
     });
 
-    // Obj.root
+    // Obj.root()
     root.update({
       childOrder: [product, about, pricing, blog, widgetsAndPages],
       logoDark: scrivitoLogoDark,

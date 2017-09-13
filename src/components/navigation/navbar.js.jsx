@@ -74,9 +74,9 @@ const Dropdown = Scrivito.React.connect(BaseDropdown);
 function isActive(page) {
   if (!Scrivito.currentPage()) { return false; }
 
-  const currentPath = Scrivito.currentPage().path;
+  const currentPath = Scrivito.currentPage().path();
   if (currentPath) {
-    return currentPath.startsWith(page.path);
+    return currentPath.startsWith(page.path());
   }
 
   if (Scrivito.currentPage().objClass === 'BlogPost') {
