@@ -48,10 +48,12 @@ function firstUrlForAttributes(obj, attributes) {
   let url;
 
   attributes.forEach(attribute => {
+    if (url) { return; }
+
     const binary = obj.get(attribute);
     if (binary) {
       const blob = binary.get('blob');
-      if (blob && !url) {
+      if (blob) {
         url = blob.url();
       }
     }
