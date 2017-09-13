@@ -2,7 +2,7 @@ import BlogPostPreviewList from 'components/blog_post/blog_post_preview_list';
 
 function BlogPostMorePosts({ author }) {
   if (!author) { return null; }
-  if (author.objClass !== 'Author') { return null; }
+  if (author.objClass() !== 'Author') { return null; }
 
   return (
     <section className="bg-white">

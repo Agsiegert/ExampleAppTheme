@@ -79,8 +79,8 @@ function isActive(page) {
     return currentPath.startsWith(page.path());
   }
 
-  if (Scrivito.currentPage().objClass === 'BlogPost') {
-    return page.objClass === 'Blog';
+  if (Scrivito.currentPage().objClass() === 'BlogPost') {
+    return page.objClass() === 'Blog';
   }
 
   return false;

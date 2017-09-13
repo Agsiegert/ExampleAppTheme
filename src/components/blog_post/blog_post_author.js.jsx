@@ -1,6 +1,6 @@
 function BlogPostAuthor({ author }) {
   if (!author) { return null; }
-  if (author.objClass !== 'Author') { return null; }
+  if (author.objClass() !== 'Author') { return null; }
 
   return (
     <section className="bg-white">
