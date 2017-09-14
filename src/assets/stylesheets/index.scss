@@ -1100,12 +1100,14 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   border-left: 2px solid rgba(99,99,99,.1);
   }
 .table-features tbody td {
-  font-size: 15px; font-weight: 700;
-  padding: 20px; text-align: center;
+  font-size: 15px; padding: 20px; text-align: center;
   border-top: 2px solid rgba(99,99,99,.1);
   border-right: 2px solid rgba(99,99,99,.1);
   width: 150px;
   }
+.table-features tbody td p { margin: 0; }
+.table-features tbody td b { font-weight: 700; }
+
 .table-features tbody tr:nth-child(even) th,
 .table-features tbody tr:nth-child(even) td { background: rgba(200,200,200,.1);}
 .table-features tbody tr:hover th,
