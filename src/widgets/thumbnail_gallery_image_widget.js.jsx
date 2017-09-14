@@ -5,6 +5,7 @@ const ThumbnailGalleryImageWidget = Scrivito.createWidgetClass({
     image: 'reference',
     title: 'string',
     subtitle: 'string',
+    tags: 'stringlist',
   },
 });
 
@@ -23,6 +24,10 @@ Scrivito.provideUiConfig(ThumbnailGalleryImageWidget, {
     subtitle: {
       title: 'Subtitle',
       description: 'The subtitle of the image',
+    },
+    tags: {
+      title: 'Tags',
+      description: 'The tags of the image',
     },
   },
   titleForContent: widget => `${widget.get('title')} - ${widget.get('subtitle')}`,
