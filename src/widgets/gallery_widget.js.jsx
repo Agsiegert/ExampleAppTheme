@@ -1,3 +1,4 @@
+import devicePixelRatio from 'utils/device_pixel_ratio';
 import Slider from 'react-slick';
 
 const GalleryWidget = Scrivito.createWidgetClass({
@@ -21,7 +22,11 @@ Scrivito.provideUiConfig(GalleryWidget, {
 function sliderSettings(images) {
   const imageUrls = images.map(image => {
     const binary = image.get('blob');
-    const croppedBinary = binary.transform({ width: 300, height: 200, fit: 'crop' });
+    const croppedBinary = binary.transform({
+      width: 300 * devicePixelRatio(),
+      height: 200 * devicePixelRatio(),
+      fit: 'crop',
+    });
     return croppedBinary.url();
   });
 

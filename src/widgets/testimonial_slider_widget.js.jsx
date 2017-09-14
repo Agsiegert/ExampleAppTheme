@@ -1,6 +1,7 @@
 import Slider from 'react-slick';
-import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+import devicePixelRatio from 'utils/device_pixel_ratio';
 import fallbackImageUrl from 'utils/fallback_image_url';
+import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 
 const BaseTestimonialSliderWidget = Scrivito.createWidgetClass({
   name: 'TestimonialSliderWidget',
@@ -34,7 +35,11 @@ function sliderSettings(testimonials) {
     if (!authorImage) { return fallbackImageUrl; }
 
     const binary = authorImage.get('blob');
-    const croppedBinary = binary.transform({ width: 200, height: 200, fit: 'crop' });
+    const croppedBinary = binary.transform({
+      width: 200 * devicePixelRatio(),
+      height: 200 * devicePixelRatio(),
+      fit: 'crop',
+    });
     return croppedBinary.url();
   });
 

@@ -1,4 +1,6 @@
 import Lightbox from 'react-images';
+import devicePixelRatio from 'utils/device_pixel_ratio';
+import fullScreenWidthPixels from 'utils/full_screen_width_pixels';
 
 const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
   name: 'ThumbnailGalleryWidget',
@@ -151,15 +153,6 @@ function lightboxOptions(galleryImageWidget) {
     thumbnail: thumbnailUrl,
     caption: [galleryImageWidget.get('title'), galleryImageWidget.get('subtitle')].join(' - '),
   };
-}
-
-function devicePixelRatio() {
-  return window.devicePixelRatio || 1;
-}
-
-function fullScreenWidthPixels() {
-  const screenWidth = window.screen.width;
-  return screenWidth * devicePixelRatio();
 }
 
 export default ThumbnailGalleryWidget;
