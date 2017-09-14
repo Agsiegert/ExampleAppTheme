@@ -100,19 +100,21 @@ const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
 const IconListWidget = Scrivito.getClass('IconListWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
-const JobPreviewWidget = Scrivito.getClass('JobPreviewWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
+const JobPreviewWidget = Scrivito.getClass('JobPreviewWidget');
 const LoginWidget = Scrivito.getClass('LoginWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
-const TableWidget = Scrivito.getClass('TableWidget');
 const TableRowWidget = Scrivito.getClass('TableRowWidget');
+const TableWidget = Scrivito.getClass('TableWidget');
 const TestimonialSliderWidget = Scrivito.getClass('TestimonialSliderWidget');
 const TestimonialWidget = Scrivito.getClass('TestimonialWidget');
 const TextWidget = Scrivito.getClass('TextWidget');
+const ThumbnailGalleryImageWidget = Scrivito.getClass('ThumbnailGalleryImageWidget');
+const ThumbnailGalleryWidget = Scrivito.getClass('ThumbnailGalleryWidget');
 
 const UNSPLASH_TAGS = ['source: unsplash.com'];
 
@@ -1605,45 +1607,44 @@ function importContent() {
           useFullWidth: 'yes',
           paddingDisabled: 'yes',
           content: [
-            new GalleryWidget({
-              galleryStyle: 'thumbnail',
+            new ThumbnailGalleryWidget({
               images: [
-                new GalleryImageWidget({
+                new ThumbnailGalleryImageWidget({
                   title: 'Project 01',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
                   image: unsplashWhiteMeetingRoom,
                 }),
-                new GalleryImageWidget({
+                new ThumbnailGalleryImageWidget({
                   title: 'Project 02',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
                   image: unsplashHandcraft,
                 }),
-                new GalleryImageWidget({
+                new ThumbnailGalleryImageWidget({
                   title: 'Project 03',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
                   image: unsplashLaptopKeyboard,
                 }),
-                new GalleryImageWidget({
+                new ThumbnailGalleryImageWidget({
                   title: 'Project 04',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
                   image: unsplashDeskRuler,
                 }),
-                new GalleryImageWidget({
+                new ThumbnailGalleryImageWidget({
                   title: 'Project 05',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
                   image: unsplashOfficeWithGlass,
                 }),
-                new GalleryImageWidget({
+                new ThumbnailGalleryImageWidget({
                   title: 'Project 06',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
                   image: unsplashOfficeWindow,
                 }),
-                new GalleryImageWidget({
+                new ThumbnailGalleryImageWidget({
                   title: 'Project 07',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
                   image: unsplashOutdoorMeeting,
                 }),
-                new GalleryImageWidget({
+                new ThumbnailGalleryImageWidget({
                   title: 'Project 08',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
                   image: unsplashScreenWithClock,
