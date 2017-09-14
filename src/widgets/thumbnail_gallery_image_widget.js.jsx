@@ -1,6 +1,6 @@
-const GalleryImageWidget = Scrivito.createWidgetClass({
-  onlyInside: 'GalleryWidget',
-  name: 'GalleryImageWidget',
+const ThumbnailGalleryImageWidget = Scrivito.createWidgetClass({
+  onlyInside: 'ThumbnailGalleryWidget',
+  name: 'ThumbnailGalleryImageWidget',
   attributes: {
     image: 'reference',
     title: 'string',
@@ -8,9 +8,9 @@ const GalleryImageWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(GalleryImageWidget, {
-  title: 'GalleryImage',
-  description: 'A Gallery Image - Can only live inside a Gallery',
+Scrivito.provideUiConfig(ThumbnailGalleryImageWidget, {
+  title: 'Thumbnail Gallery Image',
+  description: 'A thumbnail gallery image - Can only live inside a thumbnail Gallery',
   attributes: {
     image: {
       title: 'Image',
@@ -28,4 +28,4 @@ Scrivito.provideUiConfig(GalleryImageWidget, {
   titleForContent: widget => `${widget.get('title')} - ${widget.get('subtitle')}`,
 });
 
-export default GalleryImageWidget;
+export default ThumbnailGalleryImageWidget;

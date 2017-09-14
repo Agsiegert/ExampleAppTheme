@@ -1,4 +1,24 @@
 import Lightbox from 'react-images';
+import devicePixelRatio from 'utils/device_pixel_ratio';
+import fullScreenWidthPixels from 'utils/full_screen_width_pixels';
+
+const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
+  name: 'ThumbnailGalleryWidget',
+  attributes: {
+    images: ['widgetlist', { only: 'ThumbnailGalleryImageWidget' }],
+  },
+});
+
+Scrivito.provideUiConfig(ThumbnailGalleryWidget, {
+  title: 'Thumbnail Gallery',
+  description: 'A widget with an thumbnail image gallery.',
+  attributes: {
+    images: {
+      title: 'Images',
+      description: 'The list of images',
+    },
+  },
+});
 
 function BaseThumbnail({ widget, openLightbox }) {
   const title = widget.get('title');
@@ -31,7 +51,7 @@ function BaseThumbnail({ widget, openLightbox }) {
 
 const Thumbnail = Scrivito.React.connect(BaseThumbnail);
 
-class BaseThumbnailGallery extends React.Component {
+class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -111,6 +131,8 @@ class BaseThumbnailGallery extends React.Component {
   }
 }
 
+Scrivito.provideComponent(ThumbnailGalleryWidget, ThumbnailGalleryComponent);
+
 function lightboxOptions(galleryImageWidget) {
   const image = galleryImageWidget.get('image');
   let srcUrl = '';
@@ -133,14 +155,4 @@ function lightboxOptions(galleryImageWidget) {
   };
 }
 
-
-function devicePixelRatio() {
-  return window.devicePixelRatio || 1;
-}
-
-function fullScreenWidthPixels() {
-  const screenWidth = window.screen.width;
-  return screenWidth * devicePixelRatio();
-}
-
-export default Scrivito.React.connect(BaseThumbnailGallery);
+export default ThumbnailGalleryWidget;
