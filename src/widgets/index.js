@@ -6,7 +6,6 @@ import CarouselWidget from './carousel_widget';
 import ColumnWidget from './column_widget';
 import FactWidget from './fact_widget';
 import FeaturePanelWidget from './feature_panel_widget';
-import GalleryImageWidget from './gallery_image_widget';
 import GalleryWidget from './gallery_widget';
 import HeadlineWidget from './headline_widget';
 import IconListItemWidget from './icon_list_item_widget';

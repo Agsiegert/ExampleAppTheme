@@ -94,7 +94,6 @@ const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
 const FeaturePanelWidget = Scrivito.getClass('FeaturePanelWidget');
-const GalleryImageWidget = Scrivito.getClass('GalleryImageWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
@@ -647,12 +646,12 @@ function importContent() {
           content: [
             new GalleryWidget({
               images: [
-                new GalleryImageWidget({ image: unsplashSkylineHarbor }),
-                new GalleryImageWidget({ image: unsplashHighrise }),
-                new GalleryImageWidget({ image: unsplashGrandCentralStation }),
-                new GalleryImageWidget({ image: unsplashSkylineNight }),
-                new GalleryImageWidget({ image: unsplashSolePalmtreeHighrise }),
-                new GalleryImageWidget({ image: unsplashSkylineDusk }),
+                unsplashSkylineHarbor,
+                unsplashHighrise,
+                unsplashGrandCentralStation,
+                unsplashSkylineNight,
+                unsplashSolePalmtreeHighrise,
+                unsplashSkylineDusk,
               ],
             }),
           ],

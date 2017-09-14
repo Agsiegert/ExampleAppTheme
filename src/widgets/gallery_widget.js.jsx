@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 const GalleryWidget = Scrivito.createWidgetClass({
   name: 'GalleryWidget',
   attributes: {
-    images: ['widgetlist', { only: 'GalleryImageWidget' }],
+    images: 'referencelist',
   },
 });
 
@@ -57,9 +57,7 @@ function sliderSettings(images) {
 }
 
 function GalleryWidgetComponent({ widget }) {
-  const images = widget.get('images')
-    .map(item => item.get('image'))
-    .filter(item => item);
+  const images = widget.get('images');
 
   if (!images.length) { return null; }
 
