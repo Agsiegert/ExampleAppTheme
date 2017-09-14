@@ -1,4 +1,4 @@
-import fallbackImageUrl from 'utils/fallback_image_url';
+import urlFromBinary from 'utils/url_from_binary';
 
 const VideoWidget = Scrivito.createWidgetClass({
   name: 'VideoWidget',
@@ -14,7 +14,7 @@ Scrivito.provideUiConfig(VideoWidget, {
   attributes: {
     source: {
       title: 'Video',
-      description: 'Click to select or upload video.',
+      description: 'Click to select or upload video. This should be of type video/mp4',
     },
     poster: {
       title: 'Poster',
@@ -23,35 +23,19 @@ Scrivito.provideUiConfig(VideoWidget, {
   },
 });
 
-function posterImage(widget) {
-  const providedPoster = widget.get('poster');
-  if (!providedPoster) { return fallbackImageUrl; }
-
-  const image = providedPoster.get('blob').url();
-  return image;
-}
-
 Scrivito.provideComponent(VideoWidget, ({ widget }) => {
-  if (widget.get('source')) {
-    const video = widget.get('source').get('blob').url();
+  const videoUrl = urlFromBinary(widget.get('source'));
 
-    return (
-      <video width='100%' poster={ posterImage(widget) }
-        controls
-        autoPlay
-        muted
-        loop
-      >
-        <source src={ video } type='video/mp4' />
-      </video>
-    );
+  if (!videoUrl) {
+    // TODO Add a "No Video, use widget properties to add a Video..."
+    // once https://github.com/infopark/rails_connector/issues/3318 is available.
+    return <div></div>;
   }
+
+  const posterUrl = urlFromBinary(widget.get('poster'));
+
   return (
-    <div className="panel panel-theme">
-      <Scrivito.React.Content content={ widget } attribute="source" className="panel-body">
-        No Video, use widget properties to add a Video...
-      </Scrivito.React.Content>
-    </div>
+    <video src={ videoUrl } poster={ posterUrl } controls width='100%' />
   );
 });
 
