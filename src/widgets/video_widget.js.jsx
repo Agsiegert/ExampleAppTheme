@@ -29,7 +29,7 @@ Scrivito.provideComponent(VideoWidget, ({ widget }) => {
   if (!videoUrl) {
     // TODO Add a "No Video, use widget properties to add a Video..."
     // once https://github.com/infopark/rails_connector/issues/3318 is available.
-    return <div></div>;
+    return <p/>;
   }
 
   const posterUrl = urlFromBinary(widget.get('poster'));
