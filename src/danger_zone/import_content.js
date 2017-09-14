@@ -41,10 +41,14 @@ import unsplashFemalePortrait4Data from './binary_data/unsplash_female_portrait_
 import unsplashFemalePortrait4SquareData from './binary_data/unsplash_female_portrait_4_square';
 import unsplashFemalePortrait5Data from './binary_data/unsplash_female_portrait_5';
 import unsplashFemalePortrait5SquareData from './binary_data/unsplash_female_portrait_5_square';
+import unsplashGlassesOnMacData from './binary_data/unsplash_glasses_on_mac';
+import unsplashGlovedTweedData from './binary_data/unsplash_gloved_tweed';
+import unsplashGoldWatchCufflinksData from './binary_data/unsplash_gold_watch_cufflinks';
 import unsplashGrandCentralStationData from './binary_data/unsplash_grand_central_station';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 import unsplashHighriseData from './binary_data/unsplash_highrise';
 import unsplashHotpinkData from './binary_data/unsplash_hotpink_nails_iphone_macbook_fob';
+import unsplashHustleMugData from './binary_data/unsplash_hustle_mug';
 import unsplashiPadChartsData from './binary_data/unsplash_strips_and_charts';
 import unsplashLadyInCoffeeShopData from './binary_data/unsplash_lady_in_coffee_shop';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
@@ -57,6 +61,7 @@ import unsplashMalePortrait2SquareData from './binary_data/unsplash_male_portrai
 import unsplashMalePortrait3Data from './binary_data/unsplash_male_portrait_3';
 import unsplashMalePortrait3SquareData from './binary_data/unsplash_male_portrait_3_square';
 import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sunglasses';
+import unsplashMouseWoodenDeskData from './binary_data/unsplash_mouse_wooden_desk';
 import unsplashNeonTrueData from './binary_data/unsplash_neon_true';
 import unsplashNightBuildingData from './binary_data/unsplash_night_building';
 import unsplashNotebookPencilData from './binary_data/unsplash_notebook_pencil';
@@ -77,8 +82,11 @@ import unsplashTidyDeskTouchScreenData from './binary_data/unsplash_tidy_desk_to
 import unsplashTwoLaptopsPencilData from './binary_data/unsplash_two_laptops_pencil';
 import unsplashTypistLaptopData from './binary_data/unsplash_ringed_typist_laptop';
 import unsplashUxDesignerData from './binary_data/unsplash_ux_designer';
+import unsplashWatchTypeBookCoffeeData from './binary_data/unsplash_watch_type_book_coffee';
 import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_room';
 import unsplashWoodTableData from './binary_data/unsplash_wood_table_conversation';
+import unsplashWritingPapersData from './binary_data/unsplash_writing_papers';
+import unsplashYellowWatchTypingData from './binary_data/unsplash_yellow_watch_typing';
 
 const Author = Scrivito.getClass('Author');
 const Blog = Scrivito.getClass('Blog');
@@ -116,6 +124,7 @@ const ThumbnailGalleryImageWidget = Scrivito.getClass('ThumbnailGalleryImageWidg
 const ThumbnailGalleryWidget = Scrivito.getClass('ThumbnailGalleryWidget');
 
 const UNSPLASH_TAGS = ['source: unsplash.com'];
+const DEFAULT_TAGS = ['Design', 'Development', 'Marketing', 'Business'];
 
 function allExistingImages() {
   return Scrivito.load(() => {
@@ -286,6 +295,15 @@ function createTableRowWidget({ feature, inBasic, inTeam, inCorporate } = {}) {
   });
 }
 
+function createThumbnailGalleryImageWidget({ title, image }) {
+  return new ThumbnailGalleryImageWidget({
+    title,
+    image,
+    subtitle: loremIpsum({ units: 'words', count: 5 }),
+    tags: [random(DEFAULT_TAGS)],
+  });
+}
+
 function carouselProjectDescription({ target }) {
   return [
     new TextWidget({
@@ -346,10 +364,14 @@ function importContent() {
     const unsplashFemalePortrait4Square = uploadImage(unsplashFemalePortrait4SquareData, 'Female Portrait 4 (Square)', [...UNSPLASH_TAGS, 'square']);
     uploadImage(unsplashFemalePortrait5Data, 'Female Portrait 5', UNSPLASH_TAGS);
     const unsplashFemalePortrait5Square = uploadImage(unsplashFemalePortrait5SquareData, 'Female Portrait 5 (Square)', [...UNSPLASH_TAGS, 'square']);
+    const unsplashGlassesOnMac = uploadImage(unsplashGlassesOnMacData, 'Glasses on Mac', UNSPLASH_TAGS);
+    const unsplashGlovedTweed = uploadImage(unsplashGlovedTweedData, 'Gloved Tweed', UNSPLASH_TAGS);
+    const unsplashGoldWatchCufflinks = uploadImage(unsplashGoldWatchCufflinksData, 'Gold Watch Cufflinks', UNSPLASH_TAGS);
     const unsplashGrandCentralStation = uploadImage(unsplashGrandCentralStationData, 'Grand Central Station', UNSPLASH_TAGS);
     const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
     const unsplashHighrise = uploadImage(unsplashHighriseData, 'Highrise', UNSPLASH_TAGS);
     const unsplashHotpink = uploadImage(unsplashHotpinkData, 'Hotpink', UNSPLASH_TAGS);
+    const unsplashHustleMug = uploadImage(unsplashHustleMugData, 'Hustle Mug', UNSPLASH_TAGS);
     const unsplashiPadCharts = uploadImage(unsplashiPadChartsData, 'iPad charts', UNSPLASH_TAGS);
     const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
     const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
@@ -362,6 +384,7 @@ function importContent() {
     uploadImage(unsplashMalePortrait3Data, 'Male Portrait 3', UNSPLASH_TAGS);
     const unsplashMalePortrait3Square = uploadImage(unsplashMalePortrait3SquareData, 'Male Portrait 3 (Square)', [...UNSPLASH_TAGS, 'square']);
     const unsplashMaleWithSunglasses = uploadImage(unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
+    const unsplashMouseWoodenDesk = uploadImage(unsplashMouseWoodenDeskData, 'Mouse wooden desk', UNSPLASH_TAGS);
     const unsplashNeonTrue = uploadImage(unsplashNeonTrueData, 'Neon true', UNSPLASH_TAGS);
     const unsplashNightBuilding = uploadImage(unsplashNightBuildingData, 'Building at night', UNSPLASH_TAGS);
     const unsplashNotebookPencil = uploadImage(unsplashNotebookPencilData, 'Notebook with pencil', UNSPLASH_TAGS);
@@ -382,8 +405,11 @@ function importContent() {
     const unsplashTwoLaptopsPencil = uploadImage(unsplashTwoLaptopsPencilData, 'Two laptops with pencil', UNSPLASH_TAGS);
     const unsplashTypistLaptop = uploadImage(unsplashTypistLaptopData, 'Typist on laptop', UNSPLASH_TAGS);
     const unsplashUxDesigner = uploadImage(unsplashUxDesignerData, 'UX Designer desk', UNSPLASH_TAGS);
+    const unsplashWatchTypeBookCoffee = uploadImage(unsplashWatchTypeBookCoffeeData, 'Watch Type Book Coffee', UNSPLASH_TAGS);
     const unsplashWhiteMeetingRoom = uploadImage(unsplashWhiteMeetingRoomData, 'White meeting room', UNSPLASH_TAGS);
     const unsplashWoodTable = uploadImage(unsplashWoodTableData, 'Wooden table', UNSPLASH_TAGS);
+    const unsplashWritingPapers = uploadImage(unsplashWritingPapersData, 'Writing papers', UNSPLASH_TAGS);
+    const unsplashYellowWatchTyping = uploadImage(unsplashYellowWatchTypingData, 'Yellow watch typing', UNSPLASH_TAGS);
 
     const homepage1Screenshot = uploadImage(
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
@@ -680,8 +706,38 @@ function importContent() {
       title: 'Our Work',
       body: [
         new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Our Work' }),
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Our awarded work',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            centered: 'yes',
+            headline: loremIpsum({ count: 2 }),
+          }),
         ] }),
+        new SectionWidget({
+          useFullWidth: 'yes',
+          paddingDisabled: 'yes',
+          content: [
+            new ThumbnailGalleryWidget({
+              showTags: 'yes',
+              images: [
+                createThumbnailGalleryImageWidget({ title: 'Project 01', image: unsplashGlovedTweed }),
+                createThumbnailGalleryImageWidget({ title: 'Project 02', image: unsplashHustleMug }),
+                createThumbnailGalleryImageWidget({ title: 'Project 03', image: unsplashYellowWatchTyping }),
+                createThumbnailGalleryImageWidget({ title: 'Project 04', image: unsplashMouseWoodenDesk }),
+                createThumbnailGalleryImageWidget({ title: 'Project 05', image: unsplashWatchTypeBookCoffee }),
+                createThumbnailGalleryImageWidget({ title: 'Project 06', image: unsplashGoldWatchCufflinks }),
+                createThumbnailGalleryImageWidget({ title: 'Project 07', image: unsplashWritingPapers }),
+                createThumbnailGalleryImageWidget({ title: 'Project 08', image: unsplashGlassesOnMac }),
+              ],
+            }),
+          ],
+        }),
       ],
     });
 
@@ -1333,9 +1389,6 @@ function importContent() {
       null,
     ];
 
-    const tags = ['Design', 'Development', 'Marketing', 'Business'];
-
-
     // BlogPosts
     for (let i = 0; i < 20; i += 1) {
       BlogPost.create({
@@ -1343,7 +1396,7 @@ function importContent() {
         title: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
         titleImage: random(postImages),
         subtitle: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 7 })),
-        tags: randomShuffle(tags),
+        tags: randomShuffle(DEFAULT_TAGS),
         publishedAt: randomPastDate(),
         body: [
           new SectionWidget({
