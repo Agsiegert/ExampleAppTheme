@@ -59,10 +59,11 @@ const TagList = Scrivito.React.connect(({ showTags, tags, currentTag, setTag }) 
   );
 });
 
-const Thumbnail = Scrivito.React.connect(({ widget, openLightbox }) => {
+const Thumbnail = Scrivito.React.connect(({ widget, openLightbox, currentTag }) => {
   const title = widget.get('title');
   const subtitle = widget.get('subtitle');
   const image = widget.get('image');
+  const tags = widget.get('tags');
 
   let imageUrl = '';
   if (image) {
@@ -71,8 +72,11 @@ const Thumbnail = Scrivito.React.connect(({ widget, openLightbox }) => {
     imageUrl = binary.url();
   }
 
+  const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box'];
+  if (currentTag && tags.includes(currentTag)) { classNames.push('squeezed'); }
+
   return (
-    <div className="col-md-3 col-sm-4 col-xs-6 gallery-box">
+    <div className={ classNames.join(' ') }>
       <div
         className="gallery-box-image"
         style={ { background: 'no-repeat center / cover', backgroundImage: `url(${imageUrl})` } }>
@@ -164,6 +168,7 @@ class ThumbnailGalleryComponent extends React.Component {
                 key={ image.id }
                 widget={ image }
                 openLightbox={ event => this.openLightbox(imageIndex, event) }
+                currentTag={ this.state.currentTag }
               />)
           }
           <Lightbox
