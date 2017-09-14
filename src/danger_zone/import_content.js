@@ -646,7 +646,6 @@ function importContent() {
           paddingDisabled: 'yes',
           content: [
             new GalleryWidget({
-              galleryStyle: 'slider',
               images: [
                 new GalleryImageWidget({ image: unsplashSkylineHarbor }),
                 new GalleryImageWidget({ image: unsplashHighrise }),
