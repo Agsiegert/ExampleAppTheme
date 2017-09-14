@@ -9,7 +9,7 @@ function Navbar() {
 }
 
 function renderChild(child) {
-  if (child.children.length === 0) {
+  if (child.children().length === 0) {
     return renderSingleChild(child);
   }
 
