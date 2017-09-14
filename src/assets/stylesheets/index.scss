@@ -927,7 +927,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   display: inline-block; margin-top: -40px;
   overflow: hidden; padding: 0; width: 100%;
   }
-.bg-nav-content .nav-centered .nav-blog li { display: inline-block; }
+.bg-nav-content .nav-centered .nav-blog li { display: inline-block; height: 80px; width: 80px; }
 .bg-nav-content .nav-centered .nav-blog li:first-child { float: left; }
 .bg-nav-content .nav-centered .nav-blog li:last-child { float: right; }
 
@@ -943,7 +943,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   font-weight: 700; text-align: center;
   background: $brand-secondary; border-radius: 50%;
   }
-.bg-nav-content .nav-centered .nav-blog .fa { font-size: 25px; line-height: 60px; }
+.bg-nav-content .nav-centered .nav-blog .fa { color: #fff; font-size: 25px; line-height: 60px; }
 
 /* panel-theme
 =================================================================== */
