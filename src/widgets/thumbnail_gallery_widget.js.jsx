@@ -6,6 +6,7 @@ const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
   name: 'ThumbnailGalleryWidget',
   attributes: {
     images: ['widgetlist', { only: 'ThumbnailGalleryImageWidget' }],
+    showTags: ['enum', { validValues: ['yes', 'no'] }],
   },
 });
 
@@ -17,10 +18,48 @@ Scrivito.provideUiConfig(ThumbnailGalleryWidget, {
       title: 'Images',
       description: 'The list of images',
     },
+    showTags: {
+      title: 'Show tags?',
+      description: 'Should the list of tags be shown? Default: no',
+    },
   },
 });
 
-function BaseThumbnail({ widget, openLightbox }) {
+const TagButton = Scrivito.React.connect(({ tag, isActive, onClick }) => {
+  const classNames = ['btn', 'btn-default', 'filter-button'];
+  if (isActive) { classNames.push('active'); }
+
+  return <button className={ classNames.join(' ') } onClick={ onClick }>{ tag }</button>;
+});
+
+const TagList = Scrivito.React.connect(({ showTags, tags, currentTag, setTag }) => {
+  if (!showTags) { return null; }
+
+  return (
+    <div className="container">
+      <div className="text-center">
+        <TagButton
+          tag="All"
+          isActive={ currentTag === null }
+          onClick={ () => setTag(null) }
+        />
+        {
+          tags.map(tag =>
+            <TagButton
+              key={ tag }
+              tag={ tag }
+              isActive={ currentTag === tag }
+              onClick={ () => setTag(tag) }
+            />
+          )
+        }
+      </div>
+      <br />
+    </div>
+  );
+});
+
+const Thumbnail = Scrivito.React.connect(({ widget, openLightbox }) => {
   const title = widget.get('title');
   const subtitle = widget.get('subtitle');
   const image = widget.get('image');
@@ -47,9 +86,7 @@ function BaseThumbnail({ widget, openLightbox }) {
       </a>
     </div>
   );
-}
-
-const Thumbnail = Scrivito.React.connect(BaseThumbnail);
+});
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {
@@ -57,6 +94,7 @@ class ThumbnailGalleryComponent extends React.Component {
     this.state = {
       currentImage: 0,
       lightboxIsOpen: false,
+      currentTag: null,
     };
 
     this.openLightbox = this.openLightbox.bind(this);
@@ -64,6 +102,7 @@ class ThumbnailGalleryComponent extends React.Component {
     this.gotoPrevious = this.gotoPrevious.bind(this);
     this.gotoNext = this.gotoNext.bind(this);
     this.gotoImage = this.gotoImage.bind(this);
+    this.setTag = this.setTag.bind(this);
   }
 
   openLightbox(index, event) {
@@ -99,39 +138,66 @@ class ThumbnailGalleryComponent extends React.Component {
     });
   }
 
+  setTag(tag) {
+    this.setState({
+      currentTag: tag,
+    });
+  }
+
   render() {
     const widget = this.props.widget;
     const images = widget.get('images');
     const lightboxImages = images.map(image => lightboxOptions(image));
 
     return (
-      <div className="row">
-        {
-          images.map((image, imageIndex) =>
-            <Thumbnail
-              key={ image.id }
-              widget={ image }
-              openLightbox={ event => this.openLightbox(imageIndex, event) }
-            />)
-        }
-        <Lightbox
-          images={ lightboxImages }
-          currentImage={ this.state.currentImage }
-          isOpen={ this.state.lightboxIsOpen }
-          onClickImage={ this.handleClickImage }
-          onClickNext={ this.gotoNext }
-          onClickPrev={ this.gotoPrevious }
-          onClickThumbnail={ this.gotoImage }
-          onClose={ this.closeLightbox }
-          showThumbnails
-          backdropClosesModal
+      <div>
+        <TagList
+          showTags={ widget.get('showTags') === 'yes' }
+          tags={ allTags(images) }
+          currentTag={ this.state.currentTag }
+          setTag={ this.setTag }
         />
+        <div className="row">
+          {
+            images.map((image, imageIndex) =>
+              <Thumbnail
+                key={ image.id }
+                widget={ image }
+                openLightbox={ event => this.openLightbox(imageIndex, event) }
+              />)
+          }
+          <Lightbox
+            images={ lightboxImages }
+            currentImage={ this.state.currentImage }
+            isOpen={ this.state.lightboxIsOpen }
+            onClickImage={ this.handleClickImage }
+            onClickNext={ this.gotoNext }
+            onClickPrev={ this.gotoPrevious }
+            onClickThumbnail={ this.gotoImage }
+            onClose={ this.closeLightbox }
+            showThumbnails
+            backdropClosesModal
+          />
+        </div>
       </div>
     );
   }
 }
 
 Scrivito.provideComponent(ThumbnailGalleryWidget, ThumbnailGalleryComponent);
+
+function allTags(images) {
+  const tagsArray = images.map(image => image.get('tags'));
+
+  // flatten tags
+  const tags = tagsArray.reduce((a, b) => a.concat(b), []);
+
+  // unique tags
+  const uniqueTags = [...new Set(tags)];
+
+  // sort tags
+  return uniqueTags.sort();
+}
 
 function lightboxOptions(galleryImageWidget) {
   const image = galleryImageWidget.get('image');
