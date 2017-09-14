@@ -690,6 +690,17 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .nav-centered .input-group .btn .fa { padding-left: 0; }
   }
 
+/* nav-landing-page
+=================================================================== */
+
+.nav-landing-page { position: absolute; top: 0; left: 0; right: 0; height: 75px; }
+.nav-landing-page .navbar-brand { float: none; padding: 0; }
+.nav-landing-page .navbar-brand img { width: 120px; margin: 0 auto; padding: 25px 0; }
+
+@media (max-width: $screen-md-min) {
+  .nav-landing-page .navbar-brand img { width: 145px; margin: 0 auto; padding: 20px 0; }
+}
+
 /* result item
 =================================================================== */
 
