@@ -286,13 +286,8 @@ function createRandomIconListWidget() {
   });
 }
 
-function createTableRowWidget({ feature, inBasic, inTeam, inCorporate } = {}) {
-  return new TableRowWidget({
-    feature: feature,
-    basicFeature: inBasic ? [new IconWidget({ icon: 'fa-check' })] : null,
-    teamFeature: inTeam ? [new IconWidget({ icon: 'fa-check' })] : null,
-    corporateFeature: inCorporate ? [new IconWidget({ icon: 'fa-check' })] : null,
-  });
+function createCheckIcon() {
+  return new IconWidget({ icon: 'fa-check' });
 }
 
 function createThumbnailGalleryImageWidget({ title, image }) {
@@ -1239,59 +1234,59 @@ function importContent() {
             }),
             new TableWidget({
               rows: [
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 1',
-                  inBasic: true,
-                  inTeam: true,
-                  inCorporate: true,
+                  basicFeature: [new TextWidget({ text: '<p><b>5</b></p>' })],
+                  teamFeature: [new TextWidget({ text: '<p><b>10</b></p>' })],
+                  corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                 }),
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 2',
-                  inBasic: true,
-                  inTeam: true,
-                  inCorporate: true,
+                  basicFeature: [new TextWidget({ text: '<p><b>20</b></p>' })],
+                  teamFeature: [new TextWidget({ text: '<p><b>40</b></p>' })],
+                  corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                 }),
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 3',
-                  inBasic: true,
-                  inTeam: true,
-                  inCorporate: true,
+                  basicFeature: [new TextWidget({ text: '<p><b>9/5</b></p>' })],
+                  teamFeature: [new TextWidget({ text: '<p><b>12/7</b></p>' })],
+                  corporateFeature: [new TextWidget({ text: '<p><b>24/7</b></p>' })],
                 }),
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 4',
-                  inBasic: true,
-                  inTeam: true,
-                  inCorporate: true,
+                  basicFeature: [createCheckIcon()],
+                  teamFeature: [createCheckIcon()],
+                  corporateFeature: [createCheckIcon()],
                 }),
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 5',
-                  inBasic: true,
-                  inTeam: true,
-                  inCorporate: true,
+                  basicFeature: [createCheckIcon()],
+                  teamFeature: [createCheckIcon()],
+                  corporateFeature: [createCheckIcon()],
                 }),
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 6',
-                  inBasic: false,
-                  inTeam: true,
-                  inCorporate: true,
+                  basicFeature: [createCheckIcon()],
+                  teamFeature: [createCheckIcon()],
+                  corporateFeature: [createCheckIcon()],
                 }),
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 7',
-                  inBasic: false,
-                  inTeam: true,
-                  inCorporate: true,
+                  basicFeature: [createCheckIcon()],
+                  teamFeature: [createCheckIcon()],
+                  corporateFeature: [createCheckIcon()],
                 }),
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 8',
-                  inBasic: false,
-                  inTeam: false,
-                  inCorporate: true,
+                  basicFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  teamFeature: [createCheckIcon()],
+                  corporateFeature: [createCheckIcon()],
                 }),
-                createTableRowWidget({
+                new TableRowWidget({
                   feature: 'Key feature 9',
-                  inBasic: false,
-                  inTeam: false,
-                  inCorporate: true,
+                  basicFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  teamFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  corporateFeature: [createCheckIcon()],
                 }),
               ],
               featureHeadline: 'Features',
