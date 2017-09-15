@@ -26,7 +26,7 @@ Scrivito.provideUiConfig(ThumbnailGalleryWidget, {
 });
 
 const TagButton = Scrivito.React.connect(({ tag, isActive, onClick }) => {
-  const classNames = ['btn', 'btn-default', 'filter-button'];
+  const classNames = ['btn', 'btn-default'];
   if (isActive) { classNames.push('active'); }
 
   return <button className={ classNames.join(' ') } onClick={ onClick }>{ tag }</button>;
