@@ -50,7 +50,7 @@ const BlogPostPreviousLink = Scrivito.React.connect(({ currentBlogPost }) => {
   // find less than or equal publishedAt
   const [olderPost] = Scrivito.getClass('BlogPost')
     .all()
-    .andNot('id', 'equals', currentBlogPost.id)
+    .andNot('id', 'equals', currentBlogPost.id())
     .andNot('publishedAt', 'isGreaterThan', currentDate)
     .order('publishedAt', 'desc')
     .batchSize(1);

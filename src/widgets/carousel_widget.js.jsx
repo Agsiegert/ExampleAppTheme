@@ -52,7 +52,7 @@ Scrivito.provideComponent(CarouselWidget, ({ widget }) =>
     >
       { widget.get('images').map((image, index) => {
         return (
-          <Carousel.Item key={ `${image.id}${index}` }>
+          <Carousel.Item key={ `${image.id()}${index}` }>
             <Scrivito.React.Image src={ image } />
           </Carousel.Item>
         );

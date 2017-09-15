@@ -43,7 +43,7 @@ const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author, tag }) =
       listElements.push(<MonthHeadline date={ publishedAt } key={ publishedAt }/>);
     }
 
-    listElements.push(<BlogPostPreview key={ post.id } post={ post } />);
+    listElements.push(<BlogPostPreview key={ post.id() } post={ post } />);
   });
 
   return (

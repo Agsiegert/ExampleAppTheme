@@ -30,7 +30,7 @@ Scrivito.provideComponent(IconListWidget, ({ widget }) =>
           icon={ icon }
           size={ size }
           link={ link }
-          key={ iconListItem.id }
+          key={ iconListItem.id() }
         />;
       })
     }

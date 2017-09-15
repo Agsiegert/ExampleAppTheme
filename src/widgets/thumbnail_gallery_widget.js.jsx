@@ -165,7 +165,7 @@ class ThumbnailGalleryComponent extends React.Component {
           {
             images.map((image, imageIndex) =>
               <Thumbnail
-                key={ image.id }
+                key={ image.id() }
                 widget={ image }
                 openLightbox={ event => this.openLightbox(imageIndex, event) }
                 currentTag={ this.state.currentTag }
