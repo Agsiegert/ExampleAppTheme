@@ -88,6 +88,9 @@ $black_10: rgba(0, 0, 0, 0.1);
     background: $white;
     margin: 0;
   }
+  .card_text {
+    padding: 10px;
+  }
   .seo_card_preview_img {
     max-height: 240px;
     overflow: hidden;

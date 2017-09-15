@@ -1,9 +1,16 @@
 import textExtractFromObj from 'utils/text_extract_from_obj';
+import urlFromBinary from 'utils/url_from_binary';
 
 function getMetaData(page) {
   const meta = [
     { name: 'twitter:card', content: 'summary_large_image' },
+    // TODO this is needed and needs to be approved at https://cards-dev.twitter.com/validator
+    // { name: 'twitter:site', content: '@exampleAppJS' },
     { property: 'og:type', content: 'article' },
+    // TODO this should be the conanicalURl for the page
+    // { property: 'og:url', content: 'https://example_app.com' },
+    // TODO this is required and needs to be approved via facebook
+    // { property: 'fb:app_id', content: '0000000000' },
   ];
 
   const tcCreator = page.get('tcCreator');
@@ -26,7 +33,7 @@ function getMetaData(page) {
     meta.push({ name: 'twitter:title', content: tcTitle });
   }
 
-  const ogDescription = page.get('ogDescription') || textExtractFromObj(page);
+  const ogDescription = page.get('ogDescription') || textExtractFromObj(page).substring(0, 300);
   if (ogDescription) {
     meta.push({ property: 'og:description', content: ogDescription });
   }
@@ -49,14 +56,8 @@ function firstUrlForAttributes(obj, attributes) {
 
   attributes.forEach(attribute => {
     if (url) { return; }
-
     const binary = obj.get(attribute);
-    if (binary) {
-      const blob = binary.get('blob');
-      if (blob) {
-        url = blob.url();
-      }
-    }
+    url = urlFromBinary(binary);
   });
 
   return url;
