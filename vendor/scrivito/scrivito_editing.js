@@ -382,7 +382,7 @@ var ReferenceEditor = function () {
   }, {
     key: '_currentSelection',
     value: function _currentSelection() {
-      return this._controller.content ? [this._controller.content.id] : [];
+      return this._controller.content ? [this._controller.content.id()] : [];
     }
   }, {
     key: '_saveContentBrowserSelection',

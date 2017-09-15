@@ -48,7 +48,7 @@ Scrivito.provideComponent(TableWidget, ({ widget }) =>
     </thead>
     <tbody>
       { widget.get('rows').map((rowWidget, index) => {
-        return <TableRowWidgetComponent key={ `${rowWidget.id}${index}` } widget={ rowWidget } />;
+        return <TableRowWidgetComponent key={ `${rowWidget.id()}${index}` } widget={ rowWidget } />;
       }) }
     </tbody>
     <tfoot>

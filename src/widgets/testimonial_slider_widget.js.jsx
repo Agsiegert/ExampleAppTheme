@@ -64,7 +64,7 @@ Scrivito.provideComponent(TestimonialSliderWidget, ({ widget }) => {
     <Slider { ...settings }>
       {
         testimonials.map(testimonial =>
-          <div key={ testimonial.id }>
+          <div key={ testimonial.id() }>
             <h1 className="quote-headline text-center">&quot;</h1>
             <Scrivito.React.Content
               content={ testimonial }

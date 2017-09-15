@@ -2415,11 +2415,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function keyForBasicContent(content) {
   if (content instanceof scrivito.BasicObj) {
-    return content.id;
+    return content.id();
   }
 
   if (content instanceof _basic_widget2.default) {
-    return content.obj.id + '|' + content.id;
+    return content.obj.id() + '|' + content.id();
   }
 
   var formattedContent = (0, _pretty_print2.default)(content).substr(0, 100);
@@ -3041,6 +3041,15 @@ var BasicWidget = function (_BasicAttributeConten) {
   }
 
   _createClass(BasicWidget, [{
+    key: 'id',
+    value: function id() {
+      if (this.isPersisted()) {
+        return this._id;
+      }
+
+      this._throwUnpersistedError();
+    }
+  }, {
     key: 'objClass',
     value: function objClass() {
       return this._current._obj_class;
@@ -3113,7 +3122,7 @@ var BasicWidget = function (_BasicAttributeConten) {
         return false;
       }
 
-      return this.id === otherWidget.id && this.obj.id === otherWidget.obj.id;
+      return this.id() === otherWidget.id() && this.obj.id() === otherWidget.obj.id();
     }
   }, {
     key: 'containingField',
@@ -3128,17 +3137,8 @@ var BasicWidget = function (_BasicAttributeConten) {
   }, {
     key: '_updateSelf',
     value: function _updateSelf(patch) {
-      var widgetPoolPatch = { _widgetPool: [_defineProperty({}, this.id, patch)] };
+      var widgetPoolPatch = { _widgetPool: [_defineProperty({}, this.id(), patch)] };
       this.obj.update(widgetPoolPatch);
-    }
-  }, {
-    key: 'id',
-    get: function get() {
-      if (this.isPersisted()) {
-        return this._id;
-      }
-
-      this._throwUnpersistedError();
     }
   }, {
     key: 'obj',
@@ -3152,7 +3152,7 @@ var BasicWidget = function (_BasicAttributeConten) {
   }, {
     key: 'objId',
     get: function get() {
-      return this.obj.id;
+      return this.obj.id();
     }
   }, {
     key: 'attributesToBeSaved',
@@ -3163,7 +3163,7 @@ var BasicWidget = function (_BasicAttributeConten) {
     key: '_current',
     get: function get() {
       if (this.isPersisted()) {
-        return this.obj.widgetData(this.id);
+        return this.obj.widgetData(this.id());
       }
 
       throw new _errors.ScrivitoError('Can not access an unpersisted widget.');
@@ -3531,7 +3531,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
   function createRecognizedUrl(resolvedUrl) {
     var hash = {
-      obj_id: resolvedUrl.obj.id
+      obj_id: resolvedUrl.obj.id()
     };
 
     if (resolvedUrl.url.fragment()) {
@@ -3573,14 +3573,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
         hash = _ref.hash;
 
     var state = {
-      scrivitoObjId: obj.id,
+      scrivitoObjId: obj.id(),
       scrivitoQueryParameters: queryParameters,
       scrivitoHash: hash
     };
     var url = scrivito.Routing.generate({ obj: obj, queryParameters: queryParameters, hash: hash });
     var history = window.history();
 
-    if (history.state && history.state.scrivitoObjId === obj.id && (0, _underscore.isEqual)(history.state.scrivitoQueryParameters, queryParameters) && history.state.scrivitoHash === hash) {
+    if (history.state && history.state.scrivitoObjId === obj.id() && (0, _underscore.isEqual)(history.state.scrivitoQueryParameters, queryParameters) && history.state.scrivitoHash === hash) {
       // noop;
       return;
     }
@@ -3594,7 +3594,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
         hash = _ref2.hash;
 
     var state = {
-      scrivitoObjId: obj.id,
+      scrivitoObjId: obj.id(),
       scrivitoQueryParameters: queryParameters,
       scrivitoHash: hash
     };
@@ -3986,9 +3986,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       }
       var slug = generateSlug(obj);
       if (slug) {
-        return '/' + slug + '-' + obj.id;
+        return '/' + slug + '-' + obj.id();
       }
-      return '/' + obj.id;
+      return '/' + obj.id();
     },
     recognize: function recognize(path) {
       assertPathIsString(path);
@@ -4039,7 +4039,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     if (!homepage) {
       return false;
     }
-    return homepage.id === obj.id;
+    return homepage.id() === obj.id();
   }
 
   function assertObjIsBasicObj(obj) {
@@ -5107,7 +5107,9 @@ var FacetQuery = function () {
       return _underscore2.default.map(firstFacetResult, function (rawFacetValue) {
         var name = rawFacetValue.value;
         var count = rawFacetValue.total;
-        var includedObjs = _underscore2.default.pluck(rawFacetValue.results, 'id');
+        var includedObjs = rawFacetValue.results.map(function (result) {
+          return result.id;
+        });
 
         return new _basic_obj_facet_value2.default(name, count, includedObjs);
       });
@@ -5517,10 +5519,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(AttributeContent, [{
-        key: 'objClass',
-
+        key: 'id',
 
         // public API
+        value: function id() {
+          return this._scrivitoPrivateContent.id();
+        }
+
+        // public API
+
+      }, {
+        key: 'objClass',
         value: function objClass() {
           return this._scrivitoPrivateContent.objClass();
         }
@@ -5552,13 +5561,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: 'update',
         value: function update(attributes) {
           appModelAccessor.update(this, attributes);
-        }
-      }, {
-        key: 'id',
-
-        // public API
-        get: function get() {
-          return this._scrivitoPrivateContent.id;
         }
       }]);
 
@@ -6083,6 +6085,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }
 
     _createClass(BasicObj, [{
+      key: 'id',
+      value: function id() {
+        return this._current._id;
+      }
+    }, {
       key: 'objClass',
       value: function objClass() {
         return this._current._obj_class;
@@ -6275,8 +6282,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
         if (_underscore2.default.isArray(childOrder)) {
           return _underscore2.default.sortBy(children, function (child) {
-            var childOrderIds = _underscore2.default.pluck(childOrder, 'id');
-            var childIndex = childOrderIds.indexOf(child.id);
+            var childOrderIds = childOrder.map(function (item) {
+              return item.id();
+            });
+            var childIndex = childOrderIds.indexOf(child.id());
 
             if (childIndex === -1) {
               return childOrder.length;
@@ -6338,7 +6347,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         var before = _ref.before,
             after = _ref.after;
 
-        var id = (before || after).id;
+        var id = (before || after).id();
 
         var _widgetPlacementFor2 = this._widgetPlacementFor(id),
             attributeValue = _widgetPlacementFor2.attributeValue,
@@ -6377,7 +6386,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }, {
       key: 'moveToAsync',
       value: function moveToAsync(parentPath) {
-        this.update({ _path: [parentPath + '/' + this.id] });
+        this.update({ _path: [parentPath + '/' + this.id()] });
         return this.finishSaving();
       }
     }, {
@@ -6403,7 +6412,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           return false;
         }
 
-        return this.id === otherObj.id;
+        return this.id() === otherObj.id();
       }
     }, {
       key: 'widget',
@@ -6430,7 +6439,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }, {
       key: 'fieldContainingWidget',
       value: function fieldContainingWidget(widget) {
-        var _widgetPlacementFor3 = this._widgetPlacementFor(widget.id),
+        var _widgetPlacementFor3 = this._widgetPlacementFor(widget.id()),
             container = _widgetPlacementFor3.container,
             attributeName = _widgetPlacementFor3.attributeName;
 
@@ -6534,14 +6543,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         return _underscore2.default.extend(placement, { container: container, attributeName: attributeName, attributeValue: attributeValue });
       }
     }, {
-      key: 'id',
-      get: function get() {
-        return this._current._id;
-      }
-    }, {
       key: 'objId',
       get: function get() {
-        return this.id;
+        return this.id();
       }
     }, {
       key: '_widgetPool',
@@ -6706,7 +6710,7 @@ var BasicLink = function () {
 
     this._objId = null;
     if (attributes.obj) {
-      this._objId = attributes.obj.id;
+      this._objId = attributes.obj.id();
     }
   }
 
@@ -9188,10 +9192,10 @@ function printFunction(fn) {
 
 function printBasicContent(content) {
   if (content instanceof scrivito.BasicObj) {
-    return '[object ' + content.objClass() + ' id="' + content.id + '"]';
+    return '[object ' + content.objClass() + ' id="' + content.id() + '"]';
   } else if (content instanceof _basic_widget2.default) {
     var obj = content.obj;
-    return '[object ' + content.objClass() + ' id="' + content.id + '" objId="' + obj.id + '"]';
+    return '[object ' + content.objClass() + ' id="' + content.id() + '" objId="' + obj.id() + '"]';
   } else if (content instanceof _basic_link2.default) {
     if (content.isInternal()) {
       return '[object Link objId="' + content.objId + '"]';
@@ -9317,7 +9321,7 @@ var ChildList = function (_React$Component) {
 
       return _react2.default.createElement(this.props.tag, props, [menuMarker].concat(_toConsumableArray(parent.orderedChildren().map(function (child) {
         return _react2.default.createElement(_child_item2.default, {
-          key: child.id,
+          key: child.id(),
           child: child,
           renderChild: _this2.props.renderChild
         });
@@ -9472,7 +9476,7 @@ var MenuMarker = function (_React$Component) {
       e.stopPropagation();
 
       if (this._menuMarker) {
-        scrivito.uiAdapter.showChildListMenu((0, _reactDom.findDOMNode)(this._menuMarker), this.props.parent.id);
+        scrivito.uiAdapter.showChildListMenu((0, _reactDom.findDOMNode)(this._menuMarker), this.props.parent.id());
       }
     }
   }]);
@@ -11268,7 +11272,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = openContentBrowser;
-function openContentBrowser(options) {
+function openContentBrowser() {
+  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
   return scrivito.uiAdapter.openContentBrowser(options);
 }
 
@@ -19995,7 +20001,7 @@ function setStateForTarget(_ref3) {
       queryParameters = _ref3.queryParameters,
       hash = _ref3.hash;
 
-  var objId = obj && obj.id || null;
+  var objId = obj && obj.id() || null;
   setState({ objId: objId, queryParameters: queryParameters, hash: hash });
   setUiCurrentPage(objId);
 }
@@ -20439,7 +20445,7 @@ var FutureBinary = function () {
       if (_underscore2.default.isString(target)) {
         targetId = target;
       } else {
-        targetId = target.id;
+        targetId = target.id();
       }
 
       var binaryPromise = void 0;
@@ -23781,7 +23787,7 @@ var AppModelAccessor = function () {
       var objClassName = this._registry.objClassNameFor(modelClass);
 
       if (objClassName && objClassName !== instance.objClass()) {
-        throw new _errors.ResourceNotFoundError('Obj with id "' + instance.id + '" is not of type "' + objClassName + '".');
+        throw new _errors.ResourceNotFoundError('Obj with id "' + instance.id() + '" is not of type "' + objClassName + '".');
       }
 
       return this.wrapInAppClass(instance);
@@ -23807,10 +23813,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = extractIdsFromContent;
 function extractIdsFromContent(basicContent) {
   if (basicContent instanceof scrivito.BasicObj) {
-    return { objId: basicContent.id };
+    return { objId: basicContent.id() };
   }
 
-  return { objId: basicContent.obj.id, widgetId: basicContent.id };
+  return { objId: basicContent.obj.id(), widgetId: basicContent.id() };
 }
 
 /***/ }),
@@ -24545,7 +24551,7 @@ function convertSingleValue(value) {
   }
 
   if (value instanceof scrivito.BasicObj) {
-    return value.id;
+    return value.id();
   }
   return value;
 }
@@ -25252,7 +25258,7 @@ function serializeReferencelistAttributeValue(value, name) {
 
 function serializeSingleReferenceValue(value) {
   if (value instanceof scrivito.BasicObj) {
-    return value.id;
+    return value.id();
   }
   return value;
 }
@@ -25291,7 +25297,9 @@ function serializeWidgetlistAttributeValue(value, name) {
   if (_underscore2.default.isArray(value) && _underscore2.default.every(value, function (v) {
     return v instanceof _basic_widget2.default;
   })) {
-    return _underscore2.default.pluck(value, 'id');
+    return value.map(function (item) {
+      return item.id();
+    });
   }
   throwInvalidAttributeValue(value, name, 'An array of BasicWidget instances.');
 }
@@ -26004,7 +26012,7 @@ var AttributeValue = function (_React$Component) {
       if (widgets.length) {
         children = widgets.map(function (widget) {
           return _react2.default.createElement(_widget2.default, {
-            key: widget.id,
+            key: widget.id(),
             widget: widget
           });
         });
@@ -27344,10 +27352,10 @@ var BasicField = function () {
 
       var container = this.container();
       if (container instanceof scrivito.BasicObj) {
-        jsonHash.objId = container.id;
+        jsonHash.objId = container.id();
       } else {
-        jsonHash.objId = container.obj.id;
-        jsonHash.widgetId = container.id;
+        jsonHash.objId = container.obj.id();
+        jsonHash.widgetId = container.id();
       }
 
       return jsonHash;

@@ -131,7 +131,7 @@ function allExistingImages() {
     const allImages = [...Image.all()];
     return allImages.map(image => {
       return {
-        id: image.id,
+        id: image.id(),
         filename: image.metadata().get('filename'),
       };
     });
@@ -144,7 +144,7 @@ function uploadImage({ url, filename }, title, tags = []) {
   const existingImage = existingImages.filter(i => i.filename === filename);
   if (existingImage.length) {
     console.log(`Skipping image "${title}" - already uploaded.`);
-    return Image.get(existingImage[0].id);
+    return Image.get(existingImage[0].id());
   }
 
   const image = Image.create({ title, tags });
