@@ -144,7 +144,7 @@ function uploadImage({ url, filename }, title, tags = []) {
   const existingImage = existingImages.filter(i => i.filename === filename);
   if (existingImage.length) {
     console.log(`Skipping image "${title}" - already uploaded.`);
-    return Image.get(existingImage[0].id());
+    return Image.get(existingImage[0].id);
   }
 
   const image = Image.create({ title, tags });
