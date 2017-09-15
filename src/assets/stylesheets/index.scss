@@ -1257,7 +1257,7 @@ footer {
 /*  sticky footer for react world
 =================================================================== */
 
-html, body, #application {height: 100%; padding: 0; margin: 0; }
+body, #application {height: 100%; padding: 0; margin: 0; }
 #application > div {
   display: flex; min-height: 100vh;
   flex-direction: column;
