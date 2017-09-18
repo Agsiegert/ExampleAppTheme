@@ -18,7 +18,8 @@ function getMetaData(page) {
     meta.push({ name: 'twitter:creator', content: tcCreator });
   }
 
-  const tcDescription = page.get('tcDescription') || textExtractFromObj(page).substring(0, 140);
+  const tcDescription = page.get('tcDescription') ||
+    `${textExtractFromObj(page).substring(0, 137)}...`;
   if (tcDescription) {
     meta.push({ name: 'twitter:description', content: tcDescription });
   }
@@ -33,7 +34,8 @@ function getMetaData(page) {
     meta.push({ name: 'twitter:title', content: tcTitle });
   }
 
-  const ogDescription = page.get('ogDescription') || textExtractFromObj(page).substring(0, 300);
+  const ogDescription = page.get('ogDescription') ||
+    `${textExtractFromObj(page).substring(0, 297)}...`;
   if (ogDescription) {
     meta.push({ property: 'og:description', content: ogDescription });
   }
