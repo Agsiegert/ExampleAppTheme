@@ -63,22 +63,22 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1176);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1178);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 1176:
+/***/ 1178:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(227);
+__webpack_require__(228);
 
 /***/ }),
 
-/***/ 124:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105,7 +105,7 @@ exports.default = applyPlaceholderToElement;
 
 /***/ }),
 
-/***/ 125:
+/***/ 126:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -183,17 +183,17 @@ exports.default = ControllerContentProxy;
 
 /***/ }),
 
-/***/ 227:
+/***/ 228:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(274);
+__webpack_require__(275);
 
 /***/ }),
 
-/***/ 261:
+/***/ 262:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -209,15 +209,15 @@ var _jquery = __webpack_require__(41);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _controller_content_proxy = __webpack_require__(125);
+var _controller_content_proxy = __webpack_require__(126);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(124);
+var _apply_placeholder_to_element = __webpack_require__(125);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _medium_editor = __webpack_require__(278);
+var _medium_editor = __webpack_require__(279);
 
 var _medium_editor2 = _interopRequireDefault(_medium_editor);
 
@@ -265,7 +265,7 @@ exports.default = HtmlEditor;
 
 /***/ }),
 
-/***/ 262:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -277,15 +277,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _controller_content_proxy = __webpack_require__(125);
+var _controller_content_proxy = __webpack_require__(126);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(124);
+var _apply_placeholder_to_element = __webpack_require__(125);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _string_editor = __webpack_require__(279);
+var _string_editor = __webpack_require__(280);
 
 var _string_editor2 = _interopRequireDefault(_string_editor);
 
@@ -335,7 +335,7 @@ exports.default = StringEditor;
 
 /***/ }),
 
-/***/ 273:
+/***/ 274:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -398,21 +398,21 @@ exports.default = ReferenceEditor;
 
 /***/ }),
 
-/***/ 274:
+/***/ 275:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _html_editor = __webpack_require__(261);
+var _html_editor = __webpack_require__(262);
 
 var _html_editor2 = _interopRequireDefault(_html_editor);
 
-var _reference_editor = __webpack_require__(273);
+var _reference_editor = __webpack_require__(274);
 
 var _reference_editor2 = _interopRequireDefault(_reference_editor);
 
-var _string_editor = __webpack_require__(262);
+var _string_editor = __webpack_require__(263);
 
 var _string_editor2 = _interopRequireDefault(_string_editor);
 
@@ -424,14 +424,14 @@ scrivito.registerEditor(_string_editor2.default);
 
 /***/ }),
 
-/***/ 278:
+/***/ 279:
 /***/ (function(module, exports, __webpack_require__) {
 
 var MediumButton, MediumEditor, ScrivitoAnchor, activateMediumEditorWithProxy, buttonsOption, defaultOptions;
 
-MediumEditor = __webpack_require__(300);
+MediumEditor = __webpack_require__(301);
 
-MediumButton = __webpack_require__(299);
+MediumButton = __webpack_require__(300);
 
 ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
   name: 'scrivito_anchor',
@@ -558,7 +558,7 @@ module.exports = activateMediumEditorWithProxy;
 
 /***/ }),
 
-/***/ 279:
+/***/ 280:
 /***/ (function(module, exports) {
 
 var DOUBLE_CLICK_MS, activateStringEditorWithProxy, cleanUp, cmsFieldAndPastedContent, finishEditing, getCurrentContent, isNewlineAllowed, onBlur, onFocus, onInput, onKey, prepareForEditing, save;
@@ -592,7 +592,8 @@ onBlur = function(proxy) {
   save(proxy).done(function() {
     return proxy.trigger('scrivito_editors:blur');
   });
-  return finishEditing(proxy);
+  finishEditing(proxy);
+  return prepareForEditing(proxy.jQueryElement());
 };
 
 save = function(proxy) {
@@ -604,17 +605,8 @@ save = function(proxy) {
 };
 
 getCurrentContent = function(cmsField) {
-  var clone, content;
   cleanUp(cmsField);
-  clone = cmsFieldAndPastedContent(cmsField).clone();
-  clone.find('div:not(:has(br)),p:not(:first)').before('\n');
-  clone.find('br').replaceWith('\n');
-  content = clone.text();
-  clone.remove();
-  if (!isNewlineAllowed(cmsField)) {
-    content = content.replace(/\n$/, '');
-  }
-  return content;
+  return cmsField[0].innerText.replace(/\r\n/g, '\n').replace(/\n$/, '');
 };
 
 cleanUp = function(cmsField) {
@@ -654,7 +646,7 @@ prepareForEditing = function(cmsField) {
   if (isNewlineAllowed(cmsField) && !cmsField.data('scrivito_editors_prepared_for_editing')) {
     cmsField.data('scrivito_editors_prepared_for_editing', true);
     html = cmsField.html();
-    htmlNl2Br = html.replace(/\n/g, '<br />');
+    htmlNl2Br = html.replace(/\r?\n/g, '<br />');
     if (html !== htmlNl2Br) {
       return cmsField.html(htmlNl2Br);
     }
@@ -703,7 +695,7 @@ module.exports = activateStringEditorWithProxy;
 
 /***/ }),
 
-/***/ 299:
+/***/ 300:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -842,7 +834,7 @@ if (true) {
 
 /***/ }),
 
-/***/ 300:
+/***/ 301:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var __WEBPACK_AMD_DEFINE_RESULT__;/*global self, document, DOMException */
