@@ -1,0 +1,116 @@
+//colors
+$color_celeste_approx: #ccc;
+$black: #000;
+$color_mojo_approx: #c5463f;
+$white: #fff;
+$black_15: rgba(0, 0, 0, 0.15);
+$black_10: rgba(0, 0, 0, 0.1);
+
+//@extend-elements
+//original selectors
+//.seo_card_preview .seo_card_preview_img, .seo_card_preview .row img
+%extend_1 {
+  padding: 0;
+  margin: 0;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 0;
+}
+
+[data-remaining-char-count] {
+  position: relative;
+  &:before {
+    position: absolute;
+    display: inline-block;
+    top: -1.3em;
+    right: 0;
+    width: 10em;
+    line-height: 1.5em;
+    padding: 0 1em;
+    margin: 0;
+    text-align: center;
+    border: none;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 4px;
+    font-size: 70%;
+    background: $color_celeste_approx;
+    color: $black;
+    opacity: 0.7;
+    content: "Remaining: " attr(data-remaining-char-count);
+  }
+}
+.seo_card_input {
+  .input{
+    background: #f3f3f3;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    color: #555;
+    display: block;
+    padding: 0 0 0 6px;
+  }
+  .hint {
+    color: rgb(102, 102, 102);
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 12px;
+    border-bottom: 2px solid rgba(0,0,0,.1);
+    padding: 0 0 10px;
+  }
+  .label {
+    display: table-cell;
+    color: #444;
+    font-size: 13px !important;
+    font-weight: 700;
+    padding: 12px 3px 6px;
+  }
+  .seo_card_img {
+    border: 2px solid rgba(0,0,0,.1);
+    max-height: 240px;
+    overflow: hidden;
+    @extend %extend_1;
+  }
+}
+.seo_card_preview {
+  .twitter_card {
+    border: 1px solid $color_celeste_approx;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 7px;
+    max-width: 506px;
+    min-height: 125px;
+  }
+  .fb_card {
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 0 1px $black_15 inset, 0 1px 4px $black_10;
+    max-width: 470px;
+    min-height: 157px;
+  }
+  .card {
+    overflow: hidden;
+    background: $white;
+    margin: 0;
+  }
+  .card_text {
+    padding: 10px;
+  }
+  .seo_card_preview_img {
+    max-height: 240px;
+    overflow: hidden;
+    @extend %extend_1;
+  }
+  h5 {
+    padding: 5px 0;
+    margin: 0;
+    font-weight: bold;
+  }
+  .creator {
+    font-weight: bold;
+    padding-top: 6px;
+  }
+  .row img {
+    @extend %extend_1;
+  }
+}
+[data-exceeds-char-count=true]:before {
+  background: $color_mojo_approx;
+  color: $white;
+  content: "Limit exceeded";
+}
