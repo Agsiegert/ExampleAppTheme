@@ -4,8 +4,8 @@ import loremIpsum from 'lorem-ipsum';
 
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
-import iphoneData from './binary_data/iphone';
 import ipadData from './binary_data/ipad';
+import iphoneData from './binary_data/iphone';
 import logo1Data from './binary_data/logo_1';
 import logo2Data from './binary_data/logo_2';
 import logo3Data from './binary_data/logo_3';
@@ -25,12 +25,20 @@ import unsplashBlackTablesWhiteChairsData from './binary_data/unsplash_black_tab
 import unsplashBuildingCornerCloudsData from './binary_data/unsplash_building_corner_clouds';
 import unsplashBusinessPaperRedSocksData from './binary_data/unsplash_business_paper_red_socks';
 import unsplashBusinessPaperWristwatchData from './binary_data/unsplash_business_paper_wristwatch';
+import unsplashBusyStreetDuskData from './binary_data/unsplash_busy_street_dusk';
+import unsplashBwCoffeeKeyboardMouseData from './binary_data/unsplash_bw_coffee_keyboard_mouse';
+import unsplashBwSuitPolkadotsLaptopData from './binary_data/unsplash_bw_suit_polkadots_laptop';
+import unsplashCactusMacPurpleData from './binary_data/unsplash_cactus_mac_purple';
 import unsplashClosingLaptopData from './binary_data/unsplash_closing_laptop';
+import unsplashComputerBeCreativeData from './binary_data/unsplash_computer_be_creative';
 import unsplashDeskLaptopData from './binary_data/unsplash_desk_laptop_speaker';
 import unsplashDeskRulerData from './binary_data/unsplash_desk_ruler';
+import unsplashDeveloperSunriseData from './binary_data/unsplash_developer_sunrise';
 import unsplashDimLaptopStandData from './binary_data/unsplash_dim_laptop_stand';
+import unsplashDistractingWindowsTableData from './binary_data/unsplash_distracting_windows_table';
 import unsplashDoMoreDeskData from './binary_data/unsplash_do_more';
 import unsplashDualingLaptopsData from './binary_data/unsplash_dualing_laptops_blur';
+import unsplashEmptyCafeWindowsData from './binary_data/unsplash_empty_cafe_windows';
 import unsplashEurekaTowerData from './binary_data/unsplash_eureka_tower_night';
 import unsplashFemaleBehindWindowData from './binary_data/unsplash_female_behind_window';
 import unsplashFemalePortrait1Data from './binary_data/unsplash_female_portrait_1';
@@ -343,12 +351,20 @@ function importContent() {
     const unsplashBuildingCornerClouds = uploadImage(unsplashBuildingCornerCloudsData, 'Building corner with clouds', UNSPLASH_TAGS);
     const unsplashBusinessPaperRedSocks = uploadImage(unsplashBusinessPaperRedSocksData, 'Business paper guy in red socks', UNSPLASH_TAGS);
     const unsplashBusinessPaperWristwatch = uploadImage(unsplashBusinessPaperWristwatchData, 'Ruler on a desk', UNSPLASH_TAGS);
+    const unsplashBusyStreetDusk = uploadImage(unsplashBusyStreetDuskData, 'Busy street dusk', UNSPLASH_TAGS);
+    const unsplashBwCoffeeKeyboardMouse = uploadImage(unsplashBwCoffeeKeyboardMouseData, 'Coffee keyboard mouse (B/W)', UNSPLASH_TAGS);
+    const unsplashBwSuitPolkadotsLaptop = uploadImage(unsplashBwSuitPolkadotsLaptopData, 'Suit Polkadots Laptop (B/W)', UNSPLASH_TAGS);
+    const unsplashCactusMacPurple = uploadImage(unsplashCactusMacPurpleData, 'Cactus Mac Purple', UNSPLASH_TAGS);
     const unsplashClosingLaptop = uploadImage(unsplashClosingLaptopData, 'Closing laptop', UNSPLASH_TAGS);
-    const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
+    const unsplashComputerBeCreative = uploadImage(unsplashComputerBeCreativeData, 'Computer be creative', UNSPLASH_TAGS);
     const unsplashDeskLaptop = uploadImage(unsplashDeskLaptopData, 'Laptop on a desk', UNSPLASH_TAGS);
+    const unsplashDeskRuler = uploadImage(unsplashDeskRulerData, 'Ruler on a desk', UNSPLASH_TAGS);
+    const unsplashDeveloperSunrise = uploadImage(unsplashDeveloperSunriseData, 'Developer sunrise', UNSPLASH_TAGS);
     const unsplashDimLaptopStand = uploadImage(unsplashDimLaptopStandData, 'Dim laptop stand', UNSPLASH_TAGS);
+    const unsplashDistractingWindowsTable = uploadImage(unsplashDistractingWindowsTableData, 'Distracting window stable', UNSPLASH_TAGS);
     const unsplashDoMoreDesk = uploadImage(unsplashDoMoreDeskData, 'Do more desk', UNSPLASH_TAGS);
     const unsplashDualingLaptops = uploadImage(unsplashDualingLaptopsData, 'Blurred laptop on a table', UNSPLASH_TAGS);
+    const unsplashEmptyCafeWindows = uploadImage(unsplashEmptyCafeWindowsData, 'Empty cafe windows', UNSPLASH_TAGS);
     const unsplashEurekaTower = uploadImage(unsplashEurekaTowerData, 'Eureka tower at night', UNSPLASH_TAGS);
     const unsplashFemaleBehindWindow = uploadImage(unsplashFemaleBehindWindowData, 'Female behind window', UNSPLASH_TAGS);
     const unsplashFemalePortrait1 = uploadImage(unsplashFemalePortrait1Data, 'Female Portrait 1', UNSPLASH_TAGS);
@@ -729,6 +745,14 @@ function importContent() {
                 createThumbnailGalleryImageWidget({ title: 'Project 06', image: unsplashGoldWatchCufflinks }),
                 createThumbnailGalleryImageWidget({ title: 'Project 07', image: unsplashWritingPapers }),
                 createThumbnailGalleryImageWidget({ title: 'Project 08', image: unsplashGlassesOnMac }),
+                createThumbnailGalleryImageWidget({ title: 'Project 09', image: unsplashBusyStreetDusk }),
+                createThumbnailGalleryImageWidget({ title: 'Project 10', image: unsplashBwCoffeeKeyboardMouse }),
+                createThumbnailGalleryImageWidget({ title: 'Project 11', image: unsplashBwSuitPolkadotsLaptop }),
+                createThumbnailGalleryImageWidget({ title: 'Project 12', image: unsplashCactusMacPurple }),
+                createThumbnailGalleryImageWidget({ title: 'Project 13', image: unsplashComputerBeCreative }),
+                createThumbnailGalleryImageWidget({ title: 'Project 14', image: unsplashDeveloperSunrise }),
+                createThumbnailGalleryImageWidget({ title: 'Project 15', image: unsplashDistractingWindowsTable }),
+                createThumbnailGalleryImageWidget({ title: 'Project 16', image: unsplashEmptyCafeWindows }),
               ],
             }),
           ],
