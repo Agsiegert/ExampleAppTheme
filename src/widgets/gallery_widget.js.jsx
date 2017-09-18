@@ -1,11 +1,10 @@
-import SliderGallery from 'widgets/gallery_widget/slider_gallery';
-import ThumbnailGallery from 'widgets/gallery_widget/thumbnail_gallery';
+import devicePixelRatio from 'utils/device_pixel_ratio';
+import Slider from 'react-slick';
 
 const GalleryWidget = Scrivito.createWidgetClass({
   name: 'GalleryWidget',
   attributes: {
-    galleryStyle: ['enum', { validValues: ['thumbnail', 'slider'] }],
-    images: ['widgetlist', { only: 'GalleryImageWidget' }],
+    images: 'referencelist',
   },
 });
 
@@ -17,19 +16,69 @@ Scrivito.provideUiConfig(GalleryWidget, {
       title: 'Images',
       description: 'The list of images',
     },
-    galleryStyle: {
-      title: 'Gallery Style',
-      description: 'How should this gallery be shown?',
-    },
   },
 });
 
-Scrivito.provideComponent(GalleryWidget, ({ widget }) => {
-  if (widget.get('galleryStyle') === 'slider') {
-    return <SliderGallery widget={ widget } />;
-  }
+function sliderSettings(images) {
+  const imageUrls = images.map(image => {
+    const binary = image.get('blob');
+    const croppedBinary = binary.transform({
+      width: 300 * devicePixelRatio(),
+      height: 200 * devicePixelRatio(),
+      fit: 'crop',
+    });
+    return croppedBinary.url();
+  });
 
-  return <ThumbnailGallery widget={ widget } />;
-});
+  return {
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    centerMode: true,
+    centerPadding: '0px',
+    cssEase: 'linear',
+    dots: true,
+    fade: true,
+    infinite: true,
+    slide: 'li',
+    slidesToShow: 1,
+    speed: 500,
+    variableWidth: false,
+    responsive: [{
+      breakpoint: 800,
+      settings: {
+        centerMode: false,
+      },
+    }],
+    customPaging: i => {
+      const imageUrl = imageUrls[i];
+      return (
+        <button className="tab">
+          <img src={ imageUrl } />
+        </button>
+      );
+    },
+  };
+}
+
+function GalleryWidgetComponent({ widget }) {
+  const images = widget.get('images');
+
+  if (!images.length) { return null; }
+
+  const settings = sliderSettings(images);
+  return (
+    <div className="slick-gallary-fluid">
+      <Slider { ...settings } className="slickslide">
+        {
+          images.map((image, index) =>
+            <Scrivito.React.Image src={ image } key={ `${image.id()}${index}` } />)
+        }
+      </Slider>
+    </div>
+  );
+}
+
+Scrivito.provideComponent(GalleryWidget, GalleryWidgetComponent);
 
 export default GalleryWidget;

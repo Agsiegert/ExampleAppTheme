@@ -1,6 +1,8 @@
+import devicePixelRatio from 'utils/device_pixel_ratio';
+
 function BlogPostAuthor({ author }) {
   if (!author) { return null; }
-  if (author.objClass !== 'Author') { return null; }
+  if (author.objClass() !== 'Author') { return null; }
 
   return (
     <section className="bg-white">
@@ -22,7 +24,11 @@ function BlogPostAuthor({ author }) {
 
 const AuthorPicture = Scrivito.React.connect(({ picture }) => {
   if (!picture) { return null; }
-  const image = picture.get('blob').transform({ width: 200, height: 200, fit: 'crop' });
+  const image = picture.get('blob').transform({
+    width: 200 * devicePixelRatio(),
+    height: 200 * devicePixelRatio(),
+    fit: 'crop',
+  });
 
   return (<img src={ image.url() } className="img-circle" />);
 });

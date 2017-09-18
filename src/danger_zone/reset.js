@@ -14,7 +14,7 @@ function reset(hardReset) {
     }
 
     objs.forEach(o => {
-      console.log(`Deleting ${o.id}...`);
+      console.log(`Deleting ${o.id()}...`);
       o.destroy();
     });
     console.log('Done deleting all objs.');

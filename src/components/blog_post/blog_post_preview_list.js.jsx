@@ -1,3 +1,4 @@
+import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import twoDigitNumber from 'utils/two_digit_number';
 import { take } from 'wu';
 import BlogPostDate from './blog_post_date';
@@ -42,13 +43,12 @@ const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author, tag }) =
       listElements.push(<MonthHeadline date={ publishedAt } key={ publishedAt }/>);
     }
 
-    listElements.push(<BlogPostPreview key={ post.id } post={ post } />);
+    listElements.push(<BlogPostPreview key={ post.id() } post={ post } />);
   });
 
   return (
     <ul className="timeline">
       { listElements }
-      <li className="clearfix" style={ { float: 'none' } }></li>
     </ul>
   );
 });
@@ -89,12 +89,11 @@ const BlogPostPreview = Scrivito.React.connect(({ post }) => {
 const BlogPostTitleImage = Scrivito.React.connect(({ post }) => {
   const titleImage = post.get('titleImage');
   if (!titleImage) { return null; }
-
-  const image = titleImage.get('blob').transform({ width: 1000 });
+  const imageUrl = fullWidthTransformedUrl(titleImage);
 
   return (
     <Scrivito.React.Link to={ post }>
-      <img src={ image.url() } className="img-responsive" />
+      <img src={ imageUrl } className="img-responsive" />
     </Scrivito.React.Link>
   );
 });

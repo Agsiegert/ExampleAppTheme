@@ -1,14 +1,8 @@
-function devicePixelRatio() {
-  return window.devicePixelRatio || 1;
-}
-
-function fullScreenWidthPixels() {
-  const screenWidth = window.screen.width;
-
-  return screenWidth * devicePixelRatio();
-}
+import fullScreenWidthPixels from 'utils/full_screen_width_pixels';
 
 function fullWidthTransformedUrl(obj) {
+  if (!obj) { return ''; }
+
   const binary = obj.get('blob');
   // The binary service never scales up, so we transform all images, regardless of their width.
   const transformedBinary = binary.transform({ width: fullScreenWidthPixels() });

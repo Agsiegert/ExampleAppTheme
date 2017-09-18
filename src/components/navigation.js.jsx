@@ -73,10 +73,10 @@ class Navigation extends React.Component {
     if (navigationStyle === 'transparentDark') {
       if (backgroundImage) {
         const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
-        topSectionStyle.background = [
-          'linear-gradient(rgba(46, 53, 60, 0.7)',
-          'rgba(46, 53, 60, 0.7))',
-          `url(${backgroundUrl}) no-repeat center / cover`,
+        topSectionStyle.background = 'no-repeat center / cover';
+        topSectionStyle.backgroundImage = [
+          'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))',
+          `url(${backgroundUrl})`,
         ].join(', ');
       }
       if (heigthClassName) {

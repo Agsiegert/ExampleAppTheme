@@ -9,7 +9,7 @@ function Navbar() {
 }
 
 function renderChild(child) {
-  if (child.children.length === 0) {
+  if (child.children().length === 0) {
     return renderSingleChild(child);
   }
 
@@ -74,13 +74,13 @@ const Dropdown = Scrivito.React.connect(BaseDropdown);
 function isActive(page) {
   if (!Scrivito.currentPage()) { return false; }
 
-  const currentPath = Scrivito.currentPage().path;
+  const currentPath = Scrivito.currentPage().path();
   if (currentPath) {
-    return currentPath.startsWith(page.path);
+    return currentPath.startsWith(page.path());
   }
 
-  if (Scrivito.currentPage().objClass === 'BlogPost') {
-    return page.objClass === 'Blog';
+  if (Scrivito.currentPage().objClass() === 'BlogPost') {
+    return page.objClass() === 'Blog';
   }
 
   return false;

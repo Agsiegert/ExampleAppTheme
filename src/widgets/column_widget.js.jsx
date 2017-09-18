@@ -8,6 +8,7 @@ const BaseColumnWidget = Scrivito.createWidgetClass({
     column2: 'widgetlist',
     column3: 'widgetlist',
     column4: 'widgetlist',
+    verticallyAligned: ['enum', { validValues: ['yes', 'no'] }],
   },
 });
 
@@ -32,7 +33,11 @@ Scrivito.provideUiConfig(ColumnWidget, {
   attributes: {
     nrOfColumns: {
       title: 'Number of columns',
-      description: 'The number of columns between 1 and 4',
+      description: 'The number of columns between 1 and 4. Default: 2',
+    },
+    verticallyAligned: {
+      title: 'Vertically Aligned',
+      description: 'Should the columns be vertically aligned? Default: no',
     },
   },
 });
@@ -49,17 +54,19 @@ Scrivito.provideComponent(ColumnWidget, ({ widget }) => {
     const colNr = index + 1;
 
     cols.push(
-      <Scrivito.React.Content
-        tag="div"
-        className={ `col-md-${colSize}` }
-        content={ widget }
-        attribute={ `column${colNr}` }
-        key={ colNr } />
+      <div key={ colNr } className={ `col-md-${colSize}` }>
+        <Scrivito.React.Content content={ widget } attribute={ `column${colNr}` } />
+      </div>
     );
   });
 
+  const classNames = ['row'];
+  if (widget.get('verticallyAligned') === 'yes') {
+    classNames.push('vertical-align');
+  }
+
   return (
-    <div className="row">
+    <div className={ classNames.join(' ') }>
       { cols }
     </div>
   );
