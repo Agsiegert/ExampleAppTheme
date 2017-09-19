@@ -5,7 +5,7 @@ const IconWidget = Scrivito.createWidgetClass({
   attributes: {
     icon: 'string',
     size: ['enum', { validValues: ['fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x'] }],
-    centered: ['enum', { validValues: ['yes', 'no'] }],
+    alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
     link: 'link',
   },
 });
@@ -22,9 +22,9 @@ Scrivito.provideUiConfig(IconWidget, {
       title: 'Size',
       description: 'Size of the icon',
     },
-    centered: {
-      title: 'Centered',
-      description: 'Should this icon be centered?',
+    alignment: {
+      title: 'Alignment',
+      description: 'How should this icon be aligned? Default: left',
     },
     link: {
       title: 'Link',
@@ -39,9 +39,9 @@ Scrivito.provideComponent(IconWidget, ({ widget }) => {
   const link = widget.get('link');
   const size = widget.get('size');
 
-  if (widget.get('centered') === 'yes') {
+  if (['center', 'right'].includes(widget.get('alignment'))) {
     return (
-      <div className='text-center'>
+      <div className={ `text-${widget.get('alignment')}` }>
         <IconComponent icon={ icon } size={ size } link={ link } />
       </div>
     );
