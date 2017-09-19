@@ -194,16 +194,16 @@ function createPanelWidgetWithIconHeadlineAndText(icon, headline) {
       new IconWidget({
         icon,
         size: 'fa-4x',
-        centered: 'yes',
+        alignment: 'center',
       }),
       new HeadlineWidget({
         headline,
         level: 'h3',
         style: 'h3',
-        centered: 'yes',
+        alignment: 'center',
       }),
       new TextWidget({
-        centered: 'yes',
+        alignment: 'center',
         text: loremIpsum({
           units: 'paragraphs',
           format: 'html',
@@ -447,13 +447,13 @@ function importContent() {
           backgroundImage: unsplashWoodTable,
           content: [
             new HeadlineWidget({
-              centered: 'yes',
+              alignment: 'center',
               level: 'h1',
               style: 'h1',
               headline: 'Join our awarded team',
             }),
             new HeadlineWidget({
-              centered: 'yes',
+              alignment: 'center',
               level: 'h2',
               style: 'h4',
               headline: loremIpsum({ count: 3 }),
@@ -480,7 +480,7 @@ function importContent() {
               style: 'h2',
             }),
             new HeadlineWidget({
-              centered: 'yes',
+              alignment: 'center',
               headline: loremIpsum({ count: 2 }),
               level: 'h2',
               style: 'h4',
@@ -589,13 +589,13 @@ function importContent() {
               headline: 'Upcoming new events',
               level: 'h1',
               style: 'h1',
-              centered: 'yes',
+              alignment: 'center',
             }),
             new HeadlineWidget({
               headline: loremIpsum({ count: 2 }),
               level: 'h2',
               style: 'h4',
-              centered: 'yes',
+              alignment: 'center',
             }),
           ],
         }),
@@ -665,7 +665,7 @@ function importContent() {
           new HeadlineWidget({
             level: 'h2',
             style: 'h4',
-            centered: 'yes',
+            alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
           new ColumnWidget({
@@ -693,7 +693,7 @@ function importContent() {
             ],
           }),
           new ButtonWidget({
-            centered: 'yes',
+            alignment: 'center',
             target: new Scrivito.Link({
               title: 'Call to action',
               obj: root,
@@ -726,7 +726,7 @@ function importContent() {
           new HeadlineWidget({
             level: 'h2',
             style: 'h4',
-            centered: 'yes',
+            alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
           createPricingWidget(root),
@@ -749,7 +749,7 @@ function importContent() {
           new HeadlineWidget({
             level: 'h2',
             style: 'h4',
-            centered: 'yes',
+            alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
         ] }),
@@ -804,7 +804,7 @@ function importContent() {
             }),
             level: 'h2',
             style: 'h4',
-            centered: 'yes',
+            alignment: 'center',
           }),
         ] }),
         new SectionWidget({
@@ -840,34 +840,34 @@ function importContent() {
           new ColumnWidget({
             nrOfColumns: '4',
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: logo1, centered: 'yes' })],
-            column2: [new ImageWidget({ image: logo2, centered: 'yes' })],
-            column3: [new ImageWidget({ image: logo3, centered: 'yes' })],
-            column4: [new ImageWidget({ image: logo4, centered: 'yes' })],
+            column1: [new ImageWidget({ image: logo1, alignment: 'center' })],
+            column2: [new ImageWidget({ image: logo2, alignment: 'center' })],
+            column3: [new ImageWidget({ image: logo3, alignment: 'center' })],
+            column4: [new ImageWidget({ image: logo4, alignment: 'center' })],
           }),
           new ColumnWidget({
             nrOfColumns: '4',
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: logo5, centered: 'yes' })],
-            column2: [new ImageWidget({ image: logo6, centered: 'yes' })],
-            column3: [new ImageWidget({ image: logo7, centered: 'yes' })],
-            column4: [new ImageWidget({ image: logo8, centered: 'yes' })],
+            column1: [new ImageWidget({ image: logo5, alignment: 'center' })],
+            column2: [new ImageWidget({ image: logo6, alignment: 'center' })],
+            column3: [new ImageWidget({ image: logo7, alignment: 'center' })],
+            column4: [new ImageWidget({ image: logo8, alignment: 'center' })],
           }),
           new ColumnWidget({
             nrOfColumns: '4',
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: logo8, centered: 'yes' })],
-            column2: [new ImageWidget({ image: logo4, centered: 'yes' })],
-            column3: [new ImageWidget({ image: logo5, centered: 'yes' })],
-            column4: [new ImageWidget({ image: logo2, centered: 'yes' })],
+            column1: [new ImageWidget({ image: logo8, alignment: 'center' })],
+            column2: [new ImageWidget({ image: logo4, alignment: 'center' })],
+            column3: [new ImageWidget({ image: logo5, alignment: 'center' })],
+            column4: [new ImageWidget({ image: logo2, alignment: 'center' })],
           }),
           new ColumnWidget({
             nrOfColumns: '4',
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: logo1, centered: 'yes' })],
-            column2: [new ImageWidget({ image: logo8, centered: 'yes' })],
-            column3: [new ImageWidget({ image: logo2, centered: 'yes' })],
-            column4: [new ImageWidget({ image: logo3, centered: 'yes' })],
+            column1: [new ImageWidget({ image: logo1, alignment: 'center' })],
+            column2: [new ImageWidget({ image: logo8, alignment: 'center' })],
+            column3: [new ImageWidget({ image: logo2, alignment: 'center' })],
+            column4: [new ImageWidget({ image: logo3, alignment: 'center' })],
           }),
         ] }),
         new SectionWidget({ content: [
@@ -986,7 +986,7 @@ function importContent() {
             new HeadlineWidget({
               level: 'h2',
               style: 'h4',
-              centered: 'yes',
+              alignment: 'center',
               headline: loremIpsum({ count: 2 }),
             }),
             new ColumnWidget({
@@ -999,7 +999,7 @@ function importContent() {
                       headline: 'Jane Morgan',
                       level: 'h3',
                       style: 'h3',
-                      centered: 'yes',
+                      alignment: 'center',
                     }),
                     new HeadlineWidget({
                       headline: 'Product Research Director',
@@ -1020,7 +1020,7 @@ function importContent() {
                       headline: 'Peter Doe',
                       level: 'h3',
                       style: 'h3',
-                      centered: 'yes',
+                      alignment: 'center',
                     }),
                     new HeadlineWidget({
                       headline: 'Internal Applications Supervisor',
@@ -1041,7 +1041,7 @@ function importContent() {
                       headline: 'Susan Summer',
                       level: 'h3',
                       style: 'h3',
-                      centered: 'yes',
+                      alignment: 'center',
                     }),
                     new HeadlineWidget({
                       headline: 'Regional Agent',
@@ -1065,7 +1065,7 @@ function importContent() {
                       headline: 'Clarius Ceasar',
                       level: 'h3',
                       style: 'h3',
-                      centered: 'yes',
+                      alignment: 'center',
                     }),
                     new HeadlineWidget({
                       headline: 'Dynamic Operations Representative',
@@ -1086,7 +1086,7 @@ function importContent() {
                       headline: 'Anna Corn',
                       level: 'h3',
                       style: 'h3',
-                      centered: 'yes',
+                      alignment: 'center',
                     }),
                     new HeadlineWidget({
                       headline: 'Regional Brand Producer',
@@ -1107,7 +1107,7 @@ function importContent() {
                       headline: 'Jason John',
                       level: 'h3',
                       style: 'h3',
-                      centered: 'yes',
+                      alignment: 'center',
                     }),
                     new HeadlineWidget({
                       headline: 'Dynamic Paradigm Director',
@@ -1129,10 +1129,10 @@ function importContent() {
           content: [
             new HeadlineWidget({
               headline: 'We are hiring',
-              centered: 'yes',
+              alignment: 'center',
             }),
             new TextWidget({
-              centered: 'yes',
+              alignment: 'center',
               text: loremIpsum({
                 units: 'paragraphs',
                 format: 'html',
@@ -1142,7 +1142,7 @@ function importContent() {
               }),
             }),
             new ButtonWidget({
-              centered: 'yes',
+              alignment: 'center',
               target: new Scrivito.Link({
                 title: 'See full job list',
                 obj: jobs,
@@ -1171,7 +1171,7 @@ function importContent() {
               headline: loremIpsum({ count: 2 }),
               level: 'h2',
               style: 'h4',
-              centered: 'yes',
+              alignment: 'center',
             }),
           ],
         }),
@@ -1274,7 +1274,7 @@ function importContent() {
               style: 'h2',
             }),
             new HeadlineWidget({
-              centered: 'yes',
+              alignment: 'center',
               headline: loremIpsum({ count: '2' }),
               level: 'h2',
               style: 'h4',
@@ -1559,7 +1559,7 @@ function importContent() {
           new HeadlineWidget({
             level: 'h2',
             style: 'h4',
-            centered: 'yes',
+            alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
           new BlogOverviewWidget({}),
@@ -1606,11 +1606,11 @@ function importContent() {
       navigationStyle: 'transparentDark full-height',
       navigationSection: [
         new HeadlineWidget({
-          centered: 'yes',
+          alignment: 'center',
           headline: 'Amazing hero widget',
         }),
         new TextWidget({
-          centered: 'yes',
+          alignment: 'center',
           text: loremIpsum({
             units: 'paragraphs',
             format: 'html',
@@ -1620,7 +1620,7 @@ function importContent() {
           }),
         }),
         new ButtonWidget({
-          centered: 'yes',
+          alignment: 'center',
           target: new Scrivito.Link({
             title: 'Call to action',
             obj: root,
@@ -1704,11 +1704,11 @@ function importContent() {
               new ImageWidget({ image: homepage1Screenshot }),
               new HeadlineWidget({
                 headline: 'Choose a different homepage variant',
-                centered: 'yes',
+                alignment: 'center',
                 level: 'h3',
               }),
               new TextWidget({
-                centered: 'yes',
+                alignment: 'center',
                 text: loremIpsum({
                   units: 'paragraphs',
                   format: 'html',
@@ -1718,7 +1718,7 @@ function importContent() {
                 }),
               }),
               new ButtonWidget({
-                centered: 'yes',
+                alignment: 'center',
                 target: new Scrivito.Link({
                   title: 'Open Homepage variant 1',
                   obj: homeV1,
@@ -1729,11 +1729,11 @@ function importContent() {
               new ImageWidget({ image: homepage2Screenshot }),
               new HeadlineWidget({
                 headline: 'Choose a different homepage variant',
-                centered: 'yes',
+                alignment: 'center',
                 level: 'h3',
               }),
               new TextWidget({
-                centered: 'yes',
+                alignment: 'center',
                 text: loremIpsum({
                   units: 'paragraphs',
                   format: 'html',
@@ -1743,7 +1743,7 @@ function importContent() {
                 }),
               }),
               new ButtonWidget({
-                centered: 'yes',
+                alignment: 'center',
                 target: new Scrivito.Link({
                   title: 'Open Homepage variant 2',
                   obj: homeV2,
@@ -1760,7 +1760,7 @@ function importContent() {
             showDividingLine: 'yes',
           }),
           new TextWidget({
-            centered: 'yes',
+            alignment: 'center',
             text: loremIpsum({
               units: 'paragraphs',
               format: 'html',
@@ -1832,7 +1832,7 @@ function importContent() {
               maxItems: 5,
             }),
             new ButtonWidget({
-              centered: 'yes',
+              alignment: 'center',
               target: new Scrivito.Link({
                 title: 'Load all blog entries',
                 obj: blog,
