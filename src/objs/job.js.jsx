@@ -53,10 +53,11 @@ Scrivito.provideComponent(Job, ({ page }) => {
       <section className="bg-white">
         <div className="container">
           <Scrivito.React.Content tag="h1" className="h2" content={ page } attribute="title" />
-          <span>
-            <i className="fa fa-map-marker fa-2x" aria-hidden="true" title="location" />
+          <h2 className="h4">
+            <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" />
+            { ' ' }
             <Scrivito.React.Content tag="span" content={ page } attribute="location" />
-          </span>
+          </h2>
         </div>
       </section>
     </div>
