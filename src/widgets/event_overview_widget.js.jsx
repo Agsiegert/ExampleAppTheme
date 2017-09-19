@@ -64,38 +64,34 @@ function TagList({ tags, currentTag, setTag }) {
   };
 
   return (
-    <section className="bg-nav-content">
-      <div className="container">
-        <div className="nav-centered select-icon">
-          <ul className="nav nav-pills hidden-xs">
-            <li role="presentation" className={ !currentTag ? 'active' : '' }>
-              <a onClick={ e => onClick(e, '') } href='#'>All</a>
+    <div className="negative-margin-top nav-centered select-icon">
+      <ul className="nav nav-pills hidden-xs">
+        <li role="presentation" className={ !currentTag ? 'active' : '' }>
+          <a onClick={ e => onClick(e, '') } href='#'>All</a>
+        </li>
+        {
+          tags.map(tag =>
+            <li
+                role="presentation"
+                key={ tag }
+                className={ currentTag === tag ? 'active' : '' }
+              >
+              <a onClick={ e => onClick(e, tag) } href='#'>{ tag }</a>
             </li>
-            {
-              tags.map(tag =>
-                <li
-                    role="presentation"
-                    key={ tag }
-                    className={ currentTag === tag ? 'active' : '' }
-                  >
-                  <a onClick={ e => onClick(e, tag) } href='#'>{ tag }</a>
-                </li>
-              )
-            }
-          </ul>
-          <select
-            onChange={ e => setTag(e.target.value) }
-            value={ currentTag }
-            className="visible-xs"
-          >
-            <option value="">All</option>
-            {
-              tags.map(tag => <option key={ tag } value={ tag }>{ tag }</option>)
-            }
-          </select>
-        </div>
-      </div>
-    </section>
+          )
+        }
+      </ul>
+      <select
+        onChange={ e => setTag(e.target.value) }
+        value={ currentTag }
+        className="visible-xs"
+      >
+        <option value="">All</option>
+        {
+          tags.map(tag => <option key={ tag } value={ tag }>{ tag }</option>)
+        }
+      </select>
+    </div>
   );
 }
 
