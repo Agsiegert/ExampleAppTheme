@@ -641,6 +641,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 
 .bg-nav-content { height: 0; position: relative; z-index: 1000; }
 .bg-nav-content .nav-centered .nav { margin-top: -30px; }
+.negative-margin-top .nav { margin-top: -30px; }
 
 .nav-centered { text-align: center; width: 100%; position: relative; }
 .nav-centered .nav {
