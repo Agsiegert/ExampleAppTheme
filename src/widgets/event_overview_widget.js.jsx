@@ -56,13 +56,19 @@ const EventItem = Scrivito.React.connect(({ event }) => {
 });
 
 function TagList(props) {
+  const onClick = (e, tag) => {
+    e.preventDefault();
+    e.stopPropagation();
+    props.setTag(tag);
+  };
+
   return (
     <section className="bg-nav-content">
       <div className="container">
         <div className="nav-centered select-icon">
           <ul className="nav nav-pills hidden-xs">
             <li role="presentation" className={ !props.currentTag ? 'active' : '' }>
-              <a onClick={ e => props.onClick(e, '') } href="#">All</a>
+              <a onClick={ e => onClick(e, '') } href='#'>All</a>
             </li>
             {
               props.tags.map(tag =>
@@ -71,12 +77,16 @@ function TagList(props) {
                     key={ tag }
                     className={ props.currentTag === tag ? 'active' : '' }
                   >
-                  <a onClick={ e => props.onClick(e, tag) } href="#">{ tag }</a>
+                  <a onClick={ e => onClick(e, tag) } href='#'>{ tag }</a>
                 </li>
               )
             }
           </ul>
-          <select onChange={ props.onChange } value={ props.currentTag } className="visible-xs">
+          <select
+            onChange={ e => props.setTag(e.target.value) }
+            value={ props.currentTag }
+            className="visible-xs"
+          >
             <option value="">All</option>
             {
               props.tags.map(tag => <option key={ tag } value={ tag }>{ tag }</option>)
@@ -93,8 +103,7 @@ class EventOverviewWidgetComponent extends React.Component {
     super(props);
     this.state = { currentTag: '' };
 
-    this.onChange = this.onChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.setTag = this.setTag.bind(this);
   }
 
   render() {
@@ -110,8 +119,7 @@ class EventOverviewWidgetComponent extends React.Component {
       <div>
         <TagList
             currentTag={ this.state.currentTag }
-            onChange={ this.onChange }
-            onClick= { this.onClick }
+            setTag={ this.setTag }
             tags={ tags }
           />
         <section className="bg-white">
@@ -127,14 +135,10 @@ class EventOverviewWidgetComponent extends React.Component {
     );
   }
 
-  onChange(e) {
-    this.setState({ currentTag: e.target.value });
-  }
-
-  onClick(e, tag) {
-    e.preventDefault();
-    e.stopPropagation();
-    this.setState({ currentTag: tag });
+  setTag(tag) {
+    this.setState({
+      currentTag: tag,
+    });
   }
 }
 
