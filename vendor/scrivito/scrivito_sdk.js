@@ -2529,7 +2529,7 @@ function keyForBasicContent(content) {
   }
 
   if (content instanceof _basic_widget2.default) {
-    return content.obj.id() + '|' + content.id();
+    return content.obj().id() + '|' + content.id();
   }
 
   var formattedContent = (0, _pretty_print2.default)(content).substr(0, 100);
@@ -3074,9 +3074,18 @@ var BasicWidget = function (_BasicAttributeConten) {
       return this._current._obj_class;
     }
   }, {
+    key: 'obj',
+    value: function obj() {
+      if (this.isPersisted()) {
+        return this._obj;
+      }
+
+      this._throwUnpersistedError();
+    }
+  }, {
     key: 'widget',
     value: function widget(id) {
-      return this.obj.widget(id);
+      return this.obj().widget(id);
     }
   }, {
     key: 'update',
@@ -3086,7 +3095,7 @@ var BasicWidget = function (_BasicAttributeConten) {
       var normalizedAttributes = scrivito.typeInfo.normalizeAttrs(attributes);
 
       (0, _global_state.withBatchedUpdates)(function () {
-        _this2._persistWidgets(_this2.obj, normalizedAttributes);
+        _this2._persistWidgets(_this2.obj(), normalizedAttributes);
         var patch = AttributeSerializer.serialize(normalizedAttributes);
         _this2._updateSelf(patch);
       });
@@ -3094,17 +3103,17 @@ var BasicWidget = function (_BasicAttributeConten) {
   }, {
     key: 'insertBefore',
     value: function insertBefore(widget) {
-      widget.obj.insertWidget(this, { before: widget });
+      widget.obj().insertWidget(this, { before: widget });
     }
   }, {
     key: 'insertAfter',
     value: function insertAfter(widget) {
-      widget.obj.insertWidget(this, { after: widget });
+      widget.obj().insertWidget(this, { after: widget });
     }
   }, {
     key: 'remove',
     value: function remove() {
-      this.obj.removeWidget(this);
+      this.obj().removeWidget(this);
     }
   }, {
     key: 'copy',
@@ -3132,7 +3141,7 @@ var BasicWidget = function (_BasicAttributeConten) {
   }, {
     key: 'finishSaving',
     value: function finishSaving() {
-      return this.obj.finishSaving();
+      return this.obj().finishSaving();
     }
   }, {
     key: 'equals',
@@ -3141,12 +3150,12 @@ var BasicWidget = function (_BasicAttributeConten) {
         return false;
       }
 
-      return this.id() === otherWidget.id() && this.obj.id() === otherWidget.obj.id();
+      return this.id() === otherWidget.id() && this.obj().id() === otherWidget.obj().id();
     }
   }, {
     key: 'containingField',
     value: function containingField() {
-      return this.obj.fieldContainingWidget(this);
+      return this.obj().fieldContainingWidget(this);
     }
   }, {
     key: '_throwUnpersistedError',
@@ -3157,21 +3166,7 @@ var BasicWidget = function (_BasicAttributeConten) {
     key: '_updateSelf',
     value: function _updateSelf(patch) {
       var widgetPoolPatch = { _widgetPool: [_defineProperty({}, this.id(), patch)] };
-      this.obj.update(widgetPoolPatch);
-    }
-  }, {
-    key: 'obj',
-    get: function get() {
-      if (this.isPersisted()) {
-        return this._obj;
-      }
-
-      this._throwUnpersistedError();
-    }
-  }, {
-    key: 'objId',
-    get: function get() {
-      return this.obj.id();
+      this.obj().update(widgetPoolPatch);
     }
   }, {
     key: 'attributesToBeSaved',
@@ -3182,7 +3177,7 @@ var BasicWidget = function (_BasicAttributeConten) {
     key: '_current',
     get: function get() {
       if (this.isPersisted()) {
-        return this.obj.widgetData(this.id());
+        return this.obj().widgetData(this.id());
       }
 
       throw new _errors.ScrivitoError('Can not access an unpersisted widget.');
@@ -6602,11 +6597,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         return _underscore2.default.extend(placement, { container: container, attributeName: attributeName, attributeValue: attributeValue });
       }
     }, {
-      key: 'objId',
-      get: function get() {
-        return this.id();
-      }
-    }, {
       key: '_widgetPool',
       get: function get() {
         return this._current._widget_pool || {};
@@ -7334,21 +7324,21 @@ function WidgetFactory(registry) {
 
 
     _createClass(Widget, [{
-      key: 'copy',
-
+      key: 'obj',
+      value: function obj() {
+        var basicObj = this._scrivitoPrivateContent.obj();
+        return scrivito.wrapInAppClass(registry, basicObj);
+      }
 
       // public API
+
+    }, {
+      key: 'copy',
       value: function copy() {
         var appClass = registry.widgetClassFor(this.objClass());
         var basicWidget = this._scrivitoPrivateContent.copy();
 
         return scrivito.buildAppClassInstance(basicWidget, appClass);
-      }
-    }, {
-      key: 'obj',
-      get: function get() {
-        var basicObj = this._scrivitoPrivateContent.obj;
-        return scrivito.wrapInAppClass(registry, basicObj);
       }
     }]);
 
@@ -10275,7 +10265,7 @@ function printBasicContent(content) {
   if (content instanceof scrivito.BasicObj) {
     return '[object ' + content.objClass() + ' id="' + content.id() + '"]';
   } else if (content instanceof _basic_widget2.default) {
-    var obj = content.obj;
+    var obj = content.obj();
     return '[object ' + content.objClass() + ' id="' + content.id() + '" objId="' + obj.id() + '"]';
   } else if (content instanceof _basic_link2.default) {
     if (content.isInternal()) {
@@ -23817,7 +23807,7 @@ function extractIdsFromContent(basicContent) {
     return { objId: basicContent.id() };
   }
 
-  return { objId: basicContent.obj.id(), widgetId: basicContent.id() };
+  return { objId: basicContent.obj().id(), widgetId: basicContent.id() };
 }
 
 /***/ }),
@@ -27460,7 +27450,7 @@ var BasicField = function () {
       if (container instanceof scrivito.BasicObj) {
         jsonHash.objId = container.id();
       } else {
-        jsonHash.objId = container.obj.id();
+        jsonHash.objId = container.obj().id();
         jsonHash.widgetId = container.id();
       }
 
