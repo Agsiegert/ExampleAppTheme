@@ -1,6 +1,7 @@
 import Event from 'objs/event';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import twoDigitNumber from 'utils/two_digit_number';
+import { take } from 'wu';
 
 const EventOverviewWidget = Scrivito.createWidgetClass({
   name: 'EventOverviewWidget',
@@ -107,13 +108,20 @@ class EventOverviewWidgetComponent extends React.Component {
   }
 
   render() {
-    let events = Scrivito.Obj.where('_objClass', 'equals', 'Event')
-      .order('date', 'asc');
+    let eventsSearch = Scrivito.Obj.where('_objClass', 'equals', 'Event').order('date', 'asc');
     if (this.state.currentTag) {
-      events = events.and('tags', 'equals', this.state.currentTag);
+      eventsSearch = eventsSearch.and('tags', 'equals', this.state.currentTag);
     }
 
     const tags = [...Event.all().facet('tags')].map(facet => facet.name);
+
+    const maxItems = this.props.widget.get('maxItems');
+    let events;
+    if (maxItems) {
+      events = [...take(maxItems, eventsSearch.batchSize(maxItems))];
+    } else {
+      events = [...eventsSearch];
+    }
 
     return (
       <div>
@@ -125,9 +133,8 @@ class EventOverviewWidgetComponent extends React.Component {
         <section className="bg-white">
           <div className="row">
             {
-              [...events].slice(0, this.props.widget.get('maxItems')).map((event, index) => {
-                return <EventItem key={ `${event.id}${index}` } event={ event } />;
-              })
+              events.map((event, index) =>
+                <EventItem key={ `${event.id}${index}` } event={ event } />)
             }
           </div>
         </section>
