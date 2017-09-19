@@ -84,10 +84,11 @@ class EventOverviewWidgetComponent extends React.Component {
     return (
       <div>
         <TagList
-            currentTag={ this.state.currentTag }
-            setTag={ this.setTag }
-            tags={ tags }
-          />
+          showTags={ true }
+          currentTag={ this.state.currentTag }
+          setTag={ this.setTag }
+          tags={ tags }
+        />
         <section className="bg-white">
           <div className="row">
             {

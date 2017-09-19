@@ -1,4 +1,6 @@
-function TagList({ tags, currentTag, setTag }) {
+function TagList({ showTags, tags, currentTag, setTag }) {
+  if (!showTags) { return null; }
+
   const onClick = (e, tag) => {
     e.preventDefault();
     e.stopPropagation();

@@ -1,6 +1,7 @@
 import Lightbox from 'react-images';
 import devicePixelRatio from 'utils/device_pixel_ratio';
 import fullScreenWidthPixels from 'utils/full_screen_width_pixels';
+import TagList from 'components/tag_list';
 
 const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
   name: 'ThumbnailGalleryWidget',
@@ -23,40 +24,6 @@ Scrivito.provideUiConfig(ThumbnailGalleryWidget, {
       description: 'Should the list of tags be shown? Default: no',
     },
   },
-});
-
-const TagButton = Scrivito.React.connect(({ tag, isActive, onClick }) => {
-  const classNames = ['btn', 'btn-default'];
-  if (isActive) { classNames.push('active'); }
-
-  return <button className={ classNames.join(' ') } onClick={ onClick }>{ tag }</button>;
-});
-
-const TagList = Scrivito.React.connect(({ showTags, tags, currentTag, setTag }) => {
-  if (!showTags) { return null; }
-
-  return (
-    <div className="container">
-      <div className="text-center">
-        <TagButton
-          tag="All"
-          isActive={ currentTag === null }
-          onClick={ () => setTag(null) }
-        />
-        {
-          tags.map(tag =>
-            <TagButton
-              key={ tag }
-              tag={ tag }
-              isActive={ currentTag === tag }
-              onClick={ () => setTag(tag) }
-            />
-          )
-        }
-      </div>
-      <br />
-    </div>
-  );
 });
 
 const Thumbnail = Scrivito.React.connect(({ widget, openLightbox, currentTag }) => {
@@ -98,7 +65,7 @@ class ThumbnailGalleryComponent extends React.Component {
     this.state = {
       currentImage: 0,
       lightboxIsOpen: false,
-      currentTag: null,
+      currentTag: '',
     };
 
     this.openLightbox = this.openLightbox.bind(this);
