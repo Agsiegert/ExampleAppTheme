@@ -1440,7 +1440,7 @@ function importContent() {
       'Leipzig',
       'Berlin',
     ];
-    const headlines = [
+    const titles = [
       'Javascript Event for Beginners',
       'Just an Event for Developers',
       'SEO Event for Designers',
@@ -1476,7 +1476,7 @@ function importContent() {
         date: randomPastDate(),
         image: random(eventImages),
         location: locations[i],
-        headline: headlines[i],
+        title: titles[i],
         tags: tags[i],
       });
     }

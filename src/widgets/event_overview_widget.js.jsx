@@ -41,7 +41,7 @@ const EventItem = Scrivito.React.connect(({ event }) => {
           { twoDigitNumber(month) }/{ twoDigitNumber(dayOfMonth) }
         </span>
         <span className="box-topic dark-background">
-          <h3 className="h3">{ event.get('headline') }</h3>
+          <h3 className="h3">{ event.get('title') }</h3>
           <span>
             <i
                 className={ `fa ${event.get('location') ? 'fa-map-marker' : ''} fa-2x` }

@@ -6,7 +6,7 @@ const BaseEvent = Scrivito.createObjClass({
     date: 'date',
     image: 'reference',
     location: 'string',
-    headline: 'string',
+    title: 'string',
     tags: 'stringlist',
   },
 });
@@ -47,9 +47,9 @@ Scrivito.provideUiConfig(Event, {
       title: 'Location',
       description: 'Where is this event located.',
     },
-    headline: {
-      title: 'Headline',
-      description: 'The headline of the event.',
+    title: {
+      title: 'title',
+      description: 'The title of the event.',
     },
     tags: {
       title: 'Tags',
@@ -68,7 +68,7 @@ Scrivito.provideComponent(Event, ({ page }) => {
     <div>
       <section className="bg-white">
         <div className="container">
-          <Scrivito.React.Content tag="h1" className="h2" content={ page } attribute="headline" />
+          <Scrivito.React.Content tag="h1" className="h2" content={ page } attribute="title" />
           <h2 className="h4">
             <i className="fa fa-calendar fa-lg" aria-hidden="true" title="location" />
             { ' ' }
