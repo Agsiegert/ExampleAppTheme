@@ -3,7 +3,7 @@ const ImageWidget = Scrivito.createWidgetClass({
   attributes: {
     image: 'reference',
     cssClass: 'string',
-    centered: ['enum', { validValues: ['yes', 'no'] }],
+    alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
   },
 });
 
@@ -15,9 +15,9 @@ Scrivito.provideUiConfig(ImageWidget, {
       title: 'CSS Class',
       description: 'Optional css class for the img tag',
     },
-    centered: {
-      title: 'Centered',
-      description: 'Should this image be centered?',
+    alignment: {
+      title: 'Alignment',
+      description: 'How should this image be aligned? Default: left',
     },
   },
 });
@@ -29,8 +29,12 @@ Scrivito.provideComponent(ImageWidget, ({ widget }) => {
     className={ widget.get('cssClass') }
   />;
 
-  if (widget.get('centered') === 'yes') {
-    return (<div className="text-center">{ image }</div>);
+  if (['center', 'right'].includes(widget.get('alignment'))) {
+    return (
+      <div className={ `text-${widget.get('alignment')}` }>
+        { image }
+      </div>
+    );
   }
 
   return image;
