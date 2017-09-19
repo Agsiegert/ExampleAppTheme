@@ -19,7 +19,6 @@ const BaseSectionWidget = Scrivito.createWidgetClass({
           'greydark',
           'grey',
           'dark-image',
-          'empty',
         ],
       },
     ],
@@ -66,9 +65,7 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames = [];
 
   const backgroundColor = widget.get('backgroundColor') || 'white';
-  if (widget.get('backgroundColor') !== 'empty') {
-    sectionClassNames.push(`bg-${backgroundColor}`);
-  }
+  sectionClassNames.push(`bg-${backgroundColor}`);
 
   if (widget.get('paddingDisabled') === 'yes') {
     sectionClassNames.push('no-padding');

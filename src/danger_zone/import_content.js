@@ -584,7 +584,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'empty',
+          paddingDisabled: 'yes',
           content: [
             new EventOverviewWidget({
               maxItems: 8,
