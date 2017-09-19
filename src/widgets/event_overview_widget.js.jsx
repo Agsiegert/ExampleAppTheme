@@ -61,8 +61,8 @@ function TagList(props) {
       <div className="container">
         <div className="nav-centered select-icon">
           <ul className="nav nav-pills hidden-xs">
-            <li role="presentation" className={ props.currentTag === 'All' ? 'active' : '' }>
-              <a onClick={ e => props.onClick(e, 'All') } href="#">All</a>
+            <li role="presentation" className={ !props.currentTag ? 'active' : '' }>
+              <a onClick={ e => props.onClick(e, '') } href="#">All</a>
             </li>
             {
               props.tags.map(tag =>
@@ -77,7 +77,7 @@ function TagList(props) {
             }
           </ul>
           <select onChange={ props.onChange } value={ props.currentTag } className="visible-xs">
-            <option value="All">All</option>
+            <option value="">All</option>
             {
               props.tags.map(tag => <option key={ tag } value={ tag }>{ tag }</option>)
             }
@@ -91,7 +91,7 @@ function TagList(props) {
 class EventOverviewWidgetComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentTag: 'All' };
+    this.state = { currentTag: '' };
 
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -100,7 +100,7 @@ class EventOverviewWidgetComponent extends React.Component {
   render() {
     let events = Scrivito.Obj.where('_objClass', 'equals', 'Event')
       .order('date', 'asc');
-    if (this.state.currentTag !== 'All') {
+    if (this.state.currentTag) {
       events = events.and('tags', 'equals', this.state.currentTag);
     }
 
