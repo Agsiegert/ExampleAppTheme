@@ -99,6 +99,7 @@ import unsplashYellowWatchTypingData from './binary_data/unsplash_yellow_watch_t
 const Author = Scrivito.getClass('Author');
 const Blog = Scrivito.getClass('Blog');
 const BlogPost = Scrivito.getClass('BlogPost');
+const Event = Scrivito.getClass('Event');
 const Homepage = Scrivito.getClass('Homepage');
 const Image = Scrivito.getClass('Image');
 const Job = Scrivito.getClass('Job');
@@ -108,6 +109,7 @@ const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
+const EventOverviewWidget = Scrivito.getClass('EventOverviewWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
 const FeaturePanelWidget = Scrivito.getClass('FeaturePanelWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
@@ -579,9 +581,30 @@ function importContent() {
       _permalink: 'events',
       title: 'Events & Conferences',
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Events' }),
-        ] }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashTidyDeskTouchScreen,
+          content: [
+            new HeadlineWidget({
+              headline: 'Upcoming new events',
+              level: 'h1',
+              style: 'h1',
+              centered: 'yes',
+            }),
+            new HeadlineWidget({
+              headline: loremIpsum({ count: 2 }),
+              level: 'h2',
+              style: 'h4',
+              centered: 'yes',
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new EventOverviewWidget({}),
+          ],
+        }),
       ],
     });
     const landingPage = Page.create({
@@ -1407,6 +1430,80 @@ function importContent() {
       null,
       null,
     ];
+
+    const eventImages = [
+      unsplashAllesCandleWoodTable,
+      unsplashAppleWorkstationCalendarIpad,
+      unsplashAppleWorkstationWindcave,
+      unsplashBlackTablesWhiteChairs,
+      unsplashBuildingCornerClouds,
+      unsplashBusinessPaperRedSocks,
+      unsplashBusinessPaperWristwatch,
+      unsplashDeskRuler,
+      unsplashLadyInCoffeeShop,
+      unsplashLaptopKeyboard,
+      unsplashOfficeWindow,
+      unsplashOfficeWithGlass,
+      unsplashOutdoorMeeting,
+      unsplashPlant,
+      unsplashScreenWithClock,
+      unsplashWhiteMeetingRoom,
+    ];
+
+    const locations = [
+      'Berlin',
+      'Berlin',
+      'New York',
+      'Hamburg',
+      'Frankfurt',
+      'Berlin',
+      'New York',
+      'Frankfurt',
+      'Hamburg',
+      'Dresden',
+      'Leipzig',
+      'Berlin',
+    ];
+    const titles = [
+      'Javascript Event for Beginners',
+      'Just an Event for Developers',
+      'SEO Event for Designers',
+      'Meeting Event for Designers',
+      'Design Event for Beginners',
+      'Marketing Event for Developers',
+      'Meeting Event for Managers',
+      'Meeting Event for Everyone',
+      'Meeting Event for Javascript Developers',
+      'Management Event for Beginners',
+      'SEO Event for Beginners',
+      'Meeting Event for Developers',
+    ];
+
+    const tags = [
+      ['Development'],
+      ['Development'],
+      ['Design', 'Marketing'],
+      ['Design'],
+      ['Design'],
+      ['Marketing'],
+      ['Business'],
+      ['Development', 'Design', 'Marketing', 'Business'],
+      ['Development'],
+      ['Management'],
+      ['Marketing'],
+      ['Development'],
+    ];
+
+    // Events
+    for (let i = 0; i < 12; i += 1) {
+      Event.create({
+        date: randomPastDate(),
+        image: random(eventImages),
+        location: locations[i],
+        title: titles[i],
+        tags: tags[i],
+      });
+    }
 
     // BlogPosts
     for (let i = 0; i < 20; i += 1) {

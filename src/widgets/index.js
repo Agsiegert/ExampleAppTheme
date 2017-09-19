@@ -5,6 +5,7 @@ import ButtonWidget from './button_widget';
 import CarouselWidget from './carousel_widget';
 import ColumnWidget from './column_widget';
 import DividerWidget from './divider_widget';
+import EventOverviewWidget from './event_overview_widget';
 import FactWidget from './fact_widget';
 import FeaturePanelWidget from './feature_panel_widget';
 import GalleryWidget from './gallery_widget';
