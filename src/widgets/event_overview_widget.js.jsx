@@ -55,11 +55,11 @@ const EventItem = Scrivito.React.connect(({ event }) => {
   );
 });
 
-function TagList(props) {
+function TagList({ tags, currentTag, setTag }) {
   const onClick = (e, tag) => {
     e.preventDefault();
     e.stopPropagation();
-    props.setTag(tag);
+    setTag(tag);
   };
 
   return (
@@ -67,15 +67,15 @@ function TagList(props) {
       <div className="container">
         <div className="nav-centered select-icon">
           <ul className="nav nav-pills hidden-xs">
-            <li role="presentation" className={ !props.currentTag ? 'active' : '' }>
+            <li role="presentation" className={ !currentTag ? 'active' : '' }>
               <a onClick={ e => onClick(e, '') } href='#'>All</a>
             </li>
             {
-              props.tags.map(tag =>
+              tags.map(tag =>
                 <li
                     role="presentation"
                     key={ tag }
-                    className={ props.currentTag === tag ? 'active' : '' }
+                    className={ currentTag === tag ? 'active' : '' }
                   >
                   <a onClick={ e => onClick(e, tag) } href='#'>{ tag }</a>
                 </li>
@@ -83,13 +83,13 @@ function TagList(props) {
             }
           </ul>
           <select
-            onChange={ e => props.setTag(e.target.value) }
-            value={ props.currentTag }
+            onChange={ e => setTag(e.target.value) }
+            value={ currentTag }
             className="visible-xs"
           >
             <option value="">All</option>
             {
-              props.tags.map(tag => <option key={ tag } value={ tag }>{ tag }</option>)
+              tags.map(tag => <option key={ tag } value={ tag }>{ tag }</option>)
             }
           </select>
         </div>
