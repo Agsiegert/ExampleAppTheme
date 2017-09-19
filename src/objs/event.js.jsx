@@ -1,3 +1,5 @@
+import twoDigitNumber from 'utils/two_digit_number';
+
 const BaseEvent = Scrivito.createObjClass({
   name: 'Event',
   attributes: {
@@ -58,15 +60,24 @@ Scrivito.provideUiConfig(Event, {
 });
 
 Scrivito.provideComponent(Event, ({ page }) => {
+  const month = page.get('date').getMonth() + 1; // getMonth return 0 to 11.
+  const dayOfMonth = page.get('date').getDate(); // getDate returns 1 to 31.
+  const year = page.get('date').getFullYear(); // getFullYear returns values like 1999 or 2017.
+
   return (
     <div>
       <section className="bg-white">
         <div className="container">
           <Scrivito.React.Content tag="h1" className="h2" content={ page } attribute="headline" />
-          <span>
-            <i className="fa fa-map-marker fa-2x" aria-hidden="true" title="location" />
+          <h2 className="h4">
+            <i className="fa fa-calendar fa-lg" aria-hidden="true" title="location" />
+            { ' ' }
+            { twoDigitNumber(month) }/{ twoDigitNumber(dayOfMonth) }/{ year }
+            { ' ' }
+            <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" />
+            { ' ' }
             <Scrivito.React.Content tag="span" content={ page } attribute="location" />
-          </span>
+          </h2>
         </div>
       </section>
     </div>
