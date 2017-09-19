@@ -68,7 +68,9 @@ const FacebookInput = Scrivito.React.connect(({ obj }) =>
     <div className='scrivito_notice_body'>Add a catchy title for the post</div>
     <div className='scrivito_detail_label'><span>Description</span></div>
       <Scrivito.React.Content content={ obj } attribute='ogDescription' className='input'/>
-    <div className='scrivito_notice_body'>What is this post about and why would someone want to read it.</div>
+    <div className='scrivito_notice_body'>
+      What is this post about and why would someone want to read it.
+    </div>
   </div>
 );
 
@@ -81,8 +83,6 @@ const TwitterPreview = Scrivito.React.connect(({ obj }) =>
     <div className='creator'>
       Tweet from: { lookupMetaData(obj, 'twitter:creator') }
     </div>
-
-
 
     <div className='card twitter_card'>
       <div className='seo_card_preview_img'>
