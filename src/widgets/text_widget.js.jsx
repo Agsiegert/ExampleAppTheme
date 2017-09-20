@@ -4,7 +4,7 @@ const BaseTextWidget = Scrivito.createWidgetClass({
   name: 'TextWidget',
   attributes: {
     text: 'html',
-    centered: ['enum', { validValues: ['yes', 'no'] }],
+    alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
   },
 });
 
@@ -20,9 +20,9 @@ Scrivito.provideUiConfig(TextWidget, {
   title: 'Text',
   description: 'A widget with html text.',
   attributes: {
-    centered: {
-      title: 'Centered',
-      description: 'Should this text be centered?',
+    alignment: {
+      title: 'Alignment',
+      description: 'How should this text be aligned? Default: left',
     },
     text: {
       title: 'Text',
@@ -31,13 +31,18 @@ Scrivito.provideUiConfig(TextWidget, {
   },
 });
 
-Scrivito.provideComponent(TextWidget, ({ widget }) =>
-  <Scrivito.React.Content
+Scrivito.provideComponent(TextWidget, ({ widget }) => {
+  const classNames = [];
+  if (widget.get('alignment')) {
+    classNames.push(`text-${widget.get('alignment')}`);
+  }
+
+  return <Scrivito.React.Content
     tag="div"
-    className={ widget.get('centered') === 'yes' && 'text-center' }
+    className={ classNames.join(' ') }
     content={ widget }
     attribute="text"
-    />
-);
+    />;
+});
 
 export default TextWidget;

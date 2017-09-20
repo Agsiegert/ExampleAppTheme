@@ -4,7 +4,7 @@ const BaseHeadlineWidget = Scrivito.createWidgetClass({
     headline: 'string',
     level: ['enum', { validValues: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
     style: ['enum', { validValues: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
-    centered: ['enum', { validValues: ['yes', 'no'] }],
+    alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
     showDividingLine: ['enum', { validValues: ['yes', 'no'] }],
     marginDisabled: ['enum', { validValues: ['yes', 'no'] }],
   },
@@ -30,13 +30,13 @@ Scrivito.provideUiConfig(HeadlineWidget, {
       title: 'Style',
       description: 'The style of the headline (how big it should be)',
     },
-    centered: {
-      title: 'Centered',
-      description: 'Should this headline be centered?',
+    alignment: {
+      title: 'Alignment',
+      description: 'How should this headline be aligned? Default: left',
     },
     showDividingLine: {
       title: 'Show dividing line',
-      description: 'Should this headline show a dividing line?',
+      description: 'Should this headline show a dividing line? Default: left',
     },
     marginDisabled: {
       title: 'Disable Margin?',
@@ -48,11 +48,10 @@ Scrivito.provideUiConfig(HeadlineWidget, {
 
 Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
   const level = widget.get('level') || 'h1';
-
   const style = widget.get('style') || level;
   const classNames = [style];
-  if (widget.get('centered') === 'yes') {
-    classNames.push('text-center');
+  if (widget.get('alignment')) {
+    classNames.push(`text-${widget.get('alignment')}`);
   }
   if (widget.get('showDividingLine') === 'yes') {
     classNames.push('border-bottom');
@@ -62,11 +61,11 @@ Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
   }
 
   return <Scrivito.React.Content
-      tag={ level }
-      content={ widget }
-      attribute="headline"
-      className={ classNames.join(' ') }
-    />;
+    tag={ level }
+    content={ widget }
+    attribute="headline"
+    className={ classNames.join(' ') }
+  />;
 });
 
 export default HeadlineWidget;

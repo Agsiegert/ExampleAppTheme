@@ -2,7 +2,7 @@ const ButtonWidget = Scrivito.createWidgetClass({
   name: 'ButtonWidget',
   attributes: {
     target: 'link',
-    centered: ['enum', { validValues: ['yes', 'no'] }],
+    alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
     style: ['enum', { validValues: ['btn-primary', 'btn-clear'] }],
   },
 });
@@ -15,9 +15,9 @@ Scrivito.provideUiConfig(ButtonWidget, {
       title: 'Target',
       description: 'The target of the button',
     },
-    centered: {
-      title: 'Centered',
-      description: 'Should this button be centered? Default: no',
+    alignment: {
+      title: 'Alignment',
+      description: 'How should this button be aligned? Default: left',
     },
     style: {
       title: 'Style',
@@ -41,9 +41,9 @@ const ButtonWidgetComponent = Scrivito.React.connect(({ widget }) => {
 });
 
 Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
-  if (widget.get('centered') === 'yes') {
+  if (['center', 'right'].includes(widget.get('alignment'))) {
     return (
-      <div className='text-center'>
+      <div className={ `text-${widget.get('alignment')}` }>
         <ButtonWidgetComponent widget={ widget } />
       </div>
     );
