@@ -6,6 +6,7 @@ import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import ipadData from './binary_data/ipad';
 import iphoneData from './binary_data/iphone';
+import iphoneFrontData from './binary_data/iphone_front';
 import logo1Data from './binary_data/logo_1';
 import logo2Data from './binary_data/logo_2';
 import logo3Data from './binary_data/logo_3';
@@ -132,6 +133,9 @@ const TestimonialWidget = Scrivito.getClass('TestimonialWidget');
 const TextWidget = Scrivito.getClass('TextWidget');
 const ThumbnailGalleryImageWidget = Scrivito.getClass('ThumbnailGalleryImageWidget');
 const ThumbnailGalleryWidget = Scrivito.getClass('ThumbnailGalleryWidget');
+const TickListItemWidget = Scrivito.getClass('TickListItemWidget');
+const TickListWidget = Scrivito.getClass('TickListWidget');
+const TopFeaturesWidget = Scrivito.getClass('TopFeaturesWidget');
 
 const UNSPLASH_TAGS = ['source: unsplash.com'];
 const DEFAULT_TAGS = ['Design', 'Development', 'Marketing', 'Business'];
@@ -430,6 +434,7 @@ function importContent() {
       homepage2ScreenshotData, 'Homepage variant 2 screenshot');
     const ipad = uploadImage(ipadData, 'iPad screenshot');
     const iphone = uploadImage(iphoneData, 'iPhone screenshot');
+    const iphoneFront = uploadImage(iphoneFrontData, 'iPhone front screenshot');
 
     // Obj.root()
     const root = Homepage.create({
@@ -1582,8 +1587,284 @@ function importContent() {
       title: 'Homepage variant 2',
       body: [
         new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Homepage variant 2' }),
+          new ColumnWidget({
+            nrOfColumns: '2',
+            verticallyAligned: 'yes',
+            column1: [
+              new HeadlineWidget({
+                level: 'h1',
+                style: 'h2',
+                headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
+              }),
+              new ColumnWidget({
+                nrOfColumns: '2',
+                column1: [
+                  new TickListWidget({
+                    items: [
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                    ],
+                  }),
+                ],
+                column2: [
+                  new TickListWidget({
+                    items: [
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                    ],
+                  }),
+                ],
+              }),
+              new ButtonWidget({
+                target: new Scrivito.Link({
+                  title: 'Call to action',
+                  obj: root,
+                }),
+              }),
+            ],
+            column2: [
+              new ImageWidget({ image: iphone }),
+            ],
+          }),
         ] }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            headline: 'Our top features',
+            level: 'h1',
+            showDividingLine: 'yes',
+            style: 'h2',
+          }),
+          new TopFeaturesWidget({
+            leftColumn: [
+              new HeadlineWidget({
+                headline: 'Amazing features',
+                alignment: 'right',
+                level: 'h3',
+                style: 'h3',
+              }),
+              new TextWidget({
+                alignment: 'right',
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 1,
+                  paragraphLowerBound: 2,
+                  paragraphUpperBound: 2,
+                }),
+              }),
+              new HeadlineWidget({
+                headline: 'Easy to use',
+                alignment: 'right',
+                level: 'h3',
+                style: 'h3',
+              }),
+              new TextWidget({
+                alignment: 'right',
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 1,
+                  paragraphLowerBound: 2,
+                  paragraphUpperBound: 2,
+                }),
+              }),
+            ],
+            image: iphoneFront,
+            rightColumn: [
+              new HeadlineWidget({
+                headline: 'Cool and fresh design',
+                level: 'h3',
+                style: 'h3',
+              }),
+              new TextWidget({
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 1,
+                  paragraphLowerBound: 2,
+                  paragraphUpperBound: 2,
+                }),
+              }),
+              new HeadlineWidget({
+                headline: 'Full responsive',
+                level: 'h3',
+                style: 'h3',
+              }),
+              new TextWidget({
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 1,
+                  paragraphLowerBound: 2,
+                  paragraphUpperBound: 2,
+                }),
+              }),
+            ],
+          }),
+        ] }),
+        new SectionWidget({
+          backgroundColor: 'greywhite',
+          content: [
+            new ColumnWidget({
+              nrOfColumns: '4',
+              column1: [
+                new FactWidget({
+                  value: '134',
+                  key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
+                }),
+              ],
+              column2: [
+                new FactWidget({
+                  value: '43',
+                  key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
+                }),
+              ],
+              column3: [
+                new FactWidget({
+                  value: '13',
+                  key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
+                }),
+              ],
+              column4: [
+                new FactWidget({
+                  value: '65',
+                  key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
+                }),
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            headline: 'Short collection of our awarded work',
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+          }),
+          new HeadlineWidget({
+            alignment: 'center',
+            level: 'h2',
+            style: 'h4',
+            headline: loremIpsum({ count: 3 }),
+          }),
+        ] }),
+        new SectionWidget({
+          useFullWidth: 'yes',
+          paddingDisabled: 'yes',
+          content: [
+            new ThumbnailGalleryWidget({
+              images: [
+                new ThumbnailGalleryImageWidget({
+                  title: 'Project 01',
+                  subtitle: loremIpsum({ units: 'words', count: 5 }),
+                  image: unsplashWhiteMeetingRoom,
+                }),
+                new ThumbnailGalleryImageWidget({
+                  title: 'Project 02',
+                  subtitle: loremIpsum({ units: 'words', count: 5 }),
+                  image: unsplashHandcraft,
+                }),
+                new ThumbnailGalleryImageWidget({
+                  title: 'Project 03',
+                  subtitle: loremIpsum({ units: 'words', count: 5 }),
+                  image: unsplashLaptopKeyboard,
+                }),
+                new ThumbnailGalleryImageWidget({
+                  title: 'Project 04',
+                  subtitle: loremIpsum({ units: 'words', count: 5 }),
+                  image: unsplashDeskRuler,
+                }),
+                new ThumbnailGalleryImageWidget({
+                  title: 'Project 05',
+                  subtitle: loremIpsum({ units: 'words', count: 5 }),
+                  image: unsplashOfficeWithGlass,
+                }),
+                new ThumbnailGalleryImageWidget({
+                  title: 'Project 06',
+                  subtitle: loremIpsum({ units: 'words', count: 5 }),
+                  image: unsplashOfficeWindow,
+                }),
+                new ThumbnailGalleryImageWidget({
+                  title: 'Project 07',
+                  subtitle: loremIpsum({ units: 'words', count: 5 }),
+                  image: unsplashOutdoorMeeting,
+                }),
+                new ThumbnailGalleryImageWidget({
+                  title: 'Project 08',
+                  subtitle: loremIpsum({ units: 'words', count: 5 }),
+                  image: unsplashScreenWithClock,
+                }),
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Great feature overview',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            alignment: 'center',
+            headline: loremIpsum({ count: 2 }),
+          }),
+          new ColumnWidget({
+            nrOfColumns: '3',
+            column1: [
+              createPanelWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
+            ],
+            column2: [
+              createPanelWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
+            ],
+            column3: [
+              createPanelWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+            ],
+          }),
+          new ColumnWidget({
+            nrOfColumns: '3',
+            column1: [
+              createPanelWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
+            ],
+            column2: [
+              createPanelWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
+            ],
+            column3: [
+              createPanelWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+            ],
+          }),
+        ] }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashSilhouetteDancing,
+          content: [
+            new HeadlineWidget({
+              headline: 'We are hiring',
+              alignment: 'center',
+            }),
+            new TextWidget({
+              alignment: 'center',
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 4,
+                paragraphUpperBound: 5,
+              }),
+            }),
+            new ButtonWidget({
+              alignment: 'center',
+              target: new Scrivito.Link({
+                title: 'See full job list',
+                obj: jobs,
+              }),
+            }),
+          ],
+        }),
       ],
     });
     const widgetsAndPages = Page.create({
