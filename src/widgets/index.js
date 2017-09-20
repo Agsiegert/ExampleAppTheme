@@ -28,5 +28,7 @@ import TestimonialWidget from './testimonial_widget';
 import TextWidget from './text_widget';
 import ThumbnailGalleryImageWidget from './thumbnail_gallery_image_widget';
 import ThumbnailGalleryWidget from './thumbnail_gallery_widget';
+import TickListItemWidget from './tick_list_item_widget';
+import TickListWidget from './tick_list_widget';
 import TopFeaturesWidget from './top_features_widget';
 import VideoWidget from './video_widget';
