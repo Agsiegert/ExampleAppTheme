@@ -50,7 +50,7 @@ Scrivito.provideComponent(Blog, ({ page }) =>
 );
 
 const TagList = Scrivito.React.connect(() => {
-  const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name);
+  const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name());
 
   return (
     <section className="bg-nav-content">
