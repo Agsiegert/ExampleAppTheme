@@ -21,6 +21,7 @@ import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
 import unsplashAllesCandleWoodTableData from './binary_data/unsplash_alles_candle_wood_table';
 import unsplashAppleWorkstationCalendarIpadData from './binary_data/unsplash_apple_workstation_calendar_ipad';
 import unsplashAppleWorkstationWindcaveData from './binary_data/unsplash_apple_workstation_windcave';
+import unsplashArchitectureData from './binary_data/unsplash_architecture';
 import unsplashBikelaneData from './binary_data/unsplash_bikelane';
 import unsplashBlackTablesWhiteChairsData from './binary_data/unsplash_black_tables_white_chairs';
 import unsplashBuildingCornerCloudsData from './binary_data/unsplash_building_corner_clouds';
@@ -127,6 +128,7 @@ const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
+const SignUpFormWidget = Scrivito.getClass('SignUpFormWidget');
 const TableRowWidget = Scrivito.getClass('TableRowWidget');
 const TableWidget = Scrivito.getClass('TableWidget');
 const TestimonialSliderWidget = Scrivito.getClass('TestimonialSliderWidget');
@@ -353,6 +355,7 @@ function importContent() {
     const unsplashAllesCandleWoodTable = uploadImage(unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
     const unsplashAppleWorkstationCalendarIpad = uploadImage(unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
     const unsplashAppleWorkstationWindcave = uploadImage(unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
+    const unsplashArchitecture = uploadImage(unsplashArchitectureData, 'Architecture', UNSPLASH_TAGS);
     const unsplashBikelane = uploadImage(unsplashBikelaneData, 'Bikelane', UNSPLASH_TAGS);
     const unsplashBlackTablesWhiteChairs = uploadImage(unsplashBlackTablesWhiteChairsData, 'Black tables with white chairs', UNSPLASH_TAGS);
     const unsplashBuildingCornerClouds = uploadImage(unsplashBuildingCornerCloudsData, 'Building corner with clouds', UNSPLASH_TAGS);
@@ -1592,10 +1595,162 @@ function importContent() {
     const homeV1 = Page.create({
       _path: '/widgets_and_pages/home_v1',
       title: 'Homepage variant 1',
+      navigationBackgroundImage: unsplashArchitecture,
+      navigationStyle: 'transparentDark full-height',
+      navigationSection: [
+        new ColumnWidget({
+          nrOfColumns: '2',
+          verticallyAligned: 'yes',
+          column1: [
+            new HeadlineWidget({
+              headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 3,
+                paragraphUpperBound: 5,
+              }),
+            }),
+            new ButtonWidget({
+              target: new Scrivito.Link({
+                title: 'Call to action',
+                obj: root,
+              }),
+            }),
+          ],
+          column2: [
+            new SignUpFormWidget({
+              title: 'Sign up to Scrivito',
+              buttonText: 'Sign up to Scrivito now',
+            }),
+          ],
+        }),
+      ],
       body: [
         new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Homepage variant 1' }),
+          new HeadlineWidget({
+            headline: 'Our top features',
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+          }),
+          new ColumnWidget({
+            nrOfColumns: '2',
+            verticallyAligned: 'yes',
+            column1: [new ImageWidget({ image: unsplashLaptopKeyboard })],
+            column2: [
+              new HeadlineWidget({
+                level: 'h3',
+                style: 'h2',
+                headline: 'Content Management for Professionals',
+              }),
+              new TextWidget({
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 1,
+                  paragraphLowerBound: 3,
+                  paragraphUpperBound: 5,
+                }),
+              }),
+              new ButtonWidget({
+                target: new Scrivito.Link({
+                  title: 'Call to action',
+                  obj: root,
+                }),
+              }),
+            ],
+          }),
+          new ColumnWidget({
+            nrOfColumns: '2',
+            verticallyAligned: 'yes',
+            column1: [
+              new HeadlineWidget({
+                level: 'h3',
+                style: 'h2',
+                headline: 'Content Management for Professionals',
+              }),
+              new TextWidget({
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 1,
+                  paragraphLowerBound: 3,
+                  paragraphUpperBound: 5,
+                }),
+              }),
+              new ButtonWidget({
+                target: new Scrivito.Link({
+                  title: 'Call to action',
+                  obj: root,
+                }),
+              }),
+            ],
+            column2: [new ImageWidget({ image: unsplashDeskRuler })],
+          }),
         ] }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Great feature overview',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            alignment: 'center',
+            headline: loremIpsum({ count: 2 }),
+          }),
+          new ColumnWidget({
+            nrOfColumns: '3',
+            column1: [
+              createPanelWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
+            ],
+            column2: [
+              createPanelWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
+            ],
+            column3: [
+              createPanelWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+            ],
+          }),
+          new ColumnWidget({
+            nrOfColumns: '3',
+            column1: [
+              createPanelWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
+            ],
+            column2: [
+              createPanelWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
+            ],
+            column3: [
+              createPanelWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+            ],
+          }),
+        ] }),
+        // TODO: Video
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h1',
+              style: 'h2',
+              showDividingLine: 'yes',
+              headline: 'Our latest blog news',
+            }),
+            new BlogOverviewWidget({
+              maxItems: 5,
+            }),
+            new ButtonWidget({
+              alignment: 'center',
+              target: new Scrivito.Link({
+                title: 'Load all blog entries',
+                obj: blog,
+              }),
+            }),
+          ],
+        }),
       ],
     });
     const homeV2 = Page.create({
