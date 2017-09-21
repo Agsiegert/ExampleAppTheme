@@ -2,8 +2,14 @@ const defaultPageAttributes = {
   body: ['widgetlist', { only: 'SectionWidget' }],
   navigationBackgroundImage: 'reference',
   navigationSection: 'widgetlist',
-  navigationStyle: ['enum',
-    { validValues: ['solidWhite', 'transparentDark full-height', 'transparentDark min-height'] }],
+  navigationStyle: ['enum', {
+    validValues: [
+      'solidWhite',
+      'transparentDark full-height',
+      'transparentDark full-height gradient',
+      'transparentDark min-height',
+    ],
+  }],
   title: 'string',
 };
 
@@ -32,10 +38,13 @@ function defaultNavigationOptions(obj) {
 
   const backgroundImage = obj.get('navigationBackgroundImage') || null;
 
+  const useGradient = navStyle.includes('gradient');
+
   return {
     navigationStyle,
     backgroundImage,
     heigthClassName,
+    useGradient,
   };
 }
 

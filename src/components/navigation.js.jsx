@@ -47,6 +47,7 @@ class Navigation extends React.Component {
       navigationStyle,
       backgroundImage,
       heigthClassName,
+      useGradient,
     } = currentPageNavigationOptions();
 
     const topSectionClassNames = ['navbar-fixed'];
@@ -73,11 +74,20 @@ class Navigation extends React.Component {
     if (navigationStyle === 'transparentDark') {
       if (backgroundImage) {
         const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
-        topSectionStyle.background = 'no-repeat center / cover';
-        topSectionStyle.backgroundImage = [
-          'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))',
-          `url(${backgroundUrl})`,
-        ].join(', ');
+        if (useGradient) {
+          topSectionStyle.background = 'no-repeat bottom / cover';
+          topSectionStyle.backgroundImage = [
+            'radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%, rgba(61,65,66,1) 90%)',
+            'linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)',
+            `url(${backgroundUrl})`,
+          ].join(', ');
+        } else {
+          topSectionStyle.background = 'no-repeat center / cover';
+          topSectionStyle.backgroundImage = [
+            'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))',
+            `url(${backgroundUrl})`,
+          ].join(', ');
+        }
       }
       if (heigthClassName) {
         topSectionClassNames.push(heigthClassName);
@@ -117,6 +127,7 @@ function currentPageNavigationOptions() {
     navigationStyle: 'solidWhite',
     backgroundImage: null,
     heigthClassName: null,
+    useGradient: false,
   };
 }
 

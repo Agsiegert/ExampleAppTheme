@@ -3,7 +3,7 @@ function NavigationSection() {
   const obj = Scrivito.currentPage();
 
   if (!obj.get('navigationSection') || !obj.get('navigationStyle')) { return null; }
-  if (obj.get('navigationStyle') !== 'transparentDark full-height') { return null; }
+  if (!obj.get('navigationStyle').includes('full-height')) { return null; }
 
   return <Scrivito.React.Content
       tag="div"
