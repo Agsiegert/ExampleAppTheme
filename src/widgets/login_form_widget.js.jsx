@@ -18,7 +18,7 @@ Scrivito.provideComponent(LoginFormWidget, () =>
         <input
             className="form-control input-lg"
             id="loginUsername"
-            placeholder="username"
+            placeholder="Username"
             type="text"
           />
       </div>
