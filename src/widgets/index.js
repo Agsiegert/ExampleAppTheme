@@ -15,7 +15,7 @@ import IconListWidget from './icon_list_widget';
 import IconWidget from './icon_widget';
 import ImageWidget from './image_widget';
 import JobPreviewWidget from './job_preview_widget';
-import LoginWidget from './login_widget';
+import LoginFormWidget from './login_form_widget';
 import PageListWidget from './page_list_widget';
 import PanelWidget from './panel_widget';
 import PricingSpecWidget from './pricing_spec_widget';

@@ -1,15 +1,15 @@
-const LoginWidget = Scrivito.createWidgetClass({
-  name: 'LoginWidget',
+const LoginFormWidget = Scrivito.createWidgetClass({
+  name: 'LoginFormWidget',
 });
 
-Scrivito.registerClass('LoginWidget', LoginWidget);
+Scrivito.registerClass('LoginFormWidget', LoginFormWidget);
 
-Scrivito.provideUiConfig(LoginWidget, {
-  title: 'Login',
+Scrivito.provideUiConfig(LoginFormWidget, {
+  title: 'Login Form',
   description: 'A widget with login form.',
 });
 
-Scrivito.provideComponent(LoginWidget, () =>
+Scrivito.provideComponent(LoginFormWidget, () =>
   <div className="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
     <div className="box-login floating-label">
       <h1 className="h3 text-center">Login</h1>
@@ -48,4 +48,4 @@ Scrivito.provideComponent(LoginWidget, () =>
   </div>
 );
 
-export default LoginWidget;
+export default LoginFormWidget;
