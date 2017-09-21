@@ -14,21 +14,21 @@ Scrivito.provideComponent(LoginFormWidget, () =>
     <div className="box-login floating-label">
       <h1 className="h3 text-center">Login</h1>
       <div className="form-group">
-        <label>Your username</label>
+        <label htmlFor="loginUsername">Your username</label>
         <input
             className="form-control input-lg"
-            id="exampleInputName1"
+            id="loginUsername"
             placeholder="username"
             type="text"
           />
       </div>
       <div className="form-group">
-        <label>Your email</label>
+        <label htmlFor="loginPassword">Your password</label>
         <input
             className="form-control input-lg"
-            id="exampleInputEmail1"
-            placeholder="email"
-            type="email"
+            id="loginPassword"
+            placeholder="Password"
+            type="password"
           />
       </div>
       <div className="checkbox">
