@@ -56,7 +56,7 @@ Scrivito.provideUiConfig(PricingWidget, {
 });
 
 function PlanButton({ target, className }) {
-  const text = target && target.title;
+  const text = target && target.title();
 
   return (
     <Scrivito.React.Link to={ target } className={ `btn ${className}` }>

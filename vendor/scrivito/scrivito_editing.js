@@ -68,634 +68,7 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 1178:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(228);
-
-/***/ }),
-
-/***/ 125:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _jquery = __webpack_require__(41);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function applyPlaceholderToElement(domNode) {
-  var $cmsField = (0, _jquery2.default)(domNode);
-  if ($cmsField.not('[data-scrivito-editors-placeholder]')) {
-    $cmsField.attr('data-scrivito-editors-placeholder', 'Click to edit');
-  }
-}
-
-exports.default = applyPlaceholderToElement;
-
-/***/ }),
-
-/***/ 126:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = __webpack_require__(41);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var ControllerContentProxy = function () {
-  function ControllerContentProxy(domNode, controller) {
-    _classCallCheck(this, ControllerContentProxy);
-
-    this.domNode = domNode;
-    this.controller = controller;
-  }
-
-  _createClass(ControllerContentProxy, [{
-    key: 'content',
-    value: function content() {
-      return this.controller.content;
-    }
-  }, {
-    key: 'idFromPath',
-    value: function idFromPath(path) {
-      if (path.match(/^objid:/)) {
-        return path.replace(/^objid:/, '');
-      }
-    }
-  }, {
-    key: 'edQuery',
-    value: function edQuery() {
-      return _jquery2.default.apply(undefined, arguments);
-    }
-  }, {
-    key: 'jQueryElement',
-    value: function jQueryElement() {
-      return this.edQuery(this.domNode);
-    }
-  }, {
-    key: 'pathForId',
-    value: function pathForId(id) {
-      return 'objid:' + id;
-    }
-  }, {
-    key: 'save',
-    value: function save(content) {
-      this.controller.content = content;
-      var promise = { done: function done(callback) {
-          callback();return promise;
-        } };
-      return promise;
-    }
-  }, {
-    key: 'trigger',
-    value: function trigger() {
-      // ignore
-    }
-  }]);
-
-  return ControllerContentProxy;
-}();
-
-exports.default = ControllerContentProxy;
-
-/***/ }),
-
-/***/ 228:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(275);
-
-/***/ }),
-
-/***/ 262:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = __webpack_require__(41);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _controller_content_proxy = __webpack_require__(126);
-
-var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
-
-var _apply_placeholder_to_element = __webpack_require__(125);
-
-var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
-
-var _medium_editor = __webpack_require__(279);
-
-var _medium_editor2 = _interopRequireDefault(_medium_editor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var HtmlEditor = function () {
-  _createClass(HtmlEditor, null, [{
-    key: 'canEdit',
-    value: function canEdit(_ref) {
-      var type = _ref.type;
-
-      return type === 'html';
-    }
-  }]);
-
-  function HtmlEditor(_ref2) {
-    var controller = _ref2.controller;
-
-    _classCallCheck(this, HtmlEditor);
-
-    this.controller = controller;
-  }
-
-  _createClass(HtmlEditor, [{
-    key: 'editorWillBeActivated',
-    value: function editorWillBeActivated() {
-      this.controller.setDomMode('Replace');
-    }
-  }, {
-    key: 'editorDomWasMounted',
-    value: function editorDomWasMounted(domNode) {
-      (0, _apply_placeholder_to_element2.default)(domNode);
-      (0, _jquery2.default)(domNode).html(this.controller.content);
-      var editorProxy = new _controller_content_proxy2.default(domNode, this.controller);
-      (0, _medium_editor2.default)(editorProxy);
-    }
-  }]);
-
-  return HtmlEditor;
-}();
-
-exports.default = HtmlEditor;
-
-/***/ }),
-
-/***/ 263:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _controller_content_proxy = __webpack_require__(126);
-
-var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
-
-var _apply_placeholder_to_element = __webpack_require__(125);
-
-var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
-
-var _string_editor = __webpack_require__(280);
-
-var _string_editor2 = _interopRequireDefault(_string_editor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StringEditor = function () {
-  _createClass(StringEditor, null, [{
-    key: 'canEdit',
-    value: function canEdit(_ref) {
-      var type = _ref.type;
-
-      return type === 'string';
-    }
-  }]);
-
-  function StringEditor(_ref2) {
-    var attributeInfo = _ref2.attributeInfo,
-        controller = _ref2.controller;
-
-    _classCallCheck(this, StringEditor);
-
-    this.attributeInfo = attributeInfo;
-    this.controller = controller;
-  }
-
-  _createClass(StringEditor, [{
-    key: 'editorWillBeActivated',
-    value: function editorWillBeActivated() {
-      this.controller.setDomMode('Replace');
-    }
-  }, {
-    key: 'editorDomWasMounted',
-    value: function editorDomWasMounted(domNode) {
-      (0, _apply_placeholder_to_element2.default)(domNode);
-      var proxy = new _controller_content_proxy2.default(domNode, this.controller);
-      proxy.edQuery(domNode).text(this.controller.content);
-      (0, _string_editor2.default)(proxy);
-    }
-  }]);
-
-  return StringEditor;
-}();
-
-exports.default = StringEditor;
-
-/***/ }),
-
-/***/ 274:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var ReferenceEditor = function () {
-  _createClass(ReferenceEditor, null, [{
-    key: 'canEdit',
-    value: function canEdit(_ref) {
-      var type = _ref.type;
-
-      return type === 'reference';
-    }
-  }]);
-
-  function ReferenceEditor(_ref2) {
-    var controller = _ref2.controller;
-
-    _classCallCheck(this, ReferenceEditor);
-
-    this._controller = controller;
-  }
-
-  _createClass(ReferenceEditor, [{
-    key: 'onClick',
-    value: function onClick() {
-      var _this = this;
-
-      Scrivito.openContentBrowser({
-        selection: this._currentSelection(),
-        selectionMode: 'single'
-      }).then(function (ids) {
-        return _this._saveContentBrowserSelection(ids);
-      });
-    }
-  }, {
-    key: '_currentSelection',
-    value: function _currentSelection() {
-      return this._controller.content ? [this._controller.content.id()] : [];
-    }
-  }, {
-    key: '_saveContentBrowserSelection',
-    value: function _saveContentBrowserSelection(ids) {
-      this._controller.content = ids[0] || null;
-    }
-  }]);
-
-  return ReferenceEditor;
-}();
-
-exports.default = ReferenceEditor;
-
-/***/ }),
-
-/***/ 275:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _html_editor = __webpack_require__(262);
-
-var _html_editor2 = _interopRequireDefault(_html_editor);
-
-var _reference_editor = __webpack_require__(274);
-
-var _reference_editor2 = _interopRequireDefault(_reference_editor);
-
-var _string_editor = __webpack_require__(263);
-
-var _string_editor2 = _interopRequireDefault(_string_editor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-scrivito.registerEditor(_html_editor2.default);
-scrivito.registerEditor(_reference_editor2.default);
-scrivito.registerEditor(_string_editor2.default);
-
-/***/ }),
-
-/***/ 279:
-/***/ (function(module, exports, __webpack_require__) {
-
-var MediumButton, MediumEditor, ScrivitoAnchor, activateMediumEditorWithProxy, buttonsOption, defaultOptions;
-
-MediumEditor = __webpack_require__(301);
-
-MediumButton = __webpack_require__(300);
-
-ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
-  name: 'scrivito_anchor',
-  proxy: null,
-  contentDefault: '<i class="scrivito_customer_icon sci_link"></i>',
-  init: function() {
-    var _ref;
-    MediumEditor.extensions.anchor.prototype.init.apply(this, arguments);
-    return this.targetCheckbox = (_ref = this.getEditorOption('anchor')) != null ? _ref.targetCheckbox : void 0;
-  },
-  handleClick: function(event) {
-    var href, linkElement, selectedParent, selectionRange, target;
-    event.preventDefault();
-    event.stopPropagation();
-    if (!this.isDisplayed()) {
-      selectionRange = MediumEditor.selection.getSelectionRange(this.document);
-      selectedParent = MediumEditor.selection.getSelectedParentElement(selectionRange);
-      linkElement = MediumEditor.util.getClosestTag(selectedParent, 'a');
-      href = target = null;
-      if (linkElement) {
-        linkElement = this.proxy.edQuery(linkElement);
-        href = linkElement.attr('href') || null;
-        target = linkElement.attr('target') || null;
-      }
-      this.showForm({
-        value: href,
-        target: target
-      });
-    }
-    return false;
-  },
-  getTemplate: function() {
-    var targetCheckboxTemplate;
-    targetCheckboxTemplate = "";
-    if (this.targetCheckbox) {
-      targetCheckboxTemplate = "<div class='medium-editor-toolbar-form-row medium-editor-toolbar-anchor-target-toggle'>\n  <label>\n    <input type='checkbox' class='medium-editor-toolbar-anchor-target'>\n    <i class='scrivito_customer_icon sci_inv_check'></i>\n    <i class='scrivito_customer_icon sci_rounded_square'></i>\n    " + this.targetCheckboxText + "\n  </label>\n</div>";
-    }
-    return ("<i class='medium-editor-toolbar-browse scrivito_customer_icon sci_collection'></i>\n<input type='text' class='medium-editor-toolbar-input' placeholder='" + this.placeholderText + "'>\n<i class='medium-editor-toolbar-save scrivito_customer_icon sci_check'></i>\n<i class='medium-editor-toolbar-close scrivito_customer_icon sci_cross'></i>\n" + targetCheckboxTemplate).replace(/\n\s*/g, "");
-  },
-  attachFormEvents: function(form) {
-    var input;
-    MediumEditor.extensions.anchor.prototype.attachFormEvents.call(this, form);
-    form = this.proxy.edQuery(form);
-    input = form.find('.medium-editor-toolbar-input');
-    return form.find('.medium-editor-toolbar-browse').on('click', (function(_this) {
-      return function() {
-        var cmsField, id, selection;
-        selection = (id = _this.proxy.idFromPath(input.val())) ? [id] : [];
-        cmsField = _this.proxy.edQuery(_this.base.origElements);
-        Scrivito.openContentBrowser({
-          filters: cmsField.data('scrivitoEditorsFilter'),
-          filterContext: cmsField.data('scrivitoEditorsFilterContext'),
-          selection: selection,
-          selectionMode: 'single'
-        })["catch"](function(e) {
-          input.focus();
-          throw e;
-        }).then(function(selection) {
-          input.focus();
-          if (selection.length) {
-            return input.val(_this.proxy.pathForId(selection[0]));
-          } else {
-            return input.val('');
-          }
-        });
-        return false;
-      };
-    })(this));
-  },
-  completeFormSave: function(opts) {
-    this.base.restoreSelection();
-    if (opts.value) {
-      this.execAction(this.action, opts);
-    } else {
-      this.execAction('unlink');
-    }
-    return this.base.checkSelection();
-  }
-});
-
-buttonsOption = function() {
-  var buttons, _ref, _ref1;
-  buttons = ['bold', 'italic', 'scrivito_anchor', 'h2', 'h3', 'unorderedlist', 'orderedlist'];
-  if ((_ref = Scrivito.Editors) != null ? (_ref1 = _ref._config) != null ? _ref1.showHtmlEditorCodeButton : void 0 : void 0) {
-    buttons.splice(2, 0, 'scrivito_code');
-  }
-  return buttons;
-};
-
-defaultOptions = function() {
-  return {
-    anchorPreview: false,
-    extensions: {
-      scrivito_anchor: new ScrivitoAnchor,
-      scrivito_code: new MediumButton({
-        label: '<i class="scrivito_customer_icon sci_code"></i>',
-        start: '<code>',
-        end: '</code>'
-      }),
-      imageDragging: {}
-    },
-    placeholder: false,
-    toolbar: {
-      buttons: buttonsOption(),
-      standardizeSelectionStart: true
-    }
-  };
-};
-
-activateMediumEditorWithProxy = function(proxy) {
-  var cmsField, mediumEditor, options, _ref;
-  cmsField = proxy.jQueryElement();
-  options = defaultOptions();
-  if ((_ref = options.extensions.scrivito_anchor) != null) {
-    _ref.proxy = proxy;
-  }
-  return mediumEditor = new MediumEditor(cmsField, options).subscribe('editableInput', function() {
-    return proxy.save(cmsField.html());
-  });
-};
-
-module.exports = activateMediumEditorWithProxy;
-
-
-/***/ }),
-
-/***/ 280:
-/***/ (function(module, exports) {
-
-var DOUBLE_CLICK_MS, activateStringEditorWithProxy, cleanUp, cmsFieldAndPastedContent, finishEditing, getCurrentContent, isNewlineAllowed, onBlur, onFocus, onInput, onKey, prepareForEditing, save;
-
-onKey = function(event, proxy) {
-  var cmsField, key;
-  cmsField = proxy.jQueryElement();
-  key = event.keyCode || event.which;
-  switch (key) {
-    case 13:
-      if (!isNewlineAllowed(cmsField)) {
-        event.preventDefault();
-        return cmsField.blur();
-      }
-      break;
-    case 27:
-      event.stopPropagation();
-      return cmsField.blur();
-  }
-};
-
-onInput = function(proxy) {
-  return save(proxy);
-};
-
-onFocus = function(proxy) {
-  return prepareForEditing(proxy.jQueryElement());
-};
-
-onBlur = function(proxy) {
-  save(proxy).done(function() {
-    return proxy.trigger('scrivito_editors:blur');
-  });
-  finishEditing(proxy);
-  return prepareForEditing(proxy.jQueryElement());
-};
-
-save = function(proxy) {
-  var content;
-  content = getCurrentContent(proxy.jQueryElement());
-  return proxy.save(content).done(function() {
-    return proxy.trigger('scrivito_editors:save');
-  });
-};
-
-getCurrentContent = function(cmsField) {
-  cleanUp(cmsField);
-  return cmsField[0].innerText.replace(/\r\n/g, '\n').replace(/\n$/, '');
-};
-
-cleanUp = function(cmsField) {
-  var pasted, siblings;
-  siblings = cmsFieldAndPastedContent(cmsField);
-  pasted = siblings.not(cmsField);
-  if (pasted.length > 0) {
-    pasted.remove();
-    return cmsField.text(siblings.text());
-  }
-};
-
-cmsFieldAndPastedContent = function(cmsField) {
-  var needsReset, siblings, siblingsBefore;
-  siblingsBefore = cmsField.data('scrivito_editors_siblings_before_edit');
-  siblings = cmsField.siblings();
-  needsReset = !siblingsBefore || siblings.filter(siblingsBefore).length < siblingsBefore.length;
-  if (needsReset) {
-    return cmsField.data('scrivito_editors_siblings_before_edit', siblings);
-  } else {
-    return cmsField.siblings().addBack().not(siblingsBefore);
-  }
-};
-
-isNewlineAllowed = function(cmsField) {
-  if (cmsField.data('scrivitoEditorsMultiline') === true) {
-    return true;
-  }
-  if (cmsField.data('scrivitoEditorsMultiline') === false) {
-    return false;
-  }
-  return cmsField.css('white-space').match(/pre/);
-};
-
-prepareForEditing = function(cmsField) {
-  var html, htmlNl2Br;
-  if (isNewlineAllowed(cmsField) && !cmsField.data('scrivito_editors_prepared_for_editing')) {
-    cmsField.data('scrivito_editors_prepared_for_editing', true);
-    html = cmsField.html();
-    htmlNl2Br = html.replace(/\r?\n/g, '<br />');
-    if (html !== htmlNl2Br) {
-      return cmsField.html(htmlNl2Br);
-    }
-  }
-};
-
-finishEditing = function(proxy) {
-  var cmsField;
-  cmsField = proxy.jQueryElement();
-  cmsField.data('scrivito_editors_prepared_for_editing', false);
-  return cmsField.text(proxy.content());
-};
-
-DOUBLE_CLICK_MS = 300;
-
-activateStringEditorWithProxy = function(proxy) {
-  var cmsField;
-  cmsField = proxy.jQueryElement();
-  cmsField.attr('contenteditable', true).blur(function() {
-    return onBlur(proxy);
-  }).focus(function() {
-    return onFocus(proxy);
-  }).keypress(function(event) {
-    return onKey(event, proxy);
-  }).keyup(function(event) {
-    return onKey(event, proxy);
-  });
-  if (cmsField.attr('data-scrivito-editors-autosave') !== 'false') {
-    cmsField.on('cut input keypress keyup paste', function() {
-      return onInput(proxy);
-    });
-  }
-  prepareForEditing(cmsField);
-  return cmsField.on('click', function(event) {
-    cmsField.attr('contenteditable', true);
-    cleanUp(cmsField);
-    if (!(event.timeStamp - cmsField.data('scrivito_editors_last_click') < DOUBLE_CLICK_MS)) {
-      event.preventDefault();
-    }
-    return cmsField.data('scrivito_editors_last_click', event.timeStamp);
-  });
-};
-
-module.exports = activateStringEditorWithProxy;
-
-
-/***/ }),
-
-/***/ 300:
+/***/ 1034:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -834,7 +207,7 @@ if (true) {
 
 /***/ }),
 
-/***/ 301:
+/***/ 1035:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var __WEBPACK_AMD_DEFINE_RESULT__;/*global self, document, DOMException */
@@ -1384,6 +757,9 @@ MediumEditor.extensions = {};
             Util.moveTextRangeIntoElement(textNodes[0], textNodes[textNodes.length - 1], anchor);
             anchor.setAttribute('href', href);
             if (target) {
+                if (target === '_blank') {
+                    anchor.setAttribute('rel', 'noopener noreferrer');
+                }
                 anchor.setAttribute('target', target);
             }
             return anchor;
@@ -1829,12 +1205,14 @@ MediumEditor.extensions = {};
             var i, url = anchorUrl || false;
             if (el.nodeName.toLowerCase() === 'a') {
                 el.target = '_blank';
+                el.rel = 'noopener noreferrer';
             } else {
                 el = el.getElementsByTagName('a');
 
                 for (i = 0; i < el.length; i += 1) {
                     if (false === url || url === el[i].attributes.href.value) {
                         el[i].target = '_blank';
+                        el[i].rel = 'noopener noreferrer';
                     }
                 }
             }
@@ -1848,12 +1226,14 @@ MediumEditor.extensions = {};
             var i;
             if (el.nodeName.toLowerCase() === 'a') {
                 el.removeAttribute('target');
+                el.removeAttribute('rel');
             } else {
                 el = el.getElementsByTagName('a');
 
                 for (i = 0; i < el.length; i += 1) {
                     if (anchorUrl === el[i].attributes.href.value) {
                         el[i].removeAttribute('target');
+                        el[i].removeAttribute('rel');
                     }
                 }
             }
@@ -4604,8 +3984,8 @@ MediumEditor.extensions = {};
                 // figure out how to deprecate? also consider `fa-` icon default implcations.
                 template.push(
                     '<div class="medium-editor-toolbar-form-row">',
-                    '<input type="checkbox" class="medium-editor-toolbar-anchor-target">',
-                    '<label>',
+                    '<input type="checkbox" class="medium-editor-toolbar-anchor-target" id="medium-editor-toolbar-anchor-target-field-' + this.getEditorId() + '">',
+                    '<label for="medium-editor-toolbar-anchor-target-field-' + this.getEditorId() + '">',
                     this.targetCheckboxText,
                     '</label>',
                     '</div>'
@@ -6270,8 +5650,10 @@ MediumEditor.extensions = {};
                 // on empty line, rects is empty so we grab information from the first container of the range
                 if (rects.length) {
                     top += rects[0].top;
-                } else {
+                } else if (range.startContainer.getBoundingClientRect !== undefined) {
                     top += range.startContainer.getBoundingClientRect().top;
+                } else {
+                    top += range.getBoundingClientRect().top;
                 }
             }
 
@@ -8709,17 +8091,319 @@ MediumEditor.parseVersionString = function (release) {
 
 MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
     // grunt-bump looks for this:
-    'version': '5.23.0'
+    'version': '5.23.2'
 }).version);
 
     return MediumEditor;
 }()));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(42)))
 
 /***/ }),
 
-/***/ 41:
+/***/ 1178:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(548);
+
+/***/ }),
+
+/***/ 318:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = __webpack_require__(44);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function applyPlaceholderToElement(domNode) {
+  var $cmsField = (0, _jquery2.default)(domNode);
+  if ($cmsField.not('[data-scrivito-editors-placeholder]')) {
+    $cmsField.attr('data-scrivito-editors-placeholder', 'Click to edit');
+  }
+}
+
+exports.default = applyPlaceholderToElement;
+
+/***/ }),
+
+/***/ 319:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(44);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ControllerContentProxy = function () {
+  function ControllerContentProxy(domNode, controller) {
+    _classCallCheck(this, ControllerContentProxy);
+
+    this.domNode = domNode;
+    this.controller = controller;
+  }
+
+  _createClass(ControllerContentProxy, [{
+    key: 'content',
+    value: function content() {
+      return this.controller.content;
+    }
+  }, {
+    key: 'idFromPath',
+    value: function idFromPath(path) {
+      if (path.match(/^objid:/)) {
+        return path.replace(/^objid:/, '');
+      }
+    }
+  }, {
+    key: 'edQuery',
+    value: function edQuery() {
+      return _jquery2.default.apply(undefined, arguments);
+    }
+  }, {
+    key: 'jQueryElement',
+    value: function jQueryElement() {
+      return this.edQuery(this.domNode);
+    }
+  }, {
+    key: 'pathForId',
+    value: function pathForId(id) {
+      return 'objid:' + id;
+    }
+  }, {
+    key: 'save',
+    value: function save(content) {
+      this.controller.content = content;
+      var promise = { done: function done(callback) {
+          callback();return promise;
+        } };
+      return promise;
+    }
+  }, {
+    key: 'trigger',
+    value: function trigger() {
+      // ignore
+    }
+  }]);
+
+  return ControllerContentProxy;
+}();
+
+exports.default = ControllerContentProxy;
+
+/***/ }),
+
+/***/ 42:
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ 44:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -19043,189 +18727,517 @@ return jQuery;
 
 /***/ }),
 
-/***/ 44:
+/***/ 548:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(770);
+
+/***/ }),
+
+/***/ 571:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(44);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _controller_content_proxy = __webpack_require__(319);
+
+var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
+
+var _apply_placeholder_to_element = __webpack_require__(318);
+
+var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
+
+var _medium_editor = __webpack_require__(833);
+
+var _medium_editor2 = _interopRequireDefault(_medium_editor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var HtmlEditor = function () {
+  _createClass(HtmlEditor, null, [{
+    key: 'canEdit',
+    value: function canEdit(_ref) {
+      var type = _ref.type;
+
+      return type === 'html';
+    }
+  }]);
+
+  function HtmlEditor(_ref2) {
+    var controller = _ref2.controller;
+
+    _classCallCheck(this, HtmlEditor);
+
+    this.controller = controller;
+  }
+
+  _createClass(HtmlEditor, [{
+    key: 'editorWillBeActivated',
+    value: function editorWillBeActivated() {
+      this.controller.setDomMode('Replace');
+    }
+  }, {
+    key: 'editorDomWasMounted',
+    value: function editorDomWasMounted(domNode) {
+      (0, _apply_placeholder_to_element2.default)(domNode);
+      (0, _jquery2.default)(domNode).html(this.controller.content);
+      var editorProxy = new _controller_content_proxy2.default(domNode, this.controller);
+      (0, _medium_editor2.default)(editorProxy);
+    }
+  }]);
+
+  return HtmlEditor;
+}();
+
+exports.default = HtmlEditor;
+
+/***/ }),
+
+/***/ 572:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _controller_content_proxy = __webpack_require__(319);
+
+var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
+
+var _apply_placeholder_to_element = __webpack_require__(318);
+
+var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
+
+var _string_editor = __webpack_require__(834);
+
+var _string_editor2 = _interopRequireDefault(_string_editor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StringEditor = function () {
+  _createClass(StringEditor, null, [{
+    key: 'canEdit',
+    value: function canEdit(_ref) {
+      var type = _ref.type;
+
+      return type === 'string';
+    }
+  }]);
+
+  function StringEditor(_ref2) {
+    var attributeInfo = _ref2.attributeInfo,
+        controller = _ref2.controller;
+
+    _classCallCheck(this, StringEditor);
+
+    this.attributeInfo = attributeInfo;
+    this.controller = controller;
+  }
+
+  _createClass(StringEditor, [{
+    key: 'editorWillBeActivated',
+    value: function editorWillBeActivated() {
+      this.controller.setDomMode('Replace');
+    }
+  }, {
+    key: 'editorDomWasMounted',
+    value: function editorDomWasMounted(domNode) {
+      (0, _apply_placeholder_to_element2.default)(domNode);
+      var proxy = new _controller_content_proxy2.default(domNode, this.controller);
+      proxy.edQuery(domNode).text(this.controller.content);
+      (0, _string_editor2.default)(proxy);
+    }
+  }]);
+
+  return StringEditor;
+}();
+
+exports.default = StringEditor;
+
+/***/ }),
+
+/***/ 769:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ReferenceEditor = function () {
+  _createClass(ReferenceEditor, null, [{
+    key: 'canEdit',
+    value: function canEdit(_ref) {
+      var type = _ref.type;
+
+      return type === 'reference';
+    }
+  }]);
+
+  function ReferenceEditor(_ref2) {
+    var controller = _ref2.controller;
+
+    _classCallCheck(this, ReferenceEditor);
+
+    this._controller = controller;
+  }
+
+  _createClass(ReferenceEditor, [{
+    key: 'onClick',
+    value: function onClick() {
+      var _this = this;
+
+      Scrivito.openContentBrowser({
+        selection: this._currentSelection(),
+        selectionMode: 'single'
+      }).then(function (ids) {
+        return _this._saveContentBrowserSelection(ids);
+      });
+    }
+  }, {
+    key: '_currentSelection',
+    value: function _currentSelection() {
+      return this._controller.content ? [this._controller.content.id()] : [];
+    }
+  }, {
+    key: '_saveContentBrowserSelection',
+    value: function _saveContentBrowserSelection(ids) {
+      this._controller.content = ids[0] || null;
+    }
+  }]);
+
+  return ReferenceEditor;
+}();
+
+exports.default = ReferenceEditor;
+
+/***/ }),
+
+/***/ 770:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _html_editor = __webpack_require__(571);
+
+var _html_editor2 = _interopRequireDefault(_html_editor);
+
+var _reference_editor = __webpack_require__(769);
+
+var _reference_editor2 = _interopRequireDefault(_reference_editor);
+
+var _string_editor = __webpack_require__(572);
+
+var _string_editor2 = _interopRequireDefault(_string_editor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+scrivito.registerEditor(_html_editor2.default);
+scrivito.registerEditor(_reference_editor2.default);
+scrivito.registerEditor(_string_editor2.default);
+
+/***/ }),
+
+/***/ 833:
+/***/ (function(module, exports, __webpack_require__) {
+
+var MediumButton, MediumEditor, ScrivitoAnchor, activateMediumEditorWithProxy, buttonsOption, defaultOptions;
+
+MediumEditor = __webpack_require__(1035);
+
+MediumButton = __webpack_require__(1034);
+
+ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
+  name: 'scrivito_anchor',
+  proxy: null,
+  contentDefault: '<i class="scrivito_customer_icon sci_link"></i>',
+  init: function() {
+    var _ref;
+    MediumEditor.extensions.anchor.prototype.init.apply(this, arguments);
+    return this.targetCheckbox = (_ref = this.getEditorOption('anchor')) != null ? _ref.targetCheckbox : void 0;
+  },
+  handleClick: function(event) {
+    var href, linkElement, selectedParent, selectionRange, target;
+    event.preventDefault();
+    event.stopPropagation();
+    if (!this.isDisplayed()) {
+      selectionRange = MediumEditor.selection.getSelectionRange(this.document);
+      selectedParent = MediumEditor.selection.getSelectedParentElement(selectionRange);
+      linkElement = MediumEditor.util.getClosestTag(selectedParent, 'a');
+      href = target = null;
+      if (linkElement) {
+        linkElement = this.proxy.edQuery(linkElement);
+        href = linkElement.attr('href') || null;
+        target = linkElement.attr('target') || null;
+      }
+      this.showForm({
+        value: href,
+        target: target
+      });
+    }
+    return false;
+  },
+  getTemplate: function() {
+    var targetCheckboxTemplate;
+    targetCheckboxTemplate = "";
+    if (this.targetCheckbox) {
+      targetCheckboxTemplate = "<div class='medium-editor-toolbar-form-row medium-editor-toolbar-anchor-target-toggle'>\n  <label>\n    <input type='checkbox' class='medium-editor-toolbar-anchor-target'>\n    <i class='scrivito_customer_icon sci_inv_check'></i>\n    <i class='scrivito_customer_icon sci_rounded_square'></i>\n    " + this.targetCheckboxText + "\n  </label>\n</div>";
+    }
+    return ("<i class='medium-editor-toolbar-browse scrivito_customer_icon sci_collection'></i>\n<input type='text' class='medium-editor-toolbar-input' placeholder='" + this.placeholderText + "'>\n<i class='medium-editor-toolbar-save scrivito_customer_icon sci_check'></i>\n<i class='medium-editor-toolbar-close scrivito_customer_icon sci_cross'></i>\n" + targetCheckboxTemplate).replace(/\n\s*/g, "");
+  },
+  attachFormEvents: function(form) {
+    var input;
+    MediumEditor.extensions.anchor.prototype.attachFormEvents.call(this, form);
+    form = this.proxy.edQuery(form);
+    input = form.find('.medium-editor-toolbar-input');
+    return form.find('.medium-editor-toolbar-browse').on('click', (function(_this) {
+      return function() {
+        var cmsField, id, selection;
+        selection = (id = _this.proxy.idFromPath(input.val())) ? [id] : [];
+        cmsField = _this.proxy.edQuery(_this.base.origElements);
+        Scrivito.openContentBrowser({
+          filters: cmsField.data('scrivitoEditorsFilter'),
+          filterContext: cmsField.data('scrivitoEditorsFilterContext'),
+          selection: selection,
+          selectionMode: 'single'
+        })["catch"](function(e) {
+          input.focus();
+          throw e;
+        }).then(function(selection) {
+          input.focus();
+          if (selection.length) {
+            return input.val(_this.proxy.pathForId(selection[0]));
+          } else {
+            return input.val('');
+          }
+        });
+        return false;
+      };
+    })(this));
+  },
+  completeFormSave: function(opts) {
+    this.base.restoreSelection();
+    if (opts.value) {
+      this.execAction(this.action, opts);
+    } else {
+      this.execAction('unlink');
+    }
+    return this.base.checkSelection();
+  }
+});
+
+buttonsOption = function() {
+  var buttons, _ref, _ref1;
+  buttons = ['bold', 'italic', 'scrivito_anchor', 'h2', 'h3', 'unorderedlist', 'orderedlist'];
+  if ((_ref = Scrivito.Editors) != null ? (_ref1 = _ref._config) != null ? _ref1.showHtmlEditorCodeButton : void 0 : void 0) {
+    buttons.splice(2, 0, 'scrivito_code');
+  }
+  return buttons;
+};
+
+defaultOptions = function() {
+  return {
+    anchor: {
+      targetCheckbox: true
+    },
+    anchorPreview: false,
+    extensions: {
+      scrivito_anchor: new ScrivitoAnchor,
+      scrivito_code: new MediumButton({
+        label: '<i class="scrivito_customer_icon sci_code"></i>',
+        start: '<code>',
+        end: '</code>'
+      }),
+      imageDragging: {}
+    },
+    placeholder: false,
+    toolbar: {
+      buttons: buttonsOption(),
+      standardizeSelectionStart: true
+    }
+  };
+};
+
+activateMediumEditorWithProxy = function(proxy) {
+  var cmsField, mediumEditor, options, _ref;
+  cmsField = proxy.jQueryElement();
+  options = defaultOptions();
+  if ((_ref = options.extensions.scrivito_anchor) != null) {
+    _ref.proxy = proxy;
+  }
+  return mediumEditor = new MediumEditor(cmsField, options).subscribe('editableInput', function() {
+    return proxy.save(cmsField.html());
+  });
+};
+
+module.exports = activateMediumEditorWithProxy;
+
+
+/***/ }),
+
+/***/ 834:
 /***/ (function(module, exports) {
 
-// shim for using process in browser
-var process = module.exports = {};
+var DOUBLE_CLICK_MS, activateStringEditorWithProxy, cleanUp, cmsFieldAndPastedContent, finishEditing, getCurrentContent, isNewlineAllowed, onBlur, onFocus, onInput, onKey, prepareForEditing, save;
 
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
+onKey = function(event, proxy) {
+  var cmsField, key;
+  cmsField = proxy.jQueryElement();
+  key = event.keyCode || event.which;
+  switch (key) {
+    case 13:
+      if (!isNewlineAllowed(cmsField)) {
+        event.preventDefault();
+        return cmsField.blur();
+      }
+      break;
+    case 27:
+      event.stopPropagation();
+      return cmsField.blur();
+  }
 };
 
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
+onInput = function(proxy) {
+  return save(proxy);
 };
 
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
+onFocus = function(proxy) {
+  return prepareForEditing(proxy.jQueryElement());
 };
-process.umask = function() { return 0; };
+
+onBlur = function(proxy) {
+  save(proxy).done(function() {
+    return proxy.trigger('scrivito_editors:blur');
+  });
+  finishEditing(proxy);
+  return prepareForEditing(proxy.jQueryElement());
+};
+
+save = function(proxy) {
+  var content;
+  content = getCurrentContent(proxy.jQueryElement());
+  return proxy.save(content).done(function() {
+    return proxy.trigger('scrivito_editors:save');
+  });
+};
+
+getCurrentContent = function(cmsField) {
+  cleanUp(cmsField);
+  return cmsField[0].innerText.replace(/\r\n/g, '\n').replace(/\n+$/, '');
+};
+
+cleanUp = function(cmsField) {
+  var pasted, siblings;
+  siblings = cmsFieldAndPastedContent(cmsField);
+  pasted = siblings.not(cmsField);
+  if (pasted.length > 0) {
+    pasted.remove();
+    return cmsField.text(siblings.text());
+  }
+};
+
+cmsFieldAndPastedContent = function(cmsField) {
+  var needsReset, siblings, siblingsBefore;
+  siblingsBefore = cmsField.data('scrivito_editors_siblings_before_edit');
+  siblings = cmsField.siblings();
+  needsReset = !siblingsBefore || siblings.filter(siblingsBefore).length < siblingsBefore.length;
+  if (needsReset) {
+    return cmsField.data('scrivito_editors_siblings_before_edit', siblings);
+  } else {
+    return cmsField.siblings().addBack().not(siblingsBefore);
+  }
+};
+
+isNewlineAllowed = function(cmsField) {
+  if (cmsField.data('scrivitoEditorsMultiline') === true) {
+    return true;
+  }
+  if (cmsField.data('scrivitoEditorsMultiline') === false) {
+    return false;
+  }
+  return cmsField.css('white-space').match(/pre/);
+};
+
+prepareForEditing = function(cmsField) {
+  var html, htmlNl2Br;
+  if (isNewlineAllowed(cmsField) && !cmsField.data('scrivito_editors_prepared_for_editing')) {
+    cmsField.data('scrivito_editors_prepared_for_editing', true);
+    html = cmsField.html();
+    htmlNl2Br = html.replace(/\r?\n/g, '<br />');
+    if (html !== htmlNl2Br) {
+      return cmsField.html(htmlNl2Br);
+    }
+  }
+};
+
+finishEditing = function(proxy) {
+  var cmsField;
+  cmsField = proxy.jQueryElement();
+  cmsField.data('scrivito_editors_prepared_for_editing', false);
+  return cmsField.text(proxy.content());
+};
+
+DOUBLE_CLICK_MS = 300;
+
+activateStringEditorWithProxy = function(proxy) {
+  var cmsField;
+  cmsField = proxy.jQueryElement();
+  cmsField.attr('contenteditable', true).blur(function() {
+    return onBlur(proxy);
+  }).focus(function() {
+    return onFocus(proxy);
+  }).keypress(function(event) {
+    return onKey(event, proxy);
+  }).keyup(function(event) {
+    return onKey(event, proxy);
+  });
+  if (cmsField.attr('data-scrivito-editors-autosave') !== 'false') {
+    cmsField.on('cut input keypress keyup paste', function() {
+      return onInput(proxy);
+    });
+  }
+  prepareForEditing(cmsField);
+  return cmsField.on('click', function(event) {
+    cmsField.attr('contenteditable', true);
+    cleanUp(cmsField);
+    if (!(event.timeStamp - cmsField.data('scrivito_editors_last_click') < DOUBLE_CLICK_MS)) {
+      event.preventDefault();
+    }
+    return cmsField.data('scrivito_editors_last_click', event.timeStamp);
+  });
+};
+
+module.exports = activateStringEditorWithProxy;
 
 
 /***/ })

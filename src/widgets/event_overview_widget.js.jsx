@@ -71,7 +71,7 @@ class EventOverviewWidgetComponent extends React.Component {
       eventsSearch = eventsSearch.and('tags', 'equals', this.state.currentTag);
     }
 
-    const tags = [...Event.all().facet('tags')].map(facet => facet.name);
+    const tags = [...Event.all().facet('tags')].map(facet => facet.name());
 
     const maxItems = this.props.widget.get('maxItems');
     let events;

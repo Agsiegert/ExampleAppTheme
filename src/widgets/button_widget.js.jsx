@@ -28,7 +28,7 @@ Scrivito.provideUiConfig(ButtonWidget, {
 
 const ButtonWidgetComponent = Scrivito.React.connect(({ widget }) => {
   const target = widget.get('target');
-  const text = target && target.title;
+  const text = target && target.title();
 
   const classNames = ['btn'];
   classNames.push(widget.get('style') || 'btn-primary');
