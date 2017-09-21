@@ -4,6 +4,7 @@ import BlogOverviewWidget from './blog_overview_widget';
 import ButtonWidget from './button_widget';
 import CarouselWidget from './carousel_widget';
 import ColumnWidget from './column_widget';
+import ContactFormWidget from './contact_form_widget';
 import DividerWidget from './divider_widget';
 import EventOverviewWidget from './event_overview_widget';
 import FactWidget from './fact_widget';
