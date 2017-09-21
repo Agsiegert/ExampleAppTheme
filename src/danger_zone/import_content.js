@@ -97,6 +97,7 @@ import unsplashWhiteMeetingRoomData from './binary_data/unsplash_white_meeting_r
 import unsplashWoodTableData from './binary_data/unsplash_wood_table_conversation';
 import unsplashWritingPapersData from './binary_data/unsplash_writing_papers';
 import unsplashYellowWatchTypingData from './binary_data/unsplash_yellow_watch_typing';
+import videoWaterfall1Data from './binary_data/video_waterfall_1';
 
 const Author = Scrivito.getClass('Author');
 const Blog = Scrivito.getClass('Blog');
@@ -106,6 +107,7 @@ const Homepage = Scrivito.getClass('Homepage');
 const Image = Scrivito.getClass('Image');
 const Job = Scrivito.getClass('Job');
 const Page = Scrivito.getClass('Page');
+const Video = Scrivito.getClass('Video');
 
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
@@ -139,6 +141,7 @@ const ThumbnailGalleryWidget = Scrivito.getClass('ThumbnailGalleryWidget');
 const TickListItemWidget = Scrivito.getClass('TickListItemWidget');
 const TickListWidget = Scrivito.getClass('TickListWidget');
 const TopFeaturesWidget = Scrivito.getClass('TopFeaturesWidget');
+const VideoWidget = Scrivito.getClass('VideoWidget');
 
 const UNSPLASH_TAGS = ['source: unsplash.com'];
 const DEFAULT_TAGS = ['Design', 'Development', 'Marketing', 'Business'];
@@ -158,23 +161,35 @@ function allExistingBinaries() {
 
 let existingBinaries;
 
-function uploadImage({ url, filename }, title, tags = []) {
-  const existingImage = existingBinaries.filter(i => i.filename === filename);
-  if (existingImage.length) {
-    console.log(`Skipping image "${title}" - already uploaded.`);
-    return Image.get(existingImage[0].id);
+function uploadBinary({ title, url, filename, thingPlaceholder, createMethod }) {
+  const existingBinary = existingBinaries.filter(i => i.filename === filename);
+  if (existingBinary.length) {
+    console.log(`Skipping ${thingPlaceholder} "${title}" - already uploaded.`);
+    return Scrivito.Obj.get(existingBinary[0].id);
   }
 
-  const image = Image.create({ title, tags });
+  const obj = createMethod();
 
   fetch(url)
     .then(res => res.blob())
     .then(blob => Scrivito.Binary.upload(blob, { filename }))
-    .then(binary => binary.into(image))
-    .then(newBinary => image.update({ blob: newBinary }))
+    .then(binary => binary.into(obj))
+    .then(newBinary => obj.update({ blob: newBinary }))
     .then(() => { console.log(`Upload of "${title}" done`); });
 
-  return image;
+  return obj;
+}
+
+function uploadImage({ url, filename }, title, tags = []) {
+  const createMethod = () => Image.create({ title, tags });
+
+  return uploadBinary({ title, url, filename, createMethod, thingPlaceholder: 'image' });
+}
+
+function uploadVideo({ url, filename }, title, tags = []) {
+  const createMethod = () => Video.create({ title, tags });
+
+  return uploadBinary({ title, url, filename, createMethod, thingPlaceholder: 'video' });
 }
 
 function capitalizeFirstLetter(string) {
@@ -432,6 +447,9 @@ function importContent() {
     const unsplashWoodTable = uploadImage(unsplashWoodTableData, 'Wooden table', UNSPLASH_TAGS);
     const unsplashWritingPapers = uploadImage(unsplashWritingPapersData, 'Writing papers', UNSPLASH_TAGS);
     const unsplashYellowWatchTyping = uploadImage(unsplashYellowWatchTypingData, 'Yellow watch typing', UNSPLASH_TAGS);
+
+    // Videos
+    const videoWaterfall1 = uploadVideo(videoWaterfall1Data, 'Waterfall 1');
 
     const homepage1Screenshot = uploadImage(
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
@@ -1731,7 +1749,20 @@ function importContent() {
             ],
           }),
         ] }),
-        // TODO: Video
+        new SectionWidget({
+          useFullWidth: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Watch our video',
+              level: 'h1',
+              showDividingLine: 'yes',
+              style: 'h2',
+            }),
+            new VideoWidget({
+              source: videoWaterfall1,
+            }),
+          ],
+        }),
         new SectionWidget({
           content: [
             new HeadlineWidget({
@@ -2386,7 +2417,7 @@ function importContent() {
       ],
     });
 
-    console.log('Created all objs/widget. Now uploading images...');
+    console.log('Created all objs/widget. Now uploading binaries...');
   });
 }
 

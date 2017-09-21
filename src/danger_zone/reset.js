@@ -2,15 +2,17 @@
 
 function reset(hardReset) {
   Scrivito.load(() => {
+    const all = [...Scrivito.Obj.all()];
+
     if (hardReset) {
-      return [...Scrivito.Obj.all()];
+      return all;
     }
-    return [...Scrivito.Obj.all().andNot('_objClass', 'equals', 'Image')];
+    return all.filter(obj => !obj.isBinary());
   }).then(objs => {
     if (hardReset) {
       console.log('Deleting all objs...');
     } else {
-      console.log('Deleting all objs, except for images...');
+      console.log('Deleting all objs, except for binaries...');
     }
 
     objs.forEach(o => {
