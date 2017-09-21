@@ -21,6 +21,7 @@ import PanelWidget from './panel_widget';
 import PricingSpecWidget from './pricing_spec_widget';
 import PricingWidget from './pricing_widget';
 import SectionWidget from './section_widget';
+import SignUpFormWidget from './sign_up_form_widget';
 import TableRowWidget from './table_row_widget';
 import TableWidget from './table_widget';
 import TestimonialSliderWidget from './testimonial_slider_widget';
