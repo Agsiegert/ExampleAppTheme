@@ -143,22 +143,23 @@ const TopFeaturesWidget = Scrivito.getClass('TopFeaturesWidget');
 const UNSPLASH_TAGS = ['source: unsplash.com'];
 const DEFAULT_TAGS = ['Design', 'Development', 'Marketing', 'Business'];
 
-function allExistingImages() {
+function allExistingBinaries() {
   return Scrivito.load(() => {
-    const allImages = [...Image.all()];
-    return allImages.map(image => {
+    const allObjs = [...Scrivito.Obj.all()];
+    const allBinaries = allObjs.filter(obj => obj.isBinary());
+    return allBinaries.map(obj => {
       return {
-        id: image.id(),
-        filename: image.metadata().get('filename'),
+        id: obj.id(),
+        filename: obj.metadata().get('filename'),
       };
     });
   });
 }
 
-let existingImages;
+let existingBinaries;
 
 function uploadImage({ url, filename }, title, tags = []) {
-  const existingImage = existingImages.filter(i => i.filename === filename);
+  const existingImage = existingBinaries.filter(i => i.filename === filename);
   if (existingImage.length) {
     console.log(`Skipping image "${title}" - already uploaded.`);
     return Image.get(existingImage[0].id);
@@ -335,8 +336,8 @@ function carouselProjectDescription({ target }) {
 }
 
 function importContent() {
-  allExistingImages().then(images => {
-    existingImages = images;
+  allExistingBinaries().then(binaries => {
+    existingBinaries = binaries;
 
     // Logos
     const logo1 = uploadImage(logo1Data, 'Logo 1');
