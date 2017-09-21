@@ -110,6 +110,7 @@ const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
+const ContactFormWidget = Scrivito.getClass('ContactFormWidget');
 const EventOverviewWidget = Scrivito.getClass('EventOverviewWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
 const FeaturePanelWidget = Scrivito.getClass('FeaturePanelWidget');
@@ -120,7 +121,7 @@ const IconListWidget = Scrivito.getClass('IconListWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobPreviewWidget = Scrivito.getClass('JobPreviewWidget');
-const LoginWidget = Scrivito.getClass('LoginWidget');
+const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
@@ -535,7 +536,22 @@ function importContent() {
       title: 'Contact',
       body: [
         new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Contact' }),
+          new HeadlineWidget({
+            headline: 'Get in touch with us',
+            level: 'h1',
+            showDividingLine: 'yes',
+            style: 'h2',
+          }),
+          new HeadlineWidget({
+            alignment: 'center',
+            level: 'h2',
+            style: 'h4',
+            headline: loremIpsum({ count: 3 }),
+          }),
+          new ContactFormWidget({
+            agreementText: loremIpsum({ count: 3 }),
+            buttonText: 'Send message now',
+          }),
         ] }),
       ],
     });
@@ -577,7 +593,7 @@ function importContent() {
           backgroundImage: unsplashHotpink,
           useFullHeight: 'yes',
           content: [
-            new LoginWidget({}),
+            new LoginFormWidget({}),
           ],
         }),
       ],
