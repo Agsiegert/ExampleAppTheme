@@ -1,5 +1,6 @@
 import { Navbar as BootstrapNavbar } from 'react-bootstrap';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
+import currentPageNavigationOptions from './navigation/current_page_navigation_options';
 import Logo from './navigation/logo';
 import Navbar from './navigation/navbar';
 import NavigationSection from './navigation/navigation_section';
@@ -114,21 +115,6 @@ class Navigation extends React.Component {
       </section>
     );
   }
-}
-
-function currentPageNavigationOptions() {
-  if (Scrivito.currentPage()) {
-    if (Scrivito.currentPage().navigationOptions) {
-      return Scrivito.currentPage().navigationOptions();
-    }
-  }
-
-  return {
-    navigationStyle: 'solidWhite',
-    backgroundImage: null,
-    heigthClassName: null,
-    useGradient: false,
-  };
 }
 
 export default Scrivito.React.connect(Navigation);
