@@ -44,7 +44,7 @@ const TwitterInput = Scrivito.React.connect(({ obj }) =>
       <Scrivito.React.Content content={ obj } attribute='tcCreator' className='input'/>
     <div className='scrivito_notice_body'>Twitter handle of the tweet creator.</div>
     <div className='scrivito_detail_label'><span>Image</span></div>
-      <Scrivito.React.Image src={ obj } attribute='tcImage'className='seo_card_img'/>
+      <Scrivito.React.Image content={ obj } attribute='tcImage'className='seo_card_img'/>
     <div className='scrivito_notice_body'>Replace image if you like</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
       <Scrivito.React.Content content={ obj } attribute='tcTitle' className='input'/>
@@ -61,7 +61,7 @@ const FacebookInput = Scrivito.React.connect(({ obj }) =>
       <span className='headline'>Facebook</span>
     </div>
     <div className='scrivito_detail_label'><span>Image</span></div>
-      <Scrivito.React.Image src={ obj } attribute='ogImage' className='seo_card_img'/>
+      <Scrivito.React.Image content={ obj } attribute='ogImage' className='seo_card_img'/>
     <div className='scrivito_notice_body'>Replace image if you like</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
       <Scrivito.React.Content content={ obj } attribute='ogTitle' className='input'/>

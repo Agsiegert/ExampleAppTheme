@@ -32,7 +32,7 @@ function descriptionBox(widget) {
     <div className="container">
       <div className="client-wrapper row">
         <div className="client-logo">
-          <Scrivito.React.Image src={ widget } attribute="descriptionLogo" />
+          <Scrivito.React.Image content={ widget } attribute="descriptionLogo" />
         </div>
         <div className="client-text">
           <Scrivito.React.Content content={ widget } attribute="description" />
@@ -53,7 +53,7 @@ Scrivito.provideComponent(CarouselWidget, ({ widget }) =>
       { widget.get('images').map((image, index) => {
         return (
           <Carousel.Item key={ `${image.id()}${index}` }>
-            <Scrivito.React.Image src={ image } />
+            <Scrivito.React.Image content={ image } />
           </Carousel.Item>
         );
       })}
