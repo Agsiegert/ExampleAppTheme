@@ -9,6 +9,8 @@ function currentPageNavigationOptions() {
         return blogNavigationOptions(Scrivito.currentPage());
       case 'BlogPost':
         return blogPostNavigationOptions(Scrivito.currentPage());
+      case 'Event':
+        return eventNavigationOptions(Scrivito.currentPage());
     }
 
     if (Scrivito.currentPage().navigationOptions) {
@@ -65,6 +67,22 @@ function blogPostNavigationOptions(obj) {
     navigationStyle: 'transparentDark',
     backgroundImage: backgroundImage || null,
     heigthClassName: 'min-height',
+  };
+}
+
+function eventNavigationOptions(obj) {
+  if (obj.get('image')) {
+    return {
+      navigationStyle: 'transparentDark',
+      backgroundImage: obj.get('image'),
+      heigthClassName: 'min-height',
+    };
+  }
+
+  return {
+    navigationStyle: 'solidWhite',
+    backgroundImage: null,
+    heigthClassName: null,
   };
 }
 

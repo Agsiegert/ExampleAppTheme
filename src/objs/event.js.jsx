@@ -1,6 +1,6 @@
 import twoDigitNumber from 'utils/two_digit_number';
 
-const BaseEvent = Scrivito.createObjClass({
+const Event = Scrivito.createObjClass({
   name: 'Event',
   attributes: {
     date: 'date',
@@ -10,24 +10,6 @@ const BaseEvent = Scrivito.createObjClass({
     tags: 'stringlist',
   },
 });
-
-class Event extends BaseEvent {
-  navigationOptions() {
-    if (this.get('image')) {
-      return {
-        navigationStyle: 'transparentDark',
-        backgroundImage: this.get('image'),
-        heigthClassName: 'min-height',
-      };
-    }
-
-    return {
-      navigationStyle: 'solidWhite',
-      backgroundImage: null,
-      heigthClassName: null,
-    };
-  }
-}
 
 Scrivito.registerClass('Event', Event);
 
