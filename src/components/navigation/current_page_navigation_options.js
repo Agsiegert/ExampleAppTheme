@@ -14,10 +14,6 @@ function currentPageNavigationOptions() {
       case 'Job':
         return jobNavigationOptions(Scrivito.currentPage());
     }
-
-    if (Scrivito.currentPage().navigationOptions) {
-      return Scrivito.currentPage().navigationOptions();
-    }
   }
 
   return {
