@@ -6,6 +6,51 @@ import Navbar from './navigation/navbar';
 import NavigationSection from './navigation/navigation_section';
 import { SearchBox, SearchIcon } from './navigation/search';
 
+function FullNavigation({ bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle }) {
+  return (
+    <BootstrapNavbar
+      collapseOnSelect
+      fixedTop
+      className={ bootstrapNavbarClassNames.join(' ') }
+    >
+      <SearchBox toggleSearch={ toggleSearch } />
+
+      <BootstrapNavbar.Header>
+        <BootstrapNavbar.Toggle />
+        <Logo scrolled={ scrolled } navigationStyle={ navigationStyle } />
+        <SearchIcon toggleSearch={ toggleSearch } />
+      </BootstrapNavbar.Header>
+
+      <BootstrapNavbar.Collapse>
+        <Navbar />
+      </BootstrapNavbar.Collapse>
+    </BootstrapNavbar>
+  );
+}
+
+function LandingPageNavigation({ navigationStyle }) {
+  return (
+    <div className="nav-landing-page">
+      <Logo scrolled={ false } navigationStyle={ navigationStyle } />
+    </div>
+  );
+}
+
+function ActualNavigation(
+  { isLandingPage, bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle }
+) {
+  if (isLandingPage) {
+    return <LandingPageNavigation navigationStyle={ navigationStyle } />;
+  }
+
+  return <FullNavigation
+    bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
+    toggleSearch={ toggleSearch }
+    scrolled={ scrolled }
+    navigationStyle={ navigationStyle }
+  />;
+}
+
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -49,6 +94,7 @@ class Navigation extends React.Component {
       backgroundImage,
       heigthClassName,
       useGradient,
+      isLandingPage,
     } = currentPageNavigationOptions();
 
     const topSectionClassNames = ['navbar-fixed'];
@@ -97,20 +143,14 @@ class Navigation extends React.Component {
 
     return (
       <section className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
-        <BootstrapNavbar collapseOnSelect fixedTop
-            className={ bootstrapNavbarClassNames.join(' ') }>
-          <SearchBox toggleSearch={ this.toggleSearch } />
+        <ActualNavigation
+          isLandingPage={ isLandingPage }
+          bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
+          toggleSearch={ this.toggleSearch }
+          scrolled={ this.state.scrolled }
+          navigationStyle={ navigationStyle }
+        />
 
-          <BootstrapNavbar.Header>
-            <BootstrapNavbar.Toggle />
-            <Logo scrolled={ this.state.scrolled } navigationStyle={ navigationStyle } />
-            <SearchIcon toggleSearch={ this.toggleSearch } />
-          </BootstrapNavbar.Header>
-
-          <BootstrapNavbar.Collapse>
-            <Navbar />
-          </BootstrapNavbar.Collapse>
-        </BootstrapNavbar>
         <NavigationSection />
       </section>
     );

@@ -8,5 +8,6 @@ import Event from './event';
 import Homepage from './homepage';
 import Image from './image';
 import Job from './job';
+import LandingPage from './landing_page';
 import Page from './page';
 import Video from './video';
