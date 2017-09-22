@@ -5,6 +5,10 @@ function currentPageNavigationOptions() {
         return pageNavigationOptions(Scrivito.currentPage());
       case 'Page':
         return pageNavigationOptions(Scrivito.currentPage());
+      case 'Blog':
+        return blogNavigationOptions(Scrivito.currentPage());
+      case 'BlogPost':
+        return blogPostNavigationOptions(Scrivito.currentPage());
     }
 
     if (Scrivito.currentPage().navigationOptions) {
@@ -37,6 +41,30 @@ function pageNavigationOptions(obj) {
     backgroundImage,
     heigthClassName,
     useGradient,
+  };
+}
+
+function blogNavigationOptions(obj) {
+  return {
+    navigationStyle: 'transparentDark',
+    backgroundImage: obj.get('navigationBackgroundImage') || null,
+    heigthClassName: 'min-height',
+  };
+}
+
+function blogPostNavigationOptions(obj) {
+  let backgroundImage = obj.get('titleImage');
+  if (!backgroundImage) {
+    const blog = Scrivito.Obj.getByPermalink('blog');
+    if (blog) {
+      backgroundImage = blog.get('navigationBackgroundImage');
+    }
+  }
+
+  return {
+    navigationStyle: 'transparentDark',
+    backgroundImage: backgroundImage || null,
+    heigthClassName: 'min-height',
   };
 }
 
