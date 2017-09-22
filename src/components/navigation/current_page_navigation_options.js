@@ -11,6 +11,8 @@ function currentPageNavigationOptions() {
         return blogPostNavigationOptions(Scrivito.currentPage());
       case 'Event':
         return eventNavigationOptions(Scrivito.currentPage());
+      case 'Job':
+        return jobNavigationOptions(Scrivito.currentPage());
     }
 
     if (Scrivito.currentPage().navigationOptions) {
@@ -71,6 +73,22 @@ function blogPostNavigationOptions(obj) {
 }
 
 function eventNavigationOptions(obj) {
+  if (obj.get('image')) {
+    return {
+      navigationStyle: 'transparentDark',
+      backgroundImage: obj.get('image'),
+      heigthClassName: 'min-height',
+    };
+  }
+
+  return {
+    navigationStyle: 'solidWhite',
+    backgroundImage: null,
+    heigthClassName: null,
+  };
+}
+
+function jobNavigationOptions(obj) {
   if (obj.get('image')) {
     return {
       navigationStyle: 'transparentDark',

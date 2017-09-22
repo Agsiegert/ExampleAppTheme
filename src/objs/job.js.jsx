@@ -1,4 +1,4 @@
-const BaseJob = Scrivito.createObjClass({
+const Job = Scrivito.createObjClass({
   name: 'Job',
   attributes: {
     image: 'reference',
@@ -6,24 +6,6 @@ const BaseJob = Scrivito.createObjClass({
     title: 'string',
   },
 });
-
-class Job extends BaseJob {
-  navigationOptions() {
-    if (this.get('image')) {
-      return {
-        navigationStyle: 'transparentDark',
-        backgroundImage: this.get('image'),
-        heigthClassName: 'min-height',
-      };
-    }
-
-    return {
-      navigationStyle: 'solidWhite',
-      backgroundImage: null,
-      heigthClassName: null,
-    };
-  }
-}
 
 Scrivito.registerClass('Job', Job);
 
