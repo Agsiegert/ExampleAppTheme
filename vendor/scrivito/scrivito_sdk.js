@@ -19577,11 +19577,11 @@ var Image = function (_React$Component) {
   _createClass(Image, [{
     key: 'render',
     value: function render() {
-      var htmlOptions = (0, _underscore.omit)(this.props, 'src', 'attribute');
+      var htmlOptions = (0, _underscore.omit)(this.props, 'content', 'attribute');
 
-      if (this.props.src instanceof _binary2.default) {
+      if (this.props.content instanceof _binary2.default) {
         return _react2.default.createElement('img', _extends({
-          src: this._urlFor(this.props.src)
+          src: this._urlFor(this.props.content)
         }, htmlOptions));
       }
 
@@ -19593,7 +19593,7 @@ var Image = function (_React$Component) {
 
       return _react2.default.createElement(_content2.default, _extends({
         attribute: this.props.attribute,
-        content: this.props.src,
+        content: this.props.content,
         tag: 'img',
         src: this._urlFor(binary)
       }, htmlOptions));
@@ -19610,27 +19610,27 @@ var Image = function (_React$Component) {
   }, {
     key: '_getBinary',
     value: function _getBinary() {
-      var schema = _schema2.default.forInstance(this.props.src);
+      var schema = _schema2.default.forInstance(this.props.content);
       var attributeType = schema.attributes[this.props.attribute];
 
       if (!attributeType) {
-        throw new _errors.ScrivitoError('Component "scrivito.React.Image" received prop "src"' + (' with an object missing attribute "' + this.props.attribute + '".'));
+        throw new _errors.ScrivitoError('Component "scrivito.React.Image" received prop "content"' + (' with an object missing attribute "' + this.props.attribute + '".'));
       }
 
       if (attributeType === 'binary') {
-        return this.props.src.get(this.props.attribute);
+        return this.props.content.get(this.props.attribute);
       }
 
       if (attributeType === 'reference') {
         return this._getReferencedBinary();
       }
 
-      throw new _errors.ScrivitoError('Component "scrivito.React.Image" received prop "src"' + (' with an object, whose attribute "' + this.props.attribute + '"') + (' is of invalid type "' + attributeType + '".') + ' Valid attribute types are "binary" and "reference".');
+      throw new _errors.ScrivitoError('Component "scrivito.React.Image" received prop "content"' + (' with an object, whose attribute "' + this.props.attribute + '"') + (' is of invalid type "' + attributeType + '".') + ' Valid attribute types are "binary" and "reference".');
     }
   }, {
     key: '_getReferencedBinary',
     value: function _getReferencedBinary() {
-      var referencedObj = this.props.src.get(this.props.attribute);
+      var referencedObj = this.props.content.get(this.props.attribute);
 
       if (referencedObj) {
         var blob = referencedObj.get('blob');
