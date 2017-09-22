@@ -3,6 +3,7 @@ const SignUpFormWidget = Scrivito.createWidgetClass({
   attributes: {
     title: 'string',
     buttonText: 'string',
+    isTransparent: ['enum', { validValues: ['yes', 'no'] }],
   },
 });
 
@@ -16,66 +17,80 @@ Scrivito.provideUiConfig(SignUpFormWidget, {
       title: 'Button Text',
       description: 'What should the submit button say? Default: Sign up now',
     },
+    isTransparent: {
+      title: 'Is Transparent?',
+      description: 'Should this sign up form be transparent? Default: no',
+    },
   },
 });
 
-Scrivito.provideComponent(SignUpFormWidget, ({ widget }) =>
-  <div className="box-white floating-label">
-    <form>
-      <Scrivito.React.Content
-        content={ widget }
-        attribute="title"
-        tag="h1"
-        className="h3 text-center"
-      />
+Scrivito.provideComponent(SignUpFormWidget, ({ widget }) => {
+  const classNames = [];
+  if (widget.get('isTransparent') === 'yes') {
+    classNames.push('box-white-transparent');
+  } else {
+    classNames.push('box-white');
+    classNames.push('floating-label');
+  }
 
-      <div className="form-group">
-        <label htmlFor="signUpUsername">Your username</label>
-        <input
-          className="form-control input-lg"
-          id="signUpUsername"
-          placeholder="Username"
-          type="text"
+  return (
+    <div className={ classNames.join(' ') }>
+      <form>
+        <Scrivito.React.Content
+          content={ widget }
+          attribute="title"
+          tag="h1"
+          className="h3 text-center"
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="SignUpEmail">Your email</label>
-        <input
-          className="form-control input-lg"
-          id="SignUpEmail"
-          placeholder="alice@example.org"
-          type="email"
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="SignUpPassword1">Your password</label>
-        <input
-          className="form-control input-lg"
-          id="SignUpPassword1"
-          placeholder="Password"
-          type="password"
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="SignUpPassword2">Confirm password</label>
-        <input
-          className="form-control input-lg"
-          id="SignUpPassword2"
-          placeholder="Confirm Password"
-          type="password"
-        />
-      </div>
-      <div className="checkbox">
-        <label>
-          <input value="" type="checkbox" />
-          I read the licence agreement.
-        </label>
-      </div>
-      <button className="btn btn-primary btn-block">
-        { widget.get('buttonText') || 'Sign up now' }
-      </button>
-    </form>
-  </div>
-);
+
+        <div className="form-group">
+          <label htmlFor="signUpUsername">Your username</label>
+          <input
+            className="form-control input-lg"
+            id="signUpUsername"
+            placeholder="Username"
+            type="text"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="SignUpEmail">Your email</label>
+          <input
+            className="form-control input-lg"
+            id="SignUpEmail"
+            placeholder="alice@example.org"
+            type="email"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="SignUpPassword1">Your password</label>
+          <input
+            className="form-control input-lg"
+            id="SignUpPassword1"
+            placeholder="Password"
+            type="password"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="SignUpPassword2">Confirm password</label>
+          <input
+            className="form-control input-lg"
+            id="SignUpPassword2"
+            placeholder="Confirm Password"
+            type="password"
+          />
+        </div>
+        <div className="checkbox">
+          <label>
+            <input value="" type="checkbox" />
+            I read the licence agreement.
+          </label>
+        </div>
+        <button className="btn btn-primary btn-block">
+          { widget.get('buttonText') || 'Sign up now' }
+        </button>
+      </form>
+    </div>
+  );
+});
 
 export default SignUpFormWidget;
