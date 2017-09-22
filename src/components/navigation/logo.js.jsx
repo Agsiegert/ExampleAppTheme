@@ -19,7 +19,7 @@ function Logo({ scrolled, navigationStyle }) {
 
   return (
     <Scrivito.React.Link to={ Scrivito.Obj.root() } className="navbar-brand">
-      <Scrivito.React.Image src={ logo } />
+      <Scrivito.React.Image content={ logo } />
     </Scrivito.React.Link>
   );
 }

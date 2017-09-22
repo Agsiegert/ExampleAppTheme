@@ -20,7 +20,7 @@ Scrivito.provideComponent(TopFeaturesWidget, ({ widget }) =>
       <Scrivito.React.Content content={ widget } attribute="leftColumn" />
     </div>
     <div className="col-md-4">
-      <Scrivito.React.Image src={ widget } attribute="image" className="img-responsive" />
+      <Scrivito.React.Image content={ widget } attribute="image" className="img-responsive" />
     </div>
     <div className="col-md-4">
       <Scrivito.React.Content content={ widget } attribute="rightColumn" />
