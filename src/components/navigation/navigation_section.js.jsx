@@ -1,9 +1,9 @@
-function NavigationSection() {
+function NavigationSection({ heigthClassName }) {
+  if (heigthClassName !== 'full-height') { return null; }
+
   if (!Scrivito.currentPage()) { return null; }
   const obj = Scrivito.currentPage();
-
-  if (!obj.get('navigationSection') || !obj.get('navigationStyle')) { return null; }
-  if (!obj.get('navigationStyle').includes('full-height')) { return null; }
+  if (!obj.get('navigationSection')) { return null; }
 
   return <Scrivito.React.Content
       tag="div"

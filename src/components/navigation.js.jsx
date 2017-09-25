@@ -151,7 +151,7 @@ class Navigation extends React.Component {
           navigationStyle={ navigationStyle }
         />
 
-        <NavigationSection />
+        <NavigationSection heigthClassName={ heigthClassName } />
       </section>
     );
   }

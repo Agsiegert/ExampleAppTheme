@@ -88,7 +88,7 @@ function pageNavigationOptions(obj) {
   let navigationStyle = navStyle;
   if (navStyle.startsWith('transparentDark')) { navigationStyle = 'transparentDark'; }
 
-  const heigthClassName = navStyle.split(' ')[1] || 'full-height';
+  const heigthClassName = navStyle.split(' ')[1] || null;
 
   const backgroundImage = obj.get('navigationBackgroundImage') || null;
 
