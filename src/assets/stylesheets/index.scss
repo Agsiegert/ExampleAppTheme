@@ -1446,6 +1446,7 @@ body, #application {height: 100%; padding: 0; margin: 0; }
   .h1,.h2,.h3,.h4,.h5,.h6 { color: $theme-grey;}
   }
 .box-white-transparent { background: rgba(255,255,255,.1); margin: 10px 0; padding: 30px 20px; width: 100%; }
+.box-white-transparent label { font-size: 12px; font-weight: 400; line-height: 16px; color: rgba(255,255,255,.7); }
 .box-white-transparent .checkbox label {
   color: rgba(255,255,255,.8);
   font-size: 13px; line-height: 18px;
