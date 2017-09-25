@@ -289,6 +289,7 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 .btn-round { display: inline-block; width: 50px; height: 50px; border-radius: 50%; text-align: center; }
 .btn-round i { font-size: 33px; line-height: 50px; }
 
+.btn-round:hover { cursor: pointer; }
 .bg-dark-image .btn-round { position: absolute; bottom: 30px; left: 50%; margin:0 0 0 -25px;}
 
 
@@ -340,7 +341,9 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greylight,
 .bg-greymiddle,
 .bg-greywhite,
-.bg-white { padding: 60px 0; clear: both; position: relative; }
+.bg-white,
+.bg-brand-primary,
+.bg-brand-secondary, { padding: 60px 0; clear: both; position: relative; }
 
 
 .bg-dark-image,
@@ -755,6 +758,9 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greydark,
 .bg-dark-image {.fact .key {color: $theme-greylight; }}
 
+.bg-brand-primary .fact .value,
+.bg-brand-secondary .fact .value { color: #fff; }
+
 .fact span:empty { min-width: 20px!important; display: block; background: rgba(0,255,0,.2); }
 
 /* gallery-box with zoom hover + filter gallery
@@ -789,12 +795,15 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .gallery-box .gallery-box-content * { display: block; color: #fff; text-align: center; }
 .gallery-box .gallery-box-content .fa { font-size: 60px; padding: 10px 0; }
 .gallery-box .gallery-box-content .title { font-size: 22px; padding: 2px 0; }
-.gallery-box .gallery-box-content .subtitle { font-size: 14px; }
+.gallery-box .gallery-box-content .subtitle {
+  font-size: 14px; line-height: 1.3; position: absolute;
+  bottom: 20px; left: 10px; right: 10px;
+  }
 
 @media (max-width: $screen-sm-min) {
   .gallery-box .gallery-box-content .fa { font-size: 40px;  }
   .gallery-box .gallery-box-content .title { font-size: 18px; }
-  .gallery-box .gallery-box-content .subtitle { font-size: 12px; }
+  .gallery-box .gallery-box-content .subtitle { font-size: 12px; position: static; }
 }
 
 /* filter gallery */
@@ -1431,10 +1440,26 @@ body, #application {height: 100%; padding: 0; margin: 0; }
 
 .hr-icon { margin: 60px 0; border-bottom: 1px solid #666; }
 .hr-icon:after {
-  	background: $theme-greydark  url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE0Ny40IDE0Ny40IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNDcuNCAxNDcuNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRjZCNkIiIGQ9Ik0xMDAuNiwzNmwtMTMuMS03LjZMNTIuMSw4QzI4LjYtNS42LDcuOCw1LjcsNy42LDQzLjlsMCwxLjFMNDksNjQuOWM1LjYsMi43LDEuNywxMy45LTYuOSw5LjdMNy41LDU3LjdsLTAuMiw0NGMtMC4yLDMxLjgsMTcsNTIuNiw0My4xLDM5LjJsMzcuMS0yMS40bDEzLTcuNWMtMTEuMi05LjItMTUuNC0zMS40LTEyLjgtNDkuOEw1MS42LDQ0LjdjLTUuNi0yLjctMS43LTEzLjksNi45LTkuN2wzMS45LDE1LjZDOTIuNyw0NC4yLDk2LjEsMzguOSwxMDAuNiwzNiIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkY2QjZCIiBkPSJNMTI0LjcsNDkuOWwtMTMuNS03LjhjLTIwLjMsNy42LTE2LDU5LjktMC4xLDYzLjdsMTEuOS02LjhDMTQ3LjgsODQuNiwxNDMuNCw2MC43LDEyNC43LDQ5LjkiLz48L2c+PC9zdmc+) no-repeat center / contain;
+  background-image:  url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE0Ny40IDE0Ny40IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNDcuNCAxNDcuNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRjZCNkIiIGQ9Ik0xMDAuNiwzNmwtMTMuMS03LjZMNTIuMSw4QzI4LjYtNS42LDcuOCw1LjcsNy42LDQzLjlsMCwxLjFMNDksNjQuOWM1LjYsMi43LDEuNywxMy45LTYuOSw5LjdMNy41LDU3LjdsLTAuMiw0NGMtMC4yLDMxLjgsMTcsNTIuNiw0My4xLDM5LjJsMzcuMS0yMS40bDEzLTcuNWMtMTEuMi05LjItMTUuNC0zMS40LTEyLjgtNDkuOEw1MS42LDQ0LjdjLTUuNi0yLjctMS43LTEzLjksNi45LTkuN2wzMS45LDE1LjZDOTIuNyw0NC4yLDk2LjEsMzguOSwxMDAuNiwzNiIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkY2QjZCIiBkPSJNMTI0LjcsNDkuOWwtMTMuNS03LjhjLTIwLjMsNy42LTE2LDU5LjktMC4xLDYzLjdsMTEuOS02LjhDMTQ3LjgsODQuNiwxNDMuNCw2MC43LDEyNC43LDQ5LjkiLz48L2c+PC9zdmc+);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   content:''; display: block; margin: 0 0 0 -30px;
   width: 60px; height: 40px; position: absolute; left: 50%; top: -20px;
   }
+
+
+.bg-grey .hr-icon:after { background-color: $theme-grey; }
+.bg-greylight .hr-icon:after { background-color: $theme-greylight; }
+.bg-greydark .hr-icon:after { background-color: $theme-greydark; }
+.bg-greymiddle .hr-icon:after { background-color: $theme-greymiddle; }
+.bg-greywhite .hr-icon:after { background-color: $theme-greywhite; }
+.bg-white .hr-icon:after { background-color: #fff; }
+
+.bg-brand-primary .hr-icon:after { background-color: $brand-primary; }
+.bg-brand-secondary .hr-icon:after { background-color: $brand-secondary; }
+
+
 
 @media (max-width: 767px) {
   .text-right,
