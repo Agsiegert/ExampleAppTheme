@@ -106,6 +106,7 @@ const Event = Scrivito.getClass('Event');
 const Homepage = Scrivito.getClass('Homepage');
 const Image = Scrivito.getClass('Image');
 const Job = Scrivito.getClass('Job');
+const LandingPage = Scrivito.getClass('LandingPage');
 const Page = Scrivito.getClass('Page');
 const Video = Scrivito.getClass('Video');
 
@@ -114,6 +115,7 @@ const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const ContactFormWidget = Scrivito.getClass('ContactFormWidget');
+const DividerWidget = Scrivito.getClass('DividerWidget');
 const EventOverviewWidget = Scrivito.getClass('EventOverviewWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
 const FeaturePanelWidget = Scrivito.getClass('FeaturePanelWidget');
@@ -650,13 +652,281 @@ function importContent() {
         }),
       ],
     });
-    const landingPage = Page.create({
+    const landingPage = LandingPage.create({
       _permalink: 'landing_page',
       title: 'Landing Page',
+      navigationStyle: 'transparentDark full-height gradient',
+      navigationBackgroundImage: unsplashMouseWoodenDesk,
+      navigationSection: [
+        new ColumnWidget({
+          nrOfColumns: '2',
+          verticallyAligned: 'yes',
+          column1: [
+            new HeadlineWidget({
+              headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 3,
+                paragraphUpperBound: 5,
+              }),
+            }),
+            new ButtonWidget({
+              target: new Scrivito.Link({
+                title: 'Call to action',
+                obj: root,
+              }),
+            }),
+          ],
+          column2: [
+            new SignUpFormWidget({
+              isTransparent: 'yes',
+              title: 'Sign up to Scrivito',
+              buttonText: 'Sign up to Scrivito now',
+            }),
+          ],
+        }),
+      ],
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Landing Page' }),
-        ] }),
+        new SectionWidget({
+          backgroundColor: 'greydark',
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Explore the magic features',
+              level: 'h1',
+              showDividingLine: 'yes',
+              style: 'h2',
+            }),
+            new HeadlineWidget({
+              alignment: 'center',
+              headline: loremIpsum({ count: 2 }),
+              level: 'h2',
+              style: 'h4',
+            }),
+            new TopFeaturesWidget({
+              leftColumn: [
+                new HeadlineWidget({
+                  headline: 'Amazing features',
+                  alignment: 'right',
+                  level: 'h3',
+                  style: 'h3',
+                }),
+                new TextWidget({
+                  alignment: 'right',
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 2,
+                    paragraphUpperBound: 2,
+                  }),
+                }),
+                new HeadlineWidget({
+                  headline: 'Easy to use',
+                  alignment: 'right',
+                  level: 'h3',
+                  style: 'h3',
+                }),
+                new TextWidget({
+                  alignment: 'right',
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 2,
+                    paragraphUpperBound: 2,
+                  }),
+                }),
+              ],
+              image: iphoneFront,
+              rightColumn: [
+                new HeadlineWidget({
+                  headline: 'Cool and fresh design',
+                  level: 'h3',
+                  style: 'h3',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 2,
+                    paragraphUpperBound: 2,
+                  }),
+                }),
+                new HeadlineWidget({
+                  headline: 'Full responsive',
+                  level: 'h3',
+                  style: 'h3',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 2,
+                    paragraphUpperBound: 2,
+                  }),
+                }),
+              ],
+            }),
+            new DividerWidget({}),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'greydark',
+          paddingDisabled: 'yes',
+          content: [
+            new ColumnWidget({
+              nrOfColumns: '4',
+              column1: [
+                new FactWidget({
+                  value: '134',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column2: [
+                new FactWidget({
+                  value: '43',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column3: [
+                new FactWidget({
+                  value: '13',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+              column4: [
+                new FactWidget({
+                  value: '65',
+                  key: loremIpsum({ units: 'words', count: 3 }),
+                }),
+              ],
+            }),
+            new DividerWidget({}),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'greydark',
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'More cool highlights',
+              level: 'h1',
+              showDividingLine: 'yes',
+              style: 'h2',
+            }),
+            new HeadlineWidget({
+              alignment: 'center',
+              headline: loremIpsum({ count: 2 }),
+              level: 'h2',
+              style: 'h4',
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              verticallyAligned: 'yes',
+              column1: [new ImageWidget({ image: ipad })],
+              column2: [
+                new HeadlineWidget({
+                  level: 'h3',
+                  style: 'h2',
+                  headline: 'Content Management for React Apps',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 5,
+                    paragraphUpperBound: 5,
+                  }),
+                }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '2',
+              verticallyAligned: 'yes',
+              column1: [
+                new HeadlineWidget({
+                  level: 'h3',
+                  style: 'h2',
+                  headline: 'Fully Fledged CMS Service',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 5,
+                    paragraphUpperBound: 5,
+                  }),
+                }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+              column2: [new ImageWidget({ image: iphone })],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '3',
+              column1: [
+                createPanelWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
+              ],
+              column2: [
+                createPanelWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
+              ],
+              column3: [
+                createPanelWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+              ],
+            }),
+            new ColumnWidget({
+              nrOfColumns: '3',
+              column1: [
+                createPanelWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
+              ],
+              column2: [
+                createPanelWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
+              ],
+              column3: [
+                createPanelWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+              ],
+            }),
+            new DividerWidget({}),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'greydark',
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              level: 'h1',
+              style: 'h2',
+              showDividingLine: 'yes',
+              headline: 'Choose your plan',
+            }),
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              alignment: 'center',
+              headline: loremIpsum({ count: 2 }),
+            }),
+            createPricingWidget(root),
+          ],
+        }),
       ],
     });
 

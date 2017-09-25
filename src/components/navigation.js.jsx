@@ -1,9 +1,55 @@
 import { Navbar as BootstrapNavbar } from 'react-bootstrap';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
+import currentPageNavigationOptions from './navigation/current_page_navigation_options';
 import Logo from './navigation/logo';
 import Navbar from './navigation/navbar';
 import NavigationSection from './navigation/navigation_section';
 import { SearchBox, SearchIcon } from './navigation/search';
+
+function FullNavigation({ bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle }) {
+  return (
+    <BootstrapNavbar
+      collapseOnSelect
+      fixedTop
+      className={ bootstrapNavbarClassNames.join(' ') }
+    >
+      <SearchBox toggleSearch={ toggleSearch } />
+
+      <BootstrapNavbar.Header>
+        <BootstrapNavbar.Toggle />
+        <Logo scrolled={ scrolled } navigationStyle={ navigationStyle } />
+        <SearchIcon toggleSearch={ toggleSearch } />
+      </BootstrapNavbar.Header>
+
+      <BootstrapNavbar.Collapse>
+        <Navbar />
+      </BootstrapNavbar.Collapse>
+    </BootstrapNavbar>
+  );
+}
+
+function LandingPageNavigation({ navigationStyle }) {
+  return (
+    <div className="nav-landing-page">
+      <Logo scrolled={ false } navigationStyle={ navigationStyle } />
+    </div>
+  );
+}
+
+function ActualNavigation(
+  { isLandingPage, bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle }
+) {
+  if (isLandingPage) {
+    return <LandingPageNavigation navigationStyle={ navigationStyle } />;
+  }
+
+  return <FullNavigation
+    bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
+    toggleSearch={ toggleSearch }
+    scrolled={ scrolled }
+    navigationStyle={ navigationStyle }
+  />;
+}
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -47,6 +93,8 @@ class Navigation extends React.Component {
       navigationStyle,
       backgroundImage,
       heigthClassName,
+      useGradient,
+      isLandingPage,
     } = currentPageNavigationOptions();
 
     const topSectionClassNames = ['navbar-fixed'];
@@ -73,11 +121,20 @@ class Navigation extends React.Component {
     if (navigationStyle === 'transparentDark') {
       if (backgroundImage) {
         const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
-        topSectionStyle.background = 'no-repeat center / cover';
-        topSectionStyle.backgroundImage = [
-          'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))',
-          `url(${backgroundUrl})`,
-        ].join(', ');
+        if (useGradient) {
+          topSectionStyle.background = 'no-repeat bottom / cover';
+          topSectionStyle.backgroundImage = [
+            'radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%, rgba(61,65,66,1) 90%)',
+            'linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)',
+            `url(${backgroundUrl})`,
+          ].join(', ');
+        } else {
+          topSectionStyle.background = 'no-repeat center / cover';
+          topSectionStyle.backgroundImage = [
+            'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))',
+            `url(${backgroundUrl})`,
+          ].join(', ');
+        }
       }
       if (heigthClassName) {
         topSectionClassNames.push(heigthClassName);
@@ -86,38 +143,18 @@ class Navigation extends React.Component {
 
     return (
       <section className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
-        <BootstrapNavbar collapseOnSelect fixedTop
-            className={ bootstrapNavbarClassNames.join(' ') }>
-          <SearchBox toggleSearch={ this.toggleSearch } />
+        <ActualNavigation
+          isLandingPage={ isLandingPage }
+          bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
+          toggleSearch={ this.toggleSearch }
+          scrolled={ this.state.scrolled }
+          navigationStyle={ navigationStyle }
+        />
 
-          <BootstrapNavbar.Header>
-            <BootstrapNavbar.Toggle />
-            <Logo scrolled={ this.state.scrolled } navigationStyle={ navigationStyle } />
-            <SearchIcon toggleSearch={ this.toggleSearch } />
-          </BootstrapNavbar.Header>
-
-          <BootstrapNavbar.Collapse>
-            <Navbar />
-          </BootstrapNavbar.Collapse>
-        </BootstrapNavbar>
         <NavigationSection />
       </section>
     );
   }
-}
-
-function currentPageNavigationOptions() {
-  if (Scrivito.currentPage()) {
-    if (Scrivito.currentPage().navigationOptions) {
-      return Scrivito.currentPage().navigationOptions();
-    }
-  }
-
-  return {
-    navigationStyle: 'solidWhite',
-    backgroundImage: null,
-    heigthClassName: null,
-  };
 }
 
 export default Scrivito.React.connect(Navigation);

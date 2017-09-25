@@ -2,8 +2,14 @@ const defaultPageAttributes = {
   body: ['widgetlist', { only: 'SectionWidget' }],
   navigationBackgroundImage: 'reference',
   navigationSection: 'widgetlist',
-  navigationStyle: ['enum',
-    { validValues: ['solidWhite', 'transparentDark full-height', 'transparentDark min-height'] }],
+  navigationStyle: ['enum', {
+    validValues: [
+      'solidWhite',
+      'transparentDark full-height',
+      'transparentDark full-height gradient',
+      'transparentDark min-height',
+    ],
+  }],
   title: 'string',
 };
 
@@ -22,25 +28,7 @@ const defaultPageUiConfigAttributes = {
   },
 };
 
-function defaultNavigationOptions(obj) {
-  const navStyle = obj.get('navigationStyle') || 'solidWhite';
-
-  let navigationStyle = navStyle;
-  if (navStyle.startsWith('transparentDark')) { navigationStyle = 'transparentDark'; }
-
-  const heigthClassName = navStyle.split(' ')[1] || 'full-height';
-
-  const backgroundImage = obj.get('navigationBackgroundImage') || null;
-
-  return {
-    navigationStyle,
-    backgroundImage,
-    heigthClassName,
-  };
-}
-
 export {
-  defaultNavigationOptions,
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 };

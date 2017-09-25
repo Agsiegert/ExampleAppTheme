@@ -20,22 +20,6 @@ const BaseBlogPost = Scrivito.createObjClass({
 });
 
 class BlogPost extends BaseBlogPost {
-  navigationOptions() {
-    let backgroundImage = this.get('titleImage');
-    if (!backgroundImage) {
-      const blog = Scrivito.Obj.getByPermalink('blog');
-      if (blog) {
-        backgroundImage = blog.get('navigationBackgroundImage');
-      }
-    }
-
-    return {
-      navigationStyle: 'transparentDark',
-      backgroundImage: backgroundImage || null,
-      heigthClassName: 'min-height',
-    };
-  }
-
   textExtract() {
     return textExtractFromWidgetlist(this.get('body'));
   }

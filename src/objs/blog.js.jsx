@@ -11,14 +11,6 @@ const BaseBlog = Scrivito.createObjClass({
 });
 
 class Blog extends BaseBlog {
-  navigationOptions() {
-    return {
-      navigationStyle: 'transparentDark',
-      backgroundImage: this.get('navigationBackgroundImage') || null,
-      heigthClassName: 'min-height',
-    };
-  }
-
   textExtract() {
     return textExtractFromWidgetlist(this.get('body'));
   }

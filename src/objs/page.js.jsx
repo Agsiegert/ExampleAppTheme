@@ -1,7 +1,6 @@
 import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 
 import {
-  defaultNavigationOptions,
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 } from './_default_page_attributes';
@@ -15,10 +14,6 @@ const BasePage = Scrivito.createObjClass({
 });
 
 class Page extends BasePage {
-  navigationOptions() {
-    return defaultNavigationOptions(this);
-  }
-
   textExtract() {
     return [
       'navigationSection',
