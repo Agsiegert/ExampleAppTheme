@@ -1,6 +1,5 @@
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import twoDigitNumber from 'utils/two_digit_number';
-import { take } from 'wu';
 import BlogPostDate from './blog_post_date';
 
 const MONTH_MAPPING = [
@@ -29,7 +28,7 @@ const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author, tag }) =
 
   let posts;
   if (maxItems) {
-    posts = [...take(maxItems, blogPosts.batchSize(maxItems))];
+    posts = blogPosts.take(maxItems);
   } else {
     posts = [...blogPosts];
   }
