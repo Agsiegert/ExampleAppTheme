@@ -1,6 +1,5 @@
 import Event from 'objs/event';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
-import { take } from 'wu';
 import TagList from 'components/tag_list';
 import twoDigitNumber from 'utils/two_digit_number';
 
@@ -76,7 +75,7 @@ class EventOverviewWidgetComponent extends React.Component {
     const maxItems = this.props.widget.get('maxItems');
     let events;
     if (maxItems) {
-      events = [...take(maxItems, eventsSearch.batchSize(maxItems))];
+      events = eventsSearch.take(maxItems);
     } else {
       events = [...eventsSearch];
     }
