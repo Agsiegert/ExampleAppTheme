@@ -35,8 +35,7 @@
     "slick-carousel": "^1.6.0",
     "striptags": "^3.0.1",
     "webpack": "^3.5.4",
-    "webpack-dev-server": "^2.7.1",
-    "wu": "^2.1.0"
+    "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
     "build": "yarn build:clean && yarn build:package",
