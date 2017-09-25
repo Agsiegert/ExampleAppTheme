@@ -4254,6 +4254,13 @@ react-prop-types@^0.4.0:
   dependencies:
     warning "^3.0.0"
 
+react-scroll@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/react-scroll/-/react-scroll-1.5.4.tgz#8c5c4ced659553be1fa39959776c85055fceb137"
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.5.8"
+
 react-scrolllock@^1.0.5:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/react-scrolllock/-/react-scrolllock-1.0.8.tgz#4aee8581678327b96cb38a72b7a20e2610664e5a"

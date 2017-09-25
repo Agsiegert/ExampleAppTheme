@@ -1,9 +1,11 @@
 import { Navbar as BootstrapNavbar } from 'react-bootstrap';
+import Scroll from 'react-scroll';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import currentPageNavigationOptions from './navigation/current_page_navigation_options';
 import Logo from './navigation/logo';
 import Navbar from './navigation/navbar';
 import NavigationSection from './navigation/navigation_section';
+import ScrollToNextSectionLink from './navigation/scroll_to_next_section_link';
 import { SearchBox, SearchIcon } from './navigation/search';
 
 function FullNavigation({ bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle }) {
@@ -142,17 +144,21 @@ class Navigation extends React.Component {
     }
 
     return (
-      <section className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
-        <ActualNavigation
-          isLandingPage={ isLandingPage }
-          bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
-          toggleSearch={ this.toggleSearch }
-          scrolled={ this.state.scrolled }
-          navigationStyle={ navigationStyle }
-        />
+      <div>
+        <section className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
+          <ActualNavigation
+            isLandingPage={ isLandingPage }
+            bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
+            toggleSearch={ this.toggleSearch }
+            scrolled={ this.state.scrolled }
+            navigationStyle={ navigationStyle }
+          />
 
-        <NavigationSection heigthClassName={ heigthClassName } />
-      </section>
+          <NavigationSection heigthClassName={ heigthClassName } />
+          <ScrollToNextSectionLink heigthClassName={ heigthClassName } />
+        </section>
+        <Scroll.Element name="nextSection" />
+      </div>
     );
   }
 }
