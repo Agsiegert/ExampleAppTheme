@@ -33,7 +33,7 @@ const BlogPostNextLink = Scrivito.React.connect(({ currentBlogPost }) => {
   const [newerPost] = Scrivito.getClass('BlogPost')
     .where('publishedAt', 'isGreaterThan', currentDate)
     .order('publishedAt', 'asc')
-    .batchSize(1);
+    .take(1);
 
   if (!newerPost) { return null; }
 
@@ -53,7 +53,7 @@ const BlogPostPreviousLink = Scrivito.React.connect(({ currentBlogPost }) => {
     .andNot('id', 'equals', currentBlogPost.id())
     .andNot('publishedAt', 'isGreaterThan', currentDate)
     .order('publishedAt', 'desc')
-    .batchSize(1);
+    .take(1);
 
   if (!olderPost) { return null; }
 
