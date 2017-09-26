@@ -18,6 +18,8 @@ const BaseSectionWidget = Scrivito.createWidgetClass({
           'greymiddle',
           'greydark',
           'grey',
+          'brand-primary',
+          'brand-secondary',
           'dark-image',
         ],
       },
