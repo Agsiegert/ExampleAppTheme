@@ -16,7 +16,7 @@ Calling `yarn build` will compile all js, html and css and place it in the `buil
 
 ## How to develop
 
-Calling `yarn serve` will start a webserver, which listens to [localhost:3000](http://localhost:3000/). It should also automatically reload the page, once changes to the code (in `src/` have been made).
+Calling `yarn serve` will start a webserver, which listens to [localhost:8080](http://localhost:8080/). It should also automatically reload the page, once changes to the code (in `src/` have been made).
 
 ## How to develop design
 
@@ -24,7 +24,7 @@ Calling `yarn serve:design` will start a webserver, which listens to [localhost:
 
 ## How to reset/import content
 
-* Visit http://localhost:3000/scrivito
+* Visit http://localhost:8080/scrivito
 * Create a working copy and choose the "edit" mode
 * Open the browser console
 * Delete all previous content: `scrivito_application.ExampleApp.DangerZone.reset()`. Please be aware, that this will delete _all_ contents from your tenant!
