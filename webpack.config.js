@@ -92,7 +92,7 @@ module.exports = {
   devServer: {
     // host: '0.0.0.0',
     // disableHostCheck: true,
-    port: 3000,
+    port: 8080,
     historyApiFallback: {
       rewrites: [
         { from: /^\/scrivito/, to: '/scrivito/index.html' },
