@@ -37,11 +37,11 @@ Scrivito.provideUiConfig(Blog, {
 Scrivito.provideComponent(Blog, ({ page }) =>
   <div>
     <TagList />
-    <Scrivito.React.Content className="div" content={ page } attribute="body" />
+    <Scrivito.ContentTag className="div" content={ page } attribute="body" />
   </div>
 );
 
-const TagList = Scrivito.React.connect(() => {
+const TagList = Scrivito.connect(() => {
   const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name());
 
   return (

@@ -36,9 +36,9 @@ Scrivito.provideComponent(PageListWidget, ({ widget }) => {
     </li>
     {
       pages.map(page => <li key={ page.id() }>
-         <Scrivito.React.Link to={ page }>
+         <Scrivito.LinkTag to={ page }>
            { page.get('title') }
-         </Scrivito.React.Link>
+         </Scrivito.LinkTag>
       </li>)
     }
   </ul>);

@@ -26,7 +26,7 @@ Scrivito.provideUiConfig(ButtonWidget, {
   },
 });
 
-const ButtonWidgetComponent = Scrivito.React.connect(({ widget }) => {
+const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
   const target = widget.get('target');
   const text = target && target.title();
 
@@ -34,9 +34,9 @@ const ButtonWidgetComponent = Scrivito.React.connect(({ widget }) => {
   classNames.push(widget.get('style') || 'btn-primary');
 
   return (
-    <Scrivito.React.Link to={ target } className={ classNames.join(' ') }>
+    <Scrivito.LinkTag to={ target } className={ classNames.join(' ') }>
       { text }<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
-    </Scrivito.React.Link>
+    </Scrivito.LinkTag>
   );
 });
 

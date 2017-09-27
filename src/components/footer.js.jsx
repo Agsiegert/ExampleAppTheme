@@ -4,8 +4,8 @@ function Footer() {
   if (!root) { return null; }
 
   return (
-    <Scrivito.React.Content content={ root } attribute="footer" tag="footer" />
+    <Scrivito.ContentTag content={ root } attribute="footer" tag="footer" />
   );
 }
 
-export default Scrivito.React.connect(Footer);
+export default Scrivito.connect(Footer);

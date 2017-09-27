@@ -21,13 +21,13 @@ Scrivito.provideUiConfig(FactWidget, {
 
 Scrivito.provideComponent(FactWidget, ({ widget }) =>
   <div className="fact">
-    <Scrivito.React.Content
+    <Scrivito.ContentTag
       content={ widget }
       attribute="value"
       className="value"
       tag="span"
     />
-    <Scrivito.React.Content
+    <Scrivito.ContentTag
       content={ widget }
       attribute="key"
       className="key"

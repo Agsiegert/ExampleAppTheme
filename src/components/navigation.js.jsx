@@ -163,4 +163,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default Scrivito.React.connect(Navigation);
+export default Scrivito.connect(Navigation);

@@ -57,11 +57,11 @@ Scrivito.provideComponent(BlogPost, ({ page }) =>
     <BlogPostNavigation currentPost={ page }/>
     <section className='bg-white'>
       <div className='container'>
-        <Scrivito.React.Content tag="h1" className="h2" content={ page } attribute="title" />
-        <Scrivito.React.Content tag="h2" className="h4" content={ page } attribute="subtitle" />
+        <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
+        <Scrivito.ContentTag tag="h2" className="h4" content={ page } attribute="subtitle" />
       </div>
     </section>
-    <Scrivito.React.Content tag="div" content={ page } attribute="body" />
+    <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
     <BlogPostAuthor author={ page.get('author') } />
     <BlogPostTagList tags={ page.get('tags') } />
     <BlogPostMorePosts author={ page.get('author') } />

@@ -50,7 +50,7 @@ Scrivito.provideComponent(Event, ({ page }) => {
     <div>
       <section className="bg-white">
         <div className="container">
-          <Scrivito.React.Content tag="h1" className="h2" content={ page } attribute="title" />
+          <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
           <h2 className="h4">
             <i className="fa fa-calendar fa-lg" aria-hidden="true" title="location" />
             { ' ' }
@@ -58,7 +58,7 @@ Scrivito.provideComponent(Event, ({ page }) => {
             { ' ' }
             <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" />
             { ' ' }
-            <Scrivito.React.Content tag="span" content={ page } attribute="location" />
+            <Scrivito.ContentTag tag="span" content={ page } attribute="location" />
           </h2>
         </div>
       </section>

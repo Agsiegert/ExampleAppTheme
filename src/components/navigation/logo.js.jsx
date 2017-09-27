@@ -18,10 +18,10 @@ function Logo({ scrolled, navigationStyle }) {
   if (!logo) { return null; }
 
   return (
-    <Scrivito.React.Link to={ Scrivito.Obj.root() } className="navbar-brand">
-      <Scrivito.React.Image content={ logo } />
-    </Scrivito.React.Link>
+    <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="navbar-brand">
+      <Scrivito.ImageTag content={ logo } />
+    </Scrivito.LinkTag>
   );
 }
 
-export default Scrivito.React.connect(Logo);
+export default Scrivito.connect(Logo);

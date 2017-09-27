@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1179);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1183);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1980,6 +1980,62 @@ exports.default = Deferred;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = validClassesForWidgetlistField;
+
+var _underscore = __webpack_require__(0);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _widget_class = __webpack_require__(24);
+
+var _widget_class2 = _interopRequireDefault(_widget_class);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ALLOWED_CLASSES_ATTR = 'data-scrivito-private-field-widget-allowed-classes';
+
+var cache = {};
+
+function validClassesForWidgetlistField(field) {
+  var validClasses = cache[field.id()];
+
+  if (validClasses) {
+    return validClasses;
+  }
+
+  return _underscore2.default.pluck(_widget_class2.default.all(), 'name');
+}
+
+function init() {
+  if (!scrivito.editingContext.isViewMode()) {
+    scrivito.on('content', function (root) {
+      var widgetlistElements = scrivito.WidgetlistFieldElement.all($(root));
+      _underscore2.default.each(widgetlistElements, function (element) {
+        var field = element.basicField();
+        cache[field.id()] = JSON.parse(element.dom_element().attr(ALLOWED_CLASSES_ATTR));
+      });
+    });
+  }
+}
+
+function clearCache() {
+  cache = {};
+}
+
+validClassesForWidgetlistField.init = init;
+validClassesForWidgetlistField.clearCache = clearCache;
+
+/***/ }),
+
+/***/ 101:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
@@ -2043,7 +2099,7 @@ function findWidgetPlacementIn(objOrWidgetData, widgetId) {
 
 /***/ }),
 
-/***/ 101:
+/***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2098,15 +2154,15 @@ exports.default = {
 
 /***/ }),
 
-/***/ 111:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(185);
+module.exports = __webpack_require__(186);
 
 
 /***/ }),
 
-/***/ 112:
+/***/ 113:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2168,7 +2224,7 @@ exports.CaptureReport = CaptureReport;
 
 /***/ }),
 
-/***/ 113:
+/***/ 114:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2253,7 +2309,7 @@ exports.default = LoadableValue;
 
 /***/ }),
 
-/***/ 114:
+/***/ 115:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2476,23 +2532,23 @@ var StateTreeNode = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 1179:
+/***/ 1183:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _connect_to_ui = __webpack_require__(79);
+var _connect_to_ui = __webpack_require__(80);
 
 var _connect_to_ui2 = _interopRequireDefault(_connect_to_ui);
 
-var _scrivito_sdk = __webpack_require__(189);
+var _scrivito_sdk = __webpack_require__(190);
 
-var _is_inside_extensions_document = __webpack_require__(550);
+var _is_inside_extensions_document = __webpack_require__(557);
 
 var _is_inside_extensions_document2 = _interopRequireDefault(_is_inside_extensions_document);
 
-var _asset_loading = __webpack_require__(96);
+var _asset_loading = __webpack_require__(97);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2507,48 +2563,6 @@ if (ui && !(0, _is_inside_extensions_document2.default)()) {
   (0, _asset_loading.loadCss)('/scrivito/scrivito_editing.css');
   (0, _asset_loading.loadJs)('/scrivito/scrivito_editing.js');
 }
-
-/***/ }),
-
-/***/ 119:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.storeRailsThumbnails = exports.getRailsThumbnail = undefined;
-
-var _loadable_data = __webpack_require__(5);
-
-var _loadable_data2 = _interopRequireDefault(_loadable_data);
-
-var _global_state = __webpack_require__(4);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function getRailsThumbnail(objClassName) {
-  return loadableData().get()[objClassName] || null;
-}
-
-// For test purpose only.
-function storeRailsThumbnails(thumbnails) {
-  loadableData().set(thumbnails);
-}
-
-function loadableData() {
-  var state = _global_state.uiState.subState('railsThumbnails');
-  return new _loadable_data2.default({ state: state, loader: loader, throwNotLoaded: true });
-}
-
-function loader() {
-  return scrivito.ajax('GET', 'obj_class/thumbnails');
-}
-
-exports.getRailsThumbnail = getRailsThumbnail;
-exports.storeRailsThumbnails = storeRailsThumbnails;
 
 /***/ }),
 
@@ -2641,6 +2655,48 @@ exports.default = load;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.storeRailsThumbnails = exports.getRailsThumbnail = undefined;
+
+var _loadable_data = __webpack_require__(5);
+
+var _loadable_data2 = _interopRequireDefault(_loadable_data);
+
+var _global_state = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getRailsThumbnail(objClassName) {
+  return loadableData().get()[objClassName] || null;
+}
+
+// For test purpose only.
+function storeRailsThumbnails(thumbnails) {
+  loadableData().set(thumbnails);
+}
+
+function loadableData() {
+  var state = _global_state.uiState.subState('railsThumbnails');
+  return new _loadable_data2.default({ state: state, loader: loader, throwNotLoaded: true });
+}
+
+function loader() {
+  return scrivito.ajax('GET', 'obj_class/thumbnails');
+}
+
+exports.getRailsThumbnail = getRailsThumbnail;
+exports.storeRailsThumbnails = storeRailsThumbnails;
+
+/***/ }),
+
+/***/ 121:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 function setupDragstartEvent(e) {
   e.dataTransfer.effectAllowed = 'move';
 
@@ -2658,7 +2714,7 @@ exports.default = setupDragstartEvent;
 
 /***/ }),
 
-/***/ 122:
+/***/ 123:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2720,7 +2776,7 @@ exports.storeValidRailsPageClasses = storeValidRailsPageClasses;
 
 /***/ }),
 
-/***/ 123:
+/***/ 124:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2804,7 +2860,7 @@ exports.resetIsConfigured = resetIsConfigured;
 
 /***/ }),
 
-/***/ 124:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2817,13 +2873,13 @@ exports.reset = exports.isComponentMounted = exports.mountComponent = undefined;
 
 var _errors = __webpack_require__(1);
 
-var _component_registry = __webpack_require__(49);
+var _component_registry = __webpack_require__(50);
 
-var _window_context = __webpack_require__(29);
+var _window_context = __webpack_require__(30);
 
-var _window_proxy = __webpack_require__(30);
+var _window_proxy = __webpack_require__(31);
 
-var _on_element_resize = __webpack_require__(259);
+var _on_element_resize = __webpack_require__(261);
 
 var _on_element_resize2 = _interopRequireDefault(_on_element_resize);
 
@@ -2886,7 +2942,7 @@ exports.reset = reset;
 
 /***/ }),
 
-/***/ 125:
+/***/ 126:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2897,7 +2953,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getUiConfigPropertyFor = exports.provideUiConfig = undefined;
 
-var _window_registry = __webpack_require__(47);
+var _window_registry = __webpack_require__(48);
 
 var _errors = __webpack_require__(1);
 
@@ -2932,7 +2988,7 @@ exports.getUiConfigPropertyFor = getUiConfigPropertyFor;
 
 /***/ }),
 
-/***/ 126:
+/***/ 127:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3048,7 +3104,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 127:
+/***/ 128:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3104,7 +3160,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 128:
+/***/ 129:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3150,7 +3206,252 @@ var _global_state = __webpack_require__(4);
 
 /***/ }),
 
-/***/ 129:
+/***/ 13:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _attribute_serializer = __webpack_require__(69);
+
+var AttributeSerializer = _interopRequireWildcard(_attribute_serializer);
+
+var _basic_attribute_content = __webpack_require__(59);
+
+var _basic_attribute_content2 = _interopRequireDefault(_basic_attribute_content);
+
+var _underscore = __webpack_require__(0);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _attribute_inflection = __webpack_require__(14);
+
+var _errors = __webpack_require__(1);
+
+var _global_state = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SYSTEM_ATTRIBUTES = {
+  _id: 'id',
+  _obj_class: 'objClass'
+};
+
+var BasicWidget = function (_BasicAttributeConten) {
+  _inherits(BasicWidget, _BasicAttributeConten);
+
+  _createClass(BasicWidget, null, [{
+    key: 'build',
+    value: function build(id, obj) {
+      var instance = Object.create(BasicWidget.prototype);
+      instance._obj = obj;
+      instance._id = id;
+
+      return instance;
+    }
+  }, {
+    key: 'newWithSerializedAttributes',
+    value: function newWithSerializedAttributes(attributes) {
+      var unserializedAttributes = {};
+      var serializedAttributes = {};
+
+      _underscore2.default.each(attributes, function (value, name) {
+        if (name === '_obj_class') {
+          unserializedAttributes._objClass = [value];
+          return;
+        }
+
+        if (_underscore2.default.isArray(value) && _underscore2.default.first(value) === 'widgetlist') {
+          var newWidgets = _underscore2.default.map(_underscore2.default.last(value), function (serializedWidget) {
+            return BasicWidget.newWithSerializedAttributes(serializedWidget);
+          });
+
+          var attrName = (0, _attribute_inflection.camelCase)(name);
+          unserializedAttributes[attrName] = [newWidgets, ['widgetlist']];
+          return;
+        }
+
+        serializedAttributes[name] = value;
+      });
+
+      var widget = new BasicWidget(unserializedAttributes);
+      widget.preserializedAttributes = serializedAttributes;
+      return widget;
+    }
+  }]);
+
+  function BasicWidget(attributes) {
+    _classCallCheck(this, BasicWidget);
+
+    var _this = _possibleConstructorReturn(this, (BasicWidget.__proto__ || Object.getPrototypeOf(BasicWidget)).call(this));
+
+    _this._attributesToBeSaved = scrivito.typeInfo.normalizeAttrs(attributes);
+
+    assertWidgetClassExists(attributes._objClass);
+    return _this;
+  }
+
+  _createClass(BasicWidget, [{
+    key: 'id',
+    value: function id() {
+      if (this.isPersisted()) {
+        return this._id;
+      }
+
+      this._throwUnpersistedError();
+    }
+  }, {
+    key: 'objClass',
+    value: function objClass() {
+      return this._current._obj_class;
+    }
+  }, {
+    key: 'obj',
+    value: function obj() {
+      if (this.isPersisted()) {
+        return this._obj;
+      }
+
+      this._throwUnpersistedError();
+    }
+  }, {
+    key: 'widget',
+    value: function widget(id) {
+      return this.obj().widget(id);
+    }
+  }, {
+    key: 'update',
+    value: function update(attributes) {
+      var _this2 = this;
+
+      var normalizedAttributes = scrivito.typeInfo.normalizeAttrs(attributes);
+
+      (0, _global_state.withBatchedUpdates)(function () {
+        _this2._persistWidgets(_this2.obj(), normalizedAttributes);
+        var patch = AttributeSerializer.serialize(normalizedAttributes);
+        _this2._updateSelf(patch);
+      });
+    }
+  }, {
+    key: 'insertBefore',
+    value: function insertBefore(widget) {
+      widget.obj().insertWidget(this, { before: widget });
+    }
+  }, {
+    key: 'insertAfter',
+    value: function insertAfter(widget) {
+      widget.obj().insertWidget(this, { after: widget });
+    }
+  }, {
+    key: 'remove',
+    value: function remove() {
+      this.obj().removeWidget(this);
+    }
+  }, {
+    key: 'copy',
+    value: function copy() {
+      var serializedAttributes = this.serializeAttributes();
+      return BasicWidget.newWithSerializedAttributes(serializedAttributes);
+    }
+  }, {
+    key: 'persistInObj',
+    value: function persistInObj(obj) {
+      this._persistWidgets(obj, this._attributesToBeSaved);
+      var patch = AttributeSerializer.serialize(this._attributesToBeSaved);
+      _underscore2.default.extend(patch, this.preserializedAttributes || {});
+
+      this._obj = obj;
+      this._id = obj.generateWidgetId();
+
+      this._updateSelf(patch);
+    }
+  }, {
+    key: 'isPersisted',
+    value: function isPersisted() {
+      return !!this._obj;
+    }
+  }, {
+    key: 'finishSaving',
+    value: function finishSaving() {
+      return this.obj().finishSaving();
+    }
+  }, {
+    key: 'equals',
+    value: function equals(otherWidget) {
+      if (!(otherWidget instanceof BasicWidget)) {
+        return false;
+      }
+
+      return this.id() === otherWidget.id() && this.obj().id() === otherWidget.obj().id();
+    }
+  }, {
+    key: 'containingField',
+    value: function containingField() {
+      return this.obj().fieldContainingWidget(this);
+    }
+  }, {
+    key: '_throwUnpersistedError',
+    value: function _throwUnpersistedError() {
+      throw new _errors.ScrivitoError('Can not access a new widget before it has been saved.');
+    }
+  }, {
+    key: '_updateSelf',
+    value: function _updateSelf(patch) {
+      var widgetPoolPatch = { _widgetPool: [_defineProperty({}, this.id(), patch)] };
+      this.obj().update(widgetPoolPatch);
+    }
+  }, {
+    key: 'attributesToBeSaved',
+    get: function get() {
+      return this._attributesToBeSaved;
+    }
+  }, {
+    key: '_current',
+    get: function get() {
+      if (this.isPersisted()) {
+        return this.obj().widgetData(this.id());
+      }
+
+      throw new _errors.ScrivitoError('Can not access an unpersisted widget.');
+    }
+  }, {
+    key: '_systemAttributes',
+    get: function get() {
+      return SYSTEM_ATTRIBUTES;
+    }
+  }]);
+
+  return BasicWidget;
+}(_basic_attribute_content2.default);
+
+exports.default = BasicWidget;
+
+
+function assertWidgetClassExists(attrInfoAndValue) {
+  if (!attrInfoAndValue) {
+    throw new _errors.ArgumentError('Please provide a widget class as the "_objClass" property.');
+  }
+}
+
+/***/ }),
+
+/***/ 130:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3162,7 +3463,7 @@ var _deferred = __webpack_require__(10);
 
 var _deferred2 = _interopRequireDefault(_deferred);
 
-var _urijs = __webpack_require__(37);
+var _urijs = __webpack_require__(38);
 
 var _urijs2 = _interopRequireDefault(_urijs);
 
@@ -3172,15 +3473,15 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 var _errors = __webpack_require__(1);
 
-var _auth_failure_counter = __webpack_require__(101);
+var _auth_failure_counter = __webpack_require__(102);
 
 var _auth_failure_counter2 = _interopRequireDefault(_auth_failure_counter);
 
-var _public_authentication = __webpack_require__(169);
+var _public_authentication = __webpack_require__(170);
 
 var _public_authentication2 = _interopRequireDefault(_public_authentication);
 
-var _window_proxy = __webpack_require__(30);
+var _window_proxy = __webpack_require__(31);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3472,252 +3773,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 /***/ }),
 
-/***/ 13:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _attribute_serializer = __webpack_require__(68);
-
-var AttributeSerializer = _interopRequireWildcard(_attribute_serializer);
-
-var _basic_attribute_content = __webpack_require__(58);
-
-var _basic_attribute_content2 = _interopRequireDefault(_basic_attribute_content);
-
-var _underscore = __webpack_require__(0);
-
-var _underscore2 = _interopRequireDefault(_underscore);
-
-var _attribute_inflection = __webpack_require__(14);
-
-var _errors = __webpack_require__(1);
-
-var _global_state = __webpack_require__(4);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SYSTEM_ATTRIBUTES = {
-  _id: 'id',
-  _obj_class: 'objClass'
-};
-
-var BasicWidget = function (_BasicAttributeConten) {
-  _inherits(BasicWidget, _BasicAttributeConten);
-
-  _createClass(BasicWidget, null, [{
-    key: 'build',
-    value: function build(id, obj) {
-      var instance = Object.create(BasicWidget.prototype);
-      instance._obj = obj;
-      instance._id = id;
-
-      return instance;
-    }
-  }, {
-    key: 'newWithSerializedAttributes',
-    value: function newWithSerializedAttributes(attributes) {
-      var unserializedAttributes = {};
-      var serializedAttributes = {};
-
-      _underscore2.default.each(attributes, function (value, name) {
-        if (name === '_obj_class') {
-          unserializedAttributes._objClass = [value];
-          return;
-        }
-
-        if (_underscore2.default.isArray(value) && _underscore2.default.first(value) === 'widgetlist') {
-          var newWidgets = _underscore2.default.map(_underscore2.default.last(value), function (serializedWidget) {
-            return BasicWidget.newWithSerializedAttributes(serializedWidget);
-          });
-
-          var attrName = (0, _attribute_inflection.camelCase)(name);
-          unserializedAttributes[attrName] = [newWidgets, ['widgetlist']];
-          return;
-        }
-
-        serializedAttributes[name] = value;
-      });
-
-      var widget = new BasicWidget(unserializedAttributes);
-      widget.preserializedAttributes = serializedAttributes;
-      return widget;
-    }
-  }]);
-
-  function BasicWidget(attributes) {
-    _classCallCheck(this, BasicWidget);
-
-    var _this = _possibleConstructorReturn(this, (BasicWidget.__proto__ || Object.getPrototypeOf(BasicWidget)).call(this));
-
-    _this._attributesToBeSaved = scrivito.typeInfo.normalizeAttrs(attributes);
-
-    assertWidgetClassExists(attributes._objClass);
-    return _this;
-  }
-
-  _createClass(BasicWidget, [{
-    key: 'id',
-    value: function id() {
-      if (this.isPersisted()) {
-        return this._id;
-      }
-
-      this._throwUnpersistedError();
-    }
-  }, {
-    key: 'objClass',
-    value: function objClass() {
-      return this._current._obj_class;
-    }
-  }, {
-    key: 'obj',
-    value: function obj() {
-      if (this.isPersisted()) {
-        return this._obj;
-      }
-
-      this._throwUnpersistedError();
-    }
-  }, {
-    key: 'widget',
-    value: function widget(id) {
-      return this.obj().widget(id);
-    }
-  }, {
-    key: 'update',
-    value: function update(attributes) {
-      var _this2 = this;
-
-      var normalizedAttributes = scrivito.typeInfo.normalizeAttrs(attributes);
-
-      (0, _global_state.withBatchedUpdates)(function () {
-        _this2._persistWidgets(_this2.obj(), normalizedAttributes);
-        var patch = AttributeSerializer.serialize(normalizedAttributes);
-        _this2._updateSelf(patch);
-      });
-    }
-  }, {
-    key: 'insertBefore',
-    value: function insertBefore(widget) {
-      widget.obj().insertWidget(this, { before: widget });
-    }
-  }, {
-    key: 'insertAfter',
-    value: function insertAfter(widget) {
-      widget.obj().insertWidget(this, { after: widget });
-    }
-  }, {
-    key: 'remove',
-    value: function remove() {
-      this.obj().removeWidget(this);
-    }
-  }, {
-    key: 'copy',
-    value: function copy() {
-      var serializedAttributes = this.serializeAttributes();
-      return BasicWidget.newWithSerializedAttributes(serializedAttributes);
-    }
-  }, {
-    key: 'persistInObj',
-    value: function persistInObj(obj) {
-      this._persistWidgets(obj, this._attributesToBeSaved);
-      var patch = AttributeSerializer.serialize(this._attributesToBeSaved);
-      _underscore2.default.extend(patch, this.preserializedAttributes || {});
-
-      this._obj = obj;
-      this._id = obj.generateWidgetId();
-
-      this._updateSelf(patch);
-    }
-  }, {
-    key: 'isPersisted',
-    value: function isPersisted() {
-      return !!this._obj;
-    }
-  }, {
-    key: 'finishSaving',
-    value: function finishSaving() {
-      return this.obj().finishSaving();
-    }
-  }, {
-    key: 'equals',
-    value: function equals(otherWidget) {
-      if (!(otherWidget instanceof BasicWidget)) {
-        return false;
-      }
-
-      return this.id() === otherWidget.id() && this.obj().id() === otherWidget.obj().id();
-    }
-  }, {
-    key: 'containingField',
-    value: function containingField() {
-      return this.obj().fieldContainingWidget(this);
-    }
-  }, {
-    key: '_throwUnpersistedError',
-    value: function _throwUnpersistedError() {
-      throw new _errors.ScrivitoError('Can not access a new widget before it has been saved.');
-    }
-  }, {
-    key: '_updateSelf',
-    value: function _updateSelf(patch) {
-      var widgetPoolPatch = { _widgetPool: [_defineProperty({}, this.id(), patch)] };
-      this.obj().update(widgetPoolPatch);
-    }
-  }, {
-    key: 'attributesToBeSaved',
-    get: function get() {
-      return this._attributesToBeSaved;
-    }
-  }, {
-    key: '_current',
-    get: function get() {
-      if (this.isPersisted()) {
-        return this.obj().widgetData(this.id());
-      }
-
-      throw new _errors.ScrivitoError('Can not access an unpersisted widget.');
-    }
-  }, {
-    key: '_systemAttributes',
-    get: function get() {
-      return SYSTEM_ATTRIBUTES;
-    }
-  }]);
-
-  return BasicWidget;
-}(_basic_attribute_content2.default);
-
-exports.default = BasicWidget;
-
-
-function assertWidgetClassExists(attrInfoAndValue) {
-  if (!attrInfoAndValue) {
-    throw new _errors.ArgumentError('Please provide a widget class as the "_objClass" property.');
-  }
-}
-
-/***/ }),
-
-/***/ 130:
+/***/ 131:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3750,7 +3806,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 131:
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3761,7 +3817,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = convertToSlug;
 
-var _speakingurl = __webpack_require__(111);
+var _speakingurl = __webpack_require__(112);
 
 var _speakingurl2 = _interopRequireDefault(_speakingurl);
 
@@ -3773,7 +3829,7 @@ function convertToSlug(input) {
 
 /***/ }),
 
-/***/ 132:
+/***/ 133:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3793,7 +3849,7 @@ function convertToSlug(input) {
 
 /***/ }),
 
-/***/ 133:
+/***/ 134:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3803,7 +3859,7 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _errorStackParser = __webpack_require__(175);
+var _errorStackParser = __webpack_require__(176);
 
 var _errorStackParser2 = _interopRequireDefault(_errorStackParser);
 
@@ -3842,7 +3898,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 /***/ }),
 
-/***/ 134:
+/***/ 135:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3854,7 +3910,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _basic_obj_facet_value = __webpack_require__(143);
+var _basic_obj_facet_value = __webpack_require__(144);
 
 var _basic_obj_facet_value2 = _interopRequireDefault(_basic_obj_facet_value);
 
@@ -3980,7 +4036,7 @@ function buildRequestParams(attribute, options, searchQuery) {
 
 /***/ }),
 
-/***/ 135:
+/***/ 136:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4076,13 +4132,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 136:
+/***/ 137:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _realm = __webpack_require__(156);
+var _realm = __webpack_require__(157);
 
 var _realm2 = _interopRequireDefault(_realm);
 
@@ -4135,7 +4191,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 137:
+/***/ 138:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4176,7 +4232,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 138:
+/***/ 139:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4200,45 +4256,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
   // legacy, keeping this for now to avoid conflicts.
   scrivito.loadWithDefault = loadableWithDefault;
-})();
-
-/***/ }),
-
-/***/ 139:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _errors = __webpack_require__(1);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-(function () {
-  /**
-    * A `NotLoadedError` is thrown when data is accessed in a synchronous fashion but is not yet
-    * available locally.
-    */
-  var NotLoadedError = function (_ScrivitoError) {
-    _inherits(NotLoadedError, _ScrivitoError);
-
-    function NotLoadedError(captureStackTrace) {
-      _classCallCheck(this, NotLoadedError);
-
-      return _possibleConstructorReturn(this, (NotLoadedError.__proto__ || Object.getPrototypeOf(NotLoadedError)).call(this, 'Data is not yet loaded.', captureStackTrace));
-    }
-
-    return NotLoadedError;
-  }(_errors.ScrivitoError);
-
-  // export
-
-
-  scrivito.NotLoadedError = NotLoadedError;
 })();
 
 /***/ }),
@@ -4321,6 +4338,45 @@ exports.underscore = underscore;
 "use strict";
 
 
+var _errors = __webpack_require__(1);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+(function () {
+  /**
+    * A `NotLoadedError` is thrown when data is accessed in a synchronous fashion but is not yet
+    * available locally.
+    */
+  var NotLoadedError = function (_ScrivitoError) {
+    _inherits(NotLoadedError, _ScrivitoError);
+
+    function NotLoadedError(captureStackTrace) {
+      _classCallCheck(this, NotLoadedError);
+
+      return _possibleConstructorReturn(this, (NotLoadedError.__proto__ || Object.getPrototypeOf(NotLoadedError)).call(this, 'Data is not yet loaded.', captureStackTrace));
+    }
+
+    return NotLoadedError;
+  }(_errors.ScrivitoError);
+
+  // export
+
+
+  scrivito.NotLoadedError = NotLoadedError;
+})();
+
+/***/ }),
+
+/***/ 141:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -4366,7 +4422,7 @@ function AppClassFactory(definition, parent) {
 
 /***/ }),
 
-/***/ 141:
+/***/ 142:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4469,7 +4525,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 /***/ }),
 
-/***/ 142:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4487,7 +4543,7 @@ var _basic_obj = __webpack_require__(3);
 
 var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
-var _types = __webpack_require__(31);
+var _types = __webpack_require__(32);
 
 var types = _interopRequireWildcard(_types);
 
@@ -4498,8 +4554,6 @@ var _basic_link2 = _interopRequireDefault(_basic_link);
 var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
-
-var _errors = __webpack_require__(1);
 
 var _binary = __webpack_require__(25);
 
@@ -4660,14 +4714,13 @@ function convertToLink(valueFromBackend) {
 }
 
 function convertReferenceToBasicObj(valueFromBackend) {
-  try {
-    return _basic_obj2.default.get(valueFromBackend);
-  } catch (e) {
-    if (e instanceof _errors.ResourceNotFoundError) {
-      return null;
-    }
-    throw e;
+  var obj = _basic_obj2.default.get(valueFromBackend);
+
+  if (obj) {
+    return obj;
   }
+
+  return null;
 }
 
 function deserializeReferenceValue(typeFromBackend, valueFromBackend) {
@@ -4720,7 +4773,7 @@ function deserializeWidgetlistValue(typeFromBackend, valueFromBackend, model) {
 
 /***/ }),
 
-/***/ 143:
+/***/ 144:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4773,7 +4826,7 @@ exports.default = BasicObjFacetValue;
 
 /***/ }),
 
-/***/ 144:
+/***/ 145:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4843,7 +4896,7 @@ function LinkFactory(registry) {
 
 /***/ }),
 
-/***/ 145:
+/***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4867,11 +4920,11 @@ var _schema2 = _interopRequireDefault(_schema);
 
 var _errors = __webpack_require__(1);
 
-var _app_model_accessor = __webpack_require__(48);
+var _app_model_accessor = __webpack_require__(49);
 
 var _app_model_accessor2 = _interopRequireDefault(_app_model_accessor);
 
-var _metadata_collection = __webpack_require__(70);
+var _metadata_collection = __webpack_require__(71);
 
 var _metadata_collection2 = _interopRequireDefault(_metadata_collection);
 
@@ -4886,13 +4939,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function ObjFactory(registry) {
   var appModelAccessor = new _app_model_accessor2.default(registry);
 
-  function buildObjSearchIterable(objClassName) {
-    var iterable = new registry.ObjSearchIterable();
+  function buildObjSearch(objClassName) {
+    var search = new registry.ObjSearch();
     if (objClassName) {
-      iterable.and('_objClass', 'equals', objClassName);
+      search.and('_objClass', 'equals', objClassName);
     }
 
-    return iterable;
+    return search;
   }
 
   function wrap(response) {
@@ -5098,7 +5151,7 @@ function ObjFactory(registry) {
       key: 'all',
       value: function all() {
         var objClassName = registry.objClassNameFor(this);
-        return buildObjSearchIterable(objClassName).batchSize(1000);
+        return buildObjSearch(objClassName).batchSize(1000);
       }
 
       // public API
@@ -5117,7 +5170,7 @@ function ObjFactory(registry) {
         var boost = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
         var objClassName = registry.objClassNameFor(this);
-        return buildObjSearchIterable(objClassName).and(attribute, operator, value, boost);
+        return buildObjSearch(objClassName).and(attribute, operator, value, boost);
       }
 
       // public API
@@ -5155,7 +5208,7 @@ function ObjFactory(registry) {
 
 /***/ }),
 
-/***/ 146:
+/***/ 147:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5169,13 +5222,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-exports.default = ObjSearchIterableFactory;
+exports.default = ObjSearchFactory;
 
-var _basic_obj_search_iterable = __webpack_require__(59);
+var _basic_obj_search_iterable = __webpack_require__(60);
 
 var _basic_obj_search_iterable2 = _interopRequireDefault(_basic_obj_search_iterable);
 
-var _obj_facet_value = __webpack_require__(86);
+var _obj_facet_value = __webpack_require__(87);
 
 var _obj_facet_value2 = _interopRequireDefault(_obj_facet_value);
 
@@ -5183,7 +5236,7 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _iterable = __webpack_require__(54);
+var _iterable = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5193,23 +5246,23 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function ObjSearchIterableFactory(registry) {
+function ObjSearchFactory(registry) {
   // public API
-  var ObjSearchIterable = function (_BasicObjSearchIterab) {
-    _inherits(ObjSearchIterable, _BasicObjSearchIterab);
+  var ObjSearch = function (_BasicObjSearchIterab) {
+    _inherits(ObjSearch, _BasicObjSearchIterab);
 
-    function ObjSearchIterable() {
-      _classCallCheck(this, ObjSearchIterable);
+    function ObjSearch() {
+      _classCallCheck(this, ObjSearch);
 
-      return _possibleConstructorReturn(this, (ObjSearchIterable.__proto__ || Object.getPrototypeOf(ObjSearchIterable)).apply(this, arguments));
+      return _possibleConstructorReturn(this, (ObjSearch.__proto__ || Object.getPrototypeOf(ObjSearch)).apply(this, arguments));
     }
 
-    _createClass(ObjSearchIterable, [{
+    _createClass(ObjSearch, [{
       key: 'iterator',
 
       // public API
       value: function iterator() {
-        var basicIterator = _get(ObjSearchIterable.prototype.__proto__ || Object.getPrototypeOf(ObjSearchIterable.prototype), 'iterator', this).call(this);
+        var basicIterator = _get(ObjSearch.prototype.__proto__ || Object.getPrototypeOf(ObjSearch.prototype), 'iterator', this).call(this);
 
         return {
           next: function next() {
@@ -5234,7 +5287,7 @@ function ObjSearchIterableFactory(registry) {
         var boost = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
         var unwrappedValue = scrivito.unwrapAppClassValues(value);
-        return _get(ObjSearchIterable.prototype.__proto__ || Object.getPrototypeOf(ObjSearchIterable.prototype), 'and', this).call(this, attribute, operator, unwrappedValue, boost);
+        return _get(ObjSearch.prototype.__proto__ || Object.getPrototypeOf(ObjSearch.prototype), 'and', this).call(this, attribute, operator, unwrappedValue, boost);
       }
 
       // public API
@@ -5243,7 +5296,7 @@ function ObjSearchIterableFactory(registry) {
       key: 'andNot',
       value: function andNot(attribute, operator, value) {
         var unwrappedValue = scrivito.unwrapAppClassValues(value);
-        return _get(ObjSearchIterable.prototype.__proto__ || Object.getPrototypeOf(ObjSearchIterable.prototype), 'andNot', this).call(this, attribute, operator, unwrappedValue);
+        return _get(ObjSearch.prototype.__proto__ || Object.getPrototypeOf(ObjSearch.prototype), 'andNot', this).call(this, attribute, operator, unwrappedValue);
       }
 
       // public API
@@ -5253,7 +5306,7 @@ function ObjSearchIterableFactory(registry) {
       value: function facet(attribute) {
         var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-        var result = _get(ObjSearchIterable.prototype.__proto__ || Object.getPrototypeOf(ObjSearchIterable.prototype), 'facet', this).call(this, attribute, options);
+        var result = _get(ObjSearch.prototype.__proto__ || Object.getPrototypeOf(ObjSearch.prototype), 'facet', this).call(this, attribute, options);
         return _underscore2.default.map(result, function (facetValue) {
           return new _obj_facet_value2.default(registry, facetValue);
         });
@@ -5268,7 +5321,7 @@ function ObjSearchIterableFactory(registry) {
       }
     }]);
 
-    return ObjSearchIterable;
+    return ObjSearch;
   }(_basic_obj_search_iterable2.default);
 
   // check if the environment supports ES6 iterables
@@ -5279,17 +5332,17 @@ function ObjSearchIterableFactory(registry) {
   if (typeof window.Symbol === 'function') {
     var iteratorSymbol = window.Symbol.iterator;
     if (iteratorSymbol) {
-      var proto = ObjSearchIterable.prototype;
+      var proto = ObjSearch.prototype;
       proto[iteratorSymbol] = proto.iterator;
     }
   }
 
-  return ObjSearchIterable;
+  return ObjSearch;
 }
 
 /***/ }),
 
-/***/ 147:
+/***/ 148:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5313,7 +5366,7 @@ var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
 var _errors = __webpack_require__(1);
 
-var _app_model_accessor = __webpack_require__(48);
+var _app_model_accessor = __webpack_require__(49);
 
 var _app_model_accessor2 = _interopRequireDefault(_app_model_accessor);
 
@@ -5391,7 +5444,7 @@ function WidgetFactory(registry) {
 
 /***/ }),
 
-/***/ 148:
+/***/ 149:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5458,7 +5511,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 149:
+/***/ 15:
+/***/ (function(module, exports) {
+
+module.exports = React;
+
+/***/ }),
+
+/***/ 150:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5470,11 +5530,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _obj_retrieval = __webpack_require__(154);
+var _obj_retrieval = __webpack_require__(155);
 
 var ObjRetrieval = _interopRequireWildcard(_obj_retrieval);
 
-var _obj_patch = __webpack_require__(52);
+var _obj_patch = __webpack_require__(53);
 
 var ObjPatch = _interopRequireWildcard(_obj_patch);
 
@@ -5555,14 +5615,7 @@ exports.default = ObjData;
 
 /***/ }),
 
-/***/ 15:
-/***/ (function(module, exports) {
-
-module.exports = React;
-
-/***/ }),
-
-/***/ 150:
+/***/ 151:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5574,13 +5627,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _obj_data_store = __webpack_require__(40);
+var _obj_data_store = __webpack_require__(41);
 
 var ObjDataStore = _interopRequireWildcard(_obj_data_store);
 
 var _errors = __webpack_require__(1);
 
-var _obj_id_query = __webpack_require__(71);
+var _obj_id_query = __webpack_require__(72);
 
 var _obj_id_query2 = _interopRequireDefault(_obj_id_query);
 
@@ -5662,7 +5715,7 @@ function isFinallyDeleted(objData) {
 
 /***/ }),
 
-/***/ 151:
+/***/ 152:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5674,15 +5727,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _obj_query_store = __webpack_require__(72);
+var _obj_query_store = __webpack_require__(73);
 
 var ObjQueryStore = _interopRequireWildcard(_obj_query_store);
 
-var _obj_query_retrieval = __webpack_require__(152);
+var _obj_query_retrieval = __webpack_require__(153);
 
 var ObjQueryRetrieval = _interopRequireWildcard(_obj_query_retrieval);
 
-var _obj_data_store = __webpack_require__(40);
+var _obj_data_store = __webpack_require__(41);
 
 var ObjDataStore = _interopRequireWildcard(_obj_data_store);
 
@@ -5864,7 +5917,7 @@ function backendOrderedHitsParams(params) {
 
 /***/ }),
 
-/***/ 152:
+/***/ 153:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5892,7 +5945,7 @@ function retrieve(params) {
 
 /***/ }),
 
-/***/ 153:
+/***/ 154:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5904,11 +5957,11 @@ var _deferred = __webpack_require__(10);
 
 var _deferred2 = _interopRequireDefault(_deferred);
 
-var _obj_patch = __webpack_require__(52);
+var _obj_patch = __webpack_require__(53);
 
 var ObjPatch = _interopRequireWildcard(_obj_patch);
 
-var _obj_data_store = __webpack_require__(40);
+var _obj_data_store = __webpack_require__(41);
 
 var ObjDataStore = _interopRequireWildcard(_obj_data_store);
 
@@ -6259,7 +6312,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 /***/ }),
 
-/***/ 154:
+/***/ 155:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6273,7 +6326,7 @@ exports.reset = reset;
 
 var _errors = __webpack_require__(1);
 
-var _batch_retrieval = __webpack_require__(69);
+var _batch_retrieval = __webpack_require__(70);
 
 var _batch_retrieval2 = _interopRequireDefault(_batch_retrieval);
 
@@ -6289,10 +6342,10 @@ function mget(ids) {
   });
 }
 
-// Why batchSize: 17?
-// Retrieval of up to 100 Objs is a common use-case (see ObjSearchIterable)
-// With a batchSize of 17, this leads to 6 concurrent requests,
-// which is the concurrent request limit in many browsers for HTTP/1.
+// Question: Why the magic batchSize: 17?
+// Answer: Retrieval of up to 100 Objs is a common use-case (see ObjSearch)
+// With a batchSize of 17, this leads to 6 concurrent requests, which is
+// the concurrent request limit in many browsers for HTTP/1.
 // This ensures maximum parallel loading.
 var batchRetrieval = new _batch_retrieval2.default(mget, { batchSize: 17 });
 
@@ -6313,7 +6366,7 @@ function reset() {
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6323,7 +6376,7 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _bluebird = __webpack_require__(174);
+var _bluebird = __webpack_require__(175);
 
 var _bluebird2 = _interopRequireDefault(_bluebird);
 
@@ -6373,7 +6426,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 156:
+/***/ 157:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6385,37 +6438,37 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _widget_factory = __webpack_require__(147);
+var _widget_factory = __webpack_require__(148);
 
 var _widget_factory2 = _interopRequireDefault(_widget_factory);
 
-var _obj_search_iterable_factory = __webpack_require__(146);
+var _obj_search_factory = __webpack_require__(147);
 
-var _obj_search_iterable_factory2 = _interopRequireDefault(_obj_search_iterable_factory);
+var _obj_search_factory2 = _interopRequireDefault(_obj_search_factory);
 
-var _obj_factory = __webpack_require__(145);
+var _obj_factory = __webpack_require__(146);
 
 var _obj_factory2 = _interopRequireDefault(_obj_factory);
 
-var _link_factory = __webpack_require__(144);
+var _link_factory = __webpack_require__(145);
 
 var _link_factory2 = _interopRequireDefault(_link_factory);
 
-var _app_class_factory = __webpack_require__(140);
+var _app_class_factory = __webpack_require__(141);
 
 var _app_class_factory2 = _interopRequireDefault(_app_class_factory);
 
-var _registry = __webpack_require__(157);
+var _registry = __webpack_require__(158);
 
 var _registry2 = _interopRequireDefault(_registry);
 
 var _errors = __webpack_require__(1);
 
-var _app_model_accessor = __webpack_require__(48);
+var _app_model_accessor = __webpack_require__(49);
 
 var _app_model_accessor2 = _interopRequireDefault(_app_model_accessor);
 
-var _app_class_validations = __webpack_require__(166);
+var _app_class_validations = __webpack_require__(167);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6430,7 +6483,7 @@ var Realm = function () {
       context.Obj = realm.Obj;
       context.Widget = realm.Widget;
       context.Link = realm.Link;
-      context.ObjSearchIterable = realm.ObjSearchIterable;
+      context.ObjSearch = realm.ObjSearch;
       context.appModelAccessor = realm.appModelAccessor;
       context.createObjClass = function () {
         return realm.createObjClass.apply(realm, arguments);
@@ -6463,7 +6516,7 @@ var Realm = function () {
     this._registry.defaultClassForObjs = (0, _obj_factory2.default)(this._registry);
     this._registry.defaultClassForWidgets = (0, _widget_factory2.default)(this._registry);
     this._registry.defaultClassForLinks = (0, _link_factory2.default)(this._registry);
-    this._registry.ObjSearchIterable = (0, _obj_search_iterable_factory2.default)(this._registry);
+    this._registry.ObjSearch = (0, _obj_search_factory2.default)(this._registry);
 
     this.appModelAccessor = new _app_model_accessor2.default(this._registry);
   }
@@ -6552,9 +6605,9 @@ var Realm = function () {
       return this._registry.defaultClassForLinks;
     }
   }, {
-    key: 'ObjSearchIterable',
+    key: 'ObjSearch',
     get: function get() {
-      return this._registry.ObjSearchIterable;
+      return this._registry.ObjSearch;
     }
   }]);
 
@@ -6565,7 +6618,7 @@ exports.default = Realm;
 
 /***/ }),
 
-/***/ 157:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6656,7 +6709,7 @@ exports.default = Registry;
 
 /***/ }),
 
-/***/ 158:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6685,7 +6738,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 159:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6746,7 +6799,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 160:
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6819,7 +6872,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 161:
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6831,7 +6884,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _is_editing_mode = __webpack_require__(46);
+var _is_editing_mode = __webpack_require__(47);
 
 var _is_editing_mode2 = _interopRequireDefault(_is_editing_mode);
 
@@ -6847,7 +6900,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _errors = __webpack_require__(1);
 
-var _key_for_basic_content = __webpack_require__(165);
+var _key_for_basic_content = __webpack_require__(166);
 
 var _key_for_basic_content2 = _interopRequireDefault(_key_for_basic_content);
 
@@ -6855,11 +6908,11 @@ var _connect = __webpack_require__(6);
 
 var _connect2 = _interopRequireDefault(_connect);
 
-var _attribute_value = __webpack_require__(162);
+var _attribute_value = __webpack_require__(163);
 
 var _attribute_value2 = _interopRequireDefault(_attribute_value);
 
-var _editor = __webpack_require__(247);
+var _editor = __webpack_require__(249);
 
 var _editor2 = _interopRequireDefault(_editor);
 
@@ -6871,23 +6924,23 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Content = function (_React$Component) {
-  _inherits(Content, _React$Component);
+var ContentTag = function (_React$Component) {
+  _inherits(ContentTag, _React$Component);
 
-  function Content() {
-    _classCallCheck(this, Content);
+  function ContentTag() {
+    _classCallCheck(this, ContentTag);
 
-    return _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ContentTag.__proto__ || Object.getPrototypeOf(ContentTag)).apply(this, arguments));
   }
 
-  _createClass(Content, [{
+  _createClass(ContentTag, [{
     key: 'render',
     value: function render() {
       var field = _schema2.default.basicFieldFor(this.props.content, this.props.attribute);
 
       if (!field) {
         var attributeName = this.props.attribute;
-        throw new _errors.ArgumentError('Component "Scrivito.React.Content" received prop "attribute" with invalid value: ' + ('Attribute "' + attributeName + '" is not defined for content specified in prop "content".'));
+        throw new _errors.ArgumentError('Component "Scrivito.ContentTag" received prop "attribute" with invalid value: ' + ('Attribute "' + attributeName + '" is not defined for content specified in prop "content".'));
       }
 
       if ((0, _is_editing_mode2.default)()) {
@@ -6931,18 +6984,18 @@ var Content = function (_React$Component) {
     }
   }]);
 
-  return Content;
+  return ContentTag;
 }(_react2.default.Component);
 
-Content.displayName = 'Scrivito.React.Content';
+ContentTag.displayName = 'Scrivito.ContentTag';
 
-Content.defaultProps = { tag: 'div' };
+ContentTag.defaultProps = { tag: 'div' };
 
-exports.default = (0, _connect2.default)(Content);
+exports.default = (0, _connect2.default)(ContentTag);
 
 /***/ }),
 
-/***/ 162:
+/***/ 163:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6954,11 +7007,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _is_editing_mode = __webpack_require__(46);
+var _is_editing_mode = __webpack_require__(47);
 
 var _is_editing_mode2 = _interopRequireDefault(_is_editing_mode);
 
-var _internal_links = __webpack_require__(258);
+var _internal_links = __webpack_require__(260);
 
 var InternalLinks = _interopRequireWildcard(_internal_links);
 
@@ -6968,7 +7021,7 @@ var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _navigate_to = __webpack_require__(56);
+var _navigate_to = __webpack_require__(57);
 
 var _navigate_to2 = _interopRequireDefault(_navigate_to);
 
@@ -6976,11 +7029,11 @@ var _connect = __webpack_require__(6);
 
 var _connect2 = _interopRequireDefault(_connect);
 
-var _widget = __webpack_require__(249);
+var _widget = __webpack_require__(251);
 
 var _widget2 = _interopRequireDefault(_widget);
 
-var _widgetlist_placeholder = __webpack_require__(251);
+var _widgetlist_placeholder = __webpack_require__(253);
 
 var _widgetlist_placeholder2 = _interopRequireDefault(_widgetlist_placeholder);
 
@@ -7099,13 +7152,13 @@ var AttributeValue = function (_React$Component) {
   return AttributeValue;
 }(_react2.default.Component);
 
-AttributeValue.displayName = 'Scrivito.React.Content.AttributeValue';
+AttributeValue.displayName = 'Scrivito.ContentTag.AttributeValue';
 
 exports.default = (0, _connect2.default)(AttributeValue);
 
 /***/ }),
 
-/***/ 163:
+/***/ 164:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7127,7 +7180,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _underscore = __webpack_require__(0);
 
-var _navigate_to = __webpack_require__(56);
+var _navigate_to = __webpack_require__(57);
 
 var _navigate_to2 = _interopRequireDefault(_navigate_to);
 
@@ -7143,19 +7196,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Link = function (_React$Component) {
-  _inherits(Link, _React$Component);
+var LinkTag = function (_React$Component) {
+  _inherits(LinkTag, _React$Component);
 
-  function Link(props) {
-    _classCallCheck(this, Link);
+  function LinkTag(props) {
+    _classCallCheck(this, LinkTag);
 
-    var _this = _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (LinkTag.__proto__ || Object.getPrototypeOf(LinkTag)).call(this, props));
 
     _this._onClick = _this._onClick.bind(_this);
     return _this;
   }
 
-  _createClass(Link, [{
+  _createClass(LinkTag, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -7212,16 +7265,16 @@ var Link = function (_React$Component) {
     }
   }]);
 
-  return Link;
+  return LinkTag;
 }(_react2.default.Component);
 
-Link.displayName = 'Scrivito.React.Link';
+LinkTag.displayName = 'Scrivito.LinkTag';
 
-exports.default = (0, _connect2.default)(Link);
+exports.default = (0, _connect2.default)(LinkTag);
 
 /***/ }),
 
-/***/ 164:
+/***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7292,13 +7345,13 @@ var OptionMarker = function (_React$Component) {
   return OptionMarker;
 }(_react2.default.Component);
 
-OptionMarker.displayName = 'Scrivito.React.OptionMarker';
+OptionMarker.displayName = 'Scrivito.OptionMarker';
 
 exports.default = (0, _connect2.default)(OptionMarker);
 
 /***/ }),
 
-/***/ 165:
+/***/ 166:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7340,7 +7393,7 @@ function keyForBasicContent(content) {
 
 /***/ }),
 
-/***/ 166:
+/***/ 167:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7419,7 +7472,7 @@ exports.isValidAppClass = isValidAppClass;
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7432,15 +7485,13 @@ window.scrivito.client = {};
 
 /***/ }),
 
-/***/ 168:
+/***/ 169:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(167);
-
-__webpack_require__(126);
+__webpack_require__(168);
 
 __webpack_require__(127);
 
@@ -7450,11 +7501,11 @@ __webpack_require__(129);
 
 __webpack_require__(130);
 
-__webpack_require__(132);
+__webpack_require__(131);
 
 __webpack_require__(133);
 
-__webpack_require__(135);
+__webpack_require__(134);
 
 __webpack_require__(136);
 
@@ -7464,143 +7515,25 @@ __webpack_require__(138);
 
 __webpack_require__(139);
 
-__webpack_require__(141);
+__webpack_require__(140);
+
+__webpack_require__(142);
 
 __webpack_require__(3);
 
-__webpack_require__(148);
+__webpack_require__(149);
 
-__webpack_require__(153);
+__webpack_require__(154);
 
-__webpack_require__(155);
+__webpack_require__(156);
 
-__webpack_require__(170);
-
-__webpack_require__(158);
+__webpack_require__(171);
 
 __webpack_require__(159);
 
 __webpack_require__(160);
 
-/***/ }),
-
-/***/ 169:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _errors = __webpack_require__(1);
-
-var _verificator_functions = __webpack_require__(171);
-
-var _verificator_functions2 = _interopRequireDefault(_verificator_functions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ERROR_CODE_CLIENT_VERIFICATION_REQUIRED = 'client_verification_required';
-
-var computation = void 0;
-var verification = void 0;
-
-function perform(callback) {
-  return new scrivito.Promise(function (resolve) {
-    return resolve(callback(currentAuthorization()));
-  }).catch(function (error) {
-    if (!(error instanceof _errors.UnauthorizedError)) {
-      throw error;
-    }
-    if (error.backendCode !== ERROR_CODE_CLIENT_VERIFICATION_REQUIRED) {
-      throw error;
-    }
-    return computeVerification(error.details.verificator, error.details.data).then(function (computedVerification) {
-      return callback(computedVerification.authorization);
-    });
-  });
-}
-
-// If a pending computation is present, verificator and data are ignored.
-// It is about to return any authorization, and have not more than one
-// computation at any time.
-function computeVerification(verificator, data) {
-  // isPending() is Bluebird
-  if (!(computation && computation.isPending())) {
-    computation = _verificator_functions2.default.fetch(verificator.id, verificator.url).then(function (computeAuthorization) {
-      return new scrivito.Promise(function (r) {
-        return computeAuthorization(data, r);
-      });
-    });
-    computation.then(forgetComputationAndRememberVerification);
-    computation.challenge = { verificator: verificator, data: data };
-  }
-  return computation;
-}
-
-function forgetComputationAndRememberVerification(verificationToRemember) {
-  computation = undefined;
-  verification = verificationToRemember;
-}
-
-function reset() {
-  forgetComputationAndRememberVerification();
-}
-
-function currentAuthorization() {
-  if (!verification) {
-    return;
-  }
-  if (verification.expiresAfter < new Date()) {
-    verification = undefined;
-    return;
-  }
-  return verification.authorization;
-}
-
-// integration test support
-function currentState() {
-  var authorization = currentAuthorization();
-  if (authorization) {
-    return 'Authorization: ' + authorization;
-  }
-
-  if (!computation) {
-    return null;
-  }
-
-  var challenge = computation.challenge;
-  var verificator = challenge.verificator;
-  var verificatorId = verificator.id;
-  var data = challenge.data;
-  if (computation.isPending()) {
-    return 'Pending computation: ' + verificatorId + ' with ' + data;
-  }
-
-  // The following states are not expected to ever be returned.
-  // It indicates a computation that has finished unsucessfully.
-  var orphaned = 'Orphaned computation: ' + verificatorId + ' with ' + data;
-  if (!verification) {
-    return orphaned + ' (verification not present?!?)';
-  }
-
-  var expiresAfter = verification && verification.expiresAfter;
-  if (!expiresAfter) {
-    return orphaned + ' (verification present, but without expiry?)';
-  }
-
-  var expireDescription = '(verification expiresAfter: ' + expiresAfter + ')';
-  if (new Date() <= expiresAfter) {
-    return orphaned + ' ' + expireDescription;
-  }
-  return orphaned + ' ' + expireDescription + ' (expired)';
-}
-
-reset();
-
-exports.default = { perform: perform, reset: reset, currentState: currentState, ERROR_CODE_CLIENT_VERIFICATION_REQUIRED: ERROR_CODE_CLIENT_VERIFICATION_REQUIRED };
+__webpack_require__(161);
 
 /***/ }),
 
@@ -7624,7 +7557,7 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _urijs = __webpack_require__(37);
+var _urijs = __webpack_require__(38);
 
 var _urijs2 = _interopRequireDefault(_urijs);
 
@@ -7827,6 +7760,126 @@ function assertValidPublicAttributes(attributes) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _errors = __webpack_require__(1);
+
+var _verificator_functions = __webpack_require__(172);
+
+var _verificator_functions2 = _interopRequireDefault(_verificator_functions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ERROR_CODE_CLIENT_VERIFICATION_REQUIRED = 'client_verification_required';
+
+var computation = void 0;
+var verification = void 0;
+
+function perform(callback) {
+  return new scrivito.Promise(function (resolve) {
+    return resolve(callback(currentAuthorization()));
+  }).catch(function (error) {
+    if (!(error instanceof _errors.UnauthorizedError)) {
+      throw error;
+    }
+    if (error.backendCode !== ERROR_CODE_CLIENT_VERIFICATION_REQUIRED) {
+      throw error;
+    }
+    return computeVerification(error.details.verificator, error.details.data).then(function (computedVerification) {
+      return callback(computedVerification.authorization);
+    });
+  });
+}
+
+// If a pending computation is present, verificator and data are ignored.
+// It is about to return any authorization, and have not more than one
+// computation at any time.
+function computeVerification(verificator, data) {
+  // isPending() is Bluebird
+  if (!(computation && computation.isPending())) {
+    computation = _verificator_functions2.default.fetch(verificator.id, verificator.url).then(function (computeAuthorization) {
+      return new scrivito.Promise(function (r) {
+        return computeAuthorization(data, r);
+      });
+    });
+    computation.then(forgetComputationAndRememberVerification);
+    computation.challenge = { verificator: verificator, data: data };
+  }
+  return computation;
+}
+
+function forgetComputationAndRememberVerification(verificationToRemember) {
+  computation = undefined;
+  verification = verificationToRemember;
+}
+
+function reset() {
+  forgetComputationAndRememberVerification();
+}
+
+function currentAuthorization() {
+  if (!verification) {
+    return;
+  }
+  if (verification.expiresAfter < new Date()) {
+    verification = undefined;
+    return;
+  }
+  return verification.authorization;
+}
+
+// integration test support
+function currentState() {
+  var authorization = currentAuthorization();
+  if (authorization) {
+    return 'Authorization: ' + authorization;
+  }
+
+  if (!computation) {
+    return null;
+  }
+
+  var challenge = computation.challenge;
+  var verificator = challenge.verificator;
+  var verificatorId = verificator.id;
+  var data = challenge.data;
+  if (computation.isPending()) {
+    return 'Pending computation: ' + verificatorId + ' with ' + data;
+  }
+
+  // The following states are not expected to ever be returned.
+  // It indicates a computation that has finished unsucessfully.
+  var orphaned = 'Orphaned computation: ' + verificatorId + ' with ' + data;
+  if (!verification) {
+    return orphaned + ' (verification not present?!?)';
+  }
+
+  var expiresAfter = verification && verification.expiresAfter;
+  if (!expiresAfter) {
+    return orphaned + ' (verification present, but without expiry?)';
+  }
+
+  var expireDescription = '(verification expiresAfter: ' + expiresAfter + ')';
+  if (new Date() <= expiresAfter) {
+    return orphaned + ' ' + expireDescription;
+  }
+  return orphaned + ' ' + expireDescription + ' (expired)';
+}
+
+reset();
+
+exports.default = { perform: perform, reset: reset, currentState: currentState, ERROR_CODE_CLIENT_VERIFICATION_REQUIRED: ERROR_CODE_CLIENT_VERIFICATION_REQUIRED };
+
+/***/ }),
+
+/***/ 171:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -7879,7 +7932,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 /***/ }),
 
-/***/ 171:
+/***/ 172:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7893,7 +7946,7 @@ var _deferred = __webpack_require__(10);
 
 var _deferred2 = _interopRequireDefault(_deferred);
 
-var _asset_loading = __webpack_require__(96);
+var _asset_loading = __webpack_require__(97);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7932,7 +7985,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 172:
+/***/ 173:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7950,7 +8003,7 @@ function inheritComponentName(subClass, _ref) {
 
 /***/ }),
 
-/***/ 173:
+/***/ 174:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7966,7 +8019,7 @@ function isClassComponent(component) {
 
 /***/ }),
 
-/***/ 174:
+/***/ 175:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global, setImmediate) {/* @preserve
@@ -13550,11 +13603,11 @@ module.exports = ret;
 
 },{"./es5":13}]},{},[4])(4)
 });                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(43), __webpack_require__(33), __webpack_require__(187).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44), __webpack_require__(34), __webpack_require__(188).setImmediate))
 
 /***/ }),
 
-/***/ 175:
+/***/ 176:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -13563,7 +13616,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
     /* istanbul ignore next */
     if (true) {
-        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(186)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(187)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -13892,7 +13945,7 @@ function truncate(string) {
 
 /***/ }),
 
-/***/ 184:
+/***/ 185:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -14082,11 +14135,11 @@ function truncate(string) {
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33), __webpack_require__(43)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34), __webpack_require__(44)))
 
 /***/ }),
 
-/***/ 185:
+/***/ 186:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, undefined) {
@@ -15640,7 +15693,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root,
 
 /***/ }),
 
-/***/ 186:
+/***/ 187:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -15757,7 +15810,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ 187:
+/***/ 188:
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -15810,46 +15863,10 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(184);
+__webpack_require__(185);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
-
-/***/ }),
-
-/***/ 189:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.initializeSdk = initializeSdk;
-
-__webpack_require__(168);
-
-__webpack_require__(262);
-
-__webpack_require__(266);
-
-__webpack_require__(243);
-
-if (!window.scrivito) {
-  window.scrivito = {};
-}
-function initializeSdk(ui) {
-  if (ui) {
-    ui.setAppAdapter(scrivito.AppAdapter);
-    scrivito.uiAdapter = ui.uiAdapter();
-  }
-
-  scrivito.client.init({ ui: ui, realmContext: window.Scrivito });
-  document.addEventListener('DOMContentLoaded', function () {
-    return scrivito.BrowserLocation.init();
-  });
-}
 
 /***/ }),
 
@@ -15955,6 +15972,42 @@ exports.default = Schema;
 
 /***/ }),
 
+/***/ 190:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initializeSdk = initializeSdk;
+
+__webpack_require__(169);
+
+__webpack_require__(264);
+
+__webpack_require__(268);
+
+__webpack_require__(245);
+
+if (!window.scrivito) {
+  window.scrivito = {};
+}
+function initializeSdk(ui) {
+  if (ui) {
+    ui.setAppAdapter(scrivito.AppAdapter);
+    scrivito.uiAdapter = ui.uiAdapter();
+  }
+
+  scrivito.client.init({ ui: ui, realmContext: window.Scrivito });
+  document.addEventListener('DOMContentLoaded', function () {
+    return scrivito.BrowserLocation.init();
+  });
+}
+
+/***/ }),
+
 /***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15971,7 +16024,7 @@ var _basic_obj = __webpack_require__(3);
 
 var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
-var _with_server_defaults = __webpack_require__(55);
+var _with_server_defaults = __webpack_require__(56);
 
 var withServerDefaults = _interopRequireWildcard(_with_server_defaults);
 
@@ -15985,11 +16038,11 @@ var _pretty_print = __webpack_require__(18);
 
 var _pretty_print2 = _interopRequireDefault(_pretty_print);
 
-var _attribute_content_class = __webpack_require__(67);
+var _attribute_content_class = __webpack_require__(68);
 
 var _attribute_content_class2 = _interopRequireDefault(_attribute_content_class);
 
-var _valid_rails_page_classes = __webpack_require__(122);
+var _valid_rails_page_classes = __webpack_require__(123);
 
 var _use_rails_engine = __webpack_require__(35);
 
@@ -16099,7 +16152,7 @@ exports.default = ObjClass;
 
 /***/ }),
 
-/***/ 231:
+/***/ 233:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16116,7 +16169,7 @@ function isIE() {
 
 /***/ }),
 
-/***/ 232:
+/***/ 234:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16132,23 +16185,23 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _navigate_to = __webpack_require__(56);
+var _navigate_to = __webpack_require__(57);
 
 var _navigate_to2 = _interopRequireDefault(_navigate_to);
 
-var _provide_ui_config = __webpack_require__(125);
+var _provide_ui_config = __webpack_require__(126);
 
 var _errors = __webpack_require__(1);
 
-var _window_context = __webpack_require__(29);
+var _window_context = __webpack_require__(30);
 
-var _mount_component = __webpack_require__(124);
+var _mount_component = __webpack_require__(125);
 
-var _resolve_url = __webpack_require__(237);
+var _resolve_url = __webpack_require__(239);
 
 var _resolve_url2 = _interopRequireDefault(_resolve_url);
 
-var _window_proxy = __webpack_require__(30);
+var _window_proxy = __webpack_require__(31);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16336,7 +16389,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 233:
+/***/ 235:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16348,9 +16401,9 @@ var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
 var _underscore = __webpack_require__(0);
 
-var _current_page = __webpack_require__(39);
+var _current_page = __webpack_require__(40);
 
-var _window_proxy = __webpack_require__(30);
+var _window_proxy = __webpack_require__(31);
 
 var window = _interopRequireWildcard(_window_proxy);
 
@@ -16451,7 +16504,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 234:
+/***/ 236:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16483,7 +16536,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 235:
+/***/ 237:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16518,7 +16571,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 236:
+/***/ 238:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16529,7 +16582,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = isInPlaceEditingActive;
 
-var _mount_component = __webpack_require__(124);
+var _mount_component = __webpack_require__(125);
 
 function isInPlaceEditingActive() {
   if (scrivito.currentWorkspaceId() === 'published') {
@@ -16549,7 +16602,7 @@ function isInPlaceEditingActive() {
 
 /***/ }),
 
-/***/ 237:
+/***/ 239:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16559,13 +16612,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _urijs = __webpack_require__(37);
+var _urijs = __webpack_require__(38);
 
 var _urijs2 = _interopRequireDefault(_urijs);
 
 var _underscore = __webpack_require__(0);
 
-var _window_proxy = __webpack_require__(30);
+var _window_proxy = __webpack_require__(31);
 
 var window = _interopRequireWildcard(_window_proxy);
 
@@ -16575,7 +16628,7 @@ var _load2 = _interopRequireDefault(_load);
 
 var _errors = __webpack_require__(1);
 
-var _configure = __webpack_require__(123);
+var _configure = __webpack_require__(124);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -16614,19 +16667,167 @@ exports.default = resolveUrl;
 
 /***/ }),
 
-/***/ 238:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _urijs = __webpack_require__(37);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _valid_classes_for_widgetlist_field = __webpack_require__(100);
+
+var _valid_classes_for_widgetlist_field2 = _interopRequireDefault(_valid_classes_for_widgetlist_field);
+
+var _with_server_defaults = __webpack_require__(56);
+
+var withServerDefaults = _interopRequireWildcard(_with_server_defaults);
+
+var _basic_widget = __webpack_require__(13);
+
+var _basic_widget2 = _interopRequireDefault(_basic_widget);
+
+var _underscore = __webpack_require__(0);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _attribute_content_class = __webpack_require__(68);
+
+var _attribute_content_class2 = _interopRequireDefault(_attribute_content_class);
+
+var _content_class_registry = __webpack_require__(67);
+
+var _content_class_registry2 = _interopRequireDefault(_content_class_registry);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var WidgetClass = function (_AttributeContentClas) {
+  _inherits(WidgetClass, _AttributeContentClas);
+
+  _createClass(WidgetClass, null, [{
+    key: 'type',
+    value: function type() {
+      return 'Widget';
+    }
+  }, {
+    key: 'validClassNamesForField',
+    value: function validClassNamesForField(field) {
+      return this.validClassesForField(field).map(function (widgetClass) {
+        return widgetClass.name;
+      });
+    }
+  }, {
+    key: 'validClassesForField',
+    value: function validClassesForField(field) {
+      var container = field.container();
+      var containerClass = findContentClassForBasicModel(container);
+      if (containerClass && containerClass.usesServerCallbacks()) {
+        var names = (0, _valid_classes_for_widgetlist_field2.default)(field);
+        return names.reduce(function (acc, name) {
+          var widgetClass = _content_class_registry2.default.findByType('Widget', name);
+
+          if (widgetClass) {
+            acc.push(widgetClass);
+          }
+          return acc;
+        }, []);
+      }
+      var attribute = containerClass && containerClass.attribute(field.name());
+      var only = attribute && attribute.only();
+      var widgetClasses = only || _content_class_registry2.default.allForType('Widget');
+
+      return widgetClasses.filter(validWidgetClassForObjClass(container.objClass()));
+    }
+  }]);
+
+  function WidgetClass(classData) {
+    _classCallCheck(this, WidgetClass);
+
+    var _this = _possibleConstructorReturn(this, (WidgetClass.__proto__ || Object.getPrototypeOf(WidgetClass)).call(this, classData));
+
+    _this.embeds = classData.embeds;
+    _this._embeddingAttribute = classData.embeddingAttribute;
+    return _this;
+  }
+
+  _createClass(WidgetClass, [{
+    key: 'newWidgetWithDefaults',
+    value: function newWidgetWithDefaults() {
+      if (this._classData.usesServerCallbacks) {
+        return withServerDefaults.newWidget(this.name);
+      }
+
+      return scrivito.Promise.resolve(new _basic_widget2.default({ _objClass: [this.name] }));
+    }
+
+    // public
+
+  }, {
+    key: 'embeddingAttribute',
+    value: function embeddingAttribute() {
+      if (this.embeds) {
+        return this.attribute(this._embeddingAttribute);
+      }
+    }
+  }, {
+    key: 'isValidContainerClass',
+    value: function isValidContainerClass(modelClassName) {
+      if (!this._classData.validContainerClasses) {
+        return true;
+      }
+
+      return _underscore2.default.contains(this._classData.validContainerClasses, modelClassName);
+    }
+  }, {
+    key: 'hasJsDetailsView',
+    value: function hasJsDetailsView() {
+      return this.localizedAttributes().length > 0;
+    }
+  }]);
+
+  return WidgetClass;
+}(_attribute_content_class2.default);
+
+function validWidgetClassForObjClass(objClassName) {
+  return function (widgetClass) {
+    return !widgetClass.isHiddenFromEditors() && widgetClass.isValidContainerClass(objClassName);
+  };
+}
+
+function findContentClassForBasicModel(basicModel) {
+  var type = basicModel instanceof _basic_widget2.default ? 'Widget' : 'Obj';
+  return _content_class_registry2.default.findByType(type, basicModel.objClass());
+}
+
+exports.default = WidgetClass;
+
+/***/ }),
+
+/***/ 240:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _urijs = __webpack_require__(38);
 
 var _urijs2 = _interopRequireDefault(_urijs);
 
 var _errors = __webpack_require__(1);
 
-var _window_proxy = __webpack_require__(30);
+var _window_proxy = __webpack_require__(31);
 
 var window = _interopRequireWildcard(_window_proxy);
 
@@ -16776,7 +16977,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 239:
+/***/ 241:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16790,7 +16991,7 @@ var _underscore = __webpack_require__(0);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _window_registry = __webpack_require__(47);
+var _window_registry = __webpack_require__(48);
 
 var _errors = __webpack_require__(1);
 
@@ -16898,155 +17099,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 24:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _valid_classes_for_widgetlist_field = __webpack_require__(99);
-
-var _valid_classes_for_widgetlist_field2 = _interopRequireDefault(_valid_classes_for_widgetlist_field);
-
-var _with_server_defaults = __webpack_require__(55);
-
-var withServerDefaults = _interopRequireWildcard(_with_server_defaults);
-
-var _basic_widget = __webpack_require__(13);
-
-var _basic_widget2 = _interopRequireDefault(_basic_widget);
-
-var _underscore = __webpack_require__(0);
-
-var _underscore2 = _interopRequireDefault(_underscore);
-
-var _attribute_content_class = __webpack_require__(67);
-
-var _attribute_content_class2 = _interopRequireDefault(_attribute_content_class);
-
-var _content_class_registry = __webpack_require__(66);
-
-var _content_class_registry2 = _interopRequireDefault(_content_class_registry);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var WidgetClass = function (_AttributeContentClas) {
-  _inherits(WidgetClass, _AttributeContentClas);
-
-  _createClass(WidgetClass, null, [{
-    key: 'type',
-    value: function type() {
-      return 'Widget';
-    }
-  }, {
-    key: 'validClassNamesForField',
-    value: function validClassNamesForField(field) {
-      return this.validClassesForField(field).map(function (widgetClass) {
-        return widgetClass.name;
-      });
-    }
-  }, {
-    key: 'validClassesForField',
-    value: function validClassesForField(field) {
-      var container = field.container();
-      var containerClass = findContentClassForBasicModel(container);
-      if (containerClass && containerClass.usesServerCallbacks()) {
-        var names = (0, _valid_classes_for_widgetlist_field2.default)(field);
-        return names.reduce(function (acc, name) {
-          var widgetClass = _content_class_registry2.default.findByType('Widget', name);
-
-          if (widgetClass) {
-            acc.push(widgetClass);
-          }
-          return acc;
-        }, []);
-      }
-      var attribute = containerClass && containerClass.attribute(field.name());
-      var only = attribute && attribute.only();
-      var widgetClasses = only || _content_class_registry2.default.allForType('Widget');
-
-      return widgetClasses.filter(validWidgetClassForObjClass(container.objClass()));
-    }
-  }]);
-
-  function WidgetClass(classData) {
-    _classCallCheck(this, WidgetClass);
-
-    var _this = _possibleConstructorReturn(this, (WidgetClass.__proto__ || Object.getPrototypeOf(WidgetClass)).call(this, classData));
-
-    _this.embeds = classData.embeds;
-    _this._embeddingAttribute = classData.embeddingAttribute;
-    return _this;
-  }
-
-  _createClass(WidgetClass, [{
-    key: 'newWidgetWithDefaults',
-    value: function newWidgetWithDefaults() {
-      if (this._classData.usesServerCallbacks) {
-        return withServerDefaults.newWidget(this.name);
-      }
-
-      return scrivito.Promise.resolve(new _basic_widget2.default({ _objClass: [this.name] }));
-    }
-
-    // public
-
-  }, {
-    key: 'embeddingAttribute',
-    value: function embeddingAttribute() {
-      if (this.embeds) {
-        return this.attribute(this._embeddingAttribute);
-      }
-    }
-  }, {
-    key: 'isValidContainerClass',
-    value: function isValidContainerClass(modelClassName) {
-      if (!this._classData.validContainerClasses) {
-        return true;
-      }
-
-      return _underscore2.default.contains(this._classData.validContainerClasses, modelClassName);
-    }
-  }, {
-    key: 'hasJsDetailsView',
-    value: function hasJsDetailsView() {
-      return this.localizedAttributes().length > 0;
-    }
-  }]);
-
-  return WidgetClass;
-}(_attribute_content_class2.default);
-
-function validWidgetClassForObjClass(objClassName) {
-  return function (widgetClass) {
-    return !widgetClass.isHiddenFromEditors() && widgetClass.isValidContainerClass(objClassName);
-  };
-}
-
-function findContentClassForBasicModel(basicModel) {
-  var type = basicModel instanceof _basic_widget2.default ? 'Widget' : 'Obj';
-  return _content_class_registry2.default.findByType(type, basicModel.objClass());
-}
-
-exports.default = WidgetClass;
-
-/***/ }),
-
-/***/ 240:
+/***/ 242:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17064,7 +17117,7 @@ function scrollWindowToTop() {
 
 /***/ }),
 
-/***/ 241:
+/***/ 243:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17082,7 +17135,7 @@ var _basic_link = __webpack_require__(17);
 
 var _basic_link2 = _interopRequireDefault(_basic_link);
 
-var _window_context = __webpack_require__(29);
+var _window_context = __webpack_require__(30);
 
 var _errors = __webpack_require__(1);
 
@@ -17181,7 +17234,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 242:
+/***/ 244:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17272,29 +17325,29 @@ exports.default = UpdateBuffer;
 
 /***/ }),
 
-/***/ 243:
+/***/ 245:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _current_page = __webpack_require__(39);
+var _current_page = __webpack_require__(40);
 
-var _is_in_place_editing_active = __webpack_require__(236);
+var _is_in_place_editing_active = __webpack_require__(238);
 
 var _is_in_place_editing_active2 = _interopRequireDefault(_is_in_place_editing_active);
 
-var _navigate_to = __webpack_require__(56);
+var _navigate_to = __webpack_require__(57);
 
 var _navigate_to2 = _interopRequireDefault(_navigate_to);
 
-var _open_content_browser = __webpack_require__(263);
+var _open_content_browser = __webpack_require__(265);
 
 var _open_content_browser2 = _interopRequireDefault(_open_content_browser);
 
-var _provide_ui_config = __webpack_require__(125);
+var _provide_ui_config = __webpack_require__(126);
 
-var _configure = __webpack_require__(123);
+var _configure = __webpack_require__(124);
 
 var _load = __webpack_require__(12);
 
@@ -17304,49 +17357,49 @@ var _binary = __webpack_require__(25);
 
 var _binary2 = _interopRequireDefault(_binary);
 
-var _future_binary = __webpack_require__(34);
+var _future_binary = __webpack_require__(36);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
-var _obj_facet_value = __webpack_require__(86);
+var _obj_facet_value = __webpack_require__(87);
 
 var _obj_facet_value2 = _interopRequireDefault(_obj_facet_value);
 
 var _errors = __webpack_require__(1);
 
-var _internal_error_page = __webpack_require__(254);
+var _internal_error_page = __webpack_require__(256);
 
 var _internal_error_page2 = _interopRequireDefault(_internal_error_page);
 
-var _not_found_error_page = __webpack_require__(255);
+var _not_found_error_page = __webpack_require__(257);
 
 var _not_found_error_page2 = _interopRequireDefault(_not_found_error_page);
 
-var _provide_component = __webpack_require__(267);
+var _provide_component = __webpack_require__(269);
 
 var _provide_component2 = _interopRequireDefault(_provide_component);
 
-var _component_registry = __webpack_require__(49);
+var _component_registry = __webpack_require__(50);
 
-var _child_list = __webpack_require__(244);
+var _child_list_tag = __webpack_require__(246);
 
-var _child_list2 = _interopRequireDefault(_child_list);
+var _child_list_tag2 = _interopRequireDefault(_child_list_tag);
 
-var _content = __webpack_require__(161);
+var _content_tag = __webpack_require__(162);
 
-var _content2 = _interopRequireDefault(_content);
+var _content_tag2 = _interopRequireDefault(_content_tag);
 
-var _current_page2 = __webpack_require__(252);
+var _current_page2 = __webpack_require__(254);
 
 var _current_page3 = _interopRequireDefault(_current_page2);
 
-var _image = __webpack_require__(253);
+var _image_tag = __webpack_require__(255);
 
-var _image2 = _interopRequireDefault(_image);
+var _image_tag2 = _interopRequireDefault(_image_tag);
 
-var _link = __webpack_require__(163);
+var _link_tag = __webpack_require__(164);
 
-var _link2 = _interopRequireDefault(_link);
+var _link_tag2 = _interopRequireDefault(_link_tag);
 
 var _connect = __webpack_require__(6);
 
@@ -17378,15 +17431,14 @@ Scrivito.ScrivitoError = _errors.ScrivitoError;
 Scrivito.TransformationSourceInvalidError = _errors.TransformationSourceInvalidError;
 Scrivito.TransformationSourceTooLargeError = _errors.TransformationSourceTooLargeError;
 
-Scrivito.React = {};
-Scrivito.React.ChildList = _child_list2.default;
-Scrivito.React.Content = _content2.default;
-Scrivito.React.CurrentPage = _current_page3.default;
-Scrivito.React.Image = _image2.default;
-Scrivito.React.InternalErrorPage = _internal_error_page2.default;
-Scrivito.React.Link = _link2.default;
-Scrivito.React.NotFoundErrorPage = _not_found_error_page2.default;
-Scrivito.React.connect = _connect2.default;
+Scrivito.ChildListTag = _child_list_tag2.default;
+Scrivito.ContentTag = _content_tag2.default;
+Scrivito.CurrentPage = _current_page3.default;
+Scrivito.ImageTag = _image_tag2.default;
+Scrivito.InternalErrorPage = _internal_error_page2.default;
+Scrivito.LinkTag = _link_tag2.default;
+Scrivito.NotFoundErrorPage = _not_found_error_page2.default;
+Scrivito.connect = _connect2.default;
 
 Scrivito.openContentBrowser = _open_content_browser2.default;
 
@@ -17394,7 +17446,7 @@ window.Scrivito = Scrivito;
 
 /***/ }),
 
-/***/ 244:
+/***/ 246:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17406,7 +17458,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _is_editing_mode = __webpack_require__(46);
+var _is_editing_mode = __webpack_require__(47);
 
 var _is_editing_mode2 = _interopRequireDefault(_is_editing_mode);
 
@@ -17416,17 +17468,17 @@ var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _current_page = __webpack_require__(39);
+var _current_page = __webpack_require__(40);
 
 var _connect = __webpack_require__(6);
 
 var _connect2 = _interopRequireDefault(_connect);
 
-var _child_item = __webpack_require__(245);
+var _child_item = __webpack_require__(247);
 
 var _child_item2 = _interopRequireDefault(_child_item);
 
-var _menu_marker = __webpack_require__(246);
+var _menu_marker = __webpack_require__(248);
 
 var _menu_marker2 = _interopRequireDefault(_menu_marker);
 
@@ -17440,13 +17492,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ChildList = function (_React$Component) {
-  _inherits(ChildList, _React$Component);
+var ChildListTag = function (_React$Component) {
+  _inherits(ChildListTag, _React$Component);
 
-  function ChildList(props) {
-    _classCallCheck(this, ChildList);
+  function ChildListTag(props) {
+    _classCallCheck(this, ChildListTag);
 
-    var _this = _possibleConstructorReturn(this, (ChildList.__proto__ || Object.getPrototypeOf(ChildList)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ChildListTag.__proto__ || Object.getPrototypeOf(ChildListTag)).call(this, props));
 
     _this.state = { hasFocus: false };
 
@@ -17455,7 +17507,7 @@ var ChildList = function (_React$Component) {
     return _this;
   }
 
-  _createClass(ChildList, [{
+  _createClass(ChildListTag, [{
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -17510,18 +17562,18 @@ var ChildList = function (_React$Component) {
     }
   }]);
 
-  return ChildList;
+  return ChildListTag;
 }(_react2.default.Component);
 
-ChildList.displayName = 'Scrivito.React.ChildList';
+ChildListTag.displayName = 'Scrivito.ChildListTag';
 
-ChildList.defaultProps = { tag: 'ul' };
+ChildListTag.defaultProps = { tag: 'ul' };
 
-exports.default = (0, _connect2.default)(ChildList);
+exports.default = (0, _connect2.default)(ChildListTag);
 
 /***/ }),
 
-/***/ 245:
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17535,15 +17587,15 @@ var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _window_context = __webpack_require__(29);
+var _window_context = __webpack_require__(30);
 
 var _connect = __webpack_require__(6);
 
 var _connect2 = _interopRequireDefault(_connect);
 
-var _link = __webpack_require__(163);
+var _link_tag = __webpack_require__(164);
 
-var _link2 = _interopRequireDefault(_link);
+var _link_tag2 = _interopRequireDefault(_link_tag);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17561,20 +17613,20 @@ function ChildItem(_ref) {
     'li',
     null,
     _react2.default.createElement(
-      _link2.default,
+      _link_tag2.default,
       { to: appObj },
       basicObj.get('title', 'string')
     )
   );
 }
 
-ChildItem.displayName = 'Scrivito.React.ChildList.ChildItem';
+ChildItem.displayName = 'Scrivito.ChildListTag.ChildItem';
 
 exports.default = (0, _connect2.default)(ChildItem);
 
 /***/ }),
 
-/***/ 246:
+/***/ 248:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17590,7 +17642,7 @@ var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(51);
+var _reactDom = __webpack_require__(52);
 
 var _connect = __webpack_require__(6);
 
@@ -17653,13 +17705,13 @@ var MenuMarker = function (_React$Component) {
   return MenuMarker;
 }(_react2.default.Component);
 
-MenuMarker.displayName = 'Scrivito.React.ChildList.MenuMarker';
+MenuMarker.displayName = 'Scrivito.ChildListTag.MenuMarker';
 
 exports.default = (0, _connect2.default)(MenuMarker);
 
 /***/ }),
 
-/***/ 247:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17671,7 +17723,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _editor_event = __webpack_require__(257);
+var _editor_event = __webpack_require__(259);
 
 var _editor_event2 = _interopRequireDefault(_editor_event);
 
@@ -17681,9 +17733,9 @@ var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(51);
+var _reactDom = __webpack_require__(52);
 
-var _edit_controller = __webpack_require__(256);
+var _edit_controller = __webpack_require__(258);
 
 var _edit_controller2 = _interopRequireDefault(_edit_controller);
 
@@ -17691,7 +17743,7 @@ var _connect = __webpack_require__(6);
 
 var _connect2 = _interopRequireDefault(_connect);
 
-var _attribute_value = __webpack_require__(162);
+var _attribute_value = __webpack_require__(163);
 
 var _attribute_value2 = _interopRequireDefault(_attribute_value);
 
@@ -17834,380 +17886,9 @@ var Editor = function (_React$Component) {
   return Editor;
 }(_react2.default.Component);
 
-Editor.displayName = 'Scrivito.React.Content.Editor';
+Editor.displayName = 'Scrivito.ContentTag.Editor';
 
 exports.default = (0, _connect2.default)(Editor);
-
-/***/ }),
-
-/***/ 248:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(15);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(51);
-
-var _extract_ids_from_content = __webpack_require__(88);
-
-var _extract_ids_from_content2 = _interopRequireDefault(_extract_ids_from_content);
-
-var _setup_dragstart_event = __webpack_require__(120);
-
-var _setup_dragstart_event2 = _interopRequireDefault(_setup_dragstart_event);
-
-var _connect = __webpack_require__(6);
-
-var _connect2 = _interopRequireDefault(_connect);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var MenuMarker = function (_React$Component) {
-  _inherits(MenuMarker, _React$Component);
-
-  function MenuMarker(props) {
-    _classCallCheck(this, MenuMarker);
-
-    var _this = _possibleConstructorReturn(this, (MenuMarker.__proto__ || Object.getPrototypeOf(MenuMarker)).call(this, props));
-
-    _this._onClick = _this._onClick.bind(_this);
-    _this._onDragStart = _this._onDragStart.bind(_this);
-    _this._onDragEnd = _this._onDragEnd.bind(_this);
-    return _this;
-  }
-
-  _createClass(MenuMarker, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        'span',
-        {
-          ref: function ref(menuMarker) {
-            return _this2._menuMarker = menuMarker;
-          },
-          className: 'scrivito_editing_marker',
-          onClick: this._onClick,
-          onDragStart: this._onDragStart,
-          onDragEnd: this._onDragEnd,
-          draggable: 'true'
-        },
-        _react2.default.createElement('i', { className: 'scrivito_icon' }),
-        _react2.default.createElement(
-          'span',
-          { className: 'scrivito_editing_marker_title' },
-          this.props.widget.objClass()
-        )
-      );
-    }
-  }, {
-    key: '_onClick',
-    value: function _onClick(e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (this._menuMarker) {
-        var _extractIdsFromConten = (0, _extract_ids_from_content2.default)(this.props.widget),
-            objId = _extractIdsFromConten.objId,
-            widgetId = _extractIdsFromConten.widgetId;
-
-        scrivito.uiAdapter.showWidgetMenu((0, _reactDom.findDOMNode)(this._menuMarker), objId, widgetId);
-      }
-    }
-  }, {
-    key: '_onDragStart',
-    value: function _onDragStart(e) {
-      (0, _setup_dragstart_event2.default)(e);
-
-      var _extractIdsFromConten2 = (0, _extract_ids_from_content2.default)(this.props.widget),
-          objId = _extractIdsFromConten2.objId,
-          widgetId = _extractIdsFromConten2.widgetId;
-
-      scrivito.uiAdapter.onDragStart(objId, widgetId);
-
-      this.props.setDragState(true);
-    }
-  }, {
-    key: '_onDragEnd',
-    value: function _onDragEnd() {
-      scrivito.uiAdapter.onDragEnd();
-      this.props.setDragState(false);
-    }
-  }]);
-
-  return MenuMarker;
-}(_react2.default.Component);
-
-MenuMarker.displayName = 'Scrivito.React.Content.MenuMarker';
-
-exports.default = (0, _connect2.default)(MenuMarker);
-
-/***/ }),
-
-/***/ 249:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _is_editing_mode = __webpack_require__(46);
-
-var _is_editing_mode2 = _interopRequireDefault(_is_editing_mode);
-
-var _schema = __webpack_require__(19);
-
-var _schema2 = _interopRequireDefault(_schema);
-
-var _underscore = __webpack_require__(0);
-
-var _react = __webpack_require__(15);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(51);
-
-var _window_registry = __webpack_require__(47);
-
-var _extract_ids_from_content = __webpack_require__(88);
-
-var _extract_ids_from_content2 = _interopRequireDefault(_extract_ids_from_content);
-
-var _connect = __webpack_require__(6);
-
-var _connect2 = _interopRequireDefault(_connect);
-
-var _menu_marker = __webpack_require__(248);
-
-var _menu_marker2 = _interopRequireDefault(_menu_marker);
-
-var _option_marker = __webpack_require__(164);
-
-var _option_marker2 = _interopRequireDefault(_option_marker);
-
-var _widget_content = __webpack_require__(250);
-
-var _widget_content2 = _interopRequireDefault(_widget_content);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Widget = function (_React$Component) {
-  _inherits(Widget, _React$Component);
-
-  function Widget(props) {
-    _classCallCheck(this, Widget);
-
-    var _this = _possibleConstructorReturn(this, (Widget.__proto__ || Object.getPrototypeOf(Widget)).call(this, props));
-
-    _this.state = {
-      hasFocus: false,
-      isDragged: false
-    };
-
-    _this._onMouseOver = _this._onMouseOver.bind(_this);
-    _this._onMouseOut = _this._onMouseOut.bind(_this);
-
-    _this._onWidgetFocus = _this._onWidgetFocus.bind(_this);
-    _this._onWidgetBlur = _this._onWidgetBlur.bind(_this);
-
-    _this._setDragState = _this._setDragState.bind(_this);
-    return _this;
-  }
-
-  _createClass(Widget, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      if ((0, _is_editing_mode2.default)() && this._widget) {
-        var _extractIdsFromConten = (0, _extract_ids_from_content2.default)(this.props.widget),
-            objId = _extractIdsFromConten.objId,
-            widgetId = _extractIdsFromConten.widgetId;
-
-        var domNode = (0, _reactDom.findDOMNode)(this._widget);
-
-        scrivito.uiAdapter.registerWidgetDropZoneInDom(domNode, objId, widgetId);
-      }
-
-      this._focusToken = scrivito.WidgetFocus.subscribe({
-        onFocus: this._onWidgetFocus,
-        onBlur: this._onWidgetBlur
-      });
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      scrivito.WidgetFocus.unsubscribe(this._focusToken);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var widgetContent = _react2.default.createElement(_widget_content2.default, { widget: this.props.widget });
-
-      if (!(0, _is_editing_mode2.default)()) {
-        return _react2.default.createElement(
-          'div',
-          null,
-          widgetContent
-        );
-      }
-
-      return _react2.default.createElement(
-        'div',
-        _extends({
-          ref: function ref(widget) {
-            return _this2._widget = widget;
-          },
-          className: this._className(),
-          style: this._style(),
-          onMouseOver: this._onMouseOver,
-          onMouseOut: this._onMouseOut
-        }, this._dataProps()),
-        _react2.default.createElement(_menu_marker2.default, {
-          widget: this.props.widget,
-          setDragState: this._setDragState
-        }),
-        widgetContent,
-        this._renderOptionMarker('top'),
-        this._renderOptionMarker('bottom')
-      );
-    }
-  }, {
-    key: '_setDragState',
-    value: function _setDragState(isDragging) {
-      this.setState({ isDragging: isDragging });
-    }
-  }, {
-    key: '_className',
-    value: function _className() {
-      if (this.state.hasFocus) {
-        return 'scrivito_active scrivito_entered';
-      }
-    }
-  }, {
-    key: '_dataProps',
-    value: function _dataProps() {
-      var dataProps = {
-        'data-scrivito-private-widget': true,
-        'data-scrivito-private-dropzone': true
-      };
-
-      if (this._isStructureMarker()) {
-        dataProps['data-scrivito-private-structure-widget'] = true;
-      }
-
-      if (this.state.isDragging) {
-        dataProps['data-scrivito-private-dropback'] = true;
-      }
-
-      return dataProps;
-    }
-  }, {
-    key: '_style',
-    value: function _style() {
-      if (this.state.isDragging) {
-        return { opacity: 0.5 };
-      }
-    }
-  }, {
-    key: '_isStructureMarker',
-    value: function _isStructureMarker() {
-      var registry = (0, _window_registry.getWindowRegistry)();
-      var appClass = registry.widgetClassFor(this.props.widget.objClass());
-      var schema = _schema2.default.forClass(appClass);
-
-      if (schema) {
-        return (0, _underscore.some)(schema.attributes, function (_definition, name) {
-          var _schema$attributeDefi = schema.attributeDefinition(name),
-              _schema$attributeDefi2 = _slicedToArray(_schema$attributeDefi, 1),
-              type = _schema$attributeDefi2[0];
-
-          return type === 'widgetlist';
-        });
-      }
-
-      return false;
-    }
-  }, {
-    key: '_onMouseOver',
-    value: function _onMouseOver(e) {
-      e.stopPropagation();
-      scrivito.WidgetFocus.notifyFocus(this._focusToken);
-    }
-  }, {
-    key: '_onMouseOut',
-    value: function _onMouseOut(e) {
-      e.stopPropagation();
-      scrivito.WidgetFocus.notifyBlur(this._focusToken);
-    }
-  }, {
-    key: '_onWidgetFocus',
-    value: function _onWidgetFocus() {
-      this.setState({ hasFocus: true });
-    }
-  }, {
-    key: '_onWidgetBlur',
-    value: function _onWidgetBlur() {
-      this.setState({ hasFocus: false });
-    }
-  }, {
-    key: '_renderOptionMarker',
-    value: function _renderOptionMarker(position) {
-      return _react2.default.createElement(_option_marker2.default, {
-        position: position,
-        widget: this.props.widget,
-        insertWidget: insertWidget,
-        isAlwaysShown: scrivito.uiAdapter.alwaysShowOptionMarkers()
-      });
-    }
-  }]);
-
-  return Widget;
-}(_react2.default.Component);
-
-Widget.displayName = 'Scrivito.React.Widget';
-
-function insertWidget(widget, position) {
-  var _extractIdsFromConten2 = (0, _extract_ids_from_content2.default)(widget),
-      objId = _extractIdsFromConten2.objId,
-      widgetId = _extractIdsFromConten2.widgetId;
-
-  scrivito.uiAdapter.insertWidget(objId, widgetId, position);
-}
-
-exports.default = (0, _connect2.default)(Widget);
 
 /***/ }),
 
@@ -18223,7 +17904,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _urijs = __webpack_require__(37);
+var _urijs = __webpack_require__(38);
 
 var _urijs2 = _interopRequireDefault(_urijs);
 
@@ -18235,11 +17916,11 @@ var _underscore = __webpack_require__(0);
 
 var _errors = __webpack_require__(1);
 
-var _future_binary = __webpack_require__(34);
+var _future_binary = __webpack_require__(36);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
-var _metadata_collection = __webpack_require__(70);
+var _metadata_collection = __webpack_require__(71);
 
 var _metadata_collection2 = _interopRequireDefault(_metadata_collection);
 
@@ -18519,7 +18200,378 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _is_editing_mode = __webpack_require__(46);
+var _react = __webpack_require__(15);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(52);
+
+var _extract_ids_from_content = __webpack_require__(89);
+
+var _extract_ids_from_content2 = _interopRequireDefault(_extract_ids_from_content);
+
+var _setup_dragstart_event = __webpack_require__(121);
+
+var _setup_dragstart_event2 = _interopRequireDefault(_setup_dragstart_event);
+
+var _connect = __webpack_require__(6);
+
+var _connect2 = _interopRequireDefault(_connect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MenuMarker = function (_React$Component) {
+  _inherits(MenuMarker, _React$Component);
+
+  function MenuMarker(props) {
+    _classCallCheck(this, MenuMarker);
+
+    var _this = _possibleConstructorReturn(this, (MenuMarker.__proto__ || Object.getPrototypeOf(MenuMarker)).call(this, props));
+
+    _this._onClick = _this._onClick.bind(_this);
+    _this._onDragStart = _this._onDragStart.bind(_this);
+    _this._onDragEnd = _this._onDragEnd.bind(_this);
+    return _this;
+  }
+
+  _createClass(MenuMarker, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'span',
+        {
+          ref: function ref(menuMarker) {
+            return _this2._menuMarker = menuMarker;
+          },
+          className: 'scrivito_editing_marker',
+          onClick: this._onClick,
+          onDragStart: this._onDragStart,
+          onDragEnd: this._onDragEnd,
+          draggable: 'true'
+        },
+        _react2.default.createElement('i', { className: 'scrivito_icon' }),
+        _react2.default.createElement(
+          'span',
+          { className: 'scrivito_editing_marker_title' },
+          this.props.widget.objClass()
+        )
+      );
+    }
+  }, {
+    key: '_onClick',
+    value: function _onClick(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (this._menuMarker) {
+        var _extractIdsFromConten = (0, _extract_ids_from_content2.default)(this.props.widget),
+            objId = _extractIdsFromConten.objId,
+            widgetId = _extractIdsFromConten.widgetId;
+
+        scrivito.uiAdapter.showWidgetMenu((0, _reactDom.findDOMNode)(this._menuMarker), objId, widgetId);
+      }
+    }
+  }, {
+    key: '_onDragStart',
+    value: function _onDragStart(e) {
+      (0, _setup_dragstart_event2.default)(e);
+
+      var _extractIdsFromConten2 = (0, _extract_ids_from_content2.default)(this.props.widget),
+          objId = _extractIdsFromConten2.objId,
+          widgetId = _extractIdsFromConten2.widgetId;
+
+      scrivito.uiAdapter.onDragStart(objId, widgetId);
+
+      this.props.setDragState(true);
+    }
+  }, {
+    key: '_onDragEnd',
+    value: function _onDragEnd() {
+      scrivito.uiAdapter.onDragEnd();
+      this.props.setDragState(false);
+    }
+  }]);
+
+  return MenuMarker;
+}(_react2.default.Component);
+
+MenuMarker.displayName = 'Scrivito.ContentTag.MenuMarker';
+
+exports.default = (0, _connect2.default)(MenuMarker);
+
+/***/ }),
+
+/***/ 251:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _is_editing_mode = __webpack_require__(47);
+
+var _is_editing_mode2 = _interopRequireDefault(_is_editing_mode);
+
+var _schema = __webpack_require__(19);
+
+var _schema2 = _interopRequireDefault(_schema);
+
+var _underscore = __webpack_require__(0);
+
+var _react = __webpack_require__(15);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(52);
+
+var _window_registry = __webpack_require__(48);
+
+var _extract_ids_from_content = __webpack_require__(89);
+
+var _extract_ids_from_content2 = _interopRequireDefault(_extract_ids_from_content);
+
+var _connect = __webpack_require__(6);
+
+var _connect2 = _interopRequireDefault(_connect);
+
+var _menu_marker = __webpack_require__(250);
+
+var _menu_marker2 = _interopRequireDefault(_menu_marker);
+
+var _option_marker = __webpack_require__(165);
+
+var _option_marker2 = _interopRequireDefault(_option_marker);
+
+var _widget_content = __webpack_require__(252);
+
+var _widget_content2 = _interopRequireDefault(_widget_content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Widget = function (_React$Component) {
+  _inherits(Widget, _React$Component);
+
+  function Widget(props) {
+    _classCallCheck(this, Widget);
+
+    var _this = _possibleConstructorReturn(this, (Widget.__proto__ || Object.getPrototypeOf(Widget)).call(this, props));
+
+    _this.state = {
+      hasFocus: false,
+      isDragged: false
+    };
+
+    _this._onMouseOver = _this._onMouseOver.bind(_this);
+    _this._onMouseOut = _this._onMouseOut.bind(_this);
+
+    _this._onWidgetFocus = _this._onWidgetFocus.bind(_this);
+    _this._onWidgetBlur = _this._onWidgetBlur.bind(_this);
+
+    _this._setDragState = _this._setDragState.bind(_this);
+    return _this;
+  }
+
+  _createClass(Widget, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if ((0, _is_editing_mode2.default)() && this._widget) {
+        var _extractIdsFromConten = (0, _extract_ids_from_content2.default)(this.props.widget),
+            objId = _extractIdsFromConten.objId,
+            widgetId = _extractIdsFromConten.widgetId;
+
+        var domNode = (0, _reactDom.findDOMNode)(this._widget);
+
+        scrivito.uiAdapter.registerWidgetDropZoneInDom(domNode, objId, widgetId);
+      }
+
+      this._focusToken = scrivito.WidgetFocus.subscribe({
+        onFocus: this._onWidgetFocus,
+        onBlur: this._onWidgetBlur
+      });
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      scrivito.WidgetFocus.unsubscribe(this._focusToken);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var widgetContent = _react2.default.createElement(_widget_content2.default, { widget: this.props.widget });
+
+      if (!(0, _is_editing_mode2.default)()) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          widgetContent
+        );
+      }
+
+      return _react2.default.createElement(
+        'div',
+        _extends({
+          ref: function ref(widget) {
+            return _this2._widget = widget;
+          },
+          className: this._className(),
+          style: this._style(),
+          onMouseOver: this._onMouseOver,
+          onMouseOut: this._onMouseOut
+        }, this._dataProps()),
+        _react2.default.createElement(_menu_marker2.default, {
+          widget: this.props.widget,
+          setDragState: this._setDragState
+        }),
+        widgetContent,
+        this._renderOptionMarker('top'),
+        this._renderOptionMarker('bottom')
+      );
+    }
+  }, {
+    key: '_setDragState',
+    value: function _setDragState(isDragging) {
+      this.setState({ isDragging: isDragging });
+    }
+  }, {
+    key: '_className',
+    value: function _className() {
+      if (this.state.hasFocus) {
+        return 'scrivito_active scrivito_entered';
+      }
+    }
+  }, {
+    key: '_dataProps',
+    value: function _dataProps() {
+      var dataProps = {
+        'data-scrivito-private-widget': true,
+        'data-scrivito-private-dropzone': true
+      };
+
+      if (this._isStructureMarker()) {
+        dataProps['data-scrivito-private-structure-widget'] = true;
+      }
+
+      if (this.state.isDragging) {
+        dataProps['data-scrivito-private-dropback'] = true;
+      }
+
+      return dataProps;
+    }
+  }, {
+    key: '_style',
+    value: function _style() {
+      if (this.state.isDragging) {
+        return { opacity: 0.5 };
+      }
+    }
+  }, {
+    key: '_isStructureMarker',
+    value: function _isStructureMarker() {
+      var registry = (0, _window_registry.getWindowRegistry)();
+      var appClass = registry.widgetClassFor(this.props.widget.objClass());
+      var schema = _schema2.default.forClass(appClass);
+
+      if (schema) {
+        return (0, _underscore.some)(schema.attributes, function (_definition, name) {
+          var _schema$attributeDefi = schema.attributeDefinition(name),
+              _schema$attributeDefi2 = _slicedToArray(_schema$attributeDefi, 1),
+              type = _schema$attributeDefi2[0];
+
+          return type === 'widgetlist';
+        });
+      }
+
+      return false;
+    }
+  }, {
+    key: '_onMouseOver',
+    value: function _onMouseOver(e) {
+      e.stopPropagation();
+      scrivito.WidgetFocus.notifyFocus(this._focusToken);
+    }
+  }, {
+    key: '_onMouseOut',
+    value: function _onMouseOut(e) {
+      e.stopPropagation();
+      scrivito.WidgetFocus.notifyBlur(this._focusToken);
+    }
+  }, {
+    key: '_onWidgetFocus',
+    value: function _onWidgetFocus() {
+      this.setState({ hasFocus: true });
+    }
+  }, {
+    key: '_onWidgetBlur',
+    value: function _onWidgetBlur() {
+      this.setState({ hasFocus: false });
+    }
+  }, {
+    key: '_renderOptionMarker',
+    value: function _renderOptionMarker(position) {
+      return _react2.default.createElement(_option_marker2.default, {
+        position: position,
+        widget: this.props.widget,
+        insertWidget: insertWidget,
+        isAlwaysShown: scrivito.uiAdapter.alwaysShowOptionMarkers()
+      });
+    }
+  }]);
+
+  return Widget;
+}(_react2.default.Component);
+
+Widget.displayName = 'Scrivito.Widget';
+
+function insertWidget(widget, position) {
+  var _extractIdsFromConten2 = (0, _extract_ids_from_content2.default)(widget),
+      objId = _extractIdsFromConten2.objId,
+      widgetId = _extractIdsFromConten2.widgetId;
+
+  scrivito.uiAdapter.insertWidget(objId, widgetId, position);
+}
+
+exports.default = (0, _connect2.default)(Widget);
+
+/***/ }),
+
+/***/ 252:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _is_editing_mode = __webpack_require__(47);
 
 var _is_editing_mode2 = _interopRequireDefault(_is_editing_mode);
 
@@ -18527,11 +18579,11 @@ var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _window_registry = __webpack_require__(47);
+var _window_registry = __webpack_require__(48);
 
 var _errors = __webpack_require__(1);
 
-var _component_registry = __webpack_require__(49);
+var _component_registry = __webpack_require__(50);
 
 var _connect = __webpack_require__(6);
 
@@ -18597,13 +18649,13 @@ var WidgetContent = function (_React$Component) {
   return WidgetContent;
 }(_react2.default.Component);
 
-WidgetContent.displayName = 'Scrivito.React.Content.WidgetContent';
+WidgetContent.displayName = 'Scrivito.ContentTag.WidgetContent';
 
 exports.default = (0, _connect2.default)(WidgetContent);
 
 /***/ }),
 
-/***/ 251:
+/***/ 253:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18619,9 +18671,9 @@ var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(51);
+var _reactDom = __webpack_require__(52);
 
-var _extract_ids_from_content = __webpack_require__(88);
+var _extract_ids_from_content = __webpack_require__(89);
 
 var _extract_ids_from_content2 = _interopRequireDefault(_extract_ids_from_content);
 
@@ -18701,13 +18753,13 @@ var WidgetlistPlaceholder = function (_React$Component) {
   return WidgetlistPlaceholder;
 }(_react2.default.Component);
 
-WidgetlistPlaceholder.displayName = 'Scrivito.React.Content.WidgetlistPlaceholder';
+WidgetlistPlaceholder.displayName = 'Scrivito.ContentTag.WidgetlistPlaceholder';
 
 exports.default = (0, _connect2.default)(WidgetlistPlaceholder);
 
 /***/ }),
 
-/***/ 252:
+/***/ 254:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18721,11 +18773,11 @@ var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _current_page = __webpack_require__(39);
+var _current_page = __webpack_require__(40);
 
 var _errors = __webpack_require__(1);
 
-var _component_registry = __webpack_require__(49);
+var _component_registry = __webpack_require__(50);
 
 var _connect = __webpack_require__(6);
 
@@ -18751,13 +18803,13 @@ function CurrentPage() {
   return _react2.default.createElement(componentClass, { page: page, params: params });
 }
 
-CurrentPage.displayName = 'Scrivito.React.CurrentPage';
+CurrentPage.displayName = 'Scrivito.CurrentPage';
 
 exports.default = (0, _connect2.default)(CurrentPage);
 
 /***/ }),
 
-/***/ 253:
+/***/ 255:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18787,9 +18839,9 @@ var _binary = __webpack_require__(25);
 
 var _binary2 = _interopRequireDefault(_binary);
 
-var _window_proxy = __webpack_require__(30);
+var _window_proxy = __webpack_require__(31);
 
-var _image_placeholder = __webpack_require__(265);
+var _image_placeholder = __webpack_require__(267);
 
 var _image_placeholder2 = _interopRequireDefault(_image_placeholder);
 
@@ -18797,9 +18849,9 @@ var _connect = __webpack_require__(6);
 
 var _connect2 = _interopRequireDefault(_connect);
 
-var _content = __webpack_require__(161);
+var _content_tag = __webpack_require__(162);
 
-var _content2 = _interopRequireDefault(_content);
+var _content_tag2 = _interopRequireDefault(_content_tag);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18810,16 +18862,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // public API
-var Image = function (_React$Component) {
-  _inherits(Image, _React$Component);
+var ImageTag = function (_React$Component) {
+  _inherits(ImageTag, _React$Component);
 
-  function Image() {
-    _classCallCheck(this, Image);
+  function ImageTag() {
+    _classCallCheck(this, ImageTag);
 
-    return _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ImageTag.__proto__ || Object.getPrototypeOf(ImageTag)).apply(this, arguments));
   }
 
-  _createClass(Image, [{
+  _createClass(ImageTag, [{
     key: 'render',
     value: function render() {
       var htmlOptions = (0, _underscore.omit)(this.props, 'content', 'attribute');
@@ -18836,7 +18888,7 @@ var Image = function (_React$Component) {
         htmlOptions['data-scrivito-image-placeholder'] = true;
       }
 
-      return _react2.default.createElement(_content2.default, _extends({
+      return _react2.default.createElement(_content_tag2.default, _extends({
         attribute: this.props.attribute,
         content: this.props.content,
         tag: 'img',
@@ -18859,7 +18911,7 @@ var Image = function (_React$Component) {
       var attributeType = schema.attributes[this.props.attribute];
 
       if (!attributeType) {
-        throw new _errors.ScrivitoError('Component "scrivito.React.Image" received prop "content"' + (' with an object missing attribute "' + this.props.attribute + '".'));
+        throw new _errors.ScrivitoError('Component "Scrivito.ImageTag" received prop "content"' + (' with an object missing attribute "' + this.props.attribute + '".'));
       }
 
       if (attributeType === 'binary') {
@@ -18870,7 +18922,7 @@ var Image = function (_React$Component) {
         return this._getReferencedBinary();
       }
 
-      throw new _errors.ScrivitoError('Component "scrivito.React.Image" received prop "content"' + (' with an object, whose attribute "' + this.props.attribute + '"') + (' is of invalid type "' + attributeType + '".') + ' Valid attribute types are "binary" and "reference".');
+      throw new _errors.ScrivitoError('Component "Scrivito.ImageTag" received prop "content"' + (' with an object, whose attribute "' + this.props.attribute + '"') + (' is of invalid type "' + attributeType + '".') + ' Valid attribute types are "binary" and "reference".');
     }
   }, {
     key: '_getReferencedBinary',
@@ -18899,18 +18951,18 @@ var Image = function (_React$Component) {
     }
   }]);
 
-  return Image;
+  return ImageTag;
 }(_react2.default.Component);
 
-Image.displayName = 'scrivito.React.Image';
+ImageTag.displayName = 'Scrivito.ImageTag';
 
-Image.defaultProps = { attribute: 'blob' };
+ImageTag.defaultProps = { attribute: 'blob' };
 
-exports.default = (0, _connect2.default)(Image);
+exports.default = (0, _connect2.default)(ImageTag);
 
 /***/ }),
 
-/***/ 254:
+/***/ 256:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18920,7 +18972,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _current_page = __webpack_require__(39);
+var _current_page = __webpack_require__(40);
 
 var _errors = __webpack_require__(1);
 
@@ -18957,13 +19009,13 @@ function InternalErrorPage(_ref) {
   return null;
 }
 
-InternalErrorPage.displayName = 'Scrivito.React.InternalErrorPage';
+InternalErrorPage.displayName = 'Scrivito.InternalErrorPage';
 
 exports.default = (0, _connect2.default)(InternalErrorPage);
 
 /***/ }),
 
-/***/ 255:
+/***/ 257:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18973,7 +19025,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _current_page = __webpack_require__(39);
+var _current_page = __webpack_require__(40);
 
 var _errors = __webpack_require__(1);
 
@@ -19015,13 +19067,13 @@ function NotFoundErrorPage(_ref) {
   return null;
 }
 
-NotFoundErrorPage.displayName = 'Scrivito.React.NotFoundErrorPage';
+NotFoundErrorPage.displayName = 'Scrivito.NotFoundErrorPage';
 
 exports.default = (0, _connect2.default)(NotFoundErrorPage);
 
 /***/ }),
 
-/***/ 256:
+/***/ 258:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19033,7 +19085,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _update_buffer = __webpack_require__(242);
+var _update_buffer = __webpack_require__(244);
 
 var _update_buffer2 = _interopRequireDefault(_update_buffer);
 
@@ -19074,7 +19126,7 @@ exports.default = EditController;
 
 /***/ }),
 
-/***/ 257:
+/***/ 259:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19111,165 +19163,6 @@ var EditorEvent = function () {
 }();
 
 exports.default = EditorEvent;
-
-/***/ }),
-
-/***/ 258:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.transformHTML = transformHTML;
-exports.findTarget = findTarget;
-exports.reset = reset;
-
-var _window_context = __webpack_require__(29);
-
-var _errors = __webpack_require__(1);
-
-var REG_EXP = /\bobjid:([a-f0-9]{16})\b([^"']*)/g;
-
-var knownLinks = {};
-
-function transformHTML(htmlString) {
-  return htmlString.replace(REG_EXP, function (_match, objId) {
-    var getObj = function getObj() {
-      return (0, _window_context.getWindowContext)().Obj.get(objId);
-    };
-
-    try {
-      var url = scrivito.loadWithDefault(undefined, function () {
-        return scrivito.urlFor(getObj());
-      });
-
-      if (url) {
-        knownLinks[url] = getObj();
-        return url;
-      }
-
-      url = '#__LOADING_OBJ_WITH_ID_' + objId;
-      knownLinks[url] = getObj;
-
-      return url;
-    } catch (error) {
-      if (error instanceof _errors.ResourceNotFoundError) {
-        return '#__MISSING_OBJ_WITH_ID_' + objId;
-      }
-
-      throw error;
-    }
-  });
-}
-
-function findTarget(currentNode, outermostNode) {
-  if (currentNode === outermostNode) {
-    return null;
-  }
-
-  if (currentNode.nodeName === 'A') {
-    var target = knownLinks[currentNode.pathname] || knownLinks[currentNode.hash];
-
-    if (target) {
-      return target;
-    }
-  }
-
-  return findTarget(currentNode.parentNode, outermostNode);
-}
-
-// For test purpose only.
-function reset() {
-  knownLinks = {};
-}
-
-/***/ }),
-
-/***/ 259:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = onElementResize;
-
-var _is_ie = __webpack_require__(231);
-
-var _is_ie2 = _interopRequireDefault(_is_ie);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function onElementResize(element, fn) {
-  if (!element._scrivitoResizeListeners) {
-    element._scrivitoResizeListeners = [];
-
-    // The element has to have relative position, otherwise the object won't span the whole height.
-    //
-    // Unfortunately Firefox cannot compute styles of elements inside an iframe with `display:none`
-    // and it reports such elements to have no styles even _after_ the iframe became visible. So we
-    // cannot set position to `relative` only if it was previously `static`.
-    // See https://bugzilla.mozilla.org/show_bug.cgi?id=548397.
-    //
-    // We always have to enforce the relative position, regardless of the previous position.
-    element.style.position = 'relative';
-
-    var object = createObject();
-
-    object.resizeElement = element;
-    element._scrivitoResizeTrigger = object;
-
-    if ((0, _is_ie2.default)()) {
-      element.appendChild(object);
-    }
-
-    object.data = 'about:blank';
-
-    if (!(0, _is_ie2.default)()) {
-      element.appendChild(object);
-    }
-  }
-
-  element._scrivitoResizeListeners.push(fn);
-}
-
-function createObject() {
-  var object = document.createElement('object');
-
-  object.type = 'text/html';
-  object.onload = onObjectLoad;
-
-  object.style.display = 'block';
-  object.style.position = 'absolute';
-  object.style.top = 0;
-  object.style.left = 0;
-  object.style.height = '100%';
-  object.style.width = '100%';
-  object.style.overflow = 'hidden';
-  object.style.pointerEvents = 'none';
-  object.style.zIndex = -1;
-
-  return object;
-}
-
-function onObjectLoad() {
-  this.contentDocument.defaultView._scrivitoResizeTrigger = this.resizeElement;
-  this.contentDocument.defaultView.addEventListener('resize', onResize);
-}
-
-function onResize(e) {
-  var targetWindow = e.target || e.srcElement;
-  var trigger = targetWindow._scrivitoResizeTrigger;
-
-  trigger._scrivitoResizeListeners.forEach(function (fn) {
-    return fn(trigger, e);
-  });
-}
 
 /***/ }),
 
@@ -19392,6 +19285,165 @@ exports.default = Attribute;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.transformHTML = transformHTML;
+exports.findTarget = findTarget;
+exports.reset = reset;
+
+var _window_context = __webpack_require__(30);
+
+var _errors = __webpack_require__(1);
+
+var REG_EXP = /\bobjid:([a-f0-9]{16})\b([^"']*)/g;
+
+var knownLinks = {};
+
+function transformHTML(htmlString) {
+  return htmlString.replace(REG_EXP, function (_match, objId) {
+    var getObj = function getObj() {
+      return (0, _window_context.getWindowContext)().Obj.get(objId);
+    };
+
+    try {
+      var url = scrivito.loadWithDefault(undefined, function () {
+        return scrivito.urlFor(getObj());
+      });
+
+      if (url) {
+        knownLinks[url] = getObj();
+        return url;
+      }
+
+      url = '#__LOADING_OBJ_WITH_ID_' + objId;
+      knownLinks[url] = getObj;
+
+      return url;
+    } catch (error) {
+      if (error instanceof _errors.ResourceNotFoundError) {
+        return '#__MISSING_OBJ_WITH_ID_' + objId;
+      }
+
+      throw error;
+    }
+  });
+}
+
+function findTarget(currentNode, outermostNode) {
+  if (currentNode === outermostNode) {
+    return null;
+  }
+
+  if (currentNode.nodeName === 'A') {
+    var target = knownLinks[currentNode.pathname] || knownLinks[currentNode.hash];
+
+    if (target) {
+      return target;
+    }
+  }
+
+  return findTarget(currentNode.parentNode, outermostNode);
+}
+
+// For test purpose only.
+function reset() {
+  knownLinks = {};
+}
+
+/***/ }),
+
+/***/ 261:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = onElementResize;
+
+var _is_ie = __webpack_require__(233);
+
+var _is_ie2 = _interopRequireDefault(_is_ie);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function onElementResize(element, fn) {
+  if (!element._scrivitoResizeListeners) {
+    element._scrivitoResizeListeners = [];
+
+    // The element has to have relative position, otherwise the object won't span the whole height.
+    //
+    // Unfortunately Firefox cannot compute styles of elements inside an iframe with `display:none`
+    // and it reports such elements to have no styles even _after_ the iframe became visible. So we
+    // cannot set position to `relative` only if it was previously `static`.
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=548397.
+    //
+    // We always have to enforce the relative position, regardless of the previous position.
+    element.style.position = 'relative';
+
+    var object = createObject();
+
+    object.resizeElement = element;
+    element._scrivitoResizeTrigger = object;
+
+    if ((0, _is_ie2.default)()) {
+      element.appendChild(object);
+    }
+
+    object.data = 'about:blank';
+
+    if (!(0, _is_ie2.default)()) {
+      element.appendChild(object);
+    }
+  }
+
+  element._scrivitoResizeListeners.push(fn);
+}
+
+function createObject() {
+  var object = document.createElement('object');
+
+  object.type = 'text/html';
+  object.onload = onObjectLoad;
+
+  object.style.display = 'block';
+  object.style.position = 'absolute';
+  object.style.top = 0;
+  object.style.left = 0;
+  object.style.height = '100%';
+  object.style.width = '100%';
+  object.style.overflow = 'hidden';
+  object.style.pointerEvents = 'none';
+  object.style.zIndex = -1;
+
+  return object;
+}
+
+function onObjectLoad() {
+  this.contentDocument.defaultView._scrivitoResizeTrigger = this.resizeElement;
+  this.contentDocument.defaultView.addEventListener('resize', onResize);
+}
+
+function onResize(e) {
+  var targetWindow = e.target || e.srcElement;
+  var trigger = targetWindow._scrivitoResizeTrigger;
+
+  trigger._scrivitoResizeListeners.forEach(function (fn) {
+    return fn(trigger, e);
+  });
+}
+
+/***/ }),
+
+/***/ 262:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 (function () {
   var currentFocus = void 0;
   var currentToken = 0;
@@ -19442,7 +19494,7 @@ exports.default = Attribute;
 
 /***/ }),
 
-/***/ 261:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19455,31 +19507,31 @@ window.scrivito.AppSupport = {};
 
 /***/ }),
 
-/***/ 262:
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(261);
-
-__webpack_require__(232);
-
-__webpack_require__(233);
+__webpack_require__(263);
 
 __webpack_require__(234);
 
 __webpack_require__(235);
 
-__webpack_require__(238);
+__webpack_require__(236);
 
-__webpack_require__(239);
+__webpack_require__(237);
+
+__webpack_require__(240);
 
 __webpack_require__(241);
 
+__webpack_require__(243);
+
 /***/ }),
 
-/***/ 263:
+/***/ 265:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19497,7 +19549,7 @@ function openContentBrowser() {
 
 /***/ }),
 
-/***/ 264:
+/***/ 266:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19506,11 +19558,10 @@ function openContentBrowser() {
 if (!window.scrivito) {
   window.scrivito = {};
 }
-window.scrivito.React = {};
 
 /***/ }),
 
-/***/ 265:
+/***/ 267:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19530,19 +19581,19 @@ exports.default = 'data:image/gif;base64,R0lGODlhyADIAIAAAP///wAAACH/C1hNUCBEYXR
 
 /***/ }),
 
-/***/ 266:
+/***/ 268:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(264);
+__webpack_require__(266);
 
-__webpack_require__(260);
+__webpack_require__(262);
 
 /***/ }),
 
-/***/ 267:
+/***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19553,11 +19604,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = provideComponent;
 
-var _window_context = __webpack_require__(29);
+var _window_context = __webpack_require__(30);
 
 var _errors = __webpack_require__(1);
 
-var _component_registry = __webpack_require__(49);
+var _component_registry = __webpack_require__(50);
 
 var _connect = __webpack_require__(6);
 
@@ -19608,35 +19659,6 @@ function assertNoCustomProps(component) {
 
 /***/ }),
 
-/***/ 29:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-// The iframe context is the `scrivito` object, available top-level in the application iframe and
-// used as the public API for the client. Following indirection is used in the specs in order to
-// not pollute the global `window` object with the public API properties.
-
-var iframeContext = void 0;
-
-function getWindowContext() {
-  return iframeContext || window.Scrivito;
-}
-
-// For test purpose only.
-function setWindowContext(newIframeContext) {
-  iframeContext = newIframeContext;
-}
-
-exports.getWindowContext = getWindowContext;
-exports.setWindowContext = setWindowContext;
-
-/***/ }),
-
 /***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19653,27 +19675,27 @@ var _get = function get(object, property, receiver) { if (object === null) objec
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _map_and_load_parallel = __webpack_require__(84);
+var _map_and_load_parallel = __webpack_require__(85);
 
 var _map_and_load_parallel2 = _interopRequireDefault(_map_and_load_parallel);
 
-var _find_widget_placement = __webpack_require__(100);
+var _find_widget_placement = __webpack_require__(101);
 
 var _find_widget_placement2 = _interopRequireDefault(_find_widget_placement);
 
-var _convert_to_slug = __webpack_require__(131);
+var _convert_to_slug = __webpack_require__(132);
 
 var _convert_to_slug2 = _interopRequireDefault(_convert_to_slug);
 
-var _types = __webpack_require__(31);
+var _types = __webpack_require__(32);
 
 var types = _interopRequireWildcard(_types);
 
-var _obj_data_store = __webpack_require__(40);
+var _obj_data_store = __webpack_require__(41);
 
 var ObjDataStore = _interopRequireWildcard(_obj_data_store);
 
-var _attribute_serializer = __webpack_require__(68);
+var _attribute_serializer = __webpack_require__(69);
 
 var AttributeSerializer = _interopRequireWildcard(_attribute_serializer);
 
@@ -19681,11 +19703,11 @@ var _basic_widget = __webpack_require__(13);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
-var _basic_obj_search_iterable = __webpack_require__(59);
+var _basic_obj_search_iterable = __webpack_require__(60);
 
 var _basic_obj_search_iterable2 = _interopRequireDefault(_basic_obj_search_iterable);
 
-var _basic_attribute_content = __webpack_require__(58);
+var _basic_attribute_content = __webpack_require__(59);
 
 var _basic_attribute_content2 = _interopRequireDefault(_basic_attribute_content);
 
@@ -19695,11 +19717,11 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 var _errors = __webpack_require__(1);
 
-var _future_binary = __webpack_require__(34);
+var _future_binary = __webpack_require__(36);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
-var _random = __webpack_require__(73);
+var _random = __webpack_require__(74);
 
 var _obj_class = __webpack_require__(21);
 
@@ -19707,7 +19729,7 @@ var _obj_class2 = _interopRequireDefault(_obj_class);
 
 var _attribute_inflection = __webpack_require__(14);
 
-var _iterable = __webpack_require__(54);
+var _iterable = __webpack_require__(55);
 
 var _global_state = __webpack_require__(4);
 
@@ -19762,8 +19784,8 @@ var BasicObj = function (_BasicAttributeConten) {
 
       var obj = this.getIncludingDeleted(idOrList);
 
-      if (obj.isDeleted()) {
-        throwObjNotFound(idOrList);
+      if (!obj || obj.isDeleted()) {
+        return;
       }
 
       return obj;
@@ -19781,13 +19803,13 @@ var BasicObj = function (_BasicAttributeConten) {
 
       var objData = ObjDataStore.get(idOrList);
       if (!objData) {
-        throwObjNotFound(idOrList);
+        return;
       }
 
       var obj = new BasicObj(objData);
 
       if (obj.isFinallyDeleted()) {
-        throwObjNotFound(idOrList);
+        return;
       }
 
       return obj;
@@ -20083,9 +20105,7 @@ var BasicObj = function (_BasicAttributeConten) {
 
       if (_underscore2.default.isArray(childOrder)) {
         return _underscore2.default.sortBy(children, function (child) {
-          var childOrderIds = childOrder.map(function (item) {
-            return item.id();
-          });
+          var childOrderIds = _underscore2.default.invoke(childOrder, 'id');
           var childIndex = childOrderIds.indexOf(child.id());
 
           if (childIndex === -1) {
@@ -20442,13 +20462,38 @@ function assertValidCopyOptions(copyOptions) {
   }
 }
 
-function throwObjNotFound(id) {
-  throw new _errors.ResourceNotFoundError('Obj with id "' + id + '" not found.');
-}
-
 /***/ }),
 
 /***/ 30:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+// The iframe context is the `scrivito` object, available top-level in the application iframe and
+// used as the public API for the client. Following indirection is used in the specs in order to
+// not pollute the global `window` object with the public API properties.
+
+var iframeContext = void 0;
+
+function getWindowContext() {
+  return iframeContext || window.Scrivito;
+}
+
+// For test purpose only.
+function setWindowContext(newIframeContext) {
+  iframeContext = newIframeContext;
+}
+
+exports.getWindowContext = getWindowContext;
+exports.setWindowContext = setWindowContext;
+
+/***/ }),
+
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20502,7 +20547,7 @@ exports.getDocument = getDocument;
 
 /***/ }),
 
-/***/ 31:
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20615,7 +20660,7 @@ function convertToInteger(valueFromBackend) {
 
 /***/ }),
 
-/***/ 33:
+/***/ 34:
 /***/ (function(module, exports) {
 
 var g;
@@ -20643,7 +20688,31 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 34:
+/***/ 35:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var isUsingRailsEngine = void 0;
+
+function useRailsEngine() {
+  return isUsingRailsEngine;
+}
+
+function initUseRailsEngine(state) {
+  isUsingRailsEngine = state;
+}
+
+exports.useRailsEngine = useRailsEngine;
+exports.initUseRailsEngine = initUseRailsEngine;
+
+/***/ }),
+
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20655,7 +20724,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _binary_utils = __webpack_require__(57);
+var _binary_utils = __webpack_require__(58);
 
 var BinaryUtils = _interopRequireWildcard(_binary_utils);
 
@@ -20748,31 +20817,7 @@ exports.default = FutureBinary;
 
 /***/ }),
 
-/***/ 35:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var isUsingRailsEngine = void 0;
-
-function useRailsEngine() {
-  return isUsingRailsEngine;
-}
-
-function initUseRailsEngine(state) {
-  isUsingRailsEngine = state;
-}
-
-exports.useRailsEngine = useRailsEngine;
-exports.initUseRailsEngine = initUseRailsEngine;
-
-/***/ }),
-
-/***/ 37:
+/***/ 38:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -20792,10 +20837,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   // https://github.com/umdjs/umd/blob/master/returnExports.js
   if (typeof module === 'object' && module.exports) {
     // Node
-    module.exports = factory(__webpack_require__(78), __webpack_require__(76), __webpack_require__(77));
+    module.exports = factory(__webpack_require__(79), __webpack_require__(77), __webpack_require__(78));
   } else if (true) {
     // AMD. Register as an anonymous module.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(78), __webpack_require__(76), __webpack_require__(77)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(79), __webpack_require__(77), __webpack_require__(78)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -23033,7 +23078,80 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ 39:
+/***/ 4:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/* tslint:disable:no-empty-interface */
+var errors_es6_1 = __webpack_require__(1);
+var state_tree_1 = __webpack_require__(115);
+var globalState;
+var stateController;
+function initializeGlobalState(ui) {
+    if (!ui) {
+        // we are the top-level window, so we own the globalState.
+        globalState = new state_tree_1.default();
+        stateController = globalState;
+        exports.appState = createAppState();
+        exports.cmsState = globalState.subState('cms');
+        exports.uiState = globalState.subState('ui');
+    }
+    else {
+        // we are inside an iFrame, so we don't own the globalState,
+        // but rely on the UI instead.
+        globalState = undefined;
+        stateController = ui.stateController();
+        exports.appState = ui.createAppState();
+        exports.cmsState = ui.cmsState();
+    }
+}
+exports.initializeGlobalState = initializeGlobalState;
+var appStateCounter = 0;
+function createAppState() {
+    if (!globalState) {
+        // createAppState should never be called inside an iFrame
+        throw new errors_es6_1.InternalError();
+    }
+    var id = (appStateCounter++).toString();
+    var apps = globalState.subState('apps');
+    return apps.subState(id);
+}
+exports.createAppState = createAppState;
+function withBatchedUpdates(fn) {
+    return stateController.withBatchedUpdates(fn);
+}
+exports.withBatchedUpdates = withBatchedUpdates;
+function subscribe(fn) {
+    return stateController.subscribe(fn);
+}
+exports.subscribe = subscribe;
+function trackChanges(fn) {
+    return stateController.trackChanges(fn);
+}
+exports.trackChanges = trackChanges;
+// for test purposes only
+function listenerCount() {
+    if (!globalState) {
+        throw new errors_es6_1.InternalError();
+    }
+    return globalState.listenerCount();
+}
+exports.listenerCount = listenerCount;
+// for test purposes only
+function reset() {
+    if (!globalState) {
+        throw new errors_es6_1.InternalError();
+    }
+    globalState.clear();
+}
+exports.reset = reset;
+
+
+/***/ }),
+
+/***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23064,7 +23182,7 @@ var _load = __webpack_require__(12);
 
 var _load2 = _interopRequireDefault(_load);
 
-var _window_context = __webpack_require__(29);
+var _window_context = __webpack_require__(30);
 
 var _global_state = __webpack_require__(4);
 
@@ -23089,7 +23207,13 @@ function currentPage() {
       var appModelAccessor = (0, _window_context.getWindowContext)().appModelAccessor;
       var modelClass = (0, _window_context.getWindowContext)().Obj;
 
-      return appModelAccessor.getObj(modelClass, objId);
+      var obj = appModelAccessor.getObj(modelClass, objId);
+
+      if (obj) {
+        return obj;
+      }
+
+      throw new _errors.ResourceNotFoundError('Obj with id "' + objId + '" not found.');
     });
   } catch (error) {
     scrivito.nextTick(function () {
@@ -23291,80 +23415,7 @@ exports.setCurrentPage = setCurrentPage;
 
 /***/ }),
 
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-/* tslint:disable:no-empty-interface */
-var errors_es6_1 = __webpack_require__(1);
-var state_tree_1 = __webpack_require__(114);
-var globalState;
-var stateController;
-function initializeGlobalState(ui) {
-    if (!ui) {
-        // we are the top-level window, so we own the globalState.
-        globalState = new state_tree_1.default();
-        stateController = globalState;
-        exports.appState = createAppState();
-        exports.cmsState = globalState.subState('cms');
-        exports.uiState = globalState.subState('ui');
-    }
-    else {
-        // we are inside an iFrame, so we don't own the globalState,
-        // but rely on the UI instead.
-        globalState = undefined;
-        stateController = ui.stateController();
-        exports.appState = ui.createAppState();
-        exports.cmsState = ui.cmsState();
-    }
-}
-exports.initializeGlobalState = initializeGlobalState;
-var appStateCounter = 0;
-function createAppState() {
-    if (!globalState) {
-        // createAppState should never be called inside an iFrame
-        throw new errors_es6_1.InternalError();
-    }
-    var id = (appStateCounter++).toString();
-    var apps = globalState.subState('apps');
-    return apps.subState(id);
-}
-exports.createAppState = createAppState;
-function withBatchedUpdates(fn) {
-    return stateController.withBatchedUpdates(fn);
-}
-exports.withBatchedUpdates = withBatchedUpdates;
-function subscribe(fn) {
-    return stateController.subscribe(fn);
-}
-exports.subscribe = subscribe;
-function trackChanges(fn) {
-    return stateController.trackChanges(fn);
-}
-exports.trackChanges = trackChanges;
-// for test purposes only
-function listenerCount() {
-    if (!globalState) {
-        throw new errors_es6_1.InternalError();
-    }
-    return globalState.listenerCount();
-}
-exports.listenerCount = listenerCount;
-// for test purposes only
-function reset() {
-    if (!globalState) {
-        throw new errors_es6_1.InternalError();
-    }
-    globalState.clear();
-}
-exports.reset = reset;
-
-
-/***/ }),
-
-/***/ 40:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23381,7 +23432,7 @@ exports.setError = setError;
 exports.get = get;
 exports.clearCache = clearCache;
 
-var _obj_data = __webpack_require__(149);
+var _obj_data = __webpack_require__(150);
 
 var _obj_data2 = _interopRequireDefault(_obj_data);
 
@@ -23449,7 +23500,7 @@ function objDataFor(id) {
 
 /***/ }),
 
-/***/ 43:
+/***/ 44:
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -23636,7 +23687,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 46:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23656,7 +23707,7 @@ function isEditingMode() {
 
 /***/ }),
 
-/***/ 47:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23667,7 +23718,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getWindowRegistry = undefined;
 
-var _window_context = __webpack_require__(29);
+var _window_context = __webpack_require__(30);
 
 function getWindowRegistry() {
   return (0, _window_context.getWindowContext)()._privateRealm._registry;
@@ -23677,7 +23728,7 @@ exports.getWindowRegistry = getWindowRegistry;
 
 /***/ }),
 
-/***/ 48:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23782,55 +23833,6 @@ exports.default = AppModelAccessor;
 
 /***/ }),
 
-/***/ 49:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.reset = exports.registerForId = exports.registerForAppClass = exports.getById = exports.getByAppClass = undefined;
-
-var _window_registry = __webpack_require__(47);
-
-var registry = {};
-
-function registerForId(componentId, componentClass) {
-  registry[componentId] = componentClass;
-}
-
-function getById(componentId) {
-  return registry[componentId] || null;
-}
-
-function registerForAppClass(appClass, componentClass) {
-  registerForId(idForAppClass(appClass), componentClass);
-}
-
-function getByAppClass(appClass) {
-  return getById(idForAppClass(appClass));
-}
-
-// For test purpose only.
-function reset() {
-  registry = {};
-}
-
-function idForAppClass(appClass) {
-  var className = (0, _window_registry.getWindowRegistry)().objClassNameFor(appClass);
-  return '_scrivitoAppClass-' + className;
-}
-
-exports.getByAppClass = getByAppClass;
-exports.getById = getById;
-exports.registerForAppClass = registerForAppClass;
-exports.registerForId = registerForId;
-exports.reset = reset;
-
-/***/ }),
-
 /***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23838,8 +23840,8 @@ exports.reset = reset;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var errors_es6_1 = __webpack_require__(1);
-var LoadHandler = __webpack_require__(112);
-var loadable_value_1 = __webpack_require__(113);
+var LoadHandler = __webpack_require__(113);
+var loadable_value_1 = __webpack_require__(114);
 var loadIdCounter = 0;
 var captureNotLoadedStackTrace = true;
 var allDataLoadedDuringRun;
@@ -24040,14 +24042,63 @@ function withoutNotLoadedStackTrace(fn) {
 
 /***/ }),
 
-/***/ 51:
+/***/ 50:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.reset = exports.registerForId = exports.registerForAppClass = exports.getById = exports.getByAppClass = undefined;
+
+var _window_registry = __webpack_require__(48);
+
+var registry = {};
+
+function registerForId(componentId, componentClass) {
+  registry[componentId] = componentClass;
+}
+
+function getById(componentId) {
+  return registry[componentId] || null;
+}
+
+function registerForAppClass(appClass, componentClass) {
+  registerForId(idForAppClass(appClass), componentClass);
+}
+
+function getByAppClass(appClass) {
+  return getById(idForAppClass(appClass));
+}
+
+// For test purpose only.
+function reset() {
+  registry = {};
+}
+
+function idForAppClass(appClass) {
+  var className = (0, _window_registry.getWindowRegistry)().objClassNameFor(appClass);
+  return '_scrivitoAppClass-' + className;
+}
+
+exports.getByAppClass = getByAppClass;
+exports.getById = getById;
+exports.registerForAppClass = registerForAppClass;
+exports.registerForId = registerForId;
+exports.reset = reset;
+
+/***/ }),
+
+/***/ 52:
 /***/ (function(module, exports) {
 
 module.exports = ReactDOM;
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24214,7 +24265,7 @@ function buildWidgetPoolPatch(widgetPoolA, widgetPoolB) {
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24242,7 +24293,30 @@ exports.firstValueFromIterable = firstValueFromIterable;
 
 /***/ }),
 
-/***/ 55:
+/***/ 557:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isInsideExtensionsDocument;
+
+var _window_proxy = __webpack_require__(31);
+
+var window = _interopRequireWildcard(_window_proxy);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function isInsideExtensionsDocument() {
+  return !!window.location().pathname.match('_scrivito_extensions.html');
+}
+
+/***/ }),
+
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24261,7 +24335,7 @@ var _basic_obj = __webpack_require__(3);
 
 var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
-var _binary_utils = __webpack_require__(57);
+var _binary_utils = __webpack_require__(58);
 
 var BinaryUtils = _interopRequireWildcard(_binary_utils);
 
@@ -24269,7 +24343,7 @@ var _basic_widget = __webpack_require__(13);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
-var _uploaded_blob = __webpack_require__(97);
+var _uploaded_blob = __webpack_require__(98);
 
 var _uploaded_blob2 = _interopRequireDefault(_uploaded_blob);
 
@@ -24283,7 +24357,7 @@ var _binary = __webpack_require__(25);
 
 var _binary2 = _interopRequireDefault(_binary);
 
-var _future_binary = __webpack_require__(34);
+var _future_binary = __webpack_require__(36);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
@@ -24413,30 +24487,7 @@ function context() {
 
 /***/ }),
 
-/***/ 550:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = isInsideExtensionsDocument;
-
-var _window_proxy = __webpack_require__(30);
-
-var window = _interopRequireWildcard(_window_proxy);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function isInsideExtensionsDocument() {
-  return !!window.location().pathname.match('_scrivito_extensions.html');
-}
-
-/***/ }),
-
-/***/ 56:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24450,11 +24501,11 @@ var _underscore = __webpack_require__(0);
 
 var _errors = __webpack_require__(1);
 
-var _window_context = __webpack_require__(29);
+var _window_context = __webpack_require__(30);
 
-var _current_page = __webpack_require__(39);
+var _current_page = __webpack_require__(40);
 
-var _scroll_window_to_top = __webpack_require__(240);
+var _scroll_window_to_top = __webpack_require__(242);
 
 var _scroll_window_to_top2 = _interopRequireDefault(_scroll_window_to_top);
 
@@ -24523,7 +24574,7 @@ exports.default = navigateTo;
 
 /***/ }),
 
-/***/ 57:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24551,7 +24602,7 @@ function isFile(obj) {
 
 /***/ }),
 
-/***/ 58:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24565,11 +24616,11 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _attribute_deserializer = __webpack_require__(142);
+var _attribute_deserializer = __webpack_require__(143);
 
 var AttributeDeserializer = _interopRequireWildcard(_attribute_deserializer);
 
-var _basic_field = __webpack_require__(85);
+var _basic_field = __webpack_require__(86);
 
 var _basic_field2 = _interopRequireDefault(_basic_field);
 
@@ -24695,7 +24746,180 @@ exports.default = BasicAttributeContent;
 
 /***/ }),
 
-/***/ 59:
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+exports.default = connect;
+
+var _loadable_data = __webpack_require__(5);
+
+var _loadable_data2 = _interopRequireDefault(_loadable_data);
+
+var _errors = __webpack_require__(1);
+
+var _is_class_component = __webpack_require__(174);
+
+var _is_class_component2 = _interopRequireDefault(_is_class_component);
+
+var _inherit_component_name = __webpack_require__(173);
+
+var _inherit_component_name2 = _interopRequireDefault(_inherit_component_name);
+
+var _global_state = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function connect(component) {
+  if (typeof component !== 'function') {
+    throw new _errors.ArgumentError('Scrivito.connect expects either a plain function or a subclass of React.Component');
+  }
+
+  if ((0, _is_class_component2.default)(component)) {
+    return connectClassComponent(component);
+  }
+
+  return connectClassComponent(wrapInClassComponent(component));
+}
+
+function connectClassComponent(classComponent) {
+  var connectedComponent = function (_classComponent) {
+    _inherits(connectedComponent, _classComponent);
+
+    function connectedComponent() {
+      _classCallCheck(this, connectedComponent);
+
+      return _possibleConstructorReturn(this, (connectedComponent.__proto__ || Object.getPrototypeOf(connectedComponent)).apply(this, arguments));
+    }
+
+    _createClass(connectedComponent, [{
+      key: 'componentWillMount',
+      value: function componentWillMount() {
+        var _this2 = this;
+
+        this._scrivitoUnsubscribeModelState = (0, _global_state.subscribe)(function () {
+          if (_this2._scrivitoIsStateChangeDetected && _this2._scrivitoIsStateChangeDetected()) {
+            _this2.forceUpdate();
+          }
+        });
+
+        if (_get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'componentWillMount', this)) {
+          _get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'componentWillMount', this).call(this);
+        }
+      }
+    }, {
+      key: 'componentWillUnmount',
+      value: function componentWillUnmount() {
+        this._scrivitoUnsubscribeModelState();
+
+        if (_get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'componentWillUnmount', this)) {
+          _get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'componentWillUnmount', this).call(this);
+        }
+      }
+    }, {
+      key: 'render',
+      value: function render() {
+        var _this3 = this;
+
+        var reactElement = void 0;
+
+        this._scrivitoIsStateChangeDetected = (0, _global_state.trackChanges)(function () {
+          try {
+            var run = void 0;
+
+            _loadable_data2.default.capture(function () {
+              run = _loadable_data2.default.run(function () {
+                return _get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'render', _this3).call(_this3);
+              });
+            }).loadRequiredData();
+
+            if (run.allDataLoaded) {
+              reactElement = run.result;
+            } else {
+              var preliminaryResult = run.success ? run.result : null;
+              reactElement = _this3._scrivitoHandleLoading(preliminaryResult);
+            }
+          } catch (error) {
+            reactElement = _this3._scrivitoHandleError(error);
+          }
+        });
+
+        return reactElement;
+      }
+    }, {
+      key: '_scrivitoHandleLoading',
+      value: function _scrivitoHandleLoading(preliminaryResult) {
+        if (this._scrivitoRenderWhileLoading) {
+          return this._scrivitoRenderWhileLoading();
+        }
+
+        return preliminaryResult;
+      }
+    }, {
+      key: '_scrivitoHandleError',
+      value: function _scrivitoHandleError(error) {
+        scrivito.printError(error);
+
+        if (this._scrivitoRenderOnError) {
+          return this._scrivitoRenderOnError();
+        }
+
+        return null;
+      }
+    }]);
+
+    return connectedComponent;
+  }(classComponent);
+
+  (0, _inherit_component_name2.default)(connectedComponent, { from: classComponent });
+
+  return connectedComponent;
+}
+
+function wrapInClassComponent(functionalComponent) {
+  var classComponent = function (_React$Component) {
+    _inherits(classComponent, _React$Component);
+
+    function classComponent() {
+      _classCallCheck(this, classComponent);
+
+      return _possibleConstructorReturn(this, (classComponent.__proto__ || Object.getPrototypeOf(classComponent)).apply(this, arguments));
+    }
+
+    _createClass(classComponent, [{
+      key: 'render',
+      value: function render() {
+        return functionalComponent(this.props);
+      }
+    }]);
+
+    return classComponent;
+  }(React.Component);
+
+  (0, _inherit_component_name2.default)(classComponent, { from: functionalComponent });
+
+  return classComponent;
+}
+
+/***/ }),
+
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24711,15 +24935,15 @@ var _basic_obj = __webpack_require__(3);
 
 var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
-var _types = __webpack_require__(31);
+var _types = __webpack_require__(32);
 
 var types = _interopRequireWildcard(_types);
 
-var _obj_query_store = __webpack_require__(72);
+var _obj_query_store = __webpack_require__(73);
 
 var ObjQueryStore = _interopRequireWildcard(_obj_query_store);
 
-var _facet_query = __webpack_require__(134);
+var _facet_query = __webpack_require__(135);
 
 var _facet_query2 = _interopRequireDefault(_facet_query);
 
@@ -24954,180 +25178,7 @@ function underscoreAttribute(attributeName) {
 
 /***/ }),
 
-/***/ 6:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-exports.default = connect;
-
-var _loadable_data = __webpack_require__(5);
-
-var _loadable_data2 = _interopRequireDefault(_loadable_data);
-
-var _errors = __webpack_require__(1);
-
-var _is_class_component = __webpack_require__(173);
-
-var _is_class_component2 = _interopRequireDefault(_is_class_component);
-
-var _inherit_component_name = __webpack_require__(172);
-
-var _inherit_component_name2 = _interopRequireDefault(_inherit_component_name);
-
-var _global_state = __webpack_require__(4);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function connect(component) {
-  if (typeof component !== 'function') {
-    throw new _errors.ArgumentError('Scrivito.React.connect expects either a plain function or a subclass of React.Component');
-  }
-
-  if ((0, _is_class_component2.default)(component)) {
-    return connectClassComponent(component);
-  }
-
-  return connectClassComponent(wrapInClassComponent(component));
-}
-
-function connectClassComponent(classComponent) {
-  var connectedComponent = function (_classComponent) {
-    _inherits(connectedComponent, _classComponent);
-
-    function connectedComponent() {
-      _classCallCheck(this, connectedComponent);
-
-      return _possibleConstructorReturn(this, (connectedComponent.__proto__ || Object.getPrototypeOf(connectedComponent)).apply(this, arguments));
-    }
-
-    _createClass(connectedComponent, [{
-      key: 'componentWillMount',
-      value: function componentWillMount() {
-        var _this2 = this;
-
-        this._scrivitoUnsubscribeModelState = (0, _global_state.subscribe)(function () {
-          if (_this2._scrivitoIsStateChangeDetected && _this2._scrivitoIsStateChangeDetected()) {
-            _this2.forceUpdate();
-          }
-        });
-
-        if (_get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'componentWillMount', this)) {
-          _get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'componentWillMount', this).call(this);
-        }
-      }
-    }, {
-      key: 'componentWillUnmount',
-      value: function componentWillUnmount() {
-        this._scrivitoUnsubscribeModelState();
-
-        if (_get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'componentWillUnmount', this)) {
-          _get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'componentWillUnmount', this).call(this);
-        }
-      }
-    }, {
-      key: 'render',
-      value: function render() {
-        var _this3 = this;
-
-        var reactElement = void 0;
-
-        this._scrivitoIsStateChangeDetected = (0, _global_state.trackChanges)(function () {
-          try {
-            var run = void 0;
-
-            _loadable_data2.default.capture(function () {
-              run = _loadable_data2.default.run(function () {
-                return _get(connectedComponent.prototype.__proto__ || Object.getPrototypeOf(connectedComponent.prototype), 'render', _this3).call(_this3);
-              });
-            }).loadRequiredData();
-
-            if (run.allDataLoaded) {
-              reactElement = run.result;
-            } else {
-              var preliminaryResult = run.success ? run.result : null;
-              reactElement = _this3._scrivitoHandleLoading(preliminaryResult);
-            }
-          } catch (error) {
-            reactElement = _this3._scrivitoHandleError(error);
-          }
-        });
-
-        return reactElement;
-      }
-    }, {
-      key: '_scrivitoHandleLoading',
-      value: function _scrivitoHandleLoading(preliminaryResult) {
-        if (this._scrivitoRenderWhileLoading) {
-          return this._scrivitoRenderWhileLoading();
-        }
-
-        return preliminaryResult;
-      }
-    }, {
-      key: '_scrivitoHandleError',
-      value: function _scrivitoHandleError(error) {
-        scrivito.printError(error);
-
-        if (this._scrivitoRenderOnError) {
-          return this._scrivitoRenderOnError();
-        }
-
-        return null;
-      }
-    }]);
-
-    return connectedComponent;
-  }(classComponent);
-
-  (0, _inherit_component_name2.default)(connectedComponent, { from: classComponent });
-
-  return connectedComponent;
-}
-
-function wrapInClassComponent(functionalComponent) {
-  var classComponent = function (_React$Component) {
-    _inherits(classComponent, _React$Component);
-
-    function classComponent() {
-      _classCallCheck(this, classComponent);
-
-      return _possibleConstructorReturn(this, (classComponent.__proto__ || Object.getPrototypeOf(classComponent)).apply(this, arguments));
-    }
-
-    _createClass(classComponent, [{
-      key: 'render',
-      value: function render() {
-        return functionalComponent(this.props);
-      }
-    }]);
-
-    return classComponent;
-  }(React.Component);
-
-  (0, _inherit_component_name2.default)(classComponent, { from: functionalComponent });
-
-  return classComponent;
-}
-
-/***/ }),
-
-/***/ 65:
+/***/ 66:
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -25156,7 +25207,7 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 66:
+/***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25190,7 +25241,7 @@ exports.default = ContentClassRegistry;
 
 /***/ }),
 
-/***/ 67:
+/***/ 68:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25210,7 +25261,7 @@ var _underscore = __webpack_require__(0);
 
 var _errors = __webpack_require__(1);
 
-var _content_class_registry = __webpack_require__(66);
+var _content_class_registry = __webpack_require__(67);
 
 var _content_class_registry2 = _interopRequireDefault(_content_class_registry);
 
@@ -25218,7 +25269,7 @@ var _pretty_print = __webpack_require__(18);
 
 var _pretty_print2 = _interopRequireDefault(_pretty_print);
 
-var _rails_thumbnail = __webpack_require__(119);
+var _rails_thumbnail = __webpack_require__(120);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25377,7 +25428,7 @@ exports.default = AttributeContentClass;
 
 /***/ }),
 
-/***/ 68:
+/***/ 69:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25395,7 +25446,7 @@ var _basic_obj = __webpack_require__(3);
 
 var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
-var _types = __webpack_require__(31);
+var _types = __webpack_require__(32);
 
 var types = _interopRequireWildcard(_types);
 
@@ -25704,16 +25755,14 @@ function serializeWidgetlistAttributeValue(value, name) {
   if (_underscore2.default.isArray(value) && _underscore2.default.every(value, function (v) {
     return v instanceof _basic_widget2.default;
   })) {
-    return value.map(function (item) {
-      return item.id();
-    });
+    return _underscore2.default.invoke(value, 'id');
   }
   throwInvalidAttributeValue(value, name, 'An array of BasicWidget instances.');
 }
 
 /***/ }),
 
-/***/ 69:
+/***/ 70:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25820,7 +25869,7 @@ exports.default = BatchRetrieval;
 
 /***/ }),
 
-/***/ 70:
+/***/ 71:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25834,7 +25883,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _types = __webpack_require__(31);
+var _types = __webpack_require__(32);
 
 var types = _interopRequireWildcard(_types);
 
@@ -25963,7 +26012,7 @@ exports.default = MetadataCollection;
 
 /***/ }),
 
-/***/ 71:
+/***/ 72:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25975,7 +26024,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _obj_id_query_batch = __webpack_require__(151);
+var _obj_id_query_batch = __webpack_require__(152);
 
 var _obj_id_query_batch2 = _interopRequireDefault(_obj_id_query_batch);
 
@@ -26046,7 +26095,7 @@ exports.default = ObjIdQuery;
 
 /***/ }),
 
-/***/ 72:
+/***/ 73:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26061,11 +26110,11 @@ exports.get = get;
 exports.stateContainer = stateContainer;
 exports.clearCache = clearCache;
 
-var _obj_id_query = __webpack_require__(71);
+var _obj_id_query = __webpack_require__(72);
 
 var _obj_id_query2 = _interopRequireDefault(_obj_id_query);
 
-var _obj_data_query = __webpack_require__(150);
+var _obj_data_query = __webpack_require__(151);
 
 var _obj_data_query2 = _interopRequireDefault(_obj_data_query);
 
@@ -26095,7 +26144,7 @@ function clearCache() {
 
 /***/ }),
 
-/***/ 73:
+/***/ 74:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26121,7 +26170,7 @@ exports.randomHex = randomHex;
 
 /***/ }),
 
-/***/ 76:
+/***/ 77:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -26317,7 +26366,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ 77:
+/***/ 78:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -26568,7 +26617,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ 78:
+/***/ 79:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.0 by @mathias */
@@ -27104,11 +27153,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(65)(module), __webpack_require__(33)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(66)(module), __webpack_require__(34)))
 
 /***/ }),
 
-/***/ 79:
+/***/ 80:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27134,7 +27183,7 @@ function connectToUi() {
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27177,7 +27226,7 @@ function mapAndLoadParallel(list, iteratee) {
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27324,7 +27373,7 @@ exports.default = BasicField;
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27380,7 +27429,7 @@ exports.default = ObjFacetValue;
 
 /***/ }),
 
-/***/ 88:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27407,7 +27456,7 @@ function extractIdsFromContent(basicContent) {
 
 /***/ }),
 
-/***/ 96:
+/***/ 97:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27437,7 +27486,7 @@ exports.loadJs = loadJs;
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27449,7 +27498,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _future_binary = __webpack_require__(34);
+var _future_binary = __webpack_require__(36);
 
 var _future_binary2 = _interopRequireDefault(_future_binary);
 
@@ -27499,62 +27548,6 @@ var UploadedBlob = function () {
 }();
 
 exports.default = UploadedBlob;
-
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = validClassesForWidgetlistField;
-
-var _underscore = __webpack_require__(0);
-
-var _underscore2 = _interopRequireDefault(_underscore);
-
-var _widget_class = __webpack_require__(24);
-
-var _widget_class2 = _interopRequireDefault(_widget_class);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ALLOWED_CLASSES_ATTR = 'data-scrivito-private-field-widget-allowed-classes';
-
-var cache = {};
-
-function validClassesForWidgetlistField(field) {
-  var validClasses = cache[field.id()];
-
-  if (validClasses) {
-    return validClasses;
-  }
-
-  return _underscore2.default.pluck(_widget_class2.default.all(), 'name');
-}
-
-function init() {
-  if (!scrivito.editingContext.isViewMode()) {
-    scrivito.on('content', function (root) {
-      var widgetlistElements = scrivito.WidgetlistFieldElement.all($(root));
-      _underscore2.default.each(widgetlistElements, function (element) {
-        var field = element.basicField();
-        cache[field.id()] = JSON.parse(element.dom_element().attr(ALLOWED_CLASSES_ATTR));
-      });
-    });
-  }
-}
-
-function clearCache() {
-  cache = {};
-}
-
-validClassesForWidgetlistField.init = init;
-validClassesForWidgetlistField.clearCache = clearCache;
 
 /***/ })
 

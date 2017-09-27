@@ -35,46 +35,46 @@ Scrivito.registerComponent('SocialCardsTab', ({ obj }) =>
   </div>
 );
 
-const TwitterInput = Scrivito.React.connect(({ obj }) =>
+const TwitterInput = Scrivito.connect(({ obj }) =>
   <div>
     <div className='scrivito_detail_label'>
       <span className='headline'>Twitter</span>
     </div>
     <div className='scrivito_detail_label'><span>Creator</span></div>
-      <Scrivito.React.Content content={ obj } attribute='tcCreator' className='input'/>
+      <Scrivito.ContentTag content={ obj } attribute='tcCreator' className='input'/>
     <div className='scrivito_notice_body'>Twitter handle of the tweet creator.</div>
     <div className='scrivito_detail_label'><span>Image</span></div>
-      <Scrivito.React.Image content={ obj } attribute='tcImage'className='seo_card_img'/>
+      <Scrivito.ImageTag content={ obj } attribute='tcImage'className='seo_card_img'/>
     <div className='scrivito_notice_body'>Replace image if you like</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
-      <Scrivito.React.Content content={ obj } attribute='tcTitle' className='input'/>
+      <Scrivito.ContentTag content={ obj } attribute='tcTitle' className='input'/>
     <div className='scrivito_notice_body'>Title for tweet.</div>
     <div className='scrivito_detail_label'><span>Description</span></div>
-      <Scrivito.React.Content content={ obj } attribute='tcDescription' className='input'/>
+      <Scrivito.ContentTag content={ obj } attribute='tcDescription' className='input'/>
     <div className='scrivito_notice_body'>Tweet (limit to 140 characters)</div>
   </div>
 );
 
-const FacebookInput = Scrivito.React.connect(({ obj }) =>
+const FacebookInput = Scrivito.connect(({ obj }) =>
   <div>
     <div className='scrivito_detail_label'>
       <span className='headline'>Facebook</span>
     </div>
     <div className='scrivito_detail_label'><span>Image</span></div>
-      <Scrivito.React.Image content={ obj } attribute='ogImage' className='seo_card_img'/>
+      <Scrivito.ImageTag content={ obj } attribute='ogImage' className='seo_card_img'/>
     <div className='scrivito_notice_body'>Replace image if you like</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
-      <Scrivito.React.Content content={ obj } attribute='ogTitle' className='input'/>
+      <Scrivito.ContentTag content={ obj } attribute='ogTitle' className='input'/>
     <div className='scrivito_notice_body'>Add a catchy title for the post</div>
     <div className='scrivito_detail_label'><span>Description</span></div>
-      <Scrivito.React.Content content={ obj } attribute='ogDescription' className='input'/>
+      <Scrivito.ContentTag content={ obj } attribute='ogDescription' className='input'/>
     <div className='scrivito_notice_body'>
       What is this post about and why would someone want to read it.
     </div>
   </div>
 );
 
-const TwitterPreview = Scrivito.React.connect(({ obj }) =>
+const TwitterPreview = Scrivito.connect(({ obj }) =>
   <div>
     <div className='scrivito_detail_label'>
       <span className='headline'>Twitter Preview</span>
@@ -98,7 +98,7 @@ const TwitterPreview = Scrivito.React.connect(({ obj }) =>
   </div>
 );
 
-const FacebookPreview = Scrivito.React.connect(({ obj }) =>
+const FacebookPreview = Scrivito.connect(({ obj }) =>
   <div>
     <div className='scrivito_detail_label'>
       <span className='headline'>Facebook Preview</span>

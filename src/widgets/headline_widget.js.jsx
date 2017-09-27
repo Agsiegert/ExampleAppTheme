@@ -60,7 +60,7 @@ Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
     classNames.push('no-margin');
   }
 
-  return <Scrivito.React.Content
+  return <Scrivito.ContentTag
     tag={ level }
     content={ widget }
     attribute="headline"

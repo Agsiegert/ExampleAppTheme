@@ -37,7 +37,7 @@ Scrivito.provideComponent(TextWidget, ({ widget }) => {
     classNames.push(`text-${widget.get('alignment')}`);
   }
 
-  return <Scrivito.React.Content
+  return <Scrivito.ContentTag
     tag="div"
     className={ classNames.join(' ') }
     content={ widget }

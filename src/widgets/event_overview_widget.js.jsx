@@ -21,13 +21,13 @@ Scrivito.provideUiConfig(EventOverviewWidget, {
   },
 });
 
-const EventItem = Scrivito.React.connect(({ event }) => {
+const EventItem = Scrivito.connect(({ event }) => {
   const month = event.get('date').getMonth() + 1; // getMonth return 0 to 11.
   const dayOfMonth = event.get('date').getDate(); // getDate returns 1 to 31.
 
   return (
     <div className="col-sm-6">
-      <Scrivito.React.Link
+      <Scrivito.LinkTag
           to={ event }
           className="box-card"
           style={ {
@@ -51,7 +51,7 @@ const EventItem = Scrivito.React.connect(({ event }) => {
             <span>{ event.get('location') }</span>
           </span>
         </span>
-      </Scrivito.React.Link>
+      </Scrivito.LinkTag>
     </div>
   );
 });

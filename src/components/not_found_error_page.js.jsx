@@ -1,12 +1,12 @@
 function PlainLinkToRoot() {
   return (
-    <Scrivito.React.Link to={ Scrivito.Obj.root() } className="btn btn-primary">
+    <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="btn btn-primary">
       Go to mainpage<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
-    </Scrivito.React.Link>
+    </Scrivito.LinkTag>
   );
 }
 
-const LinkToRoot = Scrivito.React.connect(PlainLinkToRoot);
+const LinkToRoot = Scrivito.connect(PlainLinkToRoot);
 
 function NotFoundErrorPage() {
   const backgroundImage = [
@@ -14,7 +14,7 @@ function NotFoundErrorPage() {
     'url(https://unsplash.com/photos/Bs0zgYkYEZw/download)',
   ].join(', ');
 
-  return <Scrivito.React.NotFoundErrorPage>
+  return <Scrivito.NotFoundErrorPage>
     <section
       className="bg-dark-image full-height"
       style={ { background: 'no-repeat center / cover', backgroundImage } }
@@ -29,7 +29,7 @@ function NotFoundErrorPage() {
         </div>
       </div>
     </section>
-  </Scrivito.React.NotFoundErrorPage>;
+  </Scrivito.NotFoundErrorPage>;
 }
 
-export default Scrivito.React.connect(NotFoundErrorPage);
+export default Scrivito.connect(NotFoundErrorPage);

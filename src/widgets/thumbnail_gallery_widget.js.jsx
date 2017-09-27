@@ -26,7 +26,7 @@ Scrivito.provideUiConfig(ThumbnailGalleryWidget, {
   },
 });
 
-const Thumbnail = Scrivito.React.connect(({ widget, openLightbox, currentTag }) => {
+const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const title = widget.get('title');
   const subtitle = widget.get('subtitle');
   const image = widget.get('image');

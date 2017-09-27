@@ -14,4 +14,4 @@ function BlogPostTagList({ tags }) {
   );
 }
 
-export default Scrivito.React.connect(BlogPostTagList);
+export default Scrivito.connect(BlogPostTagList);

@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <Scrivito.React.ChildList
+    <Scrivito.ChildListTag
       className="nav navbar-nav navbar-right"
       parent={ Scrivito.Obj.root() }
       renderChild={ renderChild }
@@ -18,9 +18,9 @@ function renderChild(child) {
 
 function renderSingleChild(child) {
   return (<li className={ isActive(child) && 'active' }>
-    <Scrivito.React.Link to={ child }>
+    <Scrivito.LinkTag to={ child }>
       { child.get('title') }
-    </Scrivito.React.Link>
+    </Scrivito.LinkTag>
   </li>);
 }
 
@@ -48,18 +48,18 @@ class BaseDropdown extends React.Component {
 
     return (
       <li className={ classNames.join(' ') }>
-        <Scrivito.React.Link
+        <Scrivito.LinkTag
             to={ child }
             className="dropdown-toggle"
             role="button"
             aria-haspopup="true"
             aria-expanded="false">
           { child.get('title') }<span className="caret"></span>
-        </Scrivito.React.Link>
+        </Scrivito.LinkTag>
         <span className="mobile-toggle" onClick={ this.toggleOpen }>
           <i className="fa fa-angle-down" aria-hidden="true"></i>
         </span>
-        <Scrivito.React.ChildList
+        <Scrivito.ChildListTag
           className="dropdown-menu"
           parent={ child }
           renderChild={ renderSingleChild }
@@ -69,7 +69,7 @@ class BaseDropdown extends React.Component {
   }
 }
 
-const Dropdown = Scrivito.React.connect(BaseDropdown);
+const Dropdown = Scrivito.connect(BaseDropdown);
 
 function isActive(page) {
   if (!Scrivito.currentPage()) { return false; }
@@ -86,4 +86,4 @@ function isActive(page) {
   return false;
 }
 
-export default Scrivito.React.connect(Navbar);
+export default Scrivito.connect(Navbar);
