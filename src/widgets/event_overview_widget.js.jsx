@@ -28,15 +28,15 @@ const EventItem = Scrivito.connect(({ event }) => {
   return (
     <div className="col-sm-6">
       <Scrivito.LinkTag
-          to={ event }
-          className="box-card"
-          style={ {
-            background: 'no-repeat center / cover',
-            backgroundImage: `linear-gradient(rgba(46, 53, 60, 0.7),
-              rgba(46, 53, 60, 0.7)),
-              url(${fullWidthTransformedUrl(event.get('image'))})`,
-          } }
-        >
+        to={ event }
+        className="box-card"
+        style={ {
+          background: 'no-repeat center / cover',
+          backgroundImage: `linear-gradient(rgba(46, 53, 60, 0.7),
+            rgba(46, 53, 60, 0.7)),
+            url(${fullWidthTransformedUrl(event.get('image'))})`,
+        } }
+      >
         <span className="box-date">
           { twoDigitNumber(month) }/{ twoDigitNumber(dayOfMonth) }
         </span>
@@ -44,10 +44,10 @@ const EventItem = Scrivito.connect(({ event }) => {
           <h3 className="h3">{ event.get('title') }</h3>
           <span>
             <i
-                className={ `fa ${event.get('location') ? 'fa-map-marker' : ''} fa-2x` }
-                aria-hidden="true"
-                title="location"
-              />
+              className={ `fa ${event.get('location') ? 'fa-map-marker' : ''} fa-2x` }
+              aria-hidden="true"
+              title="location"
+            />
             <span>{ event.get('location') }</span>
           </span>
         </span>

@@ -6,10 +6,11 @@ function NavigationSection({ heigthClassName }) {
   if (!obj.get('navigationSection')) { return null; }
 
   return <Scrivito.ContentTag
-      tag="div"
-      className="container"
-      content={ obj }
-      attribute="navigationSection" />;
+    tag="div"
+    className="container"
+    content={ obj }
+    attribute="navigationSection"
+  />;
 }
 
 export default Scrivito.connect(NavigationSection);

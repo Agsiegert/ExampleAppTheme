@@ -49,11 +49,12 @@ class BaseDropdown extends React.Component {
     return (
       <li className={ classNames.join(' ') }>
         <Scrivito.LinkTag
-            to={ child }
-            className="dropdown-toggle"
-            role="button"
-            aria-haspopup="true"
-            aria-expanded="false">
+          to={ child }
+          className="dropdown-toggle"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
           { child.get('title') }<span className="caret"></span>
         </Scrivito.LinkTag>
         <span className="mobile-toggle" onClick={ this.toggleOpen }>

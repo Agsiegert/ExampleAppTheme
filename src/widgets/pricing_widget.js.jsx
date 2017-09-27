@@ -99,11 +99,11 @@ Scrivito.provideComponent(PricingWidget, ({ widget }) => {
 
       <div className="col-md-4">
         <div className="chart featured">
-        <Scrivito.ContentTag
-          content={ widget }
-          attribute="mediumPlanName"
-          className="plan-name"
-        />
+          <Scrivito.ContentTag
+            content={ widget }
+            attribute="mediumPlanName"
+            className="plan-name"
+          />
           <div className="quantity">
             <span className="dollar">{ currency }</span>
             <Scrivito.ContentTag
@@ -126,7 +126,7 @@ Scrivito.provideComponent(PricingWidget, ({ widget }) => {
       </div>
       <div className="col-md-4">
         <div className="chart last">
-        <Scrivito.ContentTag content={ widget } attribute="largePlanName" className="plan-name"/>
+          <Scrivito.ContentTag content={ widget } attribute="largePlanName" className="plan-name"/>
           <div className="quantity">
             <span className="dollar">{ currency }</span>
             <Scrivito.ContentTag
