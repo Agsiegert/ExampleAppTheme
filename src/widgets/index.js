@@ -10,6 +10,7 @@ import EventOverviewWidget from './event_overview_widget';
 import FactWidget from './fact_widget';
 import FeaturePanelWidget from './feature_panel_widget';
 import GalleryWidget from './gallery_widget';
+import GoogleMapsWidget from './google_maps_widget';
 import HeadlineWidget from './headline_widget';
 import IconListItemWidget from './icon_list_item_widget';
 import IconListWidget from './icon_list_widget';
