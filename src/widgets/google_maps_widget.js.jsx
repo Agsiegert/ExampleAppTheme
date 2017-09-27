@@ -8,6 +8,8 @@ const GoogleMapsWidget = Scrivito.createWidgetClass({
         '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
       ],
     }],
+    showWidgets: ['enum', { validValues: ['yes', 'no'] }],
+    content: 'widgetlist',
   },
 });
 
@@ -24,6 +26,10 @@ Scrivito.provideUiConfig(GoogleMapsWidget, {
       title: 'Zoom',
       description: 'Zoom level of the map.'
        + ' 1 - world level, 15 - street level, 20 - building level. Default: 15',
+    },
+    showWidgets: {
+      title: 'Show widgets?',
+      description: 'Should widgets be shown on top of this map? Default: yes',
     },
   },
 });
@@ -90,6 +96,7 @@ class GoogleMapsWidgetComponent extends React.Component {
           }
         }
       >
+        <Widgets widget={ this.props.widget } />
       </div>
     );
   }
@@ -112,6 +119,18 @@ class GoogleMapsWidgetComponent extends React.Component {
     return encodeURI(uri);
   }
 }
+
+const Widgets = Scrivito.connect(({ widget }) => {
+  if (widget.get('showWidgets') === 'no') { return null; }
+
+  return (
+    <div className="container">
+      <div className="col-lg-3 col-md-4 col-sm-5">
+        <Scrivito.ContentTag content={ widget } attribute="content" className="box-white" />
+      </div>
+    </div>
+  );
+});
 
 Scrivito.provideComponent(GoogleMapsWidget, GoogleMapsWidgetComponent);
 
