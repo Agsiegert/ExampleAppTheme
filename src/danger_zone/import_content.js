@@ -120,6 +120,7 @@ const EventOverviewWidget = Scrivito.getClass('EventOverviewWidget');
 const FactWidget = Scrivito.getClass('FactWidget');
 const FeaturePanelWidget = Scrivito.getClass('FeaturePanelWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
+const GoogleMapsWidget = Scrivito.getClass('GoogleMapsWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
 const IconListWidget = Scrivito.getClass('IconListWidget');
@@ -559,6 +560,19 @@ function importContent() {
       _permalink: 'contact',
       title: 'Contact',
       body: [
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          useFullWidth: 'yes',
+          content: [
+            new GoogleMapsWidget({
+              address: 'TV tower, Berlin, Germany',
+              zoom: '15',
+              content: [
+                createRandomIconListWidget(),
+              ],
+            }),
+          ],
+        }),
         new SectionWidget({ content: [
           new HeadlineWidget({
             headline: 'Get in touch with us',
