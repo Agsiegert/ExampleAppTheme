@@ -22,7 +22,7 @@ Scrivito.provideUiConfig(LandingPage, {
 });
 
 Scrivito.provideComponent(LandingPage, ({ page }) =>
-  <Scrivito.React.Content tag="div" content={ page } attribute="body" />
+  <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
 );
 
 export default LandingPage;

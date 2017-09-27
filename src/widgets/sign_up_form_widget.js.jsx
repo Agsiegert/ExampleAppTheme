@@ -36,7 +36,7 @@ Scrivito.provideComponent(SignUpFormWidget, ({ widget }) => {
   return (
     <div className={ classNames.join(' ') }>
       <form>
-        <Scrivito.React.Content
+        <Scrivito.ContentTag
           content={ widget }
           attribute="title"
           tag="h1"

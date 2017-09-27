@@ -1,6 +1,6 @@
 import BlogPostDate from './blog_post_date';
 
-const BlogPostNavigation = Scrivito.React.connect(({ currentPost }) => {
+const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
   if (!currentPost.get('publishedAt')) { return null; }
 
   return (
@@ -26,7 +26,7 @@ const BlogPostNavigation = Scrivito.React.connect(({ currentPost }) => {
   );
 });
 
-const BlogPostNextLink = Scrivito.React.connect(({ currentBlogPost }) => {
+const BlogPostNextLink = Scrivito.connect(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
 
   // find greater than publishedAt
@@ -38,13 +38,13 @@ const BlogPostNextLink = Scrivito.React.connect(({ currentBlogPost }) => {
   if (!newerPost) { return null; }
 
   return (
-    <Scrivito.React.Link to={ newerPost }>
+    <Scrivito.LinkTag to={ newerPost }>
       <i className="fa fa-chevron-circle-left  " aria-hidden="true"></i>
-    </Scrivito.React.Link>
+    </Scrivito.LinkTag>
   );
 });
 
-const BlogPostPreviousLink = Scrivito.React.connect(({ currentBlogPost }) => {
+const BlogPostPreviousLink = Scrivito.connect(({ currentBlogPost }) => {
   const currentDate = currentBlogPost.get('publishedAt');
 
   // find less than or equal publishedAt
@@ -58,9 +58,9 @@ const BlogPostPreviousLink = Scrivito.React.connect(({ currentBlogPost }) => {
   if (!olderPost) { return null; }
 
   return (
-    <Scrivito.React.Link to={ olderPost }>
+    <Scrivito.LinkTag to={ olderPost }>
       <i className="fa fa-chevron-circle-right " aria-hidden="true"></i>
-    </Scrivito.React.Link>
+    </Scrivito.LinkTag>
   );
 });
 

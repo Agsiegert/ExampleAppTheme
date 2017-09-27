@@ -17,7 +17,7 @@ const MONTH_MAPPING = [
   'December',
 ];
 
-const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author, tag }) => {
+const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
   let blogPosts = Scrivito.getClass('BlogPost').all().order('publishedAt', 'desc');
   if (author) {
     blogPosts = blogPosts.and('author', 'refersTo', author);
@@ -52,7 +52,7 @@ const BlogPostPreviewList = Scrivito.React.connect(({ maxItems, author, tag }) =
   );
 });
 
-const MonthHeadline = Scrivito.React.connect(({ date }) =>
+const MonthHeadline = Scrivito.connect(({ date }) =>
   <li className="timeline-divider">
     <time dateTime={ yearMonthCombination(date) }>
       { humanReadableMonth(date) }
@@ -60,7 +60,7 @@ const MonthHeadline = Scrivito.React.connect(({ date }) =>
   </li>
 );
 
-const BlogPostPreview = Scrivito.React.connect(({ post }) => {
+const BlogPostPreview = Scrivito.connect(({ post }) => {
   return (
     <li>
       <BlogPostDate post={ post } />
@@ -68,32 +68,32 @@ const BlogPostPreview = Scrivito.React.connect(({ post }) => {
         <div className="timeline-body">
           <BlogPostTitleImage post={ post } />
           <h3>
-            <Scrivito.React.Link to={ post }>
+            <Scrivito.LinkTag to={ post }>
               { post.get('title') }
-            </Scrivito.React.Link>
+            </Scrivito.LinkTag>
           </h3>
           <h4>{ post.get('subtitle') }</h4>
           <p>{ post.textExtract().substring(0, 300) }...</p>
         </div>
         <div className="timeline-footer">
-          <Scrivito.React.Link to={ post } className="btn btn-clear">
+          <Scrivito.LinkTag to={ post } className="btn btn-clear">
             Read more<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
-          </Scrivito.React.Link>
+          </Scrivito.LinkTag>
         </div>
       </div>
     </li>
   );
 });
 
-const BlogPostTitleImage = Scrivito.React.connect(({ post }) => {
+const BlogPostTitleImage = Scrivito.connect(({ post }) => {
   const titleImage = post.get('titleImage');
   if (!titleImage) { return null; }
   const imageUrl = fullWidthTransformedUrl(titleImage);
 
   return (
-    <Scrivito.React.Link to={ post }>
+    <Scrivito.LinkTag to={ post }>
       <img src={ imageUrl } className="img-responsive" />
-    </Scrivito.React.Link>
+    </Scrivito.LinkTag>
   );
 });
 

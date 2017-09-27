@@ -9,7 +9,7 @@ export default function App() {
     <div>
       <div className="content-wrapper">
         <Navigation />
-        <Scrivito.React.CurrentPage />
+        <Scrivito.CurrentPage />
         <NotFoundErrorPage />
         <InternalErrorPage />
       </div>

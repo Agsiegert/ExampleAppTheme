@@ -14,13 +14,13 @@ Scrivito.provideUiConfig(PricingSpecWidget, {
 
 Scrivito.provideComponent(PricingSpecWidget, ({ widget }) =>
   <div className="spec">
-    <Scrivito.React.Content
+    <Scrivito.ContentTag
       content={ widget }
       attribute="variable"
       className="variable"
       tag="span"
     />
-    <Scrivito.React.Content content={ widget } attribute="unit" tag="span" />
+    <Scrivito.ContentTag content={ widget } attribute="unit" tag="span" />
   </div>
 );
 

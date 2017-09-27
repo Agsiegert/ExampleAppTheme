@@ -17,13 +17,13 @@ Scrivito.provideUiConfig(TopFeaturesWidget, {
 Scrivito.provideComponent(TopFeaturesWidget, ({ widget }) =>
   <div className="row vertical-align">
     <div className="col-md-4">
-      <Scrivito.React.Content content={ widget } attribute="leftColumn" />
+      <Scrivito.ContentTag content={ widget } attribute="leftColumn" />
     </div>
     <div className="col-md-4">
-      <Scrivito.React.Image content={ widget } attribute="image" className="img-responsive" />
+      <Scrivito.ImageTag content={ widget } attribute="image" className="img-responsive" />
     </div>
     <div className="col-md-4">
-      <Scrivito.React.Content content={ widget } attribute="rightColumn" />
+      <Scrivito.ContentTag content={ widget } attribute="rightColumn" />
     </div>
   </div>
 );

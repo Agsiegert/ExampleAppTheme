@@ -22,7 +22,7 @@ Scrivito.provideComponent(TickListWidget, ({ widget }) =>
   <ul className="tick-list">
     {
       widget.get('items').map((itemWidget, index) =>
-        <Scrivito.React.Content
+        <Scrivito.ContentTag
           key={ `${itemWidget.id()}${index}` }
           content={ itemWidget }
           attribute="statement"

@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import getMetaData from 'utils/get_meta_data';
 
-const CurrentPageMetaData = Scrivito.React.connect(() => {
+const CurrentPageMetaData = Scrivito.connect(() => {
   const htmlAttributes = { lang: 'en' };
   let title = '';
   let meta = [];

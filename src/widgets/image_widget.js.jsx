@@ -23,7 +23,7 @@ Scrivito.provideUiConfig(ImageWidget, {
 });
 
 Scrivito.provideComponent(ImageWidget, ({ widget }) => {
-  const image = <Scrivito.React.Image
+  const image = <Scrivito.ImageTag
     content={ widget }
     attribute="image"
     className={ widget.get('cssClass') }

@@ -97,7 +97,7 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
   }
 
   return (<section className={ sectionClassNames.join(' ') } style={ sectionStyle }>
-    <Scrivito.React.Content className={ contentClassName } content={ widget } attribute="content" />
+    <Scrivito.ContentTag className={ contentClassName } content={ widget } attribute="content" />
   </section>);
 });
 

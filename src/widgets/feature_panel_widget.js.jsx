@@ -28,8 +28,8 @@ Scrivito.provideComponent(FeaturePanelWidget, ({ widget }) => {
         <i className={ `fa ${widget.get('icon') || 'fa-check'} fa-3x` } aria-hidden="true" />
       </div>
       <div className="panel-body">
-        <Scrivito.React.Content className="h3" tag="h3" content={ widget } attribute="headline" />
-        <Scrivito.React.Content tag="p" content={ widget } attribute="description" />
+        <Scrivito.ContentTag className="h3" tag="h3" content={ widget } attribute="headline" />
+        <Scrivito.ContentTag tag="p" content={ widget } attribute="description" />
       </div>
     </div>
   );

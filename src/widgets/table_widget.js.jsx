@@ -40,10 +40,10 @@ Scrivito.provideComponent(TableWidget, ({ widget }) =>
   <table className="table-features">
     <thead>
       <tr>
-        <Scrivito.React.Content tag="th" content={ widget } attribute="featureHeadline" />
-        <Scrivito.React.Content tag="th" content={ widget } attribute="basicPlanHeadline" />
-        <Scrivito.React.Content tag="th" content={ widget } attribute="teamPlanHeadline" />
-        <Scrivito.React.Content tag="th" content={ widget } attribute="corporatePlanHeadline" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="featureHeadline" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="basicPlanHeadline" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="teamPlanHeadline" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="corporatePlanHeadline" />
       </tr>
     </thead>
     <tbody>
@@ -53,19 +53,19 @@ Scrivito.provideComponent(TableWidget, ({ widget }) =>
     </tbody>
     <tfoot>
       <tr>
-        <Scrivito.React.Content tag="th" content={ widget } attribute="pricingRow" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="pricingRow" />
           { ['basic', 'team', 'corporate'].map((planName, index) => {
             return (
               <td key={ `${planName}${index}` }>
                 <div className="quantity">
                   <span className="dollar">{ widget.get('currency') || '$' }</span>
-                  <Scrivito.React.Content
+                  <Scrivito.ContentTag
                       className="price"
                       tag="span"
                       content={ widget }
                       attribute={ `${planName}PlanPrice` }
                     />
-                  <Scrivito.React.Content
+                  <Scrivito.ContentTag
                       className="period"
                       tag="span"
                       content={ widget }

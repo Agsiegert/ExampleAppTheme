@@ -11,9 +11,9 @@ function IconComponent({ icon, size, link }) {
   const title = link.title() || '';
 
   return (
-    <Scrivito.React.Link to={ link }>
+    <Scrivito.LinkTag to={ link }>
       <Icon icon={ icon } size={ size } title={ title } />
-    </Scrivito.React.Link>
+    </Scrivito.LinkTag>
   );
 }
 

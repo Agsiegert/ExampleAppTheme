@@ -38,12 +38,12 @@ Scrivito.provideComponent(LoginFormWidget, () =>
       </div>
       <button className="btn btn-primary btn-block">Log me in now</button>
       <br/>
-      <Scrivito.React.Link to={ Scrivito.currentPage() }>
+      <Scrivito.LinkTag to={ Scrivito.currentPage() }>
         Lost your password?
-      </Scrivito.React.Link>
-      <Scrivito.React.Link to={ Scrivito.currentPage() }>
+      </Scrivito.LinkTag>
+      <Scrivito.LinkTag to={ Scrivito.currentPage() }>
         No account? Register here.
-      </Scrivito.React.Link>
+      </Scrivito.LinkTag>
     </div>
   </div>
 );

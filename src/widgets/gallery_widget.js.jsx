@@ -72,7 +72,7 @@ function GalleryWidgetComponent({ widget }) {
       <Slider { ...settings } className="slickslide">
         {
           images.map((image, index) =>
-            <Scrivito.React.Image content={ image } key={ `${image.id()}${index}` } />)
+            <Scrivito.ImageTag content={ image } key={ `${image.id()}${index}` } />)
         }
       </Slider>
     </div>

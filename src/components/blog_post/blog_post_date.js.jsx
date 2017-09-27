@@ -14,4 +14,4 @@ function BlogPostDate({ post }) {
   );
 }
 
-export default Scrivito.React.connect(BlogPostDate);
+export default Scrivito.connect(BlogPostDate);

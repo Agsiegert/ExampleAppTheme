@@ -14,4 +14,4 @@ function BlogPostMorePosts({ author }) {
   );
 }
 
-export default Scrivito.React.connect(BlogPostMorePosts);
+export default Scrivito.connect(BlogPostMorePosts);

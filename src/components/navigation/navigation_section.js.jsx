@@ -5,11 +5,11 @@ function NavigationSection({ heigthClassName }) {
   const obj = Scrivito.currentPage();
   if (!obj.get('navigationSection')) { return null; }
 
-  return <Scrivito.React.Content
+  return <Scrivito.ContentTag
       tag="div"
       className="container"
       content={ obj }
       attribute="navigationSection" />;
 }
 
-export default Scrivito.React.connect(NavigationSection);
+export default Scrivito.connect(NavigationSection);

@@ -14,15 +14,15 @@ Scrivito.registerClass('TableRowWidget', TableRowWidget);
 function PlainTableRowWidgetComponent({ widget }) {
   return (
     <tr>
-      <Scrivito.React.Content tag="th" content={ widget } attribute="feature" />
-      <Scrivito.React.Content tag="td" content={ widget } attribute="basicFeature" />
-      <Scrivito.React.Content tag="td" content={ widget } attribute="teamFeature" />
-      <Scrivito.React.Content tag="td" content={ widget } attribute="corporateFeature" />
+      <Scrivito.ContentTag tag="th" content={ widget } attribute="feature" />
+      <Scrivito.ContentTag tag="td" content={ widget } attribute="basicFeature" />
+      <Scrivito.ContentTag tag="td" content={ widget } attribute="teamFeature" />
+      <Scrivito.ContentTag tag="td" content={ widget } attribute="corporateFeature" />
     </tr>
   );
 }
 
-const TableRowWidgetComponent = Scrivito.React.connect(PlainTableRowWidgetComponent);
+const TableRowWidgetComponent = Scrivito.connect(PlainTableRowWidgetComponent);
 
 Scrivito.provideUiConfig(TableRowWidget, {
   title: 'TableRowWidget',

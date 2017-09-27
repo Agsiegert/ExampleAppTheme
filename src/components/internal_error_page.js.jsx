@@ -4,7 +4,7 @@ function NotFoundErrorPage() {
     'url(https://unsplash.com/photos/wapAWmqpBJw/download)',
   ].join(', ');
 
-  return <Scrivito.React.InternalErrorPage>
+  return <Scrivito.InternalErrorPage>
     <section
       className="bg-dark-image full-height"
       style={ { background: 'no-repeat center / cover', backgroundImage } }
@@ -25,7 +25,7 @@ function NotFoundErrorPage() {
         </div>
       </div>
     </section>
-  </Scrivito.React.InternalErrorPage>;
+  </Scrivito.InternalErrorPage>;
 }
 
-export default Scrivito.React.connect(NotFoundErrorPage);
+export default Scrivito.connect(NotFoundErrorPage);

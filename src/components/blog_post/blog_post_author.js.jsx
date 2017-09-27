@@ -13,8 +13,8 @@ function BlogPostAuthor({ author }) {
             <AuthorPicture picture={ author.get('picture') }/>
           </div>
           <div className="col-md-11 col-sm-8 col-xs-8">
-            <Scrivito.React.Content content={ author } attribute="name" tag="strong" />
-            <Scrivito.React.Content content={ author } attribute="description" tag="p" />
+            <Scrivito.ContentTag content={ author } attribute="name" tag="strong" />
+            <Scrivito.ContentTag content={ author } attribute="description" tag="p" />
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@ function BlogPostAuthor({ author }) {
   );
 }
 
-const AuthorPicture = Scrivito.React.connect(({ picture }) => {
+const AuthorPicture = Scrivito.connect(({ picture }) => {
   if (!picture) { return null; }
   const image = picture.get('blob').transform({
     width: 200 * devicePixelRatio(),
@@ -33,4 +33,4 @@ const AuthorPicture = Scrivito.React.connect(({ picture }) => {
   return (<img src={ image.url() } className="img-circle" />);
 });
 
-export default Scrivito.React.connect(BlogPostAuthor);
+export default Scrivito.connect(BlogPostAuthor);
