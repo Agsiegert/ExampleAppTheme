@@ -41,16 +41,16 @@ const TwitterInput = Scrivito.connect(({ obj }) =>
       <span className='headline'>Twitter</span>
     </div>
     <div className='scrivito_detail_label'><span>Creator</span></div>
-      <Scrivito.ContentTag content={ obj } attribute='tcCreator' className='input'/>
+    <Scrivito.ContentTag content={ obj } attribute='tcCreator' className='input'/>
     <div className='scrivito_notice_body'>Twitter handle of the tweet creator.</div>
     <div className='scrivito_detail_label'><span>Image</span></div>
-      <Scrivito.ImageTag content={ obj } attribute='tcImage'className='seo_card_img'/>
+    <Scrivito.ImageTag content={ obj } attribute='tcImage'className='seo_card_img'/>
     <div className='scrivito_notice_body'>Replace image if you like</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
-      <Scrivito.ContentTag content={ obj } attribute='tcTitle' className='input'/>
+    <Scrivito.ContentTag content={ obj } attribute='tcTitle' className='input'/>
     <div className='scrivito_notice_body'>Title for tweet.</div>
     <div className='scrivito_detail_label'><span>Description</span></div>
-      <Scrivito.ContentTag content={ obj } attribute='tcDescription' className='input'/>
+    <Scrivito.ContentTag content={ obj } attribute='tcDescription' className='input'/>
     <div className='scrivito_notice_body'>Tweet (limit to 140 characters)</div>
   </div>
 );
@@ -61,13 +61,13 @@ const FacebookInput = Scrivito.connect(({ obj }) =>
       <span className='headline'>Facebook</span>
     </div>
     <div className='scrivito_detail_label'><span>Image</span></div>
-      <Scrivito.ImageTag content={ obj } attribute='ogImage' className='seo_card_img'/>
+    <Scrivito.ImageTag content={ obj } attribute='ogImage' className='seo_card_img'/>
     <div className='scrivito_notice_body'>Replace image if you like</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
-      <Scrivito.ContentTag content={ obj } attribute='ogTitle' className='input'/>
+    <Scrivito.ContentTag content={ obj } attribute='ogTitle' className='input'/>
     <div className='scrivito_notice_body'>Add a catchy title for the post</div>
     <div className='scrivito_detail_label'><span>Description</span></div>
-      <Scrivito.ContentTag content={ obj } attribute='ogDescription' className='input'/>
+    <Scrivito.ContentTag content={ obj } attribute='ogDescription' className='input'/>
     <div className='scrivito_notice_body'>
       What is this post about and why would someone want to read it.
     </div>
@@ -86,7 +86,7 @@ const TwitterPreview = Scrivito.connect(({ obj }) =>
 
     <div className='card twitter_card'>
       <div className='seo_card_preview_img'>
-         <img src={ (lookupMetaData(obj, 'twitter:image')) }/>
+        <img src={ (lookupMetaData(obj, 'twitter:image')) }/>
       </div>
       <div className='card_text'>
         <h5>{ lookupMetaData(obj, 'twitter:title') }</h5>

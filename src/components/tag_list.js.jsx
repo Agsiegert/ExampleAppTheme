@@ -16,10 +16,10 @@ function TagList({ showTags, tags, currentTag, setTag }) {
         {
           tags.map(tag =>
             <li
-                role="presentation"
-                key={ tag }
-                className={ currentTag === tag ? 'active' : '' }
-              >
+              role="presentation"
+              key={ tag }
+              className={ currentTag === tag ? 'active' : '' }
+            >
               <a onClick={ e => onClick(e, tag) } href='#'>{ tag }</a>
             </li>
           )

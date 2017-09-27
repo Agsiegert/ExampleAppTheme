@@ -16,20 +16,20 @@ Scrivito.provideComponent(LoginFormWidget, () =>
       <div className="form-group">
         <label htmlFor="loginUsername">Your username</label>
         <input
-            className="form-control input-lg"
-            id="loginUsername"
-            placeholder="Username"
-            type="text"
-          />
+          className="form-control input-lg"
+          id="loginUsername"
+          placeholder="Username"
+          type="text"
+        />
       </div>
       <div className="form-group">
         <label htmlFor="loginPassword">Your password</label>
         <input
-            className="form-control input-lg"
-            id="loginPassword"
-            placeholder="Password"
-            type="password"
-          />
+          className="form-control input-lg"
+          id="loginPassword"
+          placeholder="Password"
+          type="password"
+        />
       </div>
       <div className="checkbox">
         <label>
