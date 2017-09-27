@@ -1,10 +1,6 @@
-const process = require('process');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-const env = process.env.NODE_ENV || 'production';
-const isDevelopment = env === 'development';
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -20,7 +16,7 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                minimize: !isDevelopment,
+                minimize: false,
               },
             }, {
               loader: 'sass-loader',
