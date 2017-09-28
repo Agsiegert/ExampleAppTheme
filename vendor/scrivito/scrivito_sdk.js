@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1183);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1187);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2532,7 +2532,7 @@ var StateTreeNode = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 1183:
+/***/ 1187:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2951,7 +2951,7 @@ exports.reset = reset;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getUiConfigPropertyFor = exports.provideUiConfig = undefined;
+exports.getUiConfigPropertyFor = exports.provideEditingConfig = undefined;
 
 var _window_registry = __webpack_require__(48);
 
@@ -2975,7 +2975,7 @@ function getUiConfigPropertyFor(className, propertyName) {
   return config[propertyName];
 }
 
-function provideUiConfig(appClass, uiConfig) {
+function provideEditingConfig(appClass, uiConfig) {
   var className = (0, _window_registry.getWindowRegistry)().objClassNameFor(appClass);
   if (!className) {
     throw new _errors.ArgumentError('Expected an Obj or Widget class.');
@@ -2983,7 +2983,7 @@ function provideUiConfig(appClass, uiConfig) {
   uiConfigForClass[className] = uiConfig;
 }
 
-exports.provideUiConfig = provideUiConfig;
+exports.provideEditingConfig = provideEditingConfig;
 exports.getUiConfigPropertyFor = getUiConfigPropertyFor;
 
 /***/ }),
@@ -3215,239 +3215,66 @@ var _global_state = __webpack_require__(4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var CONVERT_TO_CAMELCASE = /(_+)(\w)/g;
+var CONVERT_TO_UNDERSCORE = /([A-Z])/g;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var TEST_CAMEL_CASE = /^_?(_+[A-Z0-9]|[^_])+$/;
+var TEST_UNDERSCORE = /^[a-z0-9_:]+$/;
 
-var _attribute_serializer = __webpack_require__(69);
+function isUnderscore(name) {
+  return TEST_UNDERSCORE.test(name);
+}
 
-var AttributeSerializer = _interopRequireWildcard(_attribute_serializer);
+function isCamelCase(name) {
+  return TEST_CAMEL_CASE.test(name);
+}
 
-var _basic_attribute_content = __webpack_require__(59);
+function underscore(name) {
+  return name.replace(CONVERT_TO_UNDERSCORE, function (_match, group) {
+    return '_' + group.toLowerCase();
+  });
+}
 
-var _basic_attribute_content2 = _interopRequireDefault(_basic_attribute_content);
+function camelCase(name) {
+  return name.replace(CONVERT_TO_CAMELCASE, function (match, underscores, nextChar, index) {
+    if (!index) {
+      return match;
+    }
+    if (nextChar.toUpperCase() === nextChar) {
+      return match;
+    }
 
-var _underscore = __webpack_require__(0);
+    return '' + underscores.substr(1) + nextChar.toUpperCase();
+  });
+}
 
-var _underscore2 = _interopRequireDefault(_underscore);
+function classify(name) {
+  var camelCased = camelCase(name);
+  return camelCased.charAt(0).toUpperCase() + camelCased.slice(1);
+}
 
-var _attribute_inflection = __webpack_require__(14);
+function titleCase(name) {
+  return underscore(name).replace(/[_\s]+/g, ' ').trim().replace(/\w\S*/g, capitalize);
+}
 
-var _errors = __webpack_require__(1);
+function capitalize(word) {
+  return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+}
 
-var _global_state = __webpack_require__(4);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SYSTEM_ATTRIBUTES = {
-  _id: 'id',
-  _obj_class: 'objClass'
+scrivito.attributeInflection = {
+  camelCase: camelCase,
+  classify: classify,
+  isCamelCase: isCamelCase,
+  isUnderscore: isUnderscore,
+  underscore: underscore
 };
 
-var BasicWidget = function (_BasicAttributeConten) {
-  _inherits(BasicWidget, _BasicAttributeConten);
-
-  _createClass(BasicWidget, null, [{
-    key: 'build',
-    value: function build(id, obj) {
-      var instance = Object.create(BasicWidget.prototype);
-      instance._obj = obj;
-      instance._id = id;
-
-      return instance;
-    }
-  }, {
-    key: 'newWithSerializedAttributes',
-    value: function newWithSerializedAttributes(attributes) {
-      var unserializedAttributes = {};
-      var serializedAttributes = {};
-
-      _underscore2.default.each(attributes, function (value, name) {
-        if (name === '_obj_class') {
-          unserializedAttributes._objClass = [value];
-          return;
-        }
-
-        if (_underscore2.default.isArray(value) && _underscore2.default.first(value) === 'widgetlist') {
-          var newWidgets = _underscore2.default.map(_underscore2.default.last(value), function (serializedWidget) {
-            return BasicWidget.newWithSerializedAttributes(serializedWidget);
-          });
-
-          var attrName = (0, _attribute_inflection.camelCase)(name);
-          unserializedAttributes[attrName] = [newWidgets, ['widgetlist']];
-          return;
-        }
-
-        serializedAttributes[name] = value;
-      });
-
-      var widget = new BasicWidget(unserializedAttributes);
-      widget.preserializedAttributes = serializedAttributes;
-      return widget;
-    }
-  }]);
-
-  function BasicWidget(attributes) {
-    _classCallCheck(this, BasicWidget);
-
-    var _this = _possibleConstructorReturn(this, (BasicWidget.__proto__ || Object.getPrototypeOf(BasicWidget)).call(this));
-
-    _this._attributesToBeSaved = scrivito.typeInfo.normalizeAttrs(attributes);
-
-    assertWidgetClassExists(attributes._objClass);
-    return _this;
-  }
-
-  _createClass(BasicWidget, [{
-    key: 'id',
-    value: function id() {
-      if (this.isPersisted()) {
-        return this._id;
-      }
-
-      this._throwUnpersistedError();
-    }
-  }, {
-    key: 'objClass',
-    value: function objClass() {
-      return this._current._obj_class;
-    }
-  }, {
-    key: 'obj',
-    value: function obj() {
-      if (this.isPersisted()) {
-        return this._obj;
-      }
-
-      this._throwUnpersistedError();
-    }
-  }, {
-    key: 'widget',
-    value: function widget(id) {
-      return this.obj().widget(id);
-    }
-  }, {
-    key: 'update',
-    value: function update(attributes) {
-      var _this2 = this;
-
-      var normalizedAttributes = scrivito.typeInfo.normalizeAttrs(attributes);
-
-      (0, _global_state.withBatchedUpdates)(function () {
-        _this2._persistWidgets(_this2.obj(), normalizedAttributes);
-        var patch = AttributeSerializer.serialize(normalizedAttributes);
-        _this2._updateSelf(patch);
-      });
-    }
-  }, {
-    key: 'insertBefore',
-    value: function insertBefore(widget) {
-      widget.obj().insertWidget(this, { before: widget });
-    }
-  }, {
-    key: 'insertAfter',
-    value: function insertAfter(widget) {
-      widget.obj().insertWidget(this, { after: widget });
-    }
-  }, {
-    key: 'remove',
-    value: function remove() {
-      this.obj().removeWidget(this);
-    }
-  }, {
-    key: 'copy',
-    value: function copy() {
-      var serializedAttributes = this.serializeAttributes();
-      return BasicWidget.newWithSerializedAttributes(serializedAttributes);
-    }
-  }, {
-    key: 'persistInObj',
-    value: function persistInObj(obj) {
-      this._persistWidgets(obj, this._attributesToBeSaved);
-      var patch = AttributeSerializer.serialize(this._attributesToBeSaved);
-      _underscore2.default.extend(patch, this.preserializedAttributes || {});
-
-      this._obj = obj;
-      this._id = obj.generateWidgetId();
-
-      this._updateSelf(patch);
-    }
-  }, {
-    key: 'isPersisted',
-    value: function isPersisted() {
-      return !!this._obj;
-    }
-  }, {
-    key: 'finishSaving',
-    value: function finishSaving() {
-      return this.obj().finishSaving();
-    }
-  }, {
-    key: 'equals',
-    value: function equals(otherWidget) {
-      if (!(otherWidget instanceof BasicWidget)) {
-        return false;
-      }
-
-      return this.id() === otherWidget.id() && this.obj().id() === otherWidget.obj().id();
-    }
-  }, {
-    key: 'containingField',
-    value: function containingField() {
-      return this.obj().fieldContainingWidget(this);
-    }
-  }, {
-    key: '_throwUnpersistedError',
-    value: function _throwUnpersistedError() {
-      throw new _errors.ScrivitoError('Can not access a new widget before it has been saved.');
-    }
-  }, {
-    key: '_updateSelf',
-    value: function _updateSelf(patch) {
-      var widgetPoolPatch = { _widgetPool: [_defineProperty({}, this.id(), patch)] };
-      this.obj().update(widgetPoolPatch);
-    }
-  }, {
-    key: 'attributesToBeSaved',
-    get: function get() {
-      return this._attributesToBeSaved;
-    }
-  }, {
-    key: '_current',
-    get: function get() {
-      if (this.isPersisted()) {
-        return this.obj().widgetData(this.id());
-      }
-
-      throw new _errors.ScrivitoError('Can not access an unpersisted widget.');
-    }
-  }, {
-    key: '_systemAttributes',
-    get: function get() {
-      return SYSTEM_ATTRIBUTES;
-    }
-  }]);
-
-  return BasicWidget;
-}(_basic_attribute_content2.default);
-
-exports.default = BasicWidget;
-
-
-function assertWidgetClassExists(attrInfoAndValue) {
-  if (!attrInfoAndValue) {
-    throw new _errors.ArgumentError('Please provide a widget class as the "_objClass" property.');
-  }
-}
+exports.camelCase = camelCase;
+exports.classify = classify;
+exports.isCamelCase = isCamelCase;
+exports.isUnderscore = isUnderscore;
+exports.titleCase = titleCase;
+exports.underscore = underscore;
 
 /***/ }),
 
@@ -4269,66 +4096,239 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var CONVERT_TO_CAMELCASE = /(_+)(\w)/g;
-var CONVERT_TO_UNDERSCORE = /([A-Z])/g;
 
-var TEST_CAMEL_CASE = /^_?(_+[A-Z0-9]|[^_])+$/;
-var TEST_UNDERSCORE = /^[a-z0-9_:]+$/;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function isUnderscore(name) {
-  return TEST_UNDERSCORE.test(name);
-}
+var _attribute_serializer = __webpack_require__(69);
 
-function isCamelCase(name) {
-  return TEST_CAMEL_CASE.test(name);
-}
+var AttributeSerializer = _interopRequireWildcard(_attribute_serializer);
 
-function underscore(name) {
-  return name.replace(CONVERT_TO_UNDERSCORE, function (_match, group) {
-    return '_' + group.toLowerCase();
-  });
-}
+var _basic_attribute_content = __webpack_require__(59);
 
-function camelCase(name) {
-  return name.replace(CONVERT_TO_CAMELCASE, function (match, underscores, nextChar, index) {
-    if (!index) {
-      return match;
-    }
-    if (nextChar.toUpperCase() === nextChar) {
-      return match;
-    }
+var _basic_attribute_content2 = _interopRequireDefault(_basic_attribute_content);
 
-    return '' + underscores.substr(1) + nextChar.toUpperCase();
-  });
-}
+var _underscore = __webpack_require__(0);
 
-function classify(name) {
-  var camelCased = camelCase(name);
-  return camelCased.charAt(0).toUpperCase() + camelCased.slice(1);
-}
+var _underscore2 = _interopRequireDefault(_underscore);
 
-function titleCase(name) {
-  return underscore(name).replace(/[_\s]+/g, ' ').trim().replace(/\w\S*/g, capitalize);
-}
+var _attribute_inflection = __webpack_require__(13);
 
-function capitalize(word) {
-  return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
-}
+var _errors = __webpack_require__(1);
 
-scrivito.attributeInflection = {
-  camelCase: camelCase,
-  classify: classify,
-  isCamelCase: isCamelCase,
-  isUnderscore: isUnderscore,
-  underscore: underscore
+var _global_state = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SYSTEM_ATTRIBUTES = {
+  _id: 'id',
+  _obj_class: 'objClass'
 };
 
-exports.camelCase = camelCase;
-exports.classify = classify;
-exports.isCamelCase = isCamelCase;
-exports.isUnderscore = isUnderscore;
-exports.titleCase = titleCase;
-exports.underscore = underscore;
+var BasicWidget = function (_BasicAttributeConten) {
+  _inherits(BasicWidget, _BasicAttributeConten);
+
+  _createClass(BasicWidget, null, [{
+    key: 'build',
+    value: function build(id, obj) {
+      var instance = Object.create(BasicWidget.prototype);
+      instance._obj = obj;
+      instance._id = id;
+
+      return instance;
+    }
+  }, {
+    key: 'newWithSerializedAttributes',
+    value: function newWithSerializedAttributes(attributes) {
+      var unserializedAttributes = {};
+      var serializedAttributes = {};
+
+      _underscore2.default.each(attributes, function (value, name) {
+        if (name === '_obj_class') {
+          unserializedAttributes._objClass = [value];
+          return;
+        }
+
+        if (_underscore2.default.isArray(value) && _underscore2.default.first(value) === 'widgetlist') {
+          var newWidgets = _underscore2.default.map(_underscore2.default.last(value), function (serializedWidget) {
+            return BasicWidget.newWithSerializedAttributes(serializedWidget);
+          });
+
+          var attrName = (0, _attribute_inflection.camelCase)(name);
+          unserializedAttributes[attrName] = [newWidgets, ['widgetlist']];
+          return;
+        }
+
+        serializedAttributes[name] = value;
+      });
+
+      var widget = new BasicWidget(unserializedAttributes);
+      widget.preserializedAttributes = serializedAttributes;
+      return widget;
+    }
+  }]);
+
+  function BasicWidget(attributes) {
+    _classCallCheck(this, BasicWidget);
+
+    var _this = _possibleConstructorReturn(this, (BasicWidget.__proto__ || Object.getPrototypeOf(BasicWidget)).call(this));
+
+    _this._attributesToBeSaved = scrivito.typeInfo.normalizeAttrs(attributes);
+
+    assertWidgetClassExists(attributes._objClass);
+    return _this;
+  }
+
+  _createClass(BasicWidget, [{
+    key: 'id',
+    value: function id() {
+      if (this.isPersisted()) {
+        return this._id;
+      }
+
+      this._throwUnpersistedError();
+    }
+  }, {
+    key: 'objClass',
+    value: function objClass() {
+      return this._current._obj_class;
+    }
+  }, {
+    key: 'obj',
+    value: function obj() {
+      if (this.isPersisted()) {
+        return this._obj;
+      }
+
+      this._throwUnpersistedError();
+    }
+  }, {
+    key: 'widget',
+    value: function widget(id) {
+      return this.obj().widget(id);
+    }
+  }, {
+    key: 'update',
+    value: function update(attributes) {
+      var _this2 = this;
+
+      var normalizedAttributes = scrivito.typeInfo.normalizeAttrs(attributes);
+
+      (0, _global_state.withBatchedUpdates)(function () {
+        _this2._persistWidgets(_this2.obj(), normalizedAttributes);
+        var patch = AttributeSerializer.serialize(normalizedAttributes);
+        _this2._updateSelf(patch);
+      });
+    }
+  }, {
+    key: 'insertBefore',
+    value: function insertBefore(widget) {
+      widget.obj().insertWidget(this, { before: widget });
+    }
+  }, {
+    key: 'insertAfter',
+    value: function insertAfter(widget) {
+      widget.obj().insertWidget(this, { after: widget });
+    }
+  }, {
+    key: 'remove',
+    value: function remove() {
+      this.obj().removeWidget(this);
+    }
+  }, {
+    key: 'copy',
+    value: function copy() {
+      var serializedAttributes = this.serializeAttributes();
+      return BasicWidget.newWithSerializedAttributes(serializedAttributes);
+    }
+  }, {
+    key: 'persistInObj',
+    value: function persistInObj(obj) {
+      this._persistWidgets(obj, this._attributesToBeSaved);
+      var patch = AttributeSerializer.serialize(this._attributesToBeSaved);
+      _underscore2.default.extend(patch, this.preserializedAttributes || {});
+
+      this._obj = obj;
+      this._id = obj.generateWidgetId();
+
+      this._updateSelf(patch);
+    }
+  }, {
+    key: 'isPersisted',
+    value: function isPersisted() {
+      return !!this._obj;
+    }
+  }, {
+    key: 'finishSaving',
+    value: function finishSaving() {
+      return this.obj().finishSaving();
+    }
+  }, {
+    key: 'equals',
+    value: function equals(otherWidget) {
+      if (!(otherWidget instanceof BasicWidget)) {
+        return false;
+      }
+
+      return this.id() === otherWidget.id() && this.obj().id() === otherWidget.obj().id();
+    }
+  }, {
+    key: 'containingField',
+    value: function containingField() {
+      return this.obj().fieldContainingWidget(this);
+    }
+  }, {
+    key: '_throwUnpersistedError',
+    value: function _throwUnpersistedError() {
+      throw new _errors.ScrivitoError('Can not access a new widget before it has been saved.');
+    }
+  }, {
+    key: '_updateSelf',
+    value: function _updateSelf(patch) {
+      var widgetPoolPatch = { _widgetPool: [_defineProperty({}, this.id(), patch)] };
+      this.obj().update(widgetPoolPatch);
+    }
+  }, {
+    key: 'attributesToBeSaved',
+    get: function get() {
+      return this._attributesToBeSaved;
+    }
+  }, {
+    key: '_current',
+    get: function get() {
+      if (this.isPersisted()) {
+        return this.obj().widgetData(this.id());
+      }
+
+      throw new _errors.ScrivitoError('Can not access an unpersisted widget.');
+    }
+  }, {
+    key: '_systemAttributes',
+    get: function get() {
+      return SYSTEM_ATTRIBUTES;
+    }
+  }]);
+
+  return BasicWidget;
+}(_basic_attribute_content2.default);
+
+exports.default = BasicWidget;
+
+
+function assertWidgetClassExists(attrInfoAndValue) {
+  if (!attrInfoAndValue) {
+    throw new _errors.ArgumentError('Please provide a widget class as the "_objClass" property.');
+  }
+}
 
 /***/ }),
 
@@ -5360,7 +5360,7 @@ var _schema = __webpack_require__(19);
 
 var _schema2 = _interopRequireDefault(_schema);
 
-var _basic_widget = __webpack_require__(13);
+var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
@@ -6809,7 +6809,7 @@ var _basic_obj = __webpack_require__(3);
 
 var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
-var _basic_widget = __webpack_require__(13);
+var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
@@ -7366,7 +7366,7 @@ var _basic_obj = __webpack_require__(3);
 
 var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
-var _basic_widget = __webpack_require__(13);
+var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
@@ -7412,7 +7412,7 @@ var _pretty_print = __webpack_require__(18);
 
 var _pretty_print2 = _interopRequireDefault(_pretty_print);
 
-var _attribute_inflection = __webpack_require__(14);
+var _attribute_inflection = __webpack_require__(13);
 
 var _errors = __webpack_require__(1);
 
@@ -13849,7 +13849,7 @@ var _basic_obj = __webpack_require__(3);
 
 var _basic_obj2 = _interopRequireDefault(_basic_obj);
 
-var _basic_widget = __webpack_require__(13);
+var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
@@ -16219,8 +16219,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     titleForClass: function titleForClass(className) {
       return (0, _provide_ui_config.getUiConfigPropertyFor)(className, 'title');
     },
-    customGroupsForClass: function customGroupsForClass(className) {
-      return (0, _provide_ui_config.getUiConfigPropertyFor)(className, 'customGroups');
+    propertiesGroupsForClass: function propertiesGroupsForClass(className) {
+      return (0, _provide_ui_config.getUiConfigPropertyFor)(className, 'propertiesGroups');
     },
     titleForObj: function titleForObj(objId) {
       return invokeCallbackFromUiConfigWithObjId('titleForContent', objId);
@@ -16330,7 +16330,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   }
 
   function addAttributeValuesFromUiConfig(classData, className) {
-    var attributes = (0, _provide_ui_config.getUiConfigPropertyFor)(className, 'attributes');
+    var attributes = (0, _provide_ui_config.getUiConfigPropertyFor)(className, 'attributesConfig');
 
     if (!attributes) {
       return;
@@ -16364,7 +16364,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
   function assertIsFunction(callback, name) {
     if (typeof callback !== 'function') {
-      throw new _errors.ArgumentError(name + ' in the Scrivito.provideUiConfig definition must be a function');
+      throw new _errors.ArgumentError(name + ' in the Scrivito.provideEditingConfig definition must be a function');
     }
   }
 
@@ -16687,7 +16687,7 @@ var _with_server_defaults = __webpack_require__(56);
 
 var withServerDefaults = _interopRequireWildcard(_with_server_defaults);
 
-var _basic_widget = __webpack_require__(13);
+var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
@@ -17419,7 +17419,7 @@ Scrivito.isInPlaceEditingActive = _is_in_place_editing_active2.default;
 Scrivito.provideComponent = _provide_component2.default;
 Scrivito.registerComponent = _component_registry.registerForId;
 
-Scrivito.provideUiConfig = _provide_ui_config.provideUiConfig;
+Scrivito.provideEditingConfig = _provide_ui_config.provideEditingConfig;
 
 Scrivito.Binary = _binary2.default;
 Scrivito.FutureBinary = _future_binary2.default;
@@ -18874,6 +18874,10 @@ var ImageTag = function (_React$Component) {
   _createClass(ImageTag, [{
     key: 'render',
     value: function render() {
+      if (!this.props.content) {
+        return null;
+      }
+
       var htmlOptions = (0, _underscore.omit)(this.props, 'content', 'attribute');
 
       if (this.props.content instanceof _binary2.default) {
@@ -19699,7 +19703,7 @@ var _attribute_serializer = __webpack_require__(69);
 
 var AttributeSerializer = _interopRequireWildcard(_attribute_serializer);
 
-var _basic_widget = __webpack_require__(13);
+var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
@@ -19727,7 +19731,7 @@ var _obj_class = __webpack_require__(21);
 
 var _obj_class2 = _interopRequireDefault(_obj_class);
 
-var _attribute_inflection = __webpack_require__(14);
+var _attribute_inflection = __webpack_require__(13);
 
 var _iterable = __webpack_require__(55);
 
@@ -24339,7 +24343,7 @@ var _binary_utils = __webpack_require__(58);
 
 var BinaryUtils = _interopRequireWildcard(_binary_utils);
 
-var _basic_widget = __webpack_require__(13);
+var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
@@ -24634,7 +24638,7 @@ var _underscore2 = _interopRequireDefault(_underscore);
 
 var _errors = __webpack_require__(1);
 
-var _attribute_inflection = __webpack_require__(14);
+var _attribute_inflection = __webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24949,7 +24953,7 @@ var _facet_query2 = _interopRequireDefault(_facet_query);
 
 var _underscore = __webpack_require__(0);
 
-var _attribute_inflection = __webpack_require__(14);
+var _attribute_inflection = __webpack_require__(13);
 
 var _errors = __webpack_require__(1);
 
@@ -25450,7 +25454,7 @@ var _types = __webpack_require__(32);
 
 var types = _interopRequireWildcard(_types);
 
-var _basic_widget = __webpack_require__(13);
+var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
@@ -25472,7 +25476,7 @@ var _pretty_print = __webpack_require__(18);
 
 var _pretty_print2 = _interopRequireDefault(_pretty_print);
 
-var _attribute_inflection = __webpack_require__(14);
+var _attribute_inflection = __webpack_require__(13);
 
 var _binary = __webpack_require__(25);
 
@@ -25895,7 +25899,7 @@ var _loadable_data2 = _interopRequireDefault(_loadable_data);
 
 var _global_state = __webpack_require__(4);
 
-var _attribute_inflection = __webpack_require__(14);
+var _attribute_inflection = __webpack_require__(13);
 
 var _errors = __webpack_require__(1);
 
