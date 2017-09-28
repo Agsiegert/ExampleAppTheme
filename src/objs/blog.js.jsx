@@ -18,7 +18,7 @@ class Blog extends BaseBlog {
 
 Scrivito.registerClass('Blog', Blog);
 
-Scrivito.provideUiConfig(Blog, {
+Scrivito.provideEditingConfig(Blog, {
   title: 'Blog',
   description: 'A Blog.',
   attributes: {

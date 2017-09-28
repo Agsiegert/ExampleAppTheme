@@ -21,7 +21,7 @@ const TableWidget = Scrivito.createWidgetClass({
 
 Scrivito.registerClass('TableWidget', TableWidget);
 
-Scrivito.provideUiConfig(TableWidget, {
+Scrivito.provideEditingConfig(TableWidget, {
   title: 'Table',
   description: 'A table widget.',
   attributes: {

@@ -36,7 +36,7 @@ class SectionWidget extends BaseSectionWidget {
 
 Scrivito.registerClass('SectionWidget', SectionWidget);
 
-Scrivito.provideUiConfig(SectionWidget, {
+Scrivito.provideEditingConfig(SectionWidget, {
   title: 'Section',
   description: 'A section',
   attributes: {

@@ -16,7 +16,7 @@ class TestimonialWidget extends BaseTestimonialWidget {
 
 Scrivito.registerClass('TestimonialWidget', TestimonialWidget);
 
-Scrivito.provideUiConfig(TestimonialWidget, {
+Scrivito.provideEditingConfig(TestimonialWidget, {
   title: 'Testimonial',
   description: 'A testimonial',
   attributes: {

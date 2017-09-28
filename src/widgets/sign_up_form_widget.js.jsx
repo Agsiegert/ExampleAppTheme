@@ -9,7 +9,7 @@ const SignUpFormWidget = Scrivito.createWidgetClass({
 
 Scrivito.registerClass('SignUpFormWidget', SignUpFormWidget);
 
-Scrivito.provideUiConfig(SignUpFormWidget, {
+Scrivito.provideEditingConfig(SignUpFormWidget, {
   title: 'Sign Up Form',
   description: 'A widget with sign up form.',
   attributes: {

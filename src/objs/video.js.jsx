@@ -7,7 +7,7 @@ const Video = Scrivito.createObjClass({
   },
 });
 
-Scrivito.provideUiConfig(Video, {
+Scrivito.provideEditingConfig(Video, {
   attributes: {
     title: {
       title: 'Title',

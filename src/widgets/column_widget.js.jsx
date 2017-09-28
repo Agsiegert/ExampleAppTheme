@@ -27,7 +27,7 @@ class ColumnWidget extends BaseColumnWidget {
 
 Scrivito.registerClass('ColumnWidget', ColumnWidget);
 
-Scrivito.provideUiConfig(ColumnWidget, {
+Scrivito.provideEditingConfig(ColumnWidget, {
   title: 'Column',
   description: 'A widget with up to 4 columns',
   attributes: {

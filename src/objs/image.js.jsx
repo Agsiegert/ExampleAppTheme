@@ -7,7 +7,7 @@ const Image = Scrivito.createObjClass({
   },
 });
 
-Scrivito.provideUiConfig(Image, {
+Scrivito.provideEditingConfig(Image, {
   attributes: {
     tags: {
       title: 'Tags',

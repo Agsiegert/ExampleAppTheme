@@ -8,7 +8,7 @@ const VideoWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(VideoWidget, {
+Scrivito.provideEditingConfig(VideoWidget, {
   title: 'Video',
   description: 'A widget with a video.',
   attributes: {

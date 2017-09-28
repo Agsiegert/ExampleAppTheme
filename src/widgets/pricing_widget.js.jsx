@@ -30,7 +30,7 @@ const PricingWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(PricingWidget, {
+Scrivito.provideEditingConfig(PricingWidget, {
   title: 'Pricing',
   description: 'A pricing widget',
   attributes: {

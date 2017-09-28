@@ -29,7 +29,7 @@ class Homepage extends BaseHomepage {
 
 Scrivito.registerClass('Homepage', Homepage);
 
-Scrivito.provideUiConfig(Homepage, {
+Scrivito.provideEditingConfig(Homepage, {
   title: 'Homepage',
   description: 'A Homepage. This class is only intended for Obj.root() (aka "_path" "/")',
   attributes: {

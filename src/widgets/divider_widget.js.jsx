@@ -2,7 +2,7 @@ const DividerWidget = Scrivito.createWidgetClass({
   name: 'DividerWidget',
 });
 
-Scrivito.provideUiConfig(DividerWidget, {
+Scrivito.provideEditingConfig(DividerWidget, {
   title: 'Divider',
   description: 'A divider',
 });

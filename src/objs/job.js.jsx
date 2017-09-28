@@ -9,7 +9,7 @@ const Job = Scrivito.createObjClass({
 
 Scrivito.registerClass('Job', Job);
 
-Scrivito.provideUiConfig(Job, {
+Scrivito.provideEditingConfig(Job, {
   title: 'Job',
   description: 'A Job.',
   attributes: {

@@ -10,7 +10,7 @@ const EventOverviewWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(EventOverviewWidget, {
+Scrivito.provideEditingConfig(EventOverviewWidget, {
   title: 'EventOverviewWidget',
   description: 'A widget showing all events.',
   attributes: {

@@ -9,7 +9,7 @@ const BlogOverviewWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(BlogOverviewWidget, {
+Scrivito.provideEditingConfig(BlogOverviewWidget, {
   title: 'Blog Overview',
   description: 'A widget with up to four blog posts',
   attributes: {

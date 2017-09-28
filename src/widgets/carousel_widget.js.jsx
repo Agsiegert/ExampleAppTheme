@@ -12,7 +12,7 @@ const CarouselWidget = Scrivito.createWidgetClass({
 
 Scrivito.registerClass('CarouselWidget', CarouselWidget);
 
-Scrivito.provideUiConfig(CarouselWidget, {
+Scrivito.provideEditingConfig(CarouselWidget, {
   title: 'Carousel',
   description: 'A widget with sliding images.',
   attributes: {

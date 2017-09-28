@@ -8,7 +8,7 @@ const GalleryWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(GalleryWidget, {
+Scrivito.provideEditingConfig(GalleryWidget, {
   title: 'Gallery',
   description: 'A widget with an image gallery.',
   attributes: {

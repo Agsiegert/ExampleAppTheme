@@ -13,7 +13,7 @@ class PanelWidget extends BasePanelWidget {
 
 Scrivito.registerClass('PanelWidget', PanelWidget);
 
-Scrivito.provideUiConfig(PanelWidget, {
+Scrivito.provideEditingConfig(PanelWidget, {
   title: 'Panel',
   description: 'A panel widget',
 });

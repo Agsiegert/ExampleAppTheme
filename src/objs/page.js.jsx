@@ -26,7 +26,7 @@ class Page extends BasePage {
 
 Scrivito.registerClass('Page', Page);
 
-Scrivito.provideUiConfig(Page, {
+Scrivito.provideEditingConfig(Page, {
   title: 'Page',
   description: 'A regular page.',
   attributes: {

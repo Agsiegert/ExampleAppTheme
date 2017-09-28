@@ -10,7 +10,7 @@ const IconWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(IconWidget, {
+Scrivito.provideEditingConfig(IconWidget, {
   title: 'Icon',
   description: 'A widget with a font awesome icon. See http://fontawesome.io/icons/ for all icons.',
   attributes: {

@@ -27,7 +27,7 @@ class BlogPost extends BaseBlogPost {
 
 Scrivito.registerClass('BlogPost', BlogPost);
 
-Scrivito.provideUiConfig(BlogPost, {
+Scrivito.provideEditingConfig(BlogPost, {
   title: 'BlogPost',
   description: 'A BlogPost.',
   attributes: {
