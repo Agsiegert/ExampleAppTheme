@@ -1,4 +1,6 @@
 import BlogPost from 'objs/blog_post';
+import navigateToBlogWithTag from 'utils/navigate_to_blog_with_tag';
+import TagList from 'components/tag_list';
 import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 
 const BaseBlog = Scrivito.createObjClass({
@@ -34,39 +36,20 @@ Scrivito.provideEditingConfig(Blog, {
   titleForContent: obj => obj.get('title'),
 });
 
-Scrivito.provideComponent(Blog, ({ page }) =>
-  <div>
-    <TagList />
-    <Scrivito.ContentTag className="div" content={ page } attribute="body" />
-  </div>
-);
-
-const TagList = Scrivito.connect(() => {
+Scrivito.provideComponent(Blog, ({ page }) => {
   const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name());
+  const currentTag = Scrivito.currentPageParams().tag;
 
   return (
-    <section className="bg-nav-content">
-      <div className="container">
-        <div className="nav-centered select-icon">
-          <ul className="nav nav-pills hidden-xs">
-            <li role="presentation" className="active"><a href="#">All</a></li>
-            {
-              tags.map(tag =>
-                <li role="presentation" key={ tag }>
-                  <a href="#">{ tag }</a>
-                </li>
-              )
-            }
-          </ul>
-          <select className="visible-xs">
-            <option value="All">All</option>
-            {
-              tags.map(tag => <option key={ tag } value={ tag }>{ tag }</option>)
-            }
-          </select>
-        </div>
-      </div>
-    </section>
+    <div>
+      <TagList
+        tags={ tags }
+        showTags={ true }
+        setTag={ navigateToBlogWithTag }
+        currentTag={ currentTag }
+      />
+      <Scrivito.ContentTag className="div" content={ page } attribute="body" />
+    </div>
   );
 });
 
