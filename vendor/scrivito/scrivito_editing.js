@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1182);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1186);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 1038:
+/***/ 1042:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -207,7 +207,7 @@ if (true) {
 
 /***/ }),
 
-/***/ 1039:
+/***/ 1043:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var __WEBPACK_AMD_DEFINE_RESULT__;/*global self, document, DOMException */
@@ -8101,7 +8101,7 @@ MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
 
 /***/ }),
 
-/***/ 1182:
+/***/ 1186:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18733,7 +18733,7 @@ return jQuery;
 "use strict";
 
 
-__webpack_require__(775);
+__webpack_require__(777);
 
 /***/ }),
 
@@ -18761,7 +18761,7 @@ var _apply_placeholder_to_element = __webpack_require__(321);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _medium_editor = __webpack_require__(837);
+var _medium_editor = __webpack_require__(841);
 
 var _medium_editor2 = _interopRequireDefault(_medium_editor);
 
@@ -18829,7 +18829,7 @@ var _apply_placeholder_to_element = __webpack_require__(321);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _string_editor = __webpack_require__(838);
+var _string_editor = __webpack_require__(842);
 
 var _string_editor2 = _interopRequireDefault(_string_editor);
 
@@ -18879,7 +18879,7 @@ exports.default = StringEditor;
 
 /***/ }),
 
-/***/ 774:
+/***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18942,7 +18942,7 @@ exports.default = ReferenceEditor;
 
 /***/ }),
 
-/***/ 775:
+/***/ 777:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18952,7 +18952,7 @@ var _html_editor = __webpack_require__(578);
 
 var _html_editor2 = _interopRequireDefault(_html_editor);
 
-var _reference_editor = __webpack_require__(774);
+var _reference_editor = __webpack_require__(776);
 
 var _reference_editor2 = _interopRequireDefault(_reference_editor);
 
@@ -18968,14 +18968,14 @@ scrivito.registerEditor(_string_editor2.default);
 
 /***/ }),
 
-/***/ 837:
+/***/ 841:
 /***/ (function(module, exports, __webpack_require__) {
 
 var MediumButton, MediumEditor, ScrivitoAnchor, activateMediumEditorWithProxy, buttonsOption, defaultOptions;
 
-MediumEditor = __webpack_require__(1039);
+MediumEditor = __webpack_require__(1043);
 
-MediumButton = __webpack_require__(1038);
+MediumButton = __webpack_require__(1042);
 
 ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
   name: 'scrivito_anchor',
@@ -19105,7 +19105,7 @@ module.exports = activateMediumEditorWithProxy;
 
 /***/ }),
 
-/***/ 838:
+/***/ 842:
 /***/ (function(module, exports) {
 
 var DOUBLE_CLICK_MS, activateStringEditorWithProxy, cleanUp, cmsFieldAndPastedContent, finishEditing, getCurrentContent, isNewlineAllowed, onBlur, onFocus, onInput, onKey, prepareForEditing, save;

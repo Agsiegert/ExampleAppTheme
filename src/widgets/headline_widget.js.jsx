@@ -18,10 +18,10 @@ class HeadlineWidget extends BaseHeadlineWidget {
 
 Scrivito.registerClass('HeadlineWidget', HeadlineWidget);
 
-Scrivito.provideUiConfig(HeadlineWidget, {
+Scrivito.provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
   description: 'A widget with a headline.',
-  attributes: {
+  attributesConfig: {
     level: {
       title: 'Level',
       description: 'The level of the headline',

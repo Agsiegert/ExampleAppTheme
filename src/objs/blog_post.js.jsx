@@ -27,10 +27,10 @@ class BlogPost extends BaseBlogPost {
 
 Scrivito.registerClass('BlogPost', BlogPost);
 
-Scrivito.provideUiConfig(BlogPost, {
+Scrivito.provideEditingConfig(BlogPost, {
   title: 'BlogPost',
   description: 'A BlogPost.',
-  attributes: {
+  attributesConfig: {
     author: {
       title: 'Author',
       description: 'The author of the blogpost.',
@@ -49,7 +49,7 @@ Scrivito.provideUiConfig(BlogPost, {
     },
   },
   titleForContent: obj => obj.get('title'),
-  customGroups: [socialCardsCustomGroup],
+  propertiesGroups: [socialCardsCustomGroup],
 });
 
 Scrivito.provideComponent(BlogPost, ({ page }) =>

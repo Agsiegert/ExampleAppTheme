@@ -14,7 +14,7 @@ class FactWidget extends BaseFactWidget {
 
 Scrivito.registerClass('FactWidget', FactWidget);
 
-Scrivito.provideUiConfig(FactWidget, {
+Scrivito.provideEditingConfig(FactWidget, {
   title: 'Fact',
   description: 'A fact',
 });

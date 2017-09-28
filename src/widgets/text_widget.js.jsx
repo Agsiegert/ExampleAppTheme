@@ -16,10 +16,10 @@ class TextWidget extends BaseTextWidget {
 
 Scrivito.registerClass('TextWidget', TextWidget);
 
-Scrivito.provideUiConfig(TextWidget, {
+Scrivito.provideEditingConfig(TextWidget, {
   title: 'Text',
   description: 'A widget with html text.',
-  attributes: {
+  attributesConfig: {
     alignment: {
       title: 'Alignment',
       description: 'How should this text be aligned? Default: left',

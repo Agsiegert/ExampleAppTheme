@@ -7,10 +7,10 @@ const ButtonWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(ButtonWidget, {
+Scrivito.provideEditingConfig(ButtonWidget, {
   title: 'Button',
   description: 'A widget with a button',
-  attributes: {
+  attributesConfig: {
     target: {
       title: 'Target',
       description: 'The target of the button',

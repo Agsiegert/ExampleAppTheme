@@ -7,10 +7,10 @@ const Author = Scrivito.createObjClass({
   },
 });
 
-Scrivito.provideUiConfig(Author, {
+Scrivito.provideEditingConfig(Author, {
   title: 'Author',
   description: 'A Author.',
-  attributes: {
+  attributesConfig: {
     name: {
       title: 'Name',
       description: 'The name of the author',

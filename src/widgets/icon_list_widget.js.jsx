@@ -7,10 +7,10 @@ const IconListWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(IconListWidget, {
+Scrivito.provideEditingConfig(IconListWidget, {
   title: 'Icon List',
   description: 'A list of icons',
-  attributes: {
+  attributesConfig: {
     iconList: {
       title: 'Icon list',
       description: 'The icon list',

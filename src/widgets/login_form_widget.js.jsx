@@ -4,7 +4,7 @@ const LoginFormWidget = Scrivito.createWidgetClass({
 
 Scrivito.registerClass('LoginFormWidget', LoginFormWidget);
 
-Scrivito.provideUiConfig(LoginFormWidget, {
+Scrivito.provideEditingConfig(LoginFormWidget, {
   title: 'Login Form',
   description: 'A widget with login form.',
 });

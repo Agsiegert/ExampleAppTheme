@@ -10,10 +10,10 @@ const EventOverviewWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideUiConfig(EventOverviewWidget, {
+Scrivito.provideEditingConfig(EventOverviewWidget, {
   title: 'EventOverviewWidget',
   description: 'A widget showing all events.',
-  attributes: {
+  attributesConfig: {
     maxItems: {
       title: 'Maximum number of events',
       description: 'How many events should be shown maximally.',

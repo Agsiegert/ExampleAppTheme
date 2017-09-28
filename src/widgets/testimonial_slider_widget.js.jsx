@@ -18,10 +18,10 @@ class TestimonialSliderWidget extends BaseTestimonialSliderWidget {
 
 Scrivito.registerClass('TestimonialSliderWidget', TestimonialSliderWidget);
 
-Scrivito.provideUiConfig(TestimonialSliderWidget, {
+Scrivito.provideEditingConfig(TestimonialSliderWidget, {
   title: 'Testimonial Slider',
   description: 'A testimonial slider',
-  attributes: {
+  attributesConfig: {
     testimonials: {
       title: 'Testimonials',
       description: 'The list of testimonials',

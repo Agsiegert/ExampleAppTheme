@@ -13,10 +13,10 @@ const Event = Scrivito.createObjClass({
 
 Scrivito.registerClass('Event', Event);
 
-Scrivito.provideUiConfig(Event, {
+Scrivito.provideEditingConfig(Event, {
   title: 'Event',
   description: 'An Event.',
-  attributes: {
+  attributesConfig: {
     date: {
       title: 'Date',
       description: 'When is this event happening.',

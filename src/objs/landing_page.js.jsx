@@ -12,10 +12,10 @@ const LandingPage = Scrivito.createObjClass({
 
 Scrivito.registerClass('LandingPage', LandingPage);
 
-Scrivito.provideUiConfig(LandingPage, {
+Scrivito.provideEditingConfig(LandingPage, {
   title: 'LandingPage',
   description: 'A landing page.',
-  attributes: {
+  attributesConfig: {
     ...defaultPageUiConfigAttributes,
   },
   titleForContent: obj => obj.get('title'),

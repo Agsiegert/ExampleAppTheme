@@ -36,10 +36,10 @@ class SectionWidget extends BaseSectionWidget {
 
 Scrivito.registerClass('SectionWidget', SectionWidget);
 
-Scrivito.provideUiConfig(SectionWidget, {
+Scrivito.provideEditingConfig(SectionWidget, {
   title: 'Section',
   description: 'A section',
-  attributes: {
+  attributesConfig: {
     backgroundColor: {
       title: 'Background Color',
       description: 'Which background color should this section have?',
