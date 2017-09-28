@@ -49,7 +49,7 @@ Scrivito.provideEditingConfig(BlogPost, {
     },
   },
   titleForContent: obj => obj.get('title'),
-  customGroups: [socialCardsCustomGroup],
+  propertiesGroups: [socialCardsCustomGroup],
 });
 
 Scrivito.provideComponent(BlogPost, ({ page }) =>
