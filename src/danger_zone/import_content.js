@@ -113,6 +113,7 @@ const Video = Scrivito.getClass('Video');
 const AddressListItemWidget = Scrivito.getClass('AddressListItemWidget');
 const AddressWidget = Scrivito.getClass('AddressWidget');
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
+const BoxWidget = Scrivito.getClass('BoxWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
@@ -592,24 +593,31 @@ function importContent() {
             }),
           ],
         }),
-        new SectionWidget({ content: [
-          new HeadlineWidget({
-            headline: 'Get in touch with us',
-            level: 'h1',
-            showDividingLine: 'yes',
-            style: 'h2',
-          }),
-          new HeadlineWidget({
-            alignment: 'center',
-            level: 'h2',
-            style: 'h4',
-            headline: loremIpsum({ count: 3 }),
-          }),
-          new ContactFormWidget({
-            agreementText: loremIpsum({ count: 3 }),
-            buttonText: 'Send message now',
-          }),
-        ] }),
+        new SectionWidget({
+          content: [
+            new BoxWidget({
+              useOffset: 'yes',
+              content: [
+                new HeadlineWidget({
+                  headline: 'Get in touch with us',
+                  level: 'h1',
+                  showDividingLine: 'yes',
+                  style: 'h2',
+                }),
+                new HeadlineWidget({
+                  alignment: 'center',
+                  level: 'h2',
+                  style: 'h4',
+                  headline: loremIpsum({ count: 3 }),
+                }),
+                new ContactFormWidget({
+                  agreementText: loremIpsum({ count: 3 }),
+                  buttonText: 'Send message now',
+                }),
+              ],
+            }),
+          ],
+        }),
       ],
     });
     const imprint = Page.create({
