@@ -1,3 +1,5 @@
+import googleMapsImageUrl from 'utils/google_maps_image_url';
+
 const GoogleMapsWidget = Scrivito.createWidgetClass({
   name: 'GoogleMapsWidget',
   attributes: {
@@ -113,10 +115,8 @@ class GoogleMapsWidgetComponent extends React.Component {
       zoom,
       ie: 'UTF8',
     };
-    const flattenParams = Object.entries(params).map(([key, value]) => `${key}=${value}`).join('&');
-    const uri = `https://maps.google.com/maps/api/staticmap?${flattenParams}`;
 
-    return encodeURI(uri);
+    return googleMapsImageUrl(params);
   }
 }
 
