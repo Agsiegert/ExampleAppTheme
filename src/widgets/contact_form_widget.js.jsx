@@ -11,7 +11,7 @@ Scrivito.registerClass('ContactFormWidget', ContactFormWidget);
 Scrivito.provideEditingConfig(ContactFormWidget, {
   title: 'Contact Form',
   description: 'A widget with contact form.',
-  attributes: {
+  attributesConfig: {
     agreementText: {
       title: 'Agreement Text',
       description: 'What should the agreement say?',

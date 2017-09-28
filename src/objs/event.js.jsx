@@ -16,7 +16,7 @@ Scrivito.registerClass('Event', Event);
 Scrivito.provideEditingConfig(Event, {
   title: 'Event',
   description: 'An Event.',
-  attributes: {
+  attributesConfig: {
     date: {
       title: 'Date',
       description: 'When is this event happening.',

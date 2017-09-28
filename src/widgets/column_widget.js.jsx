@@ -30,7 +30,7 @@ Scrivito.registerClass('ColumnWidget', ColumnWidget);
 Scrivito.provideEditingConfig(ColumnWidget, {
   title: 'Column',
   description: 'A widget with up to 4 columns',
-  attributes: {
+  attributesConfig: {
     nrOfColumns: {
       title: 'Number of columns',
       description: 'The number of columns between 1 and 4. Default: 2',

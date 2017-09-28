@@ -11,7 +11,7 @@ const VideoWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(VideoWidget, {
   title: 'Video',
   description: 'A widget with a video.',
-  attributes: {
+  attributesConfig: {
     source: {
       title: 'Video',
       description: 'Click to select or upload video. This should be of type video/mp4',

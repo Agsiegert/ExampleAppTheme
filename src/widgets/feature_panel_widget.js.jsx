@@ -13,7 +13,7 @@ Scrivito.provideEditingConfig(FeaturePanelWidget, {
   title: 'Feature Panel',
   description:
     'A feature panel, with an icon to the left and a headline and description to the right.',
-  attributes: {
+  attributesConfig: {
     icon: {
       title: 'Icon',
       description: 'Which icon should be shown? Default: fa-check',

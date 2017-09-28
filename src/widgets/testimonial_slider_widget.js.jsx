@@ -21,7 +21,7 @@ Scrivito.registerClass('TestimonialSliderWidget', TestimonialSliderWidget);
 Scrivito.provideEditingConfig(TestimonialSliderWidget, {
   title: 'Testimonial Slider',
   description: 'A testimonial slider',
-  attributes: {
+  attributesConfig: {
     testimonials: {
       title: 'Testimonials',
       description: 'The list of testimonials',

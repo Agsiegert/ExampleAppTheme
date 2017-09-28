@@ -19,7 +19,7 @@ Scrivito.registerClass('TestimonialWidget', TestimonialWidget);
 Scrivito.provideEditingConfig(TestimonialWidget, {
   title: 'Testimonial',
   description: 'A testimonial',
-  attributes: {
+  attributesConfig: {
     testimonial: {
       title: 'Testimonial',
       description: 'The testimonial.',

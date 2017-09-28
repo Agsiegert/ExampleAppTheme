@@ -18,7 +18,7 @@ const GoogleMapsWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(GoogleMapsWidget, {
   title: 'Google Maps',
   description: 'A widget with google maps.',
-  attributes: {
+  attributesConfig: {
     address: {
       title: 'Address',
       description: 'The address that should be shown on the map.'

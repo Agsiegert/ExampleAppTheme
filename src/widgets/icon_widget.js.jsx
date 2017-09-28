@@ -13,7 +13,7 @@ const IconWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(IconWidget, {
   title: 'Icon',
   description: 'A widget with a font awesome icon. See http://fontawesome.io/icons/ for all icons.',
-  attributes: {
+  attributesConfig: {
     icon: {
       title: 'Icon',
       description: 'The name of the icon. E.g. "fa-address-book"',

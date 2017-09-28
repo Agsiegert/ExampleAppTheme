@@ -12,7 +12,7 @@ const BlogOverviewWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(BlogOverviewWidget, {
   title: 'Blog Overview',
   description: 'A widget with up to four blog posts',
-  attributes: {
+  attributesConfig: {
     maxItems: {
       title: 'Max Items',
       description: 'How many items should be shown? Leave it empty, to show all items.',

@@ -15,7 +15,7 @@ Scrivito.registerClass('CarouselWidget', CarouselWidget);
 Scrivito.provideEditingConfig(CarouselWidget, {
   title: 'Carousel',
   description: 'A widget with sliding images.',
-  attributes: {
+  attributesConfig: {
     images: {
       title: 'Images',
       description: 'The list of images.',

@@ -30,7 +30,7 @@ Scrivito.registerClass('BlogPost', BlogPost);
 Scrivito.provideEditingConfig(BlogPost, {
   title: 'BlogPost',
   description: 'A BlogPost.',
-  attributes: {
+  attributesConfig: {
     author: {
       title: 'Author',
       description: 'The author of the blogpost.',

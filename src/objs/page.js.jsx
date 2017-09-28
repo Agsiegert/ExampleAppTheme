@@ -29,7 +29,7 @@ Scrivito.registerClass('Page', Page);
 Scrivito.provideEditingConfig(Page, {
   title: 'Page',
   description: 'A regular page.',
-  attributes: {
+  attributesConfig: {
     ...defaultPageUiConfigAttributes,
   },
   titleForContent: obj => obj.get('title'),

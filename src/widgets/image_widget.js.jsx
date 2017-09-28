@@ -10,7 +10,7 @@ const ImageWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(ImageWidget, {
   title: 'Image',
   description: 'A widget with an image.',
-  attributes: {
+  attributesConfig: {
     cssClass: {
       title: 'CSS Class',
       description: 'Optional css class for the img tag',

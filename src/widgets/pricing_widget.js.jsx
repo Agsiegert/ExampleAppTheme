@@ -33,7 +33,7 @@ const PricingWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(PricingWidget, {
   title: 'Pricing',
   description: 'A pricing widget',
-  attributes: {
+  attributesConfig: {
     currency: {
       title: 'Currency',
       description: 'Which currency is used (e.g. € or $).',

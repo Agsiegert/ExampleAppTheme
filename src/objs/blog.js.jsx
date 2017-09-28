@@ -21,7 +21,7 @@ Scrivito.registerClass('Blog', Blog);
 Scrivito.provideEditingConfig(Blog, {
   title: 'Blog',
   description: 'A Blog.',
-  attributes: {
+  attributesConfig: {
     title: {
       title: 'Title',
       description: 'Title of the blog. Only used for the navigation',

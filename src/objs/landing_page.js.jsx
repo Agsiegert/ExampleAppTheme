@@ -15,7 +15,7 @@ Scrivito.registerClass('LandingPage', LandingPage);
 Scrivito.provideEditingConfig(LandingPage, {
   title: 'LandingPage',
   description: 'A landing page.',
-  attributes: {
+  attributesConfig: {
     ...defaultPageUiConfigAttributes,
   },
   titleForContent: obj => obj.get('title'),

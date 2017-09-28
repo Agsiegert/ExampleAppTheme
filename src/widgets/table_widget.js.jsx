@@ -24,7 +24,7 @@ Scrivito.registerClass('TableWidget', TableWidget);
 Scrivito.provideEditingConfig(TableWidget, {
   title: 'Table',
   description: 'A table widget.',
-  attributes: {
+  attributesConfig: {
     currency: {
       title: 'Currency symbol',
       description: 'The symbol of the currency. E.g. € or $.',

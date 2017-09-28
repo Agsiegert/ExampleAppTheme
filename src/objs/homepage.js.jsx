@@ -32,7 +32,7 @@ Scrivito.registerClass('Homepage', Homepage);
 Scrivito.provideEditingConfig(Homepage, {
   title: 'Homepage',
   description: 'A Homepage. This class is only intended for Obj.root() (aka "_path" "/")',
-  attributes: {
+  attributesConfig: {
     ...defaultPageUiConfigAttributes,
     logoWhite: {
       title: 'Logo White',

@@ -27,7 +27,7 @@ const TableRowWidgetComponent = Scrivito.connect(PlainTableRowWidgetComponent);
 Scrivito.provideEditingConfig(TableRowWidget, {
   title: 'TableRowWidget',
   description: 'A table row widget.',
-  attributes: {
+  attributesConfig: {
     feature: {
       title: 'Feature name',
       description: 'The name of the feature described by this row.',
