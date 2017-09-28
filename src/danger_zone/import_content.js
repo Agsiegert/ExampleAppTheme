@@ -110,6 +110,8 @@ const LandingPage = Scrivito.getClass('LandingPage');
 const Page = Scrivito.getClass('Page');
 const Video = Scrivito.getClass('Video');
 
+const AddressListItemWidget = Scrivito.getClass('AddressListItemWidget');
+const AddressWidget = Scrivito.getClass('AddressWidget');
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
@@ -353,6 +355,22 @@ function carouselProjectDescription({ target }) {
   ];
 }
 
+function createAddressWidget({ showBorderBottom }) {
+  return new AddressWidget({
+    showLogo: 'yes',
+    showBorderBottom: showBorderBottom ? 'yes' : 'no',
+    address: '<p>25 Lorem Lis Street<br>Orange California, US</p>',
+    listItems: [
+      new AddressListItemWidget(
+        { key: 'Phone:', value: '<a href="tel:+8001233567">800 123 3567</a>' }),
+      new AddressListItemWidget(
+        { key: 'Fax:', value: '<a href="tel:+8004664422">800 466 4422</a>' }),
+      new AddressListItemWidget(
+        { key: 'Mail:', value: '<a href="mailto:mail@example.com">mail@example.com</a>' }),
+    ],
+  });
+}
+
 function importContent() {
   allExistingBinaries().then(binaries => {
     existingBinaries = binaries;
@@ -568,6 +586,7 @@ function importContent() {
               address: 'TV tower, Berlin, Germany',
               zoom: '15',
               content: [
+                createAddressWidget({ showBorderBottom: true }),
                 createRandomIconListWidget(),
               ],
             }),
@@ -2652,23 +2671,6 @@ function importContent() {
     });
 
     // Footer
-    const logoWidget = new ImageWidget({
-      image: scrivitoLogoDark,
-      cssClass: 'logo',
-    });
-    const address = new TextWidget({
-      text: `<address>
-        25, Lorem Lis Street, Orange <br>
-        California, US<br>
-        <br>
-        <table>
-          <tr><td>Phone: </td><td><a href="tel:+8001233567">800 123 3567</a></td></tr>
-          <tr><td>Fax:   </td><td><a href="tel:+8004664422">800 466 4422</a></td></tr>
-          <tr><td>Mail:  </td><td><a href="mailto:info@scrivito.com">info@scrivito.com</a></td></tr>
-        </table>
-      </address>
-      `,
-    });
     const footerLinks1 = new PageListWidget({
       headline: 'Homepages',
       pages: [root, homeV1, homeV2, landingPage],
@@ -2685,7 +2687,7 @@ function importContent() {
           content: [
             new ColumnWidget({
               nrOfColumns: '3',
-              column1: [logoWidget, address],
+              column1: [createAddressWidget({ showBorderBottom: false })],
               column2: [footerLinks1],
               column3: [footerLinks2],
             }),
