@@ -1,13 +1,12 @@
 function navigateToBlogWithTag(tag) {
-  const params = Scrivito.currentPageParams();
-  delete params.tag;
+  const params = {};
   if (tag) {
     params.tag = tag;
   }
 
   Scrivito.navigateTo(
     () => Scrivito.Obj.getByPermalink('blog'),
-    { params }
+    params
   );
 }
 
