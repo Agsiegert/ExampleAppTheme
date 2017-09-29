@@ -1,9 +1,8 @@
 function navigateToBlogWithTag(tag) {
   const params = Scrivito.currentPageParams();
+  delete params.tag;
   if (tag) {
     params.tag = tag;
-  } else {
-    delete params.tag;
   }
 
   Scrivito.navigateTo(
