@@ -36,9 +36,9 @@ Scrivito.provideEditingConfig(Blog, {
   titleForContent: obj => obj.get('title'),
 });
 
-Scrivito.provideComponent(Blog, ({ page }) => {
+Scrivito.provideComponent(Blog, ({ page, params }) => {
   const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name());
-  const currentTag = Scrivito.currentPageParams().tag;
+  const currentTag = params.tag;
 
   return (
     <div>
