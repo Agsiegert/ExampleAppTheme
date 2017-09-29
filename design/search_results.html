@@ -32,15 +32,17 @@
               <div class="search-box">
 
                 <div class="input-group">
-                  <input class="form-control" placeholder="Search...">
-                  <div class="input-group-btn">
-                    <button type="button" class="btn btn-search">
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="btn btn-clear-white" onclick="$('#navbar').removeClass('in');$('.navbar').toggleClass('show-search');$('.navbar-toggle').addClass('collapsed');">
-                      <i class="fa fa-times-circle " aria-hidden="true"></i>
-                    </button>
-                  </div>
+                  <form>
+                    <input class="form-control" placeholder="Search...">
+                    <div class="input-group-btn">
+                      <button type="submit" class="btn btn-search">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" class="btn btn-clear-white" onclick="$('#navbar').removeClass('in');$('.navbar').toggleClass('show-search');$('.navbar-toggle').addClass('collapsed');">
+                        <i class="fa fa-times-circle " aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </form>
                 </div>
 
               </div>
@@ -118,8 +120,10 @@
             <div class="nav-centered">
 
               <div class="input-group">
-                <input class="form-control" placeholder="Search for..." value="foo bar">
-                <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="hidden-xs">Search again</span><i class="fa fa-search fa-1" aria-hidden="true"></i></button></span>
+                <form>
+                  <input class="form-control" placeholder="Search for..." value="foo bar">
+                  <span class="input-group-btn"><button class="btn btn-primary" type="submit"><span class="hidden-xs">Search again</span><i class="fa fa-search fa-1" aria-hidden="true"></i></button></span>
+                </form>
               </div>
 
             </div>
