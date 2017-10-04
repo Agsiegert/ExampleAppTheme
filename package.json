@@ -50,7 +50,7 @@
   "scripts": {
     "build": "npm run build:clean && npm run build:package",
     "build:clean": "rm -rf build/ && mkdir -p build/",
-    "build:package": "webpack --env.production",
+    "build:package": "webpack -p",
     "serve": "webpack-dev-server",
     "serve:design": "webpack-dev-server --config webpack.design.config.js",
     "scrivito": "npm run scrivito:build && npm run scrivito:copy && npm run scrivito:commit",
