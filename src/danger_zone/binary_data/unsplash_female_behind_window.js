@@ -2,5 +2,5 @@
 
 export default {
   filename: 'joshua-reddekopp-239860.jpg',
-  url: 'http://unsplash.com/photos/v9Fc-01SPyw/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/joshua-reddekopp-239860.jpg',
 };

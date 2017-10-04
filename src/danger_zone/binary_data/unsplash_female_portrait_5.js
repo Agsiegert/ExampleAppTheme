@@ -2,5 +2,5 @@
 
 export default {
   filename: 'christiana-rivers-249934.jpg',
-  url: 'https://unsplash.com/photos/O_XIvDy0pcs/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/christiana-rivers-249934.jpg',
 };

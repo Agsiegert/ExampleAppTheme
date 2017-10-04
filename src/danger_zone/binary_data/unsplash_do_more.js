@@ -2,5 +2,5 @@
 
 export default {
   filename: 'carl-heyerdahl-181868.jpg',
-  url: 'https://unsplash.com/photos/KE0nC8-58MQ/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/carl-heyerdahl-181868.jpg',
 };

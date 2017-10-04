@@ -2,5 +2,5 @@
 
 export default {
   filename: 'luke-chesser-2347.jpg',
-  url: 'https://unsplash.com/photos/a2NRu2Wxa2o/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/luke-chesser-2347.jpg',
 };

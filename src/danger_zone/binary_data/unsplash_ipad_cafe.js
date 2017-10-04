@@ -2,5 +2,5 @@
 
 export default {
   filename: 'chris-adamus-30862.jpg',
-  url: 'https://unsplash.com/photos/bmQnfhQbn8E/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/chris-adamus-30862.jpg',
 };

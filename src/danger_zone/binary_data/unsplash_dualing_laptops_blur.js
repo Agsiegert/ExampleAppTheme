@@ -2,5 +2,5 @@
 
 export default {
   filename: 'markus-spiske-37930.jpg',
-  url: 'https://unsplash.com/photos/fFRG_YEaOuE/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/markus-spiske-37930.jpg',
 };

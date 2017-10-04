@@ -2,5 +2,5 @@
 
 export default {
   filename: 'florian-giorgio-141622.jpg',
-  url: 'https://unsplash.com/photos/a_WYq3D86ic/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/florian-giorgio-141622.jpg',
 };

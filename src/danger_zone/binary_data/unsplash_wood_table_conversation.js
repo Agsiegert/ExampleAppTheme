@@ -2,5 +2,5 @@
 
 export default {
   filename: 'nik-macmillan-280300.jpg',
-  url: 'https://unsplash.com/photos/YXemfQiPR_E/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/nik-macmillan-280300.jpg',
 };

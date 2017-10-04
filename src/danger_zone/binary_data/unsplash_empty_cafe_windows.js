@@ -2,5 +2,5 @@
 
 export default {
   filename: 'matt-hoffman-277877.jpg',
-  url: 'https://unsplash.com/photos/Q0AM87PsYkE/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/matt-hoffman-277877.jpg',
 };

@@ -2,5 +2,5 @@
 
 export default {
   filename: 'sabri-tuzcu-182689.jpg',
-  url: 'http://unsplash.com/photos/wkO0q0UTqc8/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/sabri-tuzcu-182689.jpg',
 };

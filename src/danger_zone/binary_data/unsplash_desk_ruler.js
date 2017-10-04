@@ -2,5 +2,5 @@
 
 export default {
   filename: 'jeff-sheldon-3231.jpg',
-  url: 'http://unsplash.com/photos/JWiMShWiF14/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/jeff-sheldon-3231.jpg',
 };

@@ -2,5 +2,5 @@
 
 export default {
   filename: 'rawpixel-com-252127.jpg',
-  url: 'http://unsplash.com/photos/yx7MRPsTgss/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/rawpixel-com-252127.jpg',
 };

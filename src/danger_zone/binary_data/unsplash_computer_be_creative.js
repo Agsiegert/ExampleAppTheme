@@ -2,5 +2,5 @@
 
 export default {
   filename: 'angelo-pantazis-180828.jpg',
-  url: 'https://unsplash.com/photos/MQI75GpnuNk/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/angelo-pantazis-180828.jpg',
 };

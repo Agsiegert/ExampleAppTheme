@@ -2,5 +2,5 @@
 
 export default {
   filename: 'garrhet-sampson-178990.jpg',
-  url: 'https://unsplash.com/photos/CmF_5GYc6c0/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/garrhet-sampson-178990.jpg',
 };

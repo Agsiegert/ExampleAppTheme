@@ -2,5 +2,5 @@
 
 export default {
   filename: 'oliver-thomas-klein-144899.jpg',
-  url: 'https://unsplash.com/photos/U_5BNLNfPn4/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/oliver-thomas-klein-144899.jpg',
 };

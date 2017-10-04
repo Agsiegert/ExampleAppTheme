@@ -2,5 +2,5 @@
 
 export default {
   filename: 'aatik-tasneem-138230.jpg',
-  url: 'https://unsplash.com/photos/7omHUGhhmZ0/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/aatik-tasneem-138230.jpg',
 };

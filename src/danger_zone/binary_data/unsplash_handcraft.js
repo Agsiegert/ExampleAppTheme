@@ -2,5 +2,5 @@
 
 export default {
   filename: 'giovanni-randisi-219945.jpg',
-  url: 'http://unsplash.com/photos/eb1wlORlADA/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/giovanni-randisi-219945.jpg',
 };

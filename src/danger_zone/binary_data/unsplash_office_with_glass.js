@@ -2,5 +2,5 @@
 
 export default {
   filename: 'nastuh-abootalebi-284883.jpg',
-  url: 'http://unsplash.com/photos/eHD8Y1Znfpk/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/nastuh-abootalebi-284883.jpg',
 };
