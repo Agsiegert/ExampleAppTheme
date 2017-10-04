@@ -43,7 +43,7 @@
     "react-slick": "^0.14.11",
     "sass-loader": "^6.0.6",
     "slick-carousel": "^1.6.0",
-    "striptags": "^3.0.1",
+    "striptags": "^2.2.1",
     "webpack": "^3.5.4",
     "webpack-dev-server": "^2.7.1"
   },
