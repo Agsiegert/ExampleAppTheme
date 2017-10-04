@@ -5,7 +5,7 @@ This is a showcase app, how [Scrivito](https://scrivito.com) is working as a Jav
 ## Prerequisites
 
 * [node](https://nodejs.org/en/) >= 8.0.0
-* [npm](https://www.npmjs.com/get-npm) >= 4.0.0 (already part of nodejs 8.x).
+* [npm](https://www.npmjs.com/get-npm) >= 5.0.0 (already part of nodejs 8.x).
 
 Now simply call `npm install` in the commandline to install all js dependencies (which are places in the folder `node_modules/`).
 
