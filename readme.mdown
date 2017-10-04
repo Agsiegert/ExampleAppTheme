@@ -4,23 +4,22 @@ This is a showcase app, how [Scrivito](https://scrivito.com) is working as a Jav
 
 ## Prerequisites
 
-You need [`node`](https://nodejs.org/en/) installed. If you are on MacOS a simple `brew install nodejs@7.10` should do the trick (given, that you have [`brew`](https://brew.sh) installed).
+* [node](https://nodejs.org/en/) >= 8.0.0
+* [npm](https://www.npmjs.com/get-npm) >= 4.0.0 (already part of nodejs 8.x).
 
-You also need [`yarn`](https://yarnpkg.com/lang/en/) installed. On MacOS a simple `brew install yarn` should do the trick.
-
-Now simply call `yarn` in the commandline to install all js dependencies (which are places in the folder `node_modules/`).
+Now simply call `npm install` in the commandline to install all js dependencies (which are places in the folder `node_modules/`).
 
 ## How to build/compile
 
-Calling `yarn build` will compile all js, html and css and place it in the `build/` folder.
+Calling `npm run build` will compile all js, html and css and place it in the `build/` folder.
 
 ## How to develop
 
-Calling `yarn serve` will start a webserver, which listens to [localhost:8080](http://localhost:8080/). It should also automatically reload the page, once changes to the code (in `src/` have been made).
+Calling `npm run serve` will start a webserver, which listens to [localhost:8080](http://localhost:8080/). It should also automatically reload the page, once changes to the code (in `src/` have been made).
 
 ## How to develop design
 
-Calling `yarn serve:design` will start a webserver, which listens to [localhost:4000](http://localhost:4000/). It will serve all files from the folder `design/` and the file `src/assets/stylesheets/index.scss` as [http://localhost:4000/index.css](http://localhost:4000/index.css).
+Calling `npm run serve:design` will start a webserver, which listens to [localhost:4000](http://localhost:4000/). It will serve all files from the folder `design/` and the file `src/assets/stylesheets/index.scss` as [http://localhost:4000/index.css](http://localhost:4000/index.css).
 
 ## How to reset/import content
 
