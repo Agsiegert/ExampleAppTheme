@@ -2,6 +2,10 @@
   "name": "example_app_js",
   "description": "Scrivito Example App JS",
   "license": "MIT",
+  "engines": {
+    "node": "^8.0.0",
+    "npm": "^4.0.0"
+  },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
