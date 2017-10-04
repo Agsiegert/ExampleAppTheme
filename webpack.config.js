@@ -21,7 +21,10 @@ module.exports = (env = {}) => {
             {
               loader: 'babel-loader',
               options: {
-                presets: ['react', 'es2015', 'es2016', 'es2017'],
+                presets: [
+                  'react',
+                  ['env', { targets: { browsers: ['last 2 versions', 'ie >= 11'] } }],
+                ],
                 plugins: ['transform-object-rest-spread', 'array-includes'],
                 cacheDirectory: 'tmp/babel-cache',
               },
