@@ -51,19 +51,24 @@ import unsplashFemalePortrait4Data from './binary_data/unsplash_female_portrait_
 import unsplashFemalePortrait4SquareData from './binary_data/unsplash_female_portrait_4_square';
 import unsplashFemalePortrait5Data from './binary_data/unsplash_female_portrait_5';
 import unsplashFemalePortrait5SquareData from './binary_data/unsplash_female_portrait_5_square';
+import unsplashFinanceIpadCoffeeData from './binary_data/unsplash_finance_ipad_coffee';
 import unsplashGlassesOnMacData from './binary_data/unsplash_glasses_on_mac';
 import unsplashGlovedTweedData from './binary_data/unsplash_gloved_tweed';
 import unsplashGoldWatchCufflinksData from './binary_data/unsplash_gold_watch_cufflinks';
 import unsplashGrandCentralStationData from './binary_data/unsplash_grand_central_station';
 import unsplashHandcraftData from './binary_data/unsplash_handcraft';
 import unsplashHighriseData from './binary_data/unsplash_highrise';
+import unsplashHoleyKneesCollageData from './binary_data/unsplash_holey_knees_collage';
 import unsplashHotpinkData from './binary_data/unsplash_hotpink_nails_iphone_macbook_fob';
 import unsplashHustleMugData from './binary_data/unsplash_hustle_mug';
 import unsplashiPadChartsData from './binary_data/unsplash_strips_and_charts';
 import unsplashLadyInCoffeeShopData from './binary_data/unsplash_lady_in_coffee_shop';
+import unsplashLadyWalkingNightData from './binary_data/unsplash_lady_walking_night';
 import unsplashLaptopKeyboardData from './binary_data/unsplash_laptop_keyboard';
 import unsplashLongWhiteTableData from './binary_data/unsplash_long_white_tables_black_chairs';
+import unsplashLookupHighriseData from './binary_data/unsplash_lookup_highrises';
 import unsplashMacbookDeveloperData from './binary_data/unsplash_macbook_developer';
+import unsplashMainstreetBlackcoatData from './binary_data/unsplash_mainstreet_blackcoat';
 import unsplashMalePortrait1Data from './binary_data/unsplash_male_portrait_1';
 import unsplashMalePortrait1SquareData from './binary_data/unsplash_male_portrait_1_square';
 import unsplashMalePortrait2Data from './binary_data/unsplash_male_portrait_2';
@@ -71,6 +76,9 @@ import unsplashMalePortrait2SquareData from './binary_data/unsplash_male_portrai
 import unsplashMalePortrait3Data from './binary_data/unsplash_male_portrait_3';
 import unsplashMalePortrait3SquareData from './binary_data/unsplash_male_portrait_3_square';
 import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sunglasses';
+import unsplashManCheckingWatchData from './binary_data/unsplash_man_checking_watch';
+import unsplashManTieStraightenData from './binary_data/unsplash_man_tie_straighten';
+import unsplashMeetingRoomMetalData from './binary_data/unsplash_meeting_room_metal_chairs';
 import unsplashMouseWoodenDeskData from './binary_data/unsplash_mouse_wooden_desk';
 import unsplashNeonTrueData from './binary_data/unsplash_neon_true';
 import unsplashNightBuildingData from './binary_data/unsplash_night_building';
@@ -423,19 +431,24 @@ function importContent() {
     const unsplashFemalePortrait4Square = uploadImage(unsplashFemalePortrait4SquareData, 'Female Portrait 4 (Square)', [...UNSPLASH_TAGS, 'square']);
     uploadImage(unsplashFemalePortrait5Data, 'Female Portrait 5', UNSPLASH_TAGS);
     const unsplashFemalePortrait5Square = uploadImage(unsplashFemalePortrait5SquareData, 'Female Portrait 5 (Square)', [...UNSPLASH_TAGS, 'square']);
+    const unsplashFinanceIpadCoffee = uploadImage(unsplashFinanceIpadCoffeeData, 'Finance Ipad Coffee', UNSPLASH_TAGS);
     const unsplashGlassesOnMac = uploadImage(unsplashGlassesOnMacData, 'Glasses on Mac', UNSPLASH_TAGS);
     const unsplashGlovedTweed = uploadImage(unsplashGlovedTweedData, 'Gloved Tweed', UNSPLASH_TAGS);
     const unsplashGoldWatchCufflinks = uploadImage(unsplashGoldWatchCufflinksData, 'Gold Watch Cufflinks', UNSPLASH_TAGS);
     const unsplashGrandCentralStation = uploadImage(unsplashGrandCentralStationData, 'Grand Central Station', UNSPLASH_TAGS);
     const unsplashHandcraft = uploadImage(unsplashHandcraftData, 'Handcraft', UNSPLASH_TAGS);
     const unsplashHighrise = uploadImage(unsplashHighriseData, 'Highrise', UNSPLASH_TAGS);
+    const unsplashHoleyKneesCollage = uploadImage(unsplashHoleyKneesCollageData, 'Holey Knees Collage', UNSPLASH_TAGS);
     const unsplashHotpink = uploadImage(unsplashHotpinkData, 'Hotpink', UNSPLASH_TAGS);
     const unsplashHustleMug = uploadImage(unsplashHustleMugData, 'Hustle Mug', UNSPLASH_TAGS);
     const unsplashiPadCharts = uploadImage(unsplashiPadChartsData, 'iPad charts', UNSPLASH_TAGS);
     const unsplashLadyInCoffeeShop = uploadImage(unsplashLadyInCoffeeShopData, 'Lady in coffee shop', UNSPLASH_TAGS);
+    const unsplashLadyWalkingNight = uploadImage(unsplashLadyWalkingNightData, 'Lady walking at night', UNSPLASH_TAGS);
     const unsplashLaptopKeyboard = uploadImage(unsplashLaptopKeyboardData, 'Laptop keyboard', UNSPLASH_TAGS);
     const unsplashLongWhiteTable = uploadImage(unsplashLongWhiteTableData, 'Long white table', UNSPLASH_TAGS);
+    const unsplashLookupHighrise = uploadImage(unsplashLookupHighriseData, 'Looking up at highrise', UNSPLASH_TAGS);
     const unsplashMacbookDeveloper = uploadImage(unsplashMacbookDeveloperData, 'Developer MacBook', UNSPLASH_TAGS);
+    const unsplashMainstreetBlackcoat = uploadImage(unsplashMainstreetBlackcoatData, 'Mainstreet Blackcoat', UNSPLASH_TAGS);
     const unsplashMalePortrait1 = uploadImage(unsplashMalePortrait1Data, 'Male Portrait 1', UNSPLASH_TAGS);
     const unsplashMalePortrait1Square = uploadImage(unsplashMalePortrait1SquareData, 'Male Portrait 1 (Square)', [...UNSPLASH_TAGS, 'square']);
     const unsplashMalePortrait2 = uploadImage(unsplashMalePortrait2Data, 'Male Portrait 2', UNSPLASH_TAGS);
@@ -443,6 +456,9 @@ function importContent() {
     uploadImage(unsplashMalePortrait3Data, 'Male Portrait 3', UNSPLASH_TAGS);
     const unsplashMalePortrait3Square = uploadImage(unsplashMalePortrait3SquareData, 'Male Portrait 3 (Square)', [...UNSPLASH_TAGS, 'square']);
     const unsplashMaleWithSunglasses = uploadImage(unsplashMaleWithSunglassesData, 'Male with glasses', UNSPLASH_TAGS);
+    const unsplashManCheckingWatch = uploadImage(unsplashManCheckingWatchData, 'Man checking watch', UNSPLASH_TAGS);
+    const unsplashManTieStraighten = uploadImage(unsplashManTieStraightenData, 'Man straightening tie', UNSPLASH_TAGS);
+    const unsplashMeetingRoomMetal = uploadImage(unsplashMeetingRoomMetalData, 'Meeting room with metal chairs', UNSPLASH_TAGS);
     const unsplashMouseWoodenDesk = uploadImage(unsplashMouseWoodenDeskData, 'Mouse wooden desk', UNSPLASH_TAGS);
     const unsplashNeonTrue = uploadImage(unsplashNeonTrueData, 'Neon true', UNSPLASH_TAGS);
     const unsplashNightBuilding = uploadImage(unsplashNightBuildingData, 'Building at night', UNSPLASH_TAGS);
@@ -2273,42 +2289,42 @@ function importContent() {
                 new ThumbnailGalleryImageWidget({
                   title: 'Project 01',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
-                  image: unsplashWhiteMeetingRoom,
+                  image: unsplashFinanceIpadCoffee,
                 }),
                 new ThumbnailGalleryImageWidget({
                   title: 'Project 02',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
-                  image: unsplashHandcraft,
+                  image: unsplashHoleyKneesCollage,
                 }),
                 new ThumbnailGalleryImageWidget({
                   title: 'Project 03',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
-                  image: unsplashLaptopKeyboard,
+                  image: unsplashLadyWalkingNight,
                 }),
                 new ThumbnailGalleryImageWidget({
                   title: 'Project 04',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
-                  image: unsplashDeskRuler,
+                  image: unsplashLookupHighrise,
                 }),
                 new ThumbnailGalleryImageWidget({
                   title: 'Project 05',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
-                  image: unsplashOfficeWithGlass,
+                  image: unsplashMainstreetBlackcoat,
                 }),
                 new ThumbnailGalleryImageWidget({
                   title: 'Project 06',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
-                  image: unsplashOfficeWindow,
+                  image: unsplashManCheckingWatch,
                 }),
                 new ThumbnailGalleryImageWidget({
                   title: 'Project 07',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
-                  image: unsplashOutdoorMeeting,
+                  image: unsplashManTieStraighten,
                 }),
                 new ThumbnailGalleryImageWidget({
                   title: 'Project 08',
                   subtitle: loremIpsum({ units: 'words', count: 5 }),
-                  image: unsplashScreenWithClock,
+                  image: unsplashMeetingRoomMetal,
                 }),
               ],
             }),
