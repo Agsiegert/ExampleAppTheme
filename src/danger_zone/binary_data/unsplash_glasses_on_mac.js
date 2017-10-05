@@ -2,5 +2,5 @@
 
 export default {
   filename: 'craig-garner-202.jpg',
-  url: 'https://unsplash.com/photos/YoadQb46v6k/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/craig-garner-202.jpg',
 };

@@ -2,5 +2,5 @@
 
 export default {
   filename: 'breather-163395.jpg',
-  url: 'https://unsplash.com/photos/1Yu0VLMAUjo/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/breather-163395.jpg',
 };

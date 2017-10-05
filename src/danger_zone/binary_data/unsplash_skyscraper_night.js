@@ -2,5 +2,5 @@
 
 export default {
   filename: 'rikki-chan-122581.jpg',
-  url: 'https://unsplash.com/photos/DqKfhGbI-sg/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/rikki-chan-122581.jpg',
 };

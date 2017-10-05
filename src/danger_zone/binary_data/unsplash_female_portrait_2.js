@@ -2,5 +2,5 @@
 
 export default {
   filename: 'christopher-campbell-28567.jpg',
-  url: 'https://unsplash.com/photos/rDEOVtE7vOs/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/christopher-campbell-28567.jpg',
 };

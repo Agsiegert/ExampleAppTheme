@@ -2,5 +2,5 @@
 
 export default {
   filename: 'glenn-carstens-peters-203007.jpg',
-  url: 'http://unsplash.com/photos/npxXWgQ33ZQ/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/glenn-carstens-peters-203007.jpg',
 };

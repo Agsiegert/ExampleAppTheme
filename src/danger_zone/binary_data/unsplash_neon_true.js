@@ -2,5 +2,5 @@
 
 export default {
   filename: 'jarrod-fitzgearlds-238343.jpg',
-  url: 'https://unsplash.com/photos/Aa2h3S3E47k/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/jarrod-fitzgearlds-238343.jpg',
 };

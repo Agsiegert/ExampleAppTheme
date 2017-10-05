@@ -2,5 +2,5 @@
 
 export default {
   filename: 'hipster-mum-236831.jpg',
-  url: 'https://unsplash.com/photos/Ri17WyRuclo/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/hipster-mum-236831.jpg',
 };

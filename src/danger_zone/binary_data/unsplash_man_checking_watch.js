@@ -2,5 +2,5 @@
 
 export default {
   filename: 'andrea-natali-267263.jpg',
-  url: 'https://unsplash.com/photos/otjiUhq5Zcw/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/andrea-natali-267263.jpg',
 };

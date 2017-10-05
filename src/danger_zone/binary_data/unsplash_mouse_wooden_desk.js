@@ -2,5 +2,5 @@
 
 export default {
   filename: 'luca-bravo-210213.jpg',
-  url: 'https://unsplash.com/photos/ujhKqutt3f0/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/luca-bravo-210213.jpg',
 };

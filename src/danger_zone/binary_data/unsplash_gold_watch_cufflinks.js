@@ -2,5 +2,5 @@
 
 export default {
   filename: 'jonna-fransa-227556.jpg',
-  url: 'https://unsplash.com/photos/YHbcum51JB0/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/jonna-fransa-227556.jpg',
 };

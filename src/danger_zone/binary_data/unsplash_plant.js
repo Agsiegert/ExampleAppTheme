@@ -2,5 +2,5 @@
 
 export default {
   filename: 'alvin-engler-48444.jpg',
-  url: 'http://unsplash.com/photos/bIhpiQA009k/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/alvin-engler-48444.jpg',
 };

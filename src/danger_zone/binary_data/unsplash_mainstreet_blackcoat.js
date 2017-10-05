@@ -2,5 +2,5 @@
 
 export default {
   filename: 'priscilla-du-preez-95306.jpg',
-  url: 'https://unsplash.com/photos/7Dpl31Dlk10/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/priscilla-du-preez-95306.jpg',
 };

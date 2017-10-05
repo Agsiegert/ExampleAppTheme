@@ -2,5 +2,5 @@
 
 export default {
   filename: 'helloquence-51716.jpg',
-  url: 'https://unsplash.com/photos/OQMZwNd3ThU/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/helloquence-51716.jpg',
 };

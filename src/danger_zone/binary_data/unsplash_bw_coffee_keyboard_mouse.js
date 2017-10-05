@@ -2,5 +2,5 @@
 
 export default {
   filename: 'rayi-christian-wicaksono-366.jpg',
-  url: 'https://unsplash.com/photos/6PF6DaiWz48/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/rayi-christian-wicaksono-366.jpg',
 };

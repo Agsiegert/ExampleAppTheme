@@ -2,5 +2,5 @@
 
 export default {
   filename: 'brooke-cagle-195777.jpg',
-  url: 'http://unsplash.com/photos/WHWYBmtn3_0/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/brooke-cagle-195777.jpg',
 };

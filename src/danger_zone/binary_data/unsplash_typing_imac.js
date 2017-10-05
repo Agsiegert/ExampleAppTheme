@@ -2,5 +2,5 @@
 
 export default {
   filename: 'ilya-pavlov-87472.jpg',
-  url: 'https://unsplash.com/photos/wbXdGS_D17U/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/ilya-pavlov-87472.jpg',
 };

@@ -2,5 +2,5 @@
 
 export default {
   filename: 'fuse-brussels-273772.jpg',
-  url: 'https://unsplash.com/photos/JI01fn0U7Cg/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/fuse-brussels-273772.jpg',
 };

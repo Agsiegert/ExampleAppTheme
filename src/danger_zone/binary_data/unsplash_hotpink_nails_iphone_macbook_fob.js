@@ -2,5 +2,5 @@
 
 export default {
   filename: 'william-iven-8515.jpg',
-  url: 'https://unsplash.com/photos/SpVHcbuKi6E/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/william-iven-8515.jpg',
 };

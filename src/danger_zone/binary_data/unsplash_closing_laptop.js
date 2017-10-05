@@ -2,5 +2,5 @@
 
 export default {
   filename: 'christopher-gower-291240.jpg',
-  url: 'https://unsplash.com/photos/vjMgqUkS8q8/download?force=true',
+  url: 'https://scrivito-example-binary-content.s3-eu-west-1.amazonaws.com/images/unsplash/christopher-gower-291240.jpg',
 };
