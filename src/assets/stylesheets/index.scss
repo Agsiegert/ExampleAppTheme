@@ -111,6 +111,8 @@ $input-border-focus:             $btn-primary-color !default;
 @import "_bootstrap";
 @import "_fontawesome";
 @import "_social_cards";
+@import "_grid_layout_editor";
+
 
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Source+Sans+Pro:300,400,600,700');
 
@@ -243,7 +245,6 @@ mark,
 small, .small { font-size: 80%; line-height: 1.5em; }
 .bg-dark-image .small { color: rgba(255,255,255,.7)!important; }
 
-
 .date,
 .author { font-size: 11px; padding-right: 5px; line-height: 1.5em; }
 
@@ -283,7 +284,6 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 .btn-clear:active,
 .btn-clear:focus  { box-shadow: none!important; }
 
-
 .btn-white-transparent { background: rgba(255, 255, 255, 0.1); color: $brand-secondary; }
 .btn-white-transparent:hover { background: rgba(255, 255, 255, 0.2); }
 .btn-round { display: inline-block; width: 50px; height: 50px; border-radius: 50%; text-align: center; }
@@ -292,7 +292,6 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 .btn-round:hover { cursor: pointer; }
 .bg-dark-image .btn-round { position: absolute; bottom: 30px; left: 50%; margin:0 0 0 -25px;}
 
-
 /* animated hamburger
 =================================================================== */
 
@@ -300,7 +299,6 @@ $speed: 200ms;
 $easing: cubic-bezier(0.7, 0, 0, 0.7);
 
 .navbar-toggle {
-
   .icon-bar {
     transition: opacity, top, transform;
     transition-duration: $speed;
@@ -331,7 +329,6 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 }
 
 
-
 /* sections
 =================================================================== */
 
@@ -344,7 +341,6 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-white,
 .bg-brand-primary,
 .bg-brand-secondary, { padding: 60px 0; clear: both; position: relative; }
-
 
 .bg-dark-image,
 .bg-grey,
@@ -387,10 +383,32 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greydark,
 .bg-greymiddle,
  {
-  p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    color: #fff;
+  p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .table-features, {
+    color: #fff!important;
   }
 }
+
+
+footer {
+  .bg-dark-image,
+  .bg-brand-primary,
+  .bg-brand-secondary,
+  .bg-grey,
+  .bg-greydark,
+  .bg-greymiddle,
+   {
+    p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
+    .table-features, ul li a, ul li span,
+    address, address a {
+      color: #fff!important;
+    }
+  }
+}
+
+
+
+.bg-brand-primary,
+.bg-brand-secondary { .fa { color: #fff!important; }}
 
 /* content align */
 
@@ -839,7 +857,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 .timeline > li.timeline-divider time {
   display: block; text-align: center;
-  margin:0; @extend .h4;
+  margin:0; @extend .h4; color: $theme-greymiddle!important;
   }
 .timeline > li > .timeline-panel { width: 100%; float: left; border: 1px solid #eee; position: relative; }
 .timeline > li > .timeline-panel:before {
@@ -883,6 +901,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .timeline-body { padding: 30px 30px 10px 30px; }
 .timeline-footer { padding: 0 30px 30px 30px; }
 .timeline-body a { color: $theme-grey;}
+
 @media (max-width: $screen-md-min) {
 
   .timeline:before { left: 40px; }
@@ -1004,10 +1023,10 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 .box-card .box-topic .fa-angle-right {
   font-size: 50px; position: absolute; display: block;
-  bottom: 28px; right: 30px;color: $brand-secondary;
+  bottom: 28px; right: 30px;color: $brand-secondary!important;
   }
-.box-card .box-topic .h3 { margin:0; color: $theme-greydark;}
-.box-card .box-topic span i { color: $brand-secondary; padding: 0 10px 0 0; }
+.box-card .box-topic .h3 { margin:0; color: $theme-greydark!important;}
+.box-card .box-topic span i { color: $brand-secondary!important; padding: 0 10px 0 0; }
 .box-card .box-topic span { display: table; }
 .box-card .box-topic span span {
   display: table-cell; vertical-align: middle;
@@ -1240,7 +1259,7 @@ footer {
   table td { padding: 0 5px 0 0; }
 
   .social-links { padding: 20px 0; }
-  .social-links i { color: $brand-secondary; font-size: 20px; padding: 0 20px; }
+  .social-links i { font-size: 20px; padding: 0 20px; }
   }
 
 /*  sticky footer for react world
