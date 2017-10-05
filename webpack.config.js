@@ -23,9 +23,9 @@ module.exports = (env = {}) => {
               options: {
                 presets: [
                   'react',
-                  ['env', { targets: { browsers: ['last 2 versions', 'ie >= 11'] } }],
+                  ['env', { targets: { browsers: ['last 2 versions', 'ie >= 10'] }, debug: false }],
                 ],
-                plugins: ['transform-object-rest-spread', 'array-includes'],
+                plugins: ['transform-object-rest-spread'],
                 cacheDirectory: 'tmp/babel-cache',
               },
             },
