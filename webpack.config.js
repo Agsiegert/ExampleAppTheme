@@ -1,7 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const buildPath = 'build';
 
 module.exports = (env = {}) => {
   return {
@@ -62,9 +65,10 @@ module.exports = (env = {}) => {
     },
     output: {
       filename: '[name].js',
-      path: path.join(__dirname, 'build'),
+      path: path.join(__dirname, buildPath),
     },
     plugins: [
+      new CleanWebpackPlugin([buildPath]),
       new CopyWebpackPlugin([
         { from: '../static' },
         { from: '../vendor/scrivito', to: 'scrivito' },
