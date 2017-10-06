@@ -53,6 +53,7 @@ import unsplashFemalePortrait5Data from './binary_data/unsplash_female_portrait_
 import unsplashFemalePortrait5SquareData from './binary_data/unsplash_female_portrait_5_square';
 import unsplashFinanceIpadCoffeeData from './binary_data/unsplash_finance_ipad_coffee';
 import unsplashGlassesOnMacData from './binary_data/unsplash_glasses_on_mac';
+import unsplashGlassesSunsetData from './binary_data/unsplash_glasses_sunset';
 import unsplashGlovedTweedData from './binary_data/unsplash_gloved_tweed';
 import unsplashGoldWatchCufflinksData from './binary_data/unsplash_gold_watch_cufflinks';
 import unsplashGrandCentralStationData from './binary_data/unsplash_grand_central_station';
@@ -116,6 +117,7 @@ const Image = Scrivito.getClass('Image');
 const Job = Scrivito.getClass('Job');
 const LandingPage = Scrivito.getClass('LandingPage');
 const Page = Scrivito.getClass('Page');
+const SearchResults = Scrivito.getClass('SearchResults');
 const Video = Scrivito.getClass('Video');
 
 const AddressListItemWidget = Scrivito.getClass('AddressListItemWidget');
@@ -433,6 +435,7 @@ function importContent() {
     const unsplashFemalePortrait5Square = uploadImage(unsplashFemalePortrait5SquareData, 'Female Portrait 5 (Square)', [...UNSPLASH_TAGS, 'square']);
     const unsplashFinanceIpadCoffee = uploadImage(unsplashFinanceIpadCoffeeData, 'Finance Ipad Coffee', UNSPLASH_TAGS);
     const unsplashGlassesOnMac = uploadImage(unsplashGlassesOnMacData, 'Glasses on Mac', UNSPLASH_TAGS);
+    const unsplashGlassesSunset = uploadImage(unsplashGlassesSunsetData, 'Glasses Sunset', UNSPLASH_TAGS);
     const unsplashGlovedTweed = uploadImage(unsplashGlovedTweedData, 'Gloved Tweed', UNSPLASH_TAGS);
     const unsplashGoldWatchCufflinks = uploadImage(unsplashGoldWatchCufflinksData, 'Gold Watch Cufflinks', UNSPLASH_TAGS);
     const unsplashGrandCentralStation = uploadImage(unsplashGrandCentralStationData, 'Grand Central Station', UNSPLASH_TAGS);
@@ -2406,6 +2409,12 @@ function importContent() {
           new HeadlineWidget({ headline: 'Widgets & Pages' }),
         ] }),
       ],
+    });
+
+    // Search results page
+    SearchResults.create({
+      navigationBackgroundImage: unsplashGlassesSunset,
+      _permalink: 'search_results',
     });
 
     // Obj.root()
