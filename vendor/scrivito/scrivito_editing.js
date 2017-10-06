@@ -18962,9 +18962,9 @@ var _string_editor2 = _interopRequireDefault(_string_editor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-scrivito.registerEditor(_html_editor2.default);
-scrivito.registerEditor(_reference_editor2.default);
-scrivito.registerEditor(_string_editor2.default);
+Scrivito.registerEditor(_html_editor2.default);
+Scrivito.registerEditor(_reference_editor2.default);
+Scrivito.registerEditor(_string_editor2.default);
 
 /***/ }),
 
