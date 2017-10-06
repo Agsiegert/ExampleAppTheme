@@ -8,14 +8,16 @@ import NavigationSection from './navigation/navigation_section';
 import ScrollToNextSectionLink from './navigation/scroll_to_next_section_link';
 import { SearchBox, SearchIcon } from './navigation/search';
 
-function FullNavigation({ bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle }) {
+function FullNavigation(
+  { bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle, showSearch }
+) {
   return (
     <BootstrapNavbar
       collapseOnSelect
       fixedTop
       className={ bootstrapNavbarClassNames.join(' ') }
     >
-      <SearchBox toggleSearch={ toggleSearch } />
+      <SearchBox toggleSearch={ toggleSearch } showSearch={ showSearch } />
 
       <BootstrapNavbar.Header>
         <BootstrapNavbar.Toggle />
@@ -39,7 +41,7 @@ function LandingPageNavigation({ navigationStyle }) {
 }
 
 function ActualNavigation(
-  { isLandingPage, bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle }
+  { isLandingPage, bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle, showSearch }
 ) {
   if (isLandingPage) {
     return <LandingPageNavigation navigationStyle={ navigationStyle } />;
@@ -48,6 +50,7 @@ function ActualNavigation(
   return <FullNavigation
     bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
     toggleSearch={ toggleSearch }
+    showSearch={ showSearch }
     scrolled={ scrolled }
     navigationStyle={ navigationStyle }
   />;
@@ -150,6 +153,7 @@ class Navigation extends React.Component {
             isLandingPage={ isLandingPage }
             bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
             toggleSearch={ this.toggleSearch }
+            showSearch={ this.state.showSearch }
             scrolled={ this.state.scrolled }
             navigationStyle={ navigationStyle }
           />
