@@ -64,9 +64,17 @@ const SearchBox = Scrivito.connect(class extends React.Component {
 });
 
 function SearchIcon({ toggleSearch }) {
+  if (Scrivito.currentPage() && Scrivito.currentPage().objClass() === 'SearchResults') {
+    return (
+      <span className="navbar-search-toggle disabled">
+        <i className="fa fa-search" aria-hidden="true" />
+      </span>
+    );
+  }
+
   return (
     <span className="navbar-search-toggle" onClick={ toggleSearch }>
-      <i className="fa fa-search" aria-hidden="true"></i>
+      <i className="fa fa-search" aria-hidden="true" />
     </span>
   );
 }
