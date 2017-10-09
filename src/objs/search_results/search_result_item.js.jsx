@@ -44,7 +44,13 @@ function SearchResultItem({ resultItem, q }) {
       <PreviewImage item={ resultItem } />
       <div className="result-content">
         <Scrivito.LinkTag to={ resultItem }>
-          <h3 className="h3">{ resultItem.get('title') }</h3>
+          <h3 className="h3">
+            <Highlighter
+              highlightTag="mark"
+              searchWords={ searchWords }
+              textToHighlight={ resultItem.get('title') }
+            />
+          </h3>
         </Scrivito.LinkTag>
         <p>
           <Highlighter
