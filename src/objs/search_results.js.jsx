@@ -16,7 +16,7 @@ Scrivito.provideEditingConfig(SearchResults, {
   },
 });
 
-class SearchResultsComponent extends React.Component {
+class SearchInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,40 +33,31 @@ class SearchResultsComponent extends React.Component {
 
   render() {
     return (
-      <div>
-        <section className="bg-nav-content">
-          <div className="container">
-            <div className="nav-centered">
-              <form onSubmit={ e => this.handleSubmit(e) } >
-                <div className="input-group">
-                  <input
-                    className="form-control"
-                    placeholder="Search for..."
-                    value={ this.state.q }
-                    onChange={ e => this.handleChange(e) }
-                  />
-                  <span className="input-group-btn">
-                    <button
-                      className="btn btn-primary"
-                      type="submit"
-                    >
-                      <span className="hidden-xs">Search again</span>
-                      <i className="fa fa-search fa-1" aria-hidden="true" />
-                    </button>
-                  </span>
-                </div>
-              </form>
-            </div>
+      <section className="bg-nav-content">
+        <div className="container">
+          <div className="nav-centered">
+            <form onSubmit={ e => this.handleSubmit(e) } >
+              <div className="input-group">
+                <input
+                  className="form-control"
+                  placeholder="Search for..."
+                  value={ this.state.q }
+                  onChange={ e => this.handleChange(e) }
+                />
+                <span className="input-group-btn">
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                    <span className="hidden-xs">Search again</span>
+                    <i className="fa fa-search fa-1" aria-hidden="true" />
+                  </button>
+                </span>
+              </div>
+            </form>
           </div>
-        </section>
-
-        <section className="bg-white">
-          <div className="container">
-            <h1 className="h2 border-bottom">XY search results</h1>
-            {/* TODO: Tag selection */}
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     );
   }
 
@@ -78,6 +69,23 @@ class SearchResultsComponent extends React.Component {
     event.preventDefault();
     event.stopPropagation();
     Scrivito.navigateTo(() => Scrivito.currentPage(), { q: this.state.q });
+  }
+}
+
+class SearchResultsComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <SearchInput params={ this.props.params } />
+
+        <section className="bg-white">
+          <div className="container">
+            <h1 className="h2 border-bottom">XY search results</h1>
+            {/* TODO: Tag selection */}
+          </div>
+        </section>
+      </div>
+    );
   }
 }
 
