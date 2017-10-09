@@ -528,7 +528,9 @@ footer {
   }
 
 .navbar-search-toggle:hover { cursor: pointer; }
+.navbar-search-toggle.disabled:hover { cursor: auto; }
 .navbar-search-toggle .fa { font-size: 22px; padding: 0; color: $brand-secondary; }
+.navbar-search-toggle.disabled .fa { color: $btn-link-disabled-color; }
 .navbar-search-toggle:after {
   font-size: 18px; content:'|'; color: #ddd;
   position: absolute; top:22px; left: -9px;

@@ -1,4 +1,5 @@
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
+import truncate from 'lodash.truncate';
 import twoDigitNumber from 'utils/two_digit_number';
 import BlogPostDate from './blog_post_date';
 
@@ -73,11 +74,11 @@ const BlogPostPreview = Scrivito.connect(({ post }) => {
             </Scrivito.LinkTag>
           </h3>
           <h4>{ post.get('subtitle') }</h4>
-          <p>{ post.textExtract().substring(0, 300) }...</p>
+          <p>{ truncate(post.textExtract(), { length: 300, separator: /,? +/ }) }</p>
         </div>
         <div className="timeline-footer">
           <Scrivito.LinkTag to={ post } className="btn btn-clear">
-            Read more<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
+            Read more<i className="fa fa-angle-right fa-4" aria-hidden="true" />
           </Scrivito.LinkTag>
         </div>
       </div>

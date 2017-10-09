@@ -8,6 +8,7 @@ function currentPageNavigationOptions() {
       case 'Job': return jobNavigationOptions(Scrivito.currentPage());
       case 'LandingPage': return landingPageNavigationOptions(Scrivito.currentPage());
       case 'Page': return pageNavigationOptions(Scrivito.currentPage());
+      case 'SearchResults': return searchResultsNavigationOptions(Scrivito.currentPage());
     }
   }
 
@@ -99,6 +100,23 @@ function pageNavigationOptions(obj) {
     backgroundImage,
     heigthClassName,
     useGradient,
+  };
+}
+
+function searchResultsNavigationOptions(obj) {
+  const backgroundImage = obj.get('navigationBackgroundImage');
+  if (backgroundImage) {
+    return {
+      navigationStyle: 'transparentDark',
+      backgroundImage: backgroundImage,
+      heigthClassName: 'min-height',
+    };
+  }
+
+  return {
+    navigationStyle: 'solidWhite',
+    backgroundImage: null,
+    heigthClassName: 'min-height',
   };
 }
 

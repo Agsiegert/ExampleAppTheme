@@ -60,7 +60,7 @@ function PlanButton({ target, className }) {
 
   return (
     <Scrivito.LinkTag to={ target } className={ `btn ${className}` }>
-      { text }<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
+      { text }<i className="fa fa-angle-right fa-4" aria-hidden="true" />
     </Scrivito.LinkTag>
   );
 }

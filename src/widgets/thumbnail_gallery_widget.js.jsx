@@ -50,7 +50,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
       </div>
       <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
         <span className="gallery-box-content">
-          <i className="fa fa-camera" aria-hidden="true"></i>
+          <i className="fa fa-camera" aria-hidden="true" />
           <span className="title">{ title }</span>
           <span className="subtitle">{ subtitle }</span>
         </span>

@@ -35,7 +35,7 @@ const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
 
   return (
     <Scrivito.LinkTag to={ target } className={ classNames.join(' ') }>
-      { text }<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
+      { text }<i className="fa fa-angle-right fa-4" aria-hidden="true" />
     </Scrivito.LinkTag>
   );
 });

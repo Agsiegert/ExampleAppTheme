@@ -39,7 +39,7 @@ const BlogPostNextLink = Scrivito.connect(({ currentBlogPost }) => {
 
   return (
     <Scrivito.LinkTag to={ newerPost }>
-      <i className="fa fa-chevron-circle-left  " aria-hidden="true"></i>
+      <i className="fa fa-chevron-circle-left  " aria-hidden="true" />
     </Scrivito.LinkTag>
   );
 });
@@ -59,7 +59,7 @@ const BlogPostPreviousLink = Scrivito.connect(({ currentBlogPost }) => {
 
   return (
     <Scrivito.LinkTag to={ olderPost }>
-      <i className="fa fa-chevron-circle-right " aria-hidden="true"></i>
+      <i className="fa fa-chevron-circle-right " aria-hidden="true" />
     </Scrivito.LinkTag>
   );
 });
