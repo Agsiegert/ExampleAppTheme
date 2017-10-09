@@ -4,14 +4,20 @@ import urlFromBinary from 'utils/url_from_binary';
 function getMetaData(page) {
   const meta = [
     { name: 'twitter:card', content: 'summary_large_image' },
-    // TODO this is needed and needs to be approved at https://cards-dev.twitter.com/validator
-    // { name: 'twitter:site', content: '@exampleAppJS' },
     { property: 'og:type', content: 'article' },
     // TODO this should be the conanicalURl for the page
     // { property: 'og:url', content: 'https://example_app.com' },
-    // TODO this is required and needs to be approved via facebook
-    // { property: 'fb:app_id', content: '0000000000' },
   ];
+
+  const facebookID = page.get('facebookID');
+  if (facebookID) {
+    meta.push({ name: 'fb:app_id', content: facebookID });
+  }
+
+  const twitterID = page.get('twitterID');
+  if (twitterID) {
+    meta.push({ name: 'twitter:site', content: twitterID });
+  }
 
   const tcCreator = page.get('tcCreator');
   if (tcCreator) {
