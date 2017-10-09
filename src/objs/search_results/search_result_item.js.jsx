@@ -1,4 +1,5 @@
 import Highlighter from 'react-highlight-words';
+import fromNow from 'moment-from-now';
 import textExtractFromObj from 'utils/text_extract_from_obj';
 import truncate from 'lodash.truncate';
 
@@ -13,6 +14,24 @@ const PreviewImage = Scrivito.connect(({ item }) => {
   );
 });
 
+const Details = Scrivito.connect(({ item }) => {
+  const details = [];
+  const date = item.get('publishedAt') || item.lastChanged();
+  if (date) {
+    details.push(fromNow(date));
+  }
+
+  const author = item.get('author');
+  if (author) {
+    details.push(`By ${author.get('name')}`);
+  }
+
+
+  if (!details.length) { return null; }
+
+  return <small>{ details.join(' // ') }</small>;
+});
+
 function SearchResultItem({ resultItem, q }) {
   const searchWords = q.split(/\s+/);
   const textExtract = textExtractFromObj(resultItem);
@@ -25,11 +44,14 @@ function SearchResultItem({ resultItem, q }) {
         <Scrivito.LinkTag to={ resultItem }>
           <h3 className="h3">{ resultItem.get('title') }</h3>
         </Scrivito.LinkTag>
-        <Highlighter
-          highlightTag="mark"
-          searchWords={ searchWords }
-          textToHighlight={ textToHighlight }
-        />
+        <p>
+          <Highlighter
+            highlightTag="mark"
+            searchWords={ searchWords }
+            textToHighlight={ textToHighlight }
+          />
+        </p>
+        <Details item={ resultItem } />
       </div>
       <div className="result-options">
         <Scrivito.LinkTag to={ resultItem } className="btn btn-clear">
