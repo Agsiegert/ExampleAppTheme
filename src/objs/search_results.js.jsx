@@ -24,14 +24,17 @@ class SearchResultsComponent extends React.Component {
     const search = Scrivito.Obj.where('*', 'contains', this.props.params.q)
       .andNot('_objClass', 'equals', ['Author', 'Video', 'Image']);
 
+    // TODO: replace with faster method,
+    // once https://github.com/infopark/rails_connector/issues/3482 is resolved
+    const totalCount = [...search].length;
+
     return (
       <div>
         <SearchInput params={ this.props.params } />
 
         <section className="bg-white">
           <div className="container">
-            <h1 className="h2 border-bottom">XY search results</h1>
-            {/* TODO: Tag selection */}
+            <h1 className="h2 border-bottom">{ totalCount } search results</h1>
           </div>
         </section>
 
