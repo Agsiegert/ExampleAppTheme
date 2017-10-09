@@ -18,16 +18,12 @@ const PreviewImage = Scrivito.connect(({ item }) => {
 
 const Details = Scrivito.connect(({ item }) => {
   const details = [];
+
   const date = item.get('publishedAt') || item.lastChanged();
-  if (date) {
-    details.push(fromNow(date));
-  }
+  if (date) { details.push(fromNow(date)); }
 
   const author = item.get('author');
-  if (author) {
-    details.push(`By ${author.get('name')}`);
-  }
-
+  if (author) { details.push(`by ${author.get('name')}`); }
 
   if (!details.length) { return null; }
 
