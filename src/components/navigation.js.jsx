@@ -64,8 +64,6 @@ class Navigation extends React.Component {
       showSearch: false,
     };
 
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
   }
