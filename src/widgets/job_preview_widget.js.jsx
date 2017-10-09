@@ -30,7 +30,7 @@ Scrivito.provideComponent(JobPreviewWidget, () => {
                   />
                   <span>{ job.get('location') }</span>
                 </span>
-                <i className="fa fa-angle-right" aria-hidden="true"></i>
+                <i className="fa fa-angle-right" aria-hidden="true" />
               </span>
             </Scrivito.LinkTag>
           </div>

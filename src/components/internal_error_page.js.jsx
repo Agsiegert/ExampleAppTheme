@@ -20,7 +20,7 @@ function NotFoundErrorPage() {
             className="btn btn-primary"
             onClick={ () => window.location.reload(true) }
           >
-            Please try again<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
+            Please try again<i className="fa fa-angle-right fa-4" aria-hidden="true" />
           </button>
         </div>
       </div>

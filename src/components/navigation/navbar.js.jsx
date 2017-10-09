@@ -58,7 +58,7 @@ class BaseDropdown extends React.Component {
           { child.get('title') }<span className="caret"></span>
         </Scrivito.LinkTag>
         <span className="mobile-toggle" onClick={ this.toggleOpen }>
-          <i className="fa fa-angle-down" aria-hidden="true"></i>
+          <i className="fa fa-angle-down" aria-hidden="true" />
         </span>
         <Scrivito.ChildListTag
           className="dropdown-menu"

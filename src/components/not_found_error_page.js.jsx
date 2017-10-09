@@ -1,7 +1,7 @@
 function PlainLinkToRoot() {
   return (
     <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="btn btn-primary">
-      Go to mainpage<i className="fa fa-angle-right fa-4" aria-hidden="true"></i>
+      Go to mainpage<i className="fa fa-angle-right fa-4" aria-hidden="true" />
     </Scrivito.LinkTag>
   );
 }
