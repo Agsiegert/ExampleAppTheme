@@ -1,5 +1,6 @@
 import SearchInput from './search_results/search_input';
 import SearchResultItem from './search_results/search_result_item';
+import SearchResultsTagList from './search_results/search_results_tag_list';
 
 const SearchResults = Scrivito.createObjClass({
   name: 'SearchResults',
@@ -19,10 +20,21 @@ Scrivito.provideEditingConfig(SearchResults, {
   },
 });
 
+function globalSearch(q) {
+  return Scrivito.Obj.where('*', 'contains', q)
+    .andNot('_objClass', 'equals', ['Author', 'Video', 'Image']);
+}
+
 class SearchResultsComponent extends React.Component {
   render() {
-    const search = Scrivito.Obj.where('*', 'contains', this.props.params.q)
-      .andNot('_objClass', 'equals', ['Author', 'Video', 'Image']);
+    let search = globalSearch(this.props.params.q);
+
+    // make sure, that tags are calculated _before_ limiting to specific tag.
+    const tags = search.facet('tags').map(tag => tag.name());
+
+    if (this.props.params.tag) {
+      search = search.and('tags', 'equals', this.props.params.tag);
+    }
 
     // TODO: replace with faster method,
     // once https://github.com/infopark/rails_connector/issues/3482 is resolved
@@ -35,6 +47,7 @@ class SearchResultsComponent extends React.Component {
         <section className="bg-white">
           <div className="container">
             <h1 className="h2 border-bottom">{ totalCount } search results</h1>
+            <SearchResultsTagList tags={ tags } params={ this.props.params } />
           </div>
         </section>
 
