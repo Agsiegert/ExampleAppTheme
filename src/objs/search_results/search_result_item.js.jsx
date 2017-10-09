@@ -4,7 +4,9 @@ import textExtractFromObj from 'utils/text_extract_from_obj';
 import truncate from 'lodash.truncate';
 
 const PreviewImage = Scrivito.connect(({ item }) => {
-  const image = item.get('navigationBackgroundImage') || item.get('titleImage');
+  const image = item.get('navigationBackgroundImage')
+    || item.get('titleImage')
+    || item.get('image');
   if (!image) { return null; }
 
   return (
