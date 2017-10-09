@@ -1,3 +1,4 @@
+import ShowMoreButton from './search_results/show_more_button';
 import SearchInput from './search_results/search_input';
 import SearchResultItem from './search_results/search_result_item';
 import SearchResultsTagList from './search_results/search_results_tag_list';
@@ -26,6 +27,13 @@ function globalSearch(q) {
 }
 
 class SearchResultsComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { maxItems: 10 };
+
+    this.incrementMaxItems = this.incrementMaxItems.bind(this);
+  }
+
   render() {
     let search = globalSearch(this.props.params.q);
 
@@ -54,7 +62,7 @@ class SearchResultsComponent extends React.Component {
         <section className="bg-white no-padding">
           <div className="container">
             {
-              search.take(10).map((resultItem, index) =>
+              search.take(this.state.maxItems).map((resultItem, index) =>
                 <SearchResultItem
                   resultItem={ resultItem }
                   q={ this.props.params.q }
@@ -63,9 +71,20 @@ class SearchResultsComponent extends React.Component {
               )
             }
           </div>
+          <ShowMoreButton
+            totalCount={ totalCount }
+            currentMaxItems={ this.state.maxItems }
+            onClick={ this.incrementMaxItems }
+          />
+          <br />
+          <br />
         </section>
       </div>
     );
+  }
+
+  incrementMaxItems() {
+    this.setState({ maxItems: this.state.maxItems + 10 });
   }
 }
 
