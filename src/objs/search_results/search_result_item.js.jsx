@@ -25,6 +25,9 @@ const Details = Scrivito.connect(({ item }) => {
   const author = item.get('author');
   if (author) { details.push(`by ${author.get('name')}`); }
 
+  const tags = item.get('tags');
+  if (tags && tags.length) { details.push(`tags: ${tags.join(', ')}`); }
+
   if (!details.length) { return null; }
 
   return <small>{ details.join(' // ') }</small>;
