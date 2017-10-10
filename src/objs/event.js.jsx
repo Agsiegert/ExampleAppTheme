@@ -1,4 +1,5 @@
 import twoDigitNumber from 'utils/two_digit_number';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
 const Event = Scrivito.createObjClass({
   name: 'Event',
@@ -12,6 +13,10 @@ const Event = Scrivito.createObjClass({
 });
 
 Scrivito.registerClass('Event', Event);
+
+registerTextExtract('Event', [
+  { attribute: 'location', type: 'string' },
+]);
 
 Scrivito.provideEditingConfig(Event, {
   title: 'Event',

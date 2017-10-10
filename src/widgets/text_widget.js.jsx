@@ -1,4 +1,5 @@
 import textExtractFromHtml from 'utils/text_extract_from_html';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
 const BaseTextWidget = Scrivito.createWidgetClass({
   name: 'TextWidget',
@@ -15,6 +16,10 @@ class TextWidget extends BaseTextWidget {
 }
 
 Scrivito.registerClass('TextWidget', TextWidget);
+
+registerTextExtract('TextWidget', [
+  { attribute: 'text', type: 'html' },
+]);
 
 Scrivito.provideEditingConfig(TextWidget, {
   title: 'Text',

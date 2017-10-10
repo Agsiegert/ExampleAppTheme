@@ -1,4 +1,5 @@
 import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
 import {
   defaultPageAttributes,
@@ -25,6 +26,11 @@ class Page extends BasePage {
 }
 
 Scrivito.registerClass('Page', Page);
+
+registerTextExtract('Page', [
+  { attribute: 'navigationSection', type: 'widgetlist' },
+  { attribute: 'body', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(Page, {
   title: 'Page',

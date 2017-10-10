@@ -1,5 +1,6 @@
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
 const BaseSectionWidget = Scrivito.createWidgetClass({
   name: 'SectionWidget',
@@ -35,6 +36,10 @@ class SectionWidget extends BaseSectionWidget {
 }
 
 Scrivito.registerClass('SectionWidget', SectionWidget);
+
+registerTextExtract('Section', [
+  { attribute: 'content', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(SectionWidget, {
   title: 'Section',

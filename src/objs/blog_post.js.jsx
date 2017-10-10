@@ -3,6 +3,7 @@ import BlogPostMorePosts from 'components/blog_post/blog_post_more_posts';
 import BlogPostNavigation from 'components/blog_post/blog_post_navigation';
 import BlogPostTagList from 'components/blog_post/blog_post_tag_list';
 import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+import { registerTextExtract } from 'utils/text_extract_registry';
 import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
 
 const BaseBlogPost = Scrivito.createObjClass({
@@ -18,6 +19,10 @@ const BaseBlogPost = Scrivito.createObjClass({
     ...socialCardsAttributes,
   },
 });
+
+registerTextExtract('BlogPost', [
+  { attribute: 'body', type: 'widgetlist' },
+]);
 
 class BlogPost extends BaseBlogPost {
   textExtract() {

@@ -1,3 +1,4 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
 import {
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
@@ -11,6 +12,11 @@ const LandingPage = Scrivito.createObjClass({
 });
 
 Scrivito.registerClass('LandingPage', LandingPage);
+
+registerTextExtract('LandingPage', [
+  { attribute: 'navigationSection', type: 'widgetlist' },
+  { attribute: 'body', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(LandingPage, {
   title: 'LandingPage',
