@@ -4,14 +4,21 @@ import urlFromBinary from 'utils/url_from_binary';
 function getMetaData(page) {
   const meta = [
     { name: 'twitter:card', content: 'summary_large_image' },
-    // TODO this is needed and needs to be approved at https://cards-dev.twitter.com/validator
-    // { name: 'twitter:site', content: '@exampleAppJS' },
     { property: 'og:type', content: 'article' },
     // TODO this should be the conanicalURl for the page
+    // https://github.com/infopark/rails_connector/issues/3486 
     // { property: 'og:url', content: 'https://example_app.com' },
-    // TODO this is required and needs to be approved via facebook
-    // { property: 'fb:app_id', content: '0000000000' },
   ];
+
+  const facebookId = Scrivito.Obj.root().get('facebookId');
+  if (facebookId) {
+    meta.push({ name: 'fb:app_id', content: facebookId });
+  }
+
+  const twitterId = Scrivito.Obj.root().get('twitterId');
+  if (twitterId) {
+    meta.push({ name: 'twitter:site', content: twitterId });
+  }
 
   const tcCreator = page.get('tcCreator');
   if (tcCreator) {
