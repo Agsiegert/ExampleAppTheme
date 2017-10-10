@@ -72,6 +72,11 @@ module.exports = (env = {}) => {
       path: path.join(__dirname, buildPath),
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: isProduction && JSON.stringify('production'),
+        },
+      }),
       new CleanWebpackPlugin([buildPath]),
       new CopyWebpackPlugin([
         { from: '../static' },
