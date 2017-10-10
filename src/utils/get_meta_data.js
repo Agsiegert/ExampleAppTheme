@@ -1,4 +1,5 @@
 import textExtractFromObj from 'utils/text_extract_from_obj';
+import truncate from 'lodash.truncate';
 import urlFromBinary from 'utils/url_from_binary';
 
 function getMetaData(page) {
@@ -6,9 +7,10 @@ function getMetaData(page) {
     { name: 'twitter:card', content: 'summary_large_image' },
     { property: 'og:type', content: 'article' },
     // TODO this should be the conanicalURl for the page
-    // https://github.com/infopark/rails_connector/issues/3486 
+    // https://github.com/infopark/rails_connector/issues/3486
     // { property: 'og:url', content: 'https://example_app.com' },
   ];
+  const textExtract = textExtractFromObj(page);
 
   const facebookId = Scrivito.Obj.root().get('facebookId');
   if (facebookId) {
@@ -26,7 +28,7 @@ function getMetaData(page) {
   }
 
   const tcDescription = page.get('tcDescription') ||
-    `${textExtractFromObj(page).substring(0, 137)}...`;
+    truncate(textExtract, { length: 137, separator: /,? +/ });
   if (tcDescription) {
     meta.push({ name: 'twitter:description', content: tcDescription });
   }
@@ -42,7 +44,7 @@ function getMetaData(page) {
   }
 
   const ogDescription = page.get('ogDescription') ||
-    `${textExtractFromObj(page).substring(0, 297)}...`;
+    truncate(textExtract, { length: 297, separator: /,? +/ });
   if (ogDescription) {
     meta.push({ property: 'og:description', content: ogDescription });
   }
