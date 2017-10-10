@@ -139,9 +139,10 @@ class Navigation extends React.Component {
           ].join(', ');
         }
       }
-      if (heigthClassName) {
-        topSectionClassNames.push(heigthClassName);
-      }
+    }
+
+    if (heigthClassName) {
+      topSectionClassNames.push(heigthClassName);
     }
 
     return (
