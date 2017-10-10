@@ -4,6 +4,11 @@ const JobPreviewWidget = Scrivito.createWidgetClass({
   name: 'JobPreviewWidget',
 });
 
+Scrivito.provideEditingConfig(JobPreviewWidget, {
+  title: 'Job Preview',
+  description: 'A widget showing all jobs.',
+});
+
 Scrivito.provideComponent(JobPreviewWidget, () => {
   const jobs = Scrivito.getClass('Job').all();
 

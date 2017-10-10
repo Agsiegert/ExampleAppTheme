@@ -11,7 +11,7 @@ const EventOverviewWidget = Scrivito.createWidgetClass({
 });
 
 Scrivito.provideEditingConfig(EventOverviewWidget, {
-  title: 'EventOverviewWidget',
+  title: 'Event Overview',
   description: 'A widget showing all events.',
   attributesConfig: {
     maxItems: {
