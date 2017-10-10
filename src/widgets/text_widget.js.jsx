@@ -1,21 +1,12 @@
-import textExtractFromHtml from 'utils/text_extract_from_html';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const BaseTextWidget = Scrivito.createWidgetClass({
+const TextWidget = Scrivito.createWidgetClass({
   name: 'TextWidget',
   attributes: {
     text: 'html',
     alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
   },
 });
-
-class TextWidget extends BaseTextWidget {
-  textExtract() {
-    return textExtractFromHtml(this.get('text'));
-  }
-}
-
-Scrivito.registerClass('TextWidget', TextWidget);
 
 registerTextExtract('TextWidget', [
   { attribute: 'text', type: 'html' },
