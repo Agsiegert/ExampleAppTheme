@@ -7,7 +7,7 @@ const defaultPageAttributes = {
       'solidWhite',
       'transparentDark full-height',
       'transparentDark full-height gradient',
-      'transparentDark min-height',
+      'transparentDark medium-height',
     ],
   }],
   title: 'string',

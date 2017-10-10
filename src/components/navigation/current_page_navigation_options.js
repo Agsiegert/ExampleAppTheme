@@ -25,7 +25,7 @@ function blogNavigationOptions(obj) {
   return {
     navigationStyle: 'transparentDark',
     backgroundImage: obj.get('navigationBackgroundImage') || null,
-    heigthClassName: 'min-height',
+    heigthClassName: 'medium-height',
   };
 }
 
@@ -41,7 +41,7 @@ function blogPostNavigationOptions(obj) {
   return {
     navigationStyle: 'transparentDark',
     backgroundImage: backgroundImage || null,
-    heigthClassName: 'min-height',
+    heigthClassName: 'medium-height',
   };
 }
 
@@ -50,7 +50,7 @@ function eventNavigationOptions(obj) {
     return {
       navigationStyle: 'transparentDark',
       backgroundImage: obj.get('image'),
-      heigthClassName: 'min-height',
+      heigthClassName: 'medium-height',
     };
   }
 
@@ -66,7 +66,7 @@ function jobNavigationOptions(obj) {
     return {
       navigationStyle: 'transparentDark',
       backgroundImage: obj.get('image'),
-      heigthClassName: 'min-height',
+      heigthClassName: 'medium-height',
     };
   }
 
@@ -109,14 +109,14 @@ function searchResultsNavigationOptions(obj) {
     return {
       navigationStyle: 'transparentDark',
       backgroundImage: backgroundImage,
-      heigthClassName: 'min-height',
+      heigthClassName: 'medium-height',
     };
   }
 
   return {
     navigationStyle: 'solidWhite',
     backgroundImage: null,
-    heigthClassName: 'min-height',
+    heigthClassName: 'medium-height',
   };
 }
 
