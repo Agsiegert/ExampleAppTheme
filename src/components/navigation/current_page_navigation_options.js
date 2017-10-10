@@ -22,11 +22,8 @@ function currentPageNavigationOptions() {
 }
 
 function blogNavigationOptions(obj) {
-  return {
-    navigationStyle: 'transparentDark',
-    backgroundImage: obj.get('navigationBackgroundImage') || null,
-    heigthClassName: 'min-height',
-  };
+  const backgroundImage = obj.get('navigationBackgroundImage');
+  return imageWithMediumHeightOrMinHeight(backgroundImage);
 }
 
 function blogPostNavigationOptions(obj) {
@@ -38,43 +35,17 @@ function blogPostNavigationOptions(obj) {
     }
   }
 
-  return {
-    navigationStyle: 'transparentDark',
-    backgroundImage: backgroundImage || null,
-    heigthClassName: 'min-height',
-  };
+  return imageWithMediumHeightOrMinHeight(backgroundImage);
 }
 
 function eventNavigationOptions(obj) {
-  if (obj.get('image')) {
-    return {
-      navigationStyle: 'transparentDark',
-      backgroundImage: obj.get('image'),
-      heigthClassName: 'min-height',
-    };
-  }
-
-  return {
-    navigationStyle: 'solidWhite',
-    backgroundImage: null,
-    heigthClassName: null,
-  };
+  const backgroundImage = obj.get('image');
+  return imageWithMediumHeightOrNothing(backgroundImage);
 }
 
 function jobNavigationOptions(obj) {
-  if (obj.get('image')) {
-    return {
-      navigationStyle: 'transparentDark',
-      backgroundImage: obj.get('image'),
-      heigthClassName: 'min-height',
-    };
-  }
-
-  return {
-    navigationStyle: 'solidWhite',
-    backgroundImage: null,
-    heigthClassName: null,
-  };
+  const backgroundImage = obj.get('image');
+  return imageWithMediumHeightOrNothing(backgroundImage);
 }
 
 function landingPageNavigationOptions(obj) {
@@ -105,11 +76,31 @@ function pageNavigationOptions(obj) {
 
 function searchResultsNavigationOptions(obj) {
   const backgroundImage = obj.get('navigationBackgroundImage');
-  if (backgroundImage) {
+  return imageWithMediumHeightOrMinHeight(backgroundImage);
+}
+
+function imageWithMediumHeightOrNothing(image) {
+  if (image) {
     return {
       navigationStyle: 'transparentDark',
-      backgroundImage: backgroundImage,
-      heigthClassName: 'min-height',
+      backgroundImage: image,
+      heigthClassName: 'medium-height',
+    };
+  }
+
+  return {
+    navigationStyle: 'solidWhite',
+    backgroundImage: null,
+    heigthClassName: null,
+  };
+}
+
+function imageWithMediumHeightOrMinHeight(image) {
+  if (image) {
+    return {
+      navigationStyle: 'transparentDark',
+      backgroundImage: image,
+      heigthClassName: 'medium-height',
     };
   }
 

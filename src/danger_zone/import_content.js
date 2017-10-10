@@ -1289,7 +1289,7 @@ function importContent() {
       _permalink: 'about',
       title: 'About',
       childOrder: [ourWork, ourClients],
-      navigationStyle: 'transparentDark min-height',
+      navigationStyle: 'transparentDark medium-height',
       navigationBackgroundImage: unsplashDimLaptopStand,
       body: [
         new SectionWidget({
