@@ -10,14 +10,14 @@ function getMetaData(page) {
     // { property: 'og:url', content: 'https://example_app.com' },
   ];
 
-  const facebookID = page.get('facebookID');
-  if (facebookID) {
-    meta.push({ name: 'fb:app_id', content: facebookID });
+  const facebookId = Scrivito.Obj.root().get('facebookId');
+  if (facebookId) {
+    meta.push({ name: 'fb:app_id', content: facebookId });
   }
 
-  const twitterID = page.get('twitterID');
-  if (twitterID) {
-    meta.push({ name: 'twitter:site', content: twitterID });
+  const twitterId = Scrivito.Obj.root().get('twitterId');
+  if (twitterId) {
+    meta.push({ name: 'twitter:site', content: twitterId });
   }
 
   const tcCreator = page.get('tcCreator');

@@ -13,8 +13,8 @@ const BaseHomepage = Scrivito.createObjClass({
     footer: ['widgetlist', { only: 'SectionWidget' }],
     logoDark: 'reference',
     logoWhite: 'reference',
-    facebookID: 'string',
-    twitterID: 'string',
+    facebookId: 'string',
+    twitterId: 'string',
   },
 });
 
@@ -44,11 +44,11 @@ Scrivito.provideEditingConfig(Homepage, {
       title: 'Logo Dark',
       description: 'The logo of your site (dark version for light backgrounds)',
     },
-    facebookID: {
+    facebookId: {
       title: 'Facebook App ID',
       description: 'A Facebook App ID, https://developers.facebook.com/docs/apps/register',
     },
-    twitterID: {
+    twitterId: {
       title: 'Twitter Site ID',
       description: 'Registered Twitter account for this site, needs to be approved at https://cards-dev.twitter.com/validator',
     },
