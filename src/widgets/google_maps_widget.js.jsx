@@ -1,4 +1,5 @@
 import googleMapsImageUrl from 'utils/google_maps_image_url';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
 const GoogleMapsWidget = Scrivito.createWidgetClass({
   name: 'GoogleMapsWidget',
@@ -14,6 +15,10 @@ const GoogleMapsWidget = Scrivito.createWidgetClass({
     content: 'widgetlist',
   },
 });
+
+registerTextExtract('GoogleMapsWidget', [
+  { attribute: 'content', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(GoogleMapsWidget, {
   title: 'Google Maps',

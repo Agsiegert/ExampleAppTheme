@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const PricingWidget = Scrivito.createWidgetClass({
   name: 'PricingWidget',
   attributes: {
@@ -29,6 +31,12 @@ const PricingWidget = Scrivito.createWidgetClass({
     largePlanButton: 'link',
   },
 });
+
+registerTextExtract('PricingWidget', [
+  { attribute: 'smallPlanSpecs', type: 'widgetlist' },
+  { attribute: 'mediumPlanSpecs', type: 'widgetlist' },
+  { attribute: 'largePlanSpecs', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(PricingWidget, {
   title: 'Pricing',

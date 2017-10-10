@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const TableRowWidget = Scrivito.createWidgetClass({
   name: 'TableRowWidget',
   attributes: {
@@ -8,6 +10,13 @@ const TableRowWidget = Scrivito.createWidgetClass({
   },
   onlyInside: 'TableWidget',
 });
+
+registerTextExtract('TableRowWidget', [
+  { attribute: 'feature', type: 'string' },
+  { attribute: 'basicFeature', type: 'widgetlist' },
+  { attribute: 'teamFeature', type: 'widgetlist' },
+  { attribute: 'corporateFeature', type: 'widgetlist' },
+]);
 
 function PlainTableRowWidgetComponent({ widget }) {
   return (

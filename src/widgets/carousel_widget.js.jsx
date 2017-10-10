@@ -1,4 +1,5 @@
 import { Carousel } from 'react-bootstrap';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
 const CarouselWidget = Scrivito.createWidgetClass({
   name: 'CarouselWidget',
@@ -9,6 +10,10 @@ const CarouselWidget = Scrivito.createWidgetClass({
     description: 'widgetlist',
   },
 });
+
+registerTextExtract('CarouselWidget', [
+  { attribute: 'description', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(CarouselWidget, {
   title: 'Carousel',

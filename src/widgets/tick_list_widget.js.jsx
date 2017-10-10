@@ -1,9 +1,15 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const TickListWidget = Scrivito.createWidgetClass({
   name: 'TickListWidget',
   attributes: {
     items: ['widgetlist', { only: 'TickListItemWidget' }],
   },
 });
+
+registerTextExtract('TickListWidget', [
+  { attribute: 'items', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(TickListWidget, {
   title: 'Tick List',

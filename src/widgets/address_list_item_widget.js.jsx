@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const AddressListItemWidget = Scrivito.createWidgetClass({
   name: 'AddressListItemWidget',
   onlyInside: 'AddressWidget',
@@ -6,6 +8,12 @@ const AddressListItemWidget = Scrivito.createWidgetClass({
     value: 'html',
   },
 });
+
+registerTextExtract('AddressListItemWidget', [
+  { attribute: 'key', type: 'string' },
+  { attribute: 'value', type: 'html' },
+]);
+
 
 Scrivito.provideEditingConfig(AddressListItemWidget, {
   title: 'Address List Item',
