@@ -22,11 +22,8 @@ function currentPageNavigationOptions() {
 }
 
 function blogNavigationOptions(obj) {
-  return {
-    navigationStyle: 'transparentDark',
-    backgroundImage: obj.get('navigationBackgroundImage') || null,
-    heigthClassName: 'medium-height',
-  };
+  const backgroundImage = obj.get('navigationBackgroundImage');
+  return imageWithMediumHeightOrMinHeight(backgroundImage);
 }
 
 function blogPostNavigationOptions(obj) {
@@ -38,43 +35,17 @@ function blogPostNavigationOptions(obj) {
     }
   }
 
-  return {
-    navigationStyle: 'transparentDark',
-    backgroundImage: backgroundImage || null,
-    heigthClassName: 'medium-height',
-  };
+  return imageWithMediumHeightOrMinHeight(backgroundImage);
 }
 
 function eventNavigationOptions(obj) {
-  if (obj.get('image')) {
-    return {
-      navigationStyle: 'transparentDark',
-      backgroundImage: obj.get('image'),
-      heigthClassName: 'medium-height',
-    };
-  }
-
-  return {
-    navigationStyle: 'solidWhite',
-    backgroundImage: null,
-    heigthClassName: null,
-  };
+  const backgroundImage = obj.get('image');
+  return imageWithMediumHeightOrNothing(backgroundImage);
 }
 
 function jobNavigationOptions(obj) {
-  if (obj.get('image')) {
-    return {
-      navigationStyle: 'transparentDark',
-      backgroundImage: obj.get('image'),
-      heigthClassName: 'medium-height',
-    };
-  }
-
-  return {
-    navigationStyle: 'solidWhite',
-    backgroundImage: null,
-    heigthClassName: null,
-  };
+  const backgroundImage = obj.get('image');
+  return imageWithMediumHeightOrNothing(backgroundImage);
 }
 
 function landingPageNavigationOptions(obj) {
@@ -105,10 +76,14 @@ function pageNavigationOptions(obj) {
 
 function searchResultsNavigationOptions(obj) {
   const backgroundImage = obj.get('navigationBackgroundImage');
-  if (backgroundImage) {
+  return imageWithMediumHeightOrMinHeight(backgroundImage);
+}
+
+function imageWithMediumHeightOrNothing(image) {
+  if (image) {
     return {
       navigationStyle: 'transparentDark',
-      backgroundImage: backgroundImage,
+      backgroundImage: image,
       heigthClassName: 'medium-height',
     };
   }
@@ -116,7 +91,23 @@ function searchResultsNavigationOptions(obj) {
   return {
     navigationStyle: 'solidWhite',
     backgroundImage: null,
-    heigthClassName: 'medium-height',
+    heigthClassName: null,
+  };
+}
+
+function imageWithMediumHeightOrMinHeight(image) {
+  if (image) {
+    return {
+      navigationStyle: 'transparentDark',
+      backgroundImage: image,
+      heigthClassName: 'medium-height',
+    };
+  }
+
+  return {
+    navigationStyle: 'solidWhite',
+    backgroundImage: null,
+    heigthClassName: 'min-height',
   };
 }
 

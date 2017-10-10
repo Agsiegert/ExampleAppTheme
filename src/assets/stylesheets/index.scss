@@ -350,6 +350,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-greywhite,
 .bg-white {
   &.medium-height { min-height: 450px; }
+  &.min-height { min-height: 150px; }
 }
 @media (max-width: $screen-xs-max) {
   .bg-dark-image,
