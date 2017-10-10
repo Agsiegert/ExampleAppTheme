@@ -7,8 +7,6 @@ const FeaturePanelWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.registerClass('FeaturePanelWidget', FeaturePanelWidget);
-
 Scrivito.provideEditingConfig(FeaturePanelWidget, {
   title: 'Feature Panel',
   description:

@@ -6,8 +6,6 @@ const TickListItemWidget = Scrivito.createWidgetClass({
   onlyInside: 'TickListWidget',
 });
 
-Scrivito.registerClass('TickListItemWidget', TickListItemWidget);
-
 Scrivito.provideEditingConfig(TickListItemWidget, {
   title: 'Tick List Widget Item',
   description: 'A tick list item',

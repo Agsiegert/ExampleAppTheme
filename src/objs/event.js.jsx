@@ -12,8 +12,6 @@ const Event = Scrivito.createObjClass({
   },
 });
 
-Scrivito.registerClass('Event', Event);
-
 registerTextExtract('Event', [
   { attribute: 'location', type: 'string' },
 ]);

@@ -7,8 +7,6 @@ const TopFeaturesWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.registerClass('TopFeaturesWidget', TopFeaturesWidget);
-
 Scrivito.provideEditingConfig(TopFeaturesWidget, {
   title: 'Top Feature Panel',
   description: 'A widget showing top features.',

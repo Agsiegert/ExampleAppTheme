@@ -5,8 +5,6 @@ const TickListWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.registerClass('TickListWidget', TickListWidget);
-
 Scrivito.provideEditingConfig(TickListWidget, {
   title: 'Tick List',
   description: 'A list of checked statements.',

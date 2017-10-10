@@ -11,8 +11,6 @@ const LandingPage = Scrivito.createObjClass({
   },
 });
 
-Scrivito.registerClass('LandingPage', LandingPage);
-
 registerTextExtract('LandingPage', [
   { attribute: 'navigationSection', type: 'widgetlist' },
   { attribute: 'body', type: 'widgetlist' },

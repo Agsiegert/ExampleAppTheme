@@ -9,8 +9,6 @@ const Job = Scrivito.createObjClass({
   },
 });
 
-Scrivito.registerClass('Job', Job);
-
 registerTextExtract('Job', [
   { attribute: 'location', type: 'string' },
 ]);

@@ -9,8 +9,6 @@ const TableRowWidget = Scrivito.createWidgetClass({
   onlyInside: 'TableWidget',
 });
 
-Scrivito.registerClass('TableRowWidget', TableRowWidget);
-
 function PlainTableRowWidgetComponent({ widget }) {
   return (
     <tr>
