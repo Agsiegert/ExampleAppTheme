@@ -11,7 +11,7 @@ const TestimonialSliderWidget = Scrivito.createWidgetClass({
 });
 
 registerTextExtract('TestimonialSliderWidget', [
-  { attribute: 'testimonials', type: 'string' },
+  { attribute: 'testimonials', type: 'widgetlist' },
 ]);
 
 Scrivito.provideEditingConfig(TestimonialSliderWidget, {

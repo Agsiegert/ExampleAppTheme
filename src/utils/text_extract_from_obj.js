@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 
 import { decode } from 'ent';
+import isString from 'utils/is_string';
 import striptags from 'striptags';
 import { lookupTextExtract } from 'utils/text_extract_registry';
 
@@ -9,7 +10,8 @@ function textExtractFromObj(obj) {
 }
 
 function textExtractFromItem(objOrWidget) {
-  const attributes = lookupTextExtract(objOrWidget.objClass());
+  const className = objOrWidget.objClass();
+  const attributes = lookupTextExtract(className);
 
   if (!attributes || !attributes.length) {
     return '';
@@ -17,6 +19,12 @@ function textExtractFromItem(objOrWidget) {
 
   const textExtractValues = attributes.map(({ attribute, type }) => {
     const value = objOrWidget.get(attribute);
+
+    if (!assertValidValue(value, type)) {
+      console.warn(
+        `Attribute '${attribute}' of className '${className}' is not of type '${type}'!`);
+      return '';
+    }
 
     switch (type) {
       case 'html': return textExtractFromHtml(value);
@@ -30,6 +38,16 @@ function textExtractFromItem(objOrWidget) {
   });
 
   return arrayToString(textExtractValues);
+}
+
+function assertValidValue(value, type) {
+  switch (type) {
+    case 'html': return isString(value);
+    case 'string': return isString(value);
+    case 'widgetlist': return Array.isArray(value);
+  }
+
+  return true;
 }
 
 function textExtractFromHtml(html) {
