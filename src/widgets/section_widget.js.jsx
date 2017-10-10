@@ -37,7 +37,7 @@ class SectionWidget extends BaseSectionWidget {
 
 Scrivito.registerClass('SectionWidget', SectionWidget);
 
-registerTextExtract('Section', [
+registerTextExtract('SectionWidget', [
   { attribute: 'content', type: 'widgetlist' },
 ]);
 
