@@ -23,7 +23,7 @@ Scrivito.provideEditingConfig(SearchResults, {
 
 function globalSearch(q) {
   return Scrivito.Obj.where('*', 'contains', q)
-    .andNot('_objClass', 'equals', ['Author', 'Video', 'Image']);
+    .andNot('_objClass', 'equals', ['Author', 'Video', 'Image', 'SearchResults']);
 }
 
 class SearchResultsComponent extends React.Component {
