@@ -1,3 +1,4 @@
+const process = require('process');
 const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -7,6 +8,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const buildPath = 'build';
 
 module.exports = (env = {}) => {
+  // see https://github.com/webpack/webpack/issues/2537 for details
+  const isProduction = process.argv.indexOf('-p') !== -1 || env.production;
+
   return {
     context: path.join(__dirname, 'src'),
     entry: {
@@ -35,7 +39,7 @@ module.exports = (env = {}) => {
             {
               loader: 'eslint-loader',
               options: {
-                emitWarning: !env.production,
+                emitWarning: !isProduction,
               },
             },
           ],
@@ -47,7 +51,7 @@ module.exports = (env = {}) => {
               {
                 loader: 'css-loader',
                 options: {
-                  minimize: env.production,
+                  minimize: isProduction,
                 },
               }, {
                 loader: 'sass-loader',
