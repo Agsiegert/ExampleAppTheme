@@ -3,6 +3,14 @@ import SearchInput from './search_results/search_input';
 import SearchResultItem from './search_results/search_result_item';
 import SearchResultsTagList from './search_results/search_results_tag_list';
 
+const blacklistObjClasses = [
+  'Author',
+  'Download',
+  'Image',
+  'SearchResults',
+  'Video',
+];
+
 const SearchResults = Scrivito.createObjClass({
   name: 'SearchResults',
   attributes: {
@@ -23,7 +31,7 @@ Scrivito.provideEditingConfig(SearchResults, {
 
 function globalSearch(q) {
   return Scrivito.Obj.where('*', 'contains', q)
-    .andNot('_objClass', 'equals', ['Author', 'Video', 'Image']);
+    .andNot('_objClass', 'equals', blacklistObjClasses);
 }
 
 class SearchResultsComponent extends React.Component {

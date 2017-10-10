@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const Job = Scrivito.createObjClass({
   name: 'Job',
   attributes: {
@@ -7,7 +9,9 @@ const Job = Scrivito.createObjClass({
   },
 });
 
-Scrivito.registerClass('Job', Job);
+registerTextExtract('Job', [
+  { attribute: 'location', type: 'string' },
+]);
 
 Scrivito.provideEditingConfig(Job, {
   title: 'Job',

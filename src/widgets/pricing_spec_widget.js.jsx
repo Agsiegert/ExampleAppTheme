@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const PricingSpecWidget = Scrivito.createWidgetClass({
   onlyInside: 'PricingWidget',
   name: 'PricingSpecWidget',
@@ -6,6 +8,11 @@ const PricingSpecWidget = Scrivito.createWidgetClass({
     unit: 'string',
   },
 });
+
+registerTextExtract('PricingSpecWidget', [
+  { attribute: 'variable', type: 'string' },
+  { attribute: 'unit', type: 'string' },
+]);
 
 Scrivito.provideEditingConfig(PricingSpecWidget, {
   title: 'PricingSpec',

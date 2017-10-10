@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const SignUpFormWidget = Scrivito.createWidgetClass({
   name: 'SignUpFormWidget',
   attributes: {
@@ -7,7 +9,9 @@ const SignUpFormWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.registerClass('SignUpFormWidget', SignUpFormWidget);
+registerTextExtract('SignUpFormWidget', [
+  { attribute: 'title', type: 'string' },
+]);
 
 Scrivito.provideEditingConfig(SignUpFormWidget, {
   title: 'Sign Up Form',

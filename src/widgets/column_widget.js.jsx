@@ -1,6 +1,6 @@
-import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
-const BaseColumnWidget = Scrivito.createWidgetClass({
+const ColumnWidget = Scrivito.createWidgetClass({
   name: 'ColumnWidget',
   attributes: {
     nrOfColumns: ['enum', { validValues: ['1', '2', '3', '4'] }],
@@ -12,20 +12,12 @@ const BaseColumnWidget = Scrivito.createWidgetClass({
   },
 });
 
-class ColumnWidget extends BaseColumnWidget {
-  textExtract() {
-    return [
-      'column1',
-      'column2',
-      'column3',
-      'column4',
-    ].map(
-      attributeName => textExtractFromWidgetlist(this.get(attributeName))
-    ).join(' ');
-  }
-}
-
-Scrivito.registerClass('ColumnWidget', ColumnWidget);
+registerTextExtract('ColumnWidget', [
+  { attribute: 'column1', type: 'widgetlist' },
+  { attribute: 'column2', type: 'widgetlist' },
+  { attribute: 'column3', type: 'widgetlist' },
+  { attribute: 'column4', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(ColumnWidget, {
   title: 'Column',

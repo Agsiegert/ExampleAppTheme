@@ -1,22 +1,18 @@
 import Slider from 'react-slick';
 import devicePixelRatio from 'utils/device_pixel_ratio';
 import fallbackImageUrl from 'utils/fallback_image_url';
-import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
-const BaseTestimonialSliderWidget = Scrivito.createWidgetClass({
+const TestimonialSliderWidget = Scrivito.createWidgetClass({
   name: 'TestimonialSliderWidget',
   attributes: {
     testimonials: ['widgetlist', { only: 'TestimonialWidget' }],
   },
 });
 
-class TestimonialSliderWidget extends BaseTestimonialSliderWidget {
-  textExtract() {
-    return textExtractFromWidgetlist(this.get('testimonials'));
-  }
-}
-
-Scrivito.registerClass('TestimonialSliderWidget', TestimonialSliderWidget);
+registerTextExtract('TestimonialSliderWidget', [
+  { attribute: 'testimonials', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(TestimonialSliderWidget, {
   title: 'Testimonial Slider',

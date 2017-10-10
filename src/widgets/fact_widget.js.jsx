@@ -1,4 +1,6 @@
-const BaseFactWidget = Scrivito.createWidgetClass({
+import { registerTextExtract } from 'utils/text_extract_registry';
+
+const FactWidget = Scrivito.createWidgetClass({
   name: 'FactWidget',
   attributes: {
     key: 'string',
@@ -6,13 +8,10 @@ const BaseFactWidget = Scrivito.createWidgetClass({
   },
 });
 
-class FactWidget extends BaseFactWidget {
-  textExtract() {
-    return [this.get('key'), this.get('value')].join(' ');
-  }
-}
-
-Scrivito.registerClass('FactWidget', FactWidget);
+registerTextExtract('FactWidget', [
+  { attribute: 'key', type: 'string' },
+  { attribute: 'value', type: 'string' },
+]);
 
 Scrivito.provideEditingConfig(FactWidget, {
   title: 'Fact',

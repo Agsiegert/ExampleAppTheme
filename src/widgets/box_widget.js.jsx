@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const BoxWidget = Scrivito.createWidgetClass({
   name: 'BoxWidget',
   attributes: {
@@ -5,6 +7,10 @@ const BoxWidget = Scrivito.createWidgetClass({
     useOffset: ['enum', { validValues: ['yes', 'no'] }],
   },
 });
+
+registerTextExtract('BoxWidget', [
+  { attribute: 'content', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(BoxWidget, {
   title: 'Box',

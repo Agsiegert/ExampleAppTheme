@@ -1,11 +1,11 @@
-import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
 import {
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 } from './_default_page_attributes';
 
-const BaseHomepage = Scrivito.createObjClass({
+const Homepage = Scrivito.createObjClass({
   name: 'Homepage',
   attributes: {
     ...defaultPageAttributes,
@@ -18,18 +18,10 @@ const BaseHomepage = Scrivito.createObjClass({
   },
 });
 
-class Homepage extends BaseHomepage {
-  textExtract() {
-    return [
-      'navigationSection',
-      'body',
-    ].map(
-      attributeName => textExtractFromWidgetlist(this.get(attributeName))
-    ).join(' ');
-  }
-}
-
-Scrivito.registerClass('Homepage', Homepage);
+registerTextExtract('Homepage', [
+  { attribute: 'navigationSection', type: 'widgetlist' },
+  { attribute: 'body', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(Homepage, {
   title: 'Homepage',

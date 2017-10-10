@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const TopFeaturesWidget = Scrivito.createWidgetClass({
   name: 'TopFeaturesWidget',
   attributes: {
@@ -7,7 +9,10 @@ const TopFeaturesWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.registerClass('TopFeaturesWidget', TopFeaturesWidget);
+registerTextExtract('TopFeaturesWidget', [
+  { attribute: 'leftColumn', type: 'widgetlist' },
+  { attribute: 'rightColumn', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(TopFeaturesWidget, {
   title: 'Top Feature Panel',

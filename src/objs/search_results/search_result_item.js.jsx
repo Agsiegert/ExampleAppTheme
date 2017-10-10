@@ -47,7 +47,7 @@ function SearchResultItem({ resultItem, q }) {
             <Highlighter
               highlightTag="mark"
               searchWords={ searchWords }
-              textToHighlight={ resultItem.get('title') }
+              textToHighlight={ resultItem.get('title') || '' }
             />
           </h3>
         </Scrivito.LinkTag>

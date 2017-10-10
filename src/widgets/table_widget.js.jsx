@@ -1,3 +1,4 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
 import { TableRowWidgetComponent } from './table_row_widget';
 
 const TableWidget = Scrivito.createWidgetClass({
@@ -19,7 +20,9 @@ const TableWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.registerClass('TableWidget', TableWidget);
+registerTextExtract('TableWidget', [
+  { attribute: 'rows', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(TableWidget, {
   title: 'Table',

@@ -1,4 +1,6 @@
-const BaseHeadlineWidget = Scrivito.createWidgetClass({
+import { registerTextExtract } from 'utils/text_extract_registry';
+
+const HeadlineWidget = Scrivito.createWidgetClass({
   name: 'HeadlineWidget',
   attributes: {
     headline: 'string',
@@ -10,13 +12,9 @@ const BaseHeadlineWidget = Scrivito.createWidgetClass({
   },
 });
 
-class HeadlineWidget extends BaseHeadlineWidget {
-  textExtract() {
-    return this.get('headline');
-  }
-}
-
-Scrivito.registerClass('HeadlineWidget', HeadlineWidget);
+registerTextExtract('HeadlineWidget', [
+  { attribute: 'headline', type: 'string' },
+]);
 
 Scrivito.provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
