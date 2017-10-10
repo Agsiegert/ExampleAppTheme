@@ -1,15 +1,15 @@
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 
-const JobPreviewWidget = Scrivito.createWidgetClass({
-  name: 'JobPreviewWidget',
+const JobOverviewWidget = Scrivito.createWidgetClass({
+  name: 'JobOverviewWidget',
 });
 
-Scrivito.provideEditingConfig(JobPreviewWidget, {
-  title: 'Job Preview',
+Scrivito.provideEditingConfig(JobOverviewWidget, {
+  title: 'Job Overview',
   description: 'A widget showing all jobs.',
 });
 
-Scrivito.provideComponent(JobPreviewWidget, () => {
+Scrivito.provideComponent(JobOverviewWidget, () => {
   const jobs = Scrivito.getClass('Job').all();
 
   return (
@@ -45,4 +45,4 @@ Scrivito.provideComponent(JobPreviewWidget, () => {
   );
 });
 
-export default JobPreviewWidget;
+export default JobOverviewWidget;

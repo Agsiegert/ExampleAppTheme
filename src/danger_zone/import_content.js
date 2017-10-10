@@ -139,7 +139,7 @@ const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
 const IconListWidget = Scrivito.getClass('IconListWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
-const JobPreviewWidget = Scrivito.getClass('JobPreviewWidget');
+const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
 const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
 const PanelWidget = Scrivito.getClass('PanelWidget');
@@ -537,7 +537,7 @@ function importContent() {
               showDividingLine: 'yes',
               style: 'h2',
             }),
-            new JobPreviewWidget({}),
+            new JobOverviewWidget({}),
           ],
         }),
         new SectionWidget({
