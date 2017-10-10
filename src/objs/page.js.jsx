@@ -1,4 +1,3 @@
-import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 import {
@@ -6,26 +5,13 @@ import {
   defaultPageUiConfigAttributes,
 } from './_default_page_attributes';
 
-const BasePage = Scrivito.createObjClass({
+const Page = Scrivito.createObjClass({
   name: 'Page',
   attributes: {
     ...defaultPageAttributes,
     childOrder: 'referencelist',
   },
 });
-
-class Page extends BasePage {
-  textExtract() {
-    return [
-      'navigationSection',
-      'body',
-    ].map(
-      attributeName => textExtractFromWidgetlist(this.get(attributeName))
-    ).join(' ');
-  }
-}
-
-Scrivito.registerClass('Page', Page);
 
 registerTextExtract('Page', [
   { attribute: 'navigationSection', type: 'widgetlist' },

@@ -1,8 +1,7 @@
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
-import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const BaseSectionWidget = Scrivito.createWidgetClass({
+const SectionWidget = Scrivito.createWidgetClass({
   name: 'SectionWidget',
   attributes: {
     content: 'widgetlist',
@@ -28,14 +27,6 @@ const BaseSectionWidget = Scrivito.createWidgetClass({
     backgroundImage: 'reference',
   },
 });
-
-class SectionWidget extends BaseSectionWidget {
-  textExtract() {
-    return textExtractFromWidgetlist(this.get('content'));
-  }
-}
-
-Scrivito.registerClass('SectionWidget', SectionWidget);
 
 registerTextExtract('SectionWidget', [
   { attribute: 'content', type: 'widgetlist' },

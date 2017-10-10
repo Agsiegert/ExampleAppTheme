@@ -1,10 +1,9 @@
 import BlogPost from 'objs/blog_post';
 import navigateToBlogWithTag from 'utils/navigate_to_blog_with_tag';
 import TagList from 'components/tag_list';
-import textExtractFromWidgetlist from 'utils/text_extract_from_widgetlist';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const BaseBlog = Scrivito.createObjClass({
+const Blog = Scrivito.createObjClass({
   name: 'Blog',
   attributes: {
     title: 'string',
@@ -12,14 +11,6 @@ const BaseBlog = Scrivito.createObjClass({
     body: ['widgetlist', { only: 'SectionWidget' }],
   },
 });
-
-class Blog extends BaseBlog {
-  textExtract() {
-    return textExtractFromWidgetlist(this.get('body'));
-  }
-}
-
-Scrivito.registerClass('Blog', Blog);
 
 registerTextExtract('Blog', [
   { attribute: 'body', type: 'widgetlist' },
