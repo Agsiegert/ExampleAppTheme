@@ -1,20 +1,12 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const BaseFactWidget = Scrivito.createWidgetClass({
+const FactWidget = Scrivito.createWidgetClass({
   name: 'FactWidget',
   attributes: {
     key: 'string',
     value: 'string',
   },
 });
-
-class FactWidget extends BaseFactWidget {
-  textExtract() {
-    return [this.get('key'), this.get('value')].join(' ');
-  }
-}
-
-Scrivito.registerClass('FactWidget', FactWidget);
 
 registerTextExtract('FactWidget', [
   { attribute: 'key', type: 'string' },

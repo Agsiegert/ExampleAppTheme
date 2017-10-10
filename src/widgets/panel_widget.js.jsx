@@ -1,17 +1,15 @@
-const BasePanelWidget = Scrivito.createWidgetClass({
+import { registerTextExtract } from 'utils/text_extract_registry';
+
+const PanelWidget = Scrivito.createWidgetClass({
   name: 'PanelWidget',
   attributes: {
     body: 'widgetlist',
   },
 });
 
-class PanelWidget extends BasePanelWidget {
-  textExtract() {
-    return this.get('headline');
-  }
-}
-
-Scrivito.registerClass('PanelWidget', PanelWidget);
+registerTextExtract('PanelWidget', [
+  { attribute: 'body', type: 'widgetlist' },
+]);
 
 Scrivito.provideEditingConfig(PanelWidget, {
   title: 'Panel',

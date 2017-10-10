@@ -1,4 +1,6 @@
-const BaseTestimonialWidget = Scrivito.createWidgetClass({
+import { registerTextExtract } from 'utils/text_extract_registry';
+
+const TestimonialWidget = Scrivito.createWidgetClass({
   onlyInside: 'TestimonialSliderWidget',
   name: 'TestimonialWidget',
   attributes: {
@@ -8,13 +10,9 @@ const BaseTestimonialWidget = Scrivito.createWidgetClass({
   },
 });
 
-class TestimonialWidget extends BaseTestimonialWidget {
-  textExtract() {
-    return this.get('testimonial');
-  }
-}
-
-Scrivito.registerClass('TestimonialWidget', TestimonialWidget);
+registerTextExtract('TestimonialWidget', [
+  { attribute: 'testimonial', type: 'string' },
+]);
 
 Scrivito.provideEditingConfig(TestimonialWidget, {
   title: 'Testimonial',

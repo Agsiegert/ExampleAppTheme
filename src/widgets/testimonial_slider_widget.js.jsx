@@ -1,6 +1,7 @@
 import Slider from 'react-slick';
 import devicePixelRatio from 'utils/device_pixel_ratio';
 import fallbackImageUrl from 'utils/fallback_image_url';
+import { registerTextExtract } from 'utils/text_extract_registry';
 
 const TestimonialSliderWidget = Scrivito.createWidgetClass({
   name: 'TestimonialSliderWidget',
@@ -8,6 +9,10 @@ const TestimonialSliderWidget = Scrivito.createWidgetClass({
     testimonials: ['widgetlist', { only: 'TestimonialWidget' }],
   },
 });
+
+registerTextExtract('TestimonialSliderWidget', [
+  { attribute: 'testimonials', type: 'string' },
+]);
 
 Scrivito.provideEditingConfig(TestimonialSliderWidget, {
   title: 'Testimonial Slider',
