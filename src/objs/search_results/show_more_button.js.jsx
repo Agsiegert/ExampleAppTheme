@@ -1,17 +1,15 @@
 function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
   if (currentMaxItems >= totalCount) { return null; }
 
-  // TODO: Remove upper div, once React 16 is used.
-  return (
-    <div>
-      <br />
-      <div className="text-center">
-        <a className="btn btn-primary" onClick={ onClick }>
-          Load more<i className="fa fa-angle-right fa-4" aria-hidden="true" />
-        </a>
-      </div>
-    </div>
-  );
+  return [
+    // Don't forget the keys :)
+    <br key="A" />,
+    <div key="B" className="text-center">
+      <a className="btn btn-primary" onClick={ onClick }>
+        Load more<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+      </a>
+    </div>,
+  ];
 }
 
 export default ShowMoreButton;
