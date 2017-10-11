@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1184);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1183);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 1040:
+/***/ 1039:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -207,7 +207,7 @@ if (true) {
 
 /***/ }),
 
-/***/ 1041:
+/***/ 1040:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var __WEBPACK_AMD_DEFINE_RESULT__;/*global self, document, DOMException */
@@ -8101,17 +8101,17 @@ MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
 
 /***/ }),
 
-/***/ 1184:
+/***/ 1183:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(554);
+__webpack_require__(557);
 
 /***/ }),
 
-/***/ 323:
+/***/ 325:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8138,7 +8138,7 @@ exports.default = applyPlaceholderToElement;
 
 /***/ }),
 
-/***/ 324:
+/***/ 326:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18727,13 +18727,29 @@ return jQuery;
 
 /***/ }),
 
-/***/ 554:
+/***/ 557:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(775);
+var _html_editor = __webpack_require__(580);
+
+var _html_editor2 = _interopRequireDefault(_html_editor);
+
+var _reference_editor = __webpack_require__(774);
+
+var _reference_editor2 = _interopRequireDefault(_reference_editor);
+
+var _string_editor = __webpack_require__(581);
+
+var _string_editor2 = _interopRequireDefault(_string_editor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Scrivito.registerEditor(_html_editor2.default);
+Scrivito.registerEditor(_reference_editor2.default);
+Scrivito.registerEditor(_string_editor2.default);
 
 /***/ }),
 
@@ -18753,15 +18769,15 @@ var _jquery = __webpack_require__(46);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _controller_content_proxy = __webpack_require__(324);
+var _controller_content_proxy = __webpack_require__(326);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(323);
+var _apply_placeholder_to_element = __webpack_require__(325);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _medium_editor = __webpack_require__(839);
+var _medium_editor = __webpack_require__(838);
 
 var _medium_editor2 = _interopRequireDefault(_medium_editor);
 
@@ -18821,15 +18837,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _controller_content_proxy = __webpack_require__(324);
+var _controller_content_proxy = __webpack_require__(326);
 
 var _controller_content_proxy2 = _interopRequireDefault(_controller_content_proxy);
 
-var _apply_placeholder_to_element = __webpack_require__(323);
+var _apply_placeholder_to_element = __webpack_require__(325);
 
 var _apply_placeholder_to_element2 = _interopRequireDefault(_apply_placeholder_to_element);
 
-var _string_editor = __webpack_require__(840);
+var _string_editor = __webpack_require__(839);
 
 var _string_editor2 = _interopRequireDefault(_string_editor);
 
@@ -18942,40 +18958,14 @@ exports.default = ReferenceEditor;
 
 /***/ }),
 
-/***/ 775:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _html_editor = __webpack_require__(580);
-
-var _html_editor2 = _interopRequireDefault(_html_editor);
-
-var _reference_editor = __webpack_require__(774);
-
-var _reference_editor2 = _interopRequireDefault(_reference_editor);
-
-var _string_editor = __webpack_require__(581);
-
-var _string_editor2 = _interopRequireDefault(_string_editor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Scrivito.registerEditor(_html_editor2.default);
-Scrivito.registerEditor(_reference_editor2.default);
-Scrivito.registerEditor(_string_editor2.default);
-
-/***/ }),
-
-/***/ 839:
+/***/ 838:
 /***/ (function(module, exports, __webpack_require__) {
 
 var MediumButton, MediumEditor, ScrivitoAnchor, activateMediumEditorWithProxy, buttonsOption, defaultOptions;
 
-MediumEditor = __webpack_require__(1041);
+MediumEditor = __webpack_require__(1040);
 
-MediumButton = __webpack_require__(1040);
+MediumButton = __webpack_require__(1039);
 
 ScrivitoAnchor = MediumEditor.extensions.anchor.extend({
   name: 'scrivito_anchor',
@@ -19105,7 +19095,7 @@ module.exports = activateMediumEditorWithProxy;
 
 /***/ }),
 
-/***/ 840:
+/***/ 839:
 /***/ (function(module, exports) {
 
 var DOUBLE_CLICK_MS, activateStringEditorWithProxy, cleanUp, cmsFieldAndPastedContent, finishEditing, fixSelectionForFirefox, getCurrentContent, isNewlineAllowed, onBlur, onClick, onFocus, onInput, onKey, prepareForEditing, save;

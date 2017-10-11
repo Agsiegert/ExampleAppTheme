@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1185);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1184);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2532,7 +2532,7 @@ var StateTreeNode = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 1185:
+/***/ 1184:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2544,12 +2544,6 @@ var _connect_to_ui2 = _interopRequireDefault(_connect_to_ui);
 
 var _scrivito_sdk = __webpack_require__(192);
 
-var _is_inside_extensions_document = __webpack_require__(556);
-
-var _is_inside_extensions_document2 = _interopRequireDefault(_is_inside_extensions_document);
-
-var _asset_loading = __webpack_require__(98);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /*
@@ -2559,9 +2553,8 @@ var ui = (0, _connect_to_ui2.default)();
 
 (0, _scrivito_sdk.initializeSdk)(ui);
 
-if (ui && !(0, _is_inside_extensions_document2.default)()) {
-  (0, _asset_loading.loadCss)('/scrivito/scrivito_editing.css');
-  (0, _asset_loading.loadJs)('/scrivito/scrivito_editing.js');
+if (ui) {
+  (0, _scrivito_sdk.loadEditing)();
 }
 
 /***/ }),
@@ -5224,9 +5217,9 @@ var _get = function get(object, property, receiver) { if (object === null) objec
 
 exports.default = ObjSearchFactory;
 
-var _basic_obj_search_iterable = __webpack_require__(60);
+var _basic_obj_search = __webpack_require__(60);
 
-var _basic_obj_search_iterable2 = _interopRequireDefault(_basic_obj_search_iterable);
+var _basic_obj_search2 = _interopRequireDefault(_basic_obj_search);
 
 var _obj_facet_value = __webpack_require__(88);
 
@@ -5248,8 +5241,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function ObjSearchFactory(registry) {
   // public API
-  var ObjSearch = function (_BasicObjSearchIterab) {
-    _inherits(ObjSearch, _BasicObjSearchIterab);
+  var ObjSearch = function (_BasicObjSearch) {
+    _inherits(ObjSearch, _BasicObjSearch);
 
     function ObjSearch() {
       _classCallCheck(this, ObjSearch);
@@ -5322,11 +5315,11 @@ function ObjSearchFactory(registry) {
     }]);
 
     return ObjSearch;
-  }(_basic_obj_search_iterable2.default);
+  }(_basic_obj_search2.default);
 
   // check if the environment supports ES6 iterables
   // (either native or through some kind of polyfill)
-  // if yes, make BasicObjSearchIterable an ES6 iterable.
+  // if yes, make BasicObjSearch an ES6 iterable.
 
 
   if (typeof window.Symbol === 'function') {
@@ -8008,7 +8001,7 @@ var _deferred = __webpack_require__(10);
 
 var _deferred2 = _interopRequireDefault(_deferred);
 
-var _asset_loading = __webpack_require__(98);
+var _asset_loading = __webpack_require__(90);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15933,18 +15926,28 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initializeSdk = initializeSdk;
+exports.loadEditing = loadEditing;
 
 __webpack_require__(171);
 
 __webpack_require__(264);
 
-__webpack_require__(270);
+__webpack_require__(271);
 
 __webpack_require__(266);
+
+var _is_inside_extensions_document = __webpack_require__(267);
+
+var _is_inside_extensions_document2 = _interopRequireDefault(_is_inside_extensions_document);
+
+var _asset_loading = __webpack_require__(90);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 if (!window.scrivito) {
   window.scrivito = {};
 }
+
 function initializeSdk(ui) {
   if (ui) {
     ui.setAppAdapter(scrivito.AppAdapter);
@@ -15955,6 +15958,13 @@ function initializeSdk(ui) {
   document.addEventListener('DOMContentLoaded', function () {
     return scrivito.BrowserLocation.init();
   });
+}
+
+function loadEditing() {
+  if (!(0, _is_inside_extensions_document2.default)()) {
+    (0, _asset_loading.loadCss)('/scrivito/scrivito_editing.css');
+    (0, _asset_loading.loadJs)('/scrivito/scrivito_editing.js');
+  }
 }
 
 /***/ }),
@@ -16283,6 +16293,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     },
     propertiesGroupsForClass: function propertiesGroupsForClass(className) {
       return (0, _provide_ui_config.getUiConfigPropertyFor)(className, 'propertiesGroups');
+    },
+    generalPropertiesForClass: function generalPropertiesForClass(className) {
+      return (0, _provide_ui_config.getUiConfigPropertyFor)(className, 'generalProperties');
     },
     titleForObj: function titleForObj(objId) {
       return invokeCallbackFromUiConfigWithObjId('titleForContent', objId);
@@ -18114,7 +18127,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(52);
 
-var _extract_ids_from_content = __webpack_require__(90);
+var _extract_ids_from_content = __webpack_require__(91);
 
 var _extract_ids_from_content2 = _interopRequireDefault(_extract_ids_from_content);
 
@@ -18251,7 +18264,7 @@ var _reactDom = __webpack_require__(52);
 
 var _window_registry = __webpack_require__(48);
 
-var _extract_ids_from_content = __webpack_require__(90);
+var _extract_ids_from_content = __webpack_require__(91);
 
 var _extract_ids_from_content2 = _interopRequireDefault(_extract_ids_from_content);
 
@@ -18581,7 +18594,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(52);
 
-var _extract_ids_from_content = __webpack_require__(90);
+var _extract_ids_from_content = __webpack_require__(91);
 
 var _extract_ids_from_content2 = _interopRequireDefault(_extract_ids_from_content);
 
@@ -18749,7 +18762,7 @@ var _binary2 = _interopRequireDefault(_binary);
 
 var _window_proxy = __webpack_require__(31);
 
-var _image_placeholder = __webpack_require__(269);
+var _image_placeholder = __webpack_require__(270);
 
 var _image_placeholder2 = _interopRequireDefault(_image_placeholder);
 
@@ -19465,7 +19478,7 @@ function openContentBrowser() {
 "use strict";
 
 
-var _public_api = __webpack_require__(267);
+var _public_api = __webpack_require__(268);
 
 var Scrivito = _interopRequireWildcard(_public_api);
 
@@ -19479,6 +19492,29 @@ window.Scrivito = Scrivito; // This file export the public API into a global `wi
 /***/ }),
 
 /***/ 267:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isInsideExtensionsDocument;
+
+var _window_proxy = __webpack_require__(31);
+
+var window = _interopRequireWildcard(_window_proxy);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function isInsideExtensionsDocument() {
+  return !!window.location().pathname.match('_scrivito_extensions.html');
+}
+
+/***/ }),
+
+/***/ 268:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19698,7 +19734,7 @@ Object.defineProperty(exports, 'connect', {
   }
 });
 
-var _provide_component = __webpack_require__(271);
+var _provide_component = __webpack_require__(272);
 
 Object.defineProperty(exports, 'provideComponent', {
   enumerable: true,
@@ -19720,7 +19756,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 
-/***/ 268:
+/***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19732,7 +19768,7 @@ if (!window.scrivito) {
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19752,19 +19788,19 @@ exports.default = 'data:image/gif;base64,R0lGODlhyADIAIAAAP///wAAACH/C1hNUCBEYXR
 
 /***/ }),
 
-/***/ 270:
+/***/ 271:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(268);
+__webpack_require__(269);
 
 __webpack_require__(262);
 
 /***/ }),
 
-/***/ 271:
+/***/ 272:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19874,9 +19910,9 @@ var _basic_widget = __webpack_require__(14);
 
 var _basic_widget2 = _interopRequireDefault(_basic_widget);
 
-var _basic_obj_search_iterable = __webpack_require__(60);
+var _basic_obj_search = __webpack_require__(60);
 
-var _basic_obj_search_iterable2 = _interopRequireDefault(_basic_obj_search_iterable);
+var _basic_obj_search2 = _interopRequireDefault(_basic_obj_search);
 
 var _basic_attribute_content = __webpack_require__(71);
 
@@ -20032,7 +20068,7 @@ var BasicObj = function (_BasicAttributeConten) {
   }, {
     key: 'all',
     value: function all() {
-      return new _basic_obj_search_iterable2.default().batchSize(1000);
+      return new _basic_obj_search2.default().batchSize(1000);
     }
   }, {
     key: 'root',
@@ -20044,7 +20080,7 @@ var BasicObj = function (_BasicAttributeConten) {
     value: function where(attribute, operator, value) {
       var boost = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-      return new _basic_obj_search_iterable2.default().and(attribute, operator, value, boost);
+      return new _basic_obj_search2.default().and(attribute, operator, value, boost);
     }
   }, {
     key: 'getByPath',
@@ -24436,29 +24472,6 @@ function buildWidgetPoolPatch(widgetPoolA, widgetPoolB) {
 
 /***/ }),
 
-/***/ 556:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = isInsideExtensionsDocument;
-
-var _window_proxy = __webpack_require__(31);
-
-var window = _interopRequireWildcard(_window_proxy);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function isInsideExtensionsDocument() {
-  return !!window.location().pathname.match('_scrivito_extensions.html');
-}
-
-/***/ }),
-
 /***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24993,11 +25006,11 @@ var NEGATABLE_OPERATORS = ['equals', 'startsWith', 'isGreaterThan', 'isLessThan'
 var BOOSTABLE_PARAMETERS = ['contains', 'containsPrefix'];
 var DEFAULT_BATCH_SIZE = 100;
 
-var BasicObjSearchIterable = function () {
-  function BasicObjSearchIterable() {
+var BasicObjSearch = function () {
+  function BasicObjSearch() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-    _classCallCheck(this, BasicObjSearchIterable);
+    _classCallCheck(this, BasicObjSearch);
 
     this._query = params.query || [];
     this._batchSize = params.batchSize;
@@ -25007,12 +25020,12 @@ var BasicObjSearchIterable = function () {
     this._includeDeleted = params.includeDeleted;
   }
 
-  _createClass(BasicObjSearchIterable, [{
+  _createClass(BasicObjSearch, [{
     key: 'and',
     value: function and(attributeOrSearch, operator, value) {
       var boost = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-      if (attributeOrSearch instanceof BasicObjSearchIterable) {
+      if (attributeOrSearch instanceof BasicObjSearch) {
         this._query = [].concat(_toConsumableArray(this._query), _toConsumableArray(attributeOrSearch._query));
       } else {
         var subQuery = buildSubQuery(attributeOrSearch, operator, value);
@@ -25124,10 +25137,10 @@ var BasicObjSearchIterable = function () {
     }
   }]);
 
-  return BasicObjSearchIterable;
+  return BasicObjSearch;
 }();
 
-exports.default = BasicObjSearchIterable;
+exports.default = BasicObjSearch;
 
 
 function buildSubQuery(camelcasedAttribute, publicOperator, unserializedValue) {
@@ -27609,33 +27622,6 @@ exports.default = ObjFacetValue;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = extractIdsFromContent;
-
-var _basic_obj = __webpack_require__(3);
-
-var _basic_obj2 = _interopRequireDefault(_basic_obj);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function extractIdsFromContent(basicContent) {
-  if (basicContent instanceof _basic_obj2.default) {
-    return { objId: basicContent.id() };
-  }
-
-  return { objId: basicContent.obj().id(), widgetId: basicContent.id() };
-}
-
-/***/ }),
-
-/***/ 98:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 function loadCss(url) {
   var link = document.createElement('link');
 
@@ -27654,6 +27640,33 @@ function loadJs(url) {
 
 exports.loadCss = loadCss;
 exports.loadJs = loadJs;
+
+/***/ }),
+
+/***/ 91:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = extractIdsFromContent;
+
+var _basic_obj = __webpack_require__(3);
+
+var _basic_obj2 = _interopRequireDefault(_basic_obj);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function extractIdsFromContent(basicContent) {
+  if (basicContent instanceof _basic_obj2.default) {
+    return { objId: basicContent.id() };
+  }
+
+  return { objId: basicContent.obj().id(), widgetId: basicContent.id() };
+}
 
 /***/ }),
 
