@@ -4,12 +4,44 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const buildPath = 'build';
 
 module.exports = (env = {}) => {
   // see https://github.com/webpack/webpack/issues/2537 for details
   const isProduction = process.argv.indexOf('-p') !== -1 || env.production;
+
+  const plugins = [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: isProduction && JSON.stringify('production'),
+      },
+    }),
+    new CleanWebpackPlugin([buildPath]),
+    new CopyWebpackPlugin([
+      { from: '../static' },
+      { from: '../vendor/scrivito', to: 'scrivito' },
+    ]),
+    new ExtractTextPlugin({
+      filename: '[name]',
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+  ];
+
+  if (isProduction) {
+    plugins.push(
+      new UglifyJSPlugin({
+        parallel: {
+          cache: true,
+        },
+        uglifyOptions: {
+          ie8: false,
+          ecma: 5,
+        },
+      })
+    );
+  }
 
   return {
     context: path.join(__dirname, 'src'),
@@ -71,22 +103,7 @@ module.exports = (env = {}) => {
       filename: '[name].js',
       path: path.join(__dirname, buildPath),
     },
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: isProduction && JSON.stringify('production'),
-        },
-      }),
-      new CleanWebpackPlugin([buildPath]),
-      new CopyWebpackPlugin([
-        { from: '../static' },
-        { from: '../vendor/scrivito', to: 'scrivito' },
-      ]),
-      new ExtractTextPlugin({
-        filename: '[name]',
-      }),
-      new webpack.optimize.ModuleConcatenationPlugin(),
-    ],
+    plugins: plugins,
     resolve: {
       alias: {
         scrivito_sdk: path.join(__dirname, 'vendor/scrivito/scrivito_sdk.js'),
