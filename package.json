@@ -51,7 +51,7 @@
   },
   "scripts": {
     "build": "webpack -p",
-    "serve": "webpack-dev-server",
+    "start": "webpack-dev-server --open",
     "serve:design": "webpack-dev-server --config webpack.design.config.js",
     "scrivito": "npm run scrivito:build && npm run scrivito:copy && npm run scrivito:commit",
     "scrivito:build": "cd ../rails_connector && bundle && bundle exec rake package:js",
