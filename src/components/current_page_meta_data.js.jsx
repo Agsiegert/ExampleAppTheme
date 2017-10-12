@@ -1,5 +1,6 @@
 import Helmet from 'react-helmet';
 import getMetaData from 'utils/get_meta_data';
+import favicon from 'assets/images/favicon.png';
 
 const CurrentPageMetaData = Scrivito.connect(() => {
   const htmlAttributes = { lang: 'en' };
@@ -12,7 +13,20 @@ const CurrentPageMetaData = Scrivito.connect(() => {
     meta = getMetaData(page);
   }
 
-  return <Helmet meta={ meta } htmlAttributes={ htmlAttributes } title={ title } />;
+  const links = [
+    {
+      rel: 'shortcut icon',
+      type: 'image/png',
+      href: favicon,
+    },
+  ];
+
+  return <Helmet
+    meta={ meta }
+    htmlAttributes={ htmlAttributes }
+    title={ title }
+    link={ links }
+  />;
 });
 
 export default CurrentPageMetaData;
