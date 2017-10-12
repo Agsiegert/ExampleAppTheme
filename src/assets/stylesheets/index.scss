@@ -257,6 +257,7 @@ small, .small { font-size: 80%; line-height: 1.5em; }
   color: $brand-secondary!important;
   line-height: 1; margin: 0 0 20px 0;
   }
+.bg-dark-image .hero-bold { color: $brand-secondary!important; }
 .hero-small {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300; font-size: 30px;
@@ -268,7 +269,11 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 /* button adaoptions
 =================================================================== */
 
-.btn { font-size: 16px; font-weight: 700; text-transform: uppercase; padding: 13px 20px 10px; vertical-align: middle; }
+.btn {
+  font-size: 16px; font-weight: 700;
+  text-transform: uppercase; vertical-align: middle;
+  padding: 13px 20px 10px; margin: 0 10px 10px 0;
+  }
 .btn .fa { padding: 0 0 3px 15px; font-size: 26px; vertical-align: middle; }
 
 .btn-primary,
@@ -369,6 +374,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .bg-brand-primary { background: $brand-primary; }
 .bg-brand-secondary { background: $brand-secondary; }
 
+.bg-dark-image { background: $theme-greymiddle; }
 .bg-grey { background: $theme-grey; }
 .bg-greylight { background: $theme-greylight; }
 .bg-greydark { background: $theme-greydark; }
@@ -500,8 +506,7 @@ footer {
 
 /* .scrolled.bg-dark-image .navbar-brand { background: $logo-dark no-repeat center center / contain; } */
 
-.scrolled .navbar,
-.scrolled.bg-dark-image { background: rgba(255,255,255,.9); box-shadow: 0 0 3px rgba(0,0,0,.2); }
+.scrolled .navbar { background: rgba(255,255,255,.9); box-shadow: 0 0 3px rgba(0,0,0,.2); }
 .scrolled.bg-dark-image .navbar-nav > li > a { color: $theme-greydark!important; }
 .scrolled.bg-dark-image .navbar-nav > li.active > a { color: #fff!important; }
 
@@ -1038,7 +1043,7 @@ footer {
 .box-card .box-topic.dark-background { background: transparent; border: none; }
 .box-card .box-topic.dark-background {
   .h3,
-  span { color: #fff; }
+  span { color: #fff!important; }
 }
 
 /* gallery thumbs
@@ -1097,7 +1102,7 @@ footer {
   z-index:12111; text-transform: uppercase;
   position:absolute; top:20px; right:20px;
   }
-.charts .chart .btn { position: absolute; bottom: 30px; left: 20%; right: 20%; }
+.charts .chart .btn { position: absolute; bottom: 30px; left: 20%; right: 20%; margin: 0; }
 .charts .chart .quantity span:empty,
 .charts .chart .specs span:empty { min-width: 20px!important; display: inline-block; background: rgba(0,255,0,.2); }
 
