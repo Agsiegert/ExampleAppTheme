@@ -17,11 +17,16 @@ function renderChild(child) {
 }
 
 function renderSingleChild(child) {
-  return (<li className={ isActive(child) && 'active' }>
-    <Scrivito.LinkTag to={ child }>
-      { child.get('title') }
-    </Scrivito.LinkTag>
-  </li>);
+  const classNames = [];
+  if (isActive(child)) { classNames.push('active'); }
+
+  return (
+    <li className={ classNames.join(' ') }>
+      <Scrivito.LinkTag to={ child }>
+        { child.get('title') }
+      </Scrivito.LinkTag>
+    </li>
+  );
 }
 
 class BaseDropdown extends React.Component {
