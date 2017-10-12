@@ -272,7 +272,7 @@ small, .small { font-size: 80%; line-height: 1.5em; }
 .btn {
   font-size: 16px; font-weight: 700;
   text-transform: uppercase; vertical-align: middle;
-  padding: 13px 20px 10px; margin: 0 10px 10px 0;
+  padding: 13px 20px 10px; margin: 0 0 10px 0;
   }
 .btn .fa { padding: 0 0 3px 15px; font-size: 26px; vertical-align: middle; }
 
@@ -975,11 +975,12 @@ footer {
 /* panel-theme
 =================================================================== */
 
+.social-links i { padding: 20px; }
+
 .panel-theme { background: transparent; box-shadow: none; }
 .panel-theme .panel-body { padding: 20px 0; }
 .panel-theme .fa { padding: 20px 0; color: $brand-secondary;}
 .panel-theme a:hover { text-decoration: none; }
-.panel-theme .social-links i { padding: 20px; }
 
 .panel-theme.panel-list .panel-icon { text-align: center; width: 22%; float: left; }
 .panel-theme.panel-list .panel-body { text-align: left; width: 78%; float: left; }
@@ -1419,7 +1420,7 @@ body, #application {height: 100%; padding: 0; margin: 0; }
 
 .bg-map { overflow: hidden; position:relative; min-height:350px; }
 .bg-map iframe { left:0; top:0; height:100%; width:100%; position:absolute; }
-.bg-map .box-white { padding: 30px; margin: 40px 0 100px 0; background: #fff; }
+.bg-map .panel { padding: 30px; margin: 40px 0 100px 0; background: #fff; }
 .bg-map .logo { margin-bottom: 20px; width: 150px; }
 .bg-map {
   a,
@@ -1429,13 +1430,13 @@ body, #application {height: 100%; padding: 0; margin: 0; }
   table td { padding: 0 5px 0 0; }
  .social-links i { padding: 10px 15px; }
  }
- @media (max-width: $screen-xs-max) { .bg-map .box-white { margin: 200px 0 -10px 0; } }
+ @media (max-width: $screen-xs-max) { .bg-map .panel { margin: 200px 0 -10px 0; } }
 
 /* contact form
 =================================================================== */
 
-.box-white.box-offset { padding: 80px 100px; margin: -120px 0 0 0; background: #fff; }
-@media (max-width: $screen-xs-max) { .box-white.box-offset  { padding: 20px; margin: -65px 0 0 0; } }
+.panel.box-offset { padding: 80px 100px; margin: -120px 0 0 0; }
+@media (max-width: $screen-xs-max) { .panel.box-offset  { padding: 20px; margin: -65px 0 0 0; } }
 
 .floating-label label {
   font-size: 11px; line-height: 16px;
@@ -1456,7 +1457,7 @@ body, #application {height: 100%; padding: 0; margin: 0; }
 =================================================================== */
 
 .box-login { background: #fff; padding: 30px; }
-.box-login .h3 { color: $theme-greydark; }
+.box-login .h3 { color: $theme-greydark!important; }
 .box-login a {
   font-size: 13px; display: block;
   text-align: center; color: $theme-greydark;
@@ -1465,7 +1466,12 @@ body, #application {height: 100%; padding: 0; margin: 0; }
 /* landing page
 =================================================================== */
 
-.hr-icon { margin: 60px 0; border-bottom: 1px solid #666; }
+.hr-icon {
+  border-top: 0 solid #fff;
+  border-bottom: 1px solid #ddd;
+  clear:both; position: relative;
+  margin: 60px 0; border-bottom: 1px solid #666;
+  }
 .hr-icon:after {
   background-image:  url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE0Ny40IDE0Ny40IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNDcuNCAxNDcuNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRjZCNkIiIGQ9Ik0xMDAuNiwzNmwtMTMuMS03LjZMNTIuMSw4QzI4LjYtNS42LDcuOCw1LjcsNy42LDQzLjlsMCwxLjFMNDksNjQuOWM1LjYsMi43LDEuNywxMy45LTYuOSw5LjdMNy41LDU3LjdsLTAuMiw0NGMtMC4yLDMxLjgsMTcsNTIuNiw0My4xLDM5LjJsMzcuMS0yMS40bDEzLTcuNWMtMTEuMi05LjItMTUuNC0zMS40LTEyLjgtNDkuOEw1MS42LDQ0LjdjLTUuNi0yLjctMS43LTEzLjksNi45LTkuN2wzMS45LDE1LjZDOTIuNyw0NC4yLDk2LjEsMzguOSwxMDAuNiwzNiIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkY2QjZCIiBkPSJNMTI0LjcsNDkuOWwtMTMuNS03LjhjLTIwLjMsNy42LTE2LDU5LjktMC4xLDYzLjdsMTEuOS02LjhDMTQ3LjgsODQuNiwxNDMuNCw2MC43LDEyNC43LDQ5LjkiLz48L2c+PC9zdmc+);
   background-position: center;
@@ -1492,14 +1498,16 @@ body, #application {height: 100%; padding: 0; margin: 0; }
   .text-right,
   .text-left { text-align: center; }
   }
-.box-white { background: #fff; margin: 10px 0; padding: 30px 20px; width: 100%; }
-.box-white .checkbox label { font-size: 13px; line-height: 18px; }
-.box-white {
-  .h1,.h2,.h3,.h4,.h5,.h6 { color: $theme-grey;}
+
+
+.panel-padding { margin: 10px 0; padding: 30px 20px; width: 100%; }
+.panel-padding .checkbox label { font-size: 13px; line-height: 18px; }
+.panel-padding {
+  .h1,.h2,.h3,.h4,.h5,.h6 { color: $theme-grey!important;}
   }
-.box-white-transparent { background: rgba(255,255,255,.1); margin: 10px 0; padding: 30px 20px; width: 100%; }
-.box-white-transparent label { font-size: 12px; font-weight: 400; line-height: 16px; color: rgba(255,255,255,.7); }
-.box-white-transparent .checkbox label {
+.panel-white-transparent { background: rgba(255,255,255,.1); margin: 10px 0; padding: 30px 20px; width: 100%; }
+.panel-white-transparent label { font-size: 12px; font-weight: 400; line-height: 16px; color: rgba(255,255,255,.7); }
+.panel-white-transparent .checkbox label {
   color: rgba(255,255,255,.8);
   font-size: 13px; line-height: 18px;
   }
