@@ -18,13 +18,30 @@ registerTextExtract('TableRowWidget', [
   { attribute: 'corporateFeature', type: 'widgetlist' },
 ]);
 
-function PlainTableRowWidgetComponent({ widget }) {
+function PlainTableRowWidgetComponent(
+  { widget, basicPlanHeadline, teamPlanHeadline, corporatePlanHeadline }
+) {
   return (
     <tr>
       <Scrivito.ContentTag tag="th" content={ widget } attribute="feature" />
-      <Scrivito.ContentTag tag="td" content={ widget } attribute="basicFeature" />
-      <Scrivito.ContentTag tag="td" content={ widget } attribute="teamFeature" />
-      <Scrivito.ContentTag tag="td" content={ widget } attribute="corporateFeature" />
+      <Scrivito.ContentTag
+        tag="td"
+        content={ widget }
+        attribute="basicFeature"
+        data-th={ basicPlanHeadline }
+      />
+      <Scrivito.ContentTag
+        tag="td"
+        content={ widget }
+        attribute="teamFeature"
+        data-th={ teamPlanHeadline }
+      />
+      <Scrivito.ContentTag
+        tag="td"
+        content={ widget }
+        attribute="corporateFeature"
+        data-th={ corporatePlanHeadline }
+      />
     </tr>
   );
 }

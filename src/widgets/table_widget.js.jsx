@@ -50,9 +50,17 @@ Scrivito.provideComponent(TableWidget, ({ widget }) =>
       </tr>
     </thead>
     <tbody>
-      { widget.get('rows').map((rowWidget, index) => {
-        return <TableRowWidgetComponent key={ `${rowWidget.id()}${index}` } widget={ rowWidget } />;
-      }) }
+      {
+        widget.get('rows').map((rowWidget, index) => {
+          return <TableRowWidgetComponent
+            key={ `${rowWidget.id()}${index}` }
+            widget={ rowWidget }
+            basicPlanHeadline={ widget.get('basicPlanHeadline') }
+            teamPlanHeadline={ widget.get('teamPlanHeadline') }
+            corporatePlanHeadline={ widget.get('corporatePlanHeadline') }
+          />;
+        })
+      }
     </tbody>
     <tfoot>
       <tr>
