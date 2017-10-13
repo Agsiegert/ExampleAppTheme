@@ -31,9 +31,10 @@ Scrivito.provideEditingConfig(SignUpFormWidget, {
 Scrivito.provideComponent(SignUpFormWidget, ({ widget }) => {
   const classNames = [];
   if (widget.get('isTransparent') === 'yes') {
-    classNames.push('box-white-transparent');
+    classNames.push('panel-white-transparent');
   } else {
-    classNames.push('box-white');
+    classNames.push('panel');
+    classNames.push('panel-padding');
     classNames.push('floating-label');
   }
 

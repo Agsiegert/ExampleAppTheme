@@ -40,10 +40,6 @@ const googleStyles = [
     stylers: [{ color: '#bdbdbd' }],
   },
   {
-    featureType: 'landscape',
-    stylers: [{ color: '#2f2f30' }],
-  },
-  {
     featureType: 'poi',
     elementType: 'labels.text.fill',
     stylers: [{ color: '#757575' }],
@@ -65,8 +61,8 @@ const googleStyles = [
   },
   {
     featureType: 'road',
-    elementType: 'geometry',
-    stylers: [{ visibility: 'on' }],
+    elementType: 'geometry.fill',
+    stylers: [{ color: '#2c2c2c' }],
   },
   {
     featureType: 'road',
@@ -77,10 +73,6 @@ const googleStyles = [
     featureType: 'road.arterial',
     elementType: 'geometry',
     stylers: [{ color: '#373737' }],
-  },
-  {
-    featureType: 'road.highway',
-    stylers: [{ color: '#000000' }],
   },
   {
     featureType: 'road.highway',
@@ -105,12 +97,7 @@ const googleStyles = [
   {
     featureType: 'water',
     elementType: 'geometry',
-    stylers: [{ color: '#000000' }],
-  },
-  {
-    featureType: 'water',
-    elementType: 'geometry.fill',
-    stylers: [{ color: '#375f80' }],
+    stylers: [{ color: '#356a8c' }],
   },
   {
     featureType: 'water',
