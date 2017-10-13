@@ -7,6 +7,6 @@ Scrivito.provideEditingConfig(DividerWidget, {
   description: 'A divider',
 });
 
-Scrivito.provideComponent(DividerWidget, () => <hr className="hr-icon" />);
+Scrivito.provideComponent(DividerWidget, () => <div className="hr-icon" />);
 
 export default DividerWidget;
