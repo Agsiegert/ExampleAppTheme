@@ -131,7 +131,7 @@ const Widgets = Scrivito.connect(({ widget }) => {
   return (
     <div className="container">
       <div className="col-lg-3 col-md-4 col-sm-5">
-        <Scrivito.ContentTag content={ widget } attribute="content" className="box-white" />
+        <Scrivito.ContentTag content={ widget } attribute="content" className="panel" />
       </div>
     </div>
   );
