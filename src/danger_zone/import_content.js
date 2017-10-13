@@ -123,7 +123,6 @@ const Video = Scrivito.getClass('Video');
 const AddressListItemWidget = Scrivito.getClass('AddressListItemWidget');
 const AddressWidget = Scrivito.getClass('AddressWidget');
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
-const BoxWidget = Scrivito.getClass('BoxWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
@@ -614,9 +613,9 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            new BoxWidget({
+            new PanelWidget({
               useOffset: 'yes',
-              content: [
+              body: [
                 new HeadlineWidget({
                   headline: 'Get in touch with us',
                   level: 'h1',
