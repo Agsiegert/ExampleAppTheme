@@ -4,9 +4,9 @@ const TableRowWidget = Scrivito.createWidgetClass({
   name: 'TableRowWidget',
   attributes: {
     feature: 'string',
-    basicFeature: 'widgetlist',
-    teamFeature: 'widgetlist',
-    corporateFeature: 'widgetlist',
+    basicFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget'] }],
+    teamFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget'] }],
+    corporateFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget'] }],
   },
   onlyInside: 'TableWidget',
 });
