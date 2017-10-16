@@ -4,6 +4,7 @@ import { registerTextExtract } from 'utils/text_extract_registry';
 const Event = Scrivito.createObjClass({
   name: 'Event',
   attributes: {
+    body: ['widgetlist', { only: 'SectionWidget' }],
     date: 'date',
     image: 'reference',
     location: 'string',
@@ -45,9 +46,9 @@ Scrivito.provideEditingConfig(Event, {
 });
 
 Scrivito.provideComponent(Event, ({ page }) => {
-  const month = page.get('date').getMonth() + 1; // getMonth return 0 to 11.
-  const dayOfMonth = page.get('date').getDate(); // getDate returns 1 to 31.
-  const year = page.get('date').getFullYear(); // getFullYear returns values like 1999 or 2017.
+  const month = page.get('date') ? page.get('date').getMonth() + 1 : null; // getMonth return 0 to 11.
+  const dayOfMonth = page.get('date') ? page.get('date').getDate() : null; // getDate returns 1 to 31.
+  const year = page.get('date') ? page.get('date').getFullYear() : null; // getFullYear returns values like 1999 or 2017.
 
   return (
     <div>
@@ -65,6 +66,7 @@ Scrivito.provideComponent(Event, ({ page }) => {
           </h2>
         </div>
       </section>
+      <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
     </div>
   );
 });

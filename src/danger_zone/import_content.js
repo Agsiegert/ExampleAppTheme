@@ -1730,36 +1730,162 @@ function importContent() {
       image: unsplashLaptopKeyboard,
       location: 'Berlin, Germany',
       title: 'SEO specialist',
+      body: [
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              showDividingLine: 'yes',
+              headline: loremIpsum({ count: 2 }),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 1,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+      ],
     });
 
     Job.create({
       image: unsplashiPadCharts,
       location: 'Berlin, Germany',
       title: 'Marketing Manager',
+      body: [
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              showDividingLine: 'yes',
+              headline: loremIpsum({ count: 2 }),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 1,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+      ],
     });
 
     Job.create({
       image: unsplashUxDesigner,
       location: 'Berlin, Germany',
       title: 'UX Designer',
+      body: [
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              showDividingLine: 'yes',
+              headline: loremIpsum({ count: 2 }),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 1,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+      ],
     });
 
     Job.create({
       image: unsplashTypistLaptop,
       location: 'Berlin, Germany',
       title: 'Full Stack Developer',
+      body: [
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              showDividingLine: 'yes',
+              headline: loremIpsum({ count: 2 }),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 1,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+      ],
     });
 
     Job.create({
       image: unsplashNotebookPencil,
       location: 'Paris, France',
       title: 'Texter',
+      body: [
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              showDividingLine: 'yes',
+              headline: loremIpsum({ count: 2 }),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 1,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+      ],
     });
 
     Job.create({
       image: unsplashMacbookDeveloper,
       location: 'Frankfurt, Germany',
       title: 'Full Stack Developer',
+      body: [
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              level: 'h2',
+              style: 'h4',
+              showDividingLine: 'yes',
+              headline: loremIpsum({ count: 2 }),
+            }),
+            new TextWidget({
+              text: loremIpsum({
+                units: 'paragraphs',
+                format: 'html',
+                count: 1,
+                paragraphLowerBound: 1,
+                paragraphUpperBound: 10,
+              }),
+            }),
+          ],
+        }),
+      ],
     });
 
     // Authors for BlogPosts
@@ -1874,6 +2000,27 @@ function importContent() {
         location: locations[i],
         title: titles[i],
         tags: tags[i],
+        body: [
+          new SectionWidget({
+            content: [
+              new HeadlineWidget({
+                level: 'h2',
+                style: 'h4',
+                showDividingLine: 'yes',
+                headline: loremIpsum({ count: 2 }),
+              }),
+              new TextWidget({
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 1,
+                  paragraphLowerBound: 1,
+                  paragraphUpperBound: 10,
+                }),
+              }),
+            ],
+          }),
+        ],
       });
     }
 

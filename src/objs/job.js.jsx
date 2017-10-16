@@ -3,6 +3,7 @@ import { registerTextExtract } from 'utils/text_extract_registry';
 const Job = Scrivito.createObjClass({
   name: 'Job',
   attributes: {
+    body: ['widgetlist', { only: 'SectionWidget' }],
     image: 'reference',
     location: 'string',
     title: 'string',
@@ -46,6 +47,7 @@ Scrivito.provideComponent(Job, ({ page }) => {
           </h2>
         </div>
       </section>
+      <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
     </div>
   );
 });
