@@ -3,7 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const InlineEnvironmentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const buildPath = 'build';
@@ -18,6 +19,7 @@ module.exports = (env = {}) => {
         NODE_ENV: isProduction && JSON.stringify('production'),
       },
     }),
+    new InlineEnvironmentVariablesPlugin('SCRIVITO_TENANT'),
     new CleanWebpackPlugin([buildPath]),
     new CopyWebpackPlugin([
       { from: '../static' },

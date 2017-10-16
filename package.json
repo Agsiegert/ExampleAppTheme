@@ -29,6 +29,7 @@
     "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.5",
+    "inline-environment-variables-webpack-plugin": "^1.2.1",
     "jquery": "^3.2.1",
     "lodash.truncate": "^4.4.2",
     "lorem-ipsum": "^1.0.4",
