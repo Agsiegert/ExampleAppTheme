@@ -80,6 +80,8 @@ import unsplashMaleWithSunglassesData from './binary_data/unsplash_male_with_sun
 import unsplashManCheckingWatchData from './binary_data/unsplash_man_checking_watch';
 import unsplashManTieStraightenData from './binary_data/unsplash_man_tie_straighten';
 import unsplashMeetingRoomMetalData from './binary_data/unsplash_meeting_room_metal_chairs';
+import unsplashMeetingRoomthreeData from './binary_data/unsplash_meeting_room_three_white_plants';
+import unsplashModernChairDeskData from './binary_data/unsplash_modern_chair_at_desk';
 import unsplashMouseWoodenDeskData from './binary_data/unsplash_mouse_wooden_desk';
 import unsplashNeonTrueData from './binary_data/unsplash_neon_true';
 import unsplashNightBuildingData from './binary_data/unsplash_night_building';
@@ -461,6 +463,8 @@ function importContent() {
     const unsplashManCheckingWatch = uploadImage(unsplashManCheckingWatchData, 'Man checking watch', UNSPLASH_TAGS);
     const unsplashManTieStraighten = uploadImage(unsplashManTieStraightenData, 'Man straightening tie', UNSPLASH_TAGS);
     const unsplashMeetingRoomMetal = uploadImage(unsplashMeetingRoomMetalData, 'Meeting room with metal chairs', UNSPLASH_TAGS);
+    const unsplashMeetingRoomthree = uploadImage(unsplashMeetingRoomthreeData, 'Meeting room with three white plants', UNSPLASH_TAGS);
+    const unsplashModernChairDesk = uploadImage(unsplashModernChairDeskData, 'Modern chair at desk', UNSPLASH_TAGS);
     const unsplashMouseWoodenDesk = uploadImage(unsplashMouseWoodenDeskData, 'Mouse wooden desk', UNSPLASH_TAGS);
     const unsplashNeonTrue = uploadImage(unsplashNeonTrueData, 'Neon true', UNSPLASH_TAGS);
     const unsplashNightBuilding = uploadImage(unsplashNightBuildingData, 'Building at night', UNSPLASH_TAGS);
@@ -1988,7 +1992,7 @@ function importContent() {
           new ColumnWidget({
             nrOfColumns: '2',
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: unsplashLaptopKeyboard })],
+            column1: [new ImageWidget({ image: unsplashMeetingRoomthree })],
             column2: [
               new HeadlineWidget({
                 level: 'h3',
@@ -2037,7 +2041,7 @@ function importContent() {
                 }),
               }),
             ],
-            column2: [new ImageWidget({ image: unsplashDeskRuler })],
+            column2: [new ImageWidget({ image: unsplashModernChairDesk })],
           }),
         ] }),
         new SectionWidget({ content: [
