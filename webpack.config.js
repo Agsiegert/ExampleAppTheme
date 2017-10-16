@@ -1,5 +1,6 @@
-const process = require('process');
+const dotenv = require('dotenv');
 const path = require('path');
+const process = require('process');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -7,11 +8,21 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const InlineEnvironmentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+// load ".env"
+dotenv.config();
+
 const buildPath = 'build';
 
 module.exports = (env = {}) => {
   // see https://github.com/webpack/webpack/issues/2537 for details
   const isProduction = process.argv.indexOf('-p') !== -1 || env.production;
+
+  if (!process.env.SCRIVITO_TENANT || process.env.SCRIVITO_TENANT === 'your_scrivito_tenant_id') {
+    throw('Environment variable "SCRIVITO_TENANT" is not defined!' +
+      ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
+      ' See ".env.example" for an example.'
+    );
+  }
 
   const plugins = [
     new webpack.DefinePlugin({
