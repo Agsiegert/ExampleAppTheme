@@ -1,4 +1,6 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
+import textExtractFromHtml from 'utils/text_extract_from_html';
+import truncate from 'lodash.truncate';
 
 const AddressListItemWidget = Scrivito.createWidgetClass({
   name: 'AddressListItemWidget',
@@ -28,6 +30,8 @@ Scrivito.provideEditingConfig(AddressListItemWidget, {
       description: 'E.g. <a href="tel:+8001233567">800 123 3567</a>',
     },
   },
+  titleForContent:
+    widget => `${widget.get('key')} ${truncate(textExtractFromHtml(widget.get('value')))}`,
 });
 
 export default AddressListItemWidget;

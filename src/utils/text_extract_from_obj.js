@@ -1,8 +1,7 @@
 /* eslint no-console: 0 */
 
-import { decode } from 'ent';
 import isString from 'utils/is_string';
-import striptags from 'striptags';
+import textExtractFromHtml from 'utils/text_extract_from_html';
 import { lookupTextExtract } from 'utils/text_extract_registry';
 
 function textExtractFromObj(obj) {
@@ -48,10 +47,6 @@ function assertValidValue(value, type) {
   }
 
   return true;
-}
-
-function textExtractFromHtml(html) {
-  return decode(striptags(html));
 }
 
 function textExtractFromWidgetlist(widgetlist) {
