@@ -1,3 +1,4 @@
+import truncate from 'lodash.truncate';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const TestimonialWidget = Scrivito.createWidgetClass({
@@ -31,6 +32,7 @@ Scrivito.provideEditingConfig(TestimonialWidget, {
       description: 'How does the author look like?',
     },
   },
+  titleForContent: widget => `${widget.get('author')}: ${truncate(widget.get('testimonial'))}`,
 });
 
 export default TestimonialWidget;
