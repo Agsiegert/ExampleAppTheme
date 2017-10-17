@@ -1,6 +1,5 @@
 import Slider from 'react-slick';
 import devicePixelRatio from 'utils/device_pixel_ratio';
-import fallbackImageUrl from 'utils/fallback_image_url';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const TestimonialSliderWidget = Scrivito.createWidgetClass({
@@ -24,6 +23,10 @@ Scrivito.provideEditingConfig(TestimonialSliderWidget, {
     },
   },
 });
+
+// Source: https://unsplash.com/photos/K2u71wv2eI4/
+const fallbackImageUrl = 'https://images.unsplash.com/photo-1481437642641-2f0ae875f836' +
+  '?dpr=1&auto=compress,format&fit=crop&w=200&h=200&q=80&cs=tinysrgb&crop=&bg=';
 
 function sliderSettings(testimonials) {
   const testimonialAuthorImageUrls = testimonials.map(testimonial => {
