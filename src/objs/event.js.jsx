@@ -15,6 +15,7 @@ const Event = Scrivito.createObjClass({
 
 registerTextExtract('Event', [
   { attribute: 'location', type: 'string' },
+  { attribute: 'body', type: 'widgetlist' },
 ]);
 
 Scrivito.provideEditingConfig(Event, {

@@ -12,6 +12,7 @@ const Job = Scrivito.createObjClass({
 
 registerTextExtract('Job', [
   { attribute: 'location', type: 'string' },
+  { attribute: 'body', type: 'widgetlist' },
 ]);
 
 Scrivito.provideEditingConfig(Job, {
