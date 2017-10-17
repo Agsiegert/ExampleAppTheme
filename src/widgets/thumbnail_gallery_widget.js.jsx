@@ -7,7 +7,7 @@ const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
   name: 'ThumbnailGalleryWidget',
   attributes: {
     images: ['widgetlist', { only: 'ThumbnailGalleryImageWidget' }],
-    showTags: ['enum', { validValues: ['yes', 'no'] }],
+    showTags: ['enum', { values: ['yes', 'no'] }],
   },
 });
 

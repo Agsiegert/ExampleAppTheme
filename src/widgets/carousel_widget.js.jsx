@@ -5,7 +5,7 @@ const CarouselWidget = Scrivito.createWidgetClass({
   name: 'CarouselWidget',
   attributes: {
     images: 'referencelist',
-    showDescription: ['enum', { validValues: ['yes', 'no'] }],
+    showDescription: ['enum', { values: ['yes', 'no'] }],
     descriptionLogo: 'reference',
     description: 'widgetlist',
   },

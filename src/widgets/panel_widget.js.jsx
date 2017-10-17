@@ -4,7 +4,7 @@ const PanelWidget = Scrivito.createWidgetClass({
   name: 'PanelWidget',
   attributes: {
     body: 'widgetlist',
-    useOffset: ['enum', { validValues: ['yes', 'no'] }],
+    useOffset: ['enum', { values: ['yes', 'no'] }],
   },
 });
 

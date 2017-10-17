@@ -5,13 +5,13 @@ const SectionWidget = Scrivito.createWidgetClass({
   name: 'SectionWidget',
   attributes: {
     content: 'widgetlist',
-    useFullWidth: ['enum', { validValues: ['yes', 'no'] }],
-    useFullHeight: ['enum', { validValues: ['yes', 'no'] }],
-    paddingDisabled: ['enum', { validValues: ['yes', 'no'] }],
+    useFullWidth: ['enum', { values: ['yes', 'no'] }],
+    useFullHeight: ['enum', { values: ['yes', 'no'] }],
+    paddingDisabled: ['enum', { values: ['yes', 'no'] }],
     backgroundColor: [
       'enum',
       {
-        validValues: [
+        values: [
           'white',
           'greywhite',
           'greylight',

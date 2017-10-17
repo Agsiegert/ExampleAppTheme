@@ -3,7 +3,7 @@ const IconListItemWidget = Scrivito.createWidgetClass({
   onlyInside: 'IconListWidget',
   attributes: {
     icon: 'string',
-    size: ['enum', { validValues: ['fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x'] }],
+    size: ['enum', { values: ['fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x'] }],
     link: 'link',
   },
 });

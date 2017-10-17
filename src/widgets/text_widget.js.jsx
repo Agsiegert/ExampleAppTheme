@@ -4,7 +4,7 @@ const TextWidget = Scrivito.createWidgetClass({
   name: 'TextWidget',
   attributes: {
     text: 'html',
-    alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
+    alignment: ['enum', { values: ['left', 'center', 'right'] }],
   },
 });
 
