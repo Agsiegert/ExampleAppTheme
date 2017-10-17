@@ -381,6 +381,24 @@ function createAddressWidget({ showBorderBottom }) {
   });
 }
 
+function createRandomBody() {
+  return [
+    new SectionWidget({
+      content: [
+        new TextWidget({
+          text: loremIpsum({
+            units: 'paragraphs',
+            format: 'html',
+            count: 2,
+            paragraphLowerBound: 1,
+            paragraphUpperBound: 10,
+          }),
+        }),
+      ],
+    }),
+  ];
+}
+
 function importContent() {
   allExistingBinaries().then(binaries => {
     existingBinaries = binaries;
@@ -1730,162 +1748,42 @@ function importContent() {
       image: unsplashLaptopKeyboard,
       location: 'Berlin, Germany',
       title: 'SEO specialist',
-      body: [
-        new SectionWidget({
-          content: [
-            new HeadlineWidget({
-              level: 'h2',
-              style: 'h4',
-              showDividingLine: 'yes',
-              headline: loremIpsum({ count: 2 }),
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 1,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
+      body: createRandomBody(),
     });
 
     Job.create({
       image: unsplashiPadCharts,
       location: 'Berlin, Germany',
       title: 'Marketing Manager',
-      body: [
-        new SectionWidget({
-          content: [
-            new HeadlineWidget({
-              level: 'h2',
-              style: 'h4',
-              showDividingLine: 'yes',
-              headline: loremIpsum({ count: 2 }),
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 1,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
+      body: createRandomBody(),
     });
 
     Job.create({
       image: unsplashUxDesigner,
       location: 'Berlin, Germany',
       title: 'UX Designer',
-      body: [
-        new SectionWidget({
-          content: [
-            new HeadlineWidget({
-              level: 'h2',
-              style: 'h4',
-              showDividingLine: 'yes',
-              headline: loremIpsum({ count: 2 }),
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 1,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
+      body: createRandomBody(),
     });
 
     Job.create({
       image: unsplashTypistLaptop,
       location: 'Berlin, Germany',
       title: 'Full Stack Developer',
-      body: [
-        new SectionWidget({
-          content: [
-            new HeadlineWidget({
-              level: 'h2',
-              style: 'h4',
-              showDividingLine: 'yes',
-              headline: loremIpsum({ count: 2 }),
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 1,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
+      body: createRandomBody(),
     });
 
     Job.create({
       image: unsplashNotebookPencil,
       location: 'Paris, France',
       title: 'Texter',
-      body: [
-        new SectionWidget({
-          content: [
-            new HeadlineWidget({
-              level: 'h2',
-              style: 'h4',
-              showDividingLine: 'yes',
-              headline: loremIpsum({ count: 2 }),
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 1,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
+      body: createRandomBody(),
     });
 
     Job.create({
       image: unsplashMacbookDeveloper,
       location: 'Frankfurt, Germany',
       title: 'Full Stack Developer',
-      body: [
-        new SectionWidget({
-          content: [
-            new HeadlineWidget({
-              level: 'h2',
-              style: 'h4',
-              showDividingLine: 'yes',
-              headline: loremIpsum({ count: 2 }),
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 1,
-                paragraphLowerBound: 1,
-                paragraphUpperBound: 10,
-              }),
-            }),
-          ],
-        }),
-      ],
+      body: createRandomBody(),
     });
 
     // Authors for BlogPosts
@@ -2003,17 +1901,11 @@ function importContent() {
         body: [
           new SectionWidget({
             content: [
-              new HeadlineWidget({
-                level: 'h2',
-                style: 'h4',
-                showDividingLine: 'yes',
-                headline: loremIpsum({ count: 2 }),
-              }),
               new TextWidget({
                 text: loremIpsum({
                   units: 'paragraphs',
                   format: 'html',
-                  count: 1,
+                  count: 2,
                   paragraphLowerBound: 1,
                   paragraphUpperBound: 10,
                 }),
