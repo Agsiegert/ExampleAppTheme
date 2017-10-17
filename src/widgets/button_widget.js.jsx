@@ -2,8 +2,8 @@ const ButtonWidget = Scrivito.createWidgetClass({
   name: 'ButtonWidget',
   attributes: {
     target: 'link',
-    alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
-    style: ['enum', { validValues: ['btn-primary', 'btn-clear'] }],
+    alignment: ['enum', { values: ['left', 'center', 'right'] }],
+    style: ['enum', { values: ['btn-primary', 'btn-clear'] }],
   },
 });
 

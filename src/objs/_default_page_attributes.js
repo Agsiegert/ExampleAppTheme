@@ -3,7 +3,7 @@ const defaultPageAttributes = {
   navigationBackgroundImage: 'reference',
   navigationSection: 'widgetlist',
   navigationStyle: ['enum', {
-    validValues: [
+    values: [
       'solidWhite',
       'transparentDark full-height',
       'transparentDark full-height gradient',

@@ -3,12 +3,12 @@ import { registerTextExtract } from 'utils/text_extract_registry';
 const ColumnWidget = Scrivito.createWidgetClass({
   name: 'ColumnWidget',
   attributes: {
-    nrOfColumns: ['enum', { validValues: ['1', '2', '3', '4'] }],
+    nrOfColumns: ['enum', { values: ['1', '2', '3', '4'] }],
     column1: 'widgetlist',
     column2: 'widgetlist',
     column3: 'widgetlist',
     column4: 'widgetlist',
-    verticallyAligned: ['enum', { validValues: ['yes', 'no'] }],
+    verticallyAligned: ['enum', { values: ['yes', 'no'] }],
   },
 });
 

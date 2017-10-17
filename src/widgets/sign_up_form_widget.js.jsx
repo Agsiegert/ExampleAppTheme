@@ -5,7 +5,7 @@ const SignUpFormWidget = Scrivito.createWidgetClass({
   attributes: {
     title: 'string',
     buttonText: 'string',
-    isTransparent: ['enum', { validValues: ['yes', 'no'] }],
+    isTransparent: ['enum', { values: ['yes', 'no'] }],
   },
 });
 

@@ -6,8 +6,8 @@ const AddressWidget = Scrivito.createWidgetClass({
   attributes: {
     address: 'html',
     listItems: ['widgetlist', { only: 'AddressListItemWidget' }],
-    showLogo: ['enum', { validValues: ['yes', 'no'] }],
-    showBorderBottom: ['enum', { validValues: ['yes', 'no'] }],
+    showLogo: ['enum', { values: ['yes', 'no'] }],
+    showBorderBottom: ['enum', { values: ['yes', 'no'] }],
   },
 });
 

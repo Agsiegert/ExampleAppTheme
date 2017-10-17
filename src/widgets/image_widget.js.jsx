@@ -2,7 +2,7 @@ const ImageWidget = Scrivito.createWidgetClass({
   name: 'ImageWidget',
   attributes: {
     image: 'reference',
-    alignment: ['enum', { validValues: ['left', 'center', 'right'] }],
+    alignment: ['enum', { values: ['left', 'center', 'right'] }],
   },
 });
 
