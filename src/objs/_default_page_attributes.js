@@ -28,7 +28,14 @@ const defaultPageUiConfigAttributes = {
   },
 };
 
+const defaultGeneralProperties = [
+  'title',
+  'navigationBackgroundImage',
+  'navigationStyle',
+];
+
 export {
+  defaultGeneralProperties,
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 };

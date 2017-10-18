@@ -1,6 +1,7 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 import {
+  defaultGeneralProperties,
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 } from './_default_page_attributes';
@@ -45,6 +46,20 @@ Scrivito.provideEditingConfig(Homepage, {
       description: 'Registered Twitter account for this site, needs to be approved at https://cards-dev.twitter.com/validator',
     },
   },
+  generalProperties: [
+    ...defaultGeneralProperties,
+  ],
+  propertiesGroups: [
+    {
+      title: 'Global Content',
+      properties: [
+        'logoWhite',
+        'logoDark',
+        'facebookId',
+        'twitterId',
+      ],
+    },
+  ],
   titleForContent: obj => obj.get('title'),
   descriptionForContent: obj => `path: ${obj.path()}`,
 });
