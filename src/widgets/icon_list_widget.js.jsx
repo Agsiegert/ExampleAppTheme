@@ -9,11 +9,11 @@ const IconListWidget = Scrivito.createWidgetClass({
 
 Scrivito.provideEditingConfig(IconListWidget, {
   title: 'Icon List',
-  description: 'A list of icons',
+  description: 'A list of icons.',
   attributesConfig: {
     iconList: {
       title: 'Icon list',
-      description: 'The icon list',
+      description: 'The icon list.',
     },
   },
 });

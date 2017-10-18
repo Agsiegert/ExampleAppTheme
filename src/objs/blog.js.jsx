@@ -18,15 +18,15 @@ registerTextExtract('Blog', [
 
 Scrivito.provideEditingConfig(Blog, {
   title: 'Blog',
-  description: 'A Blog.',
+  description: 'A Blog',
   attributesConfig: {
     title: {
       title: 'Title',
-      description: 'Title of the blog. Only used for the navigation',
+      description: 'Title of the blog. Only used for the navigation.',
     },
     navigationBackgroundImage: {
       title: 'Navigation Background Image',
-      description: 'The background image of the navigation',
+      description: 'The background image of the navigation.',
     },
   },
   titleForContent: obj => obj.get('title'),

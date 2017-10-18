@@ -25,23 +25,23 @@ registerTextExtract('BlogPost', [
 
 Scrivito.provideEditingConfig(BlogPost, {
   title: 'BlogPost',
-  description: 'A BlogPost.',
+  description: 'A Blog Post',
   attributesConfig: {
     author: {
       title: 'Author',
-      description: 'The author of the blogpost.',
+      description: 'The author of the blog post.',
     },
     publishedAt: {
       title: 'Published At',
-      description: 'When will this BlogPost be published.',
+      description: 'When will this blog post be published.',
     },
     titleImage: {
       title: 'Title image',
-      description: 'The title image of the blogpost',
+      description: 'The title image of the blog post.',
     },
     tags: {
       title: 'Tags',
-      description: 'The tags of the blogpost',
+      description: 'The tags of the blog post.',
     },
   },
   titleForContent: obj => obj.get('title'),

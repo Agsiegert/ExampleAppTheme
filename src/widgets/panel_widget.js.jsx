@@ -14,7 +14,7 @@ registerTextExtract('PanelWidget', [
 
 Scrivito.provideEditingConfig(PanelWidget, {
   title: 'Panel',
-  description: 'A panel widget',
+  description: 'A panel widget.',
   attributesConfig: {
     useOffset: {
       title: 'Use offset?',

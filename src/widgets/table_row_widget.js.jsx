@@ -53,19 +53,19 @@ Scrivito.provideEditingConfig(TableRowWidget, {
   description: 'A table row widget.',
   attributesConfig: {
     feature: {
-      title: 'Feature name',
+      title: 'Feature Name',
       description: 'The name of the feature described by this row.',
     },
     basicFeature: {
-      title: 'Basic feature',
+      title: 'Basic Feature',
       description: 'The feature described for the basic plan.',
     },
     teamFeature: {
-      title: 'Team feature',
+      title: 'Team Feature',
       description: 'The feature described for the team plan.',
     },
     corporateFeature: {
-      title: 'Corporate feature',
+      title: 'Corporate Feature',
       description: 'The feature described for the corporate plan.',
     },
   },

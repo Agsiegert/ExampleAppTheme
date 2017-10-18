@@ -20,11 +20,11 @@ const SearchResults = Scrivito.createObjClass({
 
 Scrivito.provideEditingConfig(SearchResults, {
   title: 'Search Results',
-  description: 'A search results page',
+  description: 'A Search Results Page',
   attributesConfig: {
     navigationBackgroundImage: {
       title: 'Navigation Background Image',
-      description: 'The background image of the navigation',
+      description: 'The background image of the navigation.',
     },
   },
 });

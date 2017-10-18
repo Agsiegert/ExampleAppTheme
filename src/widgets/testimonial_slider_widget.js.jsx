@@ -15,11 +15,11 @@ registerTextExtract('TestimonialSliderWidget', [
 
 Scrivito.provideEditingConfig(TestimonialSliderWidget, {
   title: 'Testimonial Slider',
-  description: 'A testimonial slider',
+  description: 'A testimonial slider.',
   attributesConfig: {
     testimonials: {
       title: 'Testimonials',
-      description: 'The list of testimonials',
+      description: 'Add testimonials.',
     },
   },
 });

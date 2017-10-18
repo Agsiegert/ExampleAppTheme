@@ -18,7 +18,7 @@ registerTextExtract('LandingPage', [
 
 Scrivito.provideEditingConfig(LandingPage, {
   title: 'LandingPage',
-  description: 'A landing page.',
+  description: 'A Landing Page',
   attributesConfig: {
     ...defaultPageUiConfigAttributes,
   },

@@ -9,11 +9,11 @@ const ButtonWidget = Scrivito.createWidgetClass({
 
 Scrivito.provideEditingConfig(ButtonWidget, {
   title: 'Button',
-  description: 'A widget with a button',
+  description: 'A widget with a button.',
   attributesConfig: {
     target: {
       title: 'Target',
-      description: 'The target of the button',
+      description: 'The target of the button.',
     },
     alignment: {
       title: 'Alignment',

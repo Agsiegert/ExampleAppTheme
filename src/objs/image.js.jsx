@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig(Image, {
     },
     title: {
       title: 'Title',
-      description: 'The title of the image',
+      description: 'The title of the image.',
     },
   },
 });

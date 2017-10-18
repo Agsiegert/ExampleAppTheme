@@ -11,23 +11,23 @@ const ThumbnailGalleryImageWidget = Scrivito.createWidgetClass({
 
 Scrivito.provideEditingConfig(ThumbnailGalleryImageWidget, {
   title: 'Thumbnail Gallery Image',
-  description: 'A thumbnail gallery image - Can only live inside a thumbnail Gallery',
+  description: 'A thumbnail gallery image - Use only inside a Thumbnail Gallery',
   attributesConfig: {
     image: {
       title: 'Image',
-      description: 'The image to show',
+      description: 'The image to show.',
     },
     title: {
       title: 'Title',
-      description: 'The title of the image',
+      description: 'The title of the image.',
     },
     subtitle: {
       title: 'Subtitle',
-      description: 'The subtitle of the image',
+      description: 'The subtitle of the image.',
     },
     tags: {
       title: 'Tags',
-      description: 'The tags of the image',
+      description: 'The tags of the image.',
     },
   },
   titleForContent: widget => `${widget.get('title')} - ${widget.get('subtitle')}`,

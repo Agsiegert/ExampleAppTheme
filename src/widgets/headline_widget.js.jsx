@@ -22,11 +22,11 @@ Scrivito.provideEditingConfig(HeadlineWidget, {
   attributesConfig: {
     level: {
       title: 'Level',
-      description: 'The level of the headline',
+      description: 'The level of the headline.',
     },
     style: {
       title: 'Style',
-      description: 'The style of the headline (how big it should be)',
+      description: 'The style of the headline (how big it should be).',
     },
     alignment: {
       title: 'Alignment',
@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig(HeadlineWidget, {
     },
     showDividingLine: {
       title: 'Show dividing line',
-      description: 'Should this headline show a dividing line? Default: left',
+      description: 'Should this headline show a dividing line? Default: no',
     },
     marginDisabled: {
       title: 'Disable Margin?',

@@ -16,15 +16,15 @@ const defaultPageAttributes = {
 const defaultPageUiConfigAttributes = {
   title: {
     title: 'Title',
-    description: 'Description of title',
+    description: 'The title of this page.',
   },
   navigationStyle: {
     title: 'Navigation Style',
-    description: 'The style of the navigation',
+    description: 'The style of the navigation.',
   },
   navigationBackgroundImage: {
     title: 'Navigation Background Image',
-    description: 'The background image of the navigation',
+    description: 'The background image of the navigation.',
   },
 };
 

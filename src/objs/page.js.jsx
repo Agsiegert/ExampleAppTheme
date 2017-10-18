@@ -20,7 +20,7 @@ registerTextExtract('Page', [
 
 Scrivito.provideEditingConfig(Page, {
   title: 'Page',
-  description: 'A regular page.',
+  description: 'A Basic Page',
   attributesConfig: {
     ...defaultPageUiConfigAttributes,
   },

@@ -19,23 +19,23 @@ registerTextExtract('AddressWidget', [
 
 Scrivito.provideEditingConfig(AddressWidget, {
   title: 'Address',
-  description: 'A widget, which shows an address',
+  description: 'A widget, which shows an address.',
   attributesConfig: {
     showLogo: {
-      title: 'Show logo',
+      title: 'Show Logo',
       description: 'Should the logo be shown? Default: yes',
     },
     address: {
       title: 'Address',
-      description: 'The actual address',
+      description: 'The actual address.',
     },
     showBorderBottom: {
-      title: 'Show border bottom?',
+      title: 'Border Bottom',
       description: 'Should a border be shown at the bottom? Default: no.',
     },
     listItems: {
-      title: 'Address list items',
-      description: 'E.g. phone numbers',
+      title: 'Address List Items',
+      description: 'E.g. phone numbers.',
     },
   },
 });
