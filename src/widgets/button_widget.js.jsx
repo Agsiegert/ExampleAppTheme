@@ -13,7 +13,7 @@ Scrivito.provideEditingConfig(ButtonWidget, {
   attributesConfig: {
     target: {
       title: 'Target',
-      description: 'The target of the button.',
+      description: 'The target and text of the button.',
     },
     alignment: {
       title: 'Alignment',
