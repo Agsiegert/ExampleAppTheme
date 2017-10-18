@@ -1,29 +1,29 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const PanelWidget = Scrivito.createWidgetClass({
-  name: 'PanelWidget',
+const BoxWidget = Scrivito.createWidgetClass({
+  name: 'BoxWidget',
   attributes: {
     body: 'widgetlist',
     useOffset: ['enum', { values: ['yes', 'no'] }],
   },
 });
 
-registerTextExtract('PanelWidget', [
+registerTextExtract('BoxWidget', [
   { attribute: 'body', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(PanelWidget, {
-  title: 'Panel',
-  description: 'A panel widget.',
+Scrivito.provideEditingConfig(BoxWidget, {
+  title: 'Box',
+  description: 'A box widget.',
   attributesConfig: {
     useOffset: {
       title: 'Use offset?',
-      description: 'Should an offset be used? If so, the panel will move "up". Default: no',
+      description: 'Should an offset be used? If so, the box will move "up". Default: no',
     },
   },
 });
 
-Scrivito.provideComponent(PanelWidget, ({ widget }) => {
+Scrivito.provideComponent(BoxWidget, ({ widget }) => {
   const classNames = ['panel', 'panel-theme'];
   if (widget.get('useOffset') === 'yes') { classNames.push('box-offset'); }
 
@@ -34,4 +34,4 @@ Scrivito.provideComponent(PanelWidget, ({ widget }) => {
   );
 });
 
-export default PanelWidget;
+export default BoxWidget;

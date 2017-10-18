@@ -3,6 +3,7 @@
 import AddressListItemWidget from './address_list_item_widget';
 import AddressWidget from './address_widget';
 import BlogOverviewWidget from './blog_overview_widget';
+import BoxWidget from './box_widget';
 import ButtonWidget from './button_widget';
 import CarouselWidget from './carousel_widget';
 import ColumnWidget from './column_widget';
@@ -21,7 +22,6 @@ import ImageWidget from './image_widget';
 import JobOverviewWidget from './job_overview_widget';
 import LoginFormWidget from './login_form_widget';
 import PageListWidget from './page_list_widget';
-import PanelWidget from './panel_widget';
 import PricingSpecWidget from './pricing_spec_widget';
 import PricingWidget from './pricing_widget';
 import SectionWidget from './section_widget';

@@ -125,6 +125,7 @@ const Video = Scrivito.getClass('Video');
 const AddressListItemWidget = Scrivito.getClass('AddressListItemWidget');
 const AddressWidget = Scrivito.getClass('AddressWidget');
 const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
+const BoxWidget = Scrivito.getClass('BoxWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
@@ -143,7 +144,6 @@ const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
 const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
 const PageListWidget = Scrivito.getClass('PageListWidget');
-const PanelWidget = Scrivito.getClass('PanelWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
@@ -228,8 +228,8 @@ function randomPastDate() {
   return new Date(+(new Date()) - (Math.floor(Math.random() * 9960000000)));
 }
 
-function createPanelWidgetWithIconHeadlineAndText(icon, headline) {
-  return new PanelWidget({
+function createBoxWidgetWithIconHeadlineAndText(icon, headline) {
+  return new BoxWidget({
     body: [
       new IconWidget({
         icon,
@@ -590,25 +590,25 @@ function importContent() {
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
-                createPanelWidgetWithIconHeadlineAndText('fa-star', 'Great environment'),
+                createBoxWidgetWithIconHeadlineAndText('fa-star', 'Great environment'),
               ],
               column2: [
-                createPanelWidgetWithIconHeadlineAndText('fa-users', 'Awarded team'),
+                createBoxWidgetWithIconHeadlineAndText('fa-users', 'Awarded team'),
               ],
               column3: [
-                createPanelWidgetWithIconHeadlineAndText('fa-money', 'Fair payment'),
+                createBoxWidgetWithIconHeadlineAndText('fa-money', 'Fair payment'),
               ],
             }),
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
-                createPanelWidgetWithIconHeadlineAndText('fa-child', 'Daily free meal'),
+                createBoxWidgetWithIconHeadlineAndText('fa-child', 'Daily free meal'),
               ],
               column2: [
-                createPanelWidgetWithIconHeadlineAndText('fa-laptop', 'The best equipment'),
+                createBoxWidgetWithIconHeadlineAndText('fa-laptop', 'The best equipment'),
               ],
               column3: [
-                createPanelWidgetWithIconHeadlineAndText('fa-heartbeat', 'Sport activity'),
+                createBoxWidgetWithIconHeadlineAndText('fa-heartbeat', 'Sport activity'),
               ],
             }),
           ],
@@ -635,7 +635,7 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            new PanelWidget({
+            new BoxWidget({
               useOffset: 'yes',
               body: [
                 new HeadlineWidget({
@@ -965,25 +965,25 @@ function importContent() {
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
-                createPanelWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
+                createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
               ],
               column2: [
-                createPanelWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
+                createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
               ],
               column3: [
-                createPanelWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+                createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
               ],
             }),
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
-                createPanelWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
+                createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
               ],
               column2: [
-                createPanelWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
+                createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
               ],
               column3: [
-                createPanelWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+                createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
               ],
             }),
             new DividerWidget({}),
@@ -1065,25 +1065,25 @@ function importContent() {
           new ColumnWidget({
             nrOfColumns: '3',
             column1: [
-              createPanelWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
+              createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
             ],
             column2: [
-              createPanelWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
+              createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
             ],
             column3: [
-              createPanelWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+              createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
             ],
           }),
           new ColumnWidget({
             nrOfColumns: '3',
             column1: [
-              createPanelWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
+              createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
             ],
             column2: [
-              createPanelWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
+              createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
             ],
             column3: [
-              createPanelWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+              createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
             ],
           }),
           new ButtonWidget({
@@ -1386,7 +1386,7 @@ function importContent() {
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
-                new PanelWidget({
+                new BoxWidget({
                   body: [
                     new ImageWidget({ image: unsplashFemalePortrait3Square }),
                     new HeadlineWidget({
@@ -1407,7 +1407,7 @@ function importContent() {
                 }),
               ],
               column2: [
-                new PanelWidget({
+                new BoxWidget({
                   body: [
                     new ImageWidget({ image: unsplashMalePortrait3Square }),
                     new HeadlineWidget({
@@ -1428,7 +1428,7 @@ function importContent() {
                 }),
               ],
               column3: [
-                new PanelWidget({
+                new BoxWidget({
                   body: [
                     new ImageWidget({ image: unsplashFemalePortrait4Square }),
                     new HeadlineWidget({
@@ -1452,7 +1452,7 @@ function importContent() {
             new ColumnWidget({
               nrOfColumns: '3',
               column1: [
-                new PanelWidget({
+                new BoxWidget({
                   body: [
                     new ImageWidget({ image: unsplashMalePortrait2Square }),
                     new HeadlineWidget({
@@ -1473,7 +1473,7 @@ function importContent() {
                 }),
               ],
               column2: [
-                new PanelWidget({
+                new BoxWidget({
                   body: [
                     new ImageWidget({ image: unsplashFemalePortrait5Square }),
                     new HeadlineWidget({
@@ -1494,7 +1494,7 @@ function importContent() {
                 }),
               ],
               column3: [
-                new PanelWidget({
+                new BoxWidget({
                   body: [
                     new ImageWidget({ image: unsplashMalePortrait1Square }),
                     new HeadlineWidget({
@@ -2099,25 +2099,25 @@ function importContent() {
           new ColumnWidget({
             nrOfColumns: '3',
             column1: [
-              createPanelWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
+              createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
             ],
             column2: [
-              createPanelWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
+              createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
             ],
             column3: [
-              createPanelWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+              createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
             ],
           }),
           new ColumnWidget({
             nrOfColumns: '3',
             column1: [
-              createPanelWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
+              createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
             ],
             column2: [
-              createPanelWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
+              createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
             ],
             column3: [
-              createPanelWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+              createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
             ],
           }),
         ] }),
@@ -2391,25 +2391,25 @@ function importContent() {
           new ColumnWidget({
             nrOfColumns: '3',
             column1: [
-              createPanelWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
+              createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
             ],
             column2: [
-              createPanelWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
+              createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
             ],
             column3: [
-              createPanelWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+              createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
             ],
           }),
           new ColumnWidget({
             nrOfColumns: '3',
             column1: [
-              createPanelWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
+              createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
             ],
             column2: [
-              createPanelWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
+              createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
             ],
             column3: [
-              createPanelWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+              createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
             ],
           }),
         ] }),
