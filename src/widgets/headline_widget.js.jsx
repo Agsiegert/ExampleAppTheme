@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig(HeadlineWidget, {
     },
     showDividingLine: {
       title: 'Show dividing line',
-      description: 'Should this headline show a dividing line? Default: yes',
+      description: 'Should this headline show a dividing line? Default: no',
     },
     marginDisabled: {
       title: 'Disable Margin?',
