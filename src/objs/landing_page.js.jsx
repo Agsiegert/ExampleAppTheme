@@ -1,5 +1,6 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 import {
+  defaultGeneralProperties,
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 } from './_default_page_attributes';
@@ -22,6 +23,9 @@ Scrivito.provideEditingConfig(LandingPage, {
   attributesConfig: {
     ...defaultPageUiConfigAttributes,
   },
+  generalProperties: [
+    ...defaultGeneralProperties,
+  ],
   titleForContent: obj => obj.get('title'),
 });
 
