@@ -25,7 +25,8 @@ Scrivito.provideEditingConfig(CarouselWidget, {
     },
     showDescription: {
       title: 'Show description',
-      description: 'Should there be a description?',
+      description: 'Should there be a description?' +
+        ' This allows to show an image and some text below this carousel.',
     },
   },
 });
