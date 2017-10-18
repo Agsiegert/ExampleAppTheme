@@ -2144,7 +2144,7 @@ function importContent() {
               headline: 'Our latest blog news',
             }),
             new BlogOverviewWidget({
-              maxItems: 5,
+              maxItems: 2,
             }),
             new ButtonWidget({
               alignment: 'center',
@@ -2691,7 +2691,7 @@ function importContent() {
               headline: 'Our latest blog news',
             }),
             new BlogOverviewWidget({
-              maxItems: 5,
+              maxItems: 2,
             }),
             new ButtonWidget({
               alignment: 'center',
