@@ -17,7 +17,7 @@ registerTextExtract('Job', [
 
 Scrivito.provideEditingConfig(Job, {
   title: 'Job',
-  description: 'A Job.',
+  description: 'A Job',
   attributesConfig: {
     image: {
       title: 'Image',
@@ -25,7 +25,7 @@ Scrivito.provideEditingConfig(Job, {
     },
     location: {
       title: 'Location',
-      description: 'Where is this job located.',
+      description: 'Where is this job located?',
     },
     title: {
       title: 'Title',

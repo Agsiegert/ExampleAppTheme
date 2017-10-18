@@ -20,11 +20,11 @@ registerTextExtract('Event', [
 
 Scrivito.provideEditingConfig(Event, {
   title: 'Event',
-  description: 'An Event.',
+  description: 'An Event',
   attributesConfig: {
     date: {
       title: 'Date',
-      description: 'When is this event happening.',
+      description: 'When is this event happening?',
     },
     image: {
       title: 'Image',
@@ -32,15 +32,15 @@ Scrivito.provideEditingConfig(Event, {
     },
     location: {
       title: 'Location',
-      description: 'Where is this event located.',
+      description: 'Where is this event located?',
     },
     title: {
-      title: 'title',
+      title: 'Title',
       description: 'The title of the event.',
     },
     tags: {
       title: 'Tags',
-      description: 'Which tags can be associated with this event.',
+      description: 'Which tags can be associated with this event?',
     },
   },
   titleForContent: obj => obj.get('title'),

@@ -9,19 +9,19 @@ const Author = Scrivito.createObjClass({
 
 Scrivito.provideEditingConfig(Author, {
   title: 'Author',
-  description: 'A Author.',
+  description: 'An Author',
   attributesConfig: {
     name: {
       title: 'Name',
-      description: 'The name of the author',
+      description: 'The name of the author.',
     },
     description: {
       title: 'Description',
-      description: 'The description of the author',
+      description: 'The description of the author.',
     },
     picture: {
       title: 'Picture',
-      description: 'The picture of the author',
+      description: 'The picture of the author.',
     },
   },
   titleForContent: obj => obj.get('name'),
