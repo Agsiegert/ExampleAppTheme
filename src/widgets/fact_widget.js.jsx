@@ -15,7 +15,7 @@ registerTextExtract('FactWidget', [
 
 Scrivito.provideEditingConfig(FactWidget, {
   title: 'Fact',
-  description: 'A fact',
+  description: 'A widget with colored fact above a description.',
 });
 
 Scrivito.provideComponent(FactWidget, ({ widget }) =>

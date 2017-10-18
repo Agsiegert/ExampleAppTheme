@@ -21,10 +21,10 @@ registerTextExtract('ColumnWidget', [
 
 Scrivito.provideEditingConfig(ColumnWidget, {
   title: 'Column',
-  description: 'A widget with up to 4 columns',
+  description: 'A widget with up to 4 columns.',
   attributesConfig: {
     nrOfColumns: {
-      title: 'Number of columns',
+      title: 'Number of Columns',
       description: 'The number of columns between 1 and 4. Default: 2',
     },
     verticallyAligned: {

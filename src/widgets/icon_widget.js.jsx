@@ -12,15 +12,16 @@ const IconWidget = Scrivito.createWidgetClass({
 
 Scrivito.provideEditingConfig(IconWidget, {
   title: 'Icon',
-  description: 'A widget with a font awesome icon. See http://fontawesome.io/icons/ for all icons.',
+  description: 'A widget with a Font Awesome icon.',
   attributesConfig: {
     icon: {
       title: 'Icon',
-      description: 'The name of the icon. E.g. "fa-address-book"',
+      description: 'The name of the icon. E.g. "fa-address-book"'
+        + ' See http://fontawesome.io/icons/ for all icons.',
     },
     size: {
       title: 'Size',
-      description: 'Size of the icon',
+      description: 'Size of the icon.',
     },
     alignment: {
       title: 'Alignment',
@@ -28,7 +29,7 @@ Scrivito.provideEditingConfig(IconWidget, {
     },
     link: {
       title: 'Link',
-      description: 'The link where this icon should lead (optional)',
+      description: 'The link where this icon should lead (optional).',
     },
   },
   titleForContent: widget => widget.get('icon'),

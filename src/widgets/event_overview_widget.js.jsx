@@ -16,7 +16,7 @@ Scrivito.provideEditingConfig(EventOverviewWidget, {
   attributesConfig: {
     maxItems: {
       title: 'Maximum number of events',
-      description: 'How many events should be shown maximally.',
+      description: 'Maximum number of events to be shown?',
     },
   },
 });

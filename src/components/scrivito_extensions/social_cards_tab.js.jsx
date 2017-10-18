@@ -42,10 +42,12 @@ const TwitterInput = Scrivito.connect(({ obj }) =>
     </div>
     <div className='scrivito_detail_label'><span>Creator</span></div>
     <Scrivito.ContentTag content={ obj } attribute='tcCreator' className='input'/>
-    <div className='scrivito_notice_body'>Twitter handle of the tweet creator, starts with '@'.</div>
+    <div className='scrivito_notice_body'>
+      Twitter handle of the tweet creator. Start with {'@'}
+    </div>
     <div className='scrivito_detail_label'><span>Image</span></div>
     <Scrivito.ImageTag content={ obj } attribute='tcImage'className='seo_card_img'/>
-    <div className='scrivito_notice_body'>Replace the image, if you like.</div>
+    <div className='scrivito_notice_body'>Add or replace the image here.</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
     <Scrivito.ContentTag content={ obj } attribute='tcTitle' className='input'/>
     <div className='scrivito_notice_body'>Title for the tweet.</div>
@@ -62,7 +64,7 @@ const FacebookInput = Scrivito.connect(({ obj }) =>
     </div>
     <div className='scrivito_detail_label'><span>Image</span></div>
     <Scrivito.ImageTag content={ obj } attribute='ogImage' className='seo_card_img'/>
-    <div className='scrivito_notice_body'>Replace the image, if you like.</div>
+    <div className='scrivito_notice_body'>Add or replace the image here.</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
     <Scrivito.ContentTag content={ obj } attribute='ogTitle' className='input'/>
     <div className='scrivito_notice_body'>Add a catchy title for the post.</div>

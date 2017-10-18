@@ -4,7 +4,7 @@ const DividerWidget = Scrivito.createWidgetClass({
 
 Scrivito.provideEditingConfig(DividerWidget, {
   title: 'Divider',
-  description: 'A divider',
+  description: 'Adds a divider.',
 });
 
 Scrivito.provideComponent(DividerWidget, () => <div className="hr-icon" />);

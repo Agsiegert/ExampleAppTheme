@@ -14,7 +14,7 @@ Scrivito.provideEditingConfig(GalleryWidget, {
   attributesConfig: {
     images: {
       title: 'Images',
-      description: 'The list of images',
+      description: 'The list of images.',
     },
   },
 });

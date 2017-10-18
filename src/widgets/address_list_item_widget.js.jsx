@@ -19,7 +19,7 @@ registerTextExtract('AddressListItemWidget', [
 
 Scrivito.provideEditingConfig(AddressListItemWidget, {
   title: 'Address List Item',
-  description: 'A address list item',
+  description: 'List Items for an Address Widget.',
   attributesConfig: {
     key: {
       title: 'Key',
