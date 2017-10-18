@@ -39,7 +39,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     imageUrl = binary.url();
   }
 
-  const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box'];
+  const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box', 'gutter0'];
   if (currentTag && tags.includes(currentTag)) { classNames.push('squeezed'); }
 
   return (
