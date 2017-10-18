@@ -11,10 +11,6 @@ Scrivito.provideEditingConfig(ButtonWidget, {
   title: 'Button',
   description: 'A widget with a button.',
   attributesConfig: {
-    target: {
-      title: 'Target',
-      description: 'The target and text of the button.',
-    },
     alignment: {
       title: 'Alignment',
       description: 'How should this button be aligned? Default: left',
@@ -23,7 +19,16 @@ Scrivito.provideEditingConfig(ButtonWidget, {
       title: 'Style',
       description: 'What style should this button have? Default: btn-primary',
     },
+    target: {
+      title: 'Target',
+      description: 'The target and text of the button.',
+    },
   },
+  generalProperties: [
+    'target',
+    'alignment',
+    'style',
+  ],
 });
 
 const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
