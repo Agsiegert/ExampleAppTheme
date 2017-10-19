@@ -61,7 +61,6 @@ Scrivito.provideEditingConfig(Homepage, {
     },
   ],
   titleForContent: obj => obj.get('title'),
-  descriptionForContent: obj => `path: ${obj.path()}`,
 });
 
 Scrivito.provideComponent(Homepage, ({ page }) =>
