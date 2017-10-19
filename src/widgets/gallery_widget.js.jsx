@@ -17,6 +17,9 @@ Scrivito.provideEditingConfig(GalleryWidget, {
       description: 'The list of images.',
     },
   },
+  generalProperties: [
+    'images',
+  ],
 });
 
 function sliderSettings(images) {

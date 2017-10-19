@@ -69,6 +69,12 @@ Scrivito.provideEditingConfig(TableRowWidget, {
       description: 'The feature described for the corporate plan.',
     },
   },
+  generalProperties: [
+    'feature',
+    'basicFeature',
+    'teamFeature',
+    'corporateFeature',
+  ],
   titleForContent: widget => widget.get('feature'),
 });
 

@@ -19,6 +19,9 @@ Scrivito.provideEditingConfig(EventOverviewWidget, {
       description: 'Maximum number of events to be shown?',
     },
   },
+  generalProperties: [
+    'maxItems',
+  ],
 });
 
 function formatDate(date) {

@@ -30,6 +30,12 @@ Scrivito.provideEditingConfig(ThumbnailGalleryImageWidget, {
       description: 'The tags of the image.',
     },
   },
+  generalProperties: [
+    'image',
+    'title',
+    'subtitle',
+    'tags',
+  ],
   titleForContent: widget => `${widget.get('title')} - ${widget.get('subtitle')}`,
 });
 

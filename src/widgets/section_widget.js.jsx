@@ -57,6 +57,13 @@ Scrivito.provideEditingConfig(SectionWidget, {
       description: 'Which background image should be shown?',
     },
   },
+  generalProperties: [
+    'backgroundColor',
+    'backgroundImage',
+    'useFullWidth',
+    'useFullHeight',
+    'paddingDisabled',
+  ],
 });
 
 Scrivito.provideComponent(SectionWidget, ({ widget }) => {

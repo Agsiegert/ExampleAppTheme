@@ -16,6 +16,9 @@ Scrivito.provideEditingConfig(IconListWidget, {
       description: 'The icon list.',
     },
   },
+  generalProperties: [
+    'iconList',
+  ],
 });
 
 Scrivito.provideComponent(IconListWidget, ({ widget }) =>

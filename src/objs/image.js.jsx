@@ -18,6 +18,10 @@ Scrivito.provideEditingConfig(Image, {
       description: 'The title of the image.',
     },
   },
+  generalProperties: [
+    'title',
+    'tags',
+  ],
 });
 
 export default Image;

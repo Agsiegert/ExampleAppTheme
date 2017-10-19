@@ -20,6 +20,9 @@ Scrivito.provideEditingConfig(TickListWidget, {
       description: 'Add tick list items to display.',
     },
   },
+  generalProperties: [
+    'items',
+  ],
 });
 
 Scrivito.provideComponent(TickListWidget, ({ widget }) =>

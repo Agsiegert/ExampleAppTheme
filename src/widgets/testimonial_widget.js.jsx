@@ -32,6 +32,11 @@ Scrivito.provideEditingConfig(TestimonialWidget, {
       description: 'Add an image of the Author.',
     },
   },
+  generalProperties: [
+    'testimonial',
+    'author',
+    'authorImage',
+  ],
   titleForContent: widget => `${widget.get('author')}: ${truncate(widget.get('testimonial'))}`,
 });
 

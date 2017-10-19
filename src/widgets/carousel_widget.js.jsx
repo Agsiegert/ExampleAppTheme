@@ -29,6 +29,10 @@ Scrivito.provideEditingConfig(CarouselWidget, {
         ' This allows to show an image and some text below this carousel.',
     },
   },
+  generalProperties: [
+    'images',
+    'showDescription',
+  ],
 });
 
 function descriptionBox(widget) {

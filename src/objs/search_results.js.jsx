@@ -27,6 +27,9 @@ Scrivito.provideEditingConfig(SearchResults, {
       description: 'The background image of the navigation.',
     },
   },
+  generalProperties: [
+    'navigationBackgroundImage',
+  ],
 });
 
 function globalSearch(q) {

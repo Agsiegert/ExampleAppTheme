@@ -21,6 +21,9 @@ Scrivito.provideEditingConfig(BoxWidget, {
       description: 'Should an offset be used? If so, the box will move "up". Default: no',
     },
   },
+  generalProperties: [
+    'useOffset',
+  ],
 });
 
 Scrivito.provideComponent(BoxWidget, ({ widget }) => {

@@ -43,6 +43,13 @@ Scrivito.provideEditingConfig(Event, {
       description: 'Which tags can be associated with this event?',
     },
   },
+  generalProperties: [
+    'title',
+    'date',
+    'location',
+    'image',
+    'tags',
+  ],
   titleForContent: obj => obj.get('title'),
 });
 

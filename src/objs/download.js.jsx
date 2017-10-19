@@ -18,6 +18,10 @@ Scrivito.provideEditingConfig(Download, {
       description: 'The title of the download.',
     },
   },
+  generalProperties: [
+    'title',
+    'tags',
+  ],
 });
 
 export default Download;

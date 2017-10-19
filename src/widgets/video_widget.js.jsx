@@ -21,6 +21,10 @@ Scrivito.provideEditingConfig(VideoWidget, {
       description: 'Poster image for video player.',
     },
   },
+  generalProperties: [
+    'source',
+    'poster',
+  ],
 });
 
 Scrivito.provideComponent(VideoWidget, ({ widget }) => {

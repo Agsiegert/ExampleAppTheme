@@ -32,6 +32,11 @@ Scrivito.provideEditingConfig(Job, {
       description: 'The title of the job.',
     },
   },
+  generalProperties: [
+    'title',
+    'location',
+    'image',
+  ],
   titleForContent: obj => obj.get('title'),
 });
 

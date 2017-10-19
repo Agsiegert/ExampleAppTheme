@@ -24,6 +24,11 @@ Scrivito.provideEditingConfig(Author, {
       description: 'The picture of the author.',
     },
   },
+  generalProperties: [
+    'name',
+    'description',
+    'picture',
+  ],
   titleForContent: obj => obj.get('name'),
 });
 

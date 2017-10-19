@@ -37,6 +37,10 @@ Scrivito.provideEditingConfig(TableWidget, {
       description: 'Rows of the table describing each one feature and its availability in plans.',
     },
   },
+  generalProperties: [
+    'currency',
+    'rows',
+  ],
 });
 
 Scrivito.provideComponent(TableWidget, ({ widget }) =>

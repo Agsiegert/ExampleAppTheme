@@ -29,7 +29,6 @@ Scrivito.provideEditingConfig(Page, {
     ...defaultGeneralProperties,
   ],
   titleForContent: obj => obj.get('title'),
-  descriptionForContent: obj => `path: ${obj.path()}`,
 });
 
 Scrivito.provideComponent(Page, ({ page }) =>

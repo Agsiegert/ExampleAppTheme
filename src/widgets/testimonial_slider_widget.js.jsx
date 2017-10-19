@@ -22,6 +22,9 @@ Scrivito.provideEditingConfig(TestimonialSliderWidget, {
       description: 'Add testimonials.',
     },
   },
+  generalProperties: [
+    'testimonials',
+  ],
 });
 
 // Source: https://unsplash.com/photos/K2u71wv2eI4/

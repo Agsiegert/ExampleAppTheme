@@ -44,8 +44,14 @@ Scrivito.provideEditingConfig(BlogPost, {
       description: 'The tags of the blog post.',
     },
   },
-  titleForContent: obj => obj.get('title'),
+  generalProperties: [
+    'author',
+    'publishedAt',
+    'titleImage',
+    'tags',
+  ],
   propertiesGroups: [socialCardsCustomGroup],
+  titleForContent: obj => obj.get('title'),
 });
 
 Scrivito.provideComponent(BlogPost, ({ page }) =>

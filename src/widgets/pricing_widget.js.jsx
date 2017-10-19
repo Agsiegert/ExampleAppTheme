@@ -61,6 +61,12 @@ Scrivito.provideEditingConfig(PricingWidget, {
       description: 'Where should the large plan button lead?',
     },
   },
+  generalProperties: [
+    'currency',
+    'smallPlanButton',
+    'mediumPlanButton',
+    'largePlanButton',
+  ],
 });
 
 function PlanButton({ target, className }) {
