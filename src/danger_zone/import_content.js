@@ -2000,7 +2000,7 @@ function importContent() {
     // WIDGETS AND PAGES
     const homeV1 = Page.create({
       _path: '/widgets_and_pages/home_v1',
-      title: 'Homepage variant 1',
+      title: 'Homepage Variant 1',
       navigationBackgroundImage: unsplashArchitecture,
       navigationStyle: 'transparentDark full-height',
       navigationSection: [
@@ -2175,7 +2175,7 @@ function importContent() {
     });
     const homeV2 = Page.create({
       _path: '/widgets_and_pages/home_v2',
-      title: 'Homepage variant 2',
+      title: 'Homepage Variant 2',
       body: [
         new SectionWidget({ content: [
           new ColumnWidget({
