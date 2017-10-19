@@ -1,8 +1,8 @@
 import columnWidgetIcon from 'assets/images/column_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const ColumnWidget = Scrivito.createWidgetClass({
-  name: 'ColumnWidget',
+const ColumnsWidget = Scrivito.createWidgetClass({
+  name: 'ColumnsWidget',
   attributes: {
     nrOfColumns: ['enum', { values: ['1', '2', '3', '4'] }],
     column1: 'widgetlist',
@@ -13,15 +13,15 @@ const ColumnWidget = Scrivito.createWidgetClass({
   },
 });
 
-registerTextExtract('ColumnWidget', [
+registerTextExtract('ColumnsWidget', [
   { attribute: 'column1', type: 'widgetlist' },
   { attribute: 'column2', type: 'widgetlist' },
   { attribute: 'column3', type: 'widgetlist' },
   { attribute: 'column4', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(ColumnWidget, {
-  title: 'Column',
+Scrivito.provideEditingConfig(ColumnsWidget, {
+  title: 'Columns',
   description: 'A widget with up to 4 columns.',
   thumbnail: `/${columnWidgetIcon}`,
   attributesConfig: {
@@ -40,7 +40,7 @@ Scrivito.provideEditingConfig(ColumnWidget, {
   ],
 });
 
-Scrivito.provideComponent(ColumnWidget, ({ widget }) => {
+Scrivito.provideComponent(ColumnsWidget, ({ widget }) => {
   let nrOfColumns = parseInt(widget.get('nrOfColumns'), 10);
   if (![1, 2, 3, 4].includes(nrOfColumns)) {
     // fallback value, if missing or invalid
@@ -70,4 +70,4 @@ Scrivito.provideComponent(ColumnWidget, ({ widget }) => {
   );
 });
 
-export default ColumnWidget;
+export default ColumnsWidget;

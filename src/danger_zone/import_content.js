@@ -130,7 +130,7 @@ const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const BoxWidget = Scrivito.getClass('BoxWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
-const ColumnWidget = Scrivito.getClass('ColumnWidget');
+const ColumnsWidget = Scrivito.getClass('ColumnsWidget');
 const ContactFormWidget = Scrivito.getClass('ContactFormWidget');
 const DividerWidget = Scrivito.getClass('DividerWidget');
 const EventOverviewWidget = Scrivito.getClass('EventOverviewWidget');
@@ -599,7 +599,7 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '3',
               column1: [
                 createBoxWidgetWithIconHeadlineAndText('fa-star', 'Great environment'),
@@ -611,7 +611,7 @@ function importContent() {
                 createBoxWidgetWithIconHeadlineAndText('fa-money', 'Fair payment'),
               ],
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '3',
               column1: [
                 createBoxWidgetWithIconHeadlineAndText('fa-child', 'Daily free meal'),
@@ -755,7 +755,7 @@ function importContent() {
       navigationStyle: 'transparentDark full-height gradient',
       navigationBackgroundImage: unsplashMouseWoodenDesk,
       navigationSection: [
-        new ColumnWidget({
+        new ColumnsWidget({
           nrOfColumns: '2',
           verticallyAligned: 'yes',
           column1: [
@@ -878,7 +878,7 @@ function importContent() {
           backgroundColor: 'greydark',
           paddingDisabled: 'yes',
           content: [
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '4',
               column1: [
                 new FactWidget({
@@ -924,7 +924,7 @@ function importContent() {
               level: 'h2',
               style: 'h4',
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '2',
               verticallyAligned: 'yes',
               column1: [new ImageWidget({ image: ipad })],
@@ -951,7 +951,7 @@ function importContent() {
                 }),
               ],
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '2',
               verticallyAligned: 'yes',
               column1: [
@@ -978,7 +978,7 @@ function importContent() {
               ],
               column2: [new ImageWidget({ image: iphone })],
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '3',
               column1: [
                 createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
@@ -990,7 +990,7 @@ function importContent() {
                 createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
               ],
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '3',
               column1: [
                 createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
@@ -1036,7 +1036,7 @@ function importContent() {
           backgroundColor: 'dark-image',
           backgroundImage: unsplashTidyDeskTouchScreen,
           content: [
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '2',
               verticallyAligned: 'yes',
               column1: [
@@ -1078,7 +1078,7 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '3',
             column1: [
               createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
@@ -1090,7 +1090,7 @@ function importContent() {
               createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
             ],
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '3',
             column1: [
               createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
@@ -1247,7 +1247,7 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '4',
             verticallyAligned: 'yes',
             column1: [new ImageWidget({ image: logo1, alignment: 'center' })],
@@ -1255,7 +1255,7 @@ function importContent() {
             column3: [new ImageWidget({ image: logo3, alignment: 'center' })],
             column4: [new ImageWidget({ image: logo4, alignment: 'center' })],
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '4',
             verticallyAligned: 'yes',
             column1: [new ImageWidget({ image: logo5, alignment: 'center' })],
@@ -1263,7 +1263,7 @@ function importContent() {
             column3: [new ImageWidget({ image: logo7, alignment: 'center' })],
             column4: [new ImageWidget({ image: logo8, alignment: 'center' })],
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '4',
             verticallyAligned: 'yes',
             column1: [new ImageWidget({ image: logo8, alignment: 'center' })],
@@ -1271,7 +1271,7 @@ function importContent() {
             column3: [new ImageWidget({ image: logo5, alignment: 'center' })],
             column4: [new ImageWidget({ image: logo2, alignment: 'center' })],
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '4',
             verticallyAligned: 'yes',
             column1: [new ImageWidget({ image: logo1, alignment: 'center' })],
@@ -1356,7 +1356,7 @@ function importContent() {
           backgroundColor: 'dark-image',
           backgroundImage: unsplashNeonTrue,
           content: [
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '4',
               column1: [
                 new FactWidget({
@@ -1399,7 +1399,7 @@ function importContent() {
               alignment: 'center',
               headline: loremIpsum({ count: 2 }),
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '3',
               column1: [
                 new BoxWidget({
@@ -1465,7 +1465,7 @@ function importContent() {
                 }),
               ],
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '3',
               column1: [
                 new BoxWidget({
@@ -1587,7 +1587,7 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '2',
               verticallyAligned: 'yes',
               column1: [new ImageWidget({ image: ipad })],
@@ -1614,7 +1614,7 @@ function importContent() {
                 }),
               ],
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '2',
               verticallyAligned: 'yes',
               column1: [
@@ -1645,17 +1645,17 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '2',
               column1: [createFeaturePanelWidget('fa-check', 'Drag & drop widgets')],
               column2: [createFeaturePanelWidget('fa-cogs', 'Easy customization')],
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '2',
               column1: [createFeaturePanelWidget('fa-file-text-o', 'Full documentation')],
               column2: [createFeaturePanelWidget('fa-comments-o', 'Full support')],
             }),
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '2',
               column1: [createFeaturePanelWidget('fa-clone', 'Tons of widgets')],
               column2: [createFeaturePanelWidget('fa-mobile', 'Fully responsive')],
@@ -2005,7 +2005,7 @@ function importContent() {
       navigationBackgroundImage: unsplashArchitecture,
       navigationStyle: 'transparentDark full-height',
       navigationSection: [
-        new ColumnWidget({
+        new ColumnsWidget({
           nrOfColumns: '2',
           verticallyAligned: 'yes',
           column1: [
@@ -2044,7 +2044,7 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '2',
             verticallyAligned: 'yes',
             column1: [new ImageWidget({ image: unsplashMeetingRoomthree })],
@@ -2071,7 +2071,7 @@ function importContent() {
               }),
             ],
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '2',
             verticallyAligned: 'yes',
             column1: [
@@ -2113,7 +2113,7 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '3',
             column1: [
               createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
@@ -2125,7 +2125,7 @@ function importContent() {
               createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
             ],
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '3',
             column1: [
               createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
@@ -2179,7 +2179,7 @@ function importContent() {
       title: 'Homepage Variant 2',
       body: [
         new SectionWidget({ content: [
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '2',
             verticallyAligned: 'yes',
             column1: [
@@ -2188,7 +2188,7 @@ function importContent() {
                 style: 'h2',
                 headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
               }),
-              new ColumnWidget({
+              new ColumnsWidget({
                 nrOfColumns: '2',
                 column1: [
                   new TickListWidget({
@@ -2299,7 +2299,7 @@ function importContent() {
         new SectionWidget({
           backgroundColor: 'greywhite',
           content: [
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '4',
               column1: [
                 new FactWidget({
@@ -2405,7 +2405,7 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '3',
             column1: [
               createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
@@ -2417,7 +2417,7 @@ function importContent() {
               createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
             ],
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '3',
             column1: [
               createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
@@ -2515,7 +2515,7 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '2',
             verticallyAligned: 'yes',
             column1: [new ImageWidget({ image: unsplashLaptopKeyboard })],
@@ -2542,7 +2542,7 @@ function importContent() {
               }),
             ],
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '2',
             verticallyAligned: 'yes',
             column1: [
@@ -2577,7 +2577,7 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          new ColumnWidget({
+          new ColumnsWidget({
             nrOfColumns: '2',
             column1: [
               new ImageWidget({ image: homepage1Screenshot }),
@@ -2777,7 +2777,7 @@ function importContent() {
         new SectionWidget({
           backgroundColor: 'greywhite',
           content: [
-            new ColumnWidget({
+            new ColumnsWidget({
               nrOfColumns: '3',
               column1: [createAddressWidget({ showBorderBottom: false })],
               column2: [footerLinks1],
