@@ -211,10 +211,10 @@ function uploadVideo({ url, filename }, title, tags = []) {
   return uploadBinary({ title, url, filename, createMethod, thingPlaceholder: 'video' });
 }
 
-function uploadPdf({ url, filename }, title = 'PDF') {
-  const createMethod = () => Download.create({});
+function uploadDownload({ url, filename }, title, tags = []) {
+  const createMethod = () => Download.create({ title, tags });
 
-  return uploadBinary({ title, url, filename, createMethod, thingPlaceholder: 'pdf' });
+  return uploadBinary({ title, url, filename, createMethod, thingPlaceholder: 'download' });
 }
 
 function capitalizeFirstLetter(string) {
@@ -522,7 +522,7 @@ function importContent() {
     const videoWaterfall1 = uploadVideo(videoWaterfall1Data, 'Waterfall 1');
 
     // PDFs
-    const whatToAskPdf = uploadPdf(whatToAskPdfData);
+    const whatToAskPdf = uploadDownload(whatToAskPdfData, 'What to ask PDF');
 
     const homepage1Screenshot = uploadImage(
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
@@ -2073,7 +2073,7 @@ function importContent() {
               new HeadlineWidget({
                 level: 'h3',
                 style: 'h2',
-                headline: 'Are You Asking Your CMS Vendor the Right Questions?s',
+                headline: 'Are You Asking Your CMS Vendor the Right Questions?',
               }),
               new TextWidget({
                 text: '<p>Choosing the right Content Management System (CMS)'
@@ -2082,7 +2082,7 @@ function importContent() {
                   + ' before you get too deep, your whole project will come'
                   + ' together more easily than you can imagine and you\'ll'
                   + ' be well on your way to a successful launch.</p><p>Read'
-                  + ' about ten things you can ask of the CMS vendor to help'
+                  + ' about ten things you can ask a CMS vendor to help'
                   + ' you choose the right modern Web CMS (PDF).</p>',
               }),
               new ButtonWidget({
