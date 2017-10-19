@@ -1,4 +1,4 @@
-import { Navbar as BootstrapNavbar } from 'react-bootstrap';
+import BootstrapNavbar from 'react-bootstrap/lib/Navbar';
 import Scroll from 'react-scroll';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import currentPageNavigationOptions from './navigation/current_page_navigation_options';
