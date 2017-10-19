@@ -639,6 +639,7 @@ function importContent() {
             new GoogleMapsWidget({
               address: 'TV tower, Berlin, Germany',
               zoom: '15',
+              showWidgets: 'yes',
               content: [
                 createAddressWidget({ showBorderBottom: true }),
                 createRandomIconListWidget(),

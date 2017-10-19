@@ -36,7 +36,7 @@ Scrivito.provideEditingConfig(GoogleMapsWidget, {
     },
     showWidgets: {
       title: 'Show widgets?',
-      description: 'Should widgets be shown on top of this map? Default: yes',
+      description: 'Should widgets be shown on top of this map? Default: no',
     },
   },
   generalProperties: [
@@ -131,7 +131,7 @@ class GoogleMapsWidgetComponent extends React.Component {
 }
 
 const Widgets = Scrivito.connect(({ widget }) => {
-  if (widget.get('showWidgets') === 'no') { return null; }
+  if (widget.get('showWidgets') !== 'yes') { return null; }
 
   return (
     <div className="container">
