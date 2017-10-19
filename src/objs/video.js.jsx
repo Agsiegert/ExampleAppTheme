@@ -18,6 +18,10 @@ Scrivito.provideEditingConfig(Video, {
       description: 'Make it easier to find this video by adding some tags.',
     },
   },
+  generalProperties: [
+    'title',
+    'tags',
+  ],
 });
 
 export default Video;

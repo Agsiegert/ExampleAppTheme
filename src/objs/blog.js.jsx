@@ -29,6 +29,10 @@ Scrivito.provideEditingConfig(Blog, {
       description: 'The background image of the navigation.',
     },
   },
+  generalProperties: [
+    'title',
+    'navigationBackgroundImage',
+  ],
   titleForContent: obj => obj.get('title'),
 });
 
