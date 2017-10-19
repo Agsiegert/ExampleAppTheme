@@ -25,6 +25,10 @@ Scrivito.provideEditingConfig(TextWidget, {
       description: 'The actual source code of this text',
     },
   },
+  generalProperties: [
+    'alignment',
+    'text',
+  ],
 });
 
 Scrivito.provideComponent(TextWidget, ({ widget }) => {

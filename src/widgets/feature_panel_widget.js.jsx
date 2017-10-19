@@ -19,6 +19,9 @@ Scrivito.provideEditingConfig(FeaturePanelWidget, {
       description: 'Which icon should be shown? Default: fa-check',
     },
   },
+  generalProperties: [
+    'icon',
+  ],
 });
 
 registerTextExtract('FeaturePanelWidget', [

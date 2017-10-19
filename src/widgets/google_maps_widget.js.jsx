@@ -39,6 +39,11 @@ Scrivito.provideEditingConfig(GoogleMapsWidget, {
       description: 'Should widgets be shown on top of this map? Default: yes',
     },
   },
+  generalProperties: [
+    'address',
+    'zoom',
+    'showWidgets',
+  ],
 });
 
 const minHeight = 350;

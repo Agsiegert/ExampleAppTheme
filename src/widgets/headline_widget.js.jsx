@@ -41,6 +41,13 @@ Scrivito.provideEditingConfig(HeadlineWidget, {
       description: 'Should this headline use no margin (empty space around this headline)?',
     },
   },
+  generalProperties: [
+    'level',
+    'style',
+    'alignment',
+    'showDividingLine',
+    'marginDisabled',
+  ],
   titleForContent: widget => widget.get('headline'),
 });
 

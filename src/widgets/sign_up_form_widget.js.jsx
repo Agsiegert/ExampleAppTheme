@@ -26,6 +26,10 @@ Scrivito.provideEditingConfig(SignUpFormWidget, {
       description: 'Should this sign up form be transparent? Default: no',
     },
   },
+  generalProperties: [
+    'buttonText',
+    'isTransparent',
+  ],
 });
 
 Scrivito.provideComponent(SignUpFormWidget, ({ widget }) => {

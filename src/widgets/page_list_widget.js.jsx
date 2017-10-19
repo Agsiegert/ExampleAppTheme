@@ -19,6 +19,10 @@ Scrivito.provideEditingConfig(PageListWidget, {
       description: 'The pages to list.',
     },
   },
+  generalProperties: [
+    'headline',
+    'pages',
+  ],
 });
 
 Scrivito.provideComponent(PageListWidget, ({ widget }) => {

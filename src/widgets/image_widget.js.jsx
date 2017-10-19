@@ -15,6 +15,9 @@ Scrivito.provideEditingConfig(ImageWidget, {
       description: 'How should this image be aligned? Default: left',
     },
   },
+  generalProperties: [
+    'alignment',
+  ],
 });
 
 Scrivito.provideComponent(ImageWidget, ({ widget }) => {

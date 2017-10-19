@@ -32,6 +32,10 @@ Scrivito.provideEditingConfig(ColumnWidget, {
       description: 'Should the columns be vertically aligned? Default: no',
     },
   },
+  generalProperties: [
+    'nrOfColumns',
+    'verticallyAligned',
+  ],
 });
 
 Scrivito.provideComponent(ColumnWidget, ({ widget }) => {

@@ -19,6 +19,10 @@ Scrivito.provideEditingConfig(ContactFormWidget, {
       description: 'What should the submit button say? Default: send message',
     },
   },
+  generalProperties: [
+    'agreementText',
+    'buttonText',
+  ],
 });
 
 Scrivito.provideComponent(ContactFormWidget, ({ widget }) =>

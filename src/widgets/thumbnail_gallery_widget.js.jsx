@@ -24,6 +24,10 @@ Scrivito.provideEditingConfig(ThumbnailGalleryWidget, {
       description: 'Should the list of tags be shown? Default: no',
     },
   },
+  generalProperties: [
+    'images',
+    'showTags',
+  ],
 });
 
 const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {

@@ -26,6 +26,11 @@ Scrivito.provideEditingConfig(BlogOverviewWidget, {
       description: 'Filter blog posts by tag. Leave it empty, to not filter by tags.',
     },
   },
+  generalProperties: [
+    'maxItems',
+    'author',
+    'tag',
+  ],
 });
 
 Scrivito.provideComponent(BlogOverviewWidget, ({ widget }) =>

@@ -26,6 +26,11 @@ Scrivito.provideEditingConfig(IconListItemWidget, {
       description: 'The link where this icon should lead (optional).',
     },
   },
+  generalProperties: [
+    'icon',
+    'size',
+    'link',
+  ],
   titleForContent: widget => widget.get('icon'),
 });
 

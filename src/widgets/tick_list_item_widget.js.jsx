@@ -21,6 +21,9 @@ Scrivito.provideEditingConfig(TickListItemWidget, {
       description: 'The statement of this tick list item.',
     },
   },
+  generalProperties: [
+    'statement',
+  ],
   titleForContent: widget => widget.get('statement'),
 });
 
