@@ -1,4 +1,4 @@
-import { decode } from 'ent';
+import decode from 'ent/decode';
 import striptags from 'striptags';
 
 function textExtractFromHtml(html) {
