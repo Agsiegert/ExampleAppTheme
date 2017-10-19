@@ -529,6 +529,7 @@ function importContent() {
 
     // Path less Objs
     const jobs = Page.create({
+      _path: '/about/jobs',
       _permalink: 'jobs',
       title: 'Jobs',
       body: [
@@ -616,6 +617,7 @@ function importContent() {
       ],
     });
     const contact = Page.create({
+      _path: '/about/contact',
       _permalink: 'contact',
       title: 'Contact',
       body: [
@@ -704,6 +706,7 @@ function importContent() {
       ],
     });
     const events = Page.create({
+      _path: '/about/events',
       _permalink: 'events',
       title: 'Events & Conferences',
       body: [
@@ -734,6 +737,7 @@ function importContent() {
       ],
     });
     const landingPage = LandingPage.create({
+      _path: '/widgets_and_pages/landing_page',
       _permalink: 'landing_page',
       title: 'Landing Page',
       navigationStyle: 'transparentDark full-height gradient',
@@ -1309,7 +1313,7 @@ function importContent() {
       _path: '/about',
       _permalink: 'about',
       title: 'About',
-      childOrder: [ourWork, ourClients],
+      childOrder: [ourWork, ourClients, jobs, contact, events],
       navigationStyle: 'transparentDark medium-height',
       navigationBackgroundImage: unsplashDimLaptopStand,
       body: [
@@ -2445,7 +2449,7 @@ function importContent() {
     const widgetsAndPages = Page.create({
       _path: '/widgets_and_pages',
       title: 'Widgets & Pages',
-      childOrder: [homeV1, homeV2],
+      childOrder: [homeV1, homeV2, landingPage],
       body: [
         new SectionWidget({ content: [
           new HeadlineWidget({ headline: 'Widgets & Pages' }),
