@@ -1,4 +1,4 @@
-import { Carousel } from 'react-bootstrap';
+import Carousel from 'react-bootstrap/lib/Carousel';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const CarouselWidget = Scrivito.createWidgetClass({
