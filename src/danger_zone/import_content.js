@@ -109,10 +109,12 @@ import unsplashWoodTableData from './binary_data/unsplash_wood_table_conversatio
 import unsplashWritingPapersData from './binary_data/unsplash_writing_papers';
 import unsplashYellowWatchTypingData from './binary_data/unsplash_yellow_watch_typing';
 import videoWaterfall1Data from './binary_data/video_waterfall_1';
+import whatToAskPdfData from './binary_data/what_to_ask';
 
 const Author = Scrivito.getClass('Author');
 const Blog = Scrivito.getClass('Blog');
 const BlogPost = Scrivito.getClass('BlogPost');
+const Download = Scrivito.getClass('Download');
 const Event = Scrivito.getClass('Event');
 const Homepage = Scrivito.getClass('Homepage');
 const Image = Scrivito.getClass('Image');
@@ -207,6 +209,12 @@ function uploadVideo({ url, filename }, title, tags = []) {
   const createMethod = () => Video.create({ title, tags });
 
   return uploadBinary({ title, url, filename, createMethod, thingPlaceholder: 'video' });
+}
+
+function uploadDownload({ url, filename }, title, tags = []) {
+  const createMethod = () => Download.create({ title, tags });
+
+  return uploadBinary({ title, url, filename, createMethod, thingPlaceholder: 'download' });
 }
 
 function capitalizeFirstLetter(string) {
@@ -512,6 +520,9 @@ function importContent() {
 
     // Videos
     const videoWaterfall1 = uploadVideo(videoWaterfall1Data, 'Waterfall 1');
+
+    // PDFs
+    const whatToAskPdf = uploadDownload(whatToAskPdfData, 'What to ask PDF');
 
     const homepage1Screenshot = uploadImage(
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
@@ -2066,21 +2077,22 @@ function importContent() {
               new HeadlineWidget({
                 level: 'h3',
                 style: 'h2',
-                headline: 'Content Management for Professionals',
+                headline: 'Are You Asking Your CMS Vendor the Right Questions?',
               }),
               new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
-                }),
+                text: '<p>Choosing the right Content Management System (CMS)'
+                  + ' for your web project at first could appear to be a'
+                  + ' momentous task. However, if you ask the right questions'
+                  + ' before you get too deep, your whole project will come'
+                  + ' together more easily than you can imagine and you\'ll'
+                  + ' be well on your way to a successful launch.</p><p>Read'
+                  + ' about ten things you can ask a CMS vendor to help'
+                  + ' you choose the right modern Web CMS (PDF).</p>',
               }),
               new ButtonWidget({
                 target: new Scrivito.Link({
-                  title: 'Call to action',
-                  obj: root,
+                  title: 'Download PDF',
+                  obj: whatToAskPdf,
                 }),
               }),
             ],
