@@ -2,6 +2,7 @@ import Lightbox from 'react-images';
 import devicePixelRatio from 'utils/device_pixel_ratio';
 import fullScreenWidthPixels from 'utils/full_screen_width_pixels';
 import TagList from 'components/tag_list';
+import thumbnailGalleryWidgetIcon from 'assets/images/thumbnail_gallery_widget.svg';
 
 const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
   name: 'ThumbnailGalleryWidget',
@@ -14,6 +15,7 @@ const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(ThumbnailGalleryWidget, {
   title: 'Thumbnail Gallery',
   description: 'A widget with an thumbnail image gallery.',
+  thumbnail: `/${thumbnailGalleryWidgetIcon}`,
   attributesConfig: {
     images: {
       title: 'Images',

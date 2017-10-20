@@ -1,4 +1,5 @@
 import IconComponent from 'components/icon';
+import iconWidgetIcon from 'assets/images/icon_widget.svg';
 
 const IconWidget = Scrivito.createWidgetClass({
   name: 'IconWidget',
@@ -13,6 +14,7 @@ const IconWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(IconWidget, {
   title: 'Icon',
   description: 'A widget with a Font Awesome icon.',
+  thumbnail: `/${iconWidgetIcon}`,
   attributesConfig: {
     icon: {
       title: 'Icon',

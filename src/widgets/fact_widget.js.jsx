@@ -1,3 +1,4 @@
+import factWidgetIcon from 'assets/images/fact_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const FactWidget = Scrivito.createWidgetClass({
@@ -16,6 +17,7 @@ registerTextExtract('FactWidget', [
 Scrivito.provideEditingConfig(FactWidget, {
   title: 'Fact',
   description: 'A widget with colored fact above a description.',
+  thumbnail: `/${factWidgetIcon}`,
 });
 
 Scrivito.provideComponent(FactWidget, ({ widget }) =>

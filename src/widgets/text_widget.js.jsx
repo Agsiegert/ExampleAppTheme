@@ -1,3 +1,4 @@
+import textWidgetIcon from 'assets/images/text_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const TextWidget = Scrivito.createWidgetClass({
@@ -15,6 +16,7 @@ registerTextExtract('TextWidget', [
 Scrivito.provideEditingConfig(TextWidget, {
   title: 'Text',
   description: 'A widget with html text.',
+  thumbnail: `/${textWidgetIcon}`,
   attributesConfig: {
     alignment: {
       title: 'Alignment',

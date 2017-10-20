@@ -1,4 +1,5 @@
 import AddressListItemWidget from 'widgets/address_list_item_widget';
+import addressWidgetIcon from 'assets/images/address_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const AddressWidget = Scrivito.createWidgetClass({
@@ -20,6 +21,7 @@ registerTextExtract('AddressWidget', [
 Scrivito.provideEditingConfig(AddressWidget, {
   title: 'Address',
   description: 'A widget, which shows an address.',
+  thumbnail: `/${addressWidgetIcon}`,
   attributesConfig: {
     address: {
       title: 'Address',

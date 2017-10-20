@@ -1,4 +1,5 @@
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
+import sectionWidgetIcon from 'assets/images/section_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const SectionWidget = Scrivito.createWidgetClass({
@@ -35,6 +36,7 @@ registerTextExtract('SectionWidget', [
 Scrivito.provideEditingConfig(SectionWidget, {
   title: 'Section',
   description: 'A section',
+  thumbnail: `/${sectionWidgetIcon}`,
   attributesConfig: {
     backgroundColor: {
       title: 'Background Color',

@@ -1,3 +1,4 @@
+import columnWidgetIcon from 'assets/images/column_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const ColumnWidget = Scrivito.createWidgetClass({
@@ -22,6 +23,7 @@ registerTextExtract('ColumnWidget', [
 Scrivito.provideEditingConfig(ColumnWidget, {
   title: 'Column',
   description: 'A widget with up to 4 columns.',
+  thumbnail: `/${columnWidgetIcon}`,
   attributesConfig: {
     nrOfColumns: {
       title: 'Number of Columns',

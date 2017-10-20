@@ -1,4 +1,5 @@
 import IconComponent from 'components/icon';
+import iconListWidgetIcon from 'assets/images/icon_list_widget.svg';
 
 const IconListWidget = Scrivito.createWidgetClass({
   name: 'IconListWidget',
@@ -10,6 +11,7 @@ const IconListWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(IconListWidget, {
   title: 'Icon List',
   description: 'A list of icons.',
+  thumbnail: `/${iconListWidgetIcon}`,
   attributesConfig: {
     iconList: {
       title: 'Icon list',

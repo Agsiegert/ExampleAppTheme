@@ -1,3 +1,5 @@
+import pageListWidgetIcon from 'assets/images/page_list_widget.svg';
+
 const PageListWidget = Scrivito.createWidgetClass({
   name: 'PageListWidget',
   attributes: {
@@ -9,6 +11,7 @@ const PageListWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(PageListWidget, {
   title: 'Page List',
   description: 'A widget which lists pages.',
+  thumbnail: `/${pageListWidgetIcon}`,
   attributesConfig: {
     headline: {
       title: 'Headline',

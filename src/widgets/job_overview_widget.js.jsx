@@ -1,4 +1,5 @@
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
+import jobOverviewWidgetIcon from 'assets/images/job_overview_widget.svg';
 
 const JobOverviewWidget = Scrivito.createWidgetClass({
   name: 'JobOverviewWidget',
@@ -7,6 +8,7 @@ const JobOverviewWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(JobOverviewWidget, {
   title: 'Job Overview',
   description: 'A widget showing all jobs.',
+  thumbnail: `/${jobOverviewWidgetIcon}`,
 });
 
 Scrivito.provideComponent(JobOverviewWidget, () => {

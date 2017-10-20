@@ -1,3 +1,4 @@
+import signUpFormWidgetIcon from 'assets/images/sign_up_form_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const SignUpFormWidget = Scrivito.createWidgetClass({
@@ -16,6 +17,7 @@ registerTextExtract('SignUpFormWidget', [
 Scrivito.provideEditingConfig(SignUpFormWidget, {
   title: 'Sign Up Form',
   description: 'A widget with sign up form.',
+  thumbnail: `/${signUpFormWidgetIcon}`,
   attributesConfig: {
     buttonText: {
       title: 'Button Text',
