@@ -17,6 +17,10 @@ function textExtractFromItem(objOrWidget) {
   }
 
   const textExtractValues = attributes.map(({ attribute, type }) => {
+    if (type === 'metadata') {
+      return textExtractFromMetadata(objOrWidget, attribute);
+    }
+
     const value = objOrWidget.get(attribute);
 
     if (!assertValidValue(value, type)) {
@@ -47,6 +51,12 @@ function assertValidValue(value, type) {
   }
 
   return true;
+}
+
+function textExtractFromMetadata(objOrWidget, attribute) {
+  if (!objOrWidget.metadata) { return ''; }
+
+  return objOrWidget.metadata().get(attribute) || '';
 }
 
 function textExtractFromWidgetlist(widgetlist) {

@@ -1,3 +1,5 @@
+import { registerTextExtract } from 'utils/text_extract_registry';
+
 const Download = Scrivito.createObjClass({
   name: 'Download',
   attributes: {
@@ -6,6 +8,10 @@ const Download = Scrivito.createObjClass({
     title: 'string',
   },
 });
+
+registerTextExtract('Download', [
+  { attribute: 'text', type: 'metadata' },
+]);
 
 Scrivito.provideEditingConfig(Download, {
   attributesConfig: {
