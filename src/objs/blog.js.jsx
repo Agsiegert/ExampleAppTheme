@@ -2,6 +2,7 @@ import BlogPost from 'objs/blog_post';
 import navigateToBlogWithTag from 'utils/navigate_to_blog_with_tag';
 import TagList from 'components/tag_list';
 import { registerTextExtract } from 'utils/text_extract_registry';
+import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
 
 const Blog = Scrivito.createObjClass({
   name: 'Blog',
@@ -9,6 +10,7 @@ const Blog = Scrivito.createObjClass({
     title: 'string',
     navigationBackgroundImage: 'reference',
     body: ['widgetlist', { only: 'SectionWidget' }],
+    ...socialCardsAttributes,
   },
 });
 
@@ -33,6 +35,7 @@ Scrivito.provideEditingConfig(Blog, {
     'title',
     'navigationBackgroundImage',
   ],
+  propertiesGroups: [socialCardsCustomGroup],
   titleForContent: obj => obj.get('title'),
 });
 

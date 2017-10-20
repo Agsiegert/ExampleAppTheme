@@ -1,4 +1,5 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
+import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
 
 const Job = Scrivito.createObjClass({
   name: 'Job',
@@ -7,6 +8,7 @@ const Job = Scrivito.createObjClass({
     image: 'reference',
     location: 'string',
     title: 'string',
+    ...socialCardsAttributes,
   },
 });
 
@@ -37,6 +39,7 @@ Scrivito.provideEditingConfig(Job, {
     'location',
     'image',
   ],
+  propertiesGroups: [socialCardsCustomGroup],
   titleForContent: obj => obj.get('title'),
 });
 

@@ -1,4 +1,5 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
+import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
 
 import {
   defaultGeneralProperties,
@@ -16,6 +17,7 @@ const Homepage = Scrivito.createObjClass({
     logoWhite: 'reference',
     facebookId: 'string',
     twitterId: 'string',
+    ...socialCardsAttributes,
   },
 });
 
@@ -59,6 +61,7 @@ Scrivito.provideEditingConfig(Homepage, {
         'twitterId',
       ],
     },
+    socialCardsCustomGroup,
   ],
   titleForContent: obj => obj.get('title'),
 });
