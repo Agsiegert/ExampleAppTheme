@@ -131,6 +131,7 @@ const BoxWidget = Scrivito.getClass('BoxWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
 const ColumnsWidget = Scrivito.getClass('ColumnsWidget');
+const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const ContactFormWidget = Scrivito.getClass('ContactFormWidget');
 const DividerWidget = Scrivito.getClass('DividerWidget');
 const EventOverviewWidget = Scrivito.getClass('EventOverviewWidget');
@@ -270,6 +271,20 @@ function createFeaturePanelWidget(icon, headline) {
     headline,
     description: loremIpsum({ count: 2 }),
   });
+}
+
+function createEvenColumnsWidget({ verticallyAligned, columns }) {
+  const options = {
+    columns: columns.map(column => new ColumnWidget({
+      colSize: 12 / columns.length,
+      content: column,
+    })),
+  };
+  if (verticallyAligned) {
+    options.verticallyAligned = verticallyAligned;
+  }
+
+  return new ColumnsWidget(options);
 }
 
 function createPricingWidget(root) {
@@ -599,28 +614,18 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            new ColumnsWidget({
-              nrOfColumns: '3',
-              column1: [
-                createBoxWidgetWithIconHeadlineAndText('fa-star', 'Great environment'),
-              ],
-              column2: [
-                createBoxWidgetWithIconHeadlineAndText('fa-users', 'Awarded team'),
-              ],
-              column3: [
-                createBoxWidgetWithIconHeadlineAndText('fa-money', 'Fair payment'),
+            createEvenColumnsWidget({
+              columns: [
+                [createBoxWidgetWithIconHeadlineAndText('fa-star', 'Great environment')],
+                [createBoxWidgetWithIconHeadlineAndText('fa-users', 'Awarded team')],
+                [createBoxWidgetWithIconHeadlineAndText('fa-money', 'Fair payment')],
               ],
             }),
-            new ColumnsWidget({
-              nrOfColumns: '3',
-              column1: [
-                createBoxWidgetWithIconHeadlineAndText('fa-child', 'Daily free meal'),
-              ],
-              column2: [
-                createBoxWidgetWithIconHeadlineAndText('fa-laptop', 'The best equipment'),
-              ],
-              column3: [
-                createBoxWidgetWithIconHeadlineAndText('fa-heartbeat', 'Sport activity'),
+            createEvenColumnsWidget({
+              columns: [
+                [createBoxWidgetWithIconHeadlineAndText('fa-child', 'Daily free meal')],
+                [createBoxWidgetWithIconHeadlineAndText('fa-laptop', 'The best equipment')],
+                [createBoxWidgetWithIconHeadlineAndText('fa-heartbeat', 'Sport activity')],
               ],
             }),
           ],
@@ -755,35 +760,38 @@ function importContent() {
       navigationStyle: 'transparentDark full-height gradient',
       navigationBackgroundImage: unsplashMouseWoodenDesk,
       navigationSection: [
-        new ColumnsWidget({
-          nrOfColumns: '2',
+        createEvenColumnsWidget({
           verticallyAligned: 'yes',
-          column1: [
-            new HeadlineWidget({
-              headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 1,
-                paragraphLowerBound: 3,
-                paragraphUpperBound: 5,
+          columns: [
+            // col 1
+            [
+              new HeadlineWidget({
+                headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
               }),
-            }),
-            new ButtonWidget({
-              target: new Scrivito.Link({
-                title: 'Call to action',
-                obj: root,
+              new TextWidget({
+                text: loremIpsum({
+                  units: 'paragraphs',
+                  format: 'html',
+                  count: 1,
+                  paragraphLowerBound: 3,
+                  paragraphUpperBound: 5,
+                }),
               }),
-            }),
-          ],
-          column2: [
-            new SignUpFormWidget({
-              isTransparent: 'yes',
-              title: 'Sign up to Scrivito',
-              buttonText: 'Sign up to Scrivito now',
-            }),
+              new ButtonWidget({
+                target: new Scrivito.Link({
+                  title: 'Call to action',
+                  obj: root,
+                }),
+              }),
+            ],
+            // col 2
+            [
+              new SignUpFormWidget({
+                isTransparent: 'yes',
+                title: 'Sign up to Scrivito',
+                buttonText: 'Sign up to Scrivito now',
+              }),
+            ],
           ],
         }),
       ],
@@ -878,31 +886,36 @@ function importContent() {
           backgroundColor: 'greydark',
           paddingDisabled: 'yes',
           content: [
-            new ColumnsWidget({
-              nrOfColumns: '4',
-              column1: [
-                new FactWidget({
-                  value: '134',
-                  key: loremIpsum({ units: 'words', count: 3 }),
-                }),
-              ],
-              column2: [
-                new FactWidget({
-                  value: '43',
-                  key: loremIpsum({ units: 'words', count: 3 }),
-                }),
-              ],
-              column3: [
-                new FactWidget({
-                  value: '13',
-                  key: loremIpsum({ units: 'words', count: 3 }),
-                }),
-              ],
-              column4: [
-                new FactWidget({
-                  value: '65',
-                  key: loremIpsum({ units: 'words', count: 3 }),
-                }),
+            createEvenColumnsWidget({
+              columns: [
+                // col 1
+                [
+                  new FactWidget({
+                    value: '134',
+                    key: loremIpsum({ units: 'words', count: 3 }),
+                  }),
+                ],
+                // col 2
+                [
+                  new FactWidget({
+                    value: '43',
+                    key: loremIpsum({ units: 'words', count: 3 }),
+                  }),
+                ],
+                // col 3
+                [
+                  new FactWidget({
+                    value: '13',
+                    key: loremIpsum({ units: 'words', count: 3 }),
+                  }),
+                ],
+                // col 4
+                [
+                  new FactWidget({
+                    value: '65',
+                    key: loremIpsum({ units: 'words', count: 3 }),
+                  }),
+                ],
               ],
             }),
             new DividerWidget({}),
@@ -924,82 +937,78 @@ function importContent() {
               level: 'h2',
               style: 'h4',
             }),
-            new ColumnsWidget({
-              nrOfColumns: '2',
+            createEvenColumnsWidget({
               verticallyAligned: 'yes',
-              column1: [new ImageWidget({ image: ipad })],
-              column2: [
-                new HeadlineWidget({
-                  level: 'h3',
-                  style: 'h2',
-                  headline: 'Content Management for React Apps',
-                }),
-                new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 5,
-                    paragraphUpperBound: 5,
+              columns: [
+                // col 1
+                [new ImageWidget({ image: ipad })],
+                // col 2
+                [
+                  new HeadlineWidget({
+                    level: 'h3',
+                    style: 'h2',
+                    headline: 'Content Management for React Apps',
                   }),
-                }),
-                new ButtonWidget({
-                  target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 5,
+                      paragraphUpperBound: 5,
+                    }),
                   }),
-                }),
+                  new ButtonWidget({
+                    target: new Scrivito.Link({
+                      title: 'Call to action',
+                      obj: root,
+                    }),
+                  }),
+                ],
               ],
             }),
-            new ColumnsWidget({
-              nrOfColumns: '2',
+            createEvenColumnsWidget({
               verticallyAligned: 'yes',
-              column1: [
-                new HeadlineWidget({
-                  level: 'h3',
-                  style: 'h2',
-                  headline: 'Fully Fledged CMS Service',
-                }),
-                new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 5,
-                    paragraphUpperBound: 5,
+              columns: [
+                // col 1
+                [
+                  new HeadlineWidget({
+                    level: 'h3',
+                    style: 'h2',
+                    headline: 'Fully Fledged CMS Service',
                   }),
-                }),
-                new ButtonWidget({
-                  target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 5,
+                      paragraphUpperBound: 5,
+                    }),
                   }),
-                }),
-              ],
-              column2: [new ImageWidget({ image: iphone })],
-            }),
-            new ColumnsWidget({
-              nrOfColumns: '3',
-              column1: [
-                createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
-              ],
-              column2: [
-                createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
-              ],
-              column3: [
-                createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+                  new ButtonWidget({
+                    target: new Scrivito.Link({
+                      title: 'Call to action',
+                      obj: root,
+                    }),
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: iphone })],
               ],
             }),
-            new ColumnsWidget({
-              nrOfColumns: '3',
-              column1: [
-                createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
+            createEvenColumnsWidget({
+              columns: [
+                [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
+                [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
+                [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
               ],
-              column2: [
-                createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
-              ],
-              column3: [
-                createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+            }),
+            createEvenColumnsWidget({
+              columns: [
+                [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
+                [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
+                [createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive')],
               ],
             }),
             new DividerWidget({}),
@@ -1036,32 +1045,35 @@ function importContent() {
           backgroundColor: 'dark-image',
           backgroundImage: unsplashTidyDeskTouchScreen,
           content: [
-            new ColumnsWidget({
-              nrOfColumns: '2',
+            createEvenColumnsWidget({
               verticallyAligned: 'yes',
-              column1: [
-                new HeadlineWidget({
-                  level: 'h1',
-                  style: 'h1',
-                  headline: 'Amazing video hero widget',
-                }),
-                new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 3,
-                    paragraphUpperBound: 5,
+              columns: [
+                // col 1
+                [
+                  new HeadlineWidget({
+                    level: 'h1',
+                    style: 'h1',
+                    headline: 'Amazing video hero widget',
                   }),
-                }),
-                new ButtonWidget({
-                  target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 3,
+                      paragraphUpperBound: 5,
+                    }),
                   }),
-                }),
+                  new ButtonWidget({
+                    target: new Scrivito.Link({
+                      title: 'Call to action',
+                      obj: root,
+                    }),
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: iphone })],
               ],
-              column2: [new ImageWidget({ image: iphone })],
             }),
           ],
         }),
@@ -1078,28 +1090,18 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          new ColumnsWidget({
-            nrOfColumns: '3',
-            column1: [
-              createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
-            ],
-            column2: [
-              createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
-            ],
-            column3: [
-              createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+          createEvenColumnsWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
             ],
           }),
-          new ColumnsWidget({
-            nrOfColumns: '3',
-            column1: [
-              createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
-            ],
-            column2: [
-              createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
-            ],
-            column3: [
-              createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+          createEvenColumnsWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive')],
             ],
           }),
           new ButtonWidget({
@@ -1247,37 +1249,41 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          new ColumnsWidget({
-            nrOfColumns: '4',
+          createEvenColumnsWidget({
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: logo1, alignment: 'center' })],
-            column2: [new ImageWidget({ image: logo2, alignment: 'center' })],
-            column3: [new ImageWidget({ image: logo3, alignment: 'center' })],
-            column4: [new ImageWidget({ image: logo4, alignment: 'center' })],
+            columns: [
+              [new ImageWidget({ image: logo1, alignment: 'center' })],
+              [new ImageWidget({ image: logo2, alignment: 'center' })],
+              [new ImageWidget({ image: logo3, alignment: 'center' })],
+              [new ImageWidget({ image: logo4, alignment: 'center' })],
+            ],
           }),
-          new ColumnsWidget({
-            nrOfColumns: '4',
+          createEvenColumnsWidget({
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: logo5, alignment: 'center' })],
-            column2: [new ImageWidget({ image: logo6, alignment: 'center' })],
-            column3: [new ImageWidget({ image: logo7, alignment: 'center' })],
-            column4: [new ImageWidget({ image: logo8, alignment: 'center' })],
+            columns: [
+              [new ImageWidget({ image: logo5, alignment: 'center' })],
+              [new ImageWidget({ image: logo6, alignment: 'center' })],
+              [new ImageWidget({ image: logo7, alignment: 'center' })],
+              [new ImageWidget({ image: logo8, alignment: 'center' })],
+            ],
           }),
-          new ColumnsWidget({
-            nrOfColumns: '4',
+          createEvenColumnsWidget({
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: logo8, alignment: 'center' })],
-            column2: [new ImageWidget({ image: logo4, alignment: 'center' })],
-            column3: [new ImageWidget({ image: logo5, alignment: 'center' })],
-            column4: [new ImageWidget({ image: logo2, alignment: 'center' })],
+            columns: [
+              [new ImageWidget({ image: logo8, alignment: 'center' })],
+              [new ImageWidget({ image: logo4, alignment: 'center' })],
+              [new ImageWidget({ image: logo5, alignment: 'center' })],
+              [new ImageWidget({ image: logo2, alignment: 'center' })],
+            ],
           }),
-          new ColumnsWidget({
-            nrOfColumns: '4',
+          createEvenColumnsWidget({
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: logo1, alignment: 'center' })],
-            column2: [new ImageWidget({ image: logo8, alignment: 'center' })],
-            column3: [new ImageWidget({ image: logo2, alignment: 'center' })],
-            column4: [new ImageWidget({ image: logo3, alignment: 'center' })],
+            columns: [
+              [new ImageWidget({ image: logo1, alignment: 'center' })],
+              [new ImageWidget({ image: logo8, alignment: 'center' })],
+              [new ImageWidget({ image: logo2, alignment: 'center' })],
+              [new ImageWidget({ image: logo3, alignment: 'center' })],
+            ],
           }),
         ] }),
         new SectionWidget({ content: [
@@ -1356,31 +1362,36 @@ function importContent() {
           backgroundColor: 'dark-image',
           backgroundImage: unsplashNeonTrue,
           content: [
-            new ColumnsWidget({
-              nrOfColumns: '4',
-              column1: [
-                new FactWidget({
-                  value: '134',
-                  key: loremIpsum({ units: 'words', count: 3 }),
-                }),
-              ],
-              column2: [
-                new FactWidget({
-                  value: '43',
-                  key: loremIpsum({ units: 'words', count: 3 }),
-                }),
-              ],
-              column3: [
-                new FactWidget({
-                  value: '13',
-                  key: loremIpsum({ units: 'words', count: 3 }),
-                }),
-              ],
-              column4: [
-                new FactWidget({
-                  value: '65',
-                  key: loremIpsum({ units: 'words', count: 3 }),
-                }),
+            createEvenColumnsWidget({
+              columns: [
+                // col 1
+                [
+                  new FactWidget({
+                    value: '134',
+                    key: loremIpsum({ units: 'words', count: 3 }),
+                  }),
+                ],
+                // col 2
+                [
+                  new FactWidget({
+                    value: '43',
+                    key: loremIpsum({ units: 'words', count: 3 }),
+                  }),
+                ],
+                // col 3
+                [
+                  new FactWidget({
+                    value: '13',
+                    key: loremIpsum({ units: 'words', count: 3 }),
+                  }),
+                ],
+                // col 4
+                [
+                  new FactWidget({
+                    value: '65',
+                    key: loremIpsum({ units: 'words', count: 3 }),
+                  }),
+                ],
               ],
             }),
           ],
@@ -1399,136 +1410,144 @@ function importContent() {
               alignment: 'center',
               headline: loremIpsum({ count: 2 }),
             }),
-            new ColumnsWidget({
-              nrOfColumns: '3',
-              column1: [
-                new BoxWidget({
-                  body: [
-                    new ImageWidget({ image: unsplashFemalePortrait3Square }),
-                    new HeadlineWidget({
-                      headline: 'Jane Morgan',
-                      level: 'h3',
-                      style: 'h3',
-                      alignment: 'center',
-                    }),
-                    new HeadlineWidget({
-                      headline: 'Product Research Director',
-                      level: 'h5',
-                      style: 'h5',
-                      showDividingLine: 'yes',
-                      marginDisabled: 'yes',
-                    }),
-                    createRandomIconListWidget(),
-                  ],
-                }),
-              ],
-              column2: [
-                new BoxWidget({
-                  body: [
-                    new ImageWidget({ image: unsplashMalePortrait3Square }),
-                    new HeadlineWidget({
-                      headline: 'Peter Doe',
-                      level: 'h3',
-                      style: 'h3',
-                      alignment: 'center',
-                    }),
-                    new HeadlineWidget({
-                      headline: 'Internal Applications Supervisor',
-                      level: 'h5',
-                      style: 'h5',
-                      showDividingLine: 'yes',
-                      marginDisabled: 'yes',
-                    }),
-                    createRandomIconListWidget(),
-                  ],
-                }),
-              ],
-              column3: [
-                new BoxWidget({
-                  body: [
-                    new ImageWidget({ image: unsplashFemalePortrait4Square }),
-                    new HeadlineWidget({
-                      headline: 'Susan Summer',
-                      level: 'h3',
-                      style: 'h3',
-                      alignment: 'center',
-                    }),
-                    new HeadlineWidget({
-                      headline: 'Regional Agent',
-                      level: 'h5',
-                      style: 'h5',
-                      showDividingLine: 'yes',
-                      marginDisabled: 'yes',
-                    }),
-                    createRandomIconListWidget(),
-                  ],
-                }),
+            createEvenColumnsWidget({
+              columns: [
+                // col 1
+                [
+                  new BoxWidget({
+                    body: [
+                      new ImageWidget({ image: unsplashFemalePortrait3Square }),
+                      new HeadlineWidget({
+                        headline: 'Jane Morgan',
+                        level: 'h3',
+                        style: 'h3',
+                        alignment: 'center',
+                      }),
+                      new HeadlineWidget({
+                        headline: 'Product Research Director',
+                        level: 'h5',
+                        style: 'h5',
+                        showDividingLine: 'yes',
+                        marginDisabled: 'yes',
+                      }),
+                      createRandomIconListWidget(),
+                    ],
+                  }),
+                ],
+                // col 2
+                [
+                  new BoxWidget({
+                    body: [
+                      new ImageWidget({ image: unsplashMalePortrait3Square }),
+                      new HeadlineWidget({
+                        headline: 'Peter Doe',
+                        level: 'h3',
+                        style: 'h3',
+                        alignment: 'center',
+                      }),
+                      new HeadlineWidget({
+                        headline: 'Internal Applications Supervisor',
+                        level: 'h5',
+                        style: 'h5',
+                        showDividingLine: 'yes',
+                        marginDisabled: 'yes',
+                      }),
+                      createRandomIconListWidget(),
+                    ],
+                  }),
+                ],
+                // col 3
+                [
+                  new BoxWidget({
+                    body: [
+                      new ImageWidget({ image: unsplashFemalePortrait4Square }),
+                      new HeadlineWidget({
+                        headline: 'Susan Summer',
+                        level: 'h3',
+                        style: 'h3',
+                        alignment: 'center',
+                      }),
+                      new HeadlineWidget({
+                        headline: 'Regional Agent',
+                        level: 'h5',
+                        style: 'h5',
+                        showDividingLine: 'yes',
+                        marginDisabled: 'yes',
+                      }),
+                      createRandomIconListWidget(),
+                    ],
+                  }),
+                ],
               ],
             }),
-            new ColumnsWidget({
-              nrOfColumns: '3',
-              column1: [
-                new BoxWidget({
-                  body: [
-                    new ImageWidget({ image: unsplashMalePortrait2Square }),
-                    new HeadlineWidget({
-                      headline: 'Clarius Ceasar',
-                      level: 'h3',
-                      style: 'h3',
-                      alignment: 'center',
-                    }),
-                    new HeadlineWidget({
-                      headline: 'Dynamic Operations Representative',
-                      level: 'h5',
-                      style: 'h5',
-                      showDividingLine: 'yes',
-                      marginDisabled: 'yes',
-                    }),
-                    createRandomIconListWidget(),
-                  ],
-                }),
-              ],
-              column2: [
-                new BoxWidget({
-                  body: [
-                    new ImageWidget({ image: unsplashFemalePortrait5Square }),
-                    new HeadlineWidget({
-                      headline: 'Anna Corn',
-                      level: 'h3',
-                      style: 'h3',
-                      alignment: 'center',
-                    }),
-                    new HeadlineWidget({
-                      headline: 'Regional Brand Producer',
-                      level: 'h5',
-                      style: 'h5',
-                      showDividingLine: 'yes',
-                      marginDisabled: 'yes',
-                    }),
-                    createRandomIconListWidget(),
-                  ],
-                }),
-              ],
-              column3: [
-                new BoxWidget({
-                  body: [
-                    new ImageWidget({ image: unsplashMalePortrait1Square }),
-                    new HeadlineWidget({
-                      headline: 'Jason John',
-                      level: 'h3',
-                      style: 'h3',
-                      alignment: 'center',
-                    }),
-                    new HeadlineWidget({
-                      headline: 'Dynamic Paradigm Director',
-                      level: 'h5',
-                      style: 'h5',
-                      showDividingLine: 'yes',
-                      marginDisabled: 'yes',
-                    }),
-                    createRandomIconListWidget(),
-                  ],
-                }),
+            createEvenColumnsWidget({
+              columns: [
+                // col 1
+                [
+                  new BoxWidget({
+                    body: [
+                      new ImageWidget({ image: unsplashMalePortrait2Square }),
+                      new HeadlineWidget({
+                        headline: 'Clarius Ceasar',
+                        level: 'h3',
+                        style: 'h3',
+                        alignment: 'center',
+                      }),
+                      new HeadlineWidget({
+                        headline: 'Dynamic Operations Representative',
+                        level: 'h5',
+                        style: 'h5',
+                        showDividingLine: 'yes',
+                        marginDisabled: 'yes',
+                      }),
+                      createRandomIconListWidget(),
+                    ],
+                  }),
+                ],
+                // col 2
+                [
+                  new BoxWidget({
+                    body: [
+                      new ImageWidget({ image: unsplashFemalePortrait5Square }),
+                      new HeadlineWidget({
+                        headline: 'Anna Corn',
+                        level: 'h3',
+                        style: 'h3',
+                        alignment: 'center',
+                      }),
+                      new HeadlineWidget({
+                        headline: 'Regional Brand Producer',
+                        level: 'h5',
+                        style: 'h5',
+                        showDividingLine: 'yes',
+                        marginDisabled: 'yes',
+                      }),
+                      createRandomIconListWidget(),
+                    ],
+                  }),
+                ],
+                // col 3
+                [
+                  new BoxWidget({
+                    body: [
+                      new ImageWidget({ image: unsplashMalePortrait1Square }),
+                      new HeadlineWidget({
+                        headline: 'Jason John',
+                        level: 'h3',
+                        style: 'h3',
+                        alignment: 'center',
+                      }),
+                      new HeadlineWidget({
+                        headline: 'Dynamic Paradigm Director',
+                        level: 'h5',
+                        style: 'h5',
+                        showDividingLine: 'yes',
+                        marginDisabled: 'yes',
+                      }),
+                      createRandomIconListWidget(),
+                    ],
+                  }),
+                ],
               ],
             }),
           ],
@@ -1587,78 +1606,87 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            new ColumnsWidget({
-              nrOfColumns: '2',
+            createEvenColumnsWidget({
               verticallyAligned: 'yes',
-              column1: [new ImageWidget({ image: ipad })],
-              column2: [
-                new HeadlineWidget({
-                  level: 'h3',
-                  style: 'h2',
-                  headline: 'Content Management for React Apps',
-                }),
-                new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 5,
-                    paragraphUpperBound: 5,
+              columns: [
+                // col 1
+                [new ImageWidget({ image: ipad })],
+                // col 2
+                [
+                  new HeadlineWidget({
+                    level: 'h3',
+                    style: 'h2',
+                    headline: 'Content Management for React Apps',
                   }),
-                }),
-                new ButtonWidget({
-                  target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 5,
+                      paragraphUpperBound: 5,
+                    }),
                   }),
-                }),
+                  new ButtonWidget({
+                    target: new Scrivito.Link({
+                      title: 'Call to action',
+                      obj: root,
+                    }),
+                  }),
+                ],
               ],
             }),
-            new ColumnsWidget({
-              nrOfColumns: '2',
+            createEvenColumnsWidget({
               verticallyAligned: 'yes',
-              column1: [
-                new HeadlineWidget({
-                  level: 'h3',
-                  style: 'h2',
-                  headline: 'Fully Fledged CMS Service',
-                }),
-                new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 5,
-                    paragraphUpperBound: 5,
+              columns: [
+                // col 1
+                [
+                  new HeadlineWidget({
+                    level: 'h3',
+                    style: 'h2',
+                    headline: 'Fully Fledged CMS Service',
                   }),
-                }),
-                new ButtonWidget({
-                  target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 5,
+                      paragraphUpperBound: 5,
+                    }),
                   }),
-                }),
+                  new ButtonWidget({
+                    target: new Scrivito.Link({
+                      title: 'Call to action',
+                      obj: root,
+                    }),
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: iphone })],
               ],
-              column2: [new ImageWidget({ image: iphone })],
             }),
           ],
         }),
         new SectionWidget({
           content: [
-            new ColumnsWidget({
-              nrOfColumns: '2',
-              column1: [createFeaturePanelWidget('fa-check', 'Drag & drop widgets')],
-              column2: [createFeaturePanelWidget('fa-cogs', 'Easy customization')],
+            createEvenColumnsWidget({
+              columns: [
+                [createFeaturePanelWidget('fa-check', 'Drag & drop widgets')],
+                [createFeaturePanelWidget('fa-cogs', 'Easy customization')],
+              ],
             }),
-            new ColumnsWidget({
-              nrOfColumns: '2',
-              column1: [createFeaturePanelWidget('fa-file-text-o', 'Full documentation')],
-              column2: [createFeaturePanelWidget('fa-comments-o', 'Full support')],
+            createEvenColumnsWidget({
+              columns: [
+                [createFeaturePanelWidget('fa-file-text-o', 'Full documentation')],
+                [createFeaturePanelWidget('fa-comments-o', 'Full support')],
+              ],
             }),
-            new ColumnsWidget({
-              nrOfColumns: '2',
-              column1: [createFeaturePanelWidget('fa-clone', 'Tons of widgets')],
-              column2: [createFeaturePanelWidget('fa-mobile', 'Fully responsive')],
+            createEvenColumnsWidget({
+              columns: [
+                [createFeaturePanelWidget('fa-clone', 'Tons of widgets')],
+                [createFeaturePanelWidget('fa-mobile', 'Fully responsive')],
+              ],
             }),
             new HeadlineWidget({
               headline: 'Choose your plan',
@@ -2005,54 +2033,13 @@ function importContent() {
       navigationBackgroundImage: unsplashArchitecture,
       navigationStyle: 'transparentDark full-height',
       navigationSection: [
-        new ColumnsWidget({
-          nrOfColumns: '2',
+        createEvenColumnsWidget({
           verticallyAligned: 'yes',
-          column1: [
-            new HeadlineWidget({
-              headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
-            }),
-            new TextWidget({
-              text: loremIpsum({
-                units: 'paragraphs',
-                format: 'html',
-                count: 1,
-                paragraphLowerBound: 3,
-                paragraphUpperBound: 5,
-              }),
-            }),
-            new ButtonWidget({
-              target: new Scrivito.Link({
-                title: 'Call to action',
-                obj: root,
-              }),
-            }),
-          ],
-          column2: [
-            new SignUpFormWidget({
-              title: 'Sign up to Scrivito',
-              buttonText: 'Sign up to Scrivito now',
-            }),
-          ],
-        }),
-      ],
-      body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({
-            headline: 'Our top features',
-            level: 'h1',
-            style: 'h2',
-            showDividingLine: 'yes',
-          }),
-          new ColumnsWidget({
-            nrOfColumns: '2',
-            verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: unsplashMeetingRoomthree })],
-            column2: [
+          columns: [
+            // col 1
+            [
               new HeadlineWidget({
-                level: 'h3',
-                style: 'h2',
-                headline: 'Content Management for Professionals',
+                headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
               }),
               new TextWidget({
                 text: loremIpsum({
@@ -2070,34 +2057,84 @@ function importContent() {
                 }),
               }),
             ],
-          }),
-          new ColumnsWidget({
-            nrOfColumns: '2',
-            verticallyAligned: 'yes',
-            column1: [
-              new HeadlineWidget({
-                level: 'h3',
-                style: 'h2',
-                headline: 'Are You Asking Your CMS Vendor the Right Questions?',
-              }),
-              new TextWidget({
-                text: '<p>Choosing the right Content Management System (CMS)'
-                  + ' for your web project at first could appear to be a'
-                  + ' momentous task. However, if you ask the right questions'
-                  + ' before you get too deep, your whole project will come'
-                  + ' together more easily than you can imagine and you\'ll'
-                  + ' be well on your way to a successful launch.</p><p>Read'
-                  + ' about ten things you can ask a CMS vendor to help'
-                  + ' you choose the right modern Web CMS (PDF).</p>',
-              }),
-              new ButtonWidget({
-                target: new Scrivito.Link({
-                  title: 'Download PDF',
-                  obj: whatToAskPdf,
-                }),
+            // col 2
+            [
+              new SignUpFormWidget({
+                title: 'Sign up to Scrivito',
+                buttonText: 'Sign up to Scrivito now',
               }),
             ],
-            column2: [new ImageWidget({ image: unsplashModernChairDesk })],
+          ],
+        }),
+      ],
+      body: [
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            headline: 'Our top features',
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+          }),
+          createEvenColumnsWidget({
+            verticallyAligned: 'yes',
+            columns: [
+              // col 1
+              [new ImageWidget({ image: unsplashMeetingRoomthree })],
+              // col 2
+              [
+                new HeadlineWidget({
+                  level: 'h3',
+                  style: 'h2',
+                  headline: 'Content Management for Professionals',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
+                }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+            ],
+          }),
+          createEvenColumnsWidget({
+            verticallyAligned: 'yes',
+            columns: [
+              // col 1
+              [
+                new HeadlineWidget({
+                  level: 'h3',
+                  style: 'h2',
+                  headline: 'Are You Asking Your CMS Vendor the Right Questions?',
+                }),
+                new TextWidget({
+                  text: '<p>Choosing the right Content Management System (CMS)'
+                    + ' for your web project at first could appear to be a'
+                    + ' momentous task. However, if you ask the right questions'
+                    + ' before you get too deep, your whole project will come'
+                    + ' together more easily than you can imagine and you\'ll'
+                    + ' be well on your way to a successful launch.</p><p>Read'
+                    + ' about ten things you can ask a CMS vendor to help'
+                    + ' you choose the right modern Web CMS (PDF).</p>',
+                }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Download PDF',
+                    obj: whatToAskPdf,
+                  }),
+                }),
+              ],
+              // col 2
+              [new ImageWidget({ image: unsplashModernChairDesk })],
+            ],
           }),
         ] }),
         new SectionWidget({ content: [
@@ -2113,28 +2150,18 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          new ColumnsWidget({
-            nrOfColumns: '3',
-            column1: [
-              createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
-            ],
-            column2: [
-              createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
-            ],
-            column3: [
-              createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+          createEvenColumnsWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
             ],
           }),
-          new ColumnsWidget({
-            nrOfColumns: '3',
-            column1: [
-              createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
-            ],
-            column2: [
-              createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
-            ],
-            column3: [
-              createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+          createEvenColumnsWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive')],
             ],
           }),
         ] }),
@@ -2179,45 +2206,49 @@ function importContent() {
       title: 'Homepage Variant 2',
       body: [
         new SectionWidget({ content: [
-          new ColumnsWidget({
-            nrOfColumns: '2',
+          createEvenColumnsWidget({
             verticallyAligned: 'yes',
-            column1: [
-              new HeadlineWidget({
-                level: 'h1',
-                style: 'h2',
-                headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
-              }),
-              new ColumnsWidget({
-                nrOfColumns: '2',
-                column1: [
-                  new TickListWidget({
-                    items: [
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
-                    ],
-                  }),
-                ],
-                column2: [
-                  new TickListWidget({
-                    items: [
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
-                    ],
-                  }),
-                ],
-              }),
-              new ButtonWidget({
-                target: new Scrivito.Link({
-                  title: 'Call to action',
-                  obj: root,
+            columns: [
+              // col 1
+              [
+                new HeadlineWidget({
+                  level: 'h1',
+                  style: 'h2',
+                  headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
                 }),
-              }),
-            ],
-            column2: [
-              new ImageWidget({ image: iphone }),
+                createEvenColumnsWidget({
+                  columns: [
+                    // inner col 1
+                    [
+                      new TickListWidget({
+                        items: [
+                          new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                          new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                          new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                        ],
+                      }),
+                    ],
+                    // inner col 2
+                    [
+                      new TickListWidget({
+                        items: [
+                          new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                          new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                          new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                        ],
+                      }),
+                    ],
+                  ],
+                }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+              // col 2
+              [new ImageWidget({ image: iphone })],
             ],
           }),
         ] }),
@@ -2299,31 +2330,36 @@ function importContent() {
         new SectionWidget({
           backgroundColor: 'greywhite',
           content: [
-            new ColumnsWidget({
-              nrOfColumns: '4',
-              column1: [
-                new FactWidget({
-                  value: '134',
-                  key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
-                }),
-              ],
-              column2: [
-                new FactWidget({
-                  value: '43',
-                  key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
-                }),
-              ],
-              column3: [
-                new FactWidget({
-                  value: '13',
-                  key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
-                }),
-              ],
-              column4: [
-                new FactWidget({
-                  value: '65',
-                  key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
-                }),
+            createEvenColumnsWidget({
+              columns: [
+                // col 1
+                [
+                  new FactWidget({
+                    value: '134',
+                    key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
+                  }),
+                ],
+                // col 2
+                [
+                  new FactWidget({
+                    value: '43',
+                    key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
+                  }),
+                ],
+                // col 3
+                [
+                  new FactWidget({
+                    value: '13',
+                    key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
+                  }),
+                ],
+                // col 4
+                [
+                  new FactWidget({
+                    value: '65',
+                    key: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })),
+                  }),
+                ],
               ],
             }),
           ],
@@ -2405,28 +2441,18 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          new ColumnsWidget({
-            nrOfColumns: '3',
-            column1: [
-              createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets'),
-            ],
-            column2: [
-              createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing'),
-            ],
-            column3: [
-              createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization'),
+          createEvenColumnsWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
             ],
           }),
-          new ColumnsWidget({
-            nrOfColumns: '3',
-            column1: [
-              createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support'),
-            ],
-            column2: [
-              createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets'),
-            ],
-            column3: [
-              createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive'),
+          createEvenColumnsWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive')],
             ],
           }),
         ] }),
@@ -2515,59 +2541,65 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          new ColumnsWidget({
-            nrOfColumns: '2',
+          createEvenColumnsWidget({
             verticallyAligned: 'yes',
-            column1: [new ImageWidget({ image: unsplashLaptopKeyboard })],
-            column2: [
-              new HeadlineWidget({
-                level: 'h3',
-                style: 'h2',
-                headline: 'Content Management for Professionals',
-              }),
-              new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
+            columns: [
+              // col 1
+              [new ImageWidget({ image: unsplashLaptopKeyboard })],
+              // col 2
+              [
+                new HeadlineWidget({
+                  level: 'h3',
+                  style: 'h2',
+                  headline: 'Content Management for Professionals',
                 }),
-              }),
-              new ButtonWidget({
-                target: new Scrivito.Link({
-                  title: 'Call to action',
-                  obj: root,
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
                 }),
-              }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
             ],
           }),
-          new ColumnsWidget({
-            nrOfColumns: '2',
+          createEvenColumnsWidget({
             verticallyAligned: 'yes',
-            column1: [
-              new HeadlineWidget({
-                level: 'h3',
-                style: 'h2',
-                headline: 'Content Management for Professionals',
-              }),
-              new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
+            columns: [
+              // col 1
+              [
+                new HeadlineWidget({
+                  level: 'h3',
+                  style: 'h2',
+                  headline: 'Content Management for Professionals',
                 }),
-              }),
-              new ButtonWidget({
-                target: new Scrivito.Link({
-                  title: 'Call to action',
-                  obj: root,
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
                 }),
-              }),
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+              // col 2
+              [new ImageWidget({ image: unsplashDeskRuler })],
             ],
-            column2: [new ImageWidget({ image: unsplashDeskRuler })],
           }),
         ] }),
         new SectionWidget({ content: [
@@ -2577,57 +2609,60 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          new ColumnsWidget({
-            nrOfColumns: '2',
-            column1: [
-              new ImageWidget({ image: homepage1Screenshot }),
-              new HeadlineWidget({
-                headline: 'Choose a different homepage variant',
-                alignment: 'center',
-                level: 'h3',
-              }),
-              new TextWidget({
-                alignment: 'center',
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
+          createEvenColumnsWidget({
+            columns: [
+              // col 1
+              [
+                new ImageWidget({ image: homepage1Screenshot }),
+                new HeadlineWidget({
+                  headline: 'Choose a different homepage variant',
+                  alignment: 'center',
+                  level: 'h3',
                 }),
-              }),
-              new ButtonWidget({
-                alignment: 'center',
-                target: new Scrivito.Link({
-                  title: 'Open Homepage variant 1',
-                  obj: homeV1,
+                new TextWidget({
+                  alignment: 'center',
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
                 }),
-              }),
-            ],
-            column2: [
-              new ImageWidget({ image: homepage2Screenshot }),
-              new HeadlineWidget({
-                headline: 'Choose a different homepage variant',
-                alignment: 'center',
-                level: 'h3',
-              }),
-              new TextWidget({
-                alignment: 'center',
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
+                new ButtonWidget({
+                  alignment: 'center',
+                  target: new Scrivito.Link({
+                    title: 'Open Homepage variant 1',
+                    obj: homeV1,
+                  }),
                 }),
-              }),
-              new ButtonWidget({
-                alignment: 'center',
-                target: new Scrivito.Link({
-                  title: 'Open Homepage variant 2',
-                  obj: homeV2,
+              ],
+              // col 2
+              [
+                new ImageWidget({ image: homepage2Screenshot }),
+                new HeadlineWidget({
+                  headline: 'Choose a different homepage variant',
+                  alignment: 'center',
+                  level: 'h3',
                 }),
-              }),
+                new TextWidget({
+                  alignment: 'center',
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
+                }),
+                new ButtonWidget({
+                  alignment: 'center',
+                  target: new Scrivito.Link({
+                    title: 'Open Homepage variant 2',
+                    obj: homeV2,
+                  }),
+                }),
+              ],
             ],
           }),
         ] }),
@@ -2777,11 +2812,12 @@ function importContent() {
         new SectionWidget({
           backgroundColor: 'greywhite',
           content: [
-            new ColumnsWidget({
-              nrOfColumns: '3',
-              column1: [createAddressWidget({ showBorderBottom: false })],
-              column2: [footerLinks1],
-              column3: [footerLinks2],
+            createEvenColumnsWidget({
+              columns: [
+                [createAddressWidget({ showBorderBottom: false })],
+                [footerLinks1],
+                [footerLinks2],
+              ],
             }),
           ],
         }),
