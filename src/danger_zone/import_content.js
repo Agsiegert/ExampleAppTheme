@@ -522,7 +522,7 @@ function importContent() {
     const videoWaterfall1 = uploadVideo(videoWaterfall1Data, 'Waterfall 1');
 
     // PDFs
-    const whatToAskPdf = uploadDownload(whatToAskPdfData, 'What to ask PDF');
+    const whatToAskPdf = uploadDownload(whatToAskPdfData, 'Are You Asking Your CMS Vendor the Right Questions?', ['White Paper']);
 
     const homepage1Screenshot = uploadImage(
       homepage1ScreenshotData, 'Homepage variant 1 screenshot');
