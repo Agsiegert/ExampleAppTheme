@@ -6,7 +6,6 @@ import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_a
 
 const blacklistObjClasses = [
   'Author',
-  'Download',
   'Image',
   'SearchResults',
   'Video',
