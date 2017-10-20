@@ -33,7 +33,7 @@ function getMetaData(page) {
     meta.push({ name: 'twitter:description', content: tcDescription });
   }
 
-  const tcImage = firstUrlForAttributes(page, ['tcImage', 'titleImage']);
+  const tcImage = firstUrlForAttributes(page, ['tcImage', 'titleImage', 'picture']);
   if (tcImage) {
     meta.push({ name: 'twitter:image', content: tcImage });
   }
@@ -49,7 +49,7 @@ function getMetaData(page) {
     meta.push({ property: 'og:description', content: ogDescription });
   }
 
-  const ogImage = firstUrlForAttributes(page, ['ogImage', 'titleImage']);
+  const ogImage = firstUrlForAttributes(page, ['ogImage', 'titleImage', 'picture']);
   if (ogImage) {
     meta.push({ property: 'og:image', content: ogImage });
   }
