@@ -1,5 +1,6 @@
 import Slider from 'react-slick';
 import devicePixelRatio from 'utils/device_pixel_ratio';
+import testimonialSliderWidgetIcon from 'assets/images/testimonial_slider_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const TestimonialSliderWidget = Scrivito.createWidgetClass({
@@ -16,6 +17,7 @@ registerTextExtract('TestimonialSliderWidget', [
 Scrivito.provideEditingConfig(TestimonialSliderWidget, {
   title: 'Testimonial Slider',
   description: 'A testimonial slider.',
+  thumbnail: `/${testimonialSliderWidgetIcon}`,
   attributesConfig: {
     testimonials: {
       title: 'Testimonials',

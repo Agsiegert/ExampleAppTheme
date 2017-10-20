@@ -1,3 +1,4 @@
+import pricingWidgetIcon from 'assets/images/pricing_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const PricingWidget = Scrivito.createWidgetClass({
@@ -41,6 +42,7 @@ registerTextExtract('PricingWidget', [
 Scrivito.provideEditingConfig(PricingWidget, {
   title: 'Pricing',
   description: 'A pricing widget',
+  thumbnail: `/${pricingWidgetIcon}`,
   attributesConfig: {
     currency: {
       title: 'Currency',

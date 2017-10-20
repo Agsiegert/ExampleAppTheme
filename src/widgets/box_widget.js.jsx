@@ -1,3 +1,4 @@
+import boxWidgetIcon from 'assets/images/box_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const BoxWidget = Scrivito.createWidgetClass({
@@ -15,6 +16,7 @@ registerTextExtract('BoxWidget', [
 Scrivito.provideEditingConfig(BoxWidget, {
   title: 'Box',
   description: 'A box widget.',
+  thumbnail: `/${boxWidgetIcon}`,
   attributesConfig: {
     useOffset: {
       title: 'Use offset?',

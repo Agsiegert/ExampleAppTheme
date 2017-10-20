@@ -1,4 +1,5 @@
 import urlFromBinary from 'utils/url_from_binary';
+import videoWidgetIcon from 'assets/images/video_widget.svg';
 
 const VideoWidget = Scrivito.createWidgetClass({
   name: 'VideoWidget',
@@ -11,6 +12,7 @@ const VideoWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(VideoWidget, {
   title: 'Video',
   description: 'A widget with a video.',
+  thumbnail: `/${videoWidgetIcon}`,
   attributesConfig: {
     source: {
       title: 'Video',

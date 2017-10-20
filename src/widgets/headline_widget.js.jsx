@@ -1,3 +1,4 @@
+import headlineWidgetIcon from 'assets/images/headline_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const HeadlineWidget = Scrivito.createWidgetClass({
@@ -19,6 +20,7 @@ registerTextExtract('HeadlineWidget', [
 Scrivito.provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
   description: 'A widget with a headline.',
+  thumbnail: `/${headlineWidgetIcon}`,
   attributesConfig: {
     level: {
       title: 'Level',

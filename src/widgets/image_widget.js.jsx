@@ -1,3 +1,5 @@
+import imageWidgetIcon from 'assets/images/image_widget.svg';
+
 const ImageWidget = Scrivito.createWidgetClass({
   name: 'ImageWidget',
   attributes: {
@@ -9,6 +11,7 @@ const ImageWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(ImageWidget, {
   title: 'Image',
   description: 'A widget with an image.',
+  thumbnail: `/${imageWidgetIcon}`,
   attributesConfig: {
     alignment: {
       title: 'Alignment',

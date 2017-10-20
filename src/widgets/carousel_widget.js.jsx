@@ -1,4 +1,5 @@
 import Carousel from 'react-bootstrap/lib/Carousel';
+import carouselWidgetIcon from 'assets/images/carousel_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const CarouselWidget = Scrivito.createWidgetClass({
@@ -18,6 +19,7 @@ registerTextExtract('CarouselWidget', [
 Scrivito.provideEditingConfig(CarouselWidget, {
   title: 'Carousel',
   description: 'A widget with sliding images.',
+  thumbnail: `/${carouselWidgetIcon}`,
   attributesConfig: {
     images: {
       title: 'Images',

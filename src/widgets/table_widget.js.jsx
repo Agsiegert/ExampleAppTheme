@@ -1,3 +1,4 @@
+import tableWidgetIcon from 'assets/images/table_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 import { TableRowWidgetComponent } from './table_row_widget';
 
@@ -27,6 +28,7 @@ registerTextExtract('TableWidget', [
 Scrivito.provideEditingConfig(TableWidget, {
   title: 'Table',
   description: 'A table widget.',
+  thumbnail: `/${tableWidgetIcon}`,
   attributesConfig: {
     currency: {
       title: 'Currency symbol',

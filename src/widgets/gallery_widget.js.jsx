@@ -1,4 +1,5 @@
 import devicePixelRatio from 'utils/device_pixel_ratio';
+import galleryWidgetIcon from 'assets/images/gallery_widget.svg';
 import Slider from 'react-slick';
 
 const GalleryWidget = Scrivito.createWidgetClass({
@@ -11,6 +12,7 @@ const GalleryWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(GalleryWidget, {
   title: 'Gallery',
   description: 'A widget with an image gallery.',
+  thumbnail: `/${galleryWidgetIcon}`,
   attributesConfig: {
     images: {
       title: 'Images',

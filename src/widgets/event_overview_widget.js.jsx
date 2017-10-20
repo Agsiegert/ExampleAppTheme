@@ -1,4 +1,5 @@
 import Event from 'objs/event';
+import eventOverviewWidgetIcon from 'assets/images/event_overview_widget.svg';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import TagList from 'components/tag_list';
 import twoDigitNumber from 'utils/two_digit_number';
@@ -13,6 +14,7 @@ const EventOverviewWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(EventOverviewWidget, {
   title: 'Event Overview',
   description: 'A widget showing all events.',
+  thumbnail: `/${eventOverviewWidgetIcon}`,
   attributesConfig: {
     maxItems: {
       title: 'Maximum number of events',

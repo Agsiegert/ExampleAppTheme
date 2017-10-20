@@ -1,3 +1,4 @@
+import blogOverviewWidgetIcon from 'assets/images/blog_overview_widget.svg';
 import BlogPostPreviewList from 'components/blog_post/blog_post_preview_list';
 
 const BlogOverviewWidget = Scrivito.createWidgetClass({
@@ -12,6 +13,7 @@ const BlogOverviewWidget = Scrivito.createWidgetClass({
 Scrivito.provideEditingConfig(BlogOverviewWidget, {
   title: 'Blog Overview',
   description: 'A widget with up to four blog posts.',
+  thumbnail: `/${blogOverviewWidgetIcon}`,
   attributesConfig: {
     maxItems: {
       title: 'Max Items',
