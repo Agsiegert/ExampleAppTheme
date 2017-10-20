@@ -5,7 +5,7 @@ import SearchResultsTagList from './search_results/search_results_tag_list';
 import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
 
 const blacklistObjClasses = [
-  'Author',
+  'Author', // TODO: Don't blacklist Authors, once a view is available for them
   'Image',
   'SearchResults',
   'Video',
