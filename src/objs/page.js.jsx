@@ -1,5 +1,5 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
-
+import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
 import {
   defaultGeneralProperties,
   defaultPageAttributes,
@@ -11,6 +11,7 @@ const Page = Scrivito.createObjClass({
   attributes: {
     ...defaultPageAttributes,
     childOrder: 'referencelist',
+    ...socialCardsAttributes,
   },
 });
 
@@ -28,6 +29,7 @@ Scrivito.provideEditingConfig(Page, {
   generalProperties: [
     ...defaultGeneralProperties,
   ],
+  propertiesGroups: [socialCardsCustomGroup],
   titleForContent: obj => obj.get('title'),
 });
 

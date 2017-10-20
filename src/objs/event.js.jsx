@@ -1,5 +1,6 @@
 import twoDigitNumber from 'utils/two_digit_number';
 import { registerTextExtract } from 'utils/text_extract_registry';
+import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
 
 const Event = Scrivito.createObjClass({
   name: 'Event',
@@ -10,6 +11,7 @@ const Event = Scrivito.createObjClass({
     location: 'string',
     title: 'string',
     tags: 'stringlist',
+    ...socialCardsAttributes,
   },
 });
 
@@ -50,6 +52,7 @@ Scrivito.provideEditingConfig(Event, {
     'image',
     'tags',
   ],
+  propertiesGroups: [socialCardsCustomGroup],
   titleForContent: obj => obj.get('title'),
 });
 

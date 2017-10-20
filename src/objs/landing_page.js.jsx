@@ -1,4 +1,5 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
+import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
 import {
   defaultGeneralProperties,
   defaultPageAttributes,
@@ -9,6 +10,7 @@ const LandingPage = Scrivito.createObjClass({
   name: 'LandingPage',
   attributes: {
     ...defaultPageAttributes,
+    ...socialCardsAttributes,
   },
 });
 
@@ -26,6 +28,7 @@ Scrivito.provideEditingConfig(LandingPage, {
   generalProperties: [
     ...defaultGeneralProperties,
   ],
+  propertiesGroups: [socialCardsCustomGroup],
   titleForContent: obj => obj.get('title'),
 });
 

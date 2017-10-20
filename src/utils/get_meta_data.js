@@ -34,7 +34,7 @@ function getMetaData(page) {
   }
 
   const tcImage = firstUrlForAttributes(page,
-    ['tcImage', 'titleImage', 'picture', 'navigationBackgroundImage']);
+    ['tcImage', 'titleImage', 'picture', 'navigationBackgroundImage', 'image']);
   if (tcImage) {
     meta.push({ name: 'twitter:image', content: tcImage });
   }
@@ -51,7 +51,7 @@ function getMetaData(page) {
   }
 
   const ogImage = firstUrlForAttributes(page,
-    ['ogImage', 'titleImage', 'picture', 'navigationBackgroundImage']);
+    ['ogImage', 'titleImage', 'picture', 'navigationBackgroundImage', 'image']);
   if (ogImage) {
     meta.push({ property: 'og:image', content: ogImage });
   }
