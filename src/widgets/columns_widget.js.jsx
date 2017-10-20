@@ -4,20 +4,13 @@ import { registerTextExtract } from 'utils/text_extract_registry';
 const ColumnsWidget = Scrivito.createWidgetClass({
   name: 'ColumnsWidget',
   attributes: {
-    nrOfColumns: ['enum', { values: ['1', '2', '3', '4'] }],
-    column1: 'widgetlist',
-    column2: 'widgetlist',
-    column3: 'widgetlist',
-    column4: 'widgetlist',
+    columns: ['widgetlist', { only: 'ColumnWidget' }],
     verticallyAligned: ['enum', { values: ['yes', 'no'] }],
   },
 });
 
 registerTextExtract('ColumnsWidget', [
-  { attribute: 'column1', type: 'widgetlist' },
-  { attribute: 'column2', type: 'widgetlist' },
-  { attribute: 'column3', type: 'widgetlist' },
-  { attribute: 'column4', type: 'widgetlist' },
+  { attribute: 'columns', type: 'widgetlist' },
 ]);
 
 Scrivito.provideEditingConfig(ColumnsWidget, {
@@ -25,35 +18,27 @@ Scrivito.provideEditingConfig(ColumnsWidget, {
   description: 'A widget with up to 4 columns.',
   thumbnail: `/${columnWidgetIcon}`,
   attributesConfig: {
-    nrOfColumns: {
-      title: 'Number of Columns',
-      description: 'The number of columns between 1 and 4. Default: 2',
-    },
     verticallyAligned: {
       title: 'Vertically Aligned',
       description: 'Should the columns be vertically aligned? Default: no',
     },
+    columns: {
+      title: 'Columns',
+      description: 'The columns. Will soon be replaced with a fancy editor.',
+    },
   },
   generalProperties: [
-    'nrOfColumns',
     'verticallyAligned',
+    'columns',
   ],
 });
 
 Scrivito.provideComponent(ColumnsWidget, ({ widget }) => {
-  let nrOfColumns = parseInt(widget.get('nrOfColumns'), 10);
-  if (![1, 2, 3, 4].includes(nrOfColumns)) {
-    // fallback value, if missing or invalid
-    nrOfColumns = 2;
-  }
-  const colSize = 12 / nrOfColumns;
-  const cols = [];
-  [...Array(nrOfColumns).keys()].forEach(index => {
-    const colNr = index + 1;
-
-    cols.push(
-      <div key={ colNr } className={ `col-md-${colSize}` }>
-        <Scrivito.ContentTag content={ widget } attribute={ `column${colNr}` } />
+  const cols = widget.get('columns').map((columnWidget, index) => {
+    const colSize = columnWidget.get('colSize') || 1;
+    return (
+      <div key={ index } className={ `col-md-${colSize}` }>
+        <Scrivito.ContentTag content={ columnWidget } attribute="content" />
       </div>
     );
   });
