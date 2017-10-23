@@ -160,7 +160,6 @@ const ThumbnailGalleryImageWidget = Scrivito.getClass('ThumbnailGalleryImageWidg
 const ThumbnailGalleryWidget = Scrivito.getClass('ThumbnailGalleryWidget');
 const TickListItemWidget = Scrivito.getClass('TickListItemWidget');
 const TickListWidget = Scrivito.getClass('TickListWidget');
-const TopFeaturesWidget = Scrivito.getClass('TopFeaturesWidget');
 const VideoWidget = Scrivito.getClass('VideoWidget');
 
 const UNSPLASH_TAGS = ['source: unsplash.com'];
@@ -812,71 +811,77 @@ function importContent() {
               level: 'h2',
               style: 'h4',
             }),
-            new TopFeaturesWidget({
-              leftColumn: [
-                new HeadlineWidget({
-                  headline: 'Amazing features',
-                  alignment: 'right',
-                  level: 'h3',
-                  style: 'h3',
-                }),
-                new TextWidget({
-                  alignment: 'right',
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 2,
-                    paragraphUpperBound: 2,
+            createEvenColumnsWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // left column
+                [
+                  new HeadlineWidget({
+                    headline: 'Amazing features',
+                    alignment: 'right',
+                    level: 'h3',
+                    style: 'h3',
                   }),
-                }),
-                new HeadlineWidget({
-                  headline: 'Easy to use',
-                  alignment: 'right',
-                  level: 'h3',
-                  style: 'h3',
-                }),
-                new TextWidget({
-                  alignment: 'right',
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 2,
-                    paragraphUpperBound: 2,
+                  new TextWidget({
+                    alignment: 'right',
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 2,
+                      paragraphUpperBound: 2,
+                    }),
                   }),
-                }),
-              ],
-              image: iphoneFront,
-              rightColumn: [
-                new HeadlineWidget({
-                  headline: 'Cool and fresh design',
-                  level: 'h3',
-                  style: 'h3',
-                }),
-                new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 2,
-                    paragraphUpperBound: 2,
+                  new HeadlineWidget({
+                    headline: 'Easy to use',
+                    alignment: 'right',
+                    level: 'h3',
+                    style: 'h3',
                   }),
-                }),
-                new HeadlineWidget({
-                  headline: 'Full responsive',
-                  level: 'h3',
-                  style: 'h3',
-                }),
-                new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 2,
-                    paragraphUpperBound: 2,
+                  new TextWidget({
+                    alignment: 'right',
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 2,
+                      paragraphUpperBound: 2,
+                    }),
                   }),
-                }),
+                ],
+                // center column,
+                [new ImageWidget({ image: iphoneFront, alignment: 'center' })],
+                // right column,
+                [
+                  new HeadlineWidget({
+                    headline: 'Cool and fresh design',
+                    level: 'h3',
+                    style: 'h3',
+                  }),
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 2,
+                      paragraphUpperBound: 2,
+                    }),
+                  }),
+                  new HeadlineWidget({
+                    headline: 'Full responsive',
+                    level: 'h3',
+                    style: 'h3',
+                  }),
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 2,
+                      paragraphUpperBound: 2,
+                    }),
+                  }),
+                ],
               ],
             }),
             new DividerWidget({}),
@@ -2259,71 +2264,77 @@ function importContent() {
             showDividingLine: 'yes',
             style: 'h2',
           }),
-          new TopFeaturesWidget({
-            leftColumn: [
-              new HeadlineWidget({
-                headline: 'Amazing features',
-                alignment: 'right',
-                level: 'h3',
-                style: 'h3',
-              }),
-              new TextWidget({
-                alignment: 'right',
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 2,
-                  paragraphUpperBound: 2,
+          createEvenColumnsWidget({
+            verticallyAligned: 'yes',
+            columns: [
+              // left columns
+              [
+                new HeadlineWidget({
+                  headline: 'Amazing features',
+                  alignment: 'right',
+                  level: 'h3',
+                  style: 'h3',
                 }),
-              }),
-              new HeadlineWidget({
-                headline: 'Easy to use',
-                alignment: 'right',
-                level: 'h3',
-                style: 'h3',
-              }),
-              new TextWidget({
-                alignment: 'right',
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 2,
-                  paragraphUpperBound: 2,
+                new TextWidget({
+                  alignment: 'right',
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 2,
+                    paragraphUpperBound: 2,
+                  }),
                 }),
-              }),
-            ],
-            image: iphoneFront,
-            rightColumn: [
-              new HeadlineWidget({
-                headline: 'Cool and fresh design',
-                level: 'h3',
-                style: 'h3',
-              }),
-              new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 2,
-                  paragraphUpperBound: 2,
+                new HeadlineWidget({
+                  headline: 'Easy to use',
+                  alignment: 'right',
+                  level: 'h3',
+                  style: 'h3',
                 }),
-              }),
-              new HeadlineWidget({
-                headline: 'Full responsive',
-                level: 'h3',
-                style: 'h3',
-              }),
-              new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 2,
-                  paragraphUpperBound: 2,
+                new TextWidget({
+                  alignment: 'right',
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 2,
+                    paragraphUpperBound: 2,
+                  }),
                 }),
-              }),
+              ],
+              // center column
+              [new ImageWidget({ image: iphoneFront, alignment: 'center' })],
+              // right column
+              [
+                new HeadlineWidget({
+                  headline: 'Cool and fresh design',
+                  level: 'h3',
+                  style: 'h3',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 2,
+                    paragraphUpperBound: 2,
+                  }),
+                }),
+                new HeadlineWidget({
+                  headline: 'Full responsive',
+                  level: 'h3',
+                  style: 'h3',
+                }),
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 2,
+                    paragraphUpperBound: 2,
+                  }),
+                }),
+              ],
             ],
           }),
         ] }),
