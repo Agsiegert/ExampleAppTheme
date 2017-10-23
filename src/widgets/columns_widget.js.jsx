@@ -31,6 +31,12 @@ Scrivito.provideEditingConfig(ColumnsWidget, {
     'verticallyAligned',
     'columns',
   ],
+  propertiesGroups: [
+    {
+      title: 'Columns Editor',
+      component: 'ColumnsEditorTab',
+    },
+  ],
 });
 
 Scrivito.provideComponent(ColumnsWidget, ({ widget }) => {
