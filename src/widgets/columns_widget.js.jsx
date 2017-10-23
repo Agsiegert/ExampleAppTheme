@@ -22,14 +22,9 @@ Scrivito.provideEditingConfig(ColumnsWidget, {
       title: 'Vertically Aligned',
       description: 'Should the columns be vertically aligned? Default: no',
     },
-    columns: {
-      title: 'Columns',
-      description: 'The columns. Will soon be replaced with a fancy editor.',
-    },
   },
   generalProperties: [
     'verticallyAligned',
-    'columns',
   ],
   propertiesGroups: [
     {
