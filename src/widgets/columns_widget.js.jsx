@@ -1,4 +1,4 @@
-import columnWidgetIcon from 'assets/images/column_widget.svg';
+import columnsWidgetIcon from 'assets/images/columns_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
 const ColumnsWidget = Scrivito.createWidgetClass({
@@ -16,7 +16,7 @@ registerTextExtract('ColumnsWidget', [
 Scrivito.provideEditingConfig(ColumnsWidget, {
   title: 'Columns',
   description: 'A widget with up to 4 columns.',
-  thumbnail: `/${columnWidgetIcon}`,
+  thumbnail: `/${columnsWidgetIcon}`,
   attributesConfig: {
     verticallyAligned: {
       title: 'Vertically Aligned',
