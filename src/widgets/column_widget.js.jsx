@@ -2,7 +2,7 @@ import { registerTextExtract } from 'utils/text_extract_registry';
 
 const ColumnWidget = Scrivito.createWidgetClass({
   name: 'ColumnWidget',
-  onlyInside: 'ColumnsWidget',
+  onlyInside: 'ColumnContainerWidget',
   attributes: {
     colSize: 'integer',
     content: 'widgetlist',

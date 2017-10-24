@@ -1,22 +1,22 @@
-import columnsWidgetIcon from 'assets/images/columns_widget.svg';
+import columnContainerWidgetIcon from 'assets/images/column_container_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const ColumnsWidget = Scrivito.createWidgetClass({
-  name: 'ColumnsWidget',
+const ColumnContainerWidget = Scrivito.createWidgetClass({
+  name: 'ColumnContainerWidget',
   attributes: {
     columns: ['widgetlist', { only: 'ColumnWidget' }],
     verticallyAligned: ['enum', { values: ['yes', 'no'] }],
   },
 });
 
-registerTextExtract('ColumnsWidget', [
+registerTextExtract('ColumnContainerWidget', [
   { attribute: 'columns', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(ColumnsWidget, {
+Scrivito.provideEditingConfig(ColumnContainerWidget, {
   title: 'Columns',
   description: 'A widget with up to 4 columns.',
-  thumbnail: `/${columnsWidgetIcon}`,
+  thumbnail: `/${columnContainerWidgetIcon}`,
   attributesConfig: {
     verticallyAligned: {
       title: 'Vertically Aligned',
@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig(ColumnsWidget, {
   ],
 });
 
-Scrivito.provideComponent(ColumnsWidget, ({ widget }) => {
+Scrivito.provideComponent(ColumnContainerWidget, ({ widget }) => {
   const columns = widget.get('columns');
 
   if (!columns.length) {
@@ -71,4 +71,4 @@ Scrivito.provideComponent(ColumnsWidget, ({ widget }) => {
   );
 });
 
-export default ColumnsWidget;
+export default ColumnContainerWidget;

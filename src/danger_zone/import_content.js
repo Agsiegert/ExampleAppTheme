@@ -130,7 +130,7 @@ const BlogOverviewWidget = Scrivito.getClass('BlogOverviewWidget');
 const BoxWidget = Scrivito.getClass('BoxWidget');
 const ButtonWidget = Scrivito.getClass('ButtonWidget');
 const CarouselWidget = Scrivito.getClass('CarouselWidget');
-const ColumnsWidget = Scrivito.getClass('ColumnsWidget');
+const ColumnContainerWidget = Scrivito.getClass('ColumnContainerWidget');
 const ColumnWidget = Scrivito.getClass('ColumnWidget');
 const ContactFormWidget = Scrivito.getClass('ContactFormWidget');
 const DividerWidget = Scrivito.getClass('DividerWidget');
@@ -272,7 +272,7 @@ function createFeaturePanelWidget(icon, headline) {
   });
 }
 
-function createEvenColumnsWidget({ verticallyAligned, columns }) {
+function createEvenColumnContainerWidget({ verticallyAligned, columns }) {
   const options = {
     columns: columns.map(column => new ColumnWidget({
       colSize: 12 / columns.length,
@@ -283,7 +283,7 @@ function createEvenColumnsWidget({ verticallyAligned, columns }) {
     options.verticallyAligned = verticallyAligned;
   }
 
-  return new ColumnsWidget(options);
+  return new ColumnContainerWidget(options);
 }
 
 function createPricingWidget(root) {
@@ -613,14 +613,14 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 [createBoxWidgetWithIconHeadlineAndText('fa-star', 'Great environment')],
                 [createBoxWidgetWithIconHeadlineAndText('fa-users', 'Awarded team')],
                 [createBoxWidgetWithIconHeadlineAndText('fa-money', 'Fair payment')],
               ],
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 [createBoxWidgetWithIconHeadlineAndText('fa-child', 'Daily free meal')],
                 [createBoxWidgetWithIconHeadlineAndText('fa-laptop', 'The best equipment')],
@@ -759,7 +759,7 @@ function importContent() {
       navigationStyle: 'transparentDark full-height gradient',
       navigationBackgroundImage: unsplashMouseWoodenDesk,
       navigationSection: [
-        createEvenColumnsWidget({
+        createEvenColumnContainerWidget({
           verticallyAligned: 'yes',
           columns: [
             // col 1
@@ -811,7 +811,7 @@ function importContent() {
               level: 'h2',
               style: 'h4',
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               verticallyAligned: 'yes',
               columns: [
                 // left column
@@ -891,7 +891,7 @@ function importContent() {
           backgroundColor: 'greydark',
           paddingDisabled: 'yes',
           content: [
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -942,7 +942,7 @@ function importContent() {
               level: 'h2',
               style: 'h4',
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               verticallyAligned: 'yes',
               columns: [
                 // col 1
@@ -972,7 +972,7 @@ function importContent() {
                 ],
               ],
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               verticallyAligned: 'yes',
               columns: [
                 // col 1
@@ -1002,14 +1002,14 @@ function importContent() {
                 [new ImageWidget({ image: iphone })],
               ],
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
                 [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
                 [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
               ],
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
                 [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
@@ -1050,7 +1050,7 @@ function importContent() {
           backgroundColor: 'dark-image',
           backgroundImage: unsplashTidyDeskTouchScreen,
           content: [
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               verticallyAligned: 'yes',
               columns: [
                 // col 1
@@ -1095,14 +1095,14 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             columns: [
               [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
               [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
               [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
             ],
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             columns: [
               [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
               [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
@@ -1254,7 +1254,7 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               [new ImageWidget({ image: logo1, alignment: 'center' })],
@@ -1263,7 +1263,7 @@ function importContent() {
               [new ImageWidget({ image: logo4, alignment: 'center' })],
             ],
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               [new ImageWidget({ image: logo5, alignment: 'center' })],
@@ -1272,7 +1272,7 @@ function importContent() {
               [new ImageWidget({ image: logo8, alignment: 'center' })],
             ],
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               [new ImageWidget({ image: logo8, alignment: 'center' })],
@@ -1281,7 +1281,7 @@ function importContent() {
               [new ImageWidget({ image: logo2, alignment: 'center' })],
             ],
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               [new ImageWidget({ image: logo1, alignment: 'center' })],
@@ -1367,7 +1367,7 @@ function importContent() {
           backgroundColor: 'dark-image',
           backgroundImage: unsplashNeonTrue,
           content: [
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -1415,7 +1415,7 @@ function importContent() {
               alignment: 'center',
               headline: loremIpsum({ count: 2 }),
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -1485,7 +1485,7 @@ function importContent() {
                 ],
               ],
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -1611,7 +1611,7 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               verticallyAligned: 'yes',
               columns: [
                 // col 1
@@ -1641,7 +1641,7 @@ function importContent() {
                 ],
               ],
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               verticallyAligned: 'yes',
               columns: [
                 // col 1
@@ -1675,19 +1675,19 @@ function importContent() {
         }),
         new SectionWidget({
           content: [
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 [createFeaturePanelWidget('fa-check', 'Drag & drop widgets')],
                 [createFeaturePanelWidget('fa-cogs', 'Easy customization')],
               ],
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 [createFeaturePanelWidget('fa-file-text-o', 'Full documentation')],
                 [createFeaturePanelWidget('fa-comments-o', 'Full support')],
               ],
             }),
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 [createFeaturePanelWidget('fa-clone', 'Tons of widgets')],
                 [createFeaturePanelWidget('fa-mobile', 'Fully responsive')],
@@ -2038,7 +2038,7 @@ function importContent() {
       navigationBackgroundImage: unsplashArchitecture,
       navigationStyle: 'transparentDark full-height',
       navigationSection: [
-        createEvenColumnsWidget({
+        createEvenColumnContainerWidget({
           verticallyAligned: 'yes',
           columns: [
             // col 1
@@ -2080,7 +2080,7 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               // col 1
@@ -2110,7 +2110,7 @@ function importContent() {
               ],
             ],
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               // col 1
@@ -2155,14 +2155,14 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             columns: [
               [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
               [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
               [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
             ],
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             columns: [
               [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
               [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
@@ -2211,7 +2211,7 @@ function importContent() {
       title: 'Homepage Variant 2',
       body: [
         new SectionWidget({ content: [
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               // col 1
@@ -2221,7 +2221,7 @@ function importContent() {
                   style: 'h2',
                   headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 5 })),
                 }),
-                createEvenColumnsWidget({
+                createEvenColumnContainerWidget({
                   columns: [
                     // inner col 1
                     [
@@ -2264,7 +2264,7 @@ function importContent() {
             showDividingLine: 'yes',
             style: 'h2',
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               // left columns
@@ -2341,7 +2341,7 @@ function importContent() {
         new SectionWidget({
           backgroundColor: 'greywhite',
           content: [
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2452,14 +2452,14 @@ function importContent() {
             alignment: 'center',
             headline: loremIpsum({ count: 2 }),
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             columns: [
               [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
               [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
               [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
             ],
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             columns: [
               [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
               [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
@@ -2552,7 +2552,7 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               // col 1
@@ -2582,7 +2582,7 @@ function importContent() {
               ],
             ],
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
             columns: [
               // col 1
@@ -2620,7 +2620,7 @@ function importContent() {
             style: 'h2',
             showDividingLine: 'yes',
           }),
-          createEvenColumnsWidget({
+          createEvenColumnContainerWidget({
             columns: [
               // col 1
               [
@@ -2823,7 +2823,7 @@ function importContent() {
         new SectionWidget({
           backgroundColor: 'greywhite',
           content: [
-            createEvenColumnsWidget({
+            createEvenColumnContainerWidget({
               columns: [
                 [createAddressWidget({ showBorderBottom: false })],
                 [footerLinks1],
