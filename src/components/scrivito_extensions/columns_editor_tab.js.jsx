@@ -1,12 +1,16 @@
 import ColumnWidget from 'widgets/column_widget';
+import flatten from 'lodash/flatten';
 import isEqual from 'lodash/isEqual';
 import last from 'lodash/last';
+import take from 'lodash/take';
+import takeRight from 'lodash/takeRight';
 import times from 'lodash/times';
 
 class ColumnsEditorTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      originalContents: props.widget.get('columns').map(column => column.get('content')),
       currentGrid: gridOfWidget(props.widget),
     };
 
@@ -112,34 +116,14 @@ class ColumnsEditorTab extends React.Component {
   }
 
   adjustGrid(newGrid) {
+    if (isEqual(this.state.currentGrid, newGrid)) { return; }
+
     const containerWidget = this.props.widget;
 
-    if (isEqual(this.state.currentGrid, newGrid)) {
-      // do nothing
-      return;
-    }
-    const columns = containerWidget.get('columns');
+    adjustNrOfColumns(containerWidget, newGrid.length);
+    distributeContents(containerWidget.get('columns'), this.state.originalContents);
+    adjustColSize(containerWidget.get('columns'), newGrid);
 
-    if (columns.length > newGrid.length) {
-      times(columns.length - newGrid.length).forEach(() => {
-        const columnToBeRemoved = columns.pop();
-        const lastColumn = last(columns);
-        const content = [...lastColumn.get('content'), ...columnToBeRemoved.get('content')];
-
-        lastColumn.update({ content });
-      });
-    }
-
-    newGrid.forEach((colSize, index) => {
-      const column = columns[index];
-      if (column) {
-        column.update({ colSize });
-      } else {
-        columns[index] = new ColumnWidget({ colSize });
-      }
-    });
-
-    containerWidget.update({ columns });
     this.setState({ currentGrid: gridOfWidget(containerWidget) });
   }
 }
@@ -169,4 +153,35 @@ const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) =
 
 function gridOfWidget(containerWidget) {
   return containerWidget.get('columns').map(column => column.get('colSize'));
+}
+
+function adjustNrOfColumns(containerWidget, desiredLength) {
+  const columns = containerWidget.get('columns');
+  if (columns.length === desiredLength) { return; }
+
+  const newColumns = times(desiredLength).map(index => {
+    return columns[index] || new ColumnWidget({});
+  });
+
+  // store results, to receive IDs for new ColumnWidgets
+  containerWidget.update({ columns: newColumns });
+}
+
+function distributeContents(columns, originalContents) {
+  const splitIndexAt = columns.length - 1;
+
+  // copy first n -1 elements
+  take(originalContents, splitIndexAt).forEach((originalContent, index) => {
+    columns[index].update({ content: originalContent });
+  });
+
+  // merge last columns into one
+  const colsToMerge = takeRight(originalContents, originalContents.length - splitIndexAt);
+  last(columns).update({ content: flatten(colsToMerge) });
+}
+
+function adjustColSize(columns, newGrid) {
+  newGrid.forEach((colSize, index) => {
+    columns[index].update({ colSize });
+  });
 }
