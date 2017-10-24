@@ -35,23 +35,24 @@ Scrivito.provideEditingConfig(ColumnsWidget, {
 });
 
 Scrivito.provideComponent(ColumnsWidget, ({ widget }) => {
-  const content = [];
   const columns = widget.get('columns');
 
   if (!columns.length) {
     if (Scrivito.isInPlaceEditingActive()) {
-      content.push(
-        <p key='empty_content'>
+      return (
+        <p>
           No Columns (yet)!
           Please go to the widget properties to create and configure columns and their width.
         </p>
       );
     }
+
+    return null;
   }
 
-  columns.forEach((columnWidget, index) => {
+  const content = columns.map((columnWidget, index) => {
     const colSize = columnWidget.get('colSize') || 1;
-    content.push(
+    return (
       <div key={ index } className={ `col-md-${colSize}` }>
         <Scrivito.ContentTag content={ columnWidget } attribute="content" />
       </div>
