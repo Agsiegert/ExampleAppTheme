@@ -1,47 +1,138 @@
 import ColumnWidget from 'widgets/column_widget';
+import flatten from 'lodash/flatten';
 import isEqual from 'lodash/isEqual';
 import last from 'lodash/last';
+import take from 'lodash/take';
+import takeRight from 'lodash/takeRight';
 import times from 'lodash/times';
 
-Scrivito.registerComponent('ColumnsEditorTab', ({ widget }) =>
-  <div className="scrivito_detail_content">
-    <div className="scrivito_detail_label">
-      <span className="headline">Column Layout</span>
-    </div>
-    <div className="item_content">
-      <div className="gle-preview-list">
-        <div className="gle-preview-group">
-          <PresetGrid widget={ widget } title="1 column" grid={ [12] } />
+class ColumnsEditorTab extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      originalContents: props.widget.get('columns').map(column => column.get('content')),
+      currentGrid: gridOfWidget(props.widget),
+    };
+
+    this.adjustGrid = this.adjustGrid.bind(this);
+  }
+
+  render() {
+    return (
+      <div className="scrivito_detail_content">
+        <div className="scrivito_detail_label">
+          <span className="headline">Column Layout</span>
         </div>
-        <div className="gle-preview-group">
-          <PresetGrid widget={ widget } title="2 columns" grid={ [6, 6] } />
-          <PresetGrid widget={ widget } title="2 columns" grid={ [3, 9] } />
-          <PresetGrid widget={ widget } title="2 columns" grid={ [9, 3] } />
-        </div>
-        <div className="gle-preview-group">
-          <PresetGrid widget={ widget } title="3 columns" grid={ [4, 4, 4] } />
-          <PresetGrid widget={ widget } title="3 columns" grid={ [2, 8, 2] } />
-          <PresetGrid widget={ widget } title="3 columns" grid={ [2, 5, 5] } />
-          <PresetGrid widget={ widget } title="3 columns" grid={ [5, 5, 2] } />
-        </div>
-        <div className="gle-preview-group">
-          <PresetGrid widget={ widget } title="4 columns" grid={ [3, 3, 3, 3] } />
-          <PresetGrid widget={ widget } title="4 columns" grid={ [2, 4, 4, 2] } />
-        </div>
-        <div className="gle-preview-group">
-          <PresetGrid widget={ widget } title="5 columns" grid={ [2, 2, 2, 2, 4] } />
-        </div>
-        <div className="gle-preview-group">
-          <PresetGrid widget={ widget } title="6 columns" grid={ [2, 2, 2, 2, 2, 2] } />
+        <div className="item_content">
+          <div className="gle-preview-list">
+            <div className="gle-preview-group">
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="1 column"
+                grid={ [12] }
+              />
+            </div>
+            <div className="gle-preview-group">
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="2 columns"
+                grid={ [6, 6] }
+              />
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="2 columns"
+                grid={ [3, 9] }
+              />
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="2 columns"
+                grid={ [9, 3] }
+              />
+            </div>
+            <div className="gle-preview-group">
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="3 columns"
+                grid={ [4, 4, 4] }
+              />
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="3 columns"
+                grid={ [2, 8, 2] }
+              />
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="3 columns"
+                grid={ [2, 5, 5] }
+              />
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="3 columns"
+                grid={ [5, 5, 2] }
+              />
+            </div>
+            <div className="gle-preview-group">
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="4 columns"
+                grid={ [3, 3, 3, 3] }
+              />
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="4 columns"
+                grid={ [2, 4, 4, 2] }
+              />
+            </div>
+            <div className="gle-preview-group">
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="5 columns"
+                grid={ [2, 2, 2, 2, 4] }
+              />
+            </div>
+            <div className="gle-preview-group">
+              <PresetGrid
+                currentGrid= { this.state.currentGrid }
+                adjustGrid={ this.adjustGrid }
+                title="6 columns"
+                grid={ [2, 2, 2, 2, 2, 2] }
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
 
-const PresetGrid = Scrivito.connect(({ widget, title, grid }) => {
+  adjustGrid(newGrid) {
+    if (isEqual(this.state.currentGrid, newGrid)) { return; }
+
+    const containerWidget = this.props.widget;
+
+    adjustNrOfColumns(containerWidget, newGrid.length);
+    distributeContents(containerWidget.get('columns'), this.state.originalContents);
+    adjustColSize(containerWidget.get('columns'), newGrid);
+
+    this.setState({ currentGrid: gridOfWidget(containerWidget) });
+  }
+}
+
+Scrivito.registerComponent('ColumnsEditorTab', ColumnsEditorTab);
+
+const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) => {
   const classNames = ['gle-preview'];
-  if (isEqual(gridOfWidget(widget), grid)) {
+  if (isEqual(currentGrid, grid)) {
     classNames.push('active');
   }
 
@@ -49,7 +140,7 @@ const PresetGrid = Scrivito.connect(({ widget, title, grid }) => {
     <div
       className={ classNames.join(' ') }
       title={ title }
-      onClick={ () => adjustGrid(widget, grid) }
+      onClick={ () => adjustGrid(grid) }
     >
       {
         grid.map((colSize, index) =>
@@ -60,35 +151,37 @@ const PresetGrid = Scrivito.connect(({ widget, title, grid }) => {
   );
 });
 
-function gridOfWidget(widget) {
-  return widget.get('columns').map(column => column.get('colSize'));
+function gridOfWidget(containerWidget) {
+  return containerWidget.get('columns').map(column => column.get('colSize'));
 }
 
-function adjustGrid(widget, grid) {
-  if (isEqual(gridOfWidget(widget), grid)) {
-    // do nothing
-    return;
-  }
-  const columns = widget.get('columns');
+function adjustNrOfColumns(containerWidget, desiredLength) {
+  const columns = containerWidget.get('columns');
+  if (columns.length === desiredLength) { return; }
 
-  if (columns.length > grid.length) {
-    times(columns.length - grid.length).forEach(() => {
-      const columnToBeRemoved = columns.pop();
-      const lastColumn = last(columns);
-      const content = [...lastColumn.get('content'), ...columnToBeRemoved.get('content')];
-
-      lastColumn.update({ content });
-    });
-  }
-
-  grid.forEach((colSize, index) => {
-    const column = columns[index];
-    if (column) {
-      column.update({ colSize });
-    } else {
-      columns[index] = new ColumnWidget({ colSize });
-    }
+  const newColumns = times(desiredLength).map(index => {
+    return columns[index] || new ColumnWidget({});
   });
 
-  widget.update({ columns });
+  // store results, to receive IDs for new ColumnWidgets
+  containerWidget.update({ columns: newColumns });
+}
+
+function distributeContents(columns, originalContents) {
+  const splitIndexAt = columns.length - 1;
+
+  // copy first n -1 elements
+  take(originalContents, splitIndexAt).forEach((originalContent, index) => {
+    columns[index].update({ content: originalContent });
+  });
+
+  // merge last columns into one
+  const colsToMerge = takeRight(originalContents, originalContents.length - splitIndexAt);
+  last(columns).update({ content: flatten(colsToMerge) });
+}
+
+function adjustColSize(columns, newGrid) {
+  newGrid.forEach((colSize, index) => {
+    columns[index].update({ colSize });
+  });
 }
