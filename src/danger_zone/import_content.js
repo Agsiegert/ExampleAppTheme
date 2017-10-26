@@ -2,6 +2,7 @@
 /* global fetch */
 import loremIpsum from 'lorem-ipsum';
 
+import boxWidgetScreenshotData from './binary_data/box_widget_screenshot';
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import ipadData from './binary_data/ipad';
@@ -441,6 +442,7 @@ function importContent() {
     const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
     // Images
+    const boxWidgetScreenshot = uploadImage(boxWidgetScreenshotData, 'Box Widget Screenshot');
     const unsplashAllesCandleWoodTable = uploadImage(unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
     const unsplashAppleWorkstationCalendarIpad = uploadImage(unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
     const unsplashAppleWorkstationWindcave = uploadImage(unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
@@ -2501,9 +2503,89 @@ function importContent() {
       title: 'Widgets & Pages',
       childOrder: [homeV1, homeV2, landingPage],
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Widgets & Pages' }),
-        ] }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashWatchTypeBookCoffee,
+          content: [
+            new HeadlineWidget({
+              alignment: 'center',
+              level: 'h1',
+              style: 'h1',
+              headline: 'Widgets & Page',
+            }),
+            new HeadlineWidget({
+              alignment: 'center',
+              level: 'h2',
+              style: 'h4',
+              headline: 'A gallery of widget and page types already available in'
+                + ' the ScrivitoJS Example App',
+            }),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'greylight',
+          useFullWidth: 'yes',
+          content: [
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new HeadlineWidget({
+                    headline: 'Address Widget',
+                  }),
+                  new TextWidget({
+                    alignment: 'left',
+                    text: '<p>Widget Properties:</p><ul><li>Show brand logo<br>'
+                      + '</li><li>Address&nbsp;</li><li>List items with key and'
+                      + ' colored value</li></ul><p><br></p>',
+                  }),
+                ],
+                // col 2
+                [
+                  new SectionWidget({
+                    backgroundColor: 'greywhite',
+                    useFullWidth: 'yes',
+                    content: [
+                      createAddressWidget({ showBorderBottom: false }),
+                    ],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          backgroundColor: 'greylight',
+          useFullWidth: 'yes',
+          content: [
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new HeadlineWidget({
+                    headline: 'Box Widget',
+                  }),
+                  new TextWidget({
+                    alignment: 'left',
+                    text: '<p>Widget Properties:</p><ul><li>Show offset?<br>',
+                  }),
+                ],
+                // col 2
+                [
+                  new SectionWidget({
+                    backgroundColor: 'greywhite',
+                    useFullWidth: 'yes',
+                    content: [
+                      new ImageWidget({ image: boxWidgetScreenshot }),
+                    ],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
       ],
     });
 
