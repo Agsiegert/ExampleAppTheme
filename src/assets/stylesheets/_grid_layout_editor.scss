@@ -42,6 +42,12 @@
   background: rgba(101, 139, 81, .6);
   }
 
+/* -- grid layout editor - vertical alignment -- */
+
+.gle-preview > [class*="grid-col-"] .alignment { display: block; background: #777; height: 2px; margin: 3px 2px 2px 2px;}
+.gle-preview > [class*="grid-col-"] .alignment:after { content:''; background: #777; display: block; float: left; height: 2px; margin-top: 4px; width: 65%; }
+.gle-preview > [class*="grid-col-"] .alignment.middle { margin: 8px 2px 2px 2px;}
+
 /* -- grid layout editor - editor -- */
 
 .gle {
