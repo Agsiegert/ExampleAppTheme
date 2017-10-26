@@ -749,7 +749,7 @@ footer {
   font-size: 200px; line-height: 0; margin: 65px 0 0 0;
   vertical-align:middle
   }
-.quote-portrait-wrapper { text-align: center; }
+.quote-portrait-wrapper { text-align: center; height: 75px; }
 .quote-portrait-wrapper a { display: inline-block; vertical-align: middle; }
 .quote-portrait-wrapper a img {
   width: 40px; @include transition(all .3s ease-in-out);
