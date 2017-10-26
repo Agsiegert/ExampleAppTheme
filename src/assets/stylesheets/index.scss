@@ -1190,6 +1190,8 @@ footer {
 =================================================================== */
 
 .carousel-images .item  { height: 550px; }
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img { width: 100%; }
 
 @media (max-width: $screen-xs-max) {
   .carousel-images .item  { height: 250px; }
@@ -1237,6 +1239,36 @@ footer {
    .client-wrapper .client-text { width: 100%; text-align: center; }
  }
 
+ /* page-list
+ =================================================================== */
+
+.page-list { list-style-type: none;  padding: 0; }
+.page-list,
+.page-list li,
+.page-list li a,
+.page-list li span { display: block; color: $theme-greydark; }
+
+.page-list .border-bottom {
+  text-align: left; padding: 0 0 20px 0;
+  text-transform: uppercase;
+  font-size: 14px; font-weight: 700;
+  }
+.page-list .border-bottom:after { left:0; margin:0; }
+
+.page-list a,
+.page-list a:hover,
+.page-list a:focus { text-decoration: none; }
+
+.bg-dark-image,
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle {
+  .page-list li a,
+  .page-list li span { color: #fff; }
+}
+
 /* footer
 =================================================================== */
 
@@ -1246,23 +1278,9 @@ footer {
     /* background: $logo-dark no-repeat center center / contain; height: 50px; */
     width: 150px; margin-bottom: 20px;
     }
-
-  ul { list-style-type: none;  padding: 0; }
-  ul,
-  ul li,
-  ul li a,
-  ul li span { display: block; color: $theme-greydark; }
-
   a,
   a:hover,
   a:focus { color: $theme-greydark; text-decoration: none; }
-
-  .border-bottom {
-    text-align: left; padding: 0 0 20px 0;
-    text-transform: uppercase;
-    font-size: 14px; font-weight: 700;
-    }
-  .border-bottom:after { left:0; margin:0; }
 
   table td { padding: 0 5px 0 0; }
 
@@ -1352,8 +1370,8 @@ body, #application {height: 100%; padding: 0; margin: 0; }
 /* slick slider override
 =================================================================== */
 
-.slick-prev { left: 0;}
-.slick-next { right: 0;}
+.slick-prev { left: 0; z-index: 2; }
+.slick-next { right: 0; z-index: 2; }
 
 /* slick thumb gallery
 =================================================================== */
@@ -1470,26 +1488,20 @@ body, #application {height: 100%; padding: 0; margin: 0; }
   border-bottom: 1px solid #ddd;
   clear:both; position: relative;
   margin: 60px 0; border-bottom: 1px solid #666;
+  text-align: center; height: 0;
   }
-.hr-icon:after {
-  background-image:  url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE0Ny40IDE0Ny40IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNDcuNCAxNDcuNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRjZCNkIiIGQ9Ik0xMDAuNiwzNmwtMTMuMS03LjZMNTIuMSw4QzI4LjYtNS42LDcuOCw1LjcsNy42LDQzLjlsMCwxLjFMNDksNjQuOWM1LjYsMi43LDEuNywxMy45LTYuOSw5LjdMNy41LDU3LjdsLTAuMiw0NGMtMC4yLDMxLjgsMTcsNTIuNiw0My4xLDM5LjJsMzcuMS0yMS40bDEzLTcuNWMtMTEuMi05LjItMTUuNC0zMS40LTEyLjgtNDkuOEw1MS42LDQ0LjdjLTUuNi0yLjctMS43LTEzLjksNi45LTkuN2wzMS45LDE1LjZDOTIuNyw0NC4yLDk2LjEsMzguOSwxMDAuNiwzNiIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkY2QjZCIiBkPSJNMTI0LjcsNDkuOWwtMTMuNS03LjhjLTIwLjMsNy42LTE2LDU5LjktMC4xLDYzLjdsMTEuOS02LjhDMTQ3LjgsODQuNiwxNDMuNCw2MC43LDEyNC43LDQ5LjkiLz48L2c+PC9zdmc+);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  content:''; display: block; margin: 0 0 0 -30px;
-  width: 60px; height: 40px; position: absolute; left: 50%; top: -20px;
-  }
+.hr-icon img { display: inline-block; padding: 0 15px; height: 40px; transform: translate(0, -50%); }
 
 
-.bg-grey .hr-icon:after { background-color: $theme-grey; }
-.bg-greylight .hr-icon:after { background-color: $theme-greylight; }
-.bg-greydark .hr-icon:after { background-color: $theme-greydark; }
-.bg-greymiddle .hr-icon:after { background-color: $theme-greymiddle; }
-.bg-greywhite .hr-icon:after { background-color: $theme-greywhite; }
-.bg-white .hr-icon:after { background-color: #fff; }
+.bg-grey .hr-icon img { background-color: $theme-grey; }
+.bg-greylight .hr-icon img { background-color: $theme-greylight; }
+.bg-greydark .hr-icon img { background-color: $theme-greydark; }
+.bg-greymiddle .hr-icon img { background-color: $theme-greymiddle; }
+.bg-greywhite .hr-icon img { background-color: $theme-greywhite; }
+.bg-white .hr-icon img { background-color: #fff; }
 
-.bg-brand-primary .hr-icon:after { background-color: $brand-primary; }
-.bg-brand-secondary .hr-icon:after { background-color: $brand-secondary; }
+.bg-brand-primary .hr-icon img { background-color: $brand-primary; }
+.bg-brand-secondary .hr-icon img { background-color: $brand-secondary; }
 
 
 
@@ -1504,12 +1516,35 @@ body, #application {height: 100%; padding: 0; margin: 0; }
 .panel-padding {
   .h1,.h2,.h3,.h4,.h5,.h6 { color: $theme-grey!important;}
   }
-.panel-white-transparent { background: rgba(255,255,255,.1); margin: 10px 0; padding: 30px 20px; width: 100%; }
-.panel-white-transparent label { font-size: 12px; font-weight: 400; line-height: 16px; color: rgba(255,255,255,.7); }
-.panel-white-transparent .checkbox label {
-  color: rgba(255,255,255,.8);
-  font-size: 13px; line-height: 18px;
-  }
+
+
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-dark-image,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle {
+  .panel-white-transparent { background: rgba(255,255,255,.1); margin: 10px 0; padding: 30px 20px; width: 100%; }
+  .panel-white-transparent label { font-size: 12px; font-weight: 400; line-height: 16px; color: rgba(255,255,255,.7); }
+  .panel-white-transparent .checkbox label {
+    color: rgba(255,255,255,.8);
+    font-size: 13px; line-height: 18px;
+    }
+}
+
+.bg-greylight,
+.bg-greywhite,
+.bg-white {
+  .panel-white-transparent { background: rgba(0,0,0,.1); margin: 10px 0; padding: 30px 20px; width: 100%; }
+  .panel-white-transparent label { font-size: 12px; font-weight: 400; line-height: 16px; color: rgba(0,0,0,.7); }
+  .panel-white-transparent .checkbox label {
+    color: rgba(0,0,0,.8);
+    font-size: 13px; line-height: 18px;
+    }
+}
+
+
+
 
 
 /* list *
