@@ -1,4 +1,4 @@
-import BlogPost from 'objs/blog_post';
+import BlogPost from 'Objs/blog_post';
 import navigateToBlogWithTag from 'utils/navigate_to_blog_with_tag';
 import TagList from 'components/tag_list';
 import { registerTextExtract } from 'utils/text_extract_registry';
