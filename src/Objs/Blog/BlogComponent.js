@@ -1,4 +1,4 @@
-import BlogPost from 'Objs/blog_post';
+import BlogPost from 'Objs/BlogPost/BlogPost';
 import navigateToBlogWithTag from 'utils/navigate_to_blog_with_tag';
 import TagList from 'components/tag_list';
 import Blog from './Blog';
