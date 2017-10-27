@@ -1,6 +1,5 @@
 /* eslint no-unused-vars: "off" */
 
-import Download from './download';
 import Event from './event';
 import Homepage from './homepage';
 import Image from './image';
