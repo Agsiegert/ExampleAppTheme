@@ -2121,14 +2121,14 @@ function importContent() {
                   headline: 'Are You Asking Your CMS Vendor the Right Questions?',
                 }),
                 new TextWidget({
-                  text: '<p>Choosing the right Content Management System (CMS)'
-                    + ' for your web project at first could appear to be a'
-                    + ' momentous task. However, if you ask the right questions'
-                    + ' before you get too deep, your whole project will come'
-                    + ' together more easily than you can imagine and you\'ll'
-                    + ' be well on your way to a successful launch.</p><p>Read'
-                    + ' about ten things you can ask a CMS vendor to help'
-                    + ' you choose the right modern Web CMS (PDF).</p>',
+                  text: `<p>Choosing the right Content Management System (CMS)
+                    for your web project at first could appear to be a
+                    momentous task. However, if you ask the right questions
+                    before you get too deep, your whole project will come
+                    together more easily than you can imagine and you'll
+                    be well on your way to a successful launch.</p><p>Read
+                    about ten things you can ask a CMS vendor to help
+                    you choose the right modern Web CMS (PDF).</p>`,
                 }),
                 new ButtonWidget({
                   target: new Scrivito.Link({
@@ -2523,23 +2523,22 @@ function importContent() {
       navigationSection: [
         new HeadlineWidget({
           alignment: 'center',
-          headline: 'Amazing hero widget',
+          headline: 'Welcome to your ScrivitoJs Example app',
         }),
         new TextWidget({
           alignment: 'center',
-          text: loremIpsum({
-            units: 'paragraphs',
-            format: 'html',
-            count: 1,
-            paragraphLowerBound: 3,
-            paragraphUpperBound: 5,
-          }),
+          text: `<p>The ScrivitoJs Example App is intended to be a both a
+            playground and foundation for your own website. It is built
+            entirely with Scrivito and can be fully customized as your own.
+            To begin editing, add <b>/scrivito/</b> to the url
+            above, like so: localhost:8080/scrivito/</p>`,
         }),
         new ButtonWidget({
           alignment: 'center',
           target: new Scrivito.Link({
-            title: 'Call to action',
-            obj: root,
+            title: 'Learn more about Editing',
+            url: 'https://scrivito.com/about-in-place-editing-a7d5b161ade2b92f',
+            target: '_blank',
           }),
         }),
       ],
@@ -2547,7 +2546,7 @@ function importContent() {
       body: [
         new SectionWidget({ content: [
           new HeadlineWidget({
-            headline: 'Our top features',
+            headline: 'Getting Started',
             level: 'h1',
             style: 'h2',
             showDividingLine: 'yes',
@@ -2562,21 +2561,26 @@ function importContent() {
                 new HeadlineWidget({
                   level: 'h3',
                   style: 'h2',
-                  headline: 'Content Management for Professionals',
+                  headline: 'Add a new Widget',
                 }),
                 new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 3,
-                    paragraphUpperBound: 5,
-                  }),
+                  text: `<p>Widgets are the building blocks of your content.
+                    Adding widgets is simple. If you are in editing mode
+                    (just add /scrivito/ to the URL above and switch from
+                    Preview mode to Edit mode) you will see a green frame
+                    around this text when you hover over it. Green frames
+                    are used for widgets containing content. To add a new
+                    widget click on one of the green boxes with a white plus
+                    sign above or below the green frame. Then select the
+                    widget from the Widget Browser and add the corresponding
+                    content to the type of widget you selected. Go ahead, give
+                    it a try!</p>`,
                 }),
                 new ButtonWidget({
                   target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                    title: 'Learn more about Widgets',
+                    url: 'https://scrivito.com/using-widgets-5fc5b2469306a3d2',
+                    target: '_blank',
                   }),
                 }),
               ],
@@ -2590,21 +2594,28 @@ function importContent() {
                 new HeadlineWidget({
                   level: 'h3',
                   style: 'h2',
-                  headline: 'Content Management for Professionals',
+                  headline: 'Add a new Page',
                 }),
                 new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 3,
-                    paragraphUpperBound: 5,
-                  }),
+                  text: `<p>Pages have a defined layout and are meant to be a
+                   framework to begin editing. To create a new page,
+                   <a href="https://scrivito.com/scrivito/private-beta/
+                   about-in-place-editing-a7d5b161ade2b92f" target="_blank"
+                   rel="noopener noreferrer">activate the Edit mode</a> via
+                   the Scrivito panel. Next, note that there are two options
+                   for where and how to create a new page. If you want to add
+                   a page to the defined navigation hierarchy then select 'Add
+                   page' from the menu of a blue navigation handle in the
+                   Navbar. If you wish to add a new page without a link in the
+                   navigation you can select 'Create page' from the hamburger/
+                   page menu in the top right corner of this page. How about
+                   adding a landing page!?</p>`,
                 }),
                 new ButtonWidget({
                   target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                    title: 'Learn more about Pages',
+                    url: 'https://scrivito.com/working-with-pages-b094262d9b938333',
+                    target: '_blank',
                   }),
                 }),
               ],
