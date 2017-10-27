@@ -2523,15 +2523,15 @@ function importContent() {
       navigationSection: [
         new HeadlineWidget({
           alignment: 'center',
-          headline: 'Welcome to your ScrivitoJs Example app',
+          headline: 'Welcome to your ScrivitoJs Example App',
         }),
         new TextWidget({
           alignment: 'center',
-          text: `<p>The ScrivitoJs Example App is intended to be a both a
+          text: `<p>The ScrivitoJs Example App is intended to be both a
             playground and a foundation for your own website. Built
-            entirely with Scrivito it can be fully customized as your own.
+            entirely with Scrivito, it can be fully customized as your own.
             To begin editing, add <b><a href="/scrivito/">/scrivito/</a></b>
-            to the url above.</p>`,
+            to the URL above.</p>`,
         }),
         new ButtonWidget({
           alignment: 'center',
@@ -2561,7 +2561,7 @@ function importContent() {
                 new HeadlineWidget({
                   level: 'h3',
                   style: 'h2',
-                  headline: 'Add a new Widget',
+                  headline: 'Add a New Widget',
                 }),
                 new TextWidget({
                   text: `<p>Widgets are the building blocks of your content.
@@ -2596,7 +2596,7 @@ function importContent() {
                 new HeadlineWidget({
                   level: 'h3',
                   style: 'h2',
-                  headline: 'Add a new Page',
+                  headline: 'Add a New Page',
                 }),
                 new TextWidget({
                   text: `<p>Pages have a defined layout and are meant to be a
@@ -2608,7 +2608,7 @@ function importContent() {
                    for where and how to create a new page. If you want to add
                    a page to the defined navigation hierarchy then select 'Add
                    page' from the menu of a blue navigation handle in the
-                   Navbar. If you wish to add a new page without a link in the
+                   navigation bar. If you wish to add a new page without a link in the
                    navigation you can select 'Create page' from the hamburger/
                    page menu in the top right corner of this page. How about
                    adding a landing page!?</p>`,
