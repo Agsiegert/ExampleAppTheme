@@ -1,6 +1,5 @@
 /* eslint no-unused-vars: "off" */
 
-import Author from './author';
 import Download from './download';
 import Event from './event';
 import Homepage from './homepage';
