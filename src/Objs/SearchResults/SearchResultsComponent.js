@@ -1,7 +1,7 @@
-import ShowMoreButton from '../search_results/show_more_button';
-import SearchInput from '../search_results/search_input';
-import SearchResultItem from '../search_results/search_result_item';
-import SearchResultsTagList from '../search_results/search_results_tag_list';
+import ShowMoreButton from './ShowMoreButton';
+import SearchInput from './SearchInput';
+import SearchResultItem from './SearchResultItem';
+import SearchResultsTagList from './SearchResultsTagList';
 import SearchResults from './SearchResults';
 
 const blacklistObjClasses = [
