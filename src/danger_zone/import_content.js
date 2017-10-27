@@ -2528,10 +2528,10 @@ function importContent() {
         new TextWidget({
           alignment: 'center',
           text: `<p>The ScrivitoJs Example App is intended to be a both a
-            playground and foundation for your own website. It is built
-            entirely with Scrivito and can be fully customized as your own.
-            To begin editing, add <b>/scrivito/</b> to the url
-            above, like so: localhost:8080/scrivito/</p>`,
+            playground and a foundation for your own website. Built
+            entirely with Scrivito it can be fully customized as your own.
+            To begin editing, add <b><a href="/scrivito/">/scrivito/</a></b>
+            to the url above.</p>`,
         }),
         new ButtonWidget({
           alignment: 'center',
@@ -2569,7 +2569,9 @@ function importContent() {
                     (just add /scrivito/ to the URL above and switch from
                     Preview mode to Edit mode) you will see a green frame
                     around this text when you hover over it. Green frames
-                    are used for widgets containing content. To add a new
+                    are used for widgets containing content. You will also see
+                    yellow frames, meant to contain other widgets and blue
+                    frames meant to contain navigations. To add a new
                     widget click on one of the green boxes with a white plus
                     sign above or below the green frame. Then select the
                     widget from the Widget Browser and add the corresponding
