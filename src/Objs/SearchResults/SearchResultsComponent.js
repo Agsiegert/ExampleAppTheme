@@ -1,8 +1,8 @@
-import ShowMoreButton from './search_results/show_more_button';
-import SearchInput from './search_results/search_input';
-import SearchResultItem from './search_results/search_result_item';
-import SearchResultsTagList from './search_results/search_results_tag_list';
-import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
+import ShowMoreButton from '../search_results/show_more_button';
+import SearchInput from '../search_results/search_input';
+import SearchResultItem from '../search_results/search_result_item';
+import SearchResultsTagList from '../search_results/search_results_tag_list';
+import SearchResults from './SearchResults';
 
 const blacklistObjClasses = [
   'Author', // TODO: Don't blacklist Authors, once a view is available for them
@@ -10,29 +10,6 @@ const blacklistObjClasses = [
   'SearchResults',
   'Video',
 ];
-
-const SearchResults = Scrivito.createObjClass({
-  name: 'SearchResults',
-  attributes: {
-    navigationBackgroundImage: 'reference',
-    ...socialCardsAttributes,
-  },
-});
-
-Scrivito.provideEditingConfig(SearchResults, {
-  title: 'Search Results',
-  description: 'A Search Results Page',
-  attributesConfig: {
-    navigationBackgroundImage: {
-      title: 'Navigation Background Image',
-      description: 'The background image of the navigation.',
-    },
-  },
-  generalProperties: [
-    'navigationBackgroundImage',
-  ],
-  propertiesGroups: [socialCardsCustomGroup],
-});
 
 function globalSearch(q) {
   return Scrivito.Obj.where('*', 'contains', q)
@@ -103,6 +80,4 @@ class SearchResultsComponent extends React.Component {
   }
 }
 
-Scrivito.provideComponent(SearchResults, SearchResultsComponent);
-
-export default SearchResults;
+export default Scrivito.provideComponent(SearchResults, SearchResultsComponent);

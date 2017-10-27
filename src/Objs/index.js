@@ -5,7 +5,6 @@ import Image from './image';
 import Job from './job';
 import LandingPage from './landing_page';
 import Page from './page';
-import SearchResults from './search_results';
 import Video from './video';
 
 const allJsFiles = require.context('./', true, /\/(\w+)\/(\w+)\.js$/);
