@@ -75,7 +75,7 @@ const AddMoreItems = Scrivito.connect(({ widget }) => {
   );
 });
 
-Scrivito.provideComponent(AddressWidget, ({ widget }) => {
+Scrivito.provideComponent('AddressWidget', ({ widget }) => {
   return (
     <div>
       { widget.get('showLogo') !== 'no' && <Logo /> }

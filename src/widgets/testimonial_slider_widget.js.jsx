@@ -59,7 +59,7 @@ function sliderSettings(testimonials) {
   };
 }
 
-Scrivito.provideComponent(TestimonialSliderWidget, ({ widget }) => {
+Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
   const testimonials = widget.get('testimonials');
   if (!testimonials.length) { return null; }
 

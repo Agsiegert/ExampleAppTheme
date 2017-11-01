@@ -43,7 +43,7 @@ Scrivito.provideEditingConfig('IconWidget', {
   titleForContent: widget => widget.get('icon'),
 });
 
-Scrivito.provideComponent(IconWidget, ({ widget }) => {
+Scrivito.provideComponent('IconWidget', ({ widget }) => {
   const icon = widget.get('icon');
   const link = widget.get('link');
   const size = widget.get('size');

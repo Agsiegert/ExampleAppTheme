@@ -81,7 +81,7 @@ function PlanButton({ target, className }) {
   );
 }
 
-Scrivito.provideComponent(PricingWidget, ({ widget }) => {
+Scrivito.provideComponent('PricingWidget', ({ widget }) => {
   const currency = widget.get('currency') || '$';
 
   return (

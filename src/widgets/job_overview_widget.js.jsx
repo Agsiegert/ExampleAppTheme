@@ -11,7 +11,7 @@ Scrivito.provideEditingConfig('JobOverviewWidget', {
   thumbnail: `/${jobOverviewWidgetIcon}`,
 });
 
-Scrivito.provideComponent(JobOverviewWidget, () => {
+Scrivito.provideComponent('JobOverviewWidget', () => {
   const jobs = Scrivito.getClass('Job').all();
 
   return (

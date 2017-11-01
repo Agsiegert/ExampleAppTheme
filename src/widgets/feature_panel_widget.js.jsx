@@ -31,7 +31,7 @@ registerTextExtract('FeaturePanelWidget', [
   { attribute: 'description', type: 'string' },
 ]);
 
-Scrivito.provideComponent(FeaturePanelWidget, ({ widget }) => {
+Scrivito.provideComponent('FeaturePanelWidget', ({ widget }) => {
   return (
     <div className="panel panel-theme panel-list">
       <div className="panel-icon">

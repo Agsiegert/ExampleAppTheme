@@ -25,7 +25,7 @@ Scrivito.provideEditingConfig('TickListWidget', {
   ],
 });
 
-Scrivito.provideComponent(TickListWidget, ({ widget }) =>
+Scrivito.provideComponent('TickListWidget', ({ widget }) =>
   <ul className="tick-list">
     {
       widget.get('items').map((itemWidget, index) =>

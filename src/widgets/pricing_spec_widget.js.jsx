@@ -19,7 +19,7 @@ Scrivito.provideEditingConfig('PricingSpecWidget', {
   description: 'A Pricing Spec - Can only live inside a PricingWidget.',
 });
 
-Scrivito.provideComponent(PricingSpecWidget, ({ widget }) =>
+Scrivito.provideComponent('PricingSpecWidget', ({ widget }) =>
   <div className="spec">
     <Scrivito.ContentTag
       content={ widget }

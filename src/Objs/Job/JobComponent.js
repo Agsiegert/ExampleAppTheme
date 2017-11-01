@@ -1,6 +1,4 @@
-import Job from './Job';
-
-export default Scrivito.provideComponent(Job, ({ page }) => {
+export default Scrivito.provideComponent('Job', ({ page }) => {
   return (
     <div>
       <section className="bg-white">

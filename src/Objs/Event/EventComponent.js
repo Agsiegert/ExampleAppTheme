@@ -1,5 +1,4 @@
 import twoDigitNumber from 'utils/two_digit_number';
-import Event from './Event';
 
 function formatDate(date) {
   if (!date) { return null; }
@@ -11,7 +10,7 @@ function formatDate(date) {
   return `${twoDigitNumber(month)}/${twoDigitNumber(dayOfMonth)}/${year}`;
 }
 
-export default Scrivito.provideComponent(Event, ({ page }) =>
+export default Scrivito.provideComponent('Event', ({ page }) =>
   <div>
     <section className="bg-white">
       <div className="container">

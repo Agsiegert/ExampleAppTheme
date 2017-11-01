@@ -35,7 +35,7 @@ Scrivito.provideEditingConfig('BlogOverviewWidget', {
   ],
 });
 
-Scrivito.provideComponent(BlogOverviewWidget, ({ widget }) =>
+Scrivito.provideComponent('BlogOverviewWidget', ({ widget }) =>
   <BlogPostPreviewList
     maxItems={ widget.get('maxItems') }
     author={ widget.get('author') }

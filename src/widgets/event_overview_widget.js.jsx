@@ -116,6 +116,6 @@ class EventOverviewWidgetComponent extends React.Component {
   }
 }
 
-Scrivito.provideComponent(EventOverviewWidget, EventOverviewWidgetComponent);
+Scrivito.provideComponent('EventOverviewWidget', EventOverviewWidgetComponent);
 
 export default EventOverviewWidget;

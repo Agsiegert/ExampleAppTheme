@@ -10,6 +10,6 @@ Scrivito.provideEditingConfig('DividerWidget', {
   thumbnail: `/${dividerWidgetIcon}`,
 });
 
-Scrivito.provideComponent(DividerWidget, () => <div className="hr-icon" />);
+Scrivito.provideComponent('DividerWidget', () => <div className="hr-icon" />);
 
 export default DividerWidget;

@@ -1,5 +1,3 @@
-import Page from './Page';
-
-export default Scrivito.provideComponent(Page, ({ page }) =>
+export default Scrivito.provideComponent('Page', ({ page }) =>
   <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
 );

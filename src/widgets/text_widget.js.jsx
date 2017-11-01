@@ -33,7 +33,7 @@ Scrivito.provideEditingConfig('TextWidget', {
   ],
 });
 
-Scrivito.provideComponent(TextWidget, ({ widget }) => {
+Scrivito.provideComponent('TextWidget', ({ widget }) => {
   const classNames = [];
   if (widget.get('alignment')) {
     classNames.push(`text-${widget.get('alignment')}`);

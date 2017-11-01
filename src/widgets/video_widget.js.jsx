@@ -29,7 +29,7 @@ Scrivito.provideEditingConfig('VideoWidget', {
   ],
 });
 
-Scrivito.provideComponent(VideoWidget, ({ widget }) => {
+Scrivito.provideComponent('VideoWidget', ({ widget }) => {
   const videoUrl = urlFromBinary(widget.get('source'));
 
   if (!videoUrl) {

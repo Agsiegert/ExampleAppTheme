@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig('ColumnContainerWidget', {
   ],
 });
 
-Scrivito.provideComponent(ColumnContainerWidget, ({ widget }) => {
+Scrivito.provideComponent('ColumnContainerWidget', ({ widget }) => {
   const columns = widget.get('columns');
 
   if (!columns.length) {

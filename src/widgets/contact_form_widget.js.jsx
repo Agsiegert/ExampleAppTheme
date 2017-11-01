@@ -28,7 +28,7 @@ Scrivito.provideEditingConfig('ContactFormWidget', {
   ],
 });
 
-Scrivito.provideComponent(ContactFormWidget, ({ widget }) =>
+Scrivito.provideComponent('ContactFormWidget', ({ widget }) =>
   <div className="row floating-label">
     <form>
       <div className="col-sm-6">

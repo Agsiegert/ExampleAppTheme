@@ -2,7 +2,6 @@ import ShowMoreButton from './ShowMoreButton';
 import SearchInput from './SearchInput';
 import SearchResultItem from './SearchResultItem';
 import SearchResultsTagList from './SearchResultsTagList';
-import SearchResults from './SearchResults';
 
 const blacklistObjClasses = [
   'Author', // TODO: Don't blacklist Authors, once a view is available for them
@@ -80,4 +79,4 @@ class SearchResultsComponent extends React.Component {
   }
 }
 
-export default Scrivito.provideComponent(SearchResults, SearchResultsComponent);
+export default Scrivito.provideComponent('SearchResults', SearchResultsComponent);

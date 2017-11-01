@@ -52,7 +52,7 @@ function descriptionBox(widget) {
   );
 }
 
-Scrivito.provideComponent(CarouselWidget, ({ widget }) =>
+Scrivito.provideComponent('CarouselWidget', ({ widget }) =>
   <div>
     <Carousel
       indicators={ false }

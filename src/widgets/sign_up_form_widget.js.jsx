@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig('SignUpFormWidget', {
   ],
 });
 
-Scrivito.provideComponent(SignUpFormWidget, ({ widget }) => {
+Scrivito.provideComponent('SignUpFormWidget', ({ widget }) => {
   const classNames = [];
   if (widget.get('isTransparent') === 'yes') {
     classNames.push('panel-white-transparent');

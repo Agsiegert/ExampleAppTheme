@@ -20,7 +20,7 @@ Scrivito.provideEditingConfig('FactWidget', {
   thumbnail: `/${factWidgetIcon}`,
 });
 
-Scrivito.provideComponent(FactWidget, ({ widget }) =>
+Scrivito.provideComponent('FactWidget', ({ widget }) =>
   <div className="fact">
     <Scrivito.ContentTag
       content={ widget }

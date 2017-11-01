@@ -1,9 +1,8 @@
 import BlogPost from 'Objs/BlogPost/BlogPost';
 import navigateToBlogWithTag from 'utils/navigate_to_blog_with_tag';
 import TagList from 'components/tag_list';
-import Blog from './Blog';
 
-export default Scrivito.provideComponent(Blog, ({ page, params }) => {
+export default Scrivito.provideComponent('Blog', ({ page, params }) => {
   const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name());
   const currentTag = params.tag;
 

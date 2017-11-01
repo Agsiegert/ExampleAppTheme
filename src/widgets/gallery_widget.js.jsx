@@ -84,6 +84,6 @@ function GalleryWidgetComponent({ widget }) {
   );
 }
 
-Scrivito.provideComponent(GalleryWidget, GalleryWidgetComponent);
+Scrivito.provideComponent('GalleryWidget', GalleryWidgetComponent);
 
 export default GalleryWidget;

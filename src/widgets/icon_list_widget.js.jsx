@@ -23,7 +23,7 @@ Scrivito.provideEditingConfig('IconListWidget', {
   ],
 });
 
-Scrivito.provideComponent(IconListWidget, ({ widget }) =>
+Scrivito.provideComponent('IconListWidget', ({ widget }) =>
   <div className="social-links text-center">
     {
       widget.get('iconList').map(iconListItem => {

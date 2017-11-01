@@ -28,7 +28,7 @@ Scrivito.provideEditingConfig('BoxWidget', {
   ],
 });
 
-Scrivito.provideComponent(BoxWidget, ({ widget }) => {
+Scrivito.provideComponent('BoxWidget', ({ widget }) => {
   const classNames = ['panel', 'panel-theme'];
   if (widget.get('useOffset') === 'yes') { classNames.push('box-offset'); }
 

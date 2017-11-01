@@ -144,6 +144,6 @@ const Widgets = Scrivito.connect(({ widget }) => {
   );
 });
 
-Scrivito.provideComponent(GoogleMapsWidget, GoogleMapsWidgetComponent);
+Scrivito.provideComponent('GoogleMapsWidget', GoogleMapsWidgetComponent);
 
 export default GoogleMapsWidget;

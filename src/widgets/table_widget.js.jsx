@@ -45,7 +45,7 @@ Scrivito.provideEditingConfig('TableWidget', {
   ],
 });
 
-Scrivito.provideComponent(TableWidget, ({ widget }) =>
+Scrivito.provideComponent('TableWidget', ({ widget }) =>
   <table className="table-features">
     <thead>
       <tr>
