@@ -1,13 +1,6 @@
-const Image = Scrivito.createObjClass({
-  name: 'Image',
-  attributes: {
-    blob: 'binary',
-    tags: 'stringlist',
-    title: 'string',
-  },
-});
+import Image from './Image';
 
-Scrivito.provideEditingConfig(Image, {
+export default Scrivito.provideEditingConfig(Image, {
   attributesConfig: {
     tags: {
       title: 'Tags',
@@ -24,4 +17,3 @@ Scrivito.provideEditingConfig(Image, {
   ],
 });
 
-export default Image;
