@@ -35,7 +35,7 @@ Scrivito.provideComponent('PageListWidget', ({ widget }) => {
     return <div></div>;
   }
 
-  return (<ul>
+  return (<ul className='page-list'>
     <li>
       <span className="border-bottom">
         { widget.get('headline') }

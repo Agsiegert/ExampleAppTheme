@@ -40,7 +40,7 @@ Scrivito.provideEditingConfig('CarouselWidget', {
 function descriptionBox(widget) {
   return (
     <div className="container">
-      <div className="client-wrapper row">
+      <div className="client-wrapper">
         <div className="client-logo">
           <Scrivito.ImageTag content={ widget } attribute="descriptionLogo" />
         </div>
@@ -56,7 +56,7 @@ Scrivito.provideComponent('CarouselWidget', ({ widget }) =>
   <div>
     <Carousel
       indicators={ false }
-      className="carousel-images row"
+      className="carousel-images"
       prevIcon={ <span className="fa fa-arrow-left" aria-hidden="true" /> }
       nextIcon={ <span className="fa fa-arrow-right" aria-hidden="true" /> }
     >
