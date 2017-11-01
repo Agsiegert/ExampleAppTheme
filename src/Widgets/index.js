@@ -3,7 +3,6 @@
 import AddressListItemWidget from './address_list_item_widget';
 import AddressWidget from './address_widget';
 import BlogOverviewWidget from './blog_overview_widget';
-import BoxWidget from './box_widget';
 import ButtonWidget from './button_widget';
 import CarouselWidget from './carousel_widget';
 import ColumnWidget from './column_widget';
