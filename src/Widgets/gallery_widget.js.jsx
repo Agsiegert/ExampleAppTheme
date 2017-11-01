@@ -68,7 +68,18 @@ function sliderSettings(images) {
 function GalleryWidgetComponent({ widget }) {
   const images = widget.get('images');
 
-  if (!images.length) { return null; }
+  if (!images.length) {
+    if (Scrivito.isInPlaceEditingActive()) {
+      return (
+        <p>
+          No Images (yet)!
+          Please go to the widget properties to select images to show.
+        </p>
+      );
+    }
+
+    return null;
+  }
 
   const settings = sliderSettings(images);
   return (

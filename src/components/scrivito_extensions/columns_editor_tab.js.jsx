@@ -23,6 +23,10 @@ class ColumnsEditorTab extends React.Component {
         <div className="scrivito_detail_label">
           <span className="headline">Column Layout</span>
         </div>
+        <VerticalAlignment widget={ this.props.widget } />
+        <div className="scrivito_detail_label">
+          <span>Layout (Desktop)</span>
+        </div>
         <div className="item_content">
           <div className="gle-preview-list">
             <div className="gle-preview-group">
@@ -149,6 +153,47 @@ const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) =
       }
     </div>
   );
+});
+
+const VerticalAlignment = Scrivito.connect(({ widget }) => {
+  const topAlignmentClasses = ['gle-preview'];
+  const middleAlignmentClasses = ['gle-preview'];
+
+  if (widget.get('verticallyAligned') === 'yes') {
+    middleAlignmentClasses.push('active');
+  } else {
+    topAlignmentClasses.push('active');
+  }
+
+  return [
+    <div key="verticalAlignmentHeadline" className="scrivito_detail_label">
+      <span>Vertical alignment</span>
+    </div>,
+    <div key="verticalAlignmentContent" className="item_content">
+      <div className="gle-preview-list">
+        <div className="gle-preview-group">
+          <div
+            className={ topAlignmentClasses.join(' ') }
+            title="content top aligned"
+            onClick={ () => widget.update({ verticallyAligned: 'no' }) }
+          >
+            <div className="grid-col-12">
+              <span className="alignment"></span>
+            </div>
+          </div>
+          <div
+            className={ middleAlignmentClasses.join(' ') }
+            title="content middle aligned"
+            onClick={ () => widget.update({ verticallyAligned: 'yes' }) }
+          >
+            <div className="grid-col-12">
+              <span className="alignment middle"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>,
+  ];
 });
 
 function gridOfWidget(containerWidget) {

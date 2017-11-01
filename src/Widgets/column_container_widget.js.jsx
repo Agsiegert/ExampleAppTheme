@@ -16,15 +16,6 @@ Scrivito.provideEditingConfig('ColumnContainerWidget', {
   title: 'Columns',
   description: 'A widget with up to 4 columns.',
   thumbnail: `/${columnContainerWidgetIcon}`,
-  attributesConfig: {
-    verticallyAligned: {
-      title: 'Vertically Aligned',
-      description: 'Should the columns be vertically aligned? Default: no',
-    },
-  },
-  generalProperties: [
-    'verticallyAligned',
-  ],
   propertiesGroups: [
     {
       title: 'Columns Editor',
