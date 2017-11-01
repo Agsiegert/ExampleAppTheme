@@ -21,7 +21,7 @@ registerTextExtract('GoogleMapsWidget', [
   { attribute: 'content', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(GoogleMapsWidget, {
+Scrivito.provideEditingConfig('GoogleMapsWidget', {
   title: 'Google Maps',
   description: 'A widget with google maps.',
   thumbnail: `/${googleMapsWidgetIcon}`,

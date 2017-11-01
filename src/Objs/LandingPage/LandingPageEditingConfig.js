@@ -1,11 +1,10 @@
-import LandingPage from './LandingPage';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 import {
   defaultGeneralProperties,
   defaultPageUiConfigAttributes,
 } from '../_default_page_attributes';
 
-export default Scrivito.provideEditingConfig(LandingPage, {
+export default Scrivito.provideEditingConfig('LandingPage', {
   title: 'LandingPage',
   description: 'A Landing Page',
   attributesConfig: {

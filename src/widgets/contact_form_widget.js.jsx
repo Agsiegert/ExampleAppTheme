@@ -8,7 +8,7 @@ const ContactFormWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(ContactFormWidget, {
+Scrivito.provideEditingConfig('ContactFormWidget', {
   title: 'Contact Form',
   description: 'A widget with contact form.',
   thumbnail: `/${contactFormWidgetIcon}`,

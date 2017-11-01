@@ -8,7 +8,7 @@ const IconListItemWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(IconListItemWidget, {
+Scrivito.provideEditingConfig('IconListItemWidget', {
   title: 'IconListItemWidget',
   description: 'A widget with a Font Awesome icon. See http://fontawesome.io/icons/ for all icons.',
   attributesConfig: {

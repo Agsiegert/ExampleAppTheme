@@ -11,7 +11,7 @@ registerTextExtract('TickListWidget', [
   { attribute: 'items', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(TickListWidget, {
+Scrivito.provideEditingConfig('TickListWidget', {
   title: 'Tick List',
   description: 'A list of checked statements.',
   attributesConfig: {

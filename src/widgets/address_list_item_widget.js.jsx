@@ -17,7 +17,7 @@ registerTextExtract('AddressListItemWidget', [
 ]);
 
 
-Scrivito.provideEditingConfig(AddressListItemWidget, {
+Scrivito.provideEditingConfig('AddressListItemWidget', {
   title: 'Address List Item',
   description: 'List Items for an Address Widget.',
   attributesConfig: {

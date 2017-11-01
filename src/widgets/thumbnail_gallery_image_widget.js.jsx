@@ -9,7 +9,7 @@ const ThumbnailGalleryImageWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(ThumbnailGalleryImageWidget, {
+Scrivito.provideEditingConfig('ThumbnailGalleryImageWidget', {
   title: 'Thumbnail Gallery Image',
   description: 'A thumbnail gallery image - Use only inside a Thumbnail Gallery',
   attributesConfig: {

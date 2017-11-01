@@ -8,7 +8,7 @@ const PageListWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(PageListWidget, {
+Scrivito.provideEditingConfig('PageListWidget', {
   title: 'Page List',
   description: 'A widget which lists pages.',
   thumbnail: `/${pageListWidgetIcon}`,

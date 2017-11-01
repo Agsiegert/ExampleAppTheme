@@ -1,6 +1,4 @@
-import Download from './Download';
-
-export default Scrivito.provideEditingConfig(Download, {
+export default Scrivito.provideEditingConfig('Download', {
   attributesConfig: {
     tags: {
       title: 'Tags',

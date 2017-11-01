@@ -1,6 +1,4 @@
-import Video from './Video';
-
-export default Scrivito.provideEditingConfig(Video, {
+export default Scrivito.provideEditingConfig('Video', {
   attributesConfig: {
     title: {
       title: 'Title',

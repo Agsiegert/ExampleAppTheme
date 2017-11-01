@@ -1,6 +1,4 @@
-import Image from './Image';
-
-export default Scrivito.provideEditingConfig(Image, {
+export default Scrivito.provideEditingConfig('Image', {
   attributesConfig: {
     tags: {
       title: 'Tags',

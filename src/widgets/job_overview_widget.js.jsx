@@ -5,7 +5,7 @@ const JobOverviewWidget = Scrivito.createWidgetClass({
   name: 'JobOverviewWidget',
 });
 
-Scrivito.provideEditingConfig(JobOverviewWidget, {
+Scrivito.provideEditingConfig('JobOverviewWidget', {
   title: 'Job Overview',
   description: 'A widget showing all jobs.',
   thumbnail: `/${jobOverviewWidgetIcon}`,

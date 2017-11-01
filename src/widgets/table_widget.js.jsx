@@ -25,7 +25,7 @@ registerTextExtract('TableWidget', [
   { attribute: 'rows', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(TableWidget, {
+Scrivito.provideEditingConfig('TableWidget', {
   title: 'Table',
   description: 'A table widget.',
   thumbnail: `/${tableWidgetIcon}`,

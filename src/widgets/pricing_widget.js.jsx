@@ -39,7 +39,7 @@ registerTextExtract('PricingWidget', [
   { attribute: 'largePlanSpecs', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(PricingWidget, {
+Scrivito.provideEditingConfig('PricingWidget', {
   title: 'Pricing',
   description: 'A pricing widget',
   thumbnail: `/${pricingWidgetIcon}`,

@@ -13,7 +13,7 @@ registerTextExtract('TextWidget', [
   { attribute: 'text', type: 'html' },
 ]);
 
-Scrivito.provideEditingConfig(TextWidget, {
+Scrivito.provideEditingConfig('TextWidget', {
   title: 'Text',
   description: 'A widget with html text.',
   thumbnail: `/${textWidgetIcon}`,

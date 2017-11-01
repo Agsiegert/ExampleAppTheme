@@ -14,7 +14,7 @@ registerTextExtract('TestimonialSliderWidget', [
   { attribute: 'testimonials', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(TestimonialSliderWidget, {
+Scrivito.provideEditingConfig('TestimonialSliderWidget', {
   title: 'Testimonial Slider',
   description: 'A testimonial slider.',
   thumbnail: `/${testimonialSliderWidgetIcon}`,

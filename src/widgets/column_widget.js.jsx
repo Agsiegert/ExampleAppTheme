@@ -13,7 +13,7 @@ registerTextExtract('ColumnWidget', [
   { attribute: 'content', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(ColumnWidget, {
+Scrivito.provideEditingConfig('ColumnWidget', {
   title: 'Column',
   description: 'A column widget.',
 });

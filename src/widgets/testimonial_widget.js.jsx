@@ -15,7 +15,7 @@ registerTextExtract('TestimonialWidget', [
   { attribute: 'testimonial', type: 'string' },
 ]);
 
-Scrivito.provideEditingConfig(TestimonialWidget, {
+Scrivito.provideEditingConfig('TestimonialWidget', {
   title: 'Testimonial',
   description: 'A testimonial',
   attributesConfig: {

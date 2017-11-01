@@ -8,7 +8,7 @@ const ImageWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(ImageWidget, {
+Scrivito.provideEditingConfig('ImageWidget', {
   title: 'Image',
   description: 'A widget with an image.',
   thumbnail: `/${imageWidgetIcon}`,

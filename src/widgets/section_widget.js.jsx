@@ -33,7 +33,7 @@ registerTextExtract('SectionWidget', [
   { attribute: 'content', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(SectionWidget, {
+Scrivito.provideEditingConfig('SectionWidget', {
   title: 'Section',
   description: 'A section',
   thumbnail: `/${sectionWidgetIcon}`,

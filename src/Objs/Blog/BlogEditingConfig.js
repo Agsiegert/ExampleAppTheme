@@ -1,7 +1,6 @@
-import Blog from './Blog';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
-export default Scrivito.provideEditingConfig(Blog, {
+export default Scrivito.provideEditingConfig('Blog', {
   title: 'Blog',
   description: 'A Blog',
   attributesConfig: {

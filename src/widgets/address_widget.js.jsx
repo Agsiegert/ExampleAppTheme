@@ -18,7 +18,7 @@ registerTextExtract('AddressWidget', [
 ]);
 
 
-Scrivito.provideEditingConfig(AddressWidget, {
+Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',
   description: 'A widget, which shows an address.',
   thumbnail: `/${addressWidgetIcon}`,

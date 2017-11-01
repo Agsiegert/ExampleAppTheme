@@ -1,7 +1,6 @@
-import Event from './Event';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
-export default Scrivito.provideEditingConfig(Event, {
+export default Scrivito.provideEditingConfig('Event', {
   title: 'Event',
   description: 'An Event',
   attributesConfig: {

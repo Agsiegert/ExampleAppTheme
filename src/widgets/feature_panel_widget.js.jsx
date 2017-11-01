@@ -10,7 +10,7 @@ const FeaturePanelWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(FeaturePanelWidget, {
+Scrivito.provideEditingConfig('FeaturePanelWidget', {
   title: 'Feature Panel',
   description:
     'A feature panel, with an icon to the left and a headline and description to the right.',

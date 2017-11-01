@@ -17,7 +17,7 @@ registerTextExtract('HeadlineWidget', [
   { attribute: 'headline', type: 'string' },
 ]);
 
-Scrivito.provideEditingConfig(HeadlineWidget, {
+Scrivito.provideEditingConfig('HeadlineWidget', {
   title: 'Headline',
   description: 'A widget with a headline.',
   thumbnail: `/${headlineWidgetIcon}`,

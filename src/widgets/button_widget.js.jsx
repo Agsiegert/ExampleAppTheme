@@ -9,7 +9,7 @@ const ButtonWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(ButtonWidget, {
+Scrivito.provideEditingConfig('ButtonWidget', {
   title: 'Button',
   description: 'A widget with a button.',
   thumbnail: `/${buttonWidgetIcon}`,

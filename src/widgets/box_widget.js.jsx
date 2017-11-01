@@ -13,7 +13,7 @@ registerTextExtract('BoxWidget', [
   { attribute: 'body', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(BoxWidget, {
+Scrivito.provideEditingConfig('BoxWidget', {
   title: 'Box',
   description: 'A box widget.',
   thumbnail: `/${boxWidgetIcon}`,

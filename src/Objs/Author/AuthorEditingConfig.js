@@ -1,7 +1,6 @@
-import Author from './Author';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
-export default Scrivito.provideEditingConfig(Author, {
+export default Scrivito.provideEditingConfig('Author', {
   title: 'Author',
   description: 'An Author',
   attributesConfig: {

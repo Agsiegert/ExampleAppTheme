@@ -12,7 +12,7 @@ registerTextExtract('TickListItemWidget', [
   { attribute: 'statement', type: 'string' },
 ]);
 
-Scrivito.provideEditingConfig(TickListItemWidget, {
+Scrivito.provideEditingConfig('TickListItemWidget', {
   title: 'Tick List Widget Item',
   description: 'A tick list item',
   attributesConfig: {

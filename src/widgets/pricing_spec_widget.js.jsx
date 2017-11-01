@@ -14,7 +14,7 @@ registerTextExtract('PricingSpecWidget', [
   { attribute: 'unit', type: 'string' },
 ]);
 
-Scrivito.provideEditingConfig(PricingSpecWidget, {
+Scrivito.provideEditingConfig('PricingSpecWidget', {
   title: 'PricingSpec',
   description: 'A Pricing Spec - Can only live inside a PricingWidget.',
 });

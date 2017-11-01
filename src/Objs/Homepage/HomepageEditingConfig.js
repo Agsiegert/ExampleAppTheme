@@ -1,11 +1,10 @@
-import Homepage from './Homepage';
 import {
   defaultGeneralProperties,
   defaultPageUiConfigAttributes,
 } from '../_default_page_attributes';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
-export default Scrivito.provideEditingConfig(Homepage, {
+export default Scrivito.provideEditingConfig('Homepage', {
   title: 'Homepage',
   description: 'A Homepage. This class is only intended for Obj.root() (aka "_path" "/")',
   attributesConfig: {
