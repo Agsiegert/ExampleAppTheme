@@ -2,8 +2,7 @@ import { registerTextExtract } from 'utils/text_extract_registry';
 import textExtractFromHtml from 'utils/text_extract_from_html';
 import truncate from 'lodash.truncate';
 
-const AddressListItemWidget = Scrivito.createWidgetClass({
-  name: 'AddressListItemWidget',
+const AddressListItemWidget = Scrivito.provideWidgetClass('AddressListItemWidget', {
   onlyInside: 'AddressWidget',
   attributes: {
     key: 'string',

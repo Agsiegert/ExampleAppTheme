@@ -1,8 +1,7 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const PricingSpecWidget = Scrivito.createWidgetClass({
+const PricingSpecWidget = Scrivito.provideWidgetClass('PricingSpecWidget', {
   onlyInside: 'PricingWidget',
-  name: 'PricingSpecWidget',
   attributes: {
     variable: 'string',
     unit: 'string',

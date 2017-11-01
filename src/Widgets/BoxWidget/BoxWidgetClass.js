@@ -1,7 +1,6 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const BoxWidget = Scrivito.createWidgetClass({
-  name: 'BoxWidget',
+const BoxWidget = Scrivito.provideWidgetClass('BoxWidget', {
   attributes: {
     body: 'widgetlist',
     useOffset: ['enum', { values: ['yes', 'no'] }],

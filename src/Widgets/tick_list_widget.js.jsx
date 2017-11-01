@@ -1,8 +1,7 @@
 import tickListWidgetIcon from 'assets/images/tick_list_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const TickListWidget = Scrivito.createWidgetClass({
-  name: 'TickListWidget',
+const TickListWidget = Scrivito.provideWidgetClass('TickListWidget', {
   attributes: {
     items: ['widgetlist', { only: 'TickListItemWidget' }],
   },

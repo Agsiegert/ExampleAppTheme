@@ -2,8 +2,7 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import carouselWidgetIcon from 'assets/images/carousel_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const CarouselWidget = Scrivito.createWidgetClass({
-  name: 'CarouselWidget',
+const CarouselWidget = Scrivito.provideWidgetClass('CarouselWidget', {
   attributes: {
     images: 'referencelist',
     showDescription: ['enum', { values: ['yes', 'no'] }],

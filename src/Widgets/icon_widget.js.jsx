@@ -1,8 +1,7 @@
 import IconComponent from 'components/icon';
 import iconWidgetIcon from 'assets/images/icon_widget.svg';
 
-const IconWidget = Scrivito.createWidgetClass({
-  name: 'IconWidget',
+const IconWidget = Scrivito.provideWidgetClass('IconWidget', {
   attributes: {
     icon: 'string',
     size: ['enum', { values: ['fa-lg', 'fa-2x', 'fa-3x', 'fa-4x', 'fa-5x'] }],

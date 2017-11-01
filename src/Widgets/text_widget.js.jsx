@@ -1,8 +1,7 @@
 import textWidgetIcon from 'assets/images/text_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const TextWidget = Scrivito.createWidgetClass({
-  name: 'TextWidget',
+const TextWidget = Scrivito.provideWidgetClass('TextWidget', {
   attributes: {
     text: 'html',
     alignment: ['enum', { values: ['left', 'center', 'right'] }],

@@ -2,8 +2,7 @@ import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import sectionWidgetIcon from 'assets/images/section_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const SectionWidget = Scrivito.createWidgetClass({
-  name: 'SectionWidget',
+const SectionWidget = Scrivito.provideWidgetClass('SectionWidget', {
   attributes: {
     content: 'widgetlist',
     useFullWidth: ['enum', { values: ['yes', 'no'] }],

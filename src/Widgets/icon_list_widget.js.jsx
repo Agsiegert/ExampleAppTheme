@@ -1,8 +1,7 @@
 import IconComponent from 'components/icon';
 import iconListWidgetIcon from 'assets/images/icon_list_widget.svg';
 
-const IconListWidget = Scrivito.createWidgetClass({
-  name: 'IconListWidget',
+const IconListWidget = Scrivito.provideWidgetClass('IconListWidget', {
   attributes: {
     iconList: ['widgetlist', { only: 'IconListItemWidget' }],
   },

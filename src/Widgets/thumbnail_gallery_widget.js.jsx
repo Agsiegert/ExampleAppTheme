@@ -4,8 +4,7 @@ import fullScreenWidthPixels from 'utils/full_screen_width_pixels';
 import TagList from 'components/tag_list';
 import thumbnailGalleryWidgetIcon from 'assets/images/thumbnail_gallery_widget.svg';
 
-const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
-  name: 'ThumbnailGalleryWidget',
+const ThumbnailGalleryWidget = Scrivito.provideWidgetClass('ThumbnailGalleryWidget', {
   attributes: {
     images: ['widgetlist', { only: 'ThumbnailGalleryImageWidget' }],
     showTags: ['enum', { values: ['yes', 'no'] }],

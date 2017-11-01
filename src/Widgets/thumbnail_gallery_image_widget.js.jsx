@@ -1,6 +1,5 @@
-const ThumbnailGalleryImageWidget = Scrivito.createWidgetClass({
+const ThumbnailGalleryImageWidget = Scrivito.provideWidgetClass('ThumbnailGalleryImageWidget', {
   onlyInside: 'ThumbnailGalleryWidget',
-  name: 'ThumbnailGalleryImageWidget',
   attributes: {
     image: 'reference',
     title: 'string',

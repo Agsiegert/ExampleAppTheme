@@ -1,7 +1,6 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const ColumnWidget = Scrivito.createWidgetClass({
-  name: 'ColumnWidget',
+const ColumnWidget = Scrivito.provideWidgetClass('ColumnWidget', {
   onlyInside: 'ColumnContainerWidget',
   attributes: {
     colSize: 'integer',

@@ -1,9 +1,7 @@
 import dividerWidgetIcon from 'assets/images/divider_widget.svg';
 import scrivitoLogoRed from 'assets/images/scrivito_logo_red.svg';
 
-const DividerWidget = Scrivito.createWidgetClass({
-  name: 'DividerWidget',
-});
+const DividerWidget = Scrivito.provideWidgetClass('DividerWidget', {});
 
 Scrivito.provideEditingConfig('DividerWidget', {
   title: 'Divider',

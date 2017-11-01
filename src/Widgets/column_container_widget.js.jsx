@@ -1,8 +1,7 @@
 import columnContainerWidgetIcon from 'assets/images/column_container_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const ColumnContainerWidget = Scrivito.createWidgetClass({
-  name: 'ColumnContainerWidget',
+const ColumnContainerWidget = Scrivito.provideWidgetClass('ColumnContainerWidget', {
   attributes: {
     columns: ['widgetlist', { only: 'ColumnWidget' }],
     verticallyAligned: ['enum', { values: ['yes', 'no'] }],

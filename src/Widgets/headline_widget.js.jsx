@@ -1,8 +1,7 @@
 import headlineWidgetIcon from 'assets/images/headline_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const HeadlineWidget = Scrivito.createWidgetClass({
-  name: 'HeadlineWidget',
+const HeadlineWidget = Scrivito.provideWidgetClass('HeadlineWidget', {
   attributes: {
     headline: 'string',
     level: ['enum', { values: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],

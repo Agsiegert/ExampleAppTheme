@@ -2,8 +2,7 @@ import AddressListItemWidget from 'Widgets/address_list_item_widget';
 import addressWidgetIcon from 'assets/images/address_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const AddressWidget = Scrivito.createWidgetClass({
-  name: 'AddressWidget',
+const AddressWidget = Scrivito.provideWidgetClass('AddressWidget', {
   attributes: {
     address: 'html',
     listItems: ['widgetlist', { only: 'AddressListItemWidget' }],
