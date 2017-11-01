@@ -3,7 +3,6 @@
 import AddressListItemWidget from './address_list_item_widget';
 import AddressWidget from './address_widget';
 import BlogOverviewWidget from './blog_overview_widget';
-import BoxWidget from './box_widget';
 import ButtonWidget from './button_widget';
 import CarouselWidget from './carousel_widget';
 import ColumnWidget from './column_widget';
@@ -37,3 +36,10 @@ import ThumbnailGalleryWidget from './thumbnail_gallery_widget';
 import TickListItemWidget from './tick_list_item_widget';
 import TickListWidget from './tick_list_widget';
 import VideoWidget from './video_widget';
+
+function importAll(r) {
+  r.keys().forEach(r);
+}
+
+// import all js files under src/Widgets/
+importAll(require.context('./', true, /\.js$/));

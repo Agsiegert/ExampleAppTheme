@@ -1,4 +1,4 @@
-import AddressListItemWidget from 'widgets/address_list_item_widget';
+import AddressListItemWidget from 'Widgets/address_list_item_widget';
 import addressWidgetIcon from 'assets/images/address_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
