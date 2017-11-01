@@ -6,23 +6,11 @@
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="feature_panel">
-            <g id="Group" transform="translate(20.000000, 31.000000)">
-                <rect id="Rectangle" fill="#FF6B6B" x="13" y="2" width="38" height="5"></rect>
-                <rect id="Rectangle" fill="#FF6B6B" x="13" y="25" width="38" height="5"></rect>
-                <rect id="Rectangle" fill="#FF6B6B" x="73" y="2" width="38" height="5"></rect>
-                <rect id="Rectangle" fill="#FF6B6B" x="73" y="25" width="38" height="5"></rect>
-                <path d="M13.5,10.5 L40.5185122,10.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <path d="M13.5,33.5 L40.5185122,33.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <path d="M73.5,10.5 L100.518512,10.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <path d="M73.5,33.5 L100.518512,33.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <path d="M13.5,14.5 L31.5277564,14.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <path d="M13.5,37.5 L31.5277564,37.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <path d="M73.5,14.5 L91.5277564,14.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <path d="M73.5,37.5 L91.5277564,37.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <polyline id="Path-4" stroke="#FF6B6B" points="60 6 63 8 68 0"></polyline>
-                <polyline id="Path-4" stroke="#FF6B6B" points="60 29 63 31 68 23"></polyline>
-                <polyline id="Path-4" stroke="#FF6B6B" points="0 29 3 31 8 23"></polyline>
-                <polyline id="Path-4" stroke="#FF6B6B" points="0 6 3 8 8 0"></polyline>
+            <g id="Group" transform="translate(28.000000, 35.000000)">
+                <rect id="Rectangle" fill="#FF6B6B" x="24" y="4" width="71" height="9"></rect>
+                <path d="M24.9285714,20 L75.1058083,20" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                <path d="M24.9210526,27 L58.1300775,27" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                <polyline id="Path-4" stroke="#FF6B6B" points="0 11.25 5.625 15 15 0"></polyline>
             </g>
         </g>
     </g>

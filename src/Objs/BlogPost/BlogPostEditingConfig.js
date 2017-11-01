@@ -1,8 +1,10 @@
+import blogPostObjIcon from 'assets/images/blog_post_obj.svg';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
 Scrivito.provideEditingConfig('BlogPost', {
   title: 'BlogPost',
   description: 'A Blog Post',
+  thumbnail: `/${blogPostObjIcon}`,
   attributesConfig: {
     author: {
       title: 'Author',
