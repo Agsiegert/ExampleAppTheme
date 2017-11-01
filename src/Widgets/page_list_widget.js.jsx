@@ -1,7 +1,6 @@
 import pageListWidgetIcon from 'assets/images/page_list_widget.svg';
 
-const PageListWidget = Scrivito.createWidgetClass({
-  name: 'PageListWidget',
+const PageListWidget = Scrivito.provideWidgetClass('PageListWidget', {
   attributes: {
     headline: 'string',
     pages: 'referencelist',

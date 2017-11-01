@@ -1,7 +1,6 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const TableRowWidget = Scrivito.createWidgetClass({
-  name: 'TableRowWidget',
+const TableRowWidget = Scrivito.provideWidgetClass('TableRowWidget', {
   attributes: {
     feature: 'string',
     basicFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget'] }],

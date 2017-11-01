@@ -1,8 +1,7 @@
 import factWidgetIcon from 'assets/images/fact_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const FactWidget = Scrivito.createWidgetClass({
-  name: 'FactWidget',
+const FactWidget = Scrivito.provideWidgetClass('FactWidget', {
   attributes: {
     key: 'string',
     value: 'string',

@@ -2,8 +2,7 @@ import googleMapsImageUrl from 'utils/google_maps_image_url';
 import googleMapsWidgetIcon from 'assets/images/google_maps_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const GoogleMapsWidget = Scrivito.createWidgetClass({
-  name: 'GoogleMapsWidget',
+const GoogleMapsWidget = Scrivito.provideWidgetClass('GoogleMapsWidget', {
   attributes: {
     address: 'string',
     zoom: ['enum', {

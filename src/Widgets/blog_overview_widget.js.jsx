@@ -1,8 +1,7 @@
 import blogOverviewWidgetIcon from 'assets/images/blog_overview_widget.svg';
 import BlogPostPreviewList from 'components/blog_post/blog_post_preview_list';
 
-const BlogOverviewWidget = Scrivito.createWidgetClass({
-  name: 'BlogOverviewWidget',
+const BlogOverviewWidget = Scrivito.provideWidgetClass('BlogOverviewWidget', {
   attributes: {
     maxItems: 'integer',
     author: 'reference',

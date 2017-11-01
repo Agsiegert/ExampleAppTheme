@@ -4,8 +4,7 @@ import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import TagList from 'components/tag_list';
 import twoDigitNumber from 'utils/two_digit_number';
 
-const EventOverviewWidget = Scrivito.createWidgetClass({
-  name: 'EventOverviewWidget',
+const EventOverviewWidget = Scrivito.provideWidgetClass('EventOverviewWidget', {
   attributes: {
     maxItems: 'integer',
   },

@@ -1,8 +1,7 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 import { socialCardsAttributes } from '../_social_cards_attributes';
 
-const Blog = Scrivito.createObjClass({
-  name: 'Blog',
+const Blog = Scrivito.provideObjClass('Blog', {
   attributes: {
     title: 'string',
     navigationBackgroundImage: 'reference',

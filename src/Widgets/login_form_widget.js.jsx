@@ -1,8 +1,6 @@
 import loginFormWidgetIcon from 'assets/images/login_form_widget.svg';
 
-const LoginFormWidget = Scrivito.createWidgetClass({
-  name: 'LoginFormWidget',
-});
+const LoginFormWidget = Scrivito.provideWidgetClass('LoginFormWidget', {});
 
 Scrivito.provideEditingConfig('LoginFormWidget', {
   title: 'Login Form',

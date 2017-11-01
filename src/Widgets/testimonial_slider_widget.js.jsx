@@ -3,8 +3,7 @@ import devicePixelRatio from 'utils/device_pixel_ratio';
 import testimonialSliderWidgetIcon from 'assets/images/testimonial_slider_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const TestimonialSliderWidget = Scrivito.createWidgetClass({
-  name: 'TestimonialSliderWidget',
+const TestimonialSliderWidget = Scrivito.provideWidgetClass('TestimonialSliderWidget', {
   attributes: {
     testimonials: ['widgetlist', { only: 'TestimonialWidget' }],
   },

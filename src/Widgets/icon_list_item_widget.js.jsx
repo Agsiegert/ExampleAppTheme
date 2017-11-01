@@ -1,5 +1,4 @@
-const IconListItemWidget = Scrivito.createWidgetClass({
-  name: 'IconListItemWidget',
+const IconListItemWidget = Scrivito.provideWidgetClass('IconListItemWidget', {
   onlyInside: 'IconListWidget',
   attributes: {
     icon: 'string',

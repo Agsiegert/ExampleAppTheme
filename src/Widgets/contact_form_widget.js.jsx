@@ -1,7 +1,6 @@
 import contactFormWidgetIcon from 'assets/images/contact_form_widget.svg';
 
-const ContactFormWidget = Scrivito.createWidgetClass({
-  name: 'ContactFormWidget',
+const ContactFormWidget = Scrivito.provideWidgetClass('ContactFormWidget', {
   attributes: {
     agreementText: 'string',
     buttonText: 'string',

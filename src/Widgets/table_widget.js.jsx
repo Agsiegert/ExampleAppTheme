@@ -2,8 +2,7 @@ import tableWidgetIcon from 'assets/images/table_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 import { TableRowWidgetComponent } from './table_row_widget';
 
-const TableWidget = Scrivito.createWidgetClass({
-  name: 'TableWidget',
+const TableWidget = Scrivito.provideWidgetClass('TableWidget', {
   attributes: {
     rows: ['widgetlist', { only: 'TableRowWidget' }],
     featureHeadline: 'string',

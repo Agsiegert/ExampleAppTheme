@@ -1,8 +1,7 @@
 import featurePanelWidgetIcon from 'assets/images/feature_panel_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const FeaturePanelWidget = Scrivito.createWidgetClass({
-  name: 'FeaturePanelWidget',
+const FeaturePanelWidget = Scrivito.provideWidgetClass('FeaturePanelWidget', {
   attributes: {
     icon: 'string',
     headline: 'string',

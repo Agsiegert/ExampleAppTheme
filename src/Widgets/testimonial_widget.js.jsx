@@ -1,9 +1,8 @@
 import truncate from 'lodash.truncate';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const TestimonialWidget = Scrivito.createWidgetClass({
+const TestimonialWidget = Scrivito.provideWidgetClass('TestimonialWidget', {
   onlyInside: 'TestimonialSliderWidget',
-  name: 'TestimonialWidget',
   attributes: {
     testimonial: 'string',
     author: 'string',

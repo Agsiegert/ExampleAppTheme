@@ -1,8 +1,7 @@
 import urlFromBinary from 'utils/url_from_binary';
 import videoWidgetIcon from 'assets/images/video_widget.svg';
 
-const VideoWidget = Scrivito.createWidgetClass({
-  name: 'VideoWidget',
+const VideoWidget = Scrivito.provideWidgetClass('VideoWidget', {
   attributes: {
     source: 'reference',
     poster: 'reference',

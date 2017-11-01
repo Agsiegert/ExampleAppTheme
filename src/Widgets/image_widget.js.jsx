@@ -1,7 +1,6 @@
 import imageWidgetIcon from 'assets/images/image_widget.svg';
 
-const ImageWidget = Scrivito.createWidgetClass({
-  name: 'ImageWidget',
+const ImageWidget = Scrivito.provideWidgetClass('ImageWidget', {
   attributes: {
     image: 'reference',
     alignment: ['enum', { values: ['left', 'center', 'right'] }],

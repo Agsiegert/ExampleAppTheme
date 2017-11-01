@@ -1,8 +1,7 @@
 import signUpFormWidgetIcon from 'assets/images/sign_up_form_widget.svg';
 import { registerTextExtract } from 'utils/text_extract_registry';
 
-const SignUpFormWidget = Scrivito.createWidgetClass({
-  name: 'SignUpFormWidget',
+const SignUpFormWidget = Scrivito.provideWidgetClass('SignUpFormWidget', {
   attributes: {
     title: 'string',
     buttonText: 'string',
