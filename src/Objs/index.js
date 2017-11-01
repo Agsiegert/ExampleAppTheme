@@ -1,7 +1,5 @@
 /* eslint no-unused-vars: "off" */
 
-import Video from './video';
-
 const allJsFiles = require.context('./', true, /\/(\w+)\/(\w+)\.js$/);
 allJsFiles.keys().forEach(key => {
   const name = key.split('/')[1];
