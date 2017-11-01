@@ -37,3 +37,10 @@ import ThumbnailGalleryWidget from './thumbnail_gallery_widget';
 import TickListItemWidget from './tick_list_item_widget';
 import TickListWidget from './tick_list_widget';
 import VideoWidget from './video_widget';
+
+function importAll(r) {
+  r.keys().forEach(r);
+}
+
+// import all js files under src/Widgets/
+importAll(require.context('./', true, /\.js$/));
