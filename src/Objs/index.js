@@ -1,10 +1,6 @@
-const allJsFiles = require.context('./', true, /\/(\w+)\/(\w+)\.js$/);
-allJsFiles.keys().forEach(key => {
-  const name = key.split('/')[1];
+function importAll(r) {
+  r.keys().forEach(r);
+}
 
-  switch (key) {
-    case `./${name}/${name}.js`: return allJsFiles(key);
-    case `./${name}/${name}Component.js`: return allJsFiles(key);
-    case `./${name}/${name}EditingConfig.js`: return allJsFiles(key);
-  }
-});
+// import all js files under src/Objs/
+importAll(require.context('./', true, /\.js$/));
