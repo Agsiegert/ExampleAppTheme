@@ -2,6 +2,8 @@
 /* global fetch */
 import loremIpsum from 'lorem-ipsum';
 
+import boxWidgetScreenshotData from './binary_data/box_widget_screenshot';
+import columnWidgetScreenshotData from './binary_data/column_widget_screenshot';
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import ipadData from './binary_data/ipad';
@@ -441,6 +443,8 @@ function importContent() {
     const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
     // Images
+    const boxWidgetScreenshot = uploadImage(boxWidgetScreenshotData, 'Box Widget Screenshot');
+    const columnWidgetScreenshot = uploadImage(columnWidgetScreenshotData, 'Column Widget Screenshot');
     const unsplashAllesCandleWoodTable = uploadImage(unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
     const unsplashAppleWorkstationCalendarIpad = uploadImage(unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
     const unsplashAppleWorkstationWindcave = uploadImage(unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
@@ -2501,9 +2505,184 @@ function importContent() {
       title: 'Widgets & Pages',
       childOrder: [homeV1, homeV2, landingPage],
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Widgets & Pages' }),
-        ] }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashWatchTypeBookCoffee,
+          content: [
+            new HeadlineWidget({
+              alignment: 'center',
+              level: 'h1',
+              style: 'h1',
+              headline: 'Widgets & Page',
+            }),
+            new HeadlineWidget({
+              alignment: 'center',
+              level: 'h2',
+              style: 'h4',
+              headline: 'A gallery of widget and page types included in'
+                + ' the ScrivitoJS Example App',
+            }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              headline: 'Address Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Show brand logo<br>
+                      </li><li>Address</li><li>List items with key and
+                      colored value</li></ul><p><br></p>`,
+                  }),
+                ],
+                // col 2
+                [createAddressWidget({ showBorderBottom: false })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Blog Overview Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Max Items</li>
+                      <li>Limit by Author</li><li>Limit by Tag</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [new BlogOverviewWidget({ maxItems: 2 })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Box Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Show offset?</li>
+                      </ul>`,
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: boxWidgetScreenshot })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Button Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Link Target and
+                      Button Title</li><li>Alignment</li><li>Button Style
+                      </li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new ButtonWidget({
+                    alignment: 'center',
+                    target: new Scrivito.Link({
+                      title: 'This is a button',
+                      obj: root,
+                    }),
+                  }),
+                  new ButtonWidget({
+                    alignment: 'center',
+                    style: 'btn-clear',
+                    target: new Scrivito.Link({
+                      title: 'This is a clear button',
+                      obj: root,
+                    }),
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Carousel Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Add Images</li>
+                      <li>Show a Description</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new CarouselWidget({
+                    images: [unsplashDualingLaptops, unsplashClosingLaptop, unsplashDeskLaptop],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Column Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Vertically Align Columns</li>
+                      <li>Edit number of colums and widths</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: columnWidgetScreenshot })],
+              ],
+            }),
+          ],
+        }),
       ],
     });
 
