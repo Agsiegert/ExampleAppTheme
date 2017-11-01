@@ -1,4 +1,5 @@
 import dividerWidgetIcon from 'assets/images/divider_widget.svg';
+import scrivitoLogoRed from 'assets/images/scrivito_logo_red.svg';
 
 const DividerWidget = Scrivito.createWidgetClass({
   name: 'DividerWidget',
@@ -10,6 +11,10 @@ Scrivito.provideEditingConfig('DividerWidget', {
   thumbnail: `/${dividerWidgetIcon}`,
 });
 
-Scrivito.provideComponent('DividerWidget', () => <div className="hr-icon" />);
+Scrivito.provideComponent('DividerWidget', () =>
+  <div className="hr-icon">
+    <img src={ `/${scrivitoLogoRed}` } />
+  </div>
+);
 
 export default DividerWidget;
