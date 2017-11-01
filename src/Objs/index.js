@@ -1,6 +1,5 @@
 /* eslint no-unused-vars: "off" */
 
-import Page from './page';
 import Video from './video';
 
 const allJsFiles = require.context('./', true, /\/(\w+)\/(\w+)\.js$/);
