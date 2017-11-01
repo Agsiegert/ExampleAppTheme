@@ -1,5 +1,4 @@
-const Image = Scrivito.createObjClass({
-  name: 'Image',
+const Image = Scrivito.provideObjClass('Image', {
   attributes: {
     blob: 'binary',
     tags: 'stringlist',

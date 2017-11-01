@@ -1,8 +1,7 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
 import { socialCardsAttributes } from '../_social_cards_attributes';
 
-const Job = Scrivito.createObjClass({
-  name: 'Job',
+const Job = Scrivito.provideObjClass('Job', {
   attributes: {
     body: ['widgetlist', { only: 'SectionWidget' }],
     image: 'reference',

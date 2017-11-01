@@ -2,8 +2,7 @@ import { registerTextExtract } from 'utils/text_extract_registry';
 import { socialCardsAttributes } from '../_social_cards_attributes';
 import { defaultPageAttributes } from '../_default_page_attributes';
 
-const LandingPage = Scrivito.createObjClass({
-  name: 'LandingPage',
+const LandingPage = Scrivito.provideObjClass('LandingPage', {
   attributes: {
     ...defaultPageAttributes,
     ...socialCardsAttributes,

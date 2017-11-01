@@ -1,7 +1,6 @@
 import { socialCardsAttributes } from '../_social_cards_attributes';
 
-const SearchResults = Scrivito.createObjClass({
-  name: 'SearchResults',
+const SearchResults = Scrivito.provideObjClass('SearchResults', {
   attributes: {
     navigationBackgroundImage: 'reference',
     ...socialCardsAttributes,
