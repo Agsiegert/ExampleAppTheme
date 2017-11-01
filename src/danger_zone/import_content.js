@@ -2528,8 +2528,8 @@ function importContent() {
         new TextWidget({
           alignment: 'center',
           text: `<p>The ScrivitoJs Example App is intended to be both a
-            playground and a foundation for your own website. Built
-            entirely with Scrivito, it can be fully customized as your own.
+            playground and a foundation for your own website. <br>
+            Built entirely with Scrivito, it can be fully customized as your own.
             To begin editing, add <b><a href="/scrivito/">/scrivito/</a></b>
             to the URL above.</p>`,
         }),
