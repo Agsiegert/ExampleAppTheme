@@ -1,32 +1,10 @@
-import { registerTextExtract } from 'utils/text_extract_registry';
-import { socialCardsAttributes, socialCardsCustomGroup } from './_social_cards_attributes';
-
 import {
   defaultGeneralProperties,
-  defaultPageAttributes,
   defaultPageUiConfigAttributes,
-} from './_default_page_attributes';
+} from '../_default_page_attributes';
+import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
-const Homepage = Scrivito.createObjClass({
-  name: 'Homepage',
-  attributes: {
-    ...defaultPageAttributes,
-    childOrder: 'referencelist',
-    footer: ['widgetlist', { only: 'SectionWidget' }],
-    logoDark: 'reference',
-    logoWhite: 'reference',
-    facebookId: 'string',
-    twitterId: 'string',
-    ...socialCardsAttributes,
-  },
-});
-
-registerTextExtract('Homepage', [
-  { attribute: 'navigationSection', type: 'widgetlist' },
-  { attribute: 'body', type: 'widgetlist' },
-]);
-
-Scrivito.provideEditingConfig(Homepage, {
+Scrivito.provideEditingConfig('Homepage', {
   title: 'Homepage',
   description: 'A Homepage. This class is only intended for Obj.root() (aka "_path" "/")',
   attributesConfig: {
@@ -65,9 +43,3 @@ Scrivito.provideEditingConfig(Homepage, {
   ],
   titleForContent: obj => obj.get('title'),
 });
-
-Scrivito.provideComponent(Homepage, ({ page }) =>
-  <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
-);
-
-export default Homepage;

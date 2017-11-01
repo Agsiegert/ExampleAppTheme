@@ -9,7 +9,7 @@ const ButtonWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(ButtonWidget, {
+Scrivito.provideEditingConfig('ButtonWidget', {
   title: 'Button',
   description: 'A widget with a button.',
   thumbnail: `/${buttonWidgetIcon}`,
@@ -48,7 +48,7 @@ const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
   );
 });
 
-Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
+Scrivito.provideComponent('ButtonWidget', ({ widget }) => {
   if (['center', 'right'].includes(widget.get('alignment'))) {
     return (
       <div className={ `text-${widget.get('alignment')}` }>

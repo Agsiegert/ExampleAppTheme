@@ -8,7 +8,7 @@ const IconListWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(IconListWidget, {
+Scrivito.provideEditingConfig('IconListWidget', {
   title: 'Icon List',
   description: 'A list of icons.',
   thumbnail: `/${iconListWidgetIcon}`,
@@ -23,7 +23,7 @@ Scrivito.provideEditingConfig(IconListWidget, {
   ],
 });
 
-Scrivito.provideComponent(IconListWidget, ({ widget }) =>
+Scrivito.provideComponent('IconListWidget', ({ widget }) =>
   <div className="social-links text-center">
     {
       widget.get('iconList').map(iconListItem => {

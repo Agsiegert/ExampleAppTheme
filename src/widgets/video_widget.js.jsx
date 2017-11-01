@@ -9,7 +9,7 @@ const VideoWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(VideoWidget, {
+Scrivito.provideEditingConfig('VideoWidget', {
   title: 'Video',
   description: 'A widget with a video.',
   thumbnail: `/${videoWidgetIcon}`,
@@ -29,7 +29,7 @@ Scrivito.provideEditingConfig(VideoWidget, {
   ],
 });
 
-Scrivito.provideComponent(VideoWidget, ({ widget }) => {
+Scrivito.provideComponent('VideoWidget', ({ widget }) => {
   const videoUrl = urlFromBinary(widget.get('source'));
 
   if (!videoUrl) {

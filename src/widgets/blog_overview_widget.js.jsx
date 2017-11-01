@@ -10,7 +10,7 @@ const BlogOverviewWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(BlogOverviewWidget, {
+Scrivito.provideEditingConfig('BlogOverviewWidget', {
   title: 'Blog Overview',
   description: 'A widget with up to four blog posts.',
   thumbnail: `/${blogOverviewWidgetIcon}`,
@@ -35,7 +35,7 @@ Scrivito.provideEditingConfig(BlogOverviewWidget, {
   ],
 });
 
-Scrivito.provideComponent(BlogOverviewWidget, ({ widget }) =>
+Scrivito.provideComponent('BlogOverviewWidget', ({ widget }) =>
   <BlogPostPreviewList
     maxItems={ widget.get('maxItems') }
     author={ widget.get('author') }

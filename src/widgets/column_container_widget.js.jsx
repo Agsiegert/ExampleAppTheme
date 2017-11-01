@@ -13,7 +13,7 @@ registerTextExtract('ColumnContainerWidget', [
   { attribute: 'columns', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(ColumnContainerWidget, {
+Scrivito.provideEditingConfig('ColumnContainerWidget', {
   title: 'Columns',
   description: 'A widget with up to 4 columns.',
   thumbnail: `/${columnContainerWidgetIcon}`,
@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig(ColumnContainerWidget, {
   ],
 });
 
-Scrivito.provideComponent(ColumnContainerWidget, ({ widget }) => {
+Scrivito.provideComponent('ColumnContainerWidget', ({ widget }) => {
   const columns = widget.get('columns');
 
   if (!columns.length) {

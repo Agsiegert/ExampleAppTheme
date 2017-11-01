@@ -25,7 +25,7 @@ registerTextExtract('TableWidget', [
   { attribute: 'rows', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(TableWidget, {
+Scrivito.provideEditingConfig('TableWidget', {
   title: 'Table',
   description: 'A table widget.',
   thumbnail: `/${tableWidgetIcon}`,
@@ -45,7 +45,7 @@ Scrivito.provideEditingConfig(TableWidget, {
   ],
 });
 
-Scrivito.provideComponent(TableWidget, ({ widget }) =>
+Scrivito.provideComponent('TableWidget', ({ widget }) =>
   <table className="table-features">
     <thead>
       <tr>

@@ -33,7 +33,7 @@ registerTextExtract('SectionWidget', [
   { attribute: 'content', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(SectionWidget, {
+Scrivito.provideEditingConfig('SectionWidget', {
   title: 'Section',
   description: 'A section',
   thumbnail: `/${sectionWidgetIcon}`,
@@ -68,7 +68,7 @@ Scrivito.provideEditingConfig(SectionWidget, {
   ],
 });
 
-Scrivito.provideComponent(SectionWidget, ({ widget }) => {
+Scrivito.provideComponent('SectionWidget', ({ widget }) => {
   const sectionClassNames = [];
 
   const backgroundColor = widget.get('backgroundColor') || 'white';

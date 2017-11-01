@@ -8,7 +8,7 @@ const ImageWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(ImageWidget, {
+Scrivito.provideEditingConfig('ImageWidget', {
   title: 'Image',
   description: 'A widget with an image.',
   thumbnail: `/${imageWidgetIcon}`,
@@ -23,7 +23,7 @@ Scrivito.provideEditingConfig(ImageWidget, {
   ],
 });
 
-Scrivito.provideComponent(ImageWidget, ({ widget }) => {
+Scrivito.provideComponent('ImageWidget', ({ widget }) => {
   const image = <Scrivito.ImageTag content={ widget } attribute="image" />;
 
   if (['center', 'right'].includes(widget.get('alignment'))) {

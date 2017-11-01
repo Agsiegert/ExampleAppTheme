@@ -12,7 +12,7 @@ const ThumbnailGalleryWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(ThumbnailGalleryWidget, {
+Scrivito.provideEditingConfig('ThumbnailGalleryWidget', {
   title: 'Thumbnail Gallery',
   description: 'A widget with an thumbnail image gallery.',
   thumbnail: `/${thumbnailGalleryWidgetIcon}`,
@@ -162,7 +162,7 @@ class ThumbnailGalleryComponent extends React.Component {
   }
 }
 
-Scrivito.provideComponent(ThumbnailGalleryWidget, ThumbnailGalleryComponent);
+Scrivito.provideComponent('ThumbnailGalleryWidget', ThumbnailGalleryComponent);
 
 function allTags(images) {
   const tagsArray = images.map(image => image.get('tags'));

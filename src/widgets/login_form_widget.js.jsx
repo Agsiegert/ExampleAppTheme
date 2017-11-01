@@ -4,13 +4,13 @@ const LoginFormWidget = Scrivito.createWidgetClass({
   name: 'LoginFormWidget',
 });
 
-Scrivito.provideEditingConfig(LoginFormWidget, {
+Scrivito.provideEditingConfig('LoginFormWidget', {
   title: 'Login Form',
   description: 'A widget with login form.',
   thumbnail: `/${loginFormWidgetIcon}`,
 });
 
-Scrivito.provideComponent(LoginFormWidget, () =>
+Scrivito.provideComponent('LoginFormWidget', () =>
   <div className="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
     <div className="box-login floating-label">
       <form>

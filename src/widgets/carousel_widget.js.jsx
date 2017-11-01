@@ -16,7 +16,7 @@ registerTextExtract('CarouselWidget', [
   { attribute: 'description', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(CarouselWidget, {
+Scrivito.provideEditingConfig('CarouselWidget', {
   title: 'Carousel',
   description: 'A widget with sliding images.',
   thumbnail: `/${carouselWidgetIcon}`,
@@ -52,7 +52,7 @@ function descriptionBox(widget) {
   );
 }
 
-Scrivito.provideComponent(CarouselWidget, ({ widget }) =>
+Scrivito.provideComponent('CarouselWidget', ({ widget }) =>
   <div>
     <Carousel
       indicators={ false }

@@ -14,7 +14,7 @@ registerTextExtract('SignUpFormWidget', [
   { attribute: 'title', type: 'string' },
 ]);
 
-Scrivito.provideEditingConfig(SignUpFormWidget, {
+Scrivito.provideEditingConfig('SignUpFormWidget', {
   title: 'Sign Up Form',
   description: 'A widget with sign up form.',
   thumbnail: `/${signUpFormWidgetIcon}`,
@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig(SignUpFormWidget, {
   ],
 });
 
-Scrivito.provideComponent(SignUpFormWidget, ({ widget }) => {
+Scrivito.provideComponent('SignUpFormWidget', ({ widget }) => {
   const classNames = [];
   if (widget.get('isTransparent') === 'yes') {
     classNames.push('panel-white-transparent');

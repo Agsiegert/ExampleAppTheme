@@ -17,7 +17,7 @@ registerTextExtract('HeadlineWidget', [
   { attribute: 'headline', type: 'string' },
 ]);
 
-Scrivito.provideEditingConfig(HeadlineWidget, {
+Scrivito.provideEditingConfig('HeadlineWidget', {
   title: 'Headline',
   description: 'A widget with a headline.',
   thumbnail: `/${headlineWidgetIcon}`,
@@ -53,7 +53,7 @@ Scrivito.provideEditingConfig(HeadlineWidget, {
   titleForContent: widget => widget.get('headline'),
 });
 
-Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
+Scrivito.provideComponent('HeadlineWidget', ({ widget }) => {
   const level = widget.get('level') || 'h1';
   const style = widget.get('style') || level;
   const classNames = [style];

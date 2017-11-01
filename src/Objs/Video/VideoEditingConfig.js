@@ -1,13 +1,4 @@
-const Video = Scrivito.createObjClass({
-  name: 'Video',
-  attributes: {
-    blob: 'binary',
-    title: 'string',
-    tags: 'stringlist',
-  },
-});
-
-Scrivito.provideEditingConfig(Video, {
+Scrivito.provideEditingConfig('Video', {
   attributesConfig: {
     title: {
       title: 'Title',
@@ -23,5 +14,3 @@ Scrivito.provideEditingConfig(Video, {
     'tags',
   ],
 });
-
-export default Video;

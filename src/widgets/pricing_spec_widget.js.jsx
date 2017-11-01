@@ -14,12 +14,12 @@ registerTextExtract('PricingSpecWidget', [
   { attribute: 'unit', type: 'string' },
 ]);
 
-Scrivito.provideEditingConfig(PricingSpecWidget, {
+Scrivito.provideEditingConfig('PricingSpecWidget', {
   title: 'PricingSpec',
   description: 'A Pricing Spec - Can only live inside a PricingWidget.',
 });
 
-Scrivito.provideComponent(PricingSpecWidget, ({ widget }) =>
+Scrivito.provideComponent('PricingSpecWidget', ({ widget }) =>
   <div className="spec">
     <Scrivito.ContentTag
       content={ widget }

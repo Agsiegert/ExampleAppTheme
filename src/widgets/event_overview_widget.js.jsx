@@ -1,4 +1,4 @@
-import Event from 'objs/event';
+import Event from 'Objs/Event/EventObjClass';
 import eventOverviewWidgetIcon from 'assets/images/event_overview_widget.svg';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import TagList from 'components/tag_list';
@@ -11,7 +11,7 @@ const EventOverviewWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(EventOverviewWidget, {
+Scrivito.provideEditingConfig('EventOverviewWidget', {
   title: 'Event Overview',
   description: 'A widget showing all events.',
   thumbnail: `/${eventOverviewWidgetIcon}`,
@@ -116,6 +116,6 @@ class EventOverviewWidgetComponent extends React.Component {
   }
 }
 
-Scrivito.provideComponent(EventOverviewWidget, EventOverviewWidgetComponent);
+Scrivito.provideComponent('EventOverviewWidget', EventOverviewWidgetComponent);
 
 export default EventOverviewWidget;

@@ -18,7 +18,7 @@ registerTextExtract('AddressWidget', [
 ]);
 
 
-Scrivito.provideEditingConfig(AddressWidget, {
+Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',
   description: 'A widget, which shows an address.',
   thumbnail: `/${addressWidgetIcon}`,
@@ -75,7 +75,7 @@ const AddMoreItems = Scrivito.connect(({ widget }) => {
   );
 });
 
-Scrivito.provideComponent(AddressWidget, ({ widget }) => {
+Scrivito.provideComponent('AddressWidget', ({ widget }) => {
   return (
     <div>
       { widget.get('showLogo') !== 'no' && <Logo /> }

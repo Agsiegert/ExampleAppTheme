@@ -21,7 +21,7 @@ registerTextExtract('GoogleMapsWidget', [
   { attribute: 'content', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(GoogleMapsWidget, {
+Scrivito.provideEditingConfig('GoogleMapsWidget', {
   title: 'Google Maps',
   description: 'A widget with google maps.',
   thumbnail: `/${googleMapsWidgetIcon}`,
@@ -144,6 +144,6 @@ const Widgets = Scrivito.connect(({ widget }) => {
   );
 });
 
-Scrivito.provideComponent(GoogleMapsWidget, GoogleMapsWidgetComponent);
+Scrivito.provideComponent('GoogleMapsWidget', GoogleMapsWidgetComponent);
 
 export default GoogleMapsWidget;

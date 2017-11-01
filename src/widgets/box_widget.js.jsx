@@ -13,7 +13,7 @@ registerTextExtract('BoxWidget', [
   { attribute: 'body', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(BoxWidget, {
+Scrivito.provideEditingConfig('BoxWidget', {
   title: 'Box',
   description: 'A box widget.',
   thumbnail: `/${boxWidgetIcon}`,
@@ -28,7 +28,7 @@ Scrivito.provideEditingConfig(BoxWidget, {
   ],
 });
 
-Scrivito.provideComponent(BoxWidget, ({ widget }) => {
+Scrivito.provideComponent('BoxWidget', ({ widget }) => {
   const classNames = ['panel', 'panel-theme'];
   if (widget.get('useOffset') === 'yes') { classNames.push('box-offset'); }
 

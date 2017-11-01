@@ -14,7 +14,7 @@ registerTextExtract('TestimonialSliderWidget', [
   { attribute: 'testimonials', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(TestimonialSliderWidget, {
+Scrivito.provideEditingConfig('TestimonialSliderWidget', {
   title: 'Testimonial Slider',
   description: 'A testimonial slider.',
   thumbnail: `/${testimonialSliderWidgetIcon}`,
@@ -59,7 +59,7 @@ function sliderSettings(testimonials) {
   };
 }
 
-Scrivito.provideComponent(TestimonialSliderWidget, ({ widget }) => {
+Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
   const testimonials = widget.get('testimonials');
   if (!testimonials.length) { return null; }
 

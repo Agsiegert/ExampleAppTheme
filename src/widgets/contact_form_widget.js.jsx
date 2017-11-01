@@ -8,7 +8,7 @@ const ContactFormWidget = Scrivito.createWidgetClass({
   },
 });
 
-Scrivito.provideEditingConfig(ContactFormWidget, {
+Scrivito.provideEditingConfig('ContactFormWidget', {
   title: 'Contact Form',
   description: 'A widget with contact form.',
   thumbnail: `/${contactFormWidgetIcon}`,
@@ -28,7 +28,7 @@ Scrivito.provideEditingConfig(ContactFormWidget, {
   ],
 });
 
-Scrivito.provideComponent(ContactFormWidget, ({ widget }) =>
+Scrivito.provideComponent('ContactFormWidget', ({ widget }) =>
   <div className="row floating-label">
     <form>
       <div className="col-sm-6">

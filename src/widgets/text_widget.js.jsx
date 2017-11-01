@@ -13,7 +13,7 @@ registerTextExtract('TextWidget', [
   { attribute: 'text', type: 'html' },
 ]);
 
-Scrivito.provideEditingConfig(TextWidget, {
+Scrivito.provideEditingConfig('TextWidget', {
   title: 'Text',
   description: 'A widget with html text.',
   thumbnail: `/${textWidgetIcon}`,
@@ -33,7 +33,7 @@ Scrivito.provideEditingConfig(TextWidget, {
   ],
 });
 
-Scrivito.provideComponent(TextWidget, ({ widget }) => {
+Scrivito.provideComponent('TextWidget', ({ widget }) => {
   const classNames = [];
   if (widget.get('alignment')) {
     classNames.push(`text-${widget.get('alignment')}`);

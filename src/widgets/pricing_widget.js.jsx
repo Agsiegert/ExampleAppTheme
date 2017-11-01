@@ -39,7 +39,7 @@ registerTextExtract('PricingWidget', [
   { attribute: 'largePlanSpecs', type: 'widgetlist' },
 ]);
 
-Scrivito.provideEditingConfig(PricingWidget, {
+Scrivito.provideEditingConfig('PricingWidget', {
   title: 'Pricing',
   description: 'A pricing widget',
   thumbnail: `/${pricingWidgetIcon}`,
@@ -81,7 +81,7 @@ function PlanButton({ target, className }) {
   );
 }
 
-Scrivito.provideComponent(PricingWidget, ({ widget }) => {
+Scrivito.provideComponent('PricingWidget', ({ widget }) => {
   const currency = widget.get('currency') || '$';
 
   return (
