@@ -1,8 +1,10 @@
+import jobObjIcon from 'assets/images/job_obj.svg';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
 Scrivito.provideEditingConfig('Job', {
   title: 'Job',
   description: 'A Job',
+  thumbnail: `/${jobObjIcon}`,
   attributesConfig: {
     image: {
       title: 'Image',

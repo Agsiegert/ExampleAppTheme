@@ -1,8 +1,10 @@
+import authorObjIcon from 'assets/images/author_obj.svg';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
 Scrivito.provideEditingConfig('Author', {
   title: 'Author',
   description: 'An Author',
+  thumbnail: `/${authorObjIcon}`,
   attributesConfig: {
     name: {
       title: 'Name',
