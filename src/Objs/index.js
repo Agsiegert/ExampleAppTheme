@@ -1,6 +1,5 @@
 /* eslint no-unused-vars: "off" */
 
-import Job from './job';
 import LandingPage from './landing_page';
 import Page from './page';
 import Video from './video';
