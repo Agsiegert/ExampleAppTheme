@@ -1,4 +1,4 @@
-import Event from 'Objs/Event/Event';
+import Event from 'Objs/Event/EventObjClass';
 import eventOverviewWidgetIcon from 'assets/images/event_overview_widget.svg';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import TagList from 'components/tag_list';
