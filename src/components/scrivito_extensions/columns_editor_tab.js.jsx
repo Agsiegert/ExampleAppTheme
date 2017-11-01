@@ -23,6 +23,9 @@ class ColumnsEditorTab extends React.Component {
         <div className="scrivito_detail_label">
           <span className="headline">Column Layout</span>
         </div>
+        <div className="scrivito_detail_label">
+          <span>Layout (Desktop)</span>
+        </div>
         <div className="item_content">
           <div className="gle-preview-list">
             <div className="gle-preview-group">
