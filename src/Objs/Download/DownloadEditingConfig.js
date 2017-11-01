@@ -1,4 +1,4 @@
-export default Scrivito.provideEditingConfig('Download', {
+Scrivito.provideEditingConfig('Download', {
   attributesConfig: {
     tags: {
       title: 'Tags',

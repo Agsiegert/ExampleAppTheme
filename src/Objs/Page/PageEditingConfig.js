@@ -4,7 +4,7 @@ import {
   defaultPageUiConfigAttributes,
 } from '../_default_page_attributes';
 
-export default Scrivito.provideEditingConfig('Page', {
+Scrivito.provideEditingConfig('Page', {
   title: 'Page',
   description: 'A Basic Page',
   attributesConfig: {

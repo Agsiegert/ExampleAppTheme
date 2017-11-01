@@ -1,4 +1,4 @@
-export default Scrivito.provideEditingConfig('Video', {
+Scrivito.provideEditingConfig('Video', {
   attributesConfig: {
     title: {
       title: 'Title',

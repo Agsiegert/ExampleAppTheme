@@ -10,7 +10,7 @@ function formatDate(date) {
   return `${twoDigitNumber(month)}/${twoDigitNumber(dayOfMonth)}/${year}`;
 }
 
-export default Scrivito.provideComponent('Event', ({ page }) =>
+Scrivito.provideComponent('Event', ({ page }) =>
   <div>
     <section className="bg-white">
       <div className="container">

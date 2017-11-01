@@ -79,4 +79,4 @@ class SearchResultsComponent extends React.Component {
   }
 }
 
-export default Scrivito.provideComponent('SearchResults', SearchResultsComponent);
+Scrivito.provideComponent('SearchResults', SearchResultsComponent);

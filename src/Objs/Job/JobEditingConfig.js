@@ -1,6 +1,6 @@
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
-export default Scrivito.provideEditingConfig('Job', {
+Scrivito.provideEditingConfig('Job', {
   title: 'Job',
   description: 'A Job',
   attributesConfig: {

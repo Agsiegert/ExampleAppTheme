@@ -3,7 +3,7 @@ import BlogPostMorePosts from 'components/blog_post/blog_post_more_posts';
 import BlogPostNavigation from 'components/blog_post/blog_post_navigation';
 import BlogPostTagList from 'components/blog_post/blog_post_tag_list';
 
-export default Scrivito.provideComponent('BlogPost', ({ page }) =>
+Scrivito.provideComponent('BlogPost', ({ page }) =>
   <div>
     <BlogPostNavigation currentPost={ page }/>
     <section className='bg-white'>

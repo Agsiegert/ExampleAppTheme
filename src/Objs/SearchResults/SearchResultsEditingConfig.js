@@ -1,6 +1,6 @@
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
-export default Scrivito.provideEditingConfig('SearchResults', {
+Scrivito.provideEditingConfig('SearchResults', {
   title: 'Search Results',
   description: 'A Search Results Page',
   attributesConfig: {

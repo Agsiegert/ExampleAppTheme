@@ -1,4 +1,4 @@
-export default Scrivito.provideEditingConfig('Image', {
+Scrivito.provideEditingConfig('Image', {
   attributesConfig: {
     tags: {
       title: 'Tags',
