@@ -2,6 +2,8 @@
 /* global fetch */
 import loremIpsum from 'lorem-ipsum';
 
+import boxWidgetScreenshotData from './binary_data/box_widget_screenshot';
+import columnWidgetScreenshotData from './binary_data/column_widget_screenshot';
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import ipadData from './binary_data/ipad';
@@ -441,6 +443,8 @@ function importContent() {
     const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
     // Images
+    const boxWidgetScreenshot = uploadImage(boxWidgetScreenshotData, 'Box Widget Screenshot');
+    const columnWidgetScreenshot = uploadImage(columnWidgetScreenshotData, 'Column Widget Screenshot');
     const unsplashAllesCandleWoodTable = uploadImage(unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
     const unsplashAppleWorkstationCalendarIpad = uploadImage(unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
     const unsplashAppleWorkstationWindcave = uploadImage(unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
@@ -2121,14 +2125,14 @@ function importContent() {
                   headline: 'Are You Asking Your CMS Vendor the Right Questions?',
                 }),
                 new TextWidget({
-                  text: '<p>Choosing the right Content Management System (CMS)'
-                    + ' for your web project at first could appear to be a'
-                    + ' momentous task. However, if you ask the right questions'
-                    + ' before you get too deep, your whole project will come'
-                    + ' together more easily than you can imagine and you\'ll'
-                    + ' be well on your way to a successful launch.</p><p>Read'
-                    + ' about ten things you can ask a CMS vendor to help'
-                    + ' you choose the right modern Web CMS (PDF).</p>',
+                  text: `<p>Choosing the right Content Management System (CMS)
+                    for your web project at first could appear to be a
+                    momentous task. However, if you ask the right questions
+                    before you get too deep, your whole project will come
+                    together more easily than you can imagine and you'll
+                    be well on your way to a successful launch.</p><p>Read
+                    about ten things you can ask a CMS vendor to help
+                    you choose the right modern Web CMS (PDF).</p>`,
                 }),
                 new ButtonWidget({
                   target: new Scrivito.Link({
@@ -2501,9 +2505,184 @@ function importContent() {
       title: 'Widgets & Pages',
       childOrder: [homeV1, homeV2, landingPage],
       body: [
-        new SectionWidget({ content: [
-          new HeadlineWidget({ headline: 'Widgets & Pages' }),
-        ] }),
+        new SectionWidget({
+          backgroundColor: 'dark-image',
+          backgroundImage: unsplashWatchTypeBookCoffee,
+          content: [
+            new HeadlineWidget({
+              alignment: 'center',
+              level: 'h1',
+              style: 'h1',
+              headline: 'Widgets & Page',
+            }),
+            new HeadlineWidget({
+              alignment: 'center',
+              level: 'h2',
+              style: 'h4',
+              headline: 'A gallery of widget and page types included in'
+                + ' the ScrivitoJS Example App',
+            }),
+          ],
+        }),
+        new SectionWidget({
+          content: [
+            new HeadlineWidget({
+              headline: 'Address Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Show brand logo<br>
+                      </li><li>Address</li><li>List items with key and
+                      colored value</li></ul><p><br></p>`,
+                  }),
+                ],
+                // col 2
+                [createAddressWidget({ showBorderBottom: false })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Blog Overview Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Max Items</li>
+                      <li>Limit by Author</li><li>Limit by Tag</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [new BlogOverviewWidget({ maxItems: 2 })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Box Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Show offset?</li>
+                      </ul>`,
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: boxWidgetScreenshot })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Button Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Link Target and
+                      Button Title</li><li>Alignment</li><li>Button Style
+                      </li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new ButtonWidget({
+                    alignment: 'center',
+                    target: new Scrivito.Link({
+                      title: 'This is a button',
+                      obj: root,
+                    }),
+                  }),
+                  new ButtonWidget({
+                    alignment: 'center',
+                    style: 'btn-clear',
+                    target: new Scrivito.Link({
+                      title: 'This is a clear button',
+                      obj: root,
+                    }),
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Carousel Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Add Images</li>
+                      <li>Show a Description</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new CarouselWidget({
+                    images: [unsplashDualingLaptops, unsplashClosingLaptop, unsplashDeskLaptop],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Column Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Vertically Align Columns</li>
+                      <li>Edit number of colums and widths</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: columnWidgetScreenshot })],
+              ],
+            }),
+          ],
+        }),
       ],
     });
 
@@ -2523,23 +2702,22 @@ function importContent() {
       navigationSection: [
         new HeadlineWidget({
           alignment: 'center',
-          headline: 'Amazing hero widget',
+          headline: 'Welcome to your ScrivitoJs Example App',
         }),
         new TextWidget({
           alignment: 'center',
-          text: loremIpsum({
-            units: 'paragraphs',
-            format: 'html',
-            count: 1,
-            paragraphLowerBound: 3,
-            paragraphUpperBound: 5,
-          }),
+          text: `<p>The ScrivitoJs Example App is intended to be both a
+            playground and a foundation for your own website. <br>
+            Built entirely with Scrivito, it can be fully customized as your own.
+            To begin editing, add <b><a href="/scrivito/">/scrivito/</a></b>
+            to the URL above.</p>`,
         }),
         new ButtonWidget({
           alignment: 'center',
           target: new Scrivito.Link({
-            title: 'Call to action',
-            obj: root,
+            title: 'Learn more about Editing',
+            url: 'https://scrivito.com/about-in-place-editing-a7d5b161ade2b92f',
+            target: '_blank',
           }),
         }),
       ],
@@ -2547,7 +2725,7 @@ function importContent() {
       body: [
         new SectionWidget({ content: [
           new HeadlineWidget({
-            headline: 'Our top features',
+            headline: 'Getting Started',
             level: 'h1',
             style: 'h2',
             showDividingLine: 'yes',
@@ -2562,21 +2740,28 @@ function importContent() {
                 new HeadlineWidget({
                   level: 'h3',
                   style: 'h2',
-                  headline: 'Content Management for Professionals',
+                  headline: 'Add a New Widget',
                 }),
                 new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 3,
-                    paragraphUpperBound: 5,
-                  }),
+                  text: `<p>Widgets are the building blocks of your content.
+                    Adding widgets is simple. If you are in editing mode
+                    (just add /scrivito/ to the URL above and switch from
+                    Preview mode to Edit mode) you will see a green frame
+                    around this text when you hover over it. Green frames
+                    are used for widgets containing content. You will also see
+                    yellow frames, meant to contain other widgets and blue
+                    frames meant to contain navigations. To add a new
+                    widget click on one of the green boxes with a white plus
+                    sign above or below the green frame. Then select the
+                    widget from the Widget Browser and add the corresponding
+                    content to the type of widget you selected. Go ahead, give
+                    it a try!</p>`,
                 }),
                 new ButtonWidget({
                   target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                    title: 'Learn more about Widgets',
+                    url: 'https://scrivito.com/using-widgets-5fc5b2469306a3d2',
+                    target: '_blank',
                   }),
                 }),
               ],
@@ -2590,21 +2775,28 @@ function importContent() {
                 new HeadlineWidget({
                   level: 'h3',
                   style: 'h2',
-                  headline: 'Content Management for Professionals',
+                  headline: 'Add a New Page',
                 }),
                 new TextWidget({
-                  text: loremIpsum({
-                    units: 'paragraphs',
-                    format: 'html',
-                    count: 1,
-                    paragraphLowerBound: 3,
-                    paragraphUpperBound: 5,
-                  }),
+                  text: `<p>Pages have a defined layout and are meant to be a
+                   framework to begin editing. To create a new page,
+                   <a href="https://scrivito.com/scrivito/private-beta/
+                   about-in-place-editing-a7d5b161ade2b92f" target="_blank"
+                   rel="noopener noreferrer">activate the Edit mode</a> via
+                   the Scrivito panel. Next, note that there are two options
+                   for where and how to create a new page. If you want to add
+                   a page to the defined navigation hierarchy then select 'Add
+                   page' from the menu of a blue navigation handle in the
+                   navigation bar. If you wish to add a new page without a link in the
+                   navigation you can select 'Create page' from the hamburger/
+                   page menu in the top right corner of this page. How about
+                   adding a landing page!?</p>`,
                 }),
                 new ButtonWidget({
                   target: new Scrivito.Link({
-                    title: 'Call to action',
-                    obj: root,
+                    title: 'Learn more about Pages',
+                    url: 'https://scrivito.com/working-with-pages-b094262d9b938333',
+                    target: '_blank',
                   }),
                 }),
               ],
