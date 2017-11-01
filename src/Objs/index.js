@@ -1,5 +1,3 @@
-/* eslint no-unused-vars: "off" */
-
 const allJsFiles = require.context('./', true, /\/(\w+)\/(\w+)\.js$/);
 allJsFiles.keys().forEach(key => {
   const name = key.split('/')[1];
