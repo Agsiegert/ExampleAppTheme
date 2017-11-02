@@ -1,4 +1,4 @@
-import ColumnWidget from 'Widgets/column_widget';
+import ColumnWidget from 'Widgets/ColumnWidget/ColumnWidgetClass';
 import flatten from 'lodash/flatten';
 import isEqual from 'lodash/isEqual';
 import last from 'lodash/last';
