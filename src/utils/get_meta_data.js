@@ -6,9 +6,7 @@ function getMetaData(page) {
   const meta = [
     { name: 'twitter:card', content: 'summary_large_image' },
     { property: 'og:type', content: 'article' },
-    // TODO this should be the conanicalURl for the page
-    // https://github.com/infopark/rails_connector/issues/3486
-    // { property: 'og:url', content: 'https://example_app.com' },
+    { property: 'og:url', content: Scrivito.urlFor(page) },
   ];
   const textExtract = textExtractFromObj(page);
 
