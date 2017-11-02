@@ -1,0 +1,170 @@
+# ScrivitoJS Example App Workshop
+
+## Preparation
+
+### Goal 1: Have node ≥ 8 & npm ≥ 5 running
+
+The command `node -v` should report at least `v8.0.0`. The command `npm -v` should report at least `5.0.0`.
+
+#### How to achieve this
+
+`npm` is part of the `node` installation. So only `node` needs to be installed/upgraded.
+
+Option 1 - Using [🍺 Homebrew](https://brew.sh):
+
+```
+brew install node
+
+# or, if already node is already installed
+brew upgrade node
+```
+
+Option 2 - Downloading installer from [nodejs.org](https://nodejs.org/en/download/).
+
+### Goal 2: Local copy of example app
+
+A local copy of the repository should exist on your mashine.
+
+#### How to achieve this
+
+* Fork this repository via Github GUI.
+* `git clone` your fork.
+* `cd scrivito_example_app_js/`
+
+### Goal 3: Install all NPM packages
+
+All npm packages needed for the example app should be installed.
+
+#### How to achieve this
+* `npm install` ([npm](https://www.npmjs.com) is the node package manager, similar to [bundler](https://bundler.io))
+
+## Get a tenant
+
+### Goal 4: Login/Register at my.scrivito.com
+
+You should be able to log into [https://my.scrivito.com](https://my.scrivito.com).
+
+#### How to achieve this
+
+* Visit [https://my.scrivito.com](https://my.scrivito.com).
+* Log in, if you already have an account.
+* Register, if you not have an account yet.
+	* If so, please use your official Infopark e-mail such as `first_name.last_name@infopark.de`. Otherwise you will not be recognized as an Infopark employee.
+	* Click on the link, which is send via e-mail after the registration.
+
+### Goal 5: have an empty "Infopark Play CMS" tenant
+
+You should have a new (empty) "Infopark Play CMS" tenant to be used for this workshop.
+
+#### How to achieve this
+
+* Go to [https://my.scrivito.com/tenants](https://my.scrivito.com/tenants).
+* Scroll down and click `CREATE AN INFOPARK PLAY CMS`.
+
+### Goal 6: Configure the newly created tenant.
+
+You should have a correctly configured tenant.
+
+#### How to achieve this
+
+* Go to [https://my.scrivito.com/tenants](https://my.scrivito.com/tenants).
+* Look for `Firstname Lastname's Playground CMS` and click on it.
+* In `OVERVIEW` click on edit and change the `TITLE`, e.g. to `ScrivitoJS Workshop`. Click save afterwards.
+* In `USERS` click on `ADD MYSELF`.
+* In `SETTINGS` scroll down to `DEVELOPMENT` and click edit.
+	* Enter `http://localhost:8080` in `GENERAL CORS ORIGINS` and `MY ADDITIONAL CORS ORIGINS` for now. Click save afterwards.
+
+### Goal 7: Local tenant ID + `npm start`
+
+Your local copy of the example app should have a tenant ID. `npm start` should not throw an exception.
+
+#### How to achieve this
+
+* On the detail view of the configured tenant on `my.scrivito.com` go to `SETTINGS`.
+* Scroll down to `SCRIVITO_TENANT`. Copy that ID.
+* Now back to your terminal in folder `scrivito_example_app_js`:
+	* Execute `echo SCRIVITO_TENANT=XY > .env`, so that the example app can read the tenant ID via [dotenv](https://github.com/motdotla/dotenv).
+	* Execute `npm start`.
+
+## Fill the tenant with content
+
+Now you should have a running site on [http://localhost:8080/](http://localhost:8080/) open in your browser with a "Something went wrong" message. So far everything is fine 😺.
+
+### Goal 8: Create a working copy
+
+You should have a working copy, that you can edit.
+
+#### How to achieve this
+
+* Visit [http://localhost:8080/scrivito/](http://localhost:8080/scrivito/).
+* Click on `Edit` in the top area.
+* Choose a name for the working copy, e.g. "Initial Content".
+
+### Goal 9: Import the content
+
+You should have the initial content imported.
+
+#### How to achieve this
+
+* Open your javascript console in your browser.
+* Execute the following in the javascript console:
+  ```
+  scrivito_application.ExampleApp.DangerZone.importContent()
+  ```
+* Wait for "Saving..." in the top right corner to disappear. Since a lot of binaries such as images needs to be uploaded, this can take a minute or two.
+* Reload the page.
+* Publish the working copy.
+* Enjoy the great content 😺.
+
+
+If you now visit [http://localhost:8080](http://localhost:8080) you should see normal content.
+
+## Deployment on Netlify
+
+[Netlify](https://www.netlify.com) is a CDN for single page apps, which makes deployment really easy. Think of it as Heroku for JavaScript.
+
+### Goal 10: Login/Register on Netlify
+
+You should have a netlify account.
+
+#### How to achieve this
+* Visit [Netlify](https://www.netlify.com).
+* Click "Sign Up".
+  * You can choose e-mail or GitHub. If you choose GitHub we can later on enable automatic deployments on push and preview deployments.
+
+### Goal 11: Deploy first build
+
+The world should see your version of the example app.
+
+#### How to achieve this
+
+* Execute `npm run build` to create a build of the example app. This can take a minute or two, since the js code is minified etc.
+* Once the command is done, everything you need is in the `build/` folder.
+* Now go to [https://app.netlify.com](https://app.netlify.com). In the "Drag a folder" section (at the bottom of the page) just drag and drop the newly created `build/` folder.
+* Netlify will now create a new site and public URL for you. This can take some time.
+* Copy the newly generated netlify URL. Also visit that URL.
+* You should now be automatically redirected to `my.scrivito.com` with an error message such as `You try to access this CMS via origin "https://story-teller-lid-40740.netlify.com"`.
+* Lets add this URL as a CORS URL:
+	* On `my.scrivito.com` click on `CMS Instances` and select your Workshop tenant.
+	* Under `SETTINGS` of your Workshop tenant replace the existing `GENERAL CORS ORIGINS` with the newly create netlify URL, e.g. `https://story-teller-lid-40740.netlify.com`. The `MY ADDITIONAL CORS ORIGINS` should still be `http://localhost:8080`.
+* Now reload the newly create netlify URL again. Enjoy the great content 😺.
+
+### Bonus Goal 1: Link github fork
+
+Your github fork should be linked with the netlify tenant. This enables Continuous Deployment and 
+
+#### How to achieve this.
+
+* On `app.netlify.com` go to `Deploy settings` and click `Link to repository`. Choose your fork of `scrivito_example_app_js`.
+* Under `Build & deploy` and `Build environment variable` add `SCRIVITO_TENANT` with your tenant ID as the value.
+* Now try `Trigger deploy" under "Deployments". This basically calls `npm run build` on Netlify servers and deploys the output of it.
+
+### Bonus Goal 2: Add a wildcard URL
+
+Your tenant should have a wildcard URL for netlify. This allows for the netlify integration to work seamless.
+
+#### How to achieve this
+
+* On `my.scrivito.com` go to the `GENERAL CORS ORIGINS` part under `SETTINGS`. Now add a second URL to that. If your first URL is `https://mynetlifyprefix.netlify.com` than add `https://*-mynetlifyprefix.netlify.com` as a second URL.
+
+
