@@ -1,8 +1,10 @@
+import SearchResultsObjIcon from 'assets/images/search_results_obj.svg';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
 Scrivito.provideEditingConfig('SearchResults', {
   title: 'Search Results',
   description: 'A Search Results Page',
+  thumbnail: `/${SearchResultsObjIcon}`,
   attributesConfig: {
     navigationBackgroundImage: {
       title: 'Navigation Background Image',

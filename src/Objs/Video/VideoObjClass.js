@@ -1,5 +1,4 @@
-const Video = Scrivito.createObjClass({
-  name: 'Video',
+const Video = Scrivito.provideObjClass('Video', {
   attributes: {
     blob: 'binary',
     title: 'string',

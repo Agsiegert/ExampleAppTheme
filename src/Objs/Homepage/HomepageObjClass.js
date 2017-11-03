@@ -2,8 +2,7 @@ import { registerTextExtract } from 'utils/text_extract_registry';
 import { defaultPageAttributes } from '../_default_page_attributes';
 import { socialCardsAttributes } from '../_social_cards_attributes';
 
-const Homepage = Scrivito.createObjClass({
-  name: 'Homepage',
+const Homepage = Scrivito.provideObjClass('Homepage', {
   attributes: {
     ...defaultPageAttributes,
     childOrder: 'referencelist',

@@ -45,9 +45,8 @@ module.exports = (env = {}) => {
   if (isProduction) {
     plugins.push(
       new UglifyJSPlugin({
-        parallel: {
-          cache: true,
-        },
+        cache: true,
+        parallel: true,
         uglifyOptions: {
           ie8: false,
           ecma: 5,

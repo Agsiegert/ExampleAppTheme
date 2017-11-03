@@ -1,8 +1,10 @@
+import eventObjIcon from 'assets/images/event_obj.svg';
 import { socialCardsCustomGroup } from '../_social_cards_attributes';
 
 Scrivito.provideEditingConfig('Event', {
   title: 'Event',
   description: 'An Event',
+  thumbnail: `/${eventObjIcon}`,
   attributesConfig: {
     date: {
       title: 'Date',
