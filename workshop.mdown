@@ -214,14 +214,26 @@ If you now create a video widget you can input a youtube video ID, such as `IvUU
 
 Now that we modified your first example app code, lets go further.
 
-#### Option 1: Add a `AuthorComponent.js`.
+#### Option 1: Change main colors.
+
+Adjust the `$brand-primary` and `$brand-secondary` in `index.scss` to fit your needs.
+
+#### Option 2: Add Vimeo-Support to `VideoWidget`
+
+Similar to youtube, the `VideoWidget` should also play [vimeo.com](https://vimeo.com) videos.
+
+#### Option 3: Add a `AuthorComponent.js`.
 
 Currently the author of a blogpost does not have a dedicated page. Change that.
 
-#### Option 2: Autocomplete icon for `IconWidget`.
+#### Option 4: Add `EventCalendarWidget`.
+
+Show a calendar, where all events are listed.
+
+#### Option 4: Full width for YouTube Videos in `VideoWidget`.
+
+Youtube (and Vimeo) videos currently have a fixed width. It should automatically adjust to the available width of the surrounding `div`.
+
+#### Option 5: Autocomplete icon for `IconWidget`.
 
 Add a custom editing component to enable autocomplete for all [http://fontawesome.io/icons/](http://fontawesome.io/icons/) .
-
-#### Option 3: Change main colors.
-
-Adjust the `$brand-primary` and `$brand-secondary` in `index.scss` to fit your needs.
