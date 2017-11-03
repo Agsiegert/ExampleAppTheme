@@ -11,7 +11,7 @@ const blacklistObjClasses = [
 ];
 
 function globalSearch(q) {
-  return Scrivito.Obj.where('*', 'contains', q)
+  return Scrivito.Obj.where('*', 'containsPrefix', q)
     .andNot('_objClass', 'equals', blacklistObjClasses);
 }
 
