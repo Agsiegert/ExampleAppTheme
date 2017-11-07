@@ -2715,9 +2715,8 @@ function importContent() {
         new ButtonWidget({
           alignment: 'center',
           target: new Scrivito.Link({
-            title: 'Learn more about Editing',
-            url: 'https://scrivito.com/private-beta/1f96f6afcbe1dbdf',
-            target: '_blank',
+            title: 'Call to action',
+            obj: root,
           }),
         }),
       ],
