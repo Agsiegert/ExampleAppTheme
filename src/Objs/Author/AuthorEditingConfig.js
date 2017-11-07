@@ -14,15 +14,15 @@ Scrivito.provideEditingConfig('Author', {
       title: 'Description',
       description: 'The description of the author.',
     },
-    picture: {
-      title: 'Picture',
-      description: 'The picture of the author.',
+    image: {
+      title: 'Image',
+      description: 'The image of the author.',
     },
   },
   generalProperties: [
     'name',
     'description',
-    'picture',
+    'image',
   ],
   propertiesGroups: [socialCardsCustomGroup],
   titleForContent: obj => obj.get('name'),
