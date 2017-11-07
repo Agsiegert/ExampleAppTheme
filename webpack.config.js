@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const InlineEnvironmentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 // load ".env"
@@ -25,13 +26,14 @@ module.exports = (env = {}) => {
   }
 
   const plugins = [
+    new ProgressBarPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: isProduction && JSON.stringify('production'),
       },
     }),
     new InlineEnvironmentVariablesPlugin('SCRIVITO_TENANT'),
-    new CleanWebpackPlugin([buildPath]),
+    new CleanWebpackPlugin([buildPath], { verbose: false }),
     new CopyWebpackPlugin([
       { from: '../static' },
       { from: '../vendor/scrivito', to: 'scrivito' },
