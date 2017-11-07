@@ -2520,7 +2520,7 @@ function importContent() {
               level: 'h2',
               style: 'h4',
               headline: 'A gallery of widget and page types included in'
-                + ' the ScrivitoJS Example App',
+                + ' the Scrivito Example App',
             }),
           ],
         }),
@@ -2702,11 +2702,11 @@ function importContent() {
       navigationSection: [
         new HeadlineWidget({
           alignment: 'center',
-          headline: 'Welcome to your ScrivitoJs Example App',
+          headline: 'Welcome to your Scrivito Example App',
         }),
         new TextWidget({
           alignment: 'center',
-          text: `<p>The ScrivitoJs Example App is intended to be both a
+          text: `<p>The Scrivito Example App is intended to be both a
             playground and a foundation for your own website. <br>
             Built entirely with Scrivito, it can be fully customized as your own.
             To begin editing, add <b><a href="/scrivito/">/scrivito/</a></b>
@@ -2716,12 +2716,12 @@ function importContent() {
           alignment: 'center',
           target: new Scrivito.Link({
             title: 'Learn more about Editing',
-            url: 'https://scrivito.com/about-in-place-editing-a7d5b161ade2b92f',
+            url: 'https://scrivito.com/private-beta/1f96f6afcbe1dbdf',
             target: '_blank',
           }),
         }),
       ],
-      title: 'Welcome to the Scrivito Example App JS!',
+      title: 'Welcome to the Scrivito Example App!',
       body: [
         new SectionWidget({ content: [
           new HeadlineWidget({
@@ -2760,7 +2760,7 @@ function importContent() {
                 new ButtonWidget({
                   target: new Scrivito.Link({
                     title: 'Learn more about Widgets',
-                    url: 'https://scrivito.com/using-widgets-5fc5b2469306a3d2',
+                    url: 'https://scrivito.com/private-beta/996a4399d3500d9d',
                     target: '_blank',
                   }),
                 }),
@@ -2795,7 +2795,7 @@ function importContent() {
                 new ButtonWidget({
                   target: new Scrivito.Link({
                     title: 'Learn more about Pages',
-                    url: 'https://scrivito.com/working-with-pages-b094262d9b938333',
+                    url: 'https://scrivito.com/private-beta/b18e54057ee4ac4e',
                     target: '_blank',
                   }),
                 }),
