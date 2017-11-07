@@ -1,5 +1,5 @@
 import textExtractFromObj from 'utils/text_extract_from_obj';
-import truncate from 'lodash.truncate';
+import truncate from 'lodash/truncate';
 import urlFromBinary from 'utils/url_from_binary';
 
 function getMetaData(page) {

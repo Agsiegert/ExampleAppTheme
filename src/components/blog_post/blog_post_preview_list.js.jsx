@@ -1,6 +1,6 @@
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
 import textExtractFromObj from 'utils/text_extract_from_obj';
-import truncate from 'lodash.truncate';
+import truncate from 'lodash/truncate';
 import twoDigitNumber from 'utils/two_digit_number';
 import BlogPostDate from './blog_post_date';
 

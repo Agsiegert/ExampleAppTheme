@@ -1,7 +1,7 @@
 import Highlighter from 'react-highlight-words';
 import fromNow from 'moment-from-now';
 import textExtractFromObj from 'utils/text_extract_from_obj';
-import truncate from 'lodash.truncate';
+import truncate from 'lodash/truncate';
 
 const PreviewImage = Scrivito.connect(({ item }) => {
   const image = item.get('navigationBackgroundImage')
