@@ -5,7 +5,7 @@ const Author = Scrivito.provideObjClass('Author', {
   attributes: {
     name: 'string',
     description: 'string',
-    picture: 'reference',
+    image: 'reference',
     ...socialCardsAttributes,
   },
 });

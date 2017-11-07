@@ -1847,13 +1847,13 @@ function importContent() {
     const janeDoe = Author.create({
       name: 'Jane Doe',
       description: loremIpsum({ units: 'sentences', count: 3 }),
-      picture: unsplashFemaleBehindWindow,
+      image: unsplashFemaleBehindWindow,
     });
 
     const johnDoe = Author.create({
       name: 'John Doe',
       description: loremIpsum({ units: 'sentences', count: 3 }),
-      picture: unsplashMaleWithSunglasses,
+      image: unsplashMaleWithSunglasses,
     });
 
     const authors = [janeDoe, johnDoe];
