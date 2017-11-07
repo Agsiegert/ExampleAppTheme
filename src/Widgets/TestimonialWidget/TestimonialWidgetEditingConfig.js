@@ -1,4 +1,4 @@
-import truncate from 'lodash.truncate';
+import truncate from 'lodash/truncate';
 
 Scrivito.provideEditingConfig('TestimonialWidget', {
   title: 'Testimonial',

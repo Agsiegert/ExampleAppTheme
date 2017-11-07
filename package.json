@@ -33,7 +33,6 @@
     "inline-environment-variables-webpack-plugin": "^1.2.1",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
-    "lodash.truncate": "^4.4.2",
     "lorem-ipsum": "^1.0.4",
     "moment-from-now": "0.0.4",
     "node-sass": "^4.5.3",
