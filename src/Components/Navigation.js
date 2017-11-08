@@ -1,12 +1,12 @@
 import BootstrapNavbar from 'react-bootstrap/lib/Navbar';
 import Scroll from 'react-scroll';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
-import currentPageNavigationOptions from './navigation/current_page_navigation_options';
-import Logo from './navigation/logo';
-import Navbar from './navigation/navbar';
-import NavigationSection from './navigation/navigation_section';
-import ScrollToNextSectionLink from './navigation/scroll_to_next_section_link';
-import { SearchBox, SearchIcon } from './navigation/search';
+import currentPageNavigationOptions from './Navigation/current_page_navigation_options';
+import Logo from './Navigation/logo';
+import Navbar from './Navigation/navbar';
+import NavigationSection from './Navigation/navigation_section';
+import ScrollToNextSectionLink from './Navigation/scroll_to_next_section_link';
+import { SearchBox, SearchIcon } from './Navigation/search';
 
 function FullNavigation(
   { bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle, showSearch }
