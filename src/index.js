@@ -1,4 +1,4 @@
-import 'globals';
+import 'Globals';
 import 'scrivito_sdk';
 import 'Objs/index';
 import 'Widgets/index';
