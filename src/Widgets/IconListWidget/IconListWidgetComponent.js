@@ -1,4 +1,4 @@
-import IconComponent from 'components/icon';
+import IconComponent from 'Components/icon';
 
 Scrivito.provideComponent('IconListWidget', ({ widget }) =>
   <div className="social-links text-center">

@@ -1,4 +1,4 @@
-import BlogPostPreviewList from 'components/blog_post/blog_post_preview_list';
+import BlogPostPreviewList from 'Components/blog_post/blog_post_preview_list';
 
 function BlogPostMorePosts({ author }) {
   if (!author) { return null; }

@@ -1,6 +1,6 @@
 import Event from 'Objs/Event/EventObjClass';
 import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
-import TagList from 'components/tag_list';
+import TagList from 'Components/tag_list';
 import twoDigitNumber from 'utils/two_digit_number';
 
 function formatDate(date) {
