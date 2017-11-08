@@ -1,7 +1,7 @@
-import BlogPostAuthor from 'Components/blog_post/blog_post_author';
-import BlogPostMorePosts from 'Components/blog_post/blog_post_more_posts';
-import BlogPostNavigation from 'Components/blog_post/blog_post_navigation';
-import BlogPostTagList from 'Components/blog_post/blog_post_tag_list';
+import BlogPostAuthor from 'Components/BlogPost/blog_post_author';
+import BlogPostMorePosts from 'Components/BlogPost/blog_post_more_posts';
+import BlogPostNavigation from 'Components/BlogPost/blog_post_navigation';
+import BlogPostTagList from 'Components/BlogPost/blog_post_tag_list';
 
 Scrivito.provideComponent('BlogPost', ({ page }) =>
   <div>
