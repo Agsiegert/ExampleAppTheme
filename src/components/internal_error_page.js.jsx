@@ -1,4 +1,4 @@
-function NotFoundErrorPage() {
+function InternalErrorPage() {
   const backgroundImage = [
     'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))',
     'url(https://unsplash.com/photos/wapAWmqpBJw/download)',
@@ -28,4 +28,4 @@ function NotFoundErrorPage() {
   </Scrivito.InternalErrorPage>;
 }
 
-export default Scrivito.connect(NotFoundErrorPage);
+export default Scrivito.connect(InternalErrorPage);
