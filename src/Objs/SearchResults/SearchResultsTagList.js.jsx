@@ -1,4 +1,4 @@
-import TagList from 'Components/tag_list';
+import TagList from 'Components/TagList';
 
 function SearchResultsTagList({ tags, params }) {
   return (
