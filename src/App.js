@@ -1,4 +1,4 @@
-import CurrentPageMetaData from 'Components/current_page_meta_data';
+import CurrentPageMetaData from 'Components/CurrentPageMetaData';
 import Footer from 'Components/footer';
 import Navigation from 'Components/navigation';
 import NotFoundErrorPage from 'Components/not_found_error_page';
