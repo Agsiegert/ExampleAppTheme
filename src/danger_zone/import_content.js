@@ -2853,33 +2853,6 @@ function importContent() {
           paddingDisabled: 'yes',
           content: [
             new HeadlineWidget({
-              headline: 'Google Maps Widget',
-            }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
-              columns: [
-                // col 1
-                [
-                  new TextWidget({
-                    alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Address</li><li>Zoom
-                      Level</li><li>Show Additional Widgets</li></ul>`,
-                  }),
-                ],
-                // col 2
-                [
-                  new GoogleMapsWidget({
-                    showWidgets: 'yes',
-                  }),
-                ],
-              ],
-            }),
-          ],
-        }),
-        new SectionWidget({
-          paddingDisabled: 'yes',
-          content: [
-            new HeadlineWidget({
               headline: 'Headline Widget',
             }),
             createEvenColumnContainerWidget({
@@ -3051,7 +3024,7 @@ function importContent() {
                 [
                   new PageListWidget({
                     headline: 'This is a Page List',
-                    pages: [root],
+                    pages: [root, homeV1, homeV2, landingPage],
                   }),
                 ],
               ],
@@ -3292,6 +3265,11 @@ function importContent() {
                         title: 'Project 03',
                         subtitle: loremIpsum({ units: 'words', count: 5 }),
                         image: unsplashLaptopKeyboard,
+                      }),
+                      new ThumbnailGalleryImageWidget({
+                        title: 'Project 04',
+                        subtitle: loremIpsum({ units: 'words', count: 5 }),
+                        image: unsplashDeskRuler,
                       }),
                     ],
                   }),
