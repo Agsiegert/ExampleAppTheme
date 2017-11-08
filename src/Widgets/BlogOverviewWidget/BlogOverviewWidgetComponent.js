@@ -1,4 +1,4 @@
-import BlogPostPreviewList from 'Components/BlogPost/blog_post_preview_list';
+import BlogPostPreviewList from 'Components/BlogPost/BlogPostPreviewList';
 
 Scrivito.provideComponent('BlogOverviewWidget', ({ widget }) =>
   <BlogPostPreviewList
