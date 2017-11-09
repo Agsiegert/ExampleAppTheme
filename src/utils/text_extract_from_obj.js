@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 
 import isString from 'utils/isString';
-import textExtractFromHtml from 'utils/text_extract_from_html';
+import textExtractFromHtml from 'utils/textExtractFromHtml';
 import { lookupTextExtract } from 'utils/text_extract_registry';
 
 function textExtractFromObj(obj) {

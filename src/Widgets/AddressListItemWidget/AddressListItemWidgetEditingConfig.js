@@ -1,4 +1,4 @@
-import textExtractFromHtml from 'utils/text_extract_from_html';
+import textExtractFromHtml from 'utils/textExtractFromHtml';
 import truncate from 'lodash/truncate';
 
 Scrivito.provideEditingConfig('AddressListItemWidget', {
