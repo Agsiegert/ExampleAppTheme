@@ -1,4 +1,4 @@
-import googleMapsImageUrl from 'utils/google_maps_image_url';
+import googleMapsImageUrl from 'utils/googleMapsImageUrl';
 
 const minHeight = 350;
 const maxWidth = 640;
