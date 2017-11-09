@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet';
-import getMetaData from 'utils/get_meta_data';
+import getMetaData from 'utils/getMetaData';
 import favicon from 'assets/images/favicon.png';
 
 const CurrentPageMetaData = Scrivito.connect(() => {
