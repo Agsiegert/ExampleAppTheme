@@ -1,4 +1,4 @@
-import { registerTextExtract } from 'utils/text_extract_registry';
+import { registerTextExtract } from 'utils/textExtractRegistry';
 import { socialCardsAttributes } from '../_socialCardsAttributes';
 
 const Blog = Scrivito.provideObjClass('Blog', {

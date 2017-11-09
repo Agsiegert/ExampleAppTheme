@@ -2,7 +2,7 @@
 
 import isString from 'utils/isString';
 import textExtractFromHtml from 'utils/textExtractFromHtml';
-import { lookupTextExtract } from 'utils/text_extract_registry';
+import { lookupTextExtract } from 'utils/textExtractRegistry';
 
 function textExtractFromObj(obj) {
   return textExtractFromItem(obj);
