@@ -1,6 +1,6 @@
 /* eslint no-console: 0 */
 
-import isString from 'utils/is_string';
+import isString from 'utils/isString';
 import textExtractFromHtml from 'utils/text_extract_from_html';
 import { lookupTextExtract } from 'utils/text_extract_registry';
 

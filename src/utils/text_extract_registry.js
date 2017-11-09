@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-import isString from 'utils/is_string';
+import isString from 'utils/isString';
 
 const textExtractRegistry = {};
 
