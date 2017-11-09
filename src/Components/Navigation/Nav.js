@@ -1,4 +1,4 @@
-function Navbar() {
+function Nav() {
   return (
     <Scrivito.ChildListTag
       className="nav navbar-nav navbar-right"
@@ -92,4 +92,4 @@ function isActive(page) {
   return false;
 }
 
-export default Scrivito.connect(Navbar);
+export default Scrivito.connect(Nav);
