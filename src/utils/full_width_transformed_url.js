@@ -1,4 +1,4 @@
-import fullScreenWidthPixels from 'utils/full_screen_width_pixels';
+import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
 
 function fullWidthTransformedUrl(obj) {
   if (!obj) { return ''; }
