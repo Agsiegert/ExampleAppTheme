@@ -1,4 +1,4 @@
-import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
+import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 
 Scrivito.provideComponent('SectionWidget', ({ widget }) => {
   const sectionClassNames = [];

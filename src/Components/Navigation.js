@@ -1,6 +1,6 @@
 import BootstrapNavbar from 'react-bootstrap/lib/Navbar';
 import Scroll from 'react-scroll';
-import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
+import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 import currentPageNavigationOptions from './Navigation/currentPageNavigationOptions';
 import Logo from './Navigation/Logo';
 import Navbar from './Navigation/Navbar';

@@ -1,4 +1,4 @@
-import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
+import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 import textExtractFromObj from 'utils/text_extract_from_obj';
 import truncate from 'lodash/truncate';
 import twoDigitNumber from 'utils/two_digit_number';
