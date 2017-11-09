@@ -1,5 +1,5 @@
 import eventObjIcon from 'assets/images/event_obj.svg';
-import { socialCardsCustomGroup } from '../_social_cards_attributes';
+import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Event', {
   title: 'Event',
