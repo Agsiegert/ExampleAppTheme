@@ -1,2 +1,2 @@
-import './columns_editor_tab';
+import './ColumnsEditorTab';
 import './social_cards_tab';
