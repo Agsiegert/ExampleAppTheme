@@ -1,4 +1,4 @@
-import urlFromBinary from 'utils/url_from_binary';
+import urlFromBinary from 'utils/urlFromBinary';
 
 Scrivito.provideComponent('VideoWidget', ({ widget }) => {
   const videoUrl = urlFromBinary(widget.get('source'));

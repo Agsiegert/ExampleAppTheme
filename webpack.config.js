@@ -68,7 +68,7 @@ module.exports = (env = {}) => {
     module: {
       rules: [
         {
-          test: /\.js(\.jsx)?$/,
+          test: /\.js$/,
           include: path.join(__dirname, 'src'),
           use: [
             {
@@ -131,7 +131,7 @@ module.exports = (env = {}) => {
       alias: {
         scrivito_sdk: path.join(__dirname, 'vendor/scrivito/scrivito_sdk.js'),
       },
-      extensions: ['.js', '.js.jsx'],
+      extensions: ['.js'],
       modules: ['src', 'node_modules'],
     },
     devServer: {

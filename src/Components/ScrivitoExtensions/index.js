@@ -1,0 +1,2 @@
+import './ColumnsEditorTab';
+import './SocialCardsTab';

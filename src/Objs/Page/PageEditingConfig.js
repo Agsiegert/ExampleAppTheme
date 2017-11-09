@@ -1,9 +1,9 @@
 import PageObjIcon from 'assets/images/page_obj.svg';
-import { socialCardsCustomGroup } from '../_social_cards_attributes';
+import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 import {
   defaultGeneralProperties,
   defaultPageUiConfigAttributes,
-} from '../_default_page_attributes';
+} from '../_defaultPageAttributes';
 
 Scrivito.provideEditingConfig('Page', {
   title: 'Page',

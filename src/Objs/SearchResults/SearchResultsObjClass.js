@@ -1,4 +1,4 @@
-import { socialCardsAttributes } from '../_social_cards_attributes';
+import { socialCardsAttributes } from '../_socialCardsAttributes';
 
 const SearchResults = Scrivito.provideObjClass('SearchResults', {
   attributes: {

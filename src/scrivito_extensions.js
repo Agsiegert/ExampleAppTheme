@@ -1,7 +1,7 @@
-import 'globals';
+import 'Globals';
 import 'scrivito_sdk';
 import 'Objs/index';
 import 'Widgets/index';
-import 'app';
+import 'App';
 import 'config/scrivito';
-import 'components/scrivito_extensions/index';
+import 'Components/ScrivitoExtensions/index';

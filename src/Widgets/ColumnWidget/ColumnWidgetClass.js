@@ -1,4 +1,4 @@
-import { registerTextExtract } from 'utils/text_extract_registry';
+import { registerTextExtract } from 'utils/textExtractRegistry';
 
 const ColumnWidget = Scrivito.provideWidgetClass('ColumnWidget', {
   onlyInside: 'ColumnContainerWidget',

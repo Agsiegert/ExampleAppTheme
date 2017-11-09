@@ -1,6 +1,6 @@
-import textExtractFromObj from 'utils/text_extract_from_obj';
+import textExtractFromObj from 'utils/textExtractFromObj';
 import truncate from 'lodash/truncate';
-import urlFromBinary from 'utils/url_from_binary';
+import urlFromBinary from 'utils/urlFromBinary';
 
 function getMetaData(page) {
   const meta = [

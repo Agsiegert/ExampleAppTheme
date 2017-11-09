@@ -1,4 +1,4 @@
-import IconComponent from 'components/icon';
+import IconComponent from 'Components/Icon';
 
 Scrivito.provideComponent('IconWidget', ({ widget }) => {
   const icon = widget.get('icon');

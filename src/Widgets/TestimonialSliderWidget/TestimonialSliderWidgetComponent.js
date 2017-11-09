@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import devicePixelRatio from 'utils/device_pixel_ratio';
+import devicePixelRatio from 'utils/devicePixelRatio';
 
 // Source: https://unsplash.com/photos/K2u71wv2eI4/
 const fallbackImageUrl = 'https://images.unsplash.com/photo-1481437642641-2f0ae875f836' +

@@ -1,4 +1,4 @@
-import twoDigitNumber from 'utils/two_digit_number';
+import twoDigitNumber from 'utils/twoDigitNumber';
 
 function formatDate(date) {
   if (!date) { return null; }

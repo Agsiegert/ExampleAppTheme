@@ -1,4 +1,4 @@
-import BlogPostDate from './blog_post_date';
+import BlogPostDate from './BlogPostDate';
 
 const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
   if (!currentPost.get('publishedAt')) { return null; }

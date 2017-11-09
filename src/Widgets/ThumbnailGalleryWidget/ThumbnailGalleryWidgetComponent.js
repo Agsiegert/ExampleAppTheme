@@ -1,7 +1,7 @@
 import Lightbox from 'react-images';
-import devicePixelRatio from 'utils/device_pixel_ratio';
-import fullScreenWidthPixels from 'utils/full_screen_width_pixels';
-import TagList from 'components/tag_list';
+import devicePixelRatio from 'utils/devicePixelRatio';
+import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
+import TagList from 'Components/TagList';
 
 const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const title = widget.get('title');

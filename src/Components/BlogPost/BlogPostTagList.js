@@ -1,4 +1,4 @@
-import navigateToBlogWithTag from 'utils/navigate_to_blog_with_tag';
+import navigateToBlogWithTag from 'utils/navigateToBlogWithTag';
 
 function BlogPostTagList({ tags }) {
   return (

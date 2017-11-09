@@ -1,4 +1,4 @@
-import getMetaData from 'utils/get_meta_data';
+import getMetaData from 'utils/getMetaData';
 
 Scrivito.registerComponent('SocialCardsTab', ({ obj }) =>
   <div className=''>

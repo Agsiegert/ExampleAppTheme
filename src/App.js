@@ -1,8 +1,8 @@
-import CurrentPageMetaData from 'components/current_page_meta_data';
-import Footer from 'components/footer';
-import Navigation from 'components/navigation';
-import NotFoundErrorPage from 'components/not_found_error_page';
-import InternalErrorPage from 'components/internal_error_page';
+import CurrentPageMetaData from 'Components/CurrentPageMetaData';
+import Footer from 'Components/Footer';
+import Navigation from 'Components/Navigation';
+import NotFoundErrorPage from 'Components/NotFoundErrorPage';
+import InternalErrorPage from 'Components/InternalErrorPage';
 
 export default function App() {
   return (

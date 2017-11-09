@@ -2,8 +2,8 @@ import homepageObjIcon from 'assets/images/homepage_obj.svg';
 import {
   defaultGeneralProperties,
   defaultPageUiConfigAttributes,
-} from '../_default_page_attributes';
-import { socialCardsCustomGroup } from '../_social_cards_attributes';
+} from '../_defaultPageAttributes';
+import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Homepage', {
   title: 'Homepage',

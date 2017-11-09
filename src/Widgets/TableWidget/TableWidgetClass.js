@@ -1,4 +1,4 @@
-import { registerTextExtract } from 'utils/text_extract_registry';
+import { registerTextExtract } from 'utils/textExtractRegistry';
 
 const TableWidget = Scrivito.provideWidgetClass('TableWidget', {
   attributes: {

@@ -1,8 +1,8 @@
-import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
-import textExtractFromObj from 'utils/text_extract_from_obj';
+import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
+import textExtractFromObj from 'utils/textExtractFromObj';
 import truncate from 'lodash/truncate';
-import twoDigitNumber from 'utils/two_digit_number';
-import BlogPostDate from './blog_post_date';
+import twoDigitNumber from 'utils/twoDigitNumber';
+import BlogPostDate from './BlogPostDate';
 
 const MONTH_MAPPING = [
   'January',

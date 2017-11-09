@@ -1,5 +1,5 @@
 import blogObjIcon from 'assets/images/blog_obj.svg';
-import { socialCardsCustomGroup } from '../_social_cards_attributes';
+import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Blog', {
   title: 'Blog',

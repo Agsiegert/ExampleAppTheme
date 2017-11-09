@@ -1,7 +1,7 @@
 import Event from 'Objs/Event/EventObjClass';
-import fullWidthTransformedUrl from 'utils/full_width_transformed_url';
-import TagList from 'components/tag_list';
-import twoDigitNumber from 'utils/two_digit_number';
+import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
+import TagList from 'Components/TagList';
+import twoDigitNumber from 'utils/twoDigitNumber';
 
 function formatDate(date) {
   if (!date) { return null; }
