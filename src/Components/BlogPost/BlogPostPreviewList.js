@@ -1,7 +1,7 @@
 import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 import textExtractFromObj from 'utils/text_extract_from_obj';
 import truncate from 'lodash/truncate';
-import twoDigitNumber from 'utils/two_digit_number';
+import twoDigitNumber from 'utils/twoDigitNumber';
 import BlogPostDate from './BlogPostDate';
 
 const MONTH_MAPPING = [
