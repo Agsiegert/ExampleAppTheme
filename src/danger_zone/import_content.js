@@ -6,6 +6,8 @@ import boxWidgetScreenshotData from './binary_data/box_widget_screenshot';
 import columnWidgetScreenshotData from './binary_data/column_widget_screenshot';
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
+import imageWidgetScreenshotData from './binary_data/image_widget_screenshot';
+import sectionWidgetScreenshotData from './binary_data/section_widget_screenshot';
 import ipadData from './binary_data/ipad';
 import iphoneData from './binary_data/iphone';
 import iphoneFrontData from './binary_data/iphone_front';
@@ -321,11 +323,12 @@ function createPricingWidget(root) {
   });
 }
 
-function createRandomIconListWidget() {
+function createRandomIconListWidget(size = null) {
   return new IconListWidget({
     iconList: [
       new IconListItemWidget({
         icon: 'fa-twitter',
+        size: size,
         link: new Scrivito.Link({
           title: 'Twitter',
           url: 'https://twitter.com',
@@ -334,6 +337,7 @@ function createRandomIconListWidget() {
       }),
       new IconListItemWidget({
         icon: 'fa-facebook',
+        size: size,
         link: new Scrivito.Link({
           title: 'Facebook',
           url: 'https://www.facebook.com',
@@ -342,6 +346,7 @@ function createRandomIconListWidget() {
       }),
       new IconListItemWidget({
         icon: 'fa-instagram',
+        size: size,
         link: new Scrivito.Link({
           title: 'Instagram',
           url: 'https://www.instagram.com',
@@ -350,6 +355,7 @@ function createRandomIconListWidget() {
       }),
       new IconListItemWidget({
         icon: 'fa-linkedin',
+        size: size,
         link: new Scrivito.Link({
           title: 'Linked In',
           url: 'https://www.linkedin.com',
@@ -445,6 +451,8 @@ function importContent() {
     // Images
     const boxWidgetScreenshot = uploadImage(boxWidgetScreenshotData, 'Box Widget Screenshot');
     const columnWidgetScreenshot = uploadImage(columnWidgetScreenshotData, 'Column Widget Screenshot');
+    const imageWidgetScreenshot = uploadImage(imageWidgetScreenshotData, 'Image Widget Screenshot');
+    const sectionWidgetScreenshot = uploadImage(sectionWidgetScreenshotData, 'Section Widget Screenshot');
     const unsplashAllesCandleWoodTable = uploadImage(unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
     const unsplashAppleWorkstationCalendarIpad = uploadImage(unsplashAppleWorkstationCalendarIpadData, 'Apple workstation with calendar and Ipad', UNSPLASH_TAGS);
     const unsplashAppleWorkstationWindcave = uploadImage(unsplashAppleWorkstationWindcaveData, 'Apple workstation with Windcave image', UNSPLASH_TAGS);
@@ -2679,6 +2687,650 @@ function importContent() {
                 ],
                 // col 2
                 [new ImageWidget({ image: columnWidgetScreenshot })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Contact Form Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Agreement Text</li>
+                      <li>Button Text</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new ContactFormWidget({
+                    agreementText: 'This is the form agreement text.',
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Divider Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>TBD</li>
+                      </ul>`,
+                  }),
+                ],
+                // col 2
+                [new DividerWidget({})],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Event Overview Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Maximum number of
+                      events to Display</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [new EventOverviewWidget({ maxItems: 2 })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Fact Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget inputs:</p><ul><li>Fact Value</li>
+                      <li>Fact Description</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new FactWidget({
+                    key: 'Number of Widgets included in the Example App',
+                    value: '29',
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Feature Panel Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Inputs:</p><ul><li>Headline</li><li>
+                      Description</li></ul><br><p>Widget Properties:</p><ul><li>Icon
+                      for panel</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new FeaturePanelWidget({
+                    headline: 'Drag & drop widgets',
+                    description: `make in-place editing possible, and in-place
+                      editing is a web designer's dream`,
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Gallery Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'no',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Images
+                      for the gallery</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new GalleryWidget({
+                    images: [unsplashDualingLaptops, unsplashClosingLaptop, unsplashDeskLaptop],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Headline Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Level</li><li>Style
+                      </li><li>Alignment</li><li>Show Dividing Line</li><li>
+                      Disable Margin?</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new HeadlineWidget({
+                    headline: 'This is a Headline',
+                    alignment: 'center',
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Icon Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>
+                      <a href="http://fontawesome.io/icons/" target="_blank"
+                      rel="noopener noreferrer">Font Awesome Icon</a>
+                      </li><li>Size</li><li>Alignment</li><li>Link</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new IconWidget({
+                    size: 'fa-5x',
+                    alignment: 'center',
+                    link: new Scrivito.Link({
+                      title: 'This is a link',
+                      obj: root,
+                    }),
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Icon List Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Icon List</li>
+                      </ul>`,
+                  }),
+                ],
+                // col 2
+                [createRandomIconListWidget('fa-5x')],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Image Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Alignment</li>
+                    </ul>`,
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: imageWidgetScreenshot })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Job Overview Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Function:</p><ul><li>Displays Jobs</li>
+                    </ul>`,
+                  }),
+                ],
+                // col 2
+                [new JobOverviewWidget({})],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Login Form Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: '<p>Widget Properties:</p><ul><li>TBD</li></ul>',
+                  }),
+                ],
+                // col 2
+                [new LoginFormWidget({})],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Page List Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Headline</li>
+                    <li>Pages</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new PageListWidget({
+                    headline: 'This is a Page List',
+                    pages: [root, homeV1, homeV2, landingPage],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Pricing Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Currency</li>
+                    <li>Small Plan Button</li><li>Medium Plan Button</li>
+                    <li>Large Plan Button</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [createPricingWidget(root)],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Section Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Background Color
+                    </li><li>Background Image</li><li>Use Full Width</li>
+                    <li>Use Full Height</li><li>Padding Disabled</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: sectionWidgetScreenshot })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Sign Up Form Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Button Text</li>
+                    <li>Transparent</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new SignUpFormWidget({
+                    title: 'This is a Sign Up Form',
+                    buttonText: 'Button Text',
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Table Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Currency</li>
+                    <li>Rows</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new TableWidget({
+                    rows: [
+                      new TableRowWidget({
+                        feature: 'Key feature 1',
+                        basicFeature: [new TextWidget({ text: '<p><b>5</b></p>' })],
+                        teamFeature: [new TextWidget({ text: '<p><b>10</b></p>' })],
+                        corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                      }),
+                      new TableRowWidget({
+                        feature: 'Key feature 2',
+                        basicFeature: [new TextWidget({ text: '<p><b>20</b></p>' })],
+                        teamFeature: [new TextWidget({ text: '<p><b>40</b></p>' })],
+                        corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                      }),
+                    ],
+                    featureHeadline: 'Features',
+                    basicPlanHeadline: 'Basic',
+                    teamPlanHeadline: 'Team',
+                    corporatePlanHeadline: 'Corporate',
+                    pricingRow: 'Prices',
+                    currency: '€',
+                    basicPlanPrice: '29',
+                    teamPlanPrice: '59',
+                    corporatePlanPrice: '99',
+                    basicPlanPeriod: '/mo',
+                    teamPlanPeriod: '/mo',
+                    corporatePlanPeriod: '/mo',
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Testimonial Slider Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Testimonials</li>
+                    </ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new TestimonialSliderWidget({
+                    testimonials: [
+                      new TestimonialWidget({
+                        testimonial: loremIpsum({ units: 'sentences', count: 2 }),
+                        author: 'Alice Smith, CEO @ Acme',
+                        authorImage: unsplashFemalePortrait1,
+                      }),
+                      new TestimonialWidget({
+                        testimonial: loremIpsum({ units: 'sentences', count: 2 }),
+                        author: 'Bob Johnson, CTO @ MegaCorp',
+                        authorImage: unsplashMalePortrait1,
+                      }),
+                      new TestimonialWidget({
+                        testimonial: loremIpsum({ units: 'sentences', count: 2 }),
+                        author: 'Mary Williams, CTO @ The Company',
+                        authorImage: unsplashFemalePortrait2,
+                      }),
+                    ],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Text Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Alignment</li>
+                    <li>Text</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new TextWidget({
+                    text: 'This is a Text Widget',
+                    alignment: 'center',
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Thumbnail Gallery Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Image</li>
+                    <li>Show Tags</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new ThumbnailGalleryWidget({
+                    images: [
+                      new ThumbnailGalleryImageWidget({
+                        title: 'Project 01',
+                        subtitle: loremIpsum({ units: 'words', count: 5 }),
+                        image: unsplashWhiteMeetingRoom,
+                      }),
+                      new ThumbnailGalleryImageWidget({
+                        title: 'Project 02',
+                        subtitle: loremIpsum({ units: 'words', count: 5 }),
+                        image: unsplashHandcraft,
+                      }),
+                      new ThumbnailGalleryImageWidget({
+                        title: 'Project 03',
+                        subtitle: loremIpsum({ units: 'words', count: 5 }),
+                        image: unsplashLaptopKeyboard,
+                      }),
+                      new ThumbnailGalleryImageWidget({
+                        title: 'Project 04',
+                        subtitle: loremIpsum({ units: 'words', count: 5 }),
+                        image: unsplashDeskRuler,
+                      }),
+                    ],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Tick List Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: '<p>Widget Properties:</p><ul><li>Items</li></ul>',
+                  }),
+                ],
+                // col 2
+                [
+                  new TickListWidget({
+                    items: [
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                    ],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          paddingDisabled: 'yes',
+          content: [
+            new HeadlineWidget({
+              headline: 'Video Widget',
+            }),
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget Properties:</p><ul><li>Source</li>
+                    <li>Poster</li></ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  new VideoWidget({
+                    source: videoWaterfall1,
+                  }),
+                ],
               ],
             }),
           ],
