@@ -1,5 +1,5 @@
 import { registerTextExtract } from 'utils/text_extract_registry';
-import { defaultPageAttributes } from '../_default_page_attributes';
+import { defaultPageAttributes } from '../_defaultPageAttributes';
 import { socialCardsAttributes } from '../_social_cards_attributes';
 
 const Homepage = Scrivito.provideObjClass('Homepage', {
