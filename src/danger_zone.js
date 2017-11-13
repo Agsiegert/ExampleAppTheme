@@ -1,1 +1,1 @@
-import 'danger_zone/index';
+import 'DangerZone/index';
