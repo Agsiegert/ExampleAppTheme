@@ -111,24 +111,22 @@ class Navigation extends React.Component {
       topSectionClassNames.push(heigthClassName);
     }
 
-    return (
-      <div>
-        <section className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
-          <ActualNavigation
-            isLandingPage={ isLandingPage }
-            bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
-            toggleSearch={ this.toggleSearch }
-            showSearch={ this.state.showSearch }
-            scrolled={ this.state.scrolled }
-            navigationStyle={ navigationStyle }
-          />
+    return [
+      <section key="navigationSection" className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
+        <ActualNavigation
+          isLandingPage={ isLandingPage }
+          bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
+          toggleSearch={ this.toggleSearch }
+          showSearch={ this.state.showSearch }
+          scrolled={ this.state.scrolled }
+          navigationStyle={ navigationStyle }
+        />
 
-          <NavigationSection heigthClassName={ heigthClassName } />
-          <ScrollToNextSectionLink heigthClassName={ heigthClassName } />
-        </section>
-        <Scroll.Element name="nextSection" />
-      </div>
-    );
+        <NavigationSection heigthClassName={ heigthClassName } />
+        <ScrollToNextSectionLink heigthClassName={ heigthClassName } />
+      </section>,
+      <Scroll.Element key="scrollJumpPoint" name="nextSection" />,
+    ];
   }
 }
 
