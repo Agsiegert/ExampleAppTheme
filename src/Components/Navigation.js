@@ -1,44 +1,10 @@
-import BootstrapNavbar from 'react-bootstrap/lib/Navbar';
 import Scroll from 'react-scroll';
 import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 import currentPageNavigationOptions from './Navigation/currentPageNavigationOptions';
-import Logo from './Navigation/Logo';
-import Navbar from './Navigation/Navbar';
+import FullNavigation from './Navigation/FullNavigation';
+import LandingPageNavigation from './Navigation/LandingPageNavigation';
 import NavigationSection from './Navigation/NavigationSection';
 import ScrollToNextSectionLink from './Navigation/ScrollToNextSectionLink';
-import { SearchBox, SearchIcon } from './Navigation/Search';
-
-function FullNavigation(
-  { bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle, showSearch }
-) {
-  return (
-    <BootstrapNavbar
-      collapseOnSelect
-      fixedTop
-      className={ bootstrapNavbarClassNames.join(' ') }
-    >
-      <SearchBox toggleSearch={ toggleSearch } showSearch={ showSearch } />
-
-      <BootstrapNavbar.Header>
-        <BootstrapNavbar.Toggle />
-        <Logo scrolled={ scrolled } navigationStyle={ navigationStyle } />
-        <SearchIcon toggleSearch={ toggleSearch } />
-      </BootstrapNavbar.Header>
-
-      <BootstrapNavbar.Collapse>
-        <Navbar />
-      </BootstrapNavbar.Collapse>
-    </BootstrapNavbar>
-  );
-}
-
-function LandingPageNavigation({ navigationStyle }) {
-  return (
-    <div className="nav-landing-page">
-      <Logo scrolled={ false } navigationStyle={ navigationStyle } />
-    </div>
-  );
-}
 
 function ActualNavigation(
   { isLandingPage, bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle, showSearch }
@@ -145,24 +111,22 @@ class Navigation extends React.Component {
       topSectionClassNames.push(heigthClassName);
     }
 
-    return (
-      <div>
-        <section className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
-          <ActualNavigation
-            isLandingPage={ isLandingPage }
-            bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
-            toggleSearch={ this.toggleSearch }
-            showSearch={ this.state.showSearch }
-            scrolled={ this.state.scrolled }
-            navigationStyle={ navigationStyle }
-          />
+    return [
+      <section key="navigationSection" className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
+        <ActualNavigation
+          isLandingPage={ isLandingPage }
+          bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
+          toggleSearch={ this.toggleSearch }
+          showSearch={ this.state.showSearch }
+          scrolled={ this.state.scrolled }
+          navigationStyle={ navigationStyle }
+        />
 
-          <NavigationSection heigthClassName={ heigthClassName } />
-          <ScrollToNextSectionLink heigthClassName={ heigthClassName } />
-        </section>
-        <Scroll.Element name="nextSection" />
-      </div>
-    );
+        <NavigationSection heigthClassName={ heigthClassName } />
+        <ScrollToNextSectionLink heigthClassName={ heigthClassName } />
+      </section>,
+      <Scroll.Element key="scrollJumpPoint" name="nextSection" />,
+    ];
   }
 }
 

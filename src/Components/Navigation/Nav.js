@@ -1,27 +1,27 @@
-function Navbar() {
+function Nav({ toggleExpanded }) {
   return (
     <Scrivito.ChildListTag
       className="nav navbar-nav navbar-right"
       parent={ Scrivito.Obj.root() }
-      renderChild={ renderChild }
+      renderChild={ child => renderChild(child, toggleExpanded) }
     />
   );
 }
 
-function renderChild(child) {
+function renderChild(child, toggleExpanded) {
   if (child.children().length === 0) {
-    return renderSingleChild(child);
+    return renderSingleChild(child, toggleExpanded);
   }
 
-  return <Dropdown child={ child } />;
+  return <Dropdown child={ child } toggleExpanded={ toggleExpanded } />;
 }
 
-function renderSingleChild(child) {
+function renderSingleChild(child, toggleExpanded) {
   const classNames = [];
   if (isActive(child)) { classNames.push('active'); }
 
   return (
-    <li className={ classNames.join(' ') }>
+    <li className={ classNames.join(' ') } onClick={ toggleExpanded }>
       <Scrivito.LinkTag to={ child }>
         { child.get('title') }
       </Scrivito.LinkTag>
@@ -52,7 +52,7 @@ class BaseDropdown extends React.Component {
     if (isActive(child)) { classNames.push('active'); }
 
     return (
-      <li className={ classNames.join(' ') }>
+      <li className={ classNames.join(' ') } onClick={ this.props.toggleExpanded }>
         <Scrivito.LinkTag
           to={ child }
           className="dropdown-toggle"
@@ -62,13 +62,23 @@ class BaseDropdown extends React.Component {
         >
           { child.get('title') }<span className="caret"></span>
         </Scrivito.LinkTag>
-        <span className="mobile-toggle" onClick={ this.toggleOpen }>
+        <span
+          className="mobile-toggle"
+          onClick={
+            e => {
+              this.toggleOpen();
+              e.stopPropagation();
+            }
+          }
+        >
           <i className="fa fa-angle-down" aria-hidden="true" />
         </span>
         <Scrivito.ChildListTag
           className="dropdown-menu"
           parent={ child }
-          renderChild={ renderSingleChild }
+          renderChild={
+            innerChild => renderSingleChild(innerChild, this.props.toggleExpanded)
+          }
         />
       </li>
     );
@@ -92,4 +102,4 @@ function isActive(page) {
   return false;
 }
 
-export default Scrivito.connect(Navbar);
+export default Scrivito.connect(Nav);
