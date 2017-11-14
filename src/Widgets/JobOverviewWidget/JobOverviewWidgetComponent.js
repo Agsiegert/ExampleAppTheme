@@ -1,7 +1,10 @@
 import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 
-Scrivito.provideComponent('JobOverviewWidget', () => {
-  const jobs = Scrivito.getClass('Job').all();
+Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
+  let jobs = Scrivito.getClass('Job').all();
+  if (widget.get('location')) {
+    jobs = jobs.and('location', 'containsPrefix', widget.get('location'));
+  }
 
   return (
     <div className="row">
