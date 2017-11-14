@@ -3,7 +3,6 @@
 import loremIpsum from 'lorem-ipsum';
 
 import boxWidgetScreenshotData from './binary_data/box_widget_screenshot';
-import columnWidgetScreenshotData from './binary_data/column_widget_screenshot';
 import homepage1ScreenshotData from './binary_data/homepage1_screenshot';
 import homepage2ScreenshotData from './binary_data/homepage2_screenshot';
 import imageWidgetScreenshotData from './binary_data/image_widget_screenshot';
@@ -290,6 +289,20 @@ function createEvenColumnContainerWidget({ verticallyAligned, columns }) {
   return new ColumnContainerWidget(options);
 }
 
+function create3to9ColumnContainerWidget({ verticallyAligned, columns }) {
+  const options = {
+    columns: columns.map((column, index) => new ColumnWidget({
+      colSize: (index === 0 ? 3 : 9),
+      content: column,
+    })),
+  };
+  if (verticallyAligned) {
+    options.verticallyAligned = verticallyAligned;
+  }
+
+  return new ColumnContainerWidget(options);
+}
+
 function createPricingWidget(root) {
   return new PricingWidget({
     currency: '€',
@@ -450,7 +463,6 @@ function importContent() {
 
     // Images
     const boxWidgetScreenshot = uploadImage(boxWidgetScreenshotData, 'Box Widget Screenshot');
-    const columnWidgetScreenshot = uploadImage(columnWidgetScreenshotData, 'Column Widget Screenshot');
     const imageWidgetScreenshot = uploadImage(imageWidgetScreenshotData, 'Image Widget Screenshot');
     const sectionWidgetScreenshot = uploadImage(sectionWidgetScreenshotData, 'Section Widget Screenshot');
     const unsplashAllesCandleWoodTable = uploadImage(unsplashAllesCandleWoodTableData, 'Alles candle on wood table', UNSPLASH_TAGS);
@@ -2537,8 +2549,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Address Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2561,8 +2572,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Blog Overview Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2584,8 +2594,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Box Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2596,7 +2605,16 @@ function importContent() {
                   }),
                 ],
                 // col 2
-                [new ImageWidget({ image: boxWidgetScreenshot })],
+                [
+                  new BoxWidget({
+                    body: [
+                      new ImageWidget({
+                        alignment: 'center',
+                        image: boxWidgetScreenshot,
+                      }),
+                    ],
+                  }),
+                ],
               ],
             }),
           ],
@@ -2607,8 +2625,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Button Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2647,8 +2664,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Carousel Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2674,8 +2690,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Column Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2686,7 +2701,33 @@ function importContent() {
                   }),
                 ],
                 // col 2
-                [new ImageWidget({ image: columnWidgetScreenshot })],
+                [
+                  createEvenColumnContainerWidget({
+                    columns: [
+                      // inner col 1
+                      [
+                        new TextWidget({
+                          alignment: 'center',
+                          text: '<p>This<br> is<br> Column<br> <b>1</b></p>',
+                        }),
+                      ],
+                      // inner col 2
+                      [
+                        new TextWidget({
+                          alignment: 'center',
+                          text: '<p>This<br> is<br> Column<br> <b>2</b></p>',
+                        }),
+                      ],
+                      // inner col 3
+                      [
+                        new TextWidget({
+                          alignment: 'center',
+                          text: '<p>This<br> is<br> Column<br> <b>3</b></p>',
+                        }),
+                      ],
+                    ],
+                  }),
+                ],
               ],
             }),
           ],
@@ -2697,8 +2738,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Contact Form Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2724,8 +2764,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Divider Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2747,8 +2786,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Event Overview Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2770,8 +2808,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Fact Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2798,8 +2835,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Feature Panel Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2828,7 +2864,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Gallery Widget',
             }),
-            createEvenColumnContainerWidget({
+            create3to9ColumnContainerWidget({
               verticallyAligned: 'no',
               columns: [
                 // col 1
@@ -2855,8 +2891,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Headline Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2884,8 +2919,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Icon Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2918,8 +2952,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Icon List Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2941,8 +2974,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Image Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2953,7 +2985,12 @@ function importContent() {
                   }),
                 ],
                 // col 2
-                [new ImageWidget({ image: imageWidgetScreenshot })],
+                [
+                  new ImageWidget({
+                    alignment: 'center',
+                    image: imageWidgetScreenshot,
+                  }),
+                ],
               ],
             }),
           ],
@@ -2964,8 +3001,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Job Overview Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -2987,8 +3023,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Login Form Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3009,8 +3044,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Page List Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3022,9 +3056,20 @@ function importContent() {
                 ],
                 // col 2
                 [
-                  new PageListWidget({
-                    headline: 'This is a Page List',
-                    pages: [root, homeV1, homeV2, landingPage],
+                  createEvenColumnContainerWidget({
+                    columns: [
+                      // inner col 1
+                      [],
+                      // inner col 2
+                      [
+                        new PageListWidget({
+                          headline: 'This is a Page List',
+                          pages: [root, homeV1, homeV2, landingPage],
+                        }),
+                      ],
+                      // inner col 3
+                      [],
+                    ],
                   }),
                 ],
               ],
@@ -3037,8 +3082,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Pricing Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3061,8 +3105,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Section Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3074,7 +3117,12 @@ function importContent() {
                   }),
                 ],
                 // col 2
-                [new ImageWidget({ image: sectionWidgetScreenshot })],
+                [
+                  new ImageWidget({
+                    alignment: 'center',
+                    image: sectionWidgetScreenshot,
+                  }),
+                ],
               ],
             }),
           ],
@@ -3085,8 +3133,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Sign Up Form Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3113,8 +3160,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Table Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3165,8 +3211,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Testimonial Slider Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3208,8 +3253,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Text Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3236,8 +3280,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Thumbnail Gallery Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3284,8 +3327,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Tick List Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
@@ -3296,11 +3338,22 @@ function importContent() {
                 ],
                 // col 2
                 [
-                  new TickListWidget({
-                    items: [
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
-                      new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })) }),
+                  createEvenColumnContainerWidget({
+                    columns: [
+                      // inner col 1
+                      [],
+                      // inner col 2
+                      [
+                        new TickListWidget({
+                          items: [
+                            new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })) }),
+                            new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })) }),
+                            new TickListItemWidget({ statement: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 3 })) }),
+                          ],
+                        }),
+                      ],
+                      // inner col 3
+                      [],
                     ],
                   }),
                 ],
@@ -3314,8 +3367,7 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Video Widget',
             }),
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
+            create3to9ColumnContainerWidget({
               columns: [
                 // col 1
                 [
