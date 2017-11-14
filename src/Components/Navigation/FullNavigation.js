@@ -3,28 +3,36 @@ import Logo from './Logo';
 import Navbar from './Navbar';
 import { SearchBox, SearchIcon } from './Search';
 
-function FullNavigation(
-  { bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle, showSearch }
-) {
-  return (
-    <BootstrapNavbar
-      collapseOnSelect
-      fixedTop
-      className={ bootstrapNavbarClassNames.join(' ') }
-    >
-      <SearchBox toggleSearch={ toggleSearch } showSearch={ showSearch } />
+class FullNavigation extends React.Component {
+  render() {
+    const {
+      bootstrapNavbarClassNames,
+      toggleSearch,
+      scrolled,
+      navigationStyle,
+      showSearch,
+    } = this.props;
 
-      <BootstrapNavbar.Header>
-        <BootstrapNavbar.Toggle />
-        <Logo scrolled={ scrolled } navigationStyle={ navigationStyle } />
-        <SearchIcon toggleSearch={ toggleSearch } />
-      </BootstrapNavbar.Header>
+    return (
+      <BootstrapNavbar
+        collapseOnSelect
+        fixedTop
+        className={ bootstrapNavbarClassNames.join(' ') }
+      >
+        <SearchBox toggleSearch={ toggleSearch } showSearch={ showSearch } />
 
-      <BootstrapNavbar.Collapse>
-        <Navbar />
-      </BootstrapNavbar.Collapse>
-    </BootstrapNavbar>
-  );
+        <BootstrapNavbar.Header>
+          <BootstrapNavbar.Toggle />
+          <Logo scrolled={ scrolled } navigationStyle={ navigationStyle } />
+          <SearchIcon toggleSearch={ toggleSearch } />
+        </BootstrapNavbar.Header>
+
+        <BootstrapNavbar.Collapse>
+          <Navbar />
+        </BootstrapNavbar.Collapse>
+      </BootstrapNavbar>
+    );
+  }
 }
 
 
