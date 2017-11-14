@@ -1,9 +1,24 @@
-import BootstrapNavbar from 'react-bootstrap/lib/Navbar';
+import BootstrapCollapse from 'react-bootstrap/lib/Collapse';
+import CollapseToggle from './CollapseToggle';
 import Logo from './Logo';
 import Navbar from './Navbar';
 import { SearchBox, SearchIcon } from './Search';
 
 class FullNavigation extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      expanded: false,
+    };
+
+    this.toggleExpanded = this.toggleExpanded.bind(this);
+  }
+
+  toggleExpanded() {
+    this.setState({ expanded: !this.state.expanded });
+  }
+
   render() {
     const {
       bootstrapNavbarClassNames,
@@ -13,24 +28,34 @@ class FullNavigation extends React.Component {
       showSearch,
     } = this.props;
 
+    const classNames = [
+      'navbar',
+      'navbar-fixed-top',
+      'navbar-default',
+      ...bootstrapNavbarClassNames,
+    ];
+
     return (
-      <BootstrapNavbar
-        collapseOnSelect
-        fixedTop
-        className={ bootstrapNavbarClassNames.join(' ') }
-      >
-        <SearchBox toggleSearch={ toggleSearch } showSearch={ showSearch } />
+      <nav className={ classNames.join(' ') } >
+        <div className="container">
+          <SearchBox toggleSearch={ toggleSearch } showSearch={ showSearch } />
 
-        <BootstrapNavbar.Header>
-          <BootstrapNavbar.Toggle />
-          <Logo scrolled={ scrolled } navigationStyle={ navigationStyle } />
-          <SearchIcon toggleSearch={ toggleSearch } />
-        </BootstrapNavbar.Header>
+          <div className="navbar-header">
+            <CollapseToggle
+              expanded={ this.state.expanded }
+              toggleExpanded={ this.toggleExpanded }
+            />
+            <Logo scrolled={ scrolled } navigationStyle={ navigationStyle } />
+            <SearchIcon toggleSearch={ toggleSearch } />
+          </div>
 
-        <BootstrapNavbar.Collapse>
-          <Navbar />
-        </BootstrapNavbar.Collapse>
-      </BootstrapNavbar>
+          <BootstrapCollapse in={ this.state.expanded }>
+            <div className="navbar-collapse">
+              <Navbar />
+            </div>
+          </BootstrapCollapse>
+        </div>
+      </nav>
     );
   }
 }
