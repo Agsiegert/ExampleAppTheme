@@ -1,6 +1,7 @@
 const defaultPageAttributes = {
   body: ['widgetlist', { only: 'SectionWidget' }],
   navigationBackgroundImage: 'reference',
+  navigationBackgroundImageGradient: ['enum', { values: ['yes', 'no'] }],
   navigationHeight: ['enum', {
     values: [
       'small',
@@ -9,13 +10,6 @@ const defaultPageAttributes = {
     ],
   }],
   navigationSection: 'widgetlist',
-  navigationStyle: ['enum', {
-    values: [
-      'solidWhite',
-      'transparentDark',
-      'transparentDark gradient',
-    ],
-  }],
   title: 'string',
 };
 
@@ -24,13 +18,14 @@ const defaultPageUiConfigAttributes = {
     title: 'Title',
     description: 'The title of this page.',
   },
-  navigationStyle: {
-    title: 'Navigation Style',
-    description: 'The style of the navigation.',
-  },
   navigationBackgroundImage: {
     title: 'Navigation Background Image',
     description: 'The background image of the navigation.',
+  },
+  navigationBackgroundImageGradient: {
+    title: 'Navigation Background Image Gradient',
+    description: 'Should the background image have a gradient? Only applies,' +
+      ' if a background image is selected. Default: no',
   },
   navigationHeight: {
     title: 'Navigation Height',
@@ -42,7 +37,7 @@ const defaultGeneralProperties = [
   'title',
   'navigationHeight',
   'navigationBackgroundImage',
-  'navigationStyle',
+  'navigationBackgroundImageGradient',
 ];
 
 export {

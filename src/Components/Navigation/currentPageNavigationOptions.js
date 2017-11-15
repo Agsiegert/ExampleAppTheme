@@ -55,18 +55,16 @@ function landingPageNavigationOptions(obj) {
 }
 
 function pageNavigationOptions(obj) {
-  const navStyle = obj.get('navigationStyle') || 'solidWhite';
+  const backgroundImage = obj.get('navigationBackgroundImage') || null;
 
-  let navigationStyle = navStyle;
-  if (navStyle.startsWith('transparentDark')) { navigationStyle = 'transparentDark'; }
+  const useGradient = backgroundImage && obj.get('navigationBackgroundImageGradient') === 'yes';
 
   const navigationHeight = obj.get('navigationHeight') || 'small';
   let heigthClassName = null;
   if (navigationHeight !== 'small') { heigthClassName = navigationHeight; }
 
-  const backgroundImage = obj.get('navigationBackgroundImage') || null;
-
-  const useGradient = navStyle.includes('gradient');
+  let navigationStyle = 'solidWhite';
+  if (backgroundImage || navigationHeight !== 'small') { navigationStyle = 'transparentDark'; }
 
   return {
     navigationStyle,
