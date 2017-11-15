@@ -30,6 +30,11 @@ const defaultPageUiConfigAttributes = {
   navigationHeight: {
     title: 'Navigation Height',
     description: 'How high should the navigation be? Default: small',
+    values: [
+      { value: 'small', title: 'small' },
+      { value: 'medium-height', title: 'medium' },
+      { value: 'full-height', title: 'fullscreen' },
+    ],
   },
 };
 
