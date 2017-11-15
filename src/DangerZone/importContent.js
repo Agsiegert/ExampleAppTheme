@@ -2971,7 +2971,7 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Function:</p><ul><li>Displays Jobs</li>
+                    text: `<p>Widget Properties:</p><ul><li>Location</li>
                     </ul>`,
                   }),
                 ],
