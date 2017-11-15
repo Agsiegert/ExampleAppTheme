@@ -2557,11 +2557,22 @@ function importContent() {
                     alignment: 'left',
                     text: `<p>Widget Properties:</p><ul><li>Show brand logo<br>
                       </li><li>Address</li><li>List items with key and
-                      colored value</li></ul><p><br></p>`,
+                       value</li></ul><p><br></p>`,
                   }),
                 ],
                 // col 2
-                [createAddressWidget({ showBorderBottom: false })],
+                [
+                  createEvenColumnContainerWidget({
+                    columns: [
+                      // inner col 1
+                      [],
+                      // inner col 2
+                      [createAddressWidget({ showBorderBottom: false })],
+                      // inner col 3
+                      [],
+                    ],
+                  }),
+                ],
               ],
             }),
           ],
@@ -2865,7 +2876,6 @@ function importContent() {
               headline: 'Gallery Widget',
             }),
             create3to9ColumnContainerWidget({
-              verticallyAligned: 'no',
               columns: [
                 // col 1
                 [
