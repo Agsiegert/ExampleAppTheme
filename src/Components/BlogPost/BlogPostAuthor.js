@@ -10,7 +10,9 @@ function BlogPostAuthor({ author }) {
         <hr />
         <div className="row">
           <div className="col-md-1 col-sm-4 col-xs-4">
-            <AuthorImage image={ author.get('image') }/>
+            <Scrivito.LinkTag to={ author }>
+              <AuthorImage image={ author.get('image') }/>
+            </Scrivito.LinkTag>
           </div>
           <div className="col-md-11 col-sm-8 col-xs-8">
             <Scrivito.LinkTag to={ author }>
