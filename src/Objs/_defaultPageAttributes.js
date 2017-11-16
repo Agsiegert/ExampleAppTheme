@@ -19,17 +19,17 @@ const defaultPageUiConfigAttributes = {
     description: 'The title of this page.',
   },
   navigationBackgroundImage: {
-    title: 'Navigation Background Image',
-    description: 'The background image of the navigation.',
+    title: 'Header Image',
+    description: 'The background image of the header.',
   },
   navigationBackgroundImageGradient: {
-    title: 'Navigation Background Image Gradient',
-    description: 'Should the background image have a gradient? Only applies,' +
-      ' if a background image is selected. Default: no',
+    title: 'Header Image Gradient',
+    description: 'Should the header image have a gradient?' +
+      ' Only applies, if a header image is selected. Default: no',
   },
   navigationHeight: {
-    title: 'Navigation Height',
-    description: 'How high should the navigation be? Default: small',
+    title: 'Header Height',
+    description: 'How high should the header be? Default: small',
     values: [
       { value: 'small', title: 'small' },
       { value: 'medium-height', title: 'medium' },
