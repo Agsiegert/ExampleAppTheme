@@ -7,7 +7,7 @@ function BlogPostMorePosts({ author }) {
   return (
     <section className="bg-white">
       <div className="container gutter0">
-        <h1 className="h2 border-bottom">More great blog posts from { author.get('name') }</h1>
+        <h1 className="h2 border-bottom">More great blog posts from { author.get('title') }</h1>
         <BlogPostPreviewList author={ author } />
       </div>
     </section>

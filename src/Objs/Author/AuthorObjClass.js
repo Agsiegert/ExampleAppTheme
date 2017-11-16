@@ -3,7 +3,7 @@ import { socialCardsAttributes } from '../_socialCardsAttributes';
 
 const Author = Scrivito.provideObjClass('Author', {
   attributes: {
-    name: 'string',
+    title: 'string',
     description: 'string',
     image: 'reference',
     ...socialCardsAttributes,
@@ -11,7 +11,6 @@ const Author = Scrivito.provideObjClass('Author', {
 });
 
 registerTextExtract('Author', [
-  { attribute: 'name', type: 'string' },
   { attribute: 'description', type: 'string' },
 ]);
 

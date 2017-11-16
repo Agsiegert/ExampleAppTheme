@@ -6,9 +6,9 @@ Scrivito.provideEditingConfig('Author', {
   description: 'An Author',
   thumbnail: `/${authorObjIcon}`,
   attributesConfig: {
-    name: {
-      title: 'Name',
-      description: 'The name of the author.',
+    title: {
+      title: 'Title',
+      description: 'The title of the author.',
     },
     description: {
       title: 'Description',
@@ -20,10 +20,10 @@ Scrivito.provideEditingConfig('Author', {
     },
   },
   generalProperties: [
-    'name',
+    'title',
     'description',
     'image',
   ],
   propertiesGroups: [socialCardsCustomGroup],
-  titleForContent: obj => obj.get('name'),
+  titleForContent: obj => obj.get('title'),
 });

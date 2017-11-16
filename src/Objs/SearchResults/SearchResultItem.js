@@ -23,7 +23,7 @@ const Details = Scrivito.connect(({ item }) => {
   if (date) { details.push(fromNow(date)); }
 
   const author = item.get('author');
-  if (author) { details.push(`by ${author.get('name')}`); }
+  if (author) { details.push(`by ${author.get('title')}`); }
 
   const tags = item.get('tags');
   if (tags && tags.length) { details.push(`tags: ${tags.join(', ')}`); }
