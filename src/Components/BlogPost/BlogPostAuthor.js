@@ -13,8 +13,10 @@ function BlogPostAuthor({ author }) {
             <AuthorImage image={ author.get('image') }/>
           </div>
           <div className="col-md-11 col-sm-8 col-xs-8">
-            <Scrivito.ContentTag content={ author } attribute="name" tag="strong" />
-            <Scrivito.ContentTag content={ author } attribute="description" tag="p" />
+            <Scrivito.LinkTag to={ author }>
+              <strong>{ author.get('name') }</strong>
+            </Scrivito.LinkTag>
+            <p>{ author.get('description') }</p>
           </div>
         </div>
       </div>
