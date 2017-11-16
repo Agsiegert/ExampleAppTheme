@@ -1,4 +1,4 @@
-import devicePixelRatio from 'utils/devicePixelRatio';
+import AuthorImage from 'Components/AuthorImage';
 
 function BlogPostAuthor({ author }) {
   if (!author) { return null; }
@@ -21,16 +21,5 @@ function BlogPostAuthor({ author }) {
     </section>
   );
 }
-
-const AuthorImage = Scrivito.connect(({ image }) => {
-  if (!image) { return null; }
-  const croppedImage = image.get('blob').transform({
-    width: 200 * devicePixelRatio(),
-    height: 200 * devicePixelRatio(),
-    fit: 'crop',
-  });
-
-  return (<img src={ croppedImage.url() } className="img-circle" />);
-});
 
 export default Scrivito.connect(BlogPostAuthor);
