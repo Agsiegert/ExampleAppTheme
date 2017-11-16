@@ -1,7 +1,7 @@
 import BlogPostDate from './BlogPostDate';
 
 const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
-  if (!currentPost.get('publishedAt')) { return null; }
+  if (!currentPost || !currentPost.get('publishedAt')) { return null; }
 
   return (
     <section className="bg-nav-content">
