@@ -10,8 +10,12 @@ Scrivito.provideEditingConfig('ButtonWidget', {
       description: 'How should this button be aligned? Default: left',
     },
     style: {
-      title: 'Style',
-      description: 'What style should this button have? Default: btn-primary',
+      title: 'Background Color',
+      description: 'What background color should this button have? Default: primary color',
+      values: [
+        { value: 'btn-primary', title: 'primary color' },
+        { value: 'btn-clear', title: 'transparent' },
+      ],
     },
     target: {
       title: 'Target',
