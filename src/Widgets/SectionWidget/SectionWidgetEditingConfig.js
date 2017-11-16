@@ -7,7 +7,8 @@ Scrivito.provideEditingConfig('SectionWidget', {
   attributesConfig: {
     backgroundColor: {
       title: 'Background Color',
-      description: 'Which background color should this section have?',
+      description: 'Which background color should this section have?' +
+        ' Does not apply, if a background image is set. Default: white',
     },
     useFullWidth: {
       title: 'Use full width?',

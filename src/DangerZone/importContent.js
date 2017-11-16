@@ -582,7 +582,6 @@ function importContent() {
       title: 'Jobs',
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashWoodTable,
           content: [
             new HeadlineWidget({
@@ -735,7 +734,6 @@ function importContent() {
       _permalink: 'login',
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashHotpink,
           useFullHeight: 'yes',
           content: [
@@ -750,7 +748,6 @@ function importContent() {
       title: 'Events & Conferences',
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashTidyDeskTouchScreen,
           content: [
             new HeadlineWidget({
@@ -1070,7 +1067,6 @@ function importContent() {
       title: 'Product',
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashTidyDeskTouchScreen,
           content: [
             createEvenColumnContainerWidget({
@@ -1323,7 +1319,6 @@ function importContent() {
           }),
         ] }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashWhiteMeetingRoom,
           content: [
             new TestimonialSliderWidget({
@@ -1387,7 +1382,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashNeonTrue,
           content: [
             createEvenColumnContainerWidget({
@@ -1581,7 +1575,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashSilhouetteDancing,
           content: [
             new HeadlineWidget({
@@ -1725,7 +1718,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashHotpink,
           content: [
             createPricingWidget(root),
@@ -2491,7 +2483,6 @@ function importContent() {
           }),
         ] }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashSilhouetteDancing,
           content: [
             new HeadlineWidget({
@@ -2525,7 +2516,6 @@ function importContent() {
       childOrder: [homeV1, homeV2, landingPage],
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashWatchTypeBookCoffee,
           content: [
             new HeadlineWidget({
@@ -3680,7 +3670,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashWhiteMeetingRoom,
           content: [
             new TestimonialSliderWidget({

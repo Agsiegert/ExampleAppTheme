@@ -18,7 +18,6 @@ const SectionWidget = Scrivito.provideWidgetClass('SectionWidget', {
           'grey',
           'brand-primary',
           'brand-secondary',
-          'dark-image',
         ],
       },
     ],
