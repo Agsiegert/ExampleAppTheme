@@ -16,7 +16,8 @@ Scrivito.provideEditingConfig('IconWidget', {
     },
     alignment: {
       title: 'Alignment',
-      description: 'How should this icon be aligned? Default: left',
+      description: 'How should this icon be aligned? A icon list widget ignores this setting.' +
+        ' Default: left',
     },
     link: {
       title: 'Link',

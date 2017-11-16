@@ -144,7 +144,6 @@ const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const GoogleMapsWidget = Scrivito.getClass('GoogleMapsWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
 const IconContainerWidget = Scrivito.getClass('IconContainerWidget');
-const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
@@ -339,7 +338,7 @@ function createPricingWidget(root) {
 function createRandomIconContainerWidget(size = null) {
   return new IconContainerWidget({
     iconList: [
-      new IconListItemWidget({
+      new IconWidget({
         icon: 'fa-twitter',
         size: size,
         link: new Scrivito.Link({
@@ -348,7 +347,7 @@ function createRandomIconContainerWidget(size = null) {
           target: '_blank',
         }),
       }),
-      new IconListItemWidget({
+      new IconWidget({
         icon: 'fa-facebook',
         size: size,
         link: new Scrivito.Link({
@@ -357,7 +356,7 @@ function createRandomIconContainerWidget(size = null) {
           target: '_blank',
         }),
       }),
-      new IconListItemWidget({
+      new IconWidget({
         icon: 'fa-instagram',
         size: size,
         link: new Scrivito.Link({
@@ -366,7 +365,7 @@ function createRandomIconContainerWidget(size = null) {
           target: '_blank',
         }),
       }),
-      new IconListItemWidget({
+      new IconWidget({
         icon: 'fa-linkedin',
         size: size,
         link: new Scrivito.Link({
