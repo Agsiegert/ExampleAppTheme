@@ -7,8 +7,8 @@ Scrivito.provideEditingConfig('Author', {
   thumbnail: `/${authorObjIcon}`,
   attributesConfig: {
     title: {
-      title: 'Title',
-      description: 'The title of the author.',
+      title: 'Name',
+      description: 'The name of the author.',
     },
     description: {
       title: 'Description',
