@@ -14,7 +14,7 @@ function BlogPostAuthor({ author }) {
           </div>
           <div className="col-md-11 col-sm-8 col-xs-8">
             <Scrivito.LinkTag to={ author }>
-              <strong>{ author.get('name') }</strong>
+              <strong>{ author.get('title') }</strong>
             </Scrivito.LinkTag>
             <p>{ author.get('description') }</p>
           </div>

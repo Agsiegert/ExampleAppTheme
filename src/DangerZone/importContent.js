@@ -1865,13 +1865,13 @@ function importContent() {
 
     // Authors for BlogPosts
     const janeDoe = Author.create({
-      name: 'Jane Doe',
+      title: 'Jane Doe',
       description: loremIpsum({ units: 'sentences', count: 3 }),
       image: unsplashFemaleBehindWindow,
     });
 
     const johnDoe = Author.create({
-      name: 'John Doe',
+      title: 'John Doe',
       description: loremIpsum({ units: 'sentences', count: 3 }),
       image: unsplashMaleWithSunglasses,
     });
