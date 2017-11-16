@@ -4,7 +4,6 @@ import SearchResultItem from './SearchResultItem';
 import SearchResultsTagList from './SearchResultsTagList';
 
 const blacklistObjClasses = [
-  'Author', // TODO: Don't blacklist Authors, once a view is available for them
   'Image',
   'SearchResults',
   'Video',
