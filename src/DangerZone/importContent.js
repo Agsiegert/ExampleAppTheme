@@ -143,8 +143,8 @@ const FeaturePanelWidget = Scrivito.getClass('FeaturePanelWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const GoogleMapsWidget = Scrivito.getClass('GoogleMapsWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
+const IconContainerWidget = Scrivito.getClass('IconContainerWidget');
 const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
-const IconListWidget = Scrivito.getClass('IconListWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
@@ -336,8 +336,8 @@ function createPricingWidget(root) {
   });
 }
 
-function createRandomIconListWidget(size = null) {
-  return new IconListWidget({
+function createRandomIconContainerWidget(size = null) {
+  return new IconContainerWidget({
     iconList: [
       new IconListItemWidget({
         icon: 'fa-twitter',
@@ -670,7 +670,7 @@ function importContent() {
               showWidgets: 'yes',
               content: [
                 createAddressWidget({ showBorderBottom: true }),
-                createRandomIconListWidget(),
+                createRandomIconContainerWidget(),
               ],
             }),
           ],
@@ -1459,7 +1459,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1481,7 +1481,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1503,7 +1503,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1529,7 +1529,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1551,7 +1551,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1573,7 +1573,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -2973,7 +2973,7 @@ function importContent() {
                   }),
                 ],
                 // col 2
-                [createRandomIconListWidget('fa-5x')],
+                [createRandomIconContainerWidget('fa-5x')],
               ],
             }),
           ],
@@ -3741,7 +3741,7 @@ function importContent() {
           backgroundColor: 'greydark',
           paddingDisabled: 'yes',
           content: [
-            createRandomIconListWidget(),
+            createRandomIconContainerWidget(),
           ],
         }),
       ],

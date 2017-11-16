@@ -1,6 +1,6 @@
 import iconListWidgetIcon from 'assets/images/icon_list_widget.svg';
 
-Scrivito.provideEditingConfig('IconListWidget', {
+Scrivito.provideEditingConfig('IconContainerWidget', {
   title: 'Icon List',
   description: 'A list of icons.',
   thumbnail: `/${iconListWidgetIcon}`,
