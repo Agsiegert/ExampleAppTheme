@@ -12,7 +12,15 @@ Scrivito.provideEditingConfig('IconWidget', {
     },
     size: {
       title: 'Size',
-      description: 'Size of the icon.',
+      description: 'The font size of the icon. Default: 100% (normal)',
+      values: [
+        { value: 'fa-1x', title: '100% (normal)' },
+        { value: 'fa-lg', title: '133%' },
+        { value: 'fa-2x', title: '200%' },
+        { value: 'fa-3x', title: '300%' },
+        { value: 'fa-4x', title: '400%' },
+        { value: 'fa-5x', title: '500% (biggest)' },
+      ],
     },
     alignment: {
       title: 'Alignment',
