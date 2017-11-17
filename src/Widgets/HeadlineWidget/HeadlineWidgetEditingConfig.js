@@ -23,12 +23,12 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
       description: 'The size of the headline.' +
         ' If nothing is selected, the size is derived from the level.',
       values: [
-        { value: 'h1', title: 'biggest (h1)' },
-        { value: 'h2', title: 'bigger (h2)' },
-        { value: 'h3', title: 'big (h3)' },
-        { value: 'h4', title: 'small (h4)' },
-        { value: 'h5', title: 'smaller (h5)' },
-        { value: 'h6', title: 'smallest (h6)' },
+        { value: 'h1', title: 'biggest' },
+        { value: 'h2', title: 'bigger' },
+        { value: 'h3', title: 'big' },
+        { value: 'h4', title: 'small' },
+        { value: 'h5', title: 'smaller' },
+        { value: 'h6', title: 'smallest' },
       ],
     },
     alignment: {
