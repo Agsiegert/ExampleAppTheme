@@ -1,6 +1,6 @@
 import IconComponent from 'Components/Icon';
 
-Scrivito.provideComponent('IconListWidget', ({ widget }) =>
+Scrivito.provideComponent('IconContainerWidget', ({ widget }) =>
   <div className="social-links text-center">
     {
       widget.get('iconList').map(iconListItem => {

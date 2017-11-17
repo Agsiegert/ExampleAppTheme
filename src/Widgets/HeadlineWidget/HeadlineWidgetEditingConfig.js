@@ -7,11 +7,29 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
   attributesConfig: {
     level: {
       title: 'Level',
-      description: 'The level of the headline.',
+      description: 'The level of the headline. This information may be used by user agents,' +
+        ' for example, to construct a table of contents automatically. Default: highest (h1)',
+      values: [
+        { value: 'h1', title: 'highest (h1)' },
+        { value: 'h2', title: 'higher (h2)' },
+        { value: 'h3', title: 'high (h3)' },
+        { value: 'h4', title: 'low (h4)' },
+        { value: 'h5', title: 'lower (h5)' },
+        { value: 'h6', title: 'lowest (h6)' },
+      ],
     },
     style: {
-      title: 'Style',
-      description: 'The style of the headline (how big it should be).',
+      title: 'Size',
+      description: 'The size of the headline.' +
+        ' If nothing is selected, the size is derived from the level.',
+      values: [
+        { value: 'h1', title: 'biggest' },
+        { value: 'h2', title: 'bigger' },
+        { value: 'h3', title: 'big' },
+        { value: 'h4', title: 'small' },
+        { value: 'h5', title: 'smaller' },
+        { value: 'h6', title: 'smallest' },
+      ],
     },
     alignment: {
       title: 'Alignment',

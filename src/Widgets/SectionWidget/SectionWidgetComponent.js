@@ -2,8 +2,22 @@ import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 
 Scrivito.provideComponent('SectionWidget', ({ widget }) => {
   const sectionClassNames = [];
+  const sectionStyle = {};
 
-  const backgroundColor = widget.get('backgroundColor') || 'white';
+  let backgroundColor = widget.get('backgroundColor') || 'white';
+
+  const backgroundImage = widget.get('backgroundImage');
+  if (backgroundImage) {
+    backgroundColor = 'dark-image';
+    const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
+    sectionStyle.background = 'no-repeat center / cover';
+    sectionStyle.backgroundImage = [
+      'linear-gradient(rgba(46, 53, 60, 0.7)',
+      'rgba(46, 53, 60, 0.7))',
+      `url(${backgroundUrl})`,
+    ].join(', ');
+  }
+
   sectionClassNames.push(`bg-${backgroundColor}`);
 
   if (widget.get('paddingDisabled') === 'yes') {
@@ -17,20 +31,6 @@ Scrivito.provideComponent('SectionWidget', ({ widget }) => {
 
   if (widget.get('useFullHeight') === 'yes') {
     sectionClassNames.push('full-height');
-  }
-
-  const sectionStyle = {};
-  if (backgroundColor === 'dark-image') {
-    const backgroundImage = widget.get('backgroundImage');
-    if (backgroundImage) {
-      const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
-      sectionStyle.background = 'no-repeat center / cover';
-      sectionStyle.backgroundImage = [
-        'linear-gradient(rgba(46, 53, 60, 0.7)',
-        'rgba(46, 53, 60, 0.7))',
-        `url(${backgroundUrl})`,
-      ].join(', ');
-    }
   }
 
   return (<section className={ sectionClassNames.join(' ') } style={ sectionStyle }>

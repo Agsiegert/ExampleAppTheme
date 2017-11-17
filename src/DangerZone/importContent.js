@@ -143,8 +143,7 @@ const FeaturePanelWidget = Scrivito.getClass('FeaturePanelWidget');
 const GalleryWidget = Scrivito.getClass('GalleryWidget');
 const GoogleMapsWidget = Scrivito.getClass('GoogleMapsWidget');
 const HeadlineWidget = Scrivito.getClass('HeadlineWidget');
-const IconListItemWidget = Scrivito.getClass('IconListItemWidget');
-const IconListWidget = Scrivito.getClass('IconListWidget');
+const IconContainerWidget = Scrivito.getClass('IconContainerWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
@@ -336,10 +335,10 @@ function createPricingWidget(root) {
   });
 }
 
-function createRandomIconListWidget(size = null) {
-  return new IconListWidget({
+function createRandomIconContainerWidget(size = null) {
+  return new IconContainerWidget({
     iconList: [
-      new IconListItemWidget({
+      new IconWidget({
         icon: 'fa-twitter',
         size: size,
         link: new Scrivito.Link({
@@ -348,7 +347,7 @@ function createRandomIconListWidget(size = null) {
           target: '_blank',
         }),
       }),
-      new IconListItemWidget({
+      new IconWidget({
         icon: 'fa-facebook',
         size: size,
         link: new Scrivito.Link({
@@ -357,7 +356,7 @@ function createRandomIconListWidget(size = null) {
           target: '_blank',
         }),
       }),
-      new IconListItemWidget({
+      new IconWidget({
         icon: 'fa-instagram',
         size: size,
         link: new Scrivito.Link({
@@ -366,7 +365,7 @@ function createRandomIconListWidget(size = null) {
           target: '_blank',
         }),
       }),
-      new IconListItemWidget({
+      new IconWidget({
         icon: 'fa-linkedin',
         size: size,
         link: new Scrivito.Link({
@@ -583,7 +582,6 @@ function importContent() {
       title: 'Jobs',
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashWoodTable,
           content: [
             new HeadlineWidget({
@@ -670,7 +668,7 @@ function importContent() {
               showWidgets: 'yes',
               content: [
                 createAddressWidget({ showBorderBottom: true }),
-                createRandomIconListWidget(),
+                createRandomIconContainerWidget(),
               ],
             }),
           ],
@@ -736,7 +734,6 @@ function importContent() {
       _permalink: 'login',
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashHotpink,
           useFullHeight: 'yes',
           content: [
@@ -751,7 +748,6 @@ function importContent() {
       title: 'Events & Conferences',
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashTidyDeskTouchScreen,
           content: [
             new HeadlineWidget({
@@ -1074,7 +1070,6 @@ function importContent() {
       title: 'Product',
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashTidyDeskTouchScreen,
           content: [
             createEvenColumnContainerWidget({
@@ -1327,7 +1322,6 @@ function importContent() {
           }),
         ] }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashWhiteMeetingRoom,
           content: [
             new TestimonialSliderWidget({
@@ -1391,7 +1385,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashNeonTrue,
           content: [
             createEvenColumnContainerWidget({
@@ -1462,7 +1455,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1484,7 +1477,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1506,7 +1499,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1532,7 +1525,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1554,7 +1547,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1576,7 +1569,7 @@ function importContent() {
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
                       }),
-                      createRandomIconListWidget(),
+                      createRandomIconContainerWidget(),
                     ],
                   }),
                 ],
@@ -1585,7 +1578,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashSilhouetteDancing,
           content: [
             new HeadlineWidget({
@@ -1729,7 +1721,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashHotpink,
           content: [
             createPricingWidget(root),
@@ -2495,7 +2486,6 @@ function importContent() {
           }),
         ] }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashSilhouetteDancing,
           content: [
             new HeadlineWidget({
@@ -2529,7 +2519,6 @@ function importContent() {
       childOrder: [homeV1, homeV2, landingPage],
       body: [
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashWatchTypeBookCoffee,
           content: [
             new HeadlineWidget({
@@ -2984,7 +2973,7 @@ function importContent() {
                   }),
                 ],
                 // col 2
-                [createRandomIconListWidget('fa-5x')],
+                [createRandomIconContainerWidget('fa-5x')],
               ],
             }),
           ],
@@ -3694,7 +3683,6 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          backgroundColor: 'dark-image',
           backgroundImage: unsplashWhiteMeetingRoom,
           content: [
             new TestimonialSliderWidget({
@@ -3754,7 +3742,7 @@ function importContent() {
           backgroundColor: 'greydark',
           paddingDisabled: 'yes',
           content: [
-            createRandomIconListWidget(),
+            createRandomIconContainerWidget(),
           ],
         }),
       ],

@@ -7,7 +7,17 @@ Scrivito.provideEditingConfig('SectionWidget', {
   attributesConfig: {
     backgroundColor: {
       title: 'Background Color',
-      description: 'Which background color should this section have?',
+      description: 'Which background color should this section have?' +
+        ' Does not apply, if a background image is set. Default: white',
+      values: [
+        { value: 'white', title: 'white' },
+        { value: 'greywhite', title: 'white grey' },
+        { value: 'greylight', title: 'light grey' },
+        { value: 'greymiddle', title: 'grey' },
+        { value: 'greydark', title: 'dark grey' },
+        { value: 'brand-primary', title: 'primary color' },
+        { value: 'brand-secondary', title: 'secondary color' },
+      ],
     },
     useFullWidth: {
       title: 'Use full width?',
@@ -22,7 +32,7 @@ Scrivito.provideEditingConfig('SectionWidget', {
       description: 'Should this section use no padding (empty space around this section)?',
     },
     backgroundImage: {
-      title: 'Background image',
+      title: 'Background Image',
       description: 'Which background image should be shown?',
     },
   },
