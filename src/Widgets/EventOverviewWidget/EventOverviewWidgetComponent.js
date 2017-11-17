@@ -52,7 +52,10 @@ class EventOverviewWidgetComponent extends React.Component {
 
   render() {
     let eventsSearch = Scrivito.Obj.where('_objClass', 'equals', 'Event').order('date', 'asc');
-    if (this.state.currentTag) {
+    const filterTags = this.props.widget.get('tags');
+    if (filterTags.length) {
+      eventsSearch = eventsSearch.and('tags', 'equals', filterTags);
+    } else if (this.state.currentTag) {
       eventsSearch = eventsSearch.and('tags', 'equals', this.state.currentTag);
     }
 
@@ -69,7 +72,7 @@ class EventOverviewWidgetComponent extends React.Component {
     return (
       <div>
         <TagList
-          showTags={ true }
+          showTags={ !filterTags.length && this.props.widget.get('showTags') === 'yes' }
           currentTag={ this.state.currentTag }
           setTag={ this.setTag }
           tags={ tags }

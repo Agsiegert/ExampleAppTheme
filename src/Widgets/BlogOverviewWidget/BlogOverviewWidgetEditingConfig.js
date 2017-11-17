@@ -6,21 +6,22 @@ Scrivito.provideEditingConfig('BlogOverviewWidget', {
   thumbnail: `/${blogOverviewWidgetIcon}`,
   attributesConfig: {
     maxItems: {
-      title: 'Max Items',
-      description: 'How many items should be shown? Leave it empty, to show all items.',
+      title: 'Maximum number of blog posts',
+      description: 'How many blog posts should be shown? Set it to 0, to show all blog posts.',
     },
     author: {
-      title: 'Author',
+      title: 'Filter author',
       description: 'Filter blog posts by author. Leave it empty, to not filter by author.',
     },
-    tag: {
-      title: 'Tag',
-      description: 'Filter blog posts by tag. Leave it empty, to not filter by tags.',
+    tags: {
+      title: 'Filter tags',
+      description: 'Only show blog posts, that have one of the given tags.' +
+        ' Leave it empty, to not filter by tags.',
     },
   },
   generalProperties: [
     'maxItems',
     'author',
-    'tag',
+    'tags',
   ],
 });

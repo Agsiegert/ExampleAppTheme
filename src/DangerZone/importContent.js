@@ -771,7 +771,9 @@ function importContent() {
         new SectionWidget({
           paddingDisabled: 'yes',
           content: [
-            new EventOverviewWidget({}),
+            new EventOverviewWidget({
+              showTags: 'yes',
+            }),
           ],
         }),
       ],
@@ -2589,8 +2591,12 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Max Items</li>
-                      <li>Limit by Author</li><li>Limit by Tag</li></ul>`,
+                    text: `<p>Widget Properties:</p>
+                      <ul>
+                        <li>Maximum number of blog posts</li>
+                        <li>Limit by author</li>
+                        <li>Limit by tags</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2803,8 +2809,12 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Maximum number of
-                      events to Display</li></ul>`,
+                    text: `<p>Widget Properties:</p>
+                      <ul>
+                        <li>Maximum number of events</li>
+                        <li>Show tags?</li>
+                        <li>Limit by tags</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3017,8 +3027,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Location</li>
-                    </ul>`,
+                    text: `<p>Widget Properties:</p>
+                      <ul>
+                        <li>Limit by location</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2

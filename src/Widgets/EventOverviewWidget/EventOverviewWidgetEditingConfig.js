@@ -7,10 +7,21 @@ Scrivito.provideEditingConfig('EventOverviewWidget', {
   attributesConfig: {
     maxItems: {
       title: 'Maximum number of events',
-      description: 'Maximum number of events to be shown?',
+      description: 'How many events should be shown? Set it to 0, to show all events.',
+    },
+    tags: {
+      title: 'Filter tags',
+      description: 'Only show events, that have one of the given tags.' +
+        ' Leave it empty, to not filter by tags.',
+    },
+    showTags: {
+      title: 'Show tags?',
+      description: 'Should the list of tags be shown? Default: no',
     },
   },
   generalProperties: [
     'maxItems',
+    'showTags',
+    'tags',
   ],
 });
