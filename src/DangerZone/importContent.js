@@ -2591,8 +2591,12 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Max Items</li>
-                      <li>Limit by Author</li><li>Limit by Tag</li></ul>`,
+                    text: `<p>Widget Properties:</p>
+                      <ul>
+                        <li>Maximum number of blog posts</li>
+                        <li>Limit by author</li>
+                        <li>Limit by tags</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
