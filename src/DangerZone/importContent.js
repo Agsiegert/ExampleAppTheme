@@ -771,7 +771,9 @@ function importContent() {
         new SectionWidget({
           paddingDisabled: 'yes',
           content: [
-            new EventOverviewWidget({}),
+            new EventOverviewWidget({
+              showTags: 'yes',
+            }),
           ],
         }),
       ],
@@ -2803,8 +2805,12 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Maximum number of
-                      events to Display</li></ul>`,
+                    text: `<p>Widget Properties:</p>
+                      <ul>
+                        <li>Maximum number of events</li>
+                        <li>Show tags?</li>
+                        <li>Limit by tags</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
