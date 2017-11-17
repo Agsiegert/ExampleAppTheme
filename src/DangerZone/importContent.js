@@ -782,7 +782,8 @@ function importContent() {
       _path: '/widgets_and_pages/landing_page',
       _permalink: 'landing_page',
       title: 'Landing Page',
-      navigationStyle: 'transparentDark full-height gradient',
+      navigationHeight: 'full-height',
+      navigationBackgroundImageGradient: 'yes',
       navigationBackgroundImage: unsplashMouseWoodenDesk,
       navigationSection: [
         createEvenColumnContainerWidget({
@@ -1363,7 +1364,7 @@ function importContent() {
       _permalink: 'about',
       title: 'About',
       childOrder: [ourWork, ourClients, jobs, contact, events],
-      navigationStyle: 'transparentDark medium-height',
+      navigationHeight: 'medium-height',
       navigationBackgroundImage: unsplashDimLaptopStand,
       body: [
         new SectionWidget({
@@ -2062,7 +2063,7 @@ function importContent() {
       _path: '/widgets_and_pages/home_v1',
       title: 'Homepage Variant 1',
       navigationBackgroundImage: unsplashArchitecture,
-      navigationStyle: 'transparentDark full-height',
+      navigationHeight: 'full-height',
       navigationSection: [
         createEvenColumnContainerWidget({
           verticallyAligned: 'yes',
@@ -3424,7 +3425,7 @@ function importContent() {
       logoDark: scrivitoLogoDark,
       logoWhite: scrivitoLogoWhite,
       navigationBackgroundImage: unsplashHandcraft,
-      navigationStyle: 'transparentDark full-height',
+      navigationHeight: 'full-height',
       navigationSection: [
         new HeadlineWidget({
           alignment: 'center',
