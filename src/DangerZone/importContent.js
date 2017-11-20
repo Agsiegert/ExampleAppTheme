@@ -1443,7 +1443,7 @@ function importContent() {
                         headline: 'Product Research Director',
                         style: 'h5',
                         showDividingLine: 'yes',
-                        marginDisabled: 'yes',
+                        showMargin: 'no',
                       }),
                       createRandomIconContainerWidget(),
                     ],
@@ -1463,7 +1463,7 @@ function importContent() {
                         headline: 'Internal Applications Supervisor',
                         style: 'h5',
                         showDividingLine: 'yes',
-                        marginDisabled: 'yes',
+                        showMargin: 'no',
                       }),
                       createRandomIconContainerWidget(),
                     ],
@@ -1483,7 +1483,7 @@ function importContent() {
                         headline: 'Regional Agent',
                         style: 'h5',
                         showDividingLine: 'yes',
-                        marginDisabled: 'yes',
+                        showMargin: 'no',
                       }),
                       createRandomIconContainerWidget(),
                     ],
@@ -1507,7 +1507,7 @@ function importContent() {
                         headline: 'Dynamic Operations Representative',
                         style: 'h5',
                         showDividingLine: 'yes',
-                        marginDisabled: 'yes',
+                        showMargin: 'no',
                       }),
                       createRandomIconContainerWidget(),
                     ],
@@ -1527,7 +1527,7 @@ function importContent() {
                         headline: 'Regional Brand Producer',
                         style: 'h5',
                         showDividingLine: 'yes',
-                        marginDisabled: 'yes',
+                        showMargin: 'no',
                       }),
                       createRandomIconContainerWidget(),
                     ],
@@ -1547,7 +1547,7 @@ function importContent() {
                         headline: 'Dynamic Paradigm Director',
                         style: 'h5',
                         showDividingLine: 'yes',
-                        marginDisabled: 'yes',
+                        showMargin: 'no',
                       }),
                       createRandomIconContainerWidget(),
                     ],
@@ -2889,7 +2889,7 @@ function importContent() {
                         <li>Heading tag (optional)</li>
                         <li>Alignment</li>
                         <li>Show dividing line?</li>
-                        <li>Disable margin?</li>
+                        <li>Show margin?</li>
                       </ul>
                       `,
                   }),

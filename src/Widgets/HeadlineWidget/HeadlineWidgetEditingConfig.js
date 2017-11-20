@@ -47,9 +47,13 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
         { value: 'no', title: 'No' },
       ],
     },
-    marginDisabled: {
-      title: 'Disable Margin?',
-      description: 'Should this headline use no margin (empty space around this headline)?',
+    showMargin: {
+      title: 'Show margin?',
+      description: 'A margin adds space around this headline. Default: Yes',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
   },
   generalProperties: [
@@ -57,7 +61,7 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
     'level',
     'alignment',
     'showDividingLine',
-    'marginDisabled',
+    'showMargin',
   ],
   titleForContent: widget => widget.get('headline'),
 });

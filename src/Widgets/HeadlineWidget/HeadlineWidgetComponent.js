@@ -8,7 +8,7 @@ Scrivito.provideComponent('HeadlineWidget', ({ widget }) => {
   if (widget.get('showDividingLine') === 'yes') {
     classNames.push('border-bottom');
   }
-  if (widget.get('marginDisabled') === 'yes') {
+  if (widget.get('showMargin') === 'no') {
     classNames.push('no-margin');
   }
 
