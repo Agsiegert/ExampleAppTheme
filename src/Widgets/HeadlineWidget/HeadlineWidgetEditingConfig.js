@@ -5,51 +5,63 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
   description: 'A widget with a headline.',
   thumbnail: `/${headlineWidgetIcon}`,
   attributesConfig: {
-    level: {
-      title: 'Level',
-      description: 'The level of the headline. This information may be used by user agents,' +
-        ' for example, to construct a table of contents automatically. Default: highest (h1)',
+    style: {
+      title: 'Style',
+      description: 'Size and font of this headline. Default: Heading 1',
       values: [
-        { value: 'h1', title: 'highest (h1)' },
-        { value: 'h2', title: 'higher (h2)' },
-        { value: 'h3', title: 'high (h3)' },
-        { value: 'h4', title: 'low (h4)' },
-        { value: 'h5', title: 'lower (h5)' },
-        { value: 'h6', title: 'lowest (h6)' },
+        { value: 'h1', title: 'Heading 1' },
+        { value: 'h2', title: 'Heading 2' },
+        { value: 'h3', title: 'Heading 3' },
+        { value: 'h4', title: 'Heading 4' },
+        { value: 'h5', title: 'Heading 5' },
+        { value: 'h6', title: 'Heading 6' },
       ],
     },
-    style: {
-      title: 'Size',
-      description: 'The size of the headline.' +
-        ' If nothing is selected, the size is derived from the level.',
+    level: {
+      title: 'Heading tag (optional)',
+      description: 'May be used for SEO, for generating a table of contents,' +
+        ' or for improving accessibility. Default: Derived from Style',
       values: [
-        { value: 'h1', title: 'biggest' },
-        { value: 'h2', title: 'bigger' },
-        { value: 'h3', title: 'big' },
-        { value: 'h4', title: 'small' },
-        { value: 'h5', title: 'smaller' },
-        { value: 'h6', title: 'smallest' },
+        { value: 'h1', title: 'h1' },
+        { value: 'h2', title: 'h2' },
+        { value: 'h3', title: 'h3' },
+        { value: 'h4', title: 'h4' },
+        { value: 'h5', title: 'h5' },
+        { value: 'h6', title: 'h6' },
       ],
     },
     alignment: {
       title: 'Alignment',
-      description: 'How should this headline be aligned? Default: left',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
     },
     showDividingLine: {
-      title: 'Show dividing line',
-      description: 'Should this headline show a dividing line? Default: no',
+      title: 'Show dividing line?',
+      description: 'Default: No',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
-    marginDisabled: {
-      title: 'Disable Margin?',
-      description: 'Should this headline use no margin (empty space around this headline)?',
+    showMargin: {
+      title: 'Show margin?',
+      description: 'A margin adds space around this headline. Default: Yes',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
   },
   generalProperties: [
-    'level',
     'style',
+    'level',
     'alignment',
     'showDividingLine',
-    'marginDisabled',
+    'showMargin',
   ],
   titleForContent: widget => widget.get('headline'),
 });

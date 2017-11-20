@@ -1,6 +1,6 @@
 Scrivito.provideComponent('HeadlineWidget', ({ widget }) => {
-  const level = widget.get('level') || 'h1';
-  const style = widget.get('style') || level;
+  const style = widget.get('style') || 'h1';
+  const level = widget.get('level') || style;
   const classNames = [style];
   if (widget.get('alignment')) {
     classNames.push(`text-${widget.get('alignment')}`);
@@ -8,7 +8,7 @@ Scrivito.provideComponent('HeadlineWidget', ({ widget }) => {
   if (widget.get('showDividingLine') === 'yes') {
     classNames.push('border-bottom');
   }
-  if (widget.get('marginDisabled') === 'yes') {
+  if (widget.get('showMargin') === 'no') {
     classNames.push('no-margin');
   }
 
