@@ -3105,9 +3105,15 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Background Color
-                    </li><li>Background Image</li><li>Use Full Width</li>
-                    <li>Use Full Height</li><li>Padding Disabled</li></ul>`,
+                    text: `<p>Widget Properties:</p>
+                      <ul>
+                        <li>Background color</li>
+                        <li>Background image</li>
+                        <li>Use full width?</li>
+                        <li>Use full screen height?</li>
+                        <li>Show padding?</li>
+                      </ul>
+                      `,
                   }),
                 ],
                 // col 2

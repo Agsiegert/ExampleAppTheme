@@ -6,26 +6,33 @@ Scrivito.provideEditingConfig('SectionWidget', {
   thumbnail: `/${sectionWidgetIcon}`,
   attributesConfig: {
     backgroundColor: {
-      title: 'Background Color',
-      description: 'Which background color should this section have?' +
-        ' Does not apply, if a background image is set. Default: white',
+      title: 'Background color',
+      description: 'Does not apply, if a background image is set. Default: White',
       values: [
-        { value: 'white', title: 'white' },
-        { value: 'greywhite', title: 'white grey' },
-        { value: 'greylight', title: 'light grey' },
-        { value: 'greymiddle', title: 'grey' },
-        { value: 'greydark', title: 'dark grey' },
-        { value: 'brand-primary', title: 'primary color' },
-        { value: 'brand-secondary', title: 'secondary color' },
+        { value: 'white', title: 'White' },
+        { value: 'greywhite', title: 'White grey' },
+        { value: 'greylight', title: 'Light grey' },
+        { value: 'greymiddle', title: 'Grey' },
+        { value: 'greydark', title: 'Dark grey' },
+        { value: 'brand-primary', title: 'Primary color' },
+        { value: 'brand-secondary', title: 'Secondary color' },
       ],
     },
     useFullWidth: {
       title: 'Use full width?',
-      description: 'Should this section use the full screen width?',
+      description: 'Default: No',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
     useFullHeight: {
-      title: 'Use full height?',
-      description: 'Should this section use the full screen height?',
+      title: 'Use full screen height?',
+      description: 'Default: No',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
     showPadding: {
       title: 'Show padding?',
@@ -36,8 +43,7 @@ Scrivito.provideEditingConfig('SectionWidget', {
       ],
     },
     backgroundImage: {
-      title: 'Background Image',
-      description: 'Which background image should be shown?',
+      title: 'Background image',
     },
   },
   generalProperties: [
