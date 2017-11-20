@@ -40,8 +40,12 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
       ],
     },
     showDividingLine: {
-      title: 'Show dividing line',
-      description: 'Should this headline show a dividing line? Default: no',
+      title: 'Show dividing line?',
+      description: 'Default: No',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
     marginDisabled: {
       title: 'Disable Margin?',
