@@ -248,7 +248,6 @@ function createBoxWidgetWithIconHeadlineAndText(icon, headline) {
       }),
       new HeadlineWidget({
         headline,
-        level: 'h3',
         style: 'h3',
         alignment: 'center',
       }),
@@ -586,7 +585,6 @@ function importContent() {
           content: [
             new HeadlineWidget({
               alignment: 'center',
-              level: 'h1',
               style: 'h1',
               headline: 'Join our awarded team',
             }),
@@ -603,8 +601,8 @@ function importContent() {
             new HeadlineWidget({
               headline: 'We are hiring the following positions',
               level: 'h1',
-              showDividingLine: 'yes',
               style: 'h2',
+              showDividingLine: 'yes',
             }),
             new JobOverviewWidget({}),
           ],
@@ -614,8 +612,8 @@ function importContent() {
             new HeadlineWidget({
               headline: "Why it's great to work with us",
               level: 'h1',
-              showDividingLine: 'yes',
               style: 'h2',
+              showDividingLine: 'yes',
             }),
             new HeadlineWidget({
               alignment: 'center',
@@ -681,8 +679,8 @@ function importContent() {
                 new HeadlineWidget({
                   headline: 'Get in touch with us',
                   level: 'h1',
-                  showDividingLine: 'yes',
                   style: 'h2',
+                  showDividingLine: 'yes',
                 }),
                 new HeadlineWidget({
                   alignment: 'center',
@@ -752,7 +750,6 @@ function importContent() {
           content: [
             new HeadlineWidget({
               headline: 'Upcoming new events',
-              level: 'h1',
               style: 'h1',
               alignment: 'center',
             }),
@@ -825,8 +822,8 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Explore the magic features',
               level: 'h1',
-              showDividingLine: 'yes',
               style: 'h2',
+              showDividingLine: 'yes',
             }),
             new HeadlineWidget({
               alignment: 'center',
@@ -842,7 +839,6 @@ function importContent() {
                   new HeadlineWidget({
                     headline: 'Amazing features',
                     alignment: 'right',
-                    level: 'h3',
                     style: 'h3',
                   }),
                   new TextWidget({
@@ -858,7 +854,6 @@ function importContent() {
                   new HeadlineWidget({
                     headline: 'Easy to use',
                     alignment: 'right',
-                    level: 'h3',
                     style: 'h3',
                   }),
                   new TextWidget({
@@ -878,7 +873,6 @@ function importContent() {
                 [
                   new HeadlineWidget({
                     headline: 'Cool and fresh design',
-                    level: 'h3',
                     style: 'h3',
                   }),
                   new TextWidget({
@@ -892,7 +886,6 @@ function importContent() {
                   }),
                   new HeadlineWidget({
                     headline: 'Full responsive',
-                    level: 'h3',
                     style: 'h3',
                   }),
                   new TextWidget({
@@ -956,8 +949,8 @@ function importContent() {
             new HeadlineWidget({
               headline: 'More cool highlights',
               level: 'h1',
-              showDividingLine: 'yes',
               style: 'h2',
+              showDividingLine: 'yes',
             }),
             new HeadlineWidget({
               alignment: 'center',
@@ -1078,7 +1071,6 @@ function importContent() {
                 // col 1
                 [
                   new HeadlineWidget({
-                    level: 'h1',
                     style: 'h1',
                     headline: 'Amazing video hero widget',
                   }),
@@ -1444,13 +1436,11 @@ function importContent() {
                       new ImageWidget({ image: unsplashFemalePortrait3Square }),
                       new HeadlineWidget({
                         headline: 'Jane Morgan',
-                        level: 'h3',
                         style: 'h3',
                         alignment: 'center',
                       }),
                       new HeadlineWidget({
                         headline: 'Product Research Director',
-                        level: 'h5',
                         style: 'h5',
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
@@ -1466,13 +1456,11 @@ function importContent() {
                       new ImageWidget({ image: unsplashMalePortrait3Square }),
                       new HeadlineWidget({
                         headline: 'Peter Doe',
-                        level: 'h3',
                         style: 'h3',
                         alignment: 'center',
                       }),
                       new HeadlineWidget({
                         headline: 'Internal Applications Supervisor',
-                        level: 'h5',
                         style: 'h5',
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
@@ -1488,13 +1476,11 @@ function importContent() {
                       new ImageWidget({ image: unsplashFemalePortrait4Square }),
                       new HeadlineWidget({
                         headline: 'Susan Summer',
-                        level: 'h3',
                         style: 'h3',
                         alignment: 'center',
                       }),
                       new HeadlineWidget({
                         headline: 'Regional Agent',
-                        level: 'h5',
                         style: 'h5',
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
@@ -1514,13 +1500,11 @@ function importContent() {
                       new ImageWidget({ image: unsplashMalePortrait2Square }),
                       new HeadlineWidget({
                         headline: 'Clarius Ceasar',
-                        level: 'h3',
                         style: 'h3',
                         alignment: 'center',
                       }),
                       new HeadlineWidget({
                         headline: 'Dynamic Operations Representative',
-                        level: 'h5',
                         style: 'h5',
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
@@ -1536,13 +1520,11 @@ function importContent() {
                       new ImageWidget({ image: unsplashFemalePortrait5Square }),
                       new HeadlineWidget({
                         headline: 'Anna Corn',
-                        level: 'h3',
                         style: 'h3',
                         alignment: 'center',
                       }),
                       new HeadlineWidget({
                         headline: 'Regional Brand Producer',
-                        level: 'h5',
                         style: 'h5',
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
@@ -1558,13 +1540,11 @@ function importContent() {
                       new ImageWidget({ image: unsplashMalePortrait1Square }),
                       new HeadlineWidget({
                         headline: 'Jason John',
-                        level: 'h3',
                         style: 'h3',
                         alignment: 'center',
                       }),
                       new HeadlineWidget({
                         headline: 'Dynamic Paradigm Director',
-                        level: 'h5',
                         style: 'h5',
                         showDividingLine: 'yes',
                         marginDisabled: 'yes',
@@ -1617,8 +1597,8 @@ function importContent() {
             new HeadlineWidget({
               headline: 'A great solution with great features',
               level: 'h1',
-              showDividingLine: 'yes',
               style: 'h2',
+              showDividingLine: 'yes',
             }),
             new HeadlineWidget({
               headline: loremIpsum({ count: 2 }),
@@ -1715,8 +1695,8 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Choose your plan',
               level: 'h1',
-              showDividingLine: 'yes',
               style: 'h2',
+              showDividingLine: 'yes',
             }),
           ],
         }),
@@ -1731,8 +1711,8 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Compare all features',
               level: 'h3',
-              showDividingLine: 'yes',
               style: 'h2',
+              showDividingLine: 'yes',
             }),
             new HeadlineWidget({
               alignment: 'center',
@@ -2194,8 +2174,8 @@ function importContent() {
             new HeadlineWidget({
               headline: 'Watch our video',
               level: 'h1',
-              showDividingLine: 'yes',
               style: 'h2',
+              showDividingLine: 'yes',
             }),
             new VideoWidget({
               source: videoWaterfall1,
@@ -2279,8 +2259,8 @@ function importContent() {
           new HeadlineWidget({
             headline: 'Our top features',
             level: 'h1',
-            showDividingLine: 'yes',
             style: 'h2',
+            showDividingLine: 'yes',
           }),
           createEvenColumnContainerWidget({
             verticallyAligned: 'yes',
@@ -2306,7 +2286,6 @@ function importContent() {
                 new HeadlineWidget({
                   headline: 'Easy to use',
                   alignment: 'right',
-                  level: 'h3',
                   style: 'h3',
                 }),
                 new TextWidget({
@@ -2326,7 +2305,6 @@ function importContent() {
               [
                 new HeadlineWidget({
                   headline: 'Cool and fresh design',
-                  level: 'h3',
                   style: 'h3',
                 }),
                 new TextWidget({
@@ -2340,7 +2318,6 @@ function importContent() {
                 }),
                 new HeadlineWidget({
                   headline: 'Full responsive',
-                  level: 'h3',
                   style: 'h3',
                 }),
                 new TextWidget({
@@ -2523,7 +2500,6 @@ function importContent() {
           content: [
             new HeadlineWidget({
               alignment: 'center',
-              level: 'h1',
               style: 'h1',
               headline: 'Widgets & Page',
             }),
@@ -3535,7 +3511,7 @@ function importContent() {
                 new HeadlineWidget({
                   headline: 'Choose a different homepage variant',
                   alignment: 'center',
-                  level: 'h3',
+                  style: 'h3',
                 }),
                 new TextWidget({
                   alignment: 'center',
@@ -3561,7 +3537,7 @@ function importContent() {
                 new HeadlineWidget({
                   headline: 'Choose a different homepage variant',
                   alignment: 'center',
-                  level: 'h3',
+                  style: 'h3',
                 }),
                 new TextWidget({
                   alignment: 'center',
