@@ -32,7 +32,12 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
     },
     alignment: {
       title: 'Alignment',
-      description: 'How should this headline be aligned? Default: left',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
     },
     showDividingLine: {
       title: 'Show dividing line',
