@@ -20,7 +20,7 @@ Scrivito.provideComponent('SectionWidget', ({ widget }) => {
 
   sectionClassNames.push(`bg-${backgroundColor}`);
 
-  if (widget.get('paddingDisabled') === 'yes') {
+  if (widget.get('showPadding') === 'no') {
     sectionClassNames.push('no-padding');
   }
 
