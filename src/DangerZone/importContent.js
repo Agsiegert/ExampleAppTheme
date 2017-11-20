@@ -657,7 +657,7 @@ function importContent() {
       title: 'Contact',
       body: [
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           useFullWidth: 'yes',
           content: [
             new GoogleMapsWidget({
@@ -762,7 +762,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new EventOverviewWidget({
               showTags: 'yes',
@@ -817,7 +817,7 @@ function importContent() {
       body: [
         new SectionWidget({
           backgroundColor: 'greydark',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Explore the magic features',
@@ -905,7 +905,7 @@ function importContent() {
         }),
         new SectionWidget({
           backgroundColor: 'greydark',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             createEvenColumnContainerWidget({
               columns: [
@@ -944,7 +944,7 @@ function importContent() {
         }),
         new SectionWidget({
           backgroundColor: 'greydark',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'More cool highlights',
@@ -1037,7 +1037,7 @@ function importContent() {
         }),
         new SectionWidget({
           backgroundColor: 'greydark',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               level: 'h1',
@@ -1133,7 +1133,7 @@ function importContent() {
         ] }),
         new SectionWidget({
           useFullWidth: 'yes',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new GalleryWidget({
               images: [
@@ -1186,7 +1186,7 @@ function importContent() {
         ] }),
         new SectionWidget({
           useFullWidth: 'yes',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new ThumbnailGalleryWidget({
               showTags: 'yes',
@@ -2386,7 +2386,7 @@ function importContent() {
         ] }),
         new SectionWidget({
           useFullWidth: 'yes',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new ThumbnailGalleryWidget({
               images: [
@@ -2546,7 +2546,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Blog Overview Widget',
@@ -2572,7 +2572,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Box Widget',
@@ -2603,7 +2603,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Button Widget',
@@ -2642,7 +2642,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Carousel Widget',
@@ -2668,7 +2668,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Column Widget',
@@ -2716,7 +2716,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Contact Form Widget',
@@ -2742,7 +2742,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Divider Widget',
@@ -2764,7 +2764,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Event Overview Widget',
@@ -2790,7 +2790,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Fact Widget',
@@ -2817,7 +2817,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Feature Panel Widget',
@@ -2846,7 +2846,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Gallery Widget',
@@ -2872,7 +2872,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Headline Widget',
@@ -2906,7 +2906,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Icon Widget',
@@ -2939,7 +2939,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Icon List Widget',
@@ -2961,7 +2961,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Image Widget',
@@ -2988,7 +2988,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Job Overview Widget',
@@ -3012,7 +3012,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Login Form Widget',
@@ -3033,7 +3033,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Page List Widget',
@@ -3071,7 +3071,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Pricing Widget',
@@ -3094,7 +3094,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Section Widget',
@@ -3122,7 +3122,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Sign Up Form Widget',
@@ -3149,7 +3149,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Table Widget',
@@ -3200,7 +3200,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Testimonial Slider Widget',
@@ -3242,7 +3242,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Text Widget',
@@ -3269,7 +3269,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Thumbnail Gallery Widget',
@@ -3316,7 +3316,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Tick List Widget',
@@ -3356,7 +3356,7 @@ function importContent() {
           ],
         }),
         new SectionWidget({
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new HeadlineWidget({
               headline: 'Video Widget',
@@ -3586,7 +3586,7 @@ function importContent() {
         ] }),
         new SectionWidget({
           useFullWidth: 'yes',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             new ThumbnailGalleryWidget({
               images: [
@@ -3722,7 +3722,7 @@ function importContent() {
         }),
         new SectionWidget({
           backgroundColor: 'greydark',
-          paddingDisabled: 'yes',
+          showPadding: 'no',
           content: [
             createRandomIconContainerWidget(),
           ],

@@ -5,7 +5,7 @@ const SectionWidget = Scrivito.provideWidgetClass('SectionWidget', {
     content: 'widgetlist',
     useFullWidth: ['enum', { values: ['yes', 'no'] }],
     useFullHeight: ['enum', { values: ['yes', 'no'] }],
-    paddingDisabled: ['enum', { values: ['yes', 'no'] }],
+    showPadding: ['enum', { values: ['yes', 'no'] }],
     backgroundColor: [
       'enum',
       {

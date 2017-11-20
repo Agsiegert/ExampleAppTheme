@@ -27,9 +27,13 @@ Scrivito.provideEditingConfig('SectionWidget', {
       title: 'Use full height?',
       description: 'Should this section use the full screen height?',
     },
-    paddingDisabled: {
-      title: 'Disable padding?',
-      description: 'Should this section use no padding (empty space around this section)?',
+    showPadding: {
+      title: 'Show padding?',
+      description: 'Padding adds space around this section. Default: Yes',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
     backgroundImage: {
       title: 'Background Image',
@@ -41,6 +45,6 @@ Scrivito.provideEditingConfig('SectionWidget', {
     'backgroundImage',
     'useFullWidth',
     'useFullHeight',
-    'paddingDisabled',
+    'showPadding',
   ],
 });
