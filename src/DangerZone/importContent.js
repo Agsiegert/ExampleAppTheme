@@ -2883,9 +2883,15 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Level</li><li>Style
-                      </li><li>Alignment</li><li>Show Dividing Line</li><li>
-                      Disable Margin?</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Style</li>
+                        <li>Heading tag (optional)</li>
+                        <li>Alignment</li>
+                        <li>Show dividing line?</li>
+                        <li>Disable margin?</li>
+                      </ul>
+                      `,
                   }),
                 ],
                 // col 2
