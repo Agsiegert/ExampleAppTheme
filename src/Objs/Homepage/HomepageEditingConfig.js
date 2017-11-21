@@ -11,21 +11,21 @@ Scrivito.provideEditingConfig('Homepage', {
   thumbnail: `/${homepageObjIcon}`,
   attributesConfig: {
     ...defaultPageUiConfigAttributes,
-    logoWhite: {
-      title: 'Logo White',
-      description: 'The logo of your site (white version for dark backgrounds)',
-    },
     logoDark: {
-      title: 'Logo Dark',
-      description: 'The logo of your site (dark version for light backgrounds)',
+      title: 'Dark logo',
+      description: 'Used with bright backgrounds',
+    },
+    logoWhite: {
+      title: 'Bright logo',
+      description: 'Used with dark backgrounds',
     },
     facebookId: {
-      title: 'Facebook App ID',
-      description: 'A Facebook App ID, https://developers.facebook.com/docs/apps/register',
+      title: 'Facebook app ID',
+      description: 'Register at https://developers.facebook.com/docs/apps/register',
     },
     twitterId: {
-      title: 'Twitter Site ID',
-      description: 'Registered Twitter account for this site, needs to be approved at https://cards-dev.twitter.com/validator',
+      title: 'Twitter site ID',
+      description: 'Needs to be approved at https://cards-dev.twitter.com/validator',
     },
   },
   generalProperties: [
@@ -33,10 +33,10 @@ Scrivito.provideEditingConfig('Homepage', {
   ],
   propertiesGroups: [
     {
-      title: 'Global Content',
+      title: 'Site settings',
       properties: [
-        'logoWhite',
         'logoDark',
+        'logoWhite',
         'facebookId',
         'twitterId',
       ],

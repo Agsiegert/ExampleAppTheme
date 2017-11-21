@@ -8,19 +8,18 @@ Scrivito.provideEditingConfig('BlogPost', {
   attributesConfig: {
     author: {
       title: 'Author',
-      description: 'The author of the blog post.',
     },
     publishedAt: {
-      title: 'Published At',
-      description: 'When will this blog post be published.',
+      title: 'Published at',
+      description: 'When will this blog post be published?',
     },
     titleImage: {
-      title: 'Title image',
-      description: 'The title image of the blog post.',
+      title: 'Header image',
+      description: 'The background image of the header.' +
+        ' If no image is selected, the header image of the blog is shown.',
     },
     tags: {
       title: 'Tags',
-      description: 'The tags of the blog post.',
     },
   },
   generalProperties: [

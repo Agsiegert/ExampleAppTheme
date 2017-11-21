@@ -12,15 +12,12 @@ Scrivito.provideEditingConfig('Event', {
     },
     image: {
       title: 'Image',
-      description: 'The preview image of the event.',
     },
     location: {
       title: 'Location',
-      description: 'Where is this event located?',
     },
     title: {
       title: 'Title',
-      description: 'The title of the event.',
     },
     tags: {
       title: 'Tags',

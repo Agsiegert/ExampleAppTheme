@@ -8,15 +8,12 @@ Scrivito.provideEditingConfig('Author', {
   attributesConfig: {
     title: {
       title: 'Name',
-      description: 'The name of the author.',
     },
     description: {
       title: 'Description',
-      description: 'The description of the author.',
     },
     image: {
       title: 'Image',
-      description: 'The image of the author.',
     },
   },
   generalProperties: [

@@ -2,7 +2,6 @@ Scrivito.provideEditingConfig('Video', {
   attributesConfig: {
     title: {
       title: 'Title',
-      description: 'The title of the video.',
     },
     tags: {
       title: 'Tags',
