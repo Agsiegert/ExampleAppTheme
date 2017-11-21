@@ -3034,9 +3034,9 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p>
+                    text: `<p>Widget properties:</p>
                       <ul>
-                        <li>Limit by location</li>
+                        <li>Filter by location</li>
                       </ul>`,
                   }),
                 ],
