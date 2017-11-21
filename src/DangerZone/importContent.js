@@ -3336,8 +3336,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Image</li>
-                    <li>Show Tags</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Images</li>
+                        <li>Show list of tags?</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2

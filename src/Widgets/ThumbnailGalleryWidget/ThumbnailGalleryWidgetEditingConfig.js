@@ -7,11 +7,14 @@ Scrivito.provideEditingConfig('ThumbnailGalleryWidget', {
   attributesConfig: {
     images: {
       title: 'Images',
-      description: 'The list of images',
     },
     showTags: {
-      title: 'Show tags?',
-      description: 'Should the list of tags be shown? Default: no',
+      title: 'Show list of tags?',
+      description: 'Default: No',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
   },
   generalProperties: [
