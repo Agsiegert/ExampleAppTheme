@@ -6,12 +6,11 @@ Scrivito.provideEditingConfig('TableWidget', {
   thumbnail: `/${tableWidgetIcon}`,
   attributesConfig: {
     currency: {
-      title: 'Currency symbol',
-      description: 'The symbol of the currency. E.g. € or $.',
+      title: 'Currency',
+      description: 'E.g. € or $.',
     },
     rows: {
-      title: 'Rows',
-      description: 'Rows of the table describing each one feature and its availability in plans.',
+      title: 'Feature rows',
     },
   },
   generalProperties: [

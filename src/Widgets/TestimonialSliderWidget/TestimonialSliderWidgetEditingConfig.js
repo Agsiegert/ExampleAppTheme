@@ -7,7 +7,6 @@ Scrivito.provideEditingConfig('TestimonialSliderWidget', {
   attributesConfig: {
     testimonials: {
       title: 'Testimonials',
-      description: 'Add testimonials.',
     },
   },
   generalProperties: [

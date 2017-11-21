@@ -3211,8 +3211,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Currency</li>
-                    <li>Rows</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Currency</li>
+                        <li>Feature rows</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3262,8 +3265,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Testimonials</li>
-                    </ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Testimonials</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
