@@ -2739,8 +2739,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Agreement Text</li>
-                      <li>Button Text</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Agreement text</li>
+                        <li>Submit button text</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2

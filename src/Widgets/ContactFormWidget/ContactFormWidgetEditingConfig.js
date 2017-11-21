@@ -6,12 +6,11 @@ Scrivito.provideEditingConfig('ContactFormWidget', {
   thumbnail: `/${contactFormWidgetIcon}`,
   attributesConfig: {
     agreementText: {
-      title: 'Agreement Text',
-      description: 'What should the agreement say?',
+      title: 'Agreement text',
     },
     buttonText: {
-      title: 'Button Text',
-      description: 'What should the submit button say? Default: send message',
+      title: 'Submit button text',
+      description: 'Default: send message',
     },
   },
   generalProperties: [
