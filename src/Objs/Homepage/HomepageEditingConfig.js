@@ -13,10 +13,10 @@ Scrivito.provideEditingConfig('Homepage', {
     ...defaultPageUiConfigAttributes,
     logoDark: {
       title: 'Dark logo',
-      description: 'Used with bright backgrounds',
+      description: 'Used with light backgrounds',
     },
     logoWhite: {
-      title: 'Bright logo',
+      title: 'Light logo',
       description: 'Used with dark backgrounds',
     },
     facebookId: {
