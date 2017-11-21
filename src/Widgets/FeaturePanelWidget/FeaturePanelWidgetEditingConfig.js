@@ -8,7 +8,7 @@ Scrivito.provideEditingConfig('FeaturePanelWidget', {
   attributesConfig: {
     icon: {
       title: 'Icon',
-      description: 'Which icon should be shown? Default: fa-check',
+      description: 'Default: fa-check',
     },
   },
   generalProperties: [
