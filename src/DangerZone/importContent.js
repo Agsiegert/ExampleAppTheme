@@ -3005,8 +3005,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Alignment</li>
-                    </ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Alignment</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
