@@ -3181,8 +3181,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Button Text</li>
-                    <li>Transparent</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Submit button text</li>
+                        <li>Background color</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
