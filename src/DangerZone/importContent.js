@@ -3426,8 +3426,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Source</li>
-                    <li>Poster</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Video</li>
+                        <li>Poster image (optional)</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
