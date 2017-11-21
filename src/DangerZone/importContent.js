@@ -2620,9 +2620,12 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Link Target and
-                      Button Title</li><li>Alignment</li><li>Button Style
-                      </li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Link target and button title</li>
+                        <li>Alignment</li>
+                        <li>Background color</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
