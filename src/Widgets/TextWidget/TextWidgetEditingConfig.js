@@ -7,7 +7,12 @@ Scrivito.provideEditingConfig('TextWidget', {
   attributesConfig: {
     alignment: {
       title: 'Alignment',
-      description: 'How should this text be aligned? Default: left',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
     },
     text: {
       title: 'Text',
