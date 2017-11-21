@@ -20,12 +20,9 @@ class ColumnsEditorTab extends React.Component {
   render() {
     return (
       <div className="scrivito_detail_content">
-        <div className="scrivito_detail_label">
-          <span className="headline">Column Layout</span>
-        </div>
         <VerticalAlignment widget={ this.props.widget } />
         <div className="scrivito_detail_label">
-          <span>Layout (Desktop)</span>
+          <span>Layout (desktop)</span>
         </div>
         <div className="item_content">
           <div className="gle-preview-list">

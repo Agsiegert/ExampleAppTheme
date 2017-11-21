@@ -6,7 +6,7 @@ Scrivito.provideEditingConfig('ColumnContainerWidget', {
   thumbnail: `/${columnContainerWidgetIcon}`,
   propertiesGroups: [
     {
-      title: 'Columns Editor',
+      title: 'Columns layout',
       component: 'ColumnsEditorTab',
     },
   ],

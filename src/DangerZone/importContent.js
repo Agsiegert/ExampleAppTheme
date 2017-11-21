@@ -2683,7 +2683,7 @@ function importContent() {
           showPadding: 'no',
           content: [
             new HeadlineWidget({
-              headline: 'Column Widget',
+              headline: 'Columns Widget',
             }),
             create3to9ColumnContainerWidget({
               columns: [
@@ -2691,8 +2691,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Vertically Align Columns</li>
-                      <li>Edit number of colums and widths</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Vertical alignment</li>
+                        <li>Edit number of columns and their width</li></ul>`,
                   }),
                 ],
                 // col 2
