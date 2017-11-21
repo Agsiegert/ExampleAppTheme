@@ -20,6 +20,7 @@ import logo7Data from './binary_data/logo_7';
 import logo8Data from './binary_data/logo_8';
 import scrivitoLogoBWData from './binary_data/scrivito_logo_bw';
 import scrivitoLogoDarkData from './binary_data/scrivito_logo_dark';
+import scrivitoLogoRedData from './binary_data/scrivito_logo_red';
 import scrivitoLogoWhiteData from './binary_data/scrivito_logo_white';
 import unsplashAllesCandleWoodTableData from './binary_data/unsplash_alles_candle_wood_table';
 import unsplashAppleWorkstationCalendarIpadData from './binary_data/unsplash_apple_workstation_calendar_ipad';
@@ -457,6 +458,7 @@ function importContent() {
     const logo8 = uploadImage(logo8Data, 'Logo 8');
     const scrivitoLogoDark = uploadImage(scrivitoLogoDarkData, 'Scrivito Logo (Dark)');
     uploadImage(scrivitoLogoBWData, 'Scrivito Logo (Black & White)');
+    const scrivitoLogoRed = uploadImage(scrivitoLogoRedData, 'Scrivito Logo (Red)');
     const scrivitoLogoWhite = uploadImage(scrivitoLogoWhiteData, 'Scrivito Logo (White)');
 
     // Images
@@ -3463,6 +3465,7 @@ function importContent() {
     // Obj.root()
     root.update({
       childOrder: [product, about, pricing, blog, widgetsAndPages],
+      dividerLogo: scrivitoLogoRed,
       logoDark: scrivitoLogoDark,
       logoWhite: scrivitoLogoWhite,
       navigationBackgroundImage: unsplashHandcraft,
