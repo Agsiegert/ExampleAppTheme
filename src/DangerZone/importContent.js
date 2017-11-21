@@ -2790,11 +2790,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p>
+                    text: `<p>Widget properties:</p>
                       <ul>
                         <li>Maximum number of events</li>
-                        <li>Show tags?</li>
-                        <li>Limit by tags</li>
+                        <li>Show list of tags?</li>
+                        <li>Filter by tags</li>
                       </ul>`,
                   }),
                 ],
