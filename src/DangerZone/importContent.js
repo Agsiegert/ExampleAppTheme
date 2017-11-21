@@ -2772,7 +2772,9 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget properties:</p><ul><li>TBD</li>
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Show logo?</li>
                       </ul>`,
                   }),
                 ],
