@@ -2770,7 +2770,7 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>TBD</li>
+                    text: `<p>Widget properties:</p><ul><li>TBD</li>
                       </ul>`,
                   }),
                 ],
@@ -3060,7 +3060,7 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: '<p>Widget Properties:</p><ul><li>TBD</li></ul>',
+                    text: '<p>Widget properties:</p><ul><li>TBD</li></ul>',
                   }),
                 ],
                 // col 2
@@ -3149,7 +3149,7 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p>
+                    text: `<p>Widget properties:</p>
                       <ul>
                         <li>Background color</li>
                         <li>Background image</li>
@@ -3311,8 +3311,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Alignment</li>
-                    <li>Text</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Alignment</li>
+                        <li>Text</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3388,7 +3391,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: '<p>Widget Properties:</p><ul><li>Items</li></ul>',
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Items</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
