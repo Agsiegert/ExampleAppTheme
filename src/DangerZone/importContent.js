@@ -2879,8 +2879,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Images
-                      for the gallery</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Images for the gallery</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
