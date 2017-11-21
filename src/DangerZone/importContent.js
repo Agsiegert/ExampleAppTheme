@@ -2523,9 +2523,13 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Show brand logo<br>
-                      </li><li>Address</li><li>List items with key and
-                       value</li></ul><p><br></p>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Show brand logo?</li>
+                        <li>Address</li>
+                        <li>List items with key and value</li>
+                        <li>Show border at the bottom?</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2

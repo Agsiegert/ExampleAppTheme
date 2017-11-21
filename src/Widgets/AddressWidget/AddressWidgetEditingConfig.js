@@ -10,16 +10,24 @@ Scrivito.provideEditingConfig('AddressWidget', {
       description: 'The actual address.',
     },
     listItems: {
-      title: 'Address List Items',
+      title: 'Address list items',
       description: 'E.g. phone numbers.',
     },
     showBorderBottom: {
-      title: 'Border Bottom',
-      description: 'Should a border be shown at the bottom? Default: no.',
+      title: 'Show border at the bottom?',
+      description: 'Default: no',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
     showLogo: {
-      title: 'Show Logo',
-      description: 'Should the logo be shown? Default: yes',
+      title: 'Show brand logo?',
+      description: 'Default: yes',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
   },
   generalProperties: [
