@@ -2587,7 +2587,9 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Show offset?</li>
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Use offset?</li>
                       </ul>`,
                   }),
                 ],

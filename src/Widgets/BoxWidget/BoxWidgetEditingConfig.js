@@ -7,7 +7,11 @@ Scrivito.provideEditingConfig('BoxWidget', {
   attributesConfig: {
     useOffset: {
       title: 'Use offset?',
-      description: 'Should an offset be used? If so, the box will move "up". Default: no',
+      description: 'If so, the box will move "up". Default: No',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
   },
   generalProperties: [
