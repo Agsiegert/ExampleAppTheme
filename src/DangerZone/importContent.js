@@ -3120,9 +3120,13 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Currency</li>
-                    <li>Small Plan Button</li><li>Medium Plan Button</li>
-                    <li>Large Plan Button</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Currency</li>
+                        <li>Small plan button</li>
+                        <li>Medium plan button</li>
+                        <li>Large plan button</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
