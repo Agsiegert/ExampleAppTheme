@@ -8,7 +8,6 @@ Scrivito.provideEditingConfig('Job', {
   attributesConfig: {
     image: {
       title: 'Image',
-      description: 'The preview image of the job.',
     },
     location: {
       title: 'Location',
@@ -16,7 +15,6 @@ Scrivito.provideEditingConfig('Job', {
     },
     title: {
       title: 'Title',
-      description: 'The title of the job.',
     },
   },
   generalProperties: [

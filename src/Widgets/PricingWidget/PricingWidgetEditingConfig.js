@@ -7,21 +7,21 @@ Scrivito.provideEditingConfig('PricingWidget', {
   attributesConfig: {
     currency: {
       title: 'Currency',
-      description: 'Which currency is used (e.g. € or $).',
+      description: 'e.g. € or $',
     },
 
     // Plan Buttons
     smallPlanButton: {
-      title: 'Small Plan Button',
-      description: 'Where should the small plan button lead?',
+      title: 'Small plan button',
+      description: 'Where should the small plan button lead and what should it say?',
     },
     mediumPlanButton: {
-      title: 'Medium Plan Button',
-      description: 'Where should the medium plan button lead?',
+      title: 'Medium plan button',
+      description: 'Where should the medium plan button lead and what should it say?',
     },
     largePlanButton: {
-      title: 'Large Plan Button',
-      description: 'Where should the large plan button lead?',
+      title: 'Large plan button',
+      description: 'Where should the large plan button lead and what should it say?',
     },
   },
   generalProperties: [

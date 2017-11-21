@@ -7,7 +7,7 @@ Scrivito.provideEditingConfig('SectionWidget', {
   attributesConfig: {
     backgroundColor: {
       title: 'Background color',
-      description: 'Does not apply, if a background image is set. Default: White',
+      description: 'Does not apply if a background image is set. Default: White',
       values: [
         { value: 'white', title: 'White' },
         { value: 'greywhite', title: 'White grey' },

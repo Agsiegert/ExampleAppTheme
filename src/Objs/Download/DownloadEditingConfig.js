@@ -6,7 +6,6 @@ Scrivito.provideEditingConfig('Download', {
     },
     title: {
       title: 'Title',
-      description: 'The title of the download.',
     },
   },
   generalProperties: [

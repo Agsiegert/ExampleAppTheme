@@ -7,7 +7,6 @@ Scrivito.provideEditingConfig('TickListWidget', {
   attributesConfig: {
     items: {
       title: 'Items',
-      description: 'Add tick list items to display.',
     },
   },
   generalProperties: [

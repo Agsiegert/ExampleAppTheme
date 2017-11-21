@@ -7,7 +7,12 @@ Scrivito.provideEditingConfig('ImageWidget', {
   attributesConfig: {
     alignment: {
       title: 'Alignment',
-      description: 'How should this image be aligned? Default: left',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
     },
   },
   generalProperties: [

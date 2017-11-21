@@ -7,11 +7,9 @@ Scrivito.provideEditingConfig('PageListWidget', {
   attributesConfig: {
     headline: {
       title: 'Headline',
-      description: 'The headline of list.',
     },
     pages: {
       title: 'Pages',
-      description: 'The pages to list.',
     },
   },
   generalProperties: [

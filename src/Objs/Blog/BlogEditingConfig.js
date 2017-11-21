@@ -8,11 +8,11 @@ Scrivito.provideEditingConfig('Blog', {
   attributesConfig: {
     title: {
       title: 'Title',
-      description: 'Title of the blog. Only used for the navigation.',
+      description: 'The title is only used for the navigation.',
     },
     navigationBackgroundImage: {
-      title: 'Navigation Background Image',
-      description: 'The background image of the navigation.',
+      title: 'Header image',
+      description: 'The background image of the header.',
     },
   },
   generalProperties: [

@@ -7,12 +7,14 @@ Scrivito.provideEditingConfig('CarouselWidget', {
   attributesConfig: {
     images: {
       title: 'Images',
-      description: 'The list of images.',
     },
     showDescription: {
-      title: 'Show description',
-      description: 'Should there be a description?' +
-        ' This allows to show an image and some text below this carousel.',
+      title: 'Show description?',
+      description: 'This allows to show an image and some text below this carousel. Default: No',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
   },
   generalProperties: [

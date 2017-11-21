@@ -7,8 +7,8 @@ Scrivito.provideEditingConfig('SearchResults', {
   thumbnail: `/${SearchResultsObjIcon}`,
   attributesConfig: {
     navigationBackgroundImage: {
-      title: 'Navigation Background Image',
-      description: 'The background image of the navigation.',
+      title: 'Header image',
+      description: 'The background image of the header.',
     },
   },
   generalProperties: [

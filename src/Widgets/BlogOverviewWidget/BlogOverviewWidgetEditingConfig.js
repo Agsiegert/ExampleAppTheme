@@ -7,14 +7,14 @@ Scrivito.provideEditingConfig('BlogOverviewWidget', {
   attributesConfig: {
     maxItems: {
       title: 'Maximum number of blog posts',
-      description: 'How many blog posts should be shown? Set it to 0, to show all blog posts.',
+      description: 'Set it to 0, to show all blog posts.',
     },
     author: {
-      title: 'Filter author',
-      description: 'Filter blog posts by author. Leave it empty, to not filter by author.',
+      title: 'Filter by author',
+      description: 'Leave it empty, to not filter by author.',
     },
     tags: {
-      title: 'Filter tags',
+      title: 'Filter by tags',
       description: 'Only show blog posts, that have one of the given tags.' +
         ' Leave it empty, to not filter by tags.',
     },

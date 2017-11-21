@@ -11,7 +11,7 @@ const socialCardsAttributes = {
 };
 
 const socialCardsCustomGroup = {
-  title: 'Social Cards',
+  title: 'Social cards',
   component: 'SocialCardsTab',
 };
 

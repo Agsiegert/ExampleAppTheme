@@ -11,10 +11,10 @@ Scrivito.provideEditingConfig('GoogleMapsWidget', {
         + ' Default: Brandenburg Gate, Berlin, Germany',
     },
     zoom: {
-      title: 'Zoom',
-      description: 'Zoom level of the map. Default: 15 (street level)',
+      title: 'Zoom level',
+      description: 'Default: 15 (Street level)',
       values: [
-        { value: '1', title: '1 (world level)' },
+        { value: '1', title: '1 (World level)' },
         { value: '2', title: '2' },
         { value: '3', title: '3' },
         { value: '4', title: '4' },
@@ -28,17 +28,21 @@ Scrivito.provideEditingConfig('GoogleMapsWidget', {
         { value: '12', title: '12' },
         { value: '13', title: '13' },
         { value: '14', title: '14' },
-        { value: '15', title: '15 (street level)' },
+        { value: '15', title: '15 (Street level)' },
         { value: '16', title: '16' },
         { value: '17', title: '17' },
         { value: '18', title: '18' },
         { value: '19', title: '19' },
-        { value: '20', title: '20 (building level)' },
+        { value: '20', title: '20 (Building level)' },
       ],
     },
     showWidgets: {
       title: 'Show widgets?',
-      description: 'Should widgets be shown on top of this map? Default: no',
+      description: 'Should widgets be shown on top of this map? Default: No',
+      values: [
+        { value: 'yes', title: 'Yes' },
+        { value: 'no', title: 'No' },
+      ],
     },
   },
   generalProperties: [

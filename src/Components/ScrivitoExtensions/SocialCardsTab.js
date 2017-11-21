@@ -50,10 +50,9 @@ const TwitterInput = Scrivito.connect(({ obj }) =>
     <div className='scrivito_notice_body'>Add or replace the image here.</div>
     <div className='scrivito_detail_label'><span>Title</span></div>
     <Scrivito.ContentTag content={ obj } attribute='tcTitle' className='input'/>
-    <div className='scrivito_notice_body'>Title for the tweet.</div>
     <div className='scrivito_detail_label'><span>Description</span></div>
     <Scrivito.ContentTag content={ obj } attribute='tcDescription' className='input'/>
-    <div className='scrivito_notice_body'>Tweet message (limit to 140 characters).</div>
+    <div className='scrivito_notice_body'>Limit to 140 characters</div>
   </div>
 );
 
@@ -79,8 +78,8 @@ const FacebookInput = Scrivito.connect(({ obj }) =>
 const TwitterPreview = Scrivito.connect(({ obj }) =>
   <div>
     <div className='scrivito_detail_label'>
-      <span className='headline'>Twitter Preview</span>
-      <span>Twitter (Summary Card with Large Image)</span>
+      <span className='headline'>Twitter preview</span>
+      <span>Twitter (Summary card with large image)</span>
     </div>
     <div className='creator'>
       Tweet creator: { lookupMetaData(obj, 'twitter:creator') }
@@ -103,7 +102,7 @@ const TwitterPreview = Scrivito.connect(({ obj }) =>
 const FacebookPreview = Scrivito.connect(({ obj }) =>
   <div>
     <div className='scrivito_detail_label'>
-      <span className='headline'>Facebook Preview</span>
+      <span className='headline'>Facebook preview</span>
       <span>Facebook (Article style)</span>
     </div>
     <div className='card fb_card'>

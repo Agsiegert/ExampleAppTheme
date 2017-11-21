@@ -6,8 +6,8 @@ Scrivito.provideEditingConfig('JobOverviewWidget', {
   thumbnail: `/${jobOverviewWidgetIcon}`,
   attributesConfig: {
     location: {
-      title: 'Location',
-      description: 'Limit jobs to one location. Leave it empty, to see all jobs.',
+      title: 'Filter by location',
+      description: 'Leave it empty, to see all jobs.',
     },
   },
   generalProperties: [

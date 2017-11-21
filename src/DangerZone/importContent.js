@@ -2523,9 +2523,13 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Show brand logo<br>
-                      </li><li>Address</li><li>List items with key and
-                       value</li></ul><p><br></p>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Show brand logo?</li>
+                        <li>Address</li>
+                        <li>List items with key and value</li>
+                        <li>Show border at the bottom?</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2557,11 +2561,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p>
+                    text: `<p>Widget properties:</p>
                       <ul>
                         <li>Maximum number of blog posts</li>
-                        <li>Limit by author</li>
-                        <li>Limit by tags</li>
+                        <li>Filter by author</li>
+                        <li>Filter by tags</li>
                       </ul>`,
                   }),
                 ],
@@ -2583,7 +2587,9 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Show offset?</li>
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Use offset?</li>
                       </ul>`,
                   }),
                 ],
@@ -2614,9 +2620,12 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Link Target and
-                      Button Title</li><li>Alignment</li><li>Button Style
-                      </li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Link target and button title</li>
+                        <li>Alignment</li>
+                        <li>Background color</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2653,8 +2662,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Add Images</li>
-                      <li>Show a Description</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Add images</li>
+                        <li>Show description?</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2671,7 +2683,7 @@ function importContent() {
           showPadding: 'no',
           content: [
             new HeadlineWidget({
-              headline: 'Column Widget',
+              headline: 'Columns Widget',
             }),
             create3to9ColumnContainerWidget({
               columns: [
@@ -2679,8 +2691,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Vertically Align Columns</li>
-                      <li>Edit number of colums and widths</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Vertical alignment</li>
+                        <li>Edit number of columns and their width</li></ul>`,
                   }),
                 ],
                 // col 2
@@ -2727,8 +2741,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Agreement Text</li>
-                      <li>Button Text</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Agreement text</li>
+                        <li>Submit button text</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2753,7 +2770,7 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>TBD</li>
+                    text: `<p>Widget properties:</p><ul><li>TBD</li>
                       </ul>`,
                   }),
                 ],
@@ -2775,11 +2792,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p>
+                    text: `<p>Widget properties:</p>
                       <ul>
                         <li>Maximum number of events</li>
-                        <li>Show tags?</li>
-                        <li>Limit by tags</li>
+                        <li>Show list of tags?</li>
+                        <li>Filter by tags</li>
                       </ul>`,
                   }),
                 ],
@@ -2828,9 +2845,16 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Inputs:</p><ul><li>Headline</li><li>
-                      Description</li></ul><br><p>Widget Properties:</p><ul><li>Icon
-                      for panel</li></ul>`,
+                    text: `<p>Widget inputs:</p>
+                      <ul>
+                        <li>Headline</li>
+                        <li>Description</li>
+                      </ul>
+                      <br>
+                      <p>Widget properties:</p>
+                      <ul>
+                        <li>Icon for panel</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2857,8 +2881,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Images
-                      for the gallery</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Images for the gallery</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2917,10 +2943,17 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>
-                      <a href="http://fontawesome.io/icons/" target="_blank"
-                      rel="noopener noreferrer">Font Awesome Icon</a>
-                      </li><li>Size</li><li>Alignment</li><li>Link</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>
+                          <a href="http://fontawesome.io/icons/"
+                            target="_blank"
+                            rel="noopener noreferrer">Font awesome icon</a>
+                        </li>
+                        <li>Size</li>
+                        <li>Alignment</li>
+                        <li>Link (optional)</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2950,7 +2983,9 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Icon List</li>
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Icon list</li>
                       </ul>`,
                   }),
                 ],
@@ -2972,8 +3007,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Alignment</li>
-                    </ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Alignment</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2999,9 +3036,9 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p>
+                    text: `<p>Widget properties:</p>
                       <ul>
-                        <li>Limit by location</li>
+                        <li>Filter by location</li>
                       </ul>`,
                   }),
                 ],
@@ -3023,7 +3060,7 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: '<p>Widget Properties:</p><ul><li>TBD</li></ul>',
+                    text: '<p>Widget properties:</p><ul><li>TBD</li></ul>',
                   }),
                 ],
                 // col 2
@@ -3044,8 +3081,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Headline</li>
-                    <li>Pages</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Headline</li>
+                        <li>Pages</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3082,9 +3122,13 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Currency</li>
-                    <li>Small Plan Button</li><li>Medium Plan Button</li>
-                    <li>Large Plan Button</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Currency</li>
+                        <li>Small plan button</li>
+                        <li>Medium plan button</li>
+                        <li>Large plan button</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3105,7 +3149,7 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p>
+                    text: `<p>Widget properties:</p>
                       <ul>
                         <li>Background color</li>
                         <li>Background image</li>
@@ -3139,8 +3183,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Button Text</li>
-                    <li>Transparent</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Submit button text</li>
+                        <li>Background color</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3166,8 +3213,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Currency</li>
-                    <li>Rows</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Currency</li>
+                        <li>Feature rows</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3217,8 +3267,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Testimonials</li>
-                    </ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Testimonials</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3259,8 +3311,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Alignment</li>
-                    <li>Text</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Alignment</li>
+                        <li>Text</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3286,8 +3341,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Image</li>
-                    <li>Show Tags</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Images</li>
+                        <li>Show list of tags?</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3333,7 +3391,10 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: '<p>Widget Properties:</p><ul><li>Items</li></ul>',
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Items</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -3373,8 +3434,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Source</li>
-                    <li>Poster</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Video</li>
+                        <li>Poster image (optional)</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
