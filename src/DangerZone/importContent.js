@@ -2941,10 +2941,17 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>
-                      <a href="http://fontawesome.io/icons/" target="_blank"
-                      rel="noopener noreferrer">Font Awesome Icon</a>
-                      </li><li>Size</li><li>Alignment</li><li>Link</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>
+                          <a href="http://fontawesome.io/icons/"
+                            target="_blank"
+                            rel="noopener noreferrer">Font awesome icon</a>
+                        </li>
+                        <li>Size</li>
+                        <li>Alignment</li>
+                        <li>Link (optional)</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
@@ -2974,7 +2981,9 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Icon List</li>
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Icon list</li>
                       </ul>`,
                   }),
                 ],

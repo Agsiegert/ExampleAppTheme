@@ -7,7 +7,6 @@ Scrivito.provideEditingConfig('IconContainerWidget', {
   attributesConfig: {
     iconList: {
       title: 'Icon list',
-      description: 'The icon list.',
     },
   },
   generalProperties: [
