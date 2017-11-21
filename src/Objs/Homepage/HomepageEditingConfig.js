@@ -19,6 +19,10 @@ Scrivito.provideEditingConfig('Homepage', {
       title: 'Light logo',
       description: 'Used with dark backgrounds',
     },
+    dividerLogo: {
+      title: 'Divider logo',
+      description: 'Used in the divider widget',
+    },
     facebookId: {
       title: 'Facebook app ID',
       description: 'Register at https://developers.facebook.com/docs/apps/register',
@@ -37,6 +41,7 @@ Scrivito.provideEditingConfig('Homepage', {
       properties: [
         'logoDark',
         'logoWhite',
+        'dividerLogo',
         'facebookId',
         'twitterId',
       ],

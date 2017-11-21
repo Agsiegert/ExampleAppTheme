@@ -1,7 +1,14 @@
-import scrivitoLogoRed from 'assets/images/scrivito_logo_red.svg';
+Scrivito.provideComponent('DividerWidget', ({ widget }) => {
+  const showLogo = widget.get('showLogo') !== 'no';
+  const root = Scrivito.Obj.root();
 
-Scrivito.provideComponent('DividerWidget', () =>
-  <div className="hr-icon">
-    <img src={ `/${scrivitoLogoRed}` } />
-  </div>
-);
+  if (showLogo && root) {
+    return (
+      <div className="hr-icon">
+        <Scrivito.ImageTag content={ root.get('dividerLogo') } />
+      </div>
+    );
+  }
+
+  return (<div className="hr-icon" />);
+});

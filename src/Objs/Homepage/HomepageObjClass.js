@@ -9,6 +9,7 @@ const Homepage = Scrivito.provideObjClass('Homepage', {
     footer: ['widgetlist', { only: 'SectionWidget' }],
     logoDark: 'reference',
     logoWhite: 'reference',
+    dividerLogo: 'reference',
     facebookId: 'string',
     twitterId: 'string',
     ...socialCardsAttributes,
