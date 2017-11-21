@@ -3079,8 +3079,11 @@ function importContent() {
                 [
                   new TextWidget({
                     alignment: 'left',
-                    text: `<p>Widget Properties:</p><ul><li>Headline</li>
-                    <li>Pages</li></ul>`,
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Headline</li>
+                        <li>Pages</li>
+                      </ul>`,
                   }),
                 ],
                 // col 2
