@@ -1,5 +1,6 @@
 import Event from 'Objs/Event/EventObjClass';
 import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import TagList from 'Components/TagList';
 import twoDigitNumber from 'utils/twoDigitNumber';
 
@@ -28,6 +29,14 @@ class EventOverviewWidgetComponent extends React.Component {
       events = eventsSearch.take(maxItems);
     } else {
       events = [...eventsSearch];
+    }
+
+    if (!events.length) {
+      return (
+        <InPlaceEditingPlaceholder center={ true }>
+          There are no events. Create an event, by using &quot;Add page&quot;.
+        </InPlaceEditingPlaceholder>
+      );
     }
 
     return (
