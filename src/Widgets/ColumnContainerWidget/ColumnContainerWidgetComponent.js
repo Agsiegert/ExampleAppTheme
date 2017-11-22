@@ -1,17 +1,14 @@
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
+
 Scrivito.provideComponent('ColumnContainerWidget', ({ widget }) => {
   const columns = widget.get('columns');
 
   if (!columns.length) {
-    if (Scrivito.isInPlaceEditingActive()) {
-      return (
-        <p>
-          No Columns (yet)!
-          Please go to the widget properties to create and configure columns and their width.
-        </p>
-      );
-    }
-
-    return null;
+    return (
+      <InPlaceEditingPlaceholder center={ true }>
+        No columns defined. Define them in the widget properties.
+      </InPlaceEditingPlaceholder>
+    );
   }
 
   const content = columns.map((columnWidget, index) => {
