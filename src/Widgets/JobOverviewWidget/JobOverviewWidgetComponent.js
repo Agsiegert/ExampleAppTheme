@@ -1,15 +1,25 @@
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 
 Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
-  let jobs = Scrivito.getClass('Job').all();
+  let jobsSearch = Scrivito.getClass('Job').all();
   if (widget.get('location')) {
-    jobs = jobs.and('location', 'containsPrefix', widget.get('location'));
+    jobsSearch = jobsSearch.and('location', 'containsPrefix', widget.get('location'));
+  }
+  const jobs = [...jobsSearch];
+
+  if (!jobs.length) {
+    return (
+      <InPlaceEditingPlaceholder center={ true }>
+        There are no jobs. Create a job, by using &quot;Add page&quot;.
+      </InPlaceEditingPlaceholder>
+    );
   }
 
   return (
     <div className="row">
       {
-        [...jobs].map((job, index) =>
+        jobs.map((job, index) =>
           <div key={ `${job.id()}${index}` } className="col-sm-6">
             <Scrivito.LinkTag to={ job } className="box-card">
               <span
