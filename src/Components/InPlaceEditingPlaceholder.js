@@ -1,13 +1,15 @@
-const InPlaceEditingPlaceholder = ({ children }) => {
+const InPlaceEditingPlaceholder = ({ children, center }) => {
   if (!Scrivito.isInPlaceEditingActive()) {
     return null;
   }
 
-  return (
-    <span style={ placeholderCss }>
-      { children }
-    </span>
-  );
+  const innerSpan = <span style={ placeholderCss }>{ children }</span>;
+
+  if (center) {
+    return <div className="text-center">{ innerSpan }</div>;
+  }
+
+  return innerSpan;
 };
 
 const placeholderCss = {
