@@ -1,6 +1,13 @@
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
+
 const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
   const target = widget.get('target');
-  const text = target && target.title();
+  let text = target && target.title();
+  if (!text) {
+    text = <InPlaceEditingPlaceholder>
+      No target text provided. Provide it in the widget properties.
+    </InPlaceEditingPlaceholder>;
+  }
 
   const classNames = ['btn'];
   classNames.push(widget.get('style') || 'btn-primary');
