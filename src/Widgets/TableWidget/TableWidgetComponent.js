@@ -1,3 +1,5 @@
+import placeholderCss from 'utils/placeholderCss';
+import TableRowWidget from 'Widgets/TableRowWidget/TableRowWidgetClass';
 import TableRowWidgetComponent from 'Widgets/TableRowWidget/TableRowWidgetComponent';
 
 Scrivito.provideComponent('TableWidget', ({ widget }) =>
@@ -22,6 +24,7 @@ Scrivito.provideComponent('TableWidget', ({ widget }) =>
           />;
         })
       }
+      <AddMoreRows widget={ widget } />
     </tbody>
     <tfoot>
       <tr>
@@ -53,3 +56,31 @@ Scrivito.provideComponent('TableWidget', ({ widget }) =>
     </tfoot>
   </table>
 );
+
+const AddMoreRows = ({ widget }) => {
+  if (!Scrivito.isInPlaceEditingActive()) { return null; }
+
+  return (
+    <tr>
+      <th colSpan="4">
+        <div className="text-center">
+          <a
+            href="#"
+            style={ placeholderCss }
+            onClick={
+              e => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const newRows = [...widget.get('rows'), new TableRowWidget({})];
+                widget.update({ rows: newRows });
+              }
+            }
+          >
+            Click to add another row
+          </a>
+        </div>
+      </th>
+    </tr>
+  );
+};
