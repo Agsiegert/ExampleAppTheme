@@ -1,7 +1,14 @@
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import twoDigitNumber from 'utils/twoDigitNumber';
 
 function formatDate(date) {
-  if (!date) { return null; }
+  if (!date) {
+    return (
+      <InPlaceEditingPlaceholder>
+        No date selected. Select one in the event properties.
+      </InPlaceEditingPlaceholder>
+    );
+  }
 
   const month = date.getMonth() + 1; // getMonth return 0 to 11.
   const dayOfMonth = date.getDate(); // getDate returns 1 to 31.
