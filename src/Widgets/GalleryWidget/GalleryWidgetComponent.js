@@ -1,4 +1,5 @@
 import devicePixelRatio from 'utils/devicePixelRatio';
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import Slider from 'react-slick';
 
 function sliderSettings(images) {
@@ -47,16 +48,11 @@ function GalleryWidgetComponent({ widget }) {
   const images = widget.get('images');
 
   if (!images.length) {
-    if (Scrivito.isInPlaceEditingActive()) {
-      return (
-        <p>
-          No Images (yet)!
-          Please go to the widget properties to select images to show.
-        </p>
-      );
-    }
-
-    return null;
+    return (
+      <InPlaceEditingPlaceholder center={ true }>
+        No images selected. Select them in the widget properties.
+      </InPlaceEditingPlaceholder>
+    );
   }
 
   const settings = sliderSettings(images);
