@@ -1,4 +1,5 @@
 import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import textExtractFromObj from 'utils/textExtractFromObj';
 import truncate from 'lodash/truncate';
 import twoDigitNumber from 'utils/twoDigitNumber';
@@ -33,6 +34,14 @@ const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
     posts = blogPosts.take(maxItems);
   } else {
     posts = [...blogPosts];
+  }
+
+  if (!posts.length) {
+    return (
+      <InPlaceEditingPlaceholder center={ true }>
+        There are no blog posts. Create a blog post, by using &quot;Add page&quot;.
+      </InPlaceEditingPlaceholder>
+    );
   }
 
   let dateHeadline = null;
