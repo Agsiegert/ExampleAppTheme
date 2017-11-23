@@ -1,19 +1,15 @@
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import urlFromBinary from 'utils/urlFromBinary';
 
 Scrivito.provideComponent('VideoWidget', ({ widget }) => {
   const videoUrl = urlFromBinary(widget.get('source'));
 
   if (!videoUrl) {
-    if (Scrivito.isInPlaceEditingActive()) {
-      return (
-        <p>
-          No Video (yet)!
-          Please go to the widget properties to select or upload a video.
-        </p>
-      );
-    }
-
-    return null;
+    return (
+      <InPlaceEditingPlaceholder center={ true }>
+        No video selected. Select or upload one in the widget properties.
+      </InPlaceEditingPlaceholder>
+    );
   }
 
   const posterUrl = urlFromBinary(widget.get('poster'));
