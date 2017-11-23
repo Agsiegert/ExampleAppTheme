@@ -28,7 +28,7 @@ const PageList = ({ widget }) => {
     return (
       <li>
         <InPlaceEditingPlaceholder>
-          No pages selected. Select them in the widget properties.
+          Select pages in the widget properties.
         </InPlaceEditingPlaceholder>
       </li>
     );
