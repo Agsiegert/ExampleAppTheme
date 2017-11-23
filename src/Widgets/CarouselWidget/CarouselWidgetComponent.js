@@ -7,7 +7,7 @@ Scrivito.provideComponent('CarouselWidget', ({ widget }) => {
   if (!images.length) {
     return (
       <InPlaceEditingPlaceholder center={ true }>
-        No images selected. Select them in the widget properties.
+        Select images in the widget properties.
       </InPlaceEditingPlaceholder>
     );
   }
