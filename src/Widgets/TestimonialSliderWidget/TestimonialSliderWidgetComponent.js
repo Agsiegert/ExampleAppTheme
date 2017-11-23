@@ -1,36 +1,6 @@
 import Slider from 'react-slick';
 import devicePixelRatio from 'utils/devicePixelRatio';
 
-// Source: https://unsplash.com/photos/K2u71wv2eI4/
-const fallbackImageUrl = 'https://images.unsplash.com/photo-1481437642641-2f0ae875f836' +
-  '?dpr=1&auto=compress,format&fit=crop&w=200&h=200&q=80&cs=tinysrgb&crop=&bg=';
-
-function sliderSettings(testimonials) {
-  const testimonialAuthorImageUrls = testimonials.map(testimonial => {
-    const authorImage = testimonial.get('authorImage');
-    if (!authorImage) { return fallbackImageUrl; }
-
-    const binary = authorImage.get('blob');
-    const croppedBinary = binary.transform({
-      width: 200 * devicePixelRatio(),
-      height: 200 * devicePixelRatio(),
-      fit: 'crop',
-    });
-    return croppedBinary.url();
-  });
-
-  return {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    dotsClass: 'quote-portrait-wrapper',
-    customPaging: i => {
-      const imageUrl = testimonialAuthorImageUrls[i];
-      return (<a><img src={ imageUrl } alt="" /></a>);
-    },
-  };
-}
-
 Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
   const testimonials = widget.get('testimonials');
   if (!testimonials.length) { return null; }
@@ -60,3 +30,33 @@ Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
     </Slider>
   );
 });
+
+function sliderSettings(testimonials) {
+  const testimonialAuthorImageUrls = testimonials.map(testimonial => {
+    const authorImage = testimonial.get('authorImage');
+    if (!authorImage) { return fallbackImageUrl; }
+
+    const binary = authorImage.get('blob');
+    const croppedBinary = binary.transform({
+      width: 200 * devicePixelRatio(),
+      height: 200 * devicePixelRatio(),
+      fit: 'crop',
+    });
+    return croppedBinary.url();
+  });
+
+  return {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    dotsClass: 'quote-portrait-wrapper',
+    customPaging: i => {
+      const imageUrl = testimonialAuthorImageUrls[i];
+      return (<a><img src={ imageUrl } alt="" /></a>);
+    },
+  };
+}
+
+// Source: https://unsplash.com/photos/K2u71wv2eI4/
+const fallbackImageUrl = 'https://images.unsplash.com/photo-1481437642641-2f0ae875f836' +
+  '?dpr=1&auto=compress,format&fit=crop&w=200&h=200&q=80&cs=tinysrgb&crop=&bg=';
