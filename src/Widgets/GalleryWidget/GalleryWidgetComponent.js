@@ -2,6 +2,32 @@ import devicePixelRatio from 'utils/devicePixelRatio';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import Slider from 'react-slick';
 
+function GalleryWidgetComponent({ widget }) {
+  const images = widget.get('images');
+
+  if (!images.length) {
+    return (
+      <InPlaceEditingPlaceholder center={ true }>
+        No images selected. Select them in the widget properties.
+      </InPlaceEditingPlaceholder>
+    );
+  }
+
+  const settings = sliderSettings(images);
+  return (
+    <div className="slick-gallary-fluid">
+      <Slider { ...settings } className="slickslide">
+        {
+          images.map((image, index) =>
+            <Scrivito.ImageTag content={ image } key={ `${image.id()}${index}` } />)
+        }
+      </Slider>
+    </div>
+  );
+}
+
+Scrivito.provideComponent('GalleryWidget', GalleryWidgetComponent);
+
 function sliderSettings(images) {
   const imageUrls = images.map(image => {
     const binary = image.get('blob');
@@ -43,29 +69,3 @@ function sliderSettings(images) {
     },
   };
 }
-
-function GalleryWidgetComponent({ widget }) {
-  const images = widget.get('images');
-
-  if (!images.length) {
-    return (
-      <InPlaceEditingPlaceholder center={ true }>
-        No images selected. Select them in the widget properties.
-      </InPlaceEditingPlaceholder>
-    );
-  }
-
-  const settings = sliderSettings(images);
-  return (
-    <div className="slick-gallary-fluid">
-      <Slider { ...settings } className="slickslide">
-        {
-          images.map((image, index) =>
-            <Scrivito.ImageTag content={ image } key={ `${image.id()}${index}` } />)
-        }
-      </Slider>
-    </div>
-  );
-}
-
-Scrivito.provideComponent('GalleryWidget', GalleryWidgetComponent);
