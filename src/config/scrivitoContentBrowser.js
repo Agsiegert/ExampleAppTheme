@@ -105,5 +105,20 @@ Scrivito.configureContentBrowser({
         },
       },
     },
+    _modification: {
+      title: 'Changed',
+      type: 'checkbox',
+      expanded: true,
+      field: '_modification',
+      operator: 'equals',
+      options: {
+        New: {
+          value: ['new'],
+        },
+        Edited: {
+          value: ['edited'],
+        },
+      },
+    },
   },
 });
