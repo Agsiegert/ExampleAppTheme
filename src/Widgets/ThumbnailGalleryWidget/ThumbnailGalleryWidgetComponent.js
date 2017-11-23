@@ -3,39 +3,6 @@ import devicePixelRatio from 'utils/devicePixelRatio';
 import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
 import TagList from 'Components/TagList';
 
-const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
-  const title = widget.get('title');
-  const subtitle = widget.get('subtitle');
-  const image = widget.get('image');
-  const tags = widget.get('tags');
-
-  let imageUrl = '';
-  if (image) {
-    // Transform image to max. 50% of the screen width
-    const binary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
-    imageUrl = binary.url();
-  }
-
-  const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box', 'gutter0'];
-  if (currentTag && tags.includes(currentTag)) { classNames.push('squeezed'); }
-
-  return (
-    <div className={ classNames.join(' ') }>
-      <div
-        className="gallery-box-image"
-        style={ { background: 'no-repeat center / cover', backgroundImage: `url(${imageUrl})` } }>
-      </div>
-      <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
-        <span className="gallery-box-content">
-          <i className="fa fa-camera" aria-hidden="true" />
-          <span className="title">{ title }</span>
-          <span className="subtitle">{ subtitle }</span>
-        </span>
-      </a>
-    </div>
-  );
-});
-
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -134,6 +101,39 @@ class ThumbnailGalleryComponent extends React.Component {
 }
 
 Scrivito.provideComponent('ThumbnailGalleryWidget', ThumbnailGalleryComponent);
+
+const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
+  const title = widget.get('title');
+  const subtitle = widget.get('subtitle');
+  const image = widget.get('image');
+  const tags = widget.get('tags');
+
+  let imageUrl = '';
+  if (image) {
+    // Transform image to max. 50% of the screen width
+    const binary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
+    imageUrl = binary.url();
+  }
+
+  const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box', 'gutter0'];
+  if (currentTag && tags.includes(currentTag)) { classNames.push('squeezed'); }
+
+  return (
+    <div className={ classNames.join(' ') }>
+      <div
+        className="gallery-box-image"
+        style={ { background: 'no-repeat center / cover', backgroundImage: `url(${imageUrl})` } }>
+      </div>
+      <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
+        <span className="gallery-box-content">
+          <i className="fa fa-camera" aria-hidden="true" />
+          <span className="title">{ title }</span>
+          <span className="subtitle">{ subtitle }</span>
+        </span>
+      </a>
+    </div>
+  );
+});
 
 function allTags(images) {
   const tagsArray = images.map(image => image.get('tags'));
