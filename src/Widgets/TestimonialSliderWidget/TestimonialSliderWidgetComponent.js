@@ -1,13 +1,14 @@
 import Slider from 'react-slick';
 import devicePixelRatio from 'utils/devicePixelRatio';
+import placeholderCss from 'utils/placeholderCss';
+import TestimonialWidget from 'Widgets/TestimonialWidget/TestimonialWidgetClass';
 
 Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
   const testimonials = widget.get('testimonials');
-  if (!testimonials.length) { return null; }
-
   const settings = sliderSettings(testimonials);
-  return (
-    <Slider { ...settings }>
+
+  return ([
+    <Slider key="slider" { ...settings }>
       {
         testimonials.map(testimonial =>
           <div key={ testimonial.id() }>
@@ -27,8 +28,9 @@ Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
           </div>
         )
       }
-    </Slider>
-  );
+    </Slider>,
+    <AddTestimonial key="add testimonial" widget={ widget } />,
+  ]);
 });
 
 function sliderSettings(testimonials) {
@@ -60,3 +62,29 @@ function sliderSettings(testimonials) {
 // Source: https://unsplash.com/photos/K2u71wv2eI4/
 const fallbackImageUrl = 'https://images.unsplash.com/photo-1481437642641-2f0ae875f836' +
   '?dpr=1&auto=compress,format&fit=crop&w=200&h=200&q=80&cs=tinysrgb&crop=&bg=';
+
+const AddTestimonial = ({ widget }) => {
+  if (!Scrivito.isInPlaceEditingActive()) {
+    return null;
+  }
+
+  return (
+    <div key="add more" className="text-center">
+      <a
+        href="#"
+        style={ placeholderCss }
+        onClick={
+          e => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const newTestimonials = [...widget.get('testimonials'), new TestimonialWidget({})];
+            widget.update({ testimonials: newTestimonials });
+          }
+        }
+      >
+        Click to add testimonial
+      </a>
+    </div>
+  );
+};
