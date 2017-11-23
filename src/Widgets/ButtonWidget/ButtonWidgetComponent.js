@@ -5,7 +5,7 @@ const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
   let text = target && target.title();
   if (!text) {
     text = <InPlaceEditingPlaceholder>
-      No target text provided. Provide it in the widget properties.
+      Provide the button text in the widget properties.
     </InPlaceEditingPlaceholder>;
   }
 
