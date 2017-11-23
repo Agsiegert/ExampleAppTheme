@@ -1,6 +1,7 @@
 import Lightbox from 'react-images';
 import devicePixelRatio from 'utils/devicePixelRatio';
 import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import TagList from 'Components/TagList';
 
 class ThumbnailGalleryComponent extends React.Component {
@@ -63,6 +64,14 @@ class ThumbnailGalleryComponent extends React.Component {
     const widget = this.props.widget;
     const images = widget.get('images');
     const lightboxImages = images.map(image => lightboxOptions(image));
+
+    if (!images.length) {
+      return (
+        <InPlaceEditingPlaceholder center={ true }>
+          No images selected. Select them in the widget properties.
+        </InPlaceEditingPlaceholder>
+      );
+    }
 
     return (
       <div>
