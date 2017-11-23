@@ -7,7 +7,7 @@ Scrivito.provideComponent('IconContainerWidget', ({ widget }) => {
   if (!icons.length) {
     return (
       <InPlaceEditingPlaceholder center={ true }>
-        No icons selected. Select them in the widget properties.
+        Select icons in the widget properties.
       </InPlaceEditingPlaceholder>
     );
   }
