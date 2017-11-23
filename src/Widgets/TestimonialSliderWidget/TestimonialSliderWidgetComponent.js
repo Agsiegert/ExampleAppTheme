@@ -83,7 +83,7 @@ const AddTestimonial = ({ widget }) => {
           }
         }
       >
-        Click to add testimonial
+        Click to add a testimonial
       </a>
     </div>
   );
