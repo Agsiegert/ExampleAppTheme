@@ -6,7 +6,7 @@ Scrivito.provideComponent('TickListWidget', ({ widget }) => {
   if (!items.length) {
     return (
       <InPlaceEditingPlaceholder>
-        No statements provided. Provide them in the widget properties.
+        Provide statements in the widget properties.
       </InPlaceEditingPlaceholder>
     );
   }
