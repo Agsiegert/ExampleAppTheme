@@ -4,8 +4,8 @@ import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 function AuthorImage({ image }) {
   if (!image) {
     return (
-      <InPlaceEditingPlaceholder>
-        No image selected. Select one in the author page properties.
+      <InPlaceEditingPlaceholder center={ true }>
+        Select an image in the author page properties.
       </InPlaceEditingPlaceholder>
     );
   }
