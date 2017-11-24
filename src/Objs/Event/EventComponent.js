@@ -5,7 +5,7 @@ function formatDate(date) {
   if (!date) {
     return (
       <InPlaceEditingPlaceholder>
-        No date selected. Select one in the event page properties.
+        Select a date in the event page properties.
       </InPlaceEditingPlaceholder>
     );
   }
