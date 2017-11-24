@@ -7,7 +7,7 @@ Scrivito.provideComponent('VideoWidget', ({ widget }) => {
   if (!videoUrl) {
     return (
       <InPlaceEditingPlaceholder center={ true }>
-        Select or upload a video in the widget properties.
+        Select a video in the widget properties.
       </InPlaceEditingPlaceholder>
     );
   }
