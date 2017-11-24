@@ -19,10 +19,20 @@ Scrivito.configureContentBrowser({
           title: 'Pages',
           icon: 'sheet',
           field: '_objClass',
-          value: ['Page', 'LandingPage', 'BlogPost', 'Event', 'Job'],
+          value: [
+            'Author',
+            'Blog',
+            'BlogPost',
+            'Event',
+            'Homepage',
+            'Job',
+            'LandingPage',
+            'Page',
+            'SearchResults',
+          ],
           options: {
             Page: {
-              title: 'Regular pages',
+              title: 'Standard pages',
               icon: 'sheet',
               enableCreate: true,
               preset: { _objClass: 'Page' },
@@ -39,6 +49,12 @@ Scrivito.configureContentBrowser({
               enableCreate: true,
               preset: { _objClass: 'BlogPost' },
             },
+            Author: {
+              title: 'Authors',
+              icon: 'user',
+              enableCreate: true,
+              preset: { _objClass: 'Author' },
+            },
             Event: {
               title: 'Events',
               icon: 'cal',
@@ -51,38 +67,6 @@ Scrivito.configureContentBrowser({
               enableCreate: true,
               preset: { _objClass: 'Job' },
             },
-          },
-        },
-        Resources: {
-          title: 'Resources',
-          icon: 'thumbnails',
-          field: '_objClass',
-          value: ['Author', 'Download', 'Video'],
-          options: {
-            Author: {
-              title: 'Authors',
-              icon: 'user',
-              enableCreate: true,
-              preset: { _objClass: 'Author' },
-            },
-            Download: {
-              title: 'Downloads',
-              icon: 'pdf',
-              preset: { _objClass: 'Download' },
-            },
-            Video: {
-              title: 'Videos',
-              icon: 'video',
-              preset: { _objClass: 'Video' },
-            },
-          },
-        },
-        SpecialPurpose: {
-          title: 'Special purpose',
-          icon: 'gears',
-          field: '_objClass',
-          value: ['Blog', 'Homepage', 'SearchResults'],
-          options: {
             Homepage: {
               title: 'Homepage',
               icon: 'inbox',
@@ -96,12 +80,26 @@ Scrivito.configureContentBrowser({
               preset: { _objClass: 'Blog' },
             },
             SearchResults: {
-              title: 'Search Results',
+              title: 'Search results',
               icon: 'lens',
               enableCreate: true,
               preset: { _objClass: 'SearchResults' },
             },
           },
+        },
+        Download: {
+          title: 'Downloads',
+          icon: 'pdf',
+          field: '_objClass',
+          value: 'Download',
+          preset: { _objClass: 'Download' },
+        },
+        Video: {
+          title: 'Videos',
+          icon: 'video',
+          field: '_objClass',
+          value: 'Video',
+          preset: { _objClass: 'Video' },
         },
       },
     },
