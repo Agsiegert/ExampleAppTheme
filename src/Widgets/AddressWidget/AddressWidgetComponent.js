@@ -1,14 +1,15 @@
 import AddressListItemWidget from 'Widgets/AddressListItemWidget/AddressListItemWidgetClass';
+import placeholderCss from 'utils/placeholderCss';
 
-const AddMoreItems = Scrivito.connect(({ widget }) => {
+const AddRow = Scrivito.connect(({ widget }) => {
   if (!Scrivito.isInPlaceEditingActive()) { return null; }
-  if (widget.get('listItems').length) { return null; }
 
   return (
     <tr>
       <td className="text-center" colSpan="2">
         <a
           href='#'
+          style={ placeholderCss }
           onClick={
             e => {
               e.preventDefault();
@@ -20,7 +21,7 @@ const AddMoreItems = Scrivito.connect(({ widget }) => {
             }
           }
         >
-          Add first list item.
+          Click to add a row
         </a>
       </td>
     </tr>
@@ -43,7 +44,7 @@ Scrivito.provideComponent('AddressWidget', ({ widget }) => {
                 </tr>
               )
             }
-            <AddMoreItems widget={ widget } />
+            <AddRow widget={ widget } />
           </tbody>
         </table>
       </address>

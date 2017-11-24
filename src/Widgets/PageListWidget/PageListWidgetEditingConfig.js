@@ -7,6 +7,7 @@ Scrivito.provideEditingConfig('PageListWidget', {
   attributesConfig: {
     headline: {
       title: 'Headline',
+      description: 'Leave empty to not show a headline.',
     },
     pages: {
       title: 'Pages',
