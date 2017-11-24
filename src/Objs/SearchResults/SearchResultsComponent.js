@@ -3,27 +3,19 @@ import SearchInput from './SearchInput';
 import SearchResultItem from './SearchResultItem';
 import SearchResultsTagList from './SearchResultsTagList';
 
-const blacklistObjClasses = [
-  'Image',
-  'SearchResults',
-  'Video',
-];
-
-function globalSearch(q) {
-  return Scrivito.Obj.where('*', 'containsPrefix', q)
-    .andNot('_objClass', 'equals', blacklistObjClasses);
-}
-
 class SearchResultsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = { maxItems: 10 };
 
     this.incrementMaxItems = this.incrementMaxItems.bind(this);
+    this.calculateResults = this.calculateResults.bind(this);
   }
 
-  render() {
-    let search = globalSearch(this.props.params.q);
+  calculateResults() {
+    let search = Scrivito.Obj
+      .where('*', 'containsPrefix', this.props.params.q)
+      .andNot('_objClass', 'equals', blacklistObjClasses);
 
     // make sure, that tags are calculated _before_ limiting to specific tag.
     const tags = search.facet('tags').map(tag => tag.name());
@@ -31,7 +23,20 @@ class SearchResultsComponent extends React.Component {
     if (this.props.params.tag) {
       search = search.and('tags', 'equals', this.props.params.tag);
     }
-    const totalCount = search.count();
+
+    return {
+      searchResults: search.take(this.state.maxItems),
+      totalCount: search.count(),
+      tags,
+    };
+  }
+
+  render() {
+    const {
+      searchResults,
+      totalCount,
+      tags,
+    } = this.calculateResults();
 
     return (
       <div>
@@ -49,7 +54,7 @@ class SearchResultsComponent extends React.Component {
         <section className="bg-white no-padding">
           <div className="container">
             {
-              search.take(this.state.maxItems).map((resultItem, index) =>
+              searchResults.map((resultItem, index) =>
                 <SearchResultItem
                   resultItem={ resultItem }
                   q={ this.props.params.q }
@@ -76,3 +81,9 @@ class SearchResultsComponent extends React.Component {
 }
 
 Scrivito.provideComponent('SearchResults', SearchResultsComponent);
+
+const blacklistObjClasses = [
+  'Image',
+  'SearchResults',
+  'Video',
+];
