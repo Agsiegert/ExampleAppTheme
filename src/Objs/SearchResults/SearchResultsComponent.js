@@ -31,10 +31,7 @@ class SearchResultsComponent extends React.Component {
     if (this.props.params.tag) {
       search = search.and('tags', 'equals', this.props.params.tag);
     }
-
-    // TODO: replace with faster method,
-    // once https://github.com/infopark/rails_connector/issues/3482 is resolved
-    const totalCount = [...search].length;
+    const totalCount = search.count();
 
     return (
       <div>
