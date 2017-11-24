@@ -13,6 +13,14 @@ class SearchResultsComponent extends React.Component {
   }
 
   calculateResults() {
+    if (!this.props.params.q) {
+      return {
+        searchResults: [],
+        totalCount: 0,
+        tags: [],
+      };
+    }
+
     let search = Scrivito.Obj
       .where('*', 'containsPrefix', this.props.params.q)
       .andNot('_objClass', 'equals', blacklistObjClasses);
