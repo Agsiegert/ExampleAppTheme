@@ -34,7 +34,7 @@ class EventOverviewWidgetComponent extends React.Component {
     if (!events.length) {
       return (
         <InPlaceEditingPlaceholder center={ true }>
-          There are no events. Create an event, by using &quot;Create page&quot;.
+          There are no event pages. Create one using the page menu.
         </InPlaceEditingPlaceholder>
       );
     }
