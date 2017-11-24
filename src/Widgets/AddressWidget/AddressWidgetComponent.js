@@ -21,7 +21,7 @@ const AddRow = Scrivito.connect(({ widget }) => {
             }
           }
         >
-          Click to add another row
+          Click to add a row
         </a>
       </td>
     </tr>

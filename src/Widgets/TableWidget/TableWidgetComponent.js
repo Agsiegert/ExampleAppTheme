@@ -77,7 +77,7 @@ const AddMoreRows = ({ widget }) => {
               }
             }
           >
-            Click to add another row
+            Click to add a row
           </a>
         </div>
       </th>
