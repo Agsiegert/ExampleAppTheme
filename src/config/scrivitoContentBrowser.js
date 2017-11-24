@@ -108,13 +108,12 @@ Scrivito.configureContentBrowser({
       type: 'checkbox',
       expanded: true,
       field: '_modification',
-      operator: 'equals',
       options: {
         New: {
-          value: ['new'],
+          value: 'new',
         },
         Edited: {
-          value: ['edited'],
+          value: 'edited',
         },
       },
     },
