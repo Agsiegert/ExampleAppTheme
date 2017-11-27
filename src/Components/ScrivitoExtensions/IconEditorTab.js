@@ -72,13 +72,18 @@ const AllIcons = ({ widget }) => {
   );
 };
 
-const SingleIcon = ({ icon, widget }) => {
+const SingleIcon = Scrivito.connect(({ icon, widget }) => {
   const cssIcon = `fa-${icon.id}`;
+  const aClassNames = [];
+  if (widget.get('icon') === `fa-${icon.id}`) {
+    aClassNames.push('active');
+  }
 
   return (
     <div className="fa-hover col-md-3 col-sm-4">
       <a
         href="#"
+        className={ aClassNames.join(' ') }
         onClick={
           e => {
             e.preventDefault();
@@ -93,4 +98,4 @@ const SingleIcon = ({ icon, widget }) => {
       </a>
     </div>
   );
-};
+});

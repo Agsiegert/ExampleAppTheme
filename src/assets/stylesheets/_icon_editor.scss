@@ -41,7 +41,17 @@
   color: #bbe2d5;
 }
 
-.icon-editor-tab .active {
-    background: #658b51;
-    color: #fff;
+.icon-editor-tab .fa-hover a.active {
+  background-color: #1d9d74;
+  color: #fff;
+  text-decoration: none;
+}
+
+.icon-editor-tab .fa-hover a.active .fa {
+  font-size: 28px;
+  vertical-align: -6px;
+}
+
+.icon-editor-tab .fa-hover a.active .text-muted {
+  color: #bbe2d5;
 }
