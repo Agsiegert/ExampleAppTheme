@@ -1,0 +1,47 @@
+/*!
+ * Icon Editor Tab
+ */
+
+.icon-editor-tab {
+  margin-top: 22px
+}
+
+.icon-editor-tab .fa-hover a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  color: #222;
+  line-height: 32px;
+  height: 32px;
+  padding-left: 10px;
+  border-radius: 4px;
+}
+
+.icon-editor-tab .fa-hover a .fa {
+  width: 32px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.icon-editor-tab .fa-hover a:hover {
+  background-color: #1d9d74;
+  color: #fff;
+  text-decoration: none;
+}
+
+.icon-editor-tab .fa-hover a:hover .fa {
+  font-size: 28px;
+  vertical-align: -6px;
+}
+
+.icon-editor-tab .fa-hover a:hover .text-muted {
+  color: #bbe2d5;
+}
+
+.icon-editor-tab .active {
+    background: #658b51;
+    color: #fff;
+}
