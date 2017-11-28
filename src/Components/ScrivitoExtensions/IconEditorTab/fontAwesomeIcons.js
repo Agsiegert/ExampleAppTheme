@@ -120,7 +120,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'th-large',
+    name: 'Th large',
     id: 'th-large',
     filter: [
       'blocks',
@@ -133,7 +133,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'th',
+    name: 'Th',
     id: 'th',
     filter: [
       'blocks',
@@ -146,7 +146,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'th-list',
+    name: 'Th list',
     id: 'th-list',
     filter: [
       'ul',
@@ -232,7 +232,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'signal',
+    name: 'Signal',
     id: 'signal',
     filter: [
       'graph',
@@ -243,7 +243,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'cog',
+    name: 'Cog',
     id: 'cog',
     filter: [
       'settings',
@@ -271,7 +271,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'home',
+    name: 'Home',
     id: 'home',
     filter: [
       'main',
@@ -309,7 +309,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'road',
+    name: 'Road',
     id: 'road',
     filter: [
       'street',
@@ -346,7 +346,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'inbox',
+    name: 'Inbox',
     id: 'inbox',
     categories: [
       'Web application icons',
@@ -374,7 +374,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'refresh',
+    name: 'Refresh',
     id: 'refresh',
     filter: [
       'reload',
@@ -386,7 +386,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'list-alt',
+    name: 'List alt',
     id: 'list-alt',
     filter: [
       'ul',
@@ -402,7 +402,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'lock',
+    name: 'Lock',
     id: 'lock',
     filter: [
       'protect',
@@ -414,7 +414,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'flag',
+    name: 'Flag',
     id: 'flag',
     filter: [
       'report',
@@ -426,7 +426,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'headphones',
+    name: 'Headphones',
     id: 'headphones',
     filter: [
       'sound',
@@ -439,7 +439,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'volume-off',
+    name: 'Volume off',
     id: 'volume-off',
     filter: [
       'audio',
@@ -452,7 +452,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'volume-down',
+    name: 'Volume down',
     id: 'volume-down',
     filter: [
       'audio',
@@ -466,7 +466,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'volume-up',
+    name: 'Volume up',
     id: 'volume-up',
     filter: [
       'audio',
@@ -480,7 +480,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'qrcode',
+    name: 'Qrcode',
     id: 'qrcode',
     filter: [
       'scan',
@@ -490,7 +490,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'barcode',
+    name: 'Barcode',
     id: 'barcode',
     filter: [
       'scan',
@@ -500,7 +500,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'tag',
+    name: 'Tag',
     id: 'tag',
     filter: [
       'label',
@@ -510,7 +510,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'tags',
+    name: 'Tags',
     id: 'tags',
     filter: [
       'labels',
@@ -520,7 +520,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'book',
+    name: 'Book',
     id: 'book',
     filter: [
       'read',
@@ -531,7 +531,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'bookmark',
+    name: 'Bookmark',
     id: 'bookmark',
     filter: [
       'save',
@@ -541,14 +541,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'print',
+    name: 'Print',
     id: 'print',
     categories: [
       'Web application icons',
     ],
   },
   {
-    name: 'camera',
+    name: 'Camera',
     id: 'camera',
     filter: [
       'photo',
@@ -560,7 +560,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'font',
+    name: 'Font',
     id: 'font',
     filter: [
       'text',
@@ -570,14 +570,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'bold',
+    name: 'Bold',
     id: 'bold',
     categories: [
       'Text editor icons',
     ],
   },
   {
-    name: 'italic',
+    name: 'Italic',
     id: 'italic',
     filter: [
       'italics',
@@ -587,21 +587,21 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'text-height',
+    name: 'Text height',
     id: 'text-height',
     categories: [
       'Text editor icons',
     ],
   },
   {
-    name: 'text-width',
+    name: 'Text width',
     id: 'text-width',
     categories: [
       'Text editor icons',
     ],
   },
   {
-    name: 'align-left',
+    name: 'Align left',
     id: 'align-left',
     filter: [
       'text',
@@ -611,7 +611,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'align-center',
+    name: 'Align center',
     id: 'align-center',
     filter: [
       'middle',
@@ -622,7 +622,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'align-right',
+    name: 'Align right',
     id: 'align-right',
     filter: [
       'text',
@@ -632,7 +632,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'align-justify',
+    name: 'Align justify',
     id: 'align-justify',
     filter: [
       'text',
@@ -642,7 +642,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'list',
+    name: 'List',
     id: 'list',
     filter: [
       'ul',
@@ -698,7 +698,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'pencil',
+    name: 'Pencil',
     id: 'pencil',
     filter: [
       'write',
@@ -710,7 +710,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'map-marker',
+    name: 'Map marker',
     id: 'map-marker',
     filter: [
       'map',
@@ -728,7 +728,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'adjust',
+    name: 'Adjust',
     id: 'adjust',
     filter: [
       'contrast',
@@ -738,7 +738,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'tint',
+    name: 'Tint',
     id: 'tint',
     filter: [
       'raindrop',
@@ -807,7 +807,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'step-backward',
+    name: 'Step backward',
     id: 'step-backward',
     filter: [
       'rewind',
@@ -821,7 +821,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'fast-backward',
+    name: 'Fast backward',
     id: 'fast-backward',
     filter: [
       'rewind',
@@ -835,7 +835,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'backward',
+    name: 'Backward',
     id: 'backward',
     filter: [
       'rewind',
@@ -846,7 +846,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'play',
+    name: 'Play',
     id: 'play',
     filter: [
       'start',
@@ -859,7 +859,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'pause',
+    name: 'Pause',
     id: 'pause',
     filter: [
       'wait',
@@ -869,7 +869,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'stop',
+    name: 'Stop',
     id: 'stop',
     filter: [
       'block',
@@ -881,7 +881,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'forward',
+    name: 'Forward',
     id: 'forward',
     filter: [
       'forward',
@@ -892,7 +892,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'fast-forward',
+    name: 'Fast forward',
     id: 'fast-forward',
     filter: [
       'next',
@@ -904,7 +904,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'step-forward',
+    name: 'Step forward',
     id: 'step-forward',
     filter: [
       'next',
@@ -916,14 +916,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'eject',
+    name: 'Eject',
     id: 'eject',
     categories: [
       'Video player icons',
     ],
   },
   {
-    name: 'chevron-left',
+    name: 'Chevron left',
     id: 'chevron-left',
     filter: [
       'bracket',
@@ -935,7 +935,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'chevron-right',
+    name: 'Chevron right',
     id: 'chevron-right',
     filter: [
       'bracket',
@@ -1063,7 +1063,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'ban',
+    name: 'Ban',
     id: 'ban',
     filter: [
       'delete',
@@ -1080,7 +1080,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'arrow-left',
+    name: 'Arrow left',
     id: 'arrow-left',
     filter: [
       'previous',
@@ -1091,7 +1091,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'arrow-right',
+    name: 'Arrow right',
     id: 'arrow-right',
     filter: [
       'next',
@@ -1102,14 +1102,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'arrow-up',
+    name: 'Arrow up',
     id: 'arrow-up',
     categories: [
       'Directional icons',
     ],
   },
   {
-    name: 'arrow-down',
+    name: 'Arrow down',
     id: 'arrow-down',
     filter: [
       'download',
@@ -1155,7 +1155,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'plus',
+    name: 'Plus',
     id: 'plus',
     filter: [
       'add',
@@ -1168,7 +1168,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'minus',
+    name: 'Minus',
     id: 'minus',
     filter: [
       'hide',
@@ -1184,7 +1184,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'asterisk',
+    name: 'Asterisk',
     id: 'asterisk',
     filter: [
       'details',
@@ -1208,7 +1208,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'gift',
+    name: 'Gift',
     id: 'gift',
     filter: [
       'present',
@@ -1218,7 +1218,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'leaf',
+    name: 'Leaf',
     id: 'leaf',
     filter: [
       'eco',
@@ -1230,7 +1230,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'fire',
+    name: 'Fire',
     id: 'fire',
     filter: [
       'flame',
@@ -1286,7 +1286,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'plane',
+    name: 'Plane',
     id: 'plane',
     filter: [
       'travel',
@@ -1303,7 +1303,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'calendar',
+    name: 'Calendar',
     id: 'calendar',
     filter: [
       'date',
@@ -1316,7 +1316,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'random',
+    name: 'Random',
     id: 'random',
     filter: [
       'sort',
@@ -1328,7 +1328,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'comment',
+    name: 'Comment',
     id: 'comment',
     filter: [
       'speech',
@@ -1347,28 +1347,28 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'magnet',
+    name: 'Magnet',
     id: 'magnet',
     categories: [
       'Web application icons',
     ],
   },
   {
-    name: 'chevron-up',
+    name: 'Chevron up',
     id: 'chevron-up',
     categories: [
       'Directional icons',
     ],
   },
   {
-    name: 'chevron-down',
+    name: 'Chevron down',
     id: 'chevron-down',
     categories: [
       'Directional icons',
     ],
   },
   {
-    name: 'retweet',
+    name: 'Retweet',
     id: 'retweet',
     filter: [
       'refresh',
@@ -1380,7 +1380,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'shopping-cart',
+    name: 'Shopping cart',
     id: 'shopping-cart',
     filter: [
       'checkout',
@@ -1465,7 +1465,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'camera-retro',
+    name: 'Camera retro',
     id: 'camera-retro',
     filter: [
       'photo',
@@ -1477,7 +1477,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'key',
+    name: 'Key',
     id: 'key',
     filter: [
       'unlock',
@@ -1488,7 +1488,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'cogs',
+    name: 'Cogs',
     id: 'cogs',
     aliases: [
       'gears',
@@ -1501,7 +1501,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'comments',
+    name: 'Comments',
     id: 'comments',
     filter: [
       'speech',
@@ -1549,7 +1549,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'star-half',
+    name: 'Star half',
     id: 'star-half',
     filter: [
       'award',
@@ -1638,7 +1638,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'trophy',
+    name: 'Trophy',
     id: 'trophy',
     filter: [
       'award',
@@ -1768,7 +1768,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'unlock',
+    name: 'Unlock',
     id: 'unlock',
     filter: [
       'protect',
@@ -1781,7 +1781,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'credit-card',
+    name: 'Credit card',
     id: 'credit-card',
     filter: [
       'money',
@@ -1797,7 +1797,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'rss',
+    name: 'Rss',
     id: 'rss',
     filter: [
       'blog',
@@ -1823,7 +1823,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'bullhorn',
+    name: 'Bullhorn',
     id: 'bullhorn',
     filter: [
       'announcement',
@@ -1837,7 +1837,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'bell',
+    name: 'Bell',
     id: 'bell',
     filter: [
       'alert',
@@ -1849,7 +1849,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'certificate',
+    name: 'Certificate',
     id: 'certificate',
     filter: [
       'badge',
@@ -2178,7 +2178,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'list-ul',
+    name: 'List ul',
     id: 'list-ul',
     filter: [
       'ul',
@@ -2192,7 +2192,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'list-ol',
+    name: 'List ol',
     id: 'list-ol',
     filter: [
       'ul',
@@ -2222,7 +2222,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'table',
+    name: 'Table',
     id: 'table',
     filter: [
       'data',
@@ -2234,7 +2234,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'magic',
+    name: 'Magic',
     id: 'magic',
     filter: [
       'wizard',
@@ -2246,7 +2246,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'truck',
+    name: 'Truck',
     id: 'truck',
     filter: [
       'shipping',
@@ -2476,7 +2476,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'comment-o',
+    name: 'Comment o',
     id: 'comment-o',
     filter: [
       'speech',
@@ -2495,7 +2495,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'comments-o',
+    name: 'Comments o',
     id: 'comments-o',
     filter: [
       'speech',
@@ -2604,7 +2604,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'user-md',
+    name: 'User md',
     id: 'user-md',
     filter: [
       'doctor',
@@ -2708,7 +2708,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'hospital Outlined',
+    name: 'Hospital outlined',
     id: 'hospital-o',
     filter: [
       'building',
@@ -2718,7 +2718,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'ambulance',
+    name: 'Ambulance',
     id: 'ambulance',
     filter: [
       'vehicle',
@@ -2731,7 +2731,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'medkit',
+    name: 'Medkit',
     id: 'medkit',
     filter: [
       'first aid',
@@ -2745,7 +2745,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'fighter-jet',
+    name: 'Fighter jet',
     id: 'fighter-jet',
     filter: [
       'fly',
@@ -2761,7 +2761,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'beer',
+    name: 'Beer',
     id: 'beer',
     filter: [
       'alcohol',
@@ -2850,7 +2850,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'angle-left',
+    name: 'Angle left',
     id: 'angle-left',
     filter: [
       'previous',
@@ -2862,7 +2862,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'angle-right',
+    name: 'Angle right',
     id: 'angle-right',
     filter: [
       'next',
@@ -2874,7 +2874,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'angle-up',
+    name: 'Angle up',
     id: 'angle-up',
     filter: [
       'arrow',
@@ -2884,7 +2884,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'angle-down',
+    name: 'Angle down',
     id: 'angle-down',
     filter: [
       'arrow',
@@ -2921,7 +2921,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'tablet',
+    name: 'Tablet',
     id: 'tablet',
     filter: [
       'ipad',
@@ -2959,14 +2959,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'quote-left',
+    name: 'Quote left',
     id: 'quote-left',
     categories: [
       'Web application icons',
     ],
   },
   {
-    name: 'quote-right',
+    name: 'Quote right',
     id: 'quote-right',
     categories: [
       'Web application icons',
@@ -3105,7 +3105,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'flag-checkered',
+    name: 'Flag checkered',
     id: 'flag-checkered',
     filter: [
       'report',
@@ -3140,7 +3140,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'reply-all',
+    name: 'Reply all',
     id: 'reply-all',
     aliases: [
       'mail-reply-all',
@@ -3167,7 +3167,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'location-arrow',
+    name: 'Location arrow',
     id: 'location-arrow',
     filter: [
       'map',
@@ -3182,14 +3182,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'crop',
+    name: 'Crop',
     id: 'crop',
     categories: [
       'Web application icons',
     ],
   },
   {
-    name: 'code-fork',
+    name: 'Code fork',
     id: 'code-fork',
     filter: [
       'git',
@@ -3245,7 +3245,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'exclamation',
+    name: 'Exclamation',
     id: 'exclamation',
     filter: [
       'warning',
@@ -3260,7 +3260,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'superscript',
+    name: 'Superscript',
     id: 'superscript',
     filter: [
       'exponential',
@@ -3270,14 +3270,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'subscript',
+    name: 'Subscript',
     id: 'subscript',
     categories: [
       'Text editor icons',
     ],
   },
   {
-    name: 'eraser',
+    name: 'Eraser',
     id: 'eraser',
     filter: [
       'remove',
@@ -3301,7 +3301,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'microphone',
+    name: 'Microphone',
     id: 'microphone',
     filter: [
       'record',
@@ -3326,7 +3326,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'shield',
+    name: 'Shield',
     id: 'shield',
     filter: [
       'award',
@@ -3339,7 +3339,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'calendar-o',
+    name: 'Calendar o',
     id: 'calendar-o',
     filter: [
       'date',
@@ -3352,14 +3352,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'fire-extinguisher',
+    name: 'Fire extinguisher',
     id: 'fire-extinguisher',
     categories: [
       'Web application icons',
     ],
   },
   {
-    name: 'rocket',
+    name: 'Rocket',
     id: 'rocket',
     filter: [
       'app',
@@ -3848,7 +3848,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'thumbs-up',
+    name: 'Thumbs up',
     id: 'thumbs-up',
     filter: [
       'like',
@@ -3863,7 +3863,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'thumbs-down',
+    name: 'Thumbs down',
     id: 'thumbs-down',
     filter: [
       'dislike',
@@ -4414,14 +4414,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'reddit Logo',
+    name: 'Reddit logo',
     id: 'reddit',
     categories: [
       'Brand icons',
     ],
   },
   {
-    name: 'reddit Square',
+    name: 'Reddit square',
     id: 'reddit-square',
     categories: [
       'Brand icons',
@@ -4529,7 +4529,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'spoon',
+    name: 'Spoon',
     id: 'spoon',
     categories: [
       'Web application icons',
@@ -4627,7 +4627,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'deviantART',
+    name: 'Deviantart',
     id: 'deviantart',
     categories: [
       'Brand icons',
@@ -4747,7 +4747,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'jsFiddle',
+    name: 'Jsfiddle',
     id: 'jsfiddle',
     categories: [
       'Brand icons',
@@ -4878,7 +4878,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'header',
+    name: 'Header',
     id: 'header',
     filter: [
       'heading',
@@ -4888,7 +4888,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'paragraph',
+    name: 'Paragraph',
     id: 'paragraph',
     categories: [
       'Text editor icons',
@@ -5174,14 +5174,14 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'last.fm',
+    name: 'Last.fm',
     id: 'lastfm',
     categories: [
       'Brand icons',
     ],
   },
   {
-    name: 'last.fm Square',
+    name: 'Last.fm square',
     id: 'lastfm-square',
     categories: [
       'Brand icons',
@@ -5225,7 +5225,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'ioxhost',
+    name: 'Ioxhost',
     id: 'ioxhost',
     categories: [
       'Brand icons',
@@ -5258,7 +5258,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'meanpath',
+    name: 'Meanpath',
     id: 'meanpath',
     categories: [
       'Brand icons',
@@ -5321,7 +5321,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'skyatlas',
+    name: 'Skyatlas',
     id: 'skyatlas',
     categories: [
       'Brand icons',
@@ -5998,7 +5998,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'Internet-explorer',
+    name: 'Internet explorer',
     id: 'internet-explorer',
     filter: [
       'browser',
@@ -6180,7 +6180,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'reddit Alien',
+    name: 'Reddit alien',
     id: 'reddit-alien',
     categories: [
       'Brand icons',
