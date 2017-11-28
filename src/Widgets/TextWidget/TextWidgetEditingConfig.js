@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('TextWidget', {
   title: 'Text',
   description: 'A widget with html text.',
   thumbnail: `/${textWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     alignment: {
       title: 'Alignment',
       description: 'Default: Left',
@@ -19,7 +19,7 @@ Scrivito.provideEditingConfig('TextWidget', {
       description: 'The actual source code of this text',
     },
   },
-  generalProperties: [
+  properties: [
     'alignment',
     'text',
   ],

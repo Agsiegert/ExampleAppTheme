@@ -5,7 +5,7 @@ Scrivito.provideEditingConfig('Job', {
   title: 'Job',
   description: 'A Job',
   thumbnail: `/${jobObjIcon}`,
-  attributesConfig: {
+  attributes: {
     image: {
       title: 'Image',
     },
@@ -17,7 +17,7 @@ Scrivito.provideEditingConfig('Job', {
       title: 'Title',
     },
   },
-  generalProperties: [
+  properties: [
     'title',
     'location',
     'image',

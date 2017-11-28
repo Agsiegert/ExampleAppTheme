@@ -1,7 +1,7 @@
 Scrivito.provideEditingConfig('ThumbnailGalleryImageWidget', {
   title: 'Thumbnail Gallery Image',
   description: 'A thumbnail gallery image - Use only inside a Thumbnail Gallery',
-  attributesConfig: {
+  attributes: {
     image: {
       title: 'Image',
     },
@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig('ThumbnailGalleryImageWidget', {
       title: 'Tags',
     },
   },
-  generalProperties: [
+  properties: [
     'image',
     'title',
     'subtitle',

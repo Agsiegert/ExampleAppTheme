@@ -5,13 +5,13 @@ Scrivito.provideEditingConfig('SearchResults', {
   title: 'Search Results',
   description: 'A Search Results Page',
   thumbnail: `/${SearchResultsObjIcon}`,
-  attributesConfig: {
+  attributes: {
     navigationBackgroundImage: {
       title: 'Header image',
       description: 'The background image of the header.',
     },
   },
-  generalProperties: [
+  properties: [
     'navigationBackgroundImage',
   ],
   propertiesGroups: [socialCardsCustomGroup],

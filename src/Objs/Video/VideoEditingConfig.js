@@ -1,5 +1,5 @@
 Scrivito.provideEditingConfig('Video', {
-  attributesConfig: {
+  attributes: {
     title: {
       title: 'Title',
     },
@@ -8,7 +8,7 @@ Scrivito.provideEditingConfig('Video', {
       description: 'Make it easier to find this video by adding some tags.',
     },
   },
-  generalProperties: [
+  properties: [
     'title',
     'tags',
   ],

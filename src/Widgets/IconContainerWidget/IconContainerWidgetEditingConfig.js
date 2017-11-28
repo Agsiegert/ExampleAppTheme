@@ -4,12 +4,12 @@ Scrivito.provideEditingConfig('IconContainerWidget', {
   title: 'Icon List',
   description: 'A list of icons.',
   thumbnail: `/${iconContainerWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     iconList: {
       title: 'Icon list',
     },
   },
-  generalProperties: [
+  properties: [
     'iconList',
   ],
 });

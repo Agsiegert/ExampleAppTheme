@@ -4,12 +4,12 @@ Scrivito.provideEditingConfig('TestimonialSliderWidget', {
   title: 'Testimonial Slider',
   description: 'A testimonial slider.',
   thumbnail: `/${testimonialSliderWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     testimonials: {
       title: 'Testimonials',
     },
   },
-  generalProperties: [
+  properties: [
     'testimonials',
   ],
 });

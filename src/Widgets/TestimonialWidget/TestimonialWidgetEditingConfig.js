@@ -3,7 +3,7 @@ import truncate from 'lodash/truncate';
 Scrivito.provideEditingConfig('TestimonialWidget', {
   title: 'Testimonial',
   description: 'A testimonial',
-  attributesConfig: {
+  attributes: {
     testimonial: {
       title: 'Testimonial',
     },
@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig('TestimonialWidget', {
       title: 'Author image',
     },
   },
-  generalProperties: [
+  properties: [
     'testimonial',
     'author',
     'authorImage',

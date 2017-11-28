@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('VideoWidget', {
   title: 'Video',
   description: 'A widget with a video.',
   thumbnail: `/${videoWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     source: {
       title: 'Video',
       description: 'Click to select or upload video. This should be of type video/mp4.',
@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig('VideoWidget', {
         ' Without an poster image, the browser may show the first frame of the video.',
     },
   },
-  generalProperties: [
+  properties: [
     'source',
     'poster',
   ],

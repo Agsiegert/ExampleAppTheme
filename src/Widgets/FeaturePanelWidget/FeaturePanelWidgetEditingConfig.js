@@ -5,13 +5,13 @@ Scrivito.provideEditingConfig('FeaturePanelWidget', {
   description:
     'A feature panel, with an icon to the left and a headline and description to the right.',
   thumbnail: `/${featurePanelWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     icon: {
       title: 'Icon',
       description: 'Default: fa-check',
     },
   },
-  generalProperties: [
+  properties: [
     'icon',
   ],
 });

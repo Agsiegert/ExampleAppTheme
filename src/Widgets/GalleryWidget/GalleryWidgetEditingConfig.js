@@ -4,12 +4,12 @@ Scrivito.provideEditingConfig('GalleryWidget', {
   title: 'Gallery',
   description: 'A widget with an image gallery.',
   thumbnail: `/${galleryWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     images: {
       title: 'Images',
     },
   },
-  generalProperties: [
+  properties: [
     'images',
   ],
 });

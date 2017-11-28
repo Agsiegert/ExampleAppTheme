@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',
   description: 'A widget, which shows an address.',
   thumbnail: `/${addressWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     address: {
       title: 'Address',
       description: 'The actual address.',
@@ -30,7 +30,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'showLogo',
     'address',
     'listItems',

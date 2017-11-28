@@ -1,12 +1,12 @@
 Scrivito.provideEditingConfig('TickListItemWidget', {
   title: 'Tick List Widget Item',
   description: 'A tick list item',
-  attributesConfig: {
+  attributes: {
     statement: {
       title: 'Statement',
     },
   },
-  generalProperties: [
+  properties: [
     'statement',
   ],
   titleForContent: widget => widget.get('statement'),

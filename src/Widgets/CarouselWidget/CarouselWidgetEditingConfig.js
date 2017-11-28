@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('CarouselWidget', {
   title: 'Carousel',
   description: 'A widget with sliding images.',
   thumbnail: `/${carouselWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     images: {
       title: 'Images',
     },
@@ -17,7 +17,7 @@ Scrivito.provideEditingConfig('CarouselWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'images',
     'showDescription',
   ],
