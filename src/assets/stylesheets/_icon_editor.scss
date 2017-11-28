@@ -55,3 +55,38 @@
 .icon-editor-tab .fa-hover a.active .text-muted {
   color: #bbe2d5;
 }
+
+#search {
+  position: relative;
+  font-size: 18px;
+  padding-top: 40px;
+  margin: -20px auto 0;
+}
+
+#search label {
+  position: absolute;
+  left: 17px;
+  top: 51px;
+}
+
+#search #search-input,#search .hint {
+  padding-left: 43px;
+  padding-right: 43px;
+  border-radius: 23px;
+}
+
+#search .hint {
+  color: #aaa;
+}
+
+#search #search-clear {
+  text-decoration: none;
+  position: absolute;
+  right: 18px;
+  top: 54px;
+  color: #b3b3b3;
+}
+
+#search #search-clear:hover {
+  color: #8f8f8f;
+}

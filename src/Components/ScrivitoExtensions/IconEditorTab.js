@@ -1,9 +1,22 @@
+import Fuse from 'fuse.js';
 import IconComponent from 'Components/Icon';
 import fontAwesomeIcons from './fontAwesomeIcons.json';
 
 class IconEditorTab extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      searchIcon: '',
+    };
+
+    this.updateSearchIcon = this.updateSearchIcon.bind(this);
+  }
+
+  updateSearchIcon(searchIcon) {
+    if (this.state.searchIcon !== searchIcon) {
+      this.setState({ searchIcon });
+    }
   }
 
   render() {
@@ -12,11 +25,27 @@ class IconEditorTab extends React.Component {
     return (
       <div className="icon-editor-tab">
         <div className="scrivito_detail_content">
-          <IconPreview widget={ widget } />
-          <div key="label" className="scrivito_detail_label">
+          <IconPreview
+            widget={ widget }
+          />
+          <div
+            key="label"
+            className="scrivito_detail_label"
+          >
             <span>Icon</span>
           </div>
-          <AllIcons widget={ widget } />
+          <IconSearch
+            searchIcon={ this.state.searchIcon }
+            updateSearchIcon={ this.updateSearchIcon }
+          />
+          <IconSearchResults
+            widget={ widget }
+            searchIcon={ this.state.searchIcon }
+          />
+          <AllIcons
+            widget={ widget }
+            hide={ this.state.searchIcon.length }
+          />
         </div>
       </div>
     );
@@ -38,6 +67,96 @@ const IconPreview = Scrivito.connect(({ widget }) => {
   ];
 });
 
+const IconSearch = ({ updateSearchIcon, searchIcon }) => {
+  return (
+    <div id="search">
+      <label htmlFor="search-input">
+        <i className="fa fa-search" aria-hidden="true"></i>
+        <span className="sr-only">Search icons</span>
+      </label>
+      <input
+        id="search-input"
+        className="form-control input-lg"
+        placeholder="Search icons"
+        autoComplete="off"
+        spellCheck="false"
+        autoCorrect="off"
+        tabIndex="1"
+        value={ searchIcon }
+        onChange={ e => updateSearchIcon(e.target.value) }
+      />
+      <ClearSearchButton updateSearchIcon={ updateSearchIcon } searchIcon={ searchIcon } />
+  </div>
+  );
+};
+
+const ClearSearchButton = ({ updateSearchIcon, searchIcon }) => {
+  if (!searchIcon.length) { return null; }
+
+  return (
+    <a
+      id="search-clear"
+      href="#"
+      className="fa fa-times-circle"
+      aria-hidden="true"
+      onClick={
+        e => {
+          e.preventDefault();
+          e.stopPropagation();
+          updateSearchIcon('');
+        }
+      }
+    >
+      <span className="sr-only">Clear search</span>
+    </a>
+  );
+};
+
+const fuseOptions = {
+  shouldSort: true,
+  includeMatches: true,
+  threshold: 0.2,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 35,
+  minMatchCharLength: 1,
+  keys: [
+    'name',
+    'id',
+    'filter',
+  ],
+};
+const fuse = new Fuse(fontAwesomeIcons, fuseOptions);
+
+const IconSearchResults = ({ searchIcon, widget }) => {
+  if (!searchIcon.length) { return null; }
+
+  const results = fuse.search(searchIcon);
+
+  return (
+    <div id="search-results">
+      <div key="label" className="scrivito_detail_label">
+        <span>
+          { `Search for '${searchIcon}'` }
+        </span>
+      </div>
+      <div className="row">
+        {
+          results.map((result, index) => {
+            const icon = result.item;
+
+            return <SingleIcon
+              key={ `${icon.id}${index}` }
+              icon={ icon }
+              widget={ widget }
+            />;
+          })
+        }
+      </div>
+    </div>
+  );
+};
+
 const categoryMap = {};
 fontAwesomeIcons.forEach(
   icon => icon.categories.forEach(
@@ -48,7 +167,9 @@ fontAwesomeIcons.forEach(
   )
 );
 
-const AllIcons = ({ widget }) => {
+const AllIcons = ({ widget, hide }) => {
+  if (hide) { return null; }
+
   return (
     <div id="icons">
       {
