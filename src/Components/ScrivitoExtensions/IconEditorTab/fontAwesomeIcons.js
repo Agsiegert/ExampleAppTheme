@@ -2476,7 +2476,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'Comment o',
+    name: 'Comment outlined',
     id: 'comment-o',
     filter: [
       'speech',
@@ -2495,7 +2495,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'Comments o',
+    name: 'Comments outlined',
     id: 'comments-o',
     filter: [
       'speech',
@@ -3339,7 +3339,7 @@ const fontAwesomeIcons = [
     ],
   },
   {
-    name: 'Calendar o',
+    name: 'Calendar outlined',
     id: 'calendar-o',
     filter: [
       'date',
