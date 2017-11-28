@@ -1,6 +1,6 @@
 import IconComponent from 'Components/Icon';
 
-Scrivito.provideComponent('IconWidget', ({ widget }) => {
+function IconWidgetComponent({ widget }) {
   const icon = widget.get('icon');
   const link = widget.get('link');
   const size = widget.get('size');
@@ -14,4 +14,8 @@ Scrivito.provideComponent('IconWidget', ({ widget }) => {
   }
 
   return <IconComponent icon={ icon } size={ size } link={ link } />;
-});
+}
+
+Scrivito.provideComponent('IconWidget', IconWidgetComponent);
+
+export default Scrivito.connect(IconWidgetComponent);

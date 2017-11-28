@@ -1,5 +1,6 @@
 import Fuse from 'fuse.js';
 import IconComponent from 'Components/Icon';
+import IconWidgetComponent from 'Widgets/IconWidget/IconWidgetComponent';
 import fontAwesomeIcons from './fontAwesomeIcons.json';
 
 class IconEditorTab extends React.Component {
@@ -25,9 +26,10 @@ class IconEditorTab extends React.Component {
     return (
       <div className="icon-editor-tab">
         <div className="scrivito_detail_content">
-          <IconPreview
-            widget={ widget }
-          />
+          <div className="scrivito_detail_label">
+            <span>Preview</span>
+          </div>
+          <IconWidgetComponent key="thePreviewIcon" widget={ widget } />
           <div
             key="label"
             className="scrivito_detail_label"
@@ -53,19 +55,6 @@ class IconEditorTab extends React.Component {
 }
 
 Scrivito.registerComponent('IconEditorTab', IconEditorTab);
-
-const IconPreview = Scrivito.connect(({ widget }) => {
-  return [
-    <div key="label" className="scrivito_detail_label">
-      <span>Preview</span>
-    </div>,
-    <IconComponent
-      key="thePreviewIcon"
-      icon={ widget.get('icon') }
-      size={ widget.get('size') }
-    />,
-  ];
-});
 
 const IconSearch = ({ updateSearchIcon, searchIcon }) => {
   return (
