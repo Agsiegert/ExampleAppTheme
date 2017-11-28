@@ -18,7 +18,7 @@ function AllIcons({ setWidgetIcon, currentIcon, hide }) {
             <i>{ category }</i>
             <div className="row">
               {
-                [...icons].map((icon, innerIndex) =>
+                icons.map((icon, innerIndex) =>
                   <SingleIcon
                     key={ `${icon.id}${innerIndex}` }
                     icon={ icon }
@@ -38,8 +38,8 @@ const categoryMap = {};
 fontAwesomeIcons.forEach(
   icon => icon.categories.forEach(
     category => {
-      categoryMap[category] = categoryMap[category] || new Set();
-      categoryMap[category].add(icon);
+      if (!categoryMap[category]) { categoryMap[category] = []; }
+      categoryMap[category].push(icon);
     }
   )
 );
