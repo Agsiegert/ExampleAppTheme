@@ -45,5 +45,5 @@ Scrivito.provideEditingConfig('IconWidget', {
       ],
     },
   ],
-  titleForContent: widget => widget.get('icon'),
+  titleForContent: widget => widget.get('icon').replace(/^fa-/, ''),
 });
