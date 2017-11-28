@@ -1,9 +1,9 @@
-import pageListWidgetIcon from 'assets/images/page_list_widget.svg';
+import linkListWidgetIcon from 'assets/images/link_list_widget.svg';
 
 Scrivito.provideEditingConfig('PageListWidget', {
   title: 'Page List',
   description: 'A widget which lists pages.',
-  thumbnail: `/${pageListWidgetIcon}`,
+  thumbnail: `/${linkListWidgetIcon}`,
   attributes: {
     headline: {
       title: 'Headline',
