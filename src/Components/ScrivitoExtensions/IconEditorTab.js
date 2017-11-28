@@ -8,15 +8,15 @@ class IconEditorTab extends React.Component {
     super(props);
 
     this.state = {
-      searchIcon: '',
+      searchValue: '',
     };
 
-    this.updateSearchIcon = this.updateSearchIcon.bind(this);
+    this.setSearchValue = this.setSearchValue.bind(this);
   }
 
-  updateSearchIcon(searchIcon) {
-    if (this.state.searchIcon !== searchIcon) {
-      this.setState({ searchIcon });
+  setSearchValue(searchValue) {
+    if (this.state.searchValue !== searchValue) {
+      this.setState({ searchValue });
     }
   }
 
@@ -37,16 +37,16 @@ class IconEditorTab extends React.Component {
             <span>Icon</span>
           </div>
           <IconSearch
-            searchIcon={ this.state.searchIcon }
-            updateSearchIcon={ this.updateSearchIcon }
+            searchValue={ this.state.searchValue }
+            setSearchValue={ this.setSearchValue }
           />
           <IconSearchResults
             widget={ widget }
-            searchIcon={ this.state.searchIcon }
+            searchValue={ this.state.searchValue }
           />
           <AllIcons
             widget={ widget }
-            hide={ this.state.searchIcon.length }
+            hide={ this.state.searchValue.length }
           />
         </div>
       </div>
@@ -56,7 +56,7 @@ class IconEditorTab extends React.Component {
 
 Scrivito.registerComponent('IconEditorTab', IconEditorTab);
 
-const IconSearch = ({ updateSearchIcon, searchIcon }) => {
+const IconSearch = ({ setSearchValue, searchValue }) => {
   return (
     <div id="search">
       <label htmlFor="search-input">
@@ -71,16 +71,16 @@ const IconSearch = ({ updateSearchIcon, searchIcon }) => {
         spellCheck="false"
         autoCorrect="off"
         tabIndex="1"
-        value={ searchIcon }
-        onChange={ e => updateSearchIcon(e.target.value) }
+        value={ searchValue }
+        onChange={ e => setSearchValue(e.target.value) }
       />
-      <ClearSearchButton updateSearchIcon={ updateSearchIcon } searchIcon={ searchIcon } />
+      <ClearSearchButton setSearchValue={ setSearchValue } searchValue={ searchValue } />
   </div>
   );
 };
 
-const ClearSearchButton = ({ updateSearchIcon, searchIcon }) => {
-  if (!searchIcon.length) { return null; }
+const ClearSearchButton = ({ setSearchValue, searchValue }) => {
+  if (!searchValue.length) { return null; }
 
   return (
     <a
@@ -92,7 +92,7 @@ const ClearSearchButton = ({ updateSearchIcon, searchIcon }) => {
         e => {
           e.preventDefault();
           e.stopPropagation();
-          updateSearchIcon('');
+          setSearchValue('');
         }
       }
     >
@@ -117,16 +117,16 @@ const fuseOptions = {
 };
 const fuse = new Fuse(fontAwesomeIcons, fuseOptions);
 
-const IconSearchResults = ({ searchIcon, widget }) => {
-  if (!searchIcon.length) { return null; }
+const IconSearchResults = ({ searchValue, widget }) => {
+  if (!searchValue.length) { return null; }
 
-  const results = fuse.search(searchIcon);
+  const results = fuse.search(searchValue);
 
   return (
     <div id="search-results">
       <div key="label" className="scrivito_detail_label">
         <span>
-          { `Search for '${searchIcon}'` }
+          { `Search for '${searchValue}'` }
         </span>
       </div>
       <div className="row">
