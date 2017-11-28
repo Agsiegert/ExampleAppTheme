@@ -1,8 +1,8 @@
 import linkListWidgetIcon from 'assets/images/link_list_widget.svg';
 
-Scrivito.provideEditingConfig('PageListWidget', {
-  title: 'Page List',
-  description: 'A widget which lists pages.',
+Scrivito.provideEditingConfig('LinkListWidget', {
+  title: 'Link List',
+  description: 'A widget which lists links.',
   thumbnail: `/${linkListWidgetIcon}`,
   attributes: {
     headline: {

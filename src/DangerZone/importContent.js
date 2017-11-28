@@ -149,7 +149,7 @@ const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
 const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
-const PageListWidget = Scrivito.getClass('PageListWidget');
+const LinkListWidget = Scrivito.getClass('LinkListWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
@@ -3056,28 +3056,7 @@ function importContent() {
           showPadding: 'no',
           content: [
             new HeadlineWidget({
-              headline: 'Login Form Widget',
-            }),
-            create3to9ColumnContainerWidget({
-              columns: [
-                // col 1
-                [
-                  new TextWidget({
-                    alignment: 'left',
-                    text: '<p>Widget properties:</p><ul><li>TBD</li></ul>',
-                  }),
-                ],
-                // col 2
-                [new LoginFormWidget({})],
-              ],
-            }),
-          ],
-        }),
-        new SectionWidget({
-          showPadding: 'no',
-          content: [
-            new HeadlineWidget({
-              headline: 'Page List Widget',
+              headline: 'Link List Widget',
             }),
             create3to9ColumnContainerWidget({
               columns: [
@@ -3100,7 +3079,7 @@ function importContent() {
                       [],
                       // inner col 2
                       [
-                        new PageListWidget({
+                        new LinkListWidget({
                           headline: 'This is a Page List',
                           pages: [root, homeV1, homeV2, landingPage],
                         }),
@@ -3110,6 +3089,27 @@ function importContent() {
                     ],
                   }),
                 ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          showPadding: 'no',
+          content: [
+            new HeadlineWidget({
+              headline: 'Login Form Widget',
+            }),
+            create3to9ColumnContainerWidget({
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: '<p>Widget properties:</p><ul><li>TBD</li></ul>',
+                  }),
+                ],
+                // col 2
+                [new LoginFormWidget({})],
               ],
             }),
           ],
@@ -3772,11 +3772,11 @@ function importContent() {
     });
 
     // Footer
-    const footerLinks1 = new PageListWidget({
+    const footerLinks1 = new LinkListWidget({
       headline: 'Homepages',
       pages: [root, homeV1, homeV2, landingPage],
     });
-    const footerLinks2 = new PageListWidget({
+    const footerLinks2 = new LinkListWidget({
       headline: 'About',
       pages: [jobs, contact, imprint, events, login],
     });

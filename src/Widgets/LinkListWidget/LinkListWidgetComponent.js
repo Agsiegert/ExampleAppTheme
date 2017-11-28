@@ -1,9 +1,9 @@
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 
-Scrivito.provideComponent('PageListWidget', ({ widget }) =>
+Scrivito.provideComponent('LinkListWidget', ({ widget }) =>
   <ul className='page-list'>
     <Headline widget={ widget } />
-    <PageList widget={ widget } />
+    <LinkList widget={ widget } />
   </ul>
 );
 
@@ -21,7 +21,7 @@ const Headline = ({ widget }) => {
   );
 };
 
-const PageList = ({ widget }) => {
+const LinkList = ({ widget }) => {
   const pages = widget.get('pages');
 
   if (!pages.length) {
