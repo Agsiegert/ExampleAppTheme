@@ -12,6 +12,7 @@ class IconEditorTab extends React.Component {
     };
 
     this.setSearchValue = this.setSearchValue.bind(this);
+    this.setWidgetIcon = this.setWidgetIcon.bind(this);
   }
 
   setSearchValue(searchValue) {
@@ -20,8 +21,13 @@ class IconEditorTab extends React.Component {
     }
   }
 
+  setWidgetIcon(icon) {
+    this.props.widget.update({ icon });
+  }
+
   render() {
     const widget = this.props.widget;
+    const currentIcon = widget.get('icon');
 
     return (
       <div className="icon-editor-tab">
@@ -41,12 +47,14 @@ class IconEditorTab extends React.Component {
             setSearchValue={ this.setSearchValue }
           />
           <IconSearchResults
-            widget={ widget }
+            currentIcon={ currentIcon }
             searchValue={ this.state.searchValue }
+            setWidgetIcon={ this.setWidgetIcon }
           />
           <AllIcons
-            widget={ widget }
+            currentIcon={ currentIcon }
             hide={ this.state.searchValue.length }
+            setWidgetIcon={ this.setWidgetIcon }
           />
         </div>
       </div>
@@ -54,7 +62,9 @@ class IconEditorTab extends React.Component {
   }
 }
 
-Scrivito.registerComponent('IconEditorTab', IconEditorTab);
+// TODO: Remove Scrivito.connect,
+// once https://github.com/infopark/rails_connector/issues/3636 is resolved.
+Scrivito.registerComponent('IconEditorTab', Scrivito.connect(IconEditorTab));
 
 const IconSearch = ({ setSearchValue, searchValue }) => {
   return (
@@ -117,7 +127,7 @@ const fuseOptions = {
 };
 const fuse = new Fuse(fontAwesomeIcons, fuseOptions);
 
-const IconSearchResults = ({ searchValue, widget }) => {
+const IconSearchResults = ({ searchValue, setWidgetIcon, currentIcon }) => {
   if (!searchValue.length) { return null; }
 
   const results = fuse.search(searchValue);
@@ -137,7 +147,8 @@ const IconSearchResults = ({ searchValue, widget }) => {
             return <SingleIcon
               key={ `${icon.id}${index}` }
               icon={ icon }
-              widget={ widget }
+              currentIcon={ currentIcon }
+              setWidgetIcon={ setWidgetIcon }
             />;
           })
         }
@@ -156,7 +167,7 @@ fontAwesomeIcons.forEach(
   )
 );
 
-const AllIcons = ({ widget, hide }) => {
+const AllIcons = ({ setWidgetIcon, currentIcon, hide }) => {
   if (hide) { return null; }
 
   return (
@@ -171,7 +182,8 @@ const AllIcons = ({ widget, hide }) => {
                   <SingleIcon
                     key={ `${icon.id}${innerIndex}` }
                     icon={ icon }
-                    widget={ widget }
+                    currentIcon={ currentIcon }
+                    setWidgetIcon={ setWidgetIcon }
                   />)
               }
             </div>
@@ -182,10 +194,10 @@ const AllIcons = ({ widget, hide }) => {
   );
 };
 
-const SingleIcon = Scrivito.connect(({ icon, widget }) => {
+function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
   const cssIcon = `fa-${icon.id}`;
   const aClassNames = [];
-  if (widget.get('icon') === `fa-${icon.id}`) {
+  if (currentIcon === `fa-${icon.id}`) {
     aClassNames.push('active');
   }
 
@@ -198,7 +210,7 @@ const SingleIcon = Scrivito.connect(({ icon, widget }) => {
           e => {
             e.preventDefault();
             e.stopPropagation();
-            widget.update({ icon: cssIcon });
+            setWidgetIcon(cssIcon);
           }
         }
       >
@@ -208,4 +220,4 @@ const SingleIcon = Scrivito.connect(({ icon, widget }) => {
       </a>
     </div>
   );
-});
+}
