@@ -58,32 +58,25 @@
 
 #search {
   position: relative;
-  font-size: 18px;
-  padding-top: 40px;
-  margin: -20px auto 0;
 }
 
 #search label {
   position: absolute;
   left: 17px;
-  top: 51px;
+  top: 10px;
 }
 
-#search #search-input,#search .hint {
+#search #search-input {
   padding-left: 43px;
   padding-right: 43px;
   border-radius: 23px;
-}
-
-#search .hint {
-  color: #aaa;
 }
 
 #search #search-clear {
   text-decoration: none;
   position: absolute;
   right: 18px;
-  top: 54px;
+  top: 15px;
   color: #b3b3b3;
 }
 
