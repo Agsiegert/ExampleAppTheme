@@ -72,7 +72,7 @@ class IconEditorTab extends React.Component {
 // once https://github.com/infopark/rails_connector/issues/3636 is resolved.
 Scrivito.registerComponent('IconEditorTab', Scrivito.connect(IconEditorTab));
 
-const IconSearch = ({ setSearchValue, searchValue }) => {
+function IconSearch({ setSearchValue, searchValue }) {
   return (
     <div id="search">
       <label htmlFor="search-input">
@@ -93,9 +93,9 @@ const IconSearch = ({ setSearchValue, searchValue }) => {
       <ClearSearchButton setSearchValue={ setSearchValue } searchValue={ searchValue } />
   </div>
   );
-};
+}
 
-const ClearSearchButton = ({ setSearchValue, searchValue }) => {
+function ClearSearchButton({ setSearchValue, searchValue }) {
   if (!searchValue.length) { return null; }
 
   return (
@@ -109,7 +109,7 @@ const ClearSearchButton = ({ setSearchValue, searchValue }) => {
       <span className="sr-only">Clear search</span>
     </a>
   );
-};
+}
 
 const fuseOptions = {
   shouldSort: true,
@@ -127,7 +127,7 @@ const fuseOptions = {
 };
 const fuse = new Fuse(fontAwesomeIcons, fuseOptions);
 
-const IconSearchResults = ({ searchValue, setWidgetIcon, currentIcon }) => {
+function IconSearchResults({ searchValue, setWidgetIcon, currentIcon }) {
   if (!searchValue.length) { return null; }
 
   const results = fuse.search(searchValue);
@@ -155,7 +155,7 @@ const IconSearchResults = ({ searchValue, setWidgetIcon, currentIcon }) => {
       </div>
     </div>
   );
-};
+}
 
 const categoryMap = {};
 fontAwesomeIcons.forEach(
@@ -167,7 +167,7 @@ fontAwesomeIcons.forEach(
   )
 );
 
-const AllIcons = ({ setWidgetIcon, currentIcon, hide }) => {
+function AllIcons({ setWidgetIcon, currentIcon, hide }) {
   if (hide) { return null; }
 
   return (
@@ -192,7 +192,7 @@ const AllIcons = ({ setWidgetIcon, currentIcon, hide }) => {
       }
     </div>
   );
-};
+}
 
 function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
   const cssIcon = `fa-${icon.id}`;
