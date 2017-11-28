@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('BlogOverviewWidget', {
   title: 'Blog Overview',
   description: 'A widget with up to four blog posts.',
   thumbnail: `/${blogOverviewWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     maxItems: {
       title: 'Maximum number of blog posts',
       description: 'Set to 0 to show all blog posts.',
@@ -19,7 +19,7 @@ Scrivito.provideEditingConfig('BlogOverviewWidget', {
         ' Leave empty to not filter by tags.',
     },
   },
-  generalProperties: [
+  properties: [
     'maxItems',
     'author',
     'tags',

@@ -9,10 +9,10 @@ Scrivito.provideEditingConfig('Page', {
   title: 'Page',
   description: 'A Basic Page',
   thumbnail: `/${PageObjIcon}`,
-  attributesConfig: {
+  attributes: {
     ...defaultPageUiConfigAttributes,
   },
-  generalProperties: [
+  properties: [
     ...defaultGeneralProperties,
   ],
   propertiesGroups: [socialCardsCustomGroup],

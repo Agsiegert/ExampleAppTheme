@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('SignUpFormWidget', {
   title: 'Sign Up Form',
   description: 'A widget with sign up form.',
   thumbnail: `/${signUpFormWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     buttonText: {
       title: 'Submit button text',
       description: 'Default: Sign up now',
@@ -18,7 +18,7 @@ Scrivito.provideEditingConfig('SignUpFormWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'buttonText',
     'isTransparent',
   ],

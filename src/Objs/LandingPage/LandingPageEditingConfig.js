@@ -9,10 +9,10 @@ Scrivito.provideEditingConfig('LandingPage', {
   title: 'LandingPage',
   description: 'A Landing Page',
   thumbnail: `/${landingPageObjIcon}`,
-  attributesConfig: {
+  attributes: {
     ...defaultPageUiConfigAttributes,
   },
-  generalProperties: [
+  properties: [
     ...defaultGeneralProperties,
   ],
   propertiesGroups: [socialCardsCustomGroup],

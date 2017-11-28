@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
   title: 'Headline',
   description: 'A widget with a headline.',
   thumbnail: `/${headlineWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     style: {
       title: 'Style',
       description: 'Size and font of this headline. Default: Heading 1',
@@ -56,7 +56,7 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'style',
     'level',
     'alignment',

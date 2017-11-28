@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('EventOverviewWidget', {
   title: 'Event Overview',
   description: 'A widget showing all events.',
   thumbnail: `/${eventOverviewWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     maxItems: {
       title: 'Maximum number of events',
       description: 'Set to 0 to show all events.',
@@ -23,7 +23,7 @@ Scrivito.provideEditingConfig('EventOverviewWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'maxItems',
     'showTags',
     'tags',

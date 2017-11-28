@@ -5,7 +5,7 @@ Scrivito.provideEditingConfig('Blog', {
   title: 'Blog',
   description: 'A Blog',
   thumbnail: `/${blogObjIcon}`,
-  attributesConfig: {
+  attributes: {
     title: {
       title: 'Title',
       description: 'The title is only used for the navigation.',
@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig('Blog', {
       description: 'The background image of the header.',
     },
   },
-  generalProperties: [
+  properties: [
     'title',
     'navigationBackgroundImage',
   ],

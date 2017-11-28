@@ -4,12 +4,12 @@ Scrivito.provideEditingConfig('TickListWidget', {
   title: 'Tick List',
   description: 'A list of checked statements.',
   thumbnail: `/${tickListWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     items: {
       title: 'Items',
     },
   },
-  generalProperties: [
+  properties: [
     'items',
   ],
 });

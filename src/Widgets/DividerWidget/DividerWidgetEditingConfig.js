@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('DividerWidget', {
   title: 'Divider',
   description: 'Adds a divider.',
   thumbnail: `/${dividerWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     showLogo: {
       title: 'Show logo?',
       description: 'The divider logo can be changed on the homepage in the "Site settings".' +
@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig('DividerWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'showLogo',
   ],
 });

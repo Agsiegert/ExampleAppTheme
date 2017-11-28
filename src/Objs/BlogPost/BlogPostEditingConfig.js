@@ -5,7 +5,7 @@ Scrivito.provideEditingConfig('BlogPost', {
   title: 'BlogPost',
   description: 'A Blog Post',
   thumbnail: `/${blogPostObjIcon}`,
-  attributesConfig: {
+  attributes: {
     author: {
       title: 'Author',
     },
@@ -22,7 +22,7 @@ Scrivito.provideEditingConfig('BlogPost', {
       title: 'Tags',
     },
   },
-  generalProperties: [
+  properties: [
     'author',
     'publishedAt',
     'titleImage',

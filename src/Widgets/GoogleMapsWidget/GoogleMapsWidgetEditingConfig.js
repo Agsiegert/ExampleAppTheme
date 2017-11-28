@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('GoogleMapsWidget', {
   title: 'Google Maps',
   description: 'A widget with google maps.',
   thumbnail: `/${googleMapsWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     address: {
       title: 'Address',
       description: 'The address that should be shown on the map.'
@@ -45,7 +45,7 @@ Scrivito.provideEditingConfig('GoogleMapsWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'address',
     'zoom',
     'showWidgets',

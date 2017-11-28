@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('PageListWidget', {
   title: 'Page List',
   description: 'A widget which lists pages.',
   thumbnail: `/${pageListWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     headline: {
       title: 'Headline',
       description: 'Leave empty to not show a headline.',
@@ -13,7 +13,7 @@ Scrivito.provideEditingConfig('PageListWidget', {
       title: 'Pages',
     },
   },
-  generalProperties: [
+  properties: [
     'headline',
     'pages',
   ],

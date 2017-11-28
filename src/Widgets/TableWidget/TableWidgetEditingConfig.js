@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('TableWidget', {
   title: 'Table',
   description: 'A table widget.',
   thumbnail: `/${tableWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     currency: {
       title: 'Currency',
       description: 'E.g. € or $.',
@@ -13,7 +13,7 @@ Scrivito.provideEditingConfig('TableWidget', {
       title: 'Feature rows',
     },
   },
-  generalProperties: [
+  properties: [
     'currency',
     'rows',
   ],

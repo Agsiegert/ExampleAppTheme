@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('IconWidget', {
   title: 'Icon',
   description: 'A widget with a Font Awesome icon.',
   thumbnail: `/${iconWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     icon: {
       title: 'Font awesome icon',
       description: 'E.g. "fa-address-book". See http://fontawesome.io/icons/ for all icons.',
@@ -35,7 +35,7 @@ Scrivito.provideEditingConfig('IconWidget', {
       description: 'The link where this icon should lead.',
     },
   },
-  generalProperties: [
+  properties: [
     'icon',
     'size',
     'alignment',

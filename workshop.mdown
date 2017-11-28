@@ -188,7 +188,7 @@ The current `DividerWidget` currently only has a hard coded image. Let's change 
       image: 'reference',
     },
   });
-  
+
   export default DividerWidget;
   ```
 
@@ -213,7 +213,7 @@ The current `VideoWidget` can already play manually uploaded videos. We want to 
   ```javascript
   youtubeVideoId: 'string',
   ```
-* In `src/Widgets/VideoWidget/VideoWidgetEditingConfig.js` extend `generalProperties` with `youtubeVideoId`.
+* In `src/Widgets/VideoWidget/VideoWidgetEditingConfig.js` extend `properties` with `youtubeVideoId`.
 * In `src/Widgets/VideoWidget/VideoWidgetComponent.js` add the following inside the `if (!videoUrl)` section:
 
   ```javascript
