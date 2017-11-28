@@ -1,4 +1,4 @@
-import fontAwesomeIcons from './fontAwesomeIcons.json';
+import fontAwesomeIcons from './fontAwesomeIcons';
 import SingleIcon from './SingleIcon';
 
 function AllIcons({ setWidgetIcon, currentIcon, hide }) {

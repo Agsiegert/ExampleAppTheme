@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js';
-import fontAwesomeIcons from './fontAwesomeIcons.json';
+import fontAwesomeIcons from './fontAwesomeIcons';
 import SingleIcon from './SingleIcon';
 
 function IconSearchResults({ searchValue, setWidgetIcon, currentIcon }) {
@@ -44,6 +44,7 @@ const fuseOptions = {
     'name',
     'id',
     'filter',
+    'aliases',
   ],
 };
 const fuse = new Fuse(fontAwesomeIcons, fuseOptions);
