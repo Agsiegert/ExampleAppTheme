@@ -15,13 +15,19 @@ class IconEditorTab extends React.Component {
     this.setWidgetIcon = this.setWidgetIcon.bind(this);
   }
 
-  setSearchValue(searchValue) {
+  setSearchValue(event, searchValue) {
+    event.preventDefault();
+    event.stopPropagation();
+
     if (this.state.searchValue !== searchValue) {
       this.setState({ searchValue });
     }
   }
 
-  setWidgetIcon(icon) {
+  setWidgetIcon(event, icon) {
+    event.preventDefault();
+    event.stopPropagation();
+
     this.props.widget.update({ icon });
   }
 
@@ -82,7 +88,7 @@ const IconSearch = ({ setSearchValue, searchValue }) => {
         autoCorrect="off"
         tabIndex="1"
         value={ searchValue }
-        onChange={ e => setSearchValue(e.target.value) }
+        onChange={ e => setSearchValue(e, e.target.value) }
       />
       <ClearSearchButton setSearchValue={ setSearchValue } searchValue={ searchValue } />
   </div>
@@ -98,13 +104,7 @@ const ClearSearchButton = ({ setSearchValue, searchValue }) => {
       href="#"
       className="fa fa-times-circle"
       aria-hidden="true"
-      onClick={
-        e => {
-          e.preventDefault();
-          e.stopPropagation();
-          setSearchValue('');
-        }
-      }
+      onClick={ e => setSearchValue(e, '') }
     >
       <span className="sr-only">Clear search</span>
     </a>
@@ -206,13 +206,7 @@ function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
       <a
         href="#"
         className={ aClassNames.join(' ') }
-        onClick={
-          e => {
-            e.preventDefault();
-            e.stopPropagation();
-            setWidgetIcon(cssIcon);
-          }
-        }
+        onClick={ e => setWidgetIcon(e, cssIcon) }
       >
         <IconComponent icon={ cssIcon } />
         <span className="sr-only">Example of </span>
