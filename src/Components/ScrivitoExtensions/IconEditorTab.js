@@ -62,6 +62,4 @@ class IconEditorTab extends React.Component {
   }
 }
 
-// TODO: Remove Scrivito.connect,
-// once https://github.com/infopark/rails_connector/issues/3636 is resolved.
-Scrivito.registerComponent('IconEditorTab', Scrivito.connect(IconEditorTab));
+Scrivito.registerComponent('IconEditorTab', IconEditorTab);
