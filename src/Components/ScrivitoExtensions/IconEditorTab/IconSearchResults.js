@@ -9,7 +9,7 @@ function IconSearchResults({ searchValue, setWidgetIcon, currentIcon }) {
 
   return (
     <div id="search-results">
-      <div key="label" className="scrivito_detail_label">
+      <div className="scrivito_detail_label">
         <span>
           { `Search for '${searchValue}'` }
         </span>
