@@ -110,7 +110,7 @@ module.exports = (env = {}) => {
           }),
         },
         {
-          test: /\.(png|eot|svg|ttf|woff|woff2|gif)$/,
+          test: /\.(png|eot|svg|ttf|woff|woff2|gif|jpg)$/,
           use: [
             {
               loader: 'file-loader',
