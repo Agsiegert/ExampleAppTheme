@@ -61,15 +61,14 @@ function CategoriesAndIcons({ initialRender, categoryMap, currentIcon, setWidget
     const [category, categoryIcons] = Object.entries(categoryMap)[0];
     const icons = take(categoryIcons, 50);
 
-    return ([
+    return (
       <Category
-        key={ category }
         category={ category }
         icons={ icons }
         currentIcon={ currentIcon }
         setWidgetIcon={ setWidgetIcon }
-      />,
-    ]);
+      />
+    );
   }
 
   return (
