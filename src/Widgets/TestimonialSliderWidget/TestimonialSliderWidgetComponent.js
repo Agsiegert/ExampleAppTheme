@@ -7,30 +7,32 @@ Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
   const testimonials = widget.get('testimonials');
   const settings = sliderSettings(testimonials);
 
-  return ([
-    <Slider key="slider" { ...settings }>
-      {
-        testimonials.map(testimonial =>
-          <div key={ testimonial.id() }>
-            <h1 className="quote-headline text-center">&quot;</h1>
-            <Scrivito.ContentTag
-              content={ testimonial }
-              attribute="testimonial"
-              tag="p"
-              className="h4 text-center"
-            />
-            <Scrivito.ContentTag
-              content={ testimonial }
-              attribute="author"
-              tag="p"
-              className="small text-center"
-            />
-          </div>
-        )
-      }
-    </Slider>,
-    <AddTestimonial key="add testimonial" widget={ widget } />,
-  ]);
+  return (
+    <React.Fragment>
+      <Slider { ...settings }>
+        {
+          testimonials.map(testimonial =>
+            <div key={ testimonial.id() }>
+              <h1 className="quote-headline text-center">&quot;</h1>
+              <Scrivito.ContentTag
+                content={ testimonial }
+                attribute="testimonial"
+                tag="p"
+                className="h4 text-center"
+              />
+              <Scrivito.ContentTag
+                content={ testimonial }
+                attribute="author"
+                tag="p"
+                className="small text-center"
+              />
+            </div>
+          )
+        }
+      </Slider>
+      <AddTestimonial widget={ widget } />
+    </React.Fragment>
+  );
 });
 
 function sliderSettings(testimonials) {
@@ -69,7 +71,7 @@ const AddTestimonial = ({ widget }) => {
   }
 
   return (
-    <div key="add more" className="text-center">
+    <div className="text-center">
       <a
         href="#"
         style={ placeholderCss }
