@@ -9,7 +9,7 @@ Scrivito.provideEditingConfig('Homepage', {
   title: 'Homepage',
   description: 'A Homepage. This class is only intended for Obj.root() (aka "_path" "/")',
   thumbnail: `/${homepageObjIcon}`,
-  attributesConfig: {
+  attributes: {
     ...defaultPageUiConfigAttributes,
     image1: {
       title: 'Image1',
@@ -41,7 +41,7 @@ Scrivito.provideEditingConfig('Homepage', {
       description: 'Needs to be approved at https://cards-dev.twitter.com/validator',
     },
   },
-  generalProperties: [
+  properties: [
     'image1',
     'image2',
     'image3',
