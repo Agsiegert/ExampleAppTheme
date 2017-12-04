@@ -4,7 +4,7 @@ import truncate from 'lodash/truncate';
 Scrivito.provideEditingConfig('AddressListItemWidget', {
   title: 'Address List Item',
   description: 'List Items for an Address Widget.',
-  attributesConfig: {
+  attributes: {
     key: {
       title: 'Key',
       description: 'E.g. Phone:',
@@ -14,7 +14,7 @@ Scrivito.provideEditingConfig('AddressListItemWidget', {
       description: 'E.g. <a href="tel:+8001233567">800 123 3567</a>',
     },
   },
-  generalProperties: [
+  properties: [
     'key',
     'value',
   ],

@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('PricingWidget', {
   title: 'Pricing',
   description: 'A pricing widget',
   thumbnail: `/${pricingWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     currency: {
       title: 'Currency',
       description: 'e.g. € or $',
@@ -24,7 +24,7 @@ Scrivito.provideEditingConfig('PricingWidget', {
       description: 'Where should the large plan button lead and what should it say?',
     },
   },
-  generalProperties: [
+  properties: [
     'currency',
     'smallPlanButton',
     'mediumPlanButton',

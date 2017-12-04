@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('BoxWidget', {
   title: 'Box',
   description: 'A box widget.',
   thumbnail: `/${boxWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     useOffset: {
       title: 'Use offset?',
       description: 'If so, the box will move "up". Default: No',
@@ -14,7 +14,7 @@ Scrivito.provideEditingConfig('BoxWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'useOffset',
   ],
 });

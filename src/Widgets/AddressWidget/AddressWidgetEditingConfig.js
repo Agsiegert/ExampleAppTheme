@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',
   description: 'A widget, which shows an address.',
   thumbnail: `/${addressWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     address: {
       title: 'Address',
       description: 'The actual address.',
@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
     },
     showBorderBottom: {
       title: 'Show border at the bottom?',
-      description: 'Default: no',
+      description: 'Default: No',
       values: [
         { value: 'yes', title: 'Yes' },
         { value: 'no', title: 'No' },
@@ -23,14 +23,14 @@ Scrivito.provideEditingConfig('AddressWidget', {
     },
     showLogo: {
       title: 'Show brand logo?',
-      description: 'Default: yes',
+      description: 'Default: Yes',
       values: [
         { value: 'yes', title: 'Yes' },
         { value: 'no', title: 'No' },
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'showLogo',
     'address',
     'listItems',

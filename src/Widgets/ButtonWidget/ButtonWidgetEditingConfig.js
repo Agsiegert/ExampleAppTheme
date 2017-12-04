@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('ButtonWidget', {
   title: 'Button',
   description: 'A widget with a button.',
   thumbnail: `/${buttonWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     alignment: {
       title: 'Alignment',
       description: 'Default: Left',
@@ -27,7 +27,7 @@ Scrivito.provideEditingConfig('ButtonWidget', {
       description: 'The target and text of the button.',
     },
   },
-  generalProperties: [
+  properties: [
     'target',
     'alignment',
     'style',

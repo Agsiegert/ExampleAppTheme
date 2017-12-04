@@ -4,7 +4,7 @@ Scrivito.provideEditingConfig('ImageWidget', {
   title: 'Image',
   description: 'A widget with an image.',
   thumbnail: `/${imageWidgetIcon}`,
-  attributesConfig: {
+  attributes: {
     alignment: {
       title: 'Alignment',
       description: 'Default: Left',
@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig('ImageWidget', {
       ],
     },
   },
-  generalProperties: [
+  properties: [
     'alignment',
   ],
 });

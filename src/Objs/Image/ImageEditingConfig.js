@@ -1,5 +1,5 @@
 Scrivito.provideEditingConfig('Image', {
-  attributesConfig: {
+  attributes: {
     tags: {
       title: 'Tags',
       description: 'Make it easier to find this Image by adding some tags.',
@@ -8,7 +8,7 @@ Scrivito.provideEditingConfig('Image', {
       title: 'Title',
     },
   },
-  generalProperties: [
+  properties: [
     'title',
     'tags',
   ],

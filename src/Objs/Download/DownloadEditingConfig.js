@@ -1,5 +1,5 @@
 Scrivito.provideEditingConfig('Download', {
-  attributesConfig: {
+  attributes: {
     tags: {
       title: 'Tags',
       description: 'Make it easier to find this download by adding some tags.',
@@ -8,7 +8,7 @@ Scrivito.provideEditingConfig('Download', {
       title: 'Title',
     },
   },
-  generalProperties: [
+  properties: [
     'title',
     'tags',
   ],

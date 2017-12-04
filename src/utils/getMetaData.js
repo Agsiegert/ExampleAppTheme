@@ -12,7 +12,7 @@ function getMetaData(page) {
 
   const facebookId = Scrivito.Obj.root().get('facebookId');
   if (facebookId) {
-    meta.push({ name: 'fb:app_id', content: facebookId });
+    meta.push({ property: 'fb:app_id', content: facebookId });
   }
 
   const twitterId = Scrivito.Obj.root().get('twitterId');

@@ -95,7 +95,7 @@ module.exports = (env = {}) => {
           ],
         },
         {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           use: ExtractTextPlugin.extract({
             use: [
               {

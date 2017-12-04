@@ -5,7 +5,7 @@ Scrivito.provideEditingConfig('Event', {
   title: 'Event',
   description: 'An Event',
   thumbnail: `/${eventObjIcon}`,
-  attributesConfig: {
+  attributes: {
     date: {
       title: 'Date',
       description: 'When is this event happening?',
@@ -24,7 +24,7 @@ Scrivito.provideEditingConfig('Event', {
       description: 'Which tags can be associated with this event?',
     },
   },
-  generalProperties: [
+  properties: [
     'title',
     'date',
     'location',

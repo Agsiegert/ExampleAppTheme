@@ -1,16 +1,72 @@
 import Event from 'Objs/Event/EventObjClass';
 import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
+import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import TagList from 'Components/TagList';
 import twoDigitNumber from 'utils/twoDigitNumber';
 
-function formatDate(date) {
-  if (!date) { return null; }
+class EventOverviewWidgetComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { currentTag: '' };
 
-  const month = date.getMonth() + 1; // getMonth return 0 to 11.
-  const dayOfMonth = date.getDate(); // getDate returns 1 to 31.
+    this.setTag = this.setTag.bind(this);
+  }
 
-  return `${twoDigitNumber(month)}/${twoDigitNumber(dayOfMonth)}`;
+  render() {
+    let eventsSearch = Scrivito.Obj.where('_objClass', 'equals', 'Event').order('date', 'asc');
+    const filterTags = this.props.widget.get('tags');
+    if (filterTags.length) {
+      eventsSearch = eventsSearch.and('tags', 'equals', filterTags);
+    } else if (this.state.currentTag) {
+      eventsSearch = eventsSearch.and('tags', 'equals', this.state.currentTag);
+    }
+
+    const tags = [...Event.all().facet('tags')].map(facet => facet.name());
+
+    const maxItems = this.props.widget.get('maxItems');
+    let events;
+    if (maxItems) {
+      events = eventsSearch.take(maxItems);
+    } else {
+      events = [...eventsSearch];
+    }
+
+    if (!events.length) {
+      return (
+        <InPlaceEditingPlaceholder center={ true }>
+          There are no event pages. Create one using the page menu.
+        </InPlaceEditingPlaceholder>
+      );
+    }
+
+    return (
+      <div>
+        <TagList
+          showTags={ !filterTags.length && this.props.widget.get('showTags') === 'yes' }
+          currentTag={ this.state.currentTag }
+          setTag={ this.setTag }
+          tags={ tags }
+        />
+        <section className="bg-white">
+          <div className="row">
+            {
+              events.map((event, index) =>
+                <EventItem key={ `${event.id}${index}` } event={ event } />)
+            }
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  setTag(tag) {
+    this.setState({
+      currentTag: tag,
+    });
+  }
 }
+
+Scrivito.provideComponent('EventOverviewWidget', EventOverviewWidgetComponent);
 
 const EventItem = Scrivito.connect(({ event }) =>
   <div className="col-sm-6">
@@ -42,58 +98,11 @@ const EventItem = Scrivito.connect(({ event }) =>
   </div>
 );
 
-class EventOverviewWidgetComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { currentTag: '' };
+function formatDate(date) {
+  if (!date) { return null; }
 
-    this.setTag = this.setTag.bind(this);
-  }
+  const month = date.getMonth() + 1; // getMonth return 0 to 11.
+  const dayOfMonth = date.getDate(); // getDate returns 1 to 31.
 
-  render() {
-    let eventsSearch = Scrivito.Obj.where('_objClass', 'equals', 'Event').order('date', 'asc');
-    const filterTags = this.props.widget.get('tags');
-    if (filterTags.length) {
-      eventsSearch = eventsSearch.and('tags', 'equals', filterTags);
-    } else if (this.state.currentTag) {
-      eventsSearch = eventsSearch.and('tags', 'equals', this.state.currentTag);
-    }
-
-    const tags = [...Event.all().facet('tags')].map(facet => facet.name());
-
-    const maxItems = this.props.widget.get('maxItems');
-    let events;
-    if (maxItems) {
-      events = eventsSearch.take(maxItems);
-    } else {
-      events = [...eventsSearch];
-    }
-
-    return (
-      <div>
-        <TagList
-          showTags={ !filterTags.length && this.props.widget.get('showTags') === 'yes' }
-          currentTag={ this.state.currentTag }
-          setTag={ this.setTag }
-          tags={ tags }
-        />
-        <section className="bg-white">
-          <div className="row">
-            {
-              events.map((event, index) =>
-                <EventItem key={ `${event.id}${index}` } event={ event } />)
-            }
-          </div>
-        </section>
-      </div>
-    );
-  }
-
-  setTag(tag) {
-    this.setState({
-      currentTag: tag,
-    });
-  }
+  return `${twoDigitNumber(month)}/${twoDigitNumber(dayOfMonth)}`;
 }
-
-Scrivito.provideComponent('EventOverviewWidget', EventOverviewWidgetComponent);
