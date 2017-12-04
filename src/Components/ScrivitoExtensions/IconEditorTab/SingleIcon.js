@@ -4,7 +4,7 @@ function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
   const cssIcon = `fa-${icon.id}`;
 
   const aClassNames = [];
-  if (currentIcon === `fa-${icon.id}`) {
+  if (currentIcon === cssIcon) {
     aClassNames.push('active');
   }
 
