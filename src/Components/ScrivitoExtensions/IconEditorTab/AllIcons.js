@@ -1,9 +1,14 @@
+import take from 'lodash/take';
 import fontAwesomeIcons from './fontAwesomeIcons';
 import SingleIcon from './SingleIcon';
 
 class AllIcons extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      initialRender: true,
+    };
 
     this.categoryMap = {};
     fontAwesomeIcons.forEach(
@@ -14,6 +19,12 @@ class AllIcons extends React.Component {
         }
       )
     );
+  }
+
+  componentDidMount() {
+    if (this.state.initialRender === true) {
+      setTimeout(() => this.setState({ initialRender: false }), 10);
+    }
   }
 
   render() {
@@ -28,27 +39,65 @@ class AllIcons extends React.Component {
         </div>
         <div id="icons">
           {
-            Object.entries(this.categoryMap).map(([category, icons], index) =>
-              <section key={ `${category}${index}` }>
-                <i>{ category }</i>
-                <div className="row">
-                  {
-                    icons.map((icon, innerIndex) =>
-                      <SingleIcon
-                        key={ `${icon.id}${innerIndex}` }
-                        icon={ icon }
-                        currentIcon={ currentIcon }
-                        setWidgetIcon={ setWidgetIcon }
-                      />)
-                  }
-                </div>
-              </section>
-            )
+            <CategoriesAndIcons
+              initialRender={ this.state.initialRender }
+              categoryMap={ this.categoryMap }
+              currentIcon={ currentIcon }
+              setWidgetIcon={ setWidgetIcon }
+            />
           }
         </div>
       </React.Fragment>
     );
   }
+}
+
+function CategoriesAndIcons({ initialRender, categoryMap, currentIcon, setWidgetIcon }) {
+  if (initialRender) {
+    const [category, categoryIcons] = Object.entries(categoryMap)[0];
+    const icons = take(categoryIcons, 50);
+
+    return ([
+      <Category
+        key={ category }
+        category={ category }
+        icons={ icons }
+        currentIcon={ currentIcon }
+        setWidgetIcon={ setWidgetIcon }
+      />,
+    ]);
+  }
+
+  return (
+    Object.entries(categoryMap).map(([category, icons]) =>
+      <Category
+        key={ category }
+        category={ category }
+        icons={ icons }
+        currentIcon={ currentIcon }
+        setWidgetIcon={ setWidgetIcon }
+      />
+    )
+  );
+}
+
+function Category({ category, icons, currentIcon, setWidgetIcon }) {
+  return (
+    <section>
+      <i>{ category }</i>
+      <div className="row">
+        {
+          icons.map((icon, innerIndex) =>
+            <SingleIcon
+              key={ `${icon.id}${innerIndex}` }
+              icon={ icon }
+              currentIcon={ currentIcon }
+              setWidgetIcon={ setWidgetIcon }
+            />)
+        }
+      </div>
+    </section>
+  );
 }
 
 export default AllIcons;
