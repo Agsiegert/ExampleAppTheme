@@ -52,6 +52,11 @@ class AllIcons extends React.Component {
 }
 
 function CategoriesAndIcons({ initialRender, categoryMap, currentIcon, setWidgetIcon }) {
+  // Note: the initialRender is a performance tweak,
+  // to improve loading time for first "meaningful content".
+  // It is faster, because it first renders only the first 50 icons
+  // and in a second render all other icons.
+  // This reduced time to first meaningful content by around 45%.
   if (initialRender) {
     const [category, categoryIcons] = Object.entries(categoryMap)[0];
     const icons = take(categoryIcons, 50);
@@ -94,6 +99,8 @@ function Category({ category, icons, currentIcon, setWidgetIcon }) {
               aClassNames.push('active');
             }
 
+            // Note: It is up to 10% faster to inline the SingleIcon component,
+            // instead of creating one SingleIcon component for each of the 675 icons.
             return (
               <div
                 key={ `${icon.id}${innerIndex}` }
