@@ -149,7 +149,8 @@ const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
 const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
-const PageListWidget = Scrivito.getClass('PageListWidget');
+const LinkWidget = Scrivito.getClass('LinkWidget');
+const LinkContainerWidget = Scrivito.getClass('LinkContainerWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
@@ -3056,6 +3057,52 @@ function importContent() {
           showPadding: 'no',
           content: [
             new HeadlineWidget({
+              headline: 'Link List Widget',
+            }),
+            create3to9ColumnContainerWidget({
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Headline</li>
+                        <li>Links</li>
+                      </ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  createEvenColumnContainerWidget({
+                    columns: [
+                      // inner col 1
+                      [],
+                      // inner col 2
+                      [
+                        new LinkContainerWidget({
+                          headline: 'This is a Link List',
+                          links: [
+                            new LinkWidget({ link: new Scrivito.Link({ obj: root }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: homeV1 }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: homeV2 }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: landingPage }) }),
+                          ],
+                        }),
+                      ],
+                      // inner col 3
+                      [],
+                    ],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          showPadding: 'no',
+          content: [
+            new HeadlineWidget({
               headline: 'Login Form Widget',
             }),
             create3to9ColumnContainerWidget({
@@ -3069,47 +3116,6 @@ function importContent() {
                 ],
                 // col 2
                 [new LoginFormWidget({})],
-              ],
-            }),
-          ],
-        }),
-        new SectionWidget({
-          showPadding: 'no',
-          content: [
-            new HeadlineWidget({
-              headline: 'Page List Widget',
-            }),
-            create3to9ColumnContainerWidget({
-              columns: [
-                // col 1
-                [
-                  new TextWidget({
-                    alignment: 'left',
-                    text: `<p>Widget properties:</p>
-                      <ul>
-                        <li>Headline</li>
-                        <li>Pages</li>
-                      </ul>`,
-                  }),
-                ],
-                // col 2
-                [
-                  createEvenColumnContainerWidget({
-                    columns: [
-                      // inner col 1
-                      [],
-                      // inner col 2
-                      [
-                        new PageListWidget({
-                          headline: 'This is a Page List',
-                          pages: [root, homeV1, homeV2, landingPage],
-                        }),
-                      ],
-                      // inner col 3
-                      [],
-                    ],
-                  }),
-                ],
               ],
             }),
           ],
@@ -3772,13 +3778,24 @@ function importContent() {
     });
 
     // Footer
-    const footerLinks1 = new PageListWidget({
+    const footerLinks1 = new LinkContainerWidget({
       headline: 'Homepages',
-      pages: [root, homeV1, homeV2, landingPage],
+      links: [
+        new LinkWidget({ link: new Scrivito.Link({ obj: root }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: homeV1 }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: homeV2 }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: landingPage }) }),
+      ],
     });
-    const footerLinks2 = new PageListWidget({
+    const footerLinks2 = new LinkContainerWidget({
       headline: 'About',
-      pages: [jobs, contact, imprint, events, login],
+      links: [
+        new LinkWidget({ link: new Scrivito.Link({ obj: jobs }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: contact }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: imprint }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: events }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: login }) }),
+      ],
     });
 
     root.update({
