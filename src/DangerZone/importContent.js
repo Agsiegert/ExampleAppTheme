@@ -149,6 +149,7 @@ const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
 const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
+const LinkWidget = Scrivito.getClass('LinkWidget');
 const LinkContainerWidget = Scrivito.getClass('LinkContainerWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
@@ -3082,10 +3083,10 @@ function importContent() {
                         new LinkContainerWidget({
                           headline: 'This is a Link List',
                           links: [
-                            new Scrivito.Link({ obj: root }),
-                            new Scrivito.Link({ obj: homeV1 }),
-                            new Scrivito.Link({ obj: homeV2 }),
-                            new Scrivito.Link({ obj: landingPage }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: root }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: homeV1 }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: homeV2 }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: landingPage }) }),
                           ],
                         }),
                       ],
@@ -3780,20 +3781,20 @@ function importContent() {
     const footerLinks1 = new LinkContainerWidget({
       headline: 'Homepages',
       links: [
-        new Scrivito.Link({ obj: root }),
-        new Scrivito.Link({ obj: homeV1 }),
-        new Scrivito.Link({ obj: homeV2 }),
-        new Scrivito.Link({ obj: landingPage }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: root }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: homeV1 }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: homeV2 }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: landingPage }) }),
       ],
     });
     const footerLinks2 = new LinkContainerWidget({
       headline: 'About',
       links: [
-        new Scrivito.Link({ obj: jobs }),
-        new Scrivito.Link({ obj: contact }),
-        new Scrivito.Link({ obj: imprint }),
-        new Scrivito.Link({ obj: events }),
-        new Scrivito.Link({ obj: login }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: jobs }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: contact }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: imprint }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: events }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: login }) }),
       ],
     });
 

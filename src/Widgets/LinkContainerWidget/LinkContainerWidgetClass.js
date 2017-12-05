@@ -1,7 +1,7 @@
 const LinkContainerWidget = Scrivito.provideWidgetClass('LinkContainerWidget', {
   attributes: {
     headline: 'string',
-    links: 'linklist',
+    links: ['widgetlist', { only: 'LinkWidget' }],
   },
 });
 

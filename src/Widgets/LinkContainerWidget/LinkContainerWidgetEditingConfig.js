@@ -9,12 +9,8 @@ Scrivito.provideEditingConfig('LinkContainerWidget', {
       title: 'Headline',
       description: 'Leave empty to not show a headline.',
     },
-    links: {
-      title: 'Links',
-    },
   },
   properties: [
     'headline',
-    'links',
   ],
 });
