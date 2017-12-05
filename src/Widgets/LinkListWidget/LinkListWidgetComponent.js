@@ -22,23 +22,35 @@ const Headline = ({ widget }) => {
 };
 
 const LinkList = ({ widget }) => {
-  const pages = widget.get('pages');
+  const links = widget.get('links');
 
-  if (!pages.length) {
+  if (!links.length) {
     return (
       <li>
         <InPlaceEditingPlaceholder>
-          Select pages in the widget properties.
+          Select links in the widget properties.
         </InPlaceEditingPlaceholder>
       </li>
     );
   }
 
-  return pages.map((page, index) =>
-    <li key={ `${page.id()}${index}` }>
-      <Scrivito.LinkTag to={ page }>
-        { page.get('title') }
+  return links.map((link, index) =>
+    <li key={ index }>
+      <Scrivito.LinkTag to={ link }>
+        <LinkTitle link={ link } />
       </Scrivito.LinkTag>
     </li>
   );
 };
+
+const LinkTitle = Scrivito.connect(({ link }) => {
+  if (link.title()) {
+    return link.title();
+  }
+
+  if (link.isInternal()) {
+    return link.obj().get('title');
+  }
+
+  return link.url();
+});

@@ -3067,7 +3067,7 @@ function importContent() {
                     text: `<p>Widget properties:</p>
                       <ul>
                         <li>Headline</li>
-                        <li>Pages</li>
+                        <li>Links</li>
                       </ul>`,
                   }),
                 ],
@@ -3080,8 +3080,13 @@ function importContent() {
                       // inner col 2
                       [
                         new LinkListWidget({
-                          headline: 'This is a Page List',
-                          pages: [root, homeV1, homeV2, landingPage],
+                          headline: 'This is a Link List',
+                          links: [
+                            new Scrivito.Link({ obj: root }),
+                            new Scrivito.Link({ obj: homeV1 }),
+                            new Scrivito.Link({ obj: homeV2 }),
+                            new Scrivito.Link({ obj: landingPage }),
+                          ],
                         }),
                       ],
                       // inner col 3
@@ -3774,11 +3779,22 @@ function importContent() {
     // Footer
     const footerLinks1 = new LinkListWidget({
       headline: 'Homepages',
-      pages: [root, homeV1, homeV2, landingPage],
+      links: [
+        new Scrivito.Link({ obj: root }),
+        new Scrivito.Link({ obj: homeV1 }),
+        new Scrivito.Link({ obj: homeV2 }),
+        new Scrivito.Link({ obj: landingPage }),
+      ],
     });
     const footerLinks2 = new LinkListWidget({
       headline: 'About',
-      pages: [jobs, contact, imprint, events, login],
+      links: [
+        new Scrivito.Link({ obj: jobs }),
+        new Scrivito.Link({ obj: contact }),
+        new Scrivito.Link({ obj: imprint }),
+        new Scrivito.Link({ obj: events }),
+        new Scrivito.Link({ obj: login }),
+      ],
     });
 
     root.update({
