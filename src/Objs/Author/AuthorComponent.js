@@ -2,8 +2,8 @@ import AuthorImage from 'Components/AuthorImage';
 import BlogPostMorePosts from 'Components/BlogPost/BlogPostMorePosts';
 
 Scrivito.provideComponent('Author', ({ page }) =>
-  [
-    <section key="author" className="bg-white">
+  <React.Fragment>
+    <section className="bg-white">
       <div className="container">
         <div className="row">
           <div className="col-md-2 col-sm-4 col-xs-4">
@@ -15,7 +15,7 @@ Scrivito.provideComponent('Author', ({ page }) =>
           </div>
         </div>
       </div>
-    </section>,
-    <BlogPostMorePosts key="moreBlogPosts" author={ page } />,
-  ]
+    </section>
+    <BlogPostMorePosts author={ page } />
+  </React.Fragment>
 );

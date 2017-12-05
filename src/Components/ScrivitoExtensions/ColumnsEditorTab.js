@@ -162,35 +162,37 @@ const VerticalAlignment = Scrivito.connect(({ widget }) => {
     topAlignmentClasses.push('active');
   }
 
-  return [
-    <div key="verticalAlignmentHeadline" className="scrivito_detail_label">
-      <span>Vertical alignment</span>
-    </div>,
-    <div key="verticalAlignmentContent" className="item_content">
-      <div className="gle-preview-list">
-        <div className="gle-preview-group">
-          <div
-            className={ topAlignmentClasses.join(' ') }
-            title="content top aligned"
-            onClick={ () => widget.update({ verticallyAligned: 'no' }) }
-          >
-            <div className="grid-col-12">
-              <span className="alignment"></span>
+  return (
+    <React.Fragment>
+      <div className="scrivito_detail_label">
+        <span>Vertical alignment</span>
+      </div>
+      <div className="item_content">
+        <div className="gle-preview-list">
+          <div className="gle-preview-group">
+            <div
+              className={ topAlignmentClasses.join(' ') }
+              title="content top aligned"
+              onClick={ () => widget.update({ verticallyAligned: 'no' }) }
+            >
+              <div className="grid-col-12">
+                <span className="alignment"></span>
+              </div>
             </div>
-          </div>
-          <div
-            className={ middleAlignmentClasses.join(' ') }
-            title="content middle aligned"
-            onClick={ () => widget.update({ verticallyAligned: 'yes' }) }
-          >
-            <div className="grid-col-12">
-              <span className="alignment middle"></span>
+            <div
+              className={ middleAlignmentClasses.join(' ') }
+              title="content middle aligned"
+              onClick={ () => widget.update({ verticallyAligned: 'yes' }) }
+            >
+              <div className="grid-col-12">
+                <span className="alignment middle"></span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>,
-  ];
+    </React.Fragment>
+  );
 });
 
 function gridOfWidget(containerWidget) {
