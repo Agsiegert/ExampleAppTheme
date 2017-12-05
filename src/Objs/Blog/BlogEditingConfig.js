@@ -1,4 +1,5 @@
 import blogObjIcon from 'assets/images/blog_obj.svg';
+import SectionWidget from 'Widgets/SectionWidget/SectionWidgetClass';
 import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Blog', {
@@ -20,5 +21,8 @@ Scrivito.provideEditingConfig('Blog', {
     'navigationBackgroundImage',
   ],
   propertiesGroups: [socialCardsCustomGroup],
+  initialContent: {
+    body: () => [new SectionWidget({})],
+  },
   titleForContent: obj => obj.get('title'),
 });

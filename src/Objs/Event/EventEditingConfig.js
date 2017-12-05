@@ -1,4 +1,5 @@
 import eventObjIcon from 'assets/images/event_obj.svg';
+import SectionWidget from 'Widgets/SectionWidget/SectionWidgetClass';
 import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Event', {
@@ -32,5 +33,8 @@ Scrivito.provideEditingConfig('Event', {
     'tags',
   ],
   propertiesGroups: [socialCardsCustomGroup],
+  initialContent: {
+    body: () => [new SectionWidget({})],
+  },
   titleForContent: obj => obj.get('title'),
 });
