@@ -10,7 +10,13 @@ Scrivito.provideComponent('LinkContainerWidget', ({ widget }) =>
 const Headline = Scrivito.connect(({ widget }) => {
   const headline = widget.get('headline');
 
-  if (!headline) { return null; }
+  if (!headline) {
+    return (
+      <InPlaceEditingPlaceholder>
+        Optional: Provide a headline in the widget properties.
+      </InPlaceEditingPlaceholder>
+    );
+  }
 
   return (
     <li>
