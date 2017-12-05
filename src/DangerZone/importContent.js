@@ -149,7 +149,7 @@ const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
 const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
-const LinkListWidget = Scrivito.getClass('LinkListWidget');
+const LinkContainerWidget = Scrivito.getClass('LinkContainerWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
@@ -3079,7 +3079,7 @@ function importContent() {
                       [],
                       // inner col 2
                       [
-                        new LinkListWidget({
+                        new LinkContainerWidget({
                           headline: 'This is a Link List',
                           links: [
                             new Scrivito.Link({ obj: root }),
@@ -3777,7 +3777,7 @@ function importContent() {
     });
 
     // Footer
-    const footerLinks1 = new LinkListWidget({
+    const footerLinks1 = new LinkContainerWidget({
       headline: 'Homepages',
       links: [
         new Scrivito.Link({ obj: root }),
@@ -3786,7 +3786,7 @@ function importContent() {
         new Scrivito.Link({ obj: landingPage }),
       ],
     });
-    const footerLinks2 = new LinkListWidget({
+    const footerLinks2 = new LinkContainerWidget({
       headline: 'About',
       links: [
         new Scrivito.Link({ obj: jobs }),

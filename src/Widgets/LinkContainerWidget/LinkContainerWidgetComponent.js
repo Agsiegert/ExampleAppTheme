@@ -1,6 +1,6 @@
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 
-Scrivito.provideComponent('LinkListWidget', ({ widget }) =>
+Scrivito.provideComponent('LinkContainerWidget', ({ widget }) =>
   <ul className='page-list'>
     <Headline widget={ widget } />
     <LinkList widget={ widget } />

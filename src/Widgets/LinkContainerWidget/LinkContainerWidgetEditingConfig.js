@@ -1,6 +1,6 @@
 import linkListWidgetIcon from 'assets/images/link_list_widget.svg';
 
-Scrivito.provideEditingConfig('LinkListWidget', {
+Scrivito.provideEditingConfig('LinkContainerWidget', {
   title: 'Link List',
   description: 'A widget which lists links.',
   thumbnail: `/${linkListWidgetIcon}`,

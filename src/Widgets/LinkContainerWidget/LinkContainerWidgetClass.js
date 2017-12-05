@@ -1,8 +1,8 @@
-const LinkListWidget = Scrivito.provideWidgetClass('LinkListWidget', {
+const LinkContainerWidget = Scrivito.provideWidgetClass('LinkContainerWidget', {
   attributes: {
     headline: 'string',
     links: 'linklist',
   },
 });
 
-export default LinkListWidget;
+export default LinkContainerWidget;
