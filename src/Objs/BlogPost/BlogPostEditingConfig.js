@@ -29,5 +29,8 @@ Scrivito.provideEditingConfig('BlogPost', {
     'tags',
   ],
   propertiesGroups: [socialCardsCustomGroup],
+  initialContent: {
+    publishedAt: () => new Date(),
+  },
   titleForContent: obj => obj.get('title'),
 });
