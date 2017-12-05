@@ -7,7 +7,7 @@ Scrivito.provideComponent('LinkContainerWidget', ({ widget }) =>
   </ul>
 );
 
-const Headline = ({ widget }) => {
+const Headline = Scrivito.connect(({ widget }) => {
   const headline = widget.get('headline');
 
   if (!headline) { return null; }
@@ -19,9 +19,9 @@ const Headline = ({ widget }) => {
       </span>
     </li>
   );
-};
+});
 
-const LinkList = ({ widget }) => {
+const LinkList = Scrivito.connect(({ widget }) => {
   const links = widget.get('links');
 
   if (!links.length) {
@@ -41,7 +41,7 @@ const LinkList = ({ widget }) => {
       </Scrivito.LinkTag>
     </li>
   );
-};
+});
 
 const LinkTitle = Scrivito.connect(({ link }) => {
   if (link.title()) {
