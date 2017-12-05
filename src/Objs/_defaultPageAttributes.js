@@ -47,8 +47,14 @@ const defaultGeneralProperties = [
   'navigationBackgroundImageGradient',
 ];
 
+const defaultInitialContent = {
+  navigationHeight: 'small',
+  navigationBackgroundImageGradient: 'no',
+};
+
 export {
   defaultGeneralProperties,
+  defaultInitialContent,
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 };
