@@ -14,4 +14,7 @@ Scrivito.provideEditingConfig('FeaturePanelWidget', {
   properties: [
     'icon',
   ],
+  initialContent: {
+    icon: 'fa-check',
+  },
 });
