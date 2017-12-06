@@ -45,5 +45,10 @@ Scrivito.provideEditingConfig('IconWidget', {
       ],
     },
   ],
+  initialContent: {
+    icon: 'fa-check-square-o',
+    size: 'fa-1x',
+    alignment: 'left',
+  },
   titleForContent: widget => widget.get('icon').replace(/^fa-/, ''),
 });

@@ -32,4 +32,8 @@ Scrivito.provideEditingConfig('ButtonWidget', {
     'alignment',
     'style',
   ],
+  initialContent: {
+    alignment: 'left',
+    style: 'btn-primary',
+  },
 });

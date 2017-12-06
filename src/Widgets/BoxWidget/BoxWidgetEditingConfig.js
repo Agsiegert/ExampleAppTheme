@@ -17,4 +17,7 @@ Scrivito.provideEditingConfig('BoxWidget', {
   properties: [
     'useOffset',
   ],
+  initialContent: {
+    useOffset: 'no',
+  },
 });

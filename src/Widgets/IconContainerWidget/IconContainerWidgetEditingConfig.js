@@ -1,4 +1,5 @@
 import iconContainerWidgetIcon from 'assets/images/icon_container_widget.svg';
+import IconWidget from 'Widgets/IconWidget/IconWidgetClass';
 
 Scrivito.provideEditingConfig('IconContainerWidget', {
   title: 'Icon List',
@@ -12,4 +13,11 @@ Scrivito.provideEditingConfig('IconContainerWidget', {
   properties: [
     'iconList',
   ],
+  initialContent: {
+    iconList: () => [
+      new IconWidget({ icon: 'fa-check-square-o' }),
+      new IconWidget({ icon: 'fa-check-square-o' }),
+      new IconWidget({ icon: 'fa-check-square-o' }),
+    ],
+  },
 });

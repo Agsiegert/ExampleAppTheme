@@ -18,4 +18,7 @@ Scrivito.provideEditingConfig('DividerWidget', {
   properties: [
     'showLogo',
   ],
+  initialContent: {
+    showLogo: 'yes',
+  },
 });

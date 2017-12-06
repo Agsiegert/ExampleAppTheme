@@ -50,4 +50,9 @@ Scrivito.provideEditingConfig('GoogleMapsWidget', {
     'zoom',
     'showWidgets',
   ],
+  initialContent: {
+    address: 'Brandenburg Gate, Berlin, Germany',
+    showWidgets: 'no',
+    zoom: '15',
+  },
 });

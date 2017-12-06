@@ -18,4 +18,7 @@ Scrivito.provideEditingConfig('ImageWidget', {
   properties: [
     'alignment',
   ],
+  initialContent: {
+    alignment: 'left',
+  },
 });

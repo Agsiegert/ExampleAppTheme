@@ -53,4 +53,10 @@ Scrivito.provideEditingConfig('SectionWidget', {
     'useFullHeight',
     'showPadding',
   ],
+  initialContent: {
+    backgroundColor: 'white',
+    showPadding: 'yes',
+    useFullHeight: 'no',
+    useFullWidth: 'no',
+  },
 });

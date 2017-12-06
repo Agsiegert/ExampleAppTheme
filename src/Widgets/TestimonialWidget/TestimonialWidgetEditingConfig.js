@@ -20,5 +20,9 @@ Scrivito.provideEditingConfig('TestimonialWidget', {
     'author',
     'authorImage',
   ],
+  initialContent: {
+    author: 'Someone',
+    testimonial: 'This is great!',
+  },
   titleForContent: widget => `${widget.get('author')}: ${truncate(widget.get('testimonial'))}`,
 });

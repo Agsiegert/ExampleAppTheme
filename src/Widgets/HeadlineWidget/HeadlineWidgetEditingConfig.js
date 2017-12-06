@@ -63,5 +63,12 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
     'showDividingLine',
     'showMargin',
   ],
+  initialContent: {
+    alignment: 'left',
+    headline: 'Lorem Ipsum',
+    showDividingLine: 'no',
+    showMargin: 'yes',
+    style: 'h1',
+  },
   titleForContent: widget => widget.get('headline'),
 });
