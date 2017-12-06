@@ -9,5 +9,8 @@ Scrivito.provideEditingConfig('TickListItemWidget', {
   properties: [
     'statement',
   ],
+  initialContent: {
+    statement: 'Lorem ipsum',
+  },
   titleForContent: widget => widget.get('statement'),
 });
