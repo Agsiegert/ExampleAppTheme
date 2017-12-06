@@ -58,9 +58,10 @@
     "build": "webpack -p",
     "start": "webpack-dev-server --open",
     "serve:design": "webpack-dev-server --config webpack.design.config.js",
-    "scrivito": "npm run scrivito:build && npm run scrivito:copy && npm run scrivito:commit",
-    "scrivito:build": "cd ../rails_connector && bundle && bundle exec rake package:js",
-    "scrivito:copy": "rm -rf vendor/scrivito && mkdir -p vendor/scrivito && cp ../rails_connector/pkg/js/scrivito/* vendor/scrivito",
+    "scrivito": "npm run scrivito:build && npm run scrivito:copy && npm run scrivito:prune && npm run scrivito:commit",
+    "scrivito:build": "cd ../rails_connector && bundle && bundle exec rake package:build_js",
+    "scrivito:copy": "rm -rf vendor/scrivito && mkdir -p vendor/scrivito && cp ../rails_connector/js/build/scrivito/* vendor/scrivito && cp ../rails_connector/js/public/scrivito/index.html vendor/scrivito",
+    "scrivito:prune": "rm -rf vendor/scrivito/scrivito.js && rm -rf vendor/scrivito/scrivito_ui_redirect.js && rm -rf vendor/scrivito/scrivito_with_js_sdk.js",
     "scrivito:commit": "git add vendor/scrivito && git commit -m \"[sdk] Updated Scrivito SDK to version `cd ../rails_connector && git describe`\""
   },
   "dependencies": {}
