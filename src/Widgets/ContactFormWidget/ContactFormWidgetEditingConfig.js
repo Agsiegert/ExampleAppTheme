@@ -7,6 +7,7 @@ Scrivito.provideEditingConfig('ContactFormWidget', {
   attributes: {
     agreementText: {
       title: 'Agreement text',
+      description: 'Optional',
     },
     buttonText: {
       title: 'Submit button text',
@@ -17,4 +18,7 @@ Scrivito.provideEditingConfig('ContactFormWidget', {
     'agreementText',
     'buttonText',
   ],
+  initialContent: {
+    buttonText: 'send message',
+  },
 });
