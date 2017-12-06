@@ -21,4 +21,7 @@ Scrivito.provideEditingConfig('CarouselWidget', {
     'images',
     'showDescription',
   ],
+  initialContent: {
+    showDescription: 'no',
+  },
 });
