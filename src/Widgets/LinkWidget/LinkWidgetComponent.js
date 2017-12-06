@@ -5,11 +5,11 @@ Scrivito.provideComponent('LinkWidget', ({ widget }) => {
 
   if (!link) {
     return (
-      <li>
+      <Scrivito.WidgetTag tag="li">
         <InPlaceEditingPlaceholder>
           Provide a link in the widget properties.
         </InPlaceEditingPlaceholder>
-      </li>
+      </Scrivito.WidgetTag>
     );
   }
 
