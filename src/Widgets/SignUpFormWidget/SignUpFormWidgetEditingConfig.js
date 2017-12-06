@@ -22,4 +22,9 @@ Scrivito.provideEditingConfig('SignUpFormWidget', {
     'buttonText',
     'isTransparent',
   ],
+  initialContent: {
+    title: 'Sign up form',
+    buttonText: 'Sign up now',
+    isTransparent: 'no',
+  },
 });
