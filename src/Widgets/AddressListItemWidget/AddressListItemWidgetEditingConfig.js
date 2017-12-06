@@ -18,6 +18,10 @@ Scrivito.provideEditingConfig('AddressListItemWidget', {
     'key',
     'value',
   ],
+  initialContent: {
+    key: 'Phone:',
+    value: '<a href="tel:+8001233567">800 123 3567</a>',
+  },
   titleForContent:
     widget => `${widget.get('key')} ${truncate(textExtractFromHtml(widget.get('value')))}`,
 });
