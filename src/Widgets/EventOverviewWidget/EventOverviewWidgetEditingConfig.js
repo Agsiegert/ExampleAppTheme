@@ -28,4 +28,8 @@ Scrivito.provideEditingConfig('EventOverviewWidget', {
     'showTags',
     'tags',
   ],
+  initialContent: {
+    maxItems: 0,
+    showTags: 'no',
+  },
 });
