@@ -1,61 +1,56 @@
 Scrivito.provideComponent('Homepage', ({ page }) =>
     <div>
-      <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
       <div id="header">
         <span className="logo icon fa-paper-plane-o"></span>
-        <h1>Hi. This is Directive.</h1>
-        <p>A responsive HTML5 + CSS3 site template designed by
-          <a href="http://html5up.net">HTML5 UP</a>
-          <br />
-          and released for free under the
-          <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+        <Scrivito.ContentTag tag="h1" content={ page } attribute="headerline" />
+        <Scrivito.ContentTag content={ page } attribute="headerlineContent" />
       </div>
 
       <div id="main">
 
         <header className="major container 75%">
-          <h2>We conduct experiments that
-          <br />
-          may or may not seriously
-          <br />
-          break the universe</h2>
+          <Scrivito.ContentTag tag="h3" content={ page } attribute="banner" />
         </header>
 
         <div className="box alt container">
           <section className="feature left">
             <a href="#" className="image icon fa-signal">
-              <img src="images/pic01.jpg" alt="" /></a>
+              <Scrivito.ImageTag content={ page } attribute="image1" />
+            </a>
             <div className="content">
-              <h3>The First Thing</h3>
-              <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
-                penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi
-                quis fusce lacus.</p>
+              <Scrivito.ContentTag tag="h3" content={ page }
+                attribute="feature1Headline"
+              />
+              <Scrivito.ContentTag tag="p" content={ page } attribute="feature1Content" />
             </div>
           </section>
           <section className="feature right">
-            <a href="#" className="image icon fa-code"><img src="images/pic02.jpg" alt="" /></a>
+            <a href="#" className="image icon fa-code">
+              <Scrivito.ImageTag content={ page } attribute="image2" />
+            </a>
             <div className="content">
-              <h3>The Second Thing</h3>
-              <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
-               penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi
-                quis fusce lacus.</p>
+              <Scrivito.ContentTag tag="h3" content={ page }
+                attribute="feature2Headline"
+              />
+              <Scrivito.ContentTag tag="p" content={ page } attribute="feature2Content" />
             </div>
           </section>
           <section className="feature left">
-            <a href="#" className="image icon fa-mobile"><img src="images/pic03.jpg" alt="" /></a>
+            <a href="#" className="image icon fa-mobile">
+              <Scrivito.ImageTag content={ page } attribute="image3" />
+            </a>
             <div className="content">
-              <h3>The Third Thing</h3>
-              <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
-               penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi
-                quis fusce lacus.</p>
+              <Scrivito.ContentTag tag="h3" content={ page }
+                attribute="feature3Headline"
+              />
+              <Scrivito.ContentTag tag="p" content={ page } attribute="feature3Content" />
             </div>
           </section>
         </div>
 
         <footer className="major container 75%">
-          <h3>Get shady with science</h3>
-          <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
-           penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
+          <Scrivito.ContentTag tag="h3" content={ page } attribute="banner2" />
+          <Scrivito.ContentTag tag="p" content={ page } attribute="banner2Content" />
           <ul className="actions">
             <li><a href="#" className="button">Join our crew</a></li>
           </ul>
@@ -64,11 +59,14 @@ Scrivito.provideComponent('Homepage', ({ page }) =>
       <div id="footer">
         <div className="container 75%">
           <header className="major last">
-            <h2>Questions or comments?</h2>
+            <Scrivito.ContentTag tag="h2" content={ page } attribute="footerTitle" />
           </header>
-          <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
-          orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
+          <Scrivito.ContentTag tag="p" content={ page } attribute="footerContent" />
           <form method="post" action="#">
+            <input type="hidden" name="form-name" value="contact" />
+            <div className="hidden">
+             <label>Don’t fill this out: <input name="bot-field" /></label>
+            </div>
             <div className="row">
               <div className="6u 12u(mobilep)">
                 <input type="text" name="name" placeholder="Name" />
