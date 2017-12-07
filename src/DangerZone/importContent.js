@@ -3495,7 +3495,7 @@ function importContent() {
           alignment: 'center',
           target: new Scrivito.Link({
             title: 'Call to action',
-            obj: root,
+            obj: product,
           }),
         }),
       ],
