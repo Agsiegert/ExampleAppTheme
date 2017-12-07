@@ -31,7 +31,7 @@ Scrivito.provideEditingConfig('BlogPost', {
   ],
   propertiesGroups: [socialCardsCustomGroup],
   initialContent: {
-    body: () => [new SectionWidget({})],
+    body: [new SectionWidget({})],
     publishedAt: () => new Date(),
   },
   titleForContent: obj => obj.get('title'),

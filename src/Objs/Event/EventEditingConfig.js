@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig('Event', {
   ],
   propertiesGroups: [socialCardsCustomGroup],
   initialContent: {
-    body: () => [new SectionWidget({})],
+    body: [new SectionWidget({})],
   },
   titleForContent: obj => obj.get('title'),
 });

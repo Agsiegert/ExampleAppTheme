@@ -14,8 +14,6 @@ Scrivito.provideEditingConfig('TestimonialSliderWidget', {
     'testimonials',
   ],
   initialContent: {
-    testimonials: () => [
-      new TestimonialWidget({}),
-    ],
+    testimonials: [new TestimonialWidget({})],
   },
 });

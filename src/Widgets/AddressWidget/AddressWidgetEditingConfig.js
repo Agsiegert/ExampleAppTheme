@@ -39,7 +39,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
   ],
   initialContent: {
     address: 'The actual address.',
-    listItems: () => [new AddressListItemWidget({})],
+    listItems: [new AddressListItemWidget({})],
     showBorderBottom: 'no',
     showLogo: 'yes',
   },

@@ -14,7 +14,7 @@ Scrivito.provideEditingConfig('TickListWidget', {
     'items',
   ],
   initialContent: {
-    items: () => [
+    items: [
       new TickListItemWidget({}),
       new TickListItemWidget({}),
       new TickListItemWidget({}),

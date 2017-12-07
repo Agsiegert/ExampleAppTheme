@@ -12,7 +12,7 @@ Scrivito.provideEditingConfig('ColumnContainerWidget', {
     },
   ],
   initialContent: {
-    columns: () => [
+    columns: [
       new ColumnWidget({ colSize: 4 }),
       new ColumnWidget({ colSize: 4 }),
       new ColumnWidget({ colSize: 4 }),
