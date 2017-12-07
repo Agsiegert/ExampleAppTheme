@@ -8,17 +8,16 @@ Scrivito.provideEditingConfig('TableWidget', {
   description: 'A table widget.',
   thumbnail: `/${tableWidgetIcon}`,
   attributes: {
-    currency: {
-      title: 'Currency',
-      description: 'E.g. € or $.',
-    },
     rows: {
-      title: 'Feature rows',
+      title: 'Rows',
+    },
+    summaryRows: {
+      title: 'Summary rows',
     },
   },
   properties: [
-    'currency',
     'rows',
+    'summaryRows',
   ],
   initialContent: {
     featureHeadline: 'Features',
@@ -27,6 +26,7 @@ Scrivito.provideEditingConfig('TableWidget', {
     corporatePlanHeadline: 'Corporate',
     pricingRow: 'Prices',
     currency: '€',
+    showPricingRow: 'yes',
     basicPlanPrice: '20',
     teamPlanPrice: '30',
     corporatePlanPrice: '40',
