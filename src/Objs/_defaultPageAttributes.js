@@ -50,7 +50,7 @@ const defaultGeneralProperties = [
 ];
 
 const defaultInitialContent = {
-  body: () => [new SectionWidget({})],
+  body: [new SectionWidget({})],
   navigationHeight: 'small',
   navigationBackgroundImageGradient: 'no',
 };

@@ -33,7 +33,7 @@ Scrivito.provideEditingConfig('TableWidget', {
     basicPlanPeriod: '/mo',
     teamPlanPeriod: '/mo',
     corporatePlanPeriod: '/mo',
-    rows: () => [
+    rows: [
       new TableRowWidget({
         feature: 'Key feature 1',
         basicFeature: [new TextWidget({ text: '<p><b>5</b></p>' })],

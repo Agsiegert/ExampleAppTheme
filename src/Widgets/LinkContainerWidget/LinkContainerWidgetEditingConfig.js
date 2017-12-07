@@ -16,7 +16,7 @@ Scrivito.provideEditingConfig('LinkContainerWidget', {
   ],
   initialContent: {
     headline: 'Links headline',
-    links: () => [
+    links: [
       new LinkWidget({ link: new Scrivito.Link({ title: 'Link 1', obj: Scrivito.Obj.root() }) }),
       new LinkWidget({ link: new Scrivito.Link({ title: 'Link 2', obj: Scrivito.Obj.root() }) }),
       new LinkWidget({ link: new Scrivito.Link({ title: 'Link 3', obj: Scrivito.Obj.root() }) }),

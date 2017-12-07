@@ -14,7 +14,7 @@ Scrivito.provideEditingConfig('IconContainerWidget', {
     'iconList',
   ],
   initialContent: {
-    iconList: () => [
+    iconList: [
       new IconWidget({ icon: 'fa-check-square-o' }),
       new IconWidget({ icon: 'fa-check-square-o' }),
       new IconWidget({ icon: 'fa-check-square-o' }),
