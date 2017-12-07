@@ -2504,7 +2504,7 @@ function importContent() {
             new HeadlineWidget({
               alignment: 'center',
               style: 'h1',
-              headline: 'Widgets & Page',
+              headline: 'Widgets & Pages',
             }),
             new HeadlineWidget({
               alignment: 'center',
