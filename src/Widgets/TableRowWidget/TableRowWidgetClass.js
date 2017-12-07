@@ -3,9 +3,9 @@ import { registerTextExtract } from 'utils/textExtractRegistry';
 const TableRowWidget = Scrivito.provideWidgetClass('TableRowWidget', {
   attributes: {
     feature: 'string',
-    basicFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget'] }],
-    teamFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget'] }],
-    corporateFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget'] }],
+    basicFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget', 'PriceWidget'] }],
+    teamFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget', 'PriceWidget'] }],
+    corporateFeature: ['widgetlist', { only: ['IconWidget', 'TextWidget', 'PriceWidget'] }],
   },
   onlyInside: 'TableWidget',
 });
