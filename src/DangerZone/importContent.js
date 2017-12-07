@@ -148,9 +148,10 @@ const IconContainerWidget = Scrivito.getClass('IconContainerWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
-const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
-const LinkWidget = Scrivito.getClass('LinkWidget');
 const LinkContainerWidget = Scrivito.getClass('LinkContainerWidget');
+const LinkWidget = Scrivito.getClass('LinkWidget');
+const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
+const PriceWidget = Scrivito.getClass('PriceWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
@@ -1780,18 +1781,24 @@ function importContent() {
                   corporateFeature: [createCheckIcon()],
                 }),
               ],
+              summaryRows: [
+                new TableRowWidget({
+                  feature: 'Prices',
+                  basicFeature: [
+                    new PriceWidget({ price: '29', currency: '€', period: '/mo' }),
+                  ],
+                  teamFeature: [
+                    new PriceWidget({ price: '59', currency: '€', period: '/mo' }),
+                  ],
+                  corporateFeature: [
+                    new PriceWidget({ price: '199', currency: '€', period: '/mo' }),
+                  ],
+                }),
+              ],
               featureHeadline: 'Features',
               basicPlanHeadline: 'Basic',
               teamPlanHeadline: 'Team',
               corporatePlanHeadline: 'Corporate',
-              pricingRow: 'Prices',
-              currency: '€',
-              basicPlanPrice: '29',
-              teamPlanPrice: '59',
-              corporatePlanPrice: '199',
-              basicPlanPeriod: '/mo',
-              teamPlanPeriod: '/mo',
-              corporatePlanPeriod: '/mo',
             }),
           ],
         }),
@@ -3225,8 +3232,8 @@ function importContent() {
                     alignment: 'left',
                     text: `<p>Widget properties:</p>
                       <ul>
-                        <li>Currency</li>
-                        <li>Feature rows</li>
+                        <li>Rows</li>
+                        <li>Summary rows</li>
                       </ul>`,
                   }),
                 ],
@@ -3247,18 +3254,24 @@ function importContent() {
                         corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                       }),
                     ],
+                    summaryRows: [
+                      new TableRowWidget({
+                        feature: 'Prices',
+                        basicFeature: [
+                          new PriceWidget({ price: '29', currency: '€', period: '/mo' }),
+                        ],
+                        teamFeature: [
+                          new PriceWidget({ price: '59', currency: '€', period: '/mo' }),
+                        ],
+                        corporateFeature: [
+                          new PriceWidget({ price: '99', currency: '€', period: '/mo' }),
+                        ],
+                      }),
+                    ],
                     featureHeadline: 'Features',
                     basicPlanHeadline: 'Basic',
                     teamPlanHeadline: 'Team',
                     corporatePlanHeadline: 'Corporate',
-                    pricingRow: 'Prices',
-                    currency: '€',
-                    basicPlanPrice: '29',
-                    teamPlanPrice: '59',
-                    corporatePlanPrice: '99',
-                    basicPlanPeriod: '/mo',
-                    teamPlanPeriod: '/mo',
-                    corporatePlanPeriod: '/mo',
                   }),
                 ],
               ],
