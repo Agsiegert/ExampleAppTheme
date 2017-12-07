@@ -50,6 +50,7 @@ function sliderSettings(testimonials) {
   });
 
   return {
+    autoplay: true,
     dots: true,
     infinite: true,
     speed: 500,
