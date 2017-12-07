@@ -1060,114 +1060,6 @@ function importContent() {
       ],
     });
 
-    // PRODUCT
-    const product = Page.create({
-      _path: '/product',
-      title: 'Product',
-      body: [
-        new SectionWidget({
-          backgroundImage: unsplashTidyDeskTouchScreen,
-          content: [
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
-              columns: [
-                // col 1
-                [
-                  new HeadlineWidget({
-                    style: 'h1',
-                    headline: 'Amazing video hero widget',
-                  }),
-                  new TextWidget({
-                    text: loremIpsum({
-                      units: 'paragraphs',
-                      format: 'html',
-                      count: 1,
-                      paragraphLowerBound: 3,
-                      paragraphUpperBound: 5,
-                    }),
-                  }),
-                  new ButtonWidget({
-                    target: new Scrivito.Link({
-                      title: 'Call to action',
-                      obj: root,
-                    }),
-                  }),
-                ],
-                // col 2
-                [new ImageWidget({ image: iphone })],
-              ],
-            }),
-          ],
-        }),
-        new SectionWidget({ content: [
-          new HeadlineWidget({
-            level: 'h1',
-            style: 'h2',
-            showDividingLine: 'yes',
-            headline: 'Great feature overview',
-          }),
-          new HeadlineWidget({
-            level: 'h2',
-            style: 'h4',
-            alignment: 'center',
-            headline: loremIpsum({ count: 2 }),
-          }),
-          createEvenColumnContainerWidget({
-            columns: [
-              [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
-              [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
-              [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
-            ],
-          }),
-          createEvenColumnContainerWidget({
-            columns: [
-              [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
-              [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
-              [createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive')],
-            ],
-          }),
-          new ButtonWidget({
-            alignment: 'center',
-            target: new Scrivito.Link({
-              title: 'Call to action',
-              obj: root,
-            }),
-          }),
-        ] }),
-        new SectionWidget({
-          useFullWidth: 'yes',
-          showPadding: 'no',
-          content: [
-            new GalleryWidget({
-              images: [
-                unsplashSkylineHarbor,
-                unsplashHighrise,
-                unsplashGrandCentralStation,
-                unsplashSkylineNight,
-                unsplashSolePalmtreeHighrise,
-                unsplashSkylineDusk,
-              ],
-            }),
-          ],
-        }),
-        new SectionWidget({ content: [
-          new HeadlineWidget({
-            level: 'h1',
-            style: 'h2',
-            showDividingLine: 'yes',
-            headline: 'Choose your plan',
-          }),
-          new HeadlineWidget({
-            level: 'h2',
-            style: 'h4',
-            alignment: 'center',
-            headline: loremIpsum({ count: 2 }),
-          }),
-          createPricingWidget(root),
-        ] }),
-      ],
-    });
-
     // ABOUT
     const ourWork = Page.create({
       _path: '/about/our_work',
@@ -1586,6 +1478,114 @@ function importContent() {
             }),
           ],
         }),
+      ],
+    });
+
+    // PRODUCT
+    const product = Page.create({
+      _path: '/product',
+      title: 'Product',
+      body: [
+        new SectionWidget({
+          backgroundImage: unsplashTidyDeskTouchScreen,
+          content: [
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new HeadlineWidget({
+                    style: 'h1',
+                    headline: 'Amazing video hero widget',
+                  }),
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 3,
+                      paragraphUpperBound: 5,
+                    }),
+                  }),
+                  new ButtonWidget({
+                    target: new Scrivito.Link({
+                      title: 'Call to action',
+                      obj: about,
+                    }),
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: iphone })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Great feature overview',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            alignment: 'center',
+            headline: loremIpsum({ count: 2 }),
+          }),
+          createEvenColumnContainerWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
+            ],
+          }),
+          createEvenColumnContainerWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive')],
+            ],
+          }),
+          new ButtonWidget({
+            alignment: 'center',
+            target: new Scrivito.Link({
+              title: 'Call to action',
+              obj: root,
+            }),
+          }),
+        ] }),
+        new SectionWidget({
+          useFullWidth: 'yes',
+          showPadding: 'no',
+          content: [
+            new GalleryWidget({
+              images: [
+                unsplashSkylineHarbor,
+                unsplashHighrise,
+                unsplashGrandCentralStation,
+                unsplashSkylineNight,
+                unsplashSolePalmtreeHighrise,
+                unsplashSkylineDusk,
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Choose your plan',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            alignment: 'center',
+            headline: loremIpsum({ count: 2 }),
+          }),
+          createPricingWidget(root),
+        ] }),
       ],
     });
 
@@ -2504,7 +2504,7 @@ function importContent() {
             new HeadlineWidget({
               alignment: 'center',
               style: 'h1',
-              headline: 'Widgets & Page',
+              headline: 'Widgets & Pages',
             }),
             new HeadlineWidget({
               alignment: 'center',
@@ -3495,7 +3495,7 @@ function importContent() {
           alignment: 'center',
           target: new Scrivito.Link({
             title: 'Call to action',
-            obj: root,
+            obj: product,
           }),
         }),
       ],
