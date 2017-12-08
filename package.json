@@ -46,13 +46,13 @@
     "react-highlight-words": "^0.10.0",
     "react-images": "^0.5.13",
     "react-scroll": "^1.6.7",
-    "react-slick": "^0.15.4",
+    "react-slick": "^0.16.0",
     "sass-loader": "^6.0.6",
     "slick-carousel": "^1.6.0",
     "striptags": "^2.2.1",
     "uglifyjs-webpack-plugin": "^1.1.2",
-    "webpack": "^3.9.1",
-    "webpack-dev-server": "^2.9.5"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
   },
   "scripts": {
     "build": "webpack -p",
