@@ -1,4 +1,3 @@
-import devicePixelRatio from 'utils/devicePixelRatio';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 
 function AuthorImage({ image }) {
@@ -10,13 +9,20 @@ function AuthorImage({ image }) {
     );
   }
 
-  const croppedImage = image.get('blob').transform({
-    width: 400 * devicePixelRatio(),
-    height: 400 * devicePixelRatio(),
-    fit: 'crop',
-  });
+  return (
+    <Scrivito.BackgroundImageTag
+      className="img-circle"
+      style={
+        {
+          background: { image },
 
-  return (<img src={ croppedImage.url() } className="img-circle" />);
+          // relative square in css - https://stackoverflow.com/a/23924580/881759
+          width: '100%',
+          paddingBottom: '100%',
+        }
+      }
+    />
+  );
 }
 
 export default Scrivito.connect(AuthorImage);
