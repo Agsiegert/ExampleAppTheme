@@ -1,5 +1,4 @@
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
-import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 
 Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
   let jobsSearch = Scrivito.getClass('Job').all();
@@ -22,11 +21,11 @@ Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
         jobs.map((job, index) =>
           <div key={ `${job.id()}${index}` } className="col-sm-6">
             <Scrivito.LinkTag to={ job } className="box-card">
-              <span
+              <Scrivito.BackgroundImageTag
+                tag="span"
                 className="box-image"
                 style={ {
-                  background: 'no-repeat center / cover',
-                  backgroundImage: `url(${fullWidthTransformedUrl(job.get('image'))})`,
+                  background: { image: job.get('image') },
                 } }
               />
               <span className="box-topic arrow-right">
