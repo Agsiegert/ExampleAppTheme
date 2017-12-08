@@ -45,8 +45,8 @@ Scrivito.provideEditingConfig('PricingWidget', {
     smallPlanSpecs: [new PricingSpecWidget({ variable: '5', unit: 'projects' })],
     mediumPlanSpecs: [new PricingSpecWidget({ variable: '15', unit: 'projects' })],
     largePlanSpecs: [new PricingSpecWidget({ variable: 'unlimited', unit: 'projects' })],
-    smallPlanButton: new Scrivito.Link({ title: 'Buy now', obj: Scrivito.Obj.root() }),
-    mediumPlanButton: new Scrivito.Link({ title: 'Buy now', obj: Scrivito.Obj.root() }),
-    largePlanButton: new Scrivito.Link({ title: 'Buy now', obj: Scrivito.Obj.root() }),
+    smallPlanButton: new Scrivito.Link({ title: 'Buy now', url: 'https://scrivito.com' }),
+    mediumPlanButton: new Scrivito.Link({ title: 'Buy now', url: 'https://scrivito.com' }),
+    largePlanButton: new Scrivito.Link({ title: 'Buy now', url: 'https://scrivito.com' }),
   },
 });
