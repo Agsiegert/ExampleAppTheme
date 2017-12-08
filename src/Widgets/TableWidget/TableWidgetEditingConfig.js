@@ -21,10 +21,10 @@ Scrivito.provideEditingConfig('TableWidget', {
     'summaryRows',
   ],
   initialContent: {
-    featureHeadline: 'Column header 1',
-    basicPlanHeadline: 'Column header 2',
-    teamPlanHeadline: 'Column header 3',
-    corporatePlanHeadline: 'Column header 4',
+    header1: 'Column header 1',
+    header2: 'Column header 2',
+    header3: 'Column header 3',
+    header4: 'Column header 4',
     rows: [
       new TableRowWidget({
         feature: 'Row 1',

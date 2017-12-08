@@ -1,5 +1,5 @@
 function PlainTableRowWidgetComponent(
-  { widget, basicPlanHeadline, teamPlanHeadline, corporatePlanHeadline }
+  { widget, header2, header3, header4 }
 ) {
   return (
     <tr>
@@ -8,19 +8,19 @@ function PlainTableRowWidgetComponent(
         tag="td"
         content={ widget }
         attribute="basicFeature"
-        data-th={ basicPlanHeadline }
+        data-th={ header2 }
       />
       <Scrivito.ContentTag
         tag="td"
         content={ widget }
         attribute="teamFeature"
-        data-th={ teamPlanHeadline }
+        data-th={ header3 }
       />
       <Scrivito.ContentTag
         tag="td"
         content={ widget }
         attribute="corporateFeature"
-        data-th={ corporatePlanHeadline }
+        data-th={ header4 }
       />
     </tr>
   );

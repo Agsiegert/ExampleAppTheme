@@ -6,10 +6,10 @@ Scrivito.provideComponent('TableWidget', ({ widget }) =>
   <table className="table-features">
     <thead>
       <tr>
-        <Scrivito.ContentTag tag="th" content={ widget } attribute="featureHeadline" />
-        <Scrivito.ContentTag tag="th" content={ widget } attribute="basicPlanHeadline" />
-        <Scrivito.ContentTag tag="th" content={ widget } attribute="teamPlanHeadline" />
-        <Scrivito.ContentTag tag="th" content={ widget } attribute="corporatePlanHeadline" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="header1" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="header2" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="header3" />
+        <Scrivito.ContentTag tag="th" content={ widget } attribute="header4" />
       </tr>
     </thead>
     <tbody>
@@ -18,9 +18,9 @@ Scrivito.provideComponent('TableWidget', ({ widget }) =>
           return <TableRowWidgetComponent
             key={ `${rowWidget.id()}${index}` }
             widget={ rowWidget }
-            basicPlanHeadline={ widget.get('basicPlanHeadline') }
-            teamPlanHeadline={ widget.get('teamPlanHeadline') }
-            corporatePlanHeadline={ widget.get('corporatePlanHeadline') }
+            header2={ widget.get('header2') }
+            header3={ widget.get('header3') }
+            header4={ widget.get('header4') }
           />;
         })
       }
@@ -32,9 +32,9 @@ Scrivito.provideComponent('TableWidget', ({ widget }) =>
           return <TableRowWidgetComponent
             key={ `${rowWidget.id()}${index}` }
             widget={ rowWidget }
-            basicPlanHeadline={ widget.get('basicPlanHeadline') }
-            teamPlanHeadline={ widget.get('teamPlanHeadline') }
-            corporatePlanHeadline={ widget.get('corporatePlanHeadline') }
+            header2={ widget.get('header2') }
+            header3={ widget.get('header3') }
+            header4={ widget.get('header4') }
           />;
         })
       }
