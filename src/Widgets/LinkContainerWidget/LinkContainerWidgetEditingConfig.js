@@ -16,10 +16,10 @@ Scrivito.provideEditingConfig('LinkContainerWidget', {
   ],
   initialContent: {
     headline: 'Links headline',
-    links: [
-      new LinkWidget({ link: new Scrivito.Link({ title: 'Link 1', obj: Scrivito.Obj.root() }) }),
-      new LinkWidget({ link: new Scrivito.Link({ title: 'Link 2', obj: Scrivito.Obj.root() }) }),
-      new LinkWidget({ link: new Scrivito.Link({ title: 'Link 3', obj: Scrivito.Obj.root() }) }),
-    ],
+    links: ['Link 1', 'Link 2', 'Link 3'].map(title =>
+      new LinkWidget({
+        link: new Scrivito.Link({ title, url: 'https://scrivito.com', target: '_blank' }),
+      })
+    ),
   },
 });
