@@ -11,15 +11,6 @@ Scrivito.provideEditingConfig('Homepage', {
   thumbnail: `/${homepageObjIcon}`,
   attributes: {
     ...defaultPageUiConfigAttributes,
-    image1: {
-      title: 'Image1',
-    },
-    image2: {
-      title: 'Image2',
-    },
-    image3: {
-      title: 'Image3',
-    },
     logoDark: {
       title: 'Dark logo',
       description: 'Used with light backgrounds',
@@ -42,9 +33,6 @@ Scrivito.provideEditingConfig('Homepage', {
     },
   },
   properties: [
-    'image1',
-    'image2',
-    'image3',
     ...defaultGeneralProperties,
   ],
   propertiesGroups: [
