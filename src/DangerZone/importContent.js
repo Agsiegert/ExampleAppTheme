@@ -148,9 +148,10 @@ const IconContainerWidget = Scrivito.getClass('IconContainerWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
-const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
-const LinkWidget = Scrivito.getClass('LinkWidget');
 const LinkContainerWidget = Scrivito.getClass('LinkContainerWidget');
+const LinkWidget = Scrivito.getClass('LinkWidget');
+const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
+const PriceWidget = Scrivito.getClass('PriceWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
@@ -1726,72 +1727,78 @@ function importContent() {
             new TableWidget({
               rows: [
                 new TableRowWidget({
-                  feature: 'Key feature 1',
-                  basicFeature: [new TextWidget({ text: '<p><b>5</b></p>' })],
-                  teamFeature: [new TextWidget({ text: '<p><b>10</b></p>' })],
-                  corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                  cell1: 'Key feature 1',
+                  cell2: [new TextWidget({ text: '<p><b>5</b></p>' })],
+                  cell3: [new TextWidget({ text: '<p><b>10</b></p>' })],
+                  cell4: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 2',
-                  basicFeature: [new TextWidget({ text: '<p><b>20</b></p>' })],
-                  teamFeature: [new TextWidget({ text: '<p><b>40</b></p>' })],
-                  corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                  cell1: 'Key feature 2',
+                  cell2: [new TextWidget({ text: '<p><b>20</b></p>' })],
+                  cell3: [new TextWidget({ text: '<p><b>40</b></p>' })],
+                  cell4: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 3',
-                  basicFeature: [new TextWidget({ text: '<p><b>9/5</b></p>' })],
-                  teamFeature: [new TextWidget({ text: '<p><b>12/7</b></p>' })],
-                  corporateFeature: [new TextWidget({ text: '<p><b>24/7</b></p>' })],
+                  cell1: 'Key feature 3',
+                  cell2: [new TextWidget({ text: '<p><b>9/5</b></p>' })],
+                  cell3: [new TextWidget({ text: '<p><b>12/7</b></p>' })],
+                  cell4: [new TextWidget({ text: '<p><b>24/7</b></p>' })],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 4',
-                  basicFeature: [createCheckIcon()],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 4',
+                  cell2: [createCheckIcon()],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 5',
-                  basicFeature: [createCheckIcon()],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 5',
+                  cell2: [createCheckIcon()],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 6',
-                  basicFeature: [createCheckIcon()],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 6',
+                  cell2: [createCheckIcon()],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 7',
-                  basicFeature: [createCheckIcon()],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 7',
+                  cell2: [createCheckIcon()],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 8',
-                  basicFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 8',
+                  cell2: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 9',
-                  basicFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
-                  teamFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 9',
+                  cell2: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  cell3: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  cell4: [createCheckIcon()],
                 }),
               ],
-              featureHeadline: 'Features',
-              basicPlanHeadline: 'Basic',
-              teamPlanHeadline: 'Team',
-              corporatePlanHeadline: 'Corporate',
-              pricingRow: 'Prices',
-              currency: '€',
-              basicPlanPrice: '29',
-              teamPlanPrice: '59',
-              corporatePlanPrice: '199',
-              basicPlanPeriod: '/mo',
-              teamPlanPeriod: '/mo',
-              corporatePlanPeriod: '/mo',
+              summaryRows: [
+                new TableRowWidget({
+                  cell1: 'Prices',
+                  cell2: [
+                    new PriceWidget({ price: '29', currency: '€', period: '/mo' }),
+                  ],
+                  cell3: [
+                    new PriceWidget({ price: '59', currency: '€', period: '/mo' }),
+                  ],
+                  cell4: [
+                    new PriceWidget({ price: '199', currency: '€', period: '/mo' }),
+                  ],
+                }),
+              ],
+              header1: 'Features',
+              header2: 'Basic',
+              header3: 'Team',
+              header4: 'Corporate',
             }),
           ],
         }),
@@ -3225,8 +3232,8 @@ function importContent() {
                     alignment: 'left',
                     text: `<p>Widget properties:</p>
                       <ul>
-                        <li>Currency</li>
-                        <li>Feature rows</li>
+                        <li>Rows</li>
+                        <li>Summary rows</li>
                       </ul>`,
                   }),
                 ],
@@ -3235,30 +3242,36 @@ function importContent() {
                   new TableWidget({
                     rows: [
                       new TableRowWidget({
-                        feature: 'Key feature 1',
-                        basicFeature: [new TextWidget({ text: '<p><b>5</b></p>' })],
-                        teamFeature: [new TextWidget({ text: '<p><b>10</b></p>' })],
-                        corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                        cell1: 'Key feature 1',
+                        cell2: [new TextWidget({ text: '<p><b>5</b></p>' })],
+                        cell3: [new TextWidget({ text: '<p><b>10</b></p>' })],
+                        cell4: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                       }),
                       new TableRowWidget({
-                        feature: 'Key feature 2',
-                        basicFeature: [new TextWidget({ text: '<p><b>20</b></p>' })],
-                        teamFeature: [new TextWidget({ text: '<p><b>40</b></p>' })],
-                        corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                        cell1: 'Key feature 2',
+                        cell2: [new TextWidget({ text: '<p><b>20</b></p>' })],
+                        cell3: [new TextWidget({ text: '<p><b>40</b></p>' })],
+                        cell4: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                       }),
                     ],
-                    featureHeadline: 'Features',
-                    basicPlanHeadline: 'Basic',
-                    teamPlanHeadline: 'Team',
-                    corporatePlanHeadline: 'Corporate',
-                    pricingRow: 'Prices',
-                    currency: '€',
-                    basicPlanPrice: '29',
-                    teamPlanPrice: '59',
-                    corporatePlanPrice: '99',
-                    basicPlanPeriod: '/mo',
-                    teamPlanPeriod: '/mo',
-                    corporatePlanPeriod: '/mo',
+                    summaryRows: [
+                      new TableRowWidget({
+                        cell1: 'Prices',
+                        cell2: [
+                          new PriceWidget({ price: '29', currency: '€', period: '/mo' }),
+                        ],
+                        cell3: [
+                          new PriceWidget({ price: '59', currency: '€', period: '/mo' }),
+                        ],
+                        cell4: [
+                          new PriceWidget({ price: '99', currency: '€', period: '/mo' }),
+                        ],
+                      }),
+                    ],
+                    header1: 'Features',
+                    header2: 'Basic',
+                    header3: 'Team',
+                    header4: 'Corporate',
                   }),
                 ],
               ],

@@ -1,4 +1,5 @@
 import IconWidget from 'Widgets/IconWidget/IconWidgetClass';
+import PriceWidget from 'Widgets/PriceWidget/PriceWidgetClass';
 import TableRowWidget from 'Widgets/TableRowWidget/TableRowWidgetClass';
 import tableWidgetIcon from 'assets/images/table_widget.svg';
 import TextWidget from 'Widgets/TextWidget/TextWidgetClass';
@@ -8,49 +9,48 @@ Scrivito.provideEditingConfig('TableWidget', {
   description: 'A table widget.',
   thumbnail: `/${tableWidgetIcon}`,
   attributes: {
-    currency: {
-      title: 'Currency',
-      description: 'E.g. € or $.',
-    },
     rows: {
-      title: 'Feature rows',
+      title: 'Rows',
+    },
+    summaryRows: {
+      title: 'Summary rows',
     },
   },
   properties: [
-    'currency',
     'rows',
+    'summaryRows',
   ],
   initialContent: {
-    featureHeadline: 'Features',
-    basicPlanHeadline: 'Basic',
-    teamPlanHeadline: 'Team',
-    corporatePlanHeadline: 'Corporate',
-    pricingRow: 'Prices',
-    currency: '€',
-    basicPlanPrice: '20',
-    teamPlanPrice: '30',
-    corporatePlanPrice: '40',
-    basicPlanPeriod: '/mo',
-    teamPlanPeriod: '/mo',
-    corporatePlanPeriod: '/mo',
+    header1: 'Column header 1',
+    header2: 'Column header 2',
+    header3: 'Column header 3',
+    header4: 'Column header 4',
     rows: [
       new TableRowWidget({
-        feature: 'Key feature 1',
-        basicFeature: [new TextWidget({ text: '<p><b>5</b></p>' })],
-        teamFeature: [new TextWidget({ text: '<p><b>10</b></p>' })],
-        corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+        cell1: 'Row 1',
+        cell2: [new TextWidget({})],
+        cell3: [new TextWidget({})],
+        cell4: [new TextWidget({})],
       }),
       new TableRowWidget({
-        feature: 'Key feature 2',
-        basicFeature: [new TextWidget({ text: '<p><b>20</b></p>' })],
-        teamFeature: [new TextWidget({ text: '<p><b>40</b></p>' })],
-        corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+        cell1: 'Row 2',
+        cell2: [new TextWidget({})],
+        cell3: [new TextWidget({})],
+        cell4: [new TextWidget({})],
       }),
       new TableRowWidget({
-        feature: 'Key feature 3',
-        basicFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
-        teamFeature: [new IconWidget({ icon: 'fa-check' })],
-        corporateFeature: [new IconWidget({ icon: 'fa-check' })],
+        cell1: 'Row 3',
+        cell2: [new IconWidget({ icon: 'fa-times' })],
+        cell3: [new IconWidget({ icon: 'fa-check' })],
+        cell4: [new IconWidget({ icon: 'fa-check' })],
+      }),
+    ],
+    summaryRows: [
+      new TableRowWidget({
+        cell1: 'Total',
+        cell2: [new PriceWidget({ currency: '$', price: '20', period: '/mo' })],
+        cell3: [new PriceWidget({ currency: '$', price: '30', period: '/mo' })],
+        cell4: [new PriceWidget({ currency: '$', price: '40', period: '/mo' })],
       }),
     ],
   },
