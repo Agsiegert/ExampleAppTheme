@@ -783,38 +783,44 @@ function importContent() {
       navigationBackgroundImageGradient: 'yes',
       navigationBackgroundImage: unsplashMouseWoodenDesk,
       navigationSection: [
-        createEvenColumnContainerWidget({
+        new ColumnContainerWidget({
           verticallyAligned: 'yes',
           columns: [
             // col 1
-            [
-              new HeadlineWidget({
-                headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
-              }),
-              new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
+            new ColumnWidget({
+              colSize: 9,
+              content: [
+                new HeadlineWidget({
+                  headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
                 }),
-              }),
-              new ButtonWidget({
-                target: new Scrivito.Link({
-                  title: 'Call to action',
-                  obj: root,
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
                 }),
-              }),
-            ],
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+            }),
             // col 2
-            [
-              new SignUpFormWidget({
-                isTransparent: 'yes',
-                title: 'Sign up to Scrivito',
-                buttonText: 'Sign up to Scrivito now',
-              }),
-            ],
+            new ColumnWidget({
+              colSize: 3,
+              content: [
+                new SignUpFormWidget({
+                  isTransparent: 'yes',
+                  title: 'Sign up to Scrivito',
+                  buttonText: 'Sign up to Scrivito now',
+                }),
+              ],
+            }),
           ],
         }),
       ],
@@ -2046,37 +2052,43 @@ function importContent() {
       navigationBackgroundImage: unsplashArchitecture,
       navigationHeight: 'full-height',
       navigationSection: [
-        createEvenColumnContainerWidget({
+        new ColumnContainerWidget({
           verticallyAligned: 'yes',
           columns: [
             // col 1
-            [
-              new HeadlineWidget({
-                headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
-              }),
-              new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
+            new ColumnWidget({
+              colSize: 9,
+              content: [
+                new HeadlineWidget({
+                  headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
                 }),
-              }),
-              new ButtonWidget({
-                target: new Scrivito.Link({
-                  title: 'Call to action',
-                  obj: root,
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
                 }),
-              }),
-            ],
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+            }),
             // col 2
-            [
-              new SignUpFormWidget({
-                title: 'Sign up to Scrivito',
-                buttonText: 'Sign up to Scrivito now',
-              }),
-            ],
+            new ColumnWidget({
+              colSize: 3,
+              content: [
+                new SignUpFormWidget({
+                  title: 'Sign up to Scrivito',
+                  buttonText: 'Sign up to Scrivito now',
+                }),
+              ],
+            }),
           ],
         }),
       ],
