@@ -3,7 +3,6 @@ import TickListItemWidget from 'Widgets/TickListItemWidget/TickListItemWidgetCla
 
 Scrivito.provideEditingConfig('TickListWidget', {
   title: 'Tick List',
-  description: 'A list of checked statements.',
   thumbnail: `/${tickListWidgetIcon}`,
   attributes: {
     items: {

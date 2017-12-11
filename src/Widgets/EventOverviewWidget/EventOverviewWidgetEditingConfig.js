@@ -2,7 +2,6 @@ import eventOverviewWidgetIcon from 'assets/images/event_overview_widget.svg';
 
 Scrivito.provideEditingConfig('EventOverviewWidget', {
   title: 'Event Overview',
-  description: 'A widget showing all events.',
   thumbnail: `/${eventOverviewWidgetIcon}`,
   attributes: {
     maxItems: {

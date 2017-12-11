@@ -3,7 +3,6 @@ import LinkWidget from 'Widgets/LinkWidget/LinkWidgetClass';
 
 Scrivito.provideEditingConfig('LinkContainerWidget', {
   title: 'Link List',
-  description: 'A widget which lists links.',
   thumbnail: `/${linkListWidgetIcon}`,
   attributes: {
     headline: {

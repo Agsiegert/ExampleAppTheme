@@ -3,7 +3,6 @@ import ColumnWidget from 'Widgets/ColumnWidget/ColumnWidgetClass';
 
 Scrivito.provideEditingConfig('ColumnContainerWidget', {
   title: 'Columns',
-  description: 'A widget with up to 4 columns.',
   thumbnail: `/${columnContainerWidgetIcon}`,
   propertiesGroups: [
     {

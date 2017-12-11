@@ -2,7 +2,6 @@ import blogOverviewWidgetIcon from 'assets/images/blog_overview_widget.svg';
 
 Scrivito.provideEditingConfig('BlogOverviewWidget', {
   title: 'Blog Overview',
-  description: 'A widget with up to four blog posts.',
   thumbnail: `/${blogOverviewWidgetIcon}`,
   attributes: {
     maxItems: {

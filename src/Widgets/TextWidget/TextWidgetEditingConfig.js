@@ -2,7 +2,6 @@ import textWidgetIcon from 'assets/images/text_widget.svg';
 
 Scrivito.provideEditingConfig('TextWidget', {
   title: 'Text',
-  description: 'A widget with html text.',
   thumbnail: `/${textWidgetIcon}`,
   attributes: {
     alignment: {

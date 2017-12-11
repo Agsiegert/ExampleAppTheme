@@ -2,7 +2,6 @@ import videoWidgetIcon from 'assets/images/video_widget.svg';
 
 Scrivito.provideEditingConfig('VideoWidget', {
   title: 'Video',
-  description: 'A widget with a video.',
   thumbnail: `/${videoWidgetIcon}`,
   attributes: {
     source: {

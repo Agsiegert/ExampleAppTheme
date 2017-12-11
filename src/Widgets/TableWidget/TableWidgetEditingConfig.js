@@ -6,7 +6,6 @@ import TextWidget from 'Widgets/TextWidget/TextWidgetClass';
 
 Scrivito.provideEditingConfig('TableWidget', {
   title: 'Table',
-  description: 'A table widget.',
   thumbnail: `/${tableWidgetIcon}`,
   attributes: {
     rows: {
