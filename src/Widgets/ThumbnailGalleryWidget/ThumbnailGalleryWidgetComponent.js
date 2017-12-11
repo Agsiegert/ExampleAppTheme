@@ -1,5 +1,4 @@
 import Lightbox from 'react-images';
-import devicePixelRatio from 'utils/devicePixelRatio';
 import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import TagList from 'Components/TagList';
@@ -117,11 +116,10 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const image = widget.get('image');
   const tags = widget.get('tags');
 
-  let imageUrl = '';
+  let transformedBinary = null;
   if (image) {
     // Transform image to max. 50% of the screen width
-    const binary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
-    imageUrl = binary.url();
+    transformedBinary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
   }
 
   const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box', 'gutter0'];
@@ -129,10 +127,10 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
 
   return (
     <div className={ classNames.join(' ') }>
-      <div
+      <Scrivito.BackgroundImageTag
         className="gallery-box-image"
-        style={ { background: 'no-repeat center / cover', backgroundImage: `url(${imageUrl})` } }>
-      </div>
+        style={ { background: { image: transformedBinary } } }
+      />
       <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
         <span className="gallery-box-content">
           <i className="fa fa-camera" aria-hidden="true" />
@@ -160,21 +158,15 @@ function allTags(images) {
 function lightboxOptions(galleryImageWidget) {
   const image = galleryImageWidget.get('image');
   let srcUrl = '';
-  let thumbnailUrl = '';
 
   if (image) {
     const binary = image.get('blob');
-
     srcUrl = binary.transform({ width: fullScreenWidthPixels() }).url();
-
-    const thumbnailSize = 50 * devicePixelRatio();
-    thumbnailUrl = binary.transform(
-      { width: thumbnailSize, height: thumbnailSize, fit: 'crop' }).url();
   }
 
   return {
     src: srcUrl,
-    thumbnail: thumbnailUrl,
+    thumbnail: srcUrl,
     caption: [galleryImageWidget.get('title'), galleryImageWidget.get('subtitle')].join(' - '),
   };
 }

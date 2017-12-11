@@ -1,5 +1,4 @@
 import Scroll from 'react-scroll';
-import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 import currentPageNavigationOptions from './Navigation/currentPageNavigationOptions';
 import FullNavigation from './Navigation/FullNavigation';
 import LandingPageNavigation from './Navigation/LandingPageNavigation';
@@ -89,20 +88,18 @@ class Navigation extends React.Component {
     const topSectionStyle = {};
     if (navigationStyle === 'transparentDark') {
       if (backgroundImage) {
-        const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
         if (useGradient) {
-          topSectionStyle.background = 'no-repeat bottom / cover';
-          topSectionStyle.backgroundImage = [
-            'radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%, rgba(61,65,66,1) 90%)',
-            'linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)',
-            `url(${backgroundUrl})`,
-          ].join(', ');
+          topSectionStyle.background = [
+            { image: 'radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%,' +
+              ' rgba(61,65,66,1) 90%)' },
+            { image: 'linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)' },
+            { image: backgroundImage, position: 'bottom' },
+          ];
         } else {
-          topSectionStyle.background = 'no-repeat center / cover';
-          topSectionStyle.backgroundImage = [
-            'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))',
-            `url(${backgroundUrl})`,
-          ].join(', ');
+          topSectionStyle.background = [
+            { image: 'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))' },
+            { image: backgroundImage, position: 'bottom' },
+          ];
         }
       }
     }
@@ -113,7 +110,11 @@ class Navigation extends React.Component {
 
     return (
       <React.Fragment>
-        <section className={ topSectionClassNames.join(' ') } style={ topSectionStyle }>
+        <Scrivito.BackgroundImageTag
+          tag="section"
+          className={ topSectionClassNames.join(' ') }
+          style={ topSectionStyle }
+        >
           <ActualNavigation
             isLandingPage={ isLandingPage }
             bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
@@ -125,7 +126,7 @@ class Navigation extends React.Component {
 
           <NavigationSection heigthClassName={ heigthClassName } />
           <ScrollToNextSectionLink heigthClassName={ heigthClassName } />
-        </section>
+        </Scrivito.BackgroundImageTag>
         <Scroll.Element name="nextSection" />
       </React.Fragment>
     );

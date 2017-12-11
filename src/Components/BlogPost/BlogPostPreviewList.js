@@ -1,4 +1,3 @@
-import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import textExtractFromObj from 'utils/textExtractFromObj';
 import truncate from 'lodash/truncate';
@@ -99,11 +98,10 @@ const BlogPostPreview = Scrivito.connect(({ post }) => {
 const BlogPostTitleImage = Scrivito.connect(({ post }) => {
   const titleImage = post.get('titleImage');
   if (!titleImage) { return null; }
-  const imageUrl = fullWidthTransformedUrl(titleImage);
 
   return (
     <Scrivito.LinkTag to={ post }>
-      <img src={ imageUrl } className="img-responsive" />
+      <Scrivito.ImageTag content={ titleImage } className="img-responsive" />
     </Scrivito.LinkTag>
   );
 });

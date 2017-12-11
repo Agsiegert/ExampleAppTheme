@@ -554,8 +554,10 @@
               </div>
 
               <div class="col-md-3">
-                <ul>
+                <ul class="page-list">
                   <li><span class="border-bottom">Main Pages</span></li>
+                </ul>
+                <ul class="page-list">
                   <li><a href="#">Home v1</a></li>
                   <li><a href="#">Home v2</a></li>
                   <li><a href="#">Home v3</a></li>
@@ -564,8 +566,10 @@
                 </ul>
               </div>
               <div class="col-md-3">
-                <ul>
+                <ul class="page-list">
                   <li><span class="border-bottom">About</span></li>
+                </ul>
+                <ul class="page-list">
                   <li><a href="#">About us</a></li>
                   <li><a href="#">Jobs</a></li>
                   <li><a href="#">Our clients</a></li>
@@ -574,8 +578,10 @@
                 </ul>
               </div>
               <div class="col-md-3">
-                <ul>
+                <ul class="page-list">
                   <li><span class="border-bottom">Specials</span></li>
+                </ul>
+                <ul class="page-list">
                   <li><a href="#">Signup</a></li>
                   <li><a href="#">Blog</a></li>
                   <li><a href="#">Blog detail</a></li>
@@ -631,11 +637,20 @@
         infinite: true,
         dotsClass: 'quote-portrait-wrapper',
         customPaging: (slider, i) => {
+          let image = '';
           if (i % 2) {
-            return '<a><img src="content-images/user-woman.png" alt=""/></a>';
+            image = "content-images/user-woman.png";
           } else {
-            return '<a><img src="content-images/user-man.png" alt=""/></a>';
+            image = "content-images/user-man.png";
           }
+
+          return `<a><div class="image" style="`
+            + `background-attachment: scroll;`
+            + `background-image: url('${image}');`
+            + `background-origin: padding-box;`
+            + `background-position: center center;`
+            + `background-repeat: no-repeat;`
+            + `background-size: cover;" /></a>`;
         }
       });
     </script>

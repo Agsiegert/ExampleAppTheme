@@ -1,5 +1,4 @@
 import Slider from 'react-slick';
-import devicePixelRatio from 'utils/devicePixelRatio';
 import placeholderCss from 'utils/placeholderCss';
 import TestimonialWidget from 'Widgets/TestimonialWidget/TestimonialWidgetClass';
 
@@ -36,17 +35,23 @@ Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
 });
 
 function sliderSettings(testimonials) {
-  const testimonialAuthorImageUrls = testimonials.map(testimonial => {
+  const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get('authorImage');
-    if (!authorImage) { return fallbackImageUrl; }
+    if (!authorImage) {
+      return <img className="image" src={ fallbackImageUrl } />;
+    }
 
-    const binary = authorImage.get('blob');
-    const croppedBinary = binary.transform({
-      width: 200 * devicePixelRatio(),
-      height: 200 * devicePixelRatio(),
-      fit: 'crop',
-    });
-    return croppedBinary.url();
+    return (
+      <Scrivito.BackgroundImageTag
+        key={ testimonial.id }
+        className="image"
+        style={
+          {
+            background: { image: authorImage },
+          }
+        }
+      />
+    );
   });
 
   return {
@@ -56,8 +61,8 @@ function sliderSettings(testimonials) {
     speed: 500,
     dotsClass: 'quote-portrait-wrapper',
     customPaging: i => {
-      const imageUrl = testimonialAuthorImageUrls[i];
-      return (<a><img src={ imageUrl } alt="" /></a>);
+      const image = testimonialAuthorImages[i];
+      return (<a>{ image }</a>);
     },
   };
 }
