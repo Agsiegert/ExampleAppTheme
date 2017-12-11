@@ -4,7 +4,6 @@ import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('BlogPost', {
   title: 'BlogPost',
-  description: 'A Blog Post',
   thumbnail: `/${blogPostObjIcon}`,
   attributes: {
     author: {

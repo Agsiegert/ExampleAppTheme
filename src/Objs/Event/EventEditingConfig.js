@@ -4,7 +4,6 @@ import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Event', {
   title: 'Event',
-  description: 'An Event',
   thumbnail: `/${eventObjIcon}`,
   attributes: {
     date: {

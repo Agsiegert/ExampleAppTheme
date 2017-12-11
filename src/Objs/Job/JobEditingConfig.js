@@ -4,7 +4,6 @@ import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Job', {
   title: 'Job',
-  description: 'A Job',
   thumbnail: `/${jobObjIcon}`,
   attributes: {
     image: {

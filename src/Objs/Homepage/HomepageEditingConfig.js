@@ -8,7 +8,6 @@ import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Homepage', {
   title: 'Homepage',
-  description: 'A Homepage. This class is only intended for Obj.root() (aka "_path" "/")',
   thumbnail: `/${homepageObjIcon}`,
   attributes: {
     ...defaultPageUiConfigAttributes,
