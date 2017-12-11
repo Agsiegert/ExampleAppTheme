@@ -7,7 +7,7 @@ Scrivito.provideComponent('ImageIconWidget', ({ widget }) => {
 
   return (
     <section className={ `feature ${alignment}` }>
-      <Scrivito.LinkTag className={ `image icon ${icon}` } to={ link }>
+      <Scrivito.LinkTag className={ `image fit icon ${icon}` } to={ link }>
         { (widget.get('image'))
           ? <Scrivito.ImageTag content={ widget } attribute="image" />
           : <InPlaceEditingPlaceholder center={ true }>

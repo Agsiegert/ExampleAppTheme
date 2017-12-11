@@ -14,14 +14,6 @@ Scrivito.provideEditingConfig('ButtonWidget', {
         { value: 'right', title: 'Right' },
       ],
     },
-    style: {
-      title: 'Background color',
-      description: 'Default: Primary color',
-      values: [
-        { value: 'btn-primary', title: 'Primary color' },
-        { value: 'btn-clear', title: 'Transparent' },
-      ],
-    },
     target: {
       title: 'Target',
       description: 'The target and text of the button.',
@@ -30,6 +22,5 @@ Scrivito.provideEditingConfig('ButtonWidget', {
   properties: [
     'target',
     'alignment',
-    'style',
   ],
 });

@@ -9,12 +9,9 @@ const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
     </InPlaceEditingPlaceholder>;
   }
 
-  const classNames = ['btn'];
-  classNames.push(widget.get('style') || 'btn-primary');
-
   return (
-    <Scrivito.LinkTag to={ target } className={ classNames.join(' ') }>
-      { text }<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+    <Scrivito.LinkTag to={ target } className="button">
+      { text }
     </Scrivito.LinkTag>
   );
 });

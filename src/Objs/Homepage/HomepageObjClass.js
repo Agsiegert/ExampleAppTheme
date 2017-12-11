@@ -6,7 +6,7 @@ const Homepage = Scrivito.provideObjClass('Homepage', {
   attributes: {
     ...defaultPageAttributes,
     childOrder: 'referencelist',
-    // footer: ['widgetlist', { only: 'SectionWidget' }],
+    directiveFooter: 'widgetlist',
     logoDark: 'reference',
     logoWhite: 'reference',
     dividerLogo: 'reference',
@@ -15,7 +15,6 @@ const Homepage = Scrivito.provideObjClass('Homepage', {
     ...socialCardsAttributes,
     icon: ['widgetlist', { only: 'IconWidget' }],
     header: 'widgetlist',
-    image1: 'reference',
   },
 });
 

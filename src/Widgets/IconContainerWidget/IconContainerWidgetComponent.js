@@ -13,21 +13,24 @@ Scrivito.provideComponent('IconContainerWidget', ({ widget }) => {
   }
 
   return (
-    <div className="social-links text-center">
+    <ul className="icons">
       {
         icons.map(iconListItem => {
           const icon = iconListItem.get('icon');
           const link = iconListItem.get('link');
           const size = iconListItem.get('size');
 
-          return <IconComponent
-            icon={ icon }
-            size={ size }
-            link={ link }
-            key={ iconListItem.id() }
-          />;
+          return (
+          <li key={ iconListItem.id() }>
+            <IconComponent
+              icon={ icon }
+              size={ size }
+              link={ link }
+            />
+          </li>
+          );
         })
       }
-    </div>
+    </ul>
   );
 });
