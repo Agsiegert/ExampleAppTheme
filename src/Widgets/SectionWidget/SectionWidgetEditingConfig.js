@@ -2,7 +2,6 @@ import sectionWidgetIcon from 'assets/images/section_widget.svg';
 
 Scrivito.provideEditingConfig('SectionWidget', {
   title: 'Section',
-  description: 'A section',
   thumbnail: `/${sectionWidgetIcon}`,
   attributes: {
     backgroundColor: {
@@ -53,4 +52,10 @@ Scrivito.provideEditingConfig('SectionWidget', {
     'useFullHeight',
     'showPadding',
   ],
+  initialContent: {
+    backgroundColor: 'white',
+    showPadding: 'yes',
+    useFullHeight: 'no',
+    useFullWidth: 'no',
+  },
 });

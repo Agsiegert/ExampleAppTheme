@@ -1,5 +1,3 @@
-import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
-
 Scrivito.provideComponent('SectionWidget', ({ widget }) => {
   const sectionClassNames = [];
   const sectionStyle = {};
@@ -9,13 +7,10 @@ Scrivito.provideComponent('SectionWidget', ({ widget }) => {
   const backgroundImage = widget.get('backgroundImage');
   if (backgroundImage) {
     backgroundColor = 'dark-image';
-    const backgroundUrl = fullWidthTransformedUrl(backgroundImage);
-    sectionStyle.background = 'no-repeat center / cover';
-    sectionStyle.backgroundImage = [
-      'linear-gradient(rgba(46, 53, 60, 0.7)',
-      'rgba(46, 53, 60, 0.7))',
-      `url(${backgroundUrl})`,
-    ].join(', ');
+    sectionStyle.background = [
+      { image: 'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))' },
+      { image: backgroundImage },
+    ];
   }
 
   sectionClassNames.push(`bg-${backgroundColor}`);
@@ -33,7 +28,13 @@ Scrivito.provideComponent('SectionWidget', ({ widget }) => {
     sectionClassNames.push('full-height');
   }
 
-  return (<section className={ sectionClassNames.join(' ') } style={ sectionStyle }>
-    <Scrivito.ContentTag className={ contentClassName } content={ widget } attribute="content" />
-  </section>);
+  return (
+    <Scrivito.BackgroundImageTag
+      tag="section"
+      className={ sectionClassNames.join(' ') }
+      style={ sectionStyle }
+    >
+      <Scrivito.ContentTag className={ contentClassName } content={ widget } attribute="content" />
+    </Scrivito.BackgroundImageTag>
+  );
 });

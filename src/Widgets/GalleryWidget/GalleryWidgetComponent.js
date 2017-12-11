@@ -1,4 +1,3 @@
-import devicePixelRatio from 'utils/devicePixelRatio';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import Slider from 'react-slick';
 
@@ -29,16 +28,6 @@ function GalleryWidgetComponent({ widget }) {
 Scrivito.provideComponent('GalleryWidget', GalleryWidgetComponent);
 
 function sliderSettings(images) {
-  const imageUrls = images.map(image => {
-    const binary = image.get('blob');
-    const croppedBinary = binary.transform({
-      width: 300 * devicePixelRatio(),
-      height: 200 * devicePixelRatio(),
-      fit: 'crop',
-    });
-    return croppedBinary.url();
-  });
-
   return {
     arrows: false,
     autoplay: true,
@@ -60,10 +49,18 @@ function sliderSettings(images) {
       },
     }],
     customPaging: i => {
-      const imageUrl = imageUrls[i];
+      const image = images[i];
+
       return (
         <button className="tab">
-          <img src={ imageUrl } />
+          <Scrivito.BackgroundImageTag
+            className="image"
+            style={
+              {
+                background: { image },
+              }
+            }
+          />
         </button>
       );
     },

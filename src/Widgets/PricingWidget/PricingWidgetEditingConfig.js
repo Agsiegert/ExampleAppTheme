@@ -1,8 +1,8 @@
 import pricingWidgetIcon from 'assets/images/pricing_widget.svg';
+import PricingSpecWidget from 'Widgets/PricingSpecWidget/PricingSpecWidgetClass';
 
 Scrivito.provideEditingConfig('PricingWidget', {
   title: 'Pricing',
-  description: 'A pricing widget',
   thumbnail: `/${pricingWidgetIcon}`,
   attributes: {
     currency: {
@@ -30,4 +30,22 @@ Scrivito.provideEditingConfig('PricingWidget', {
     'mediumPlanButton',
     'largePlanButton',
   ],
+  initialContent: {
+    currency: '€',
+    smallPlanName: 'Basic Plan',
+    mediumPlanName: 'Team Plan',
+    largePlanName: 'Corporate Plan',
+    smallPlanPrice: '20',
+    mediumPlanPrice: '30',
+    largePlanPrice: '40',
+    smallPlanPeriod: '/mo',
+    mediumPlanPeriod: '/mo',
+    largePlanPeriod: '/mo',
+    smallPlanSpecs: [new PricingSpecWidget({ variable: '5', unit: 'projects' })],
+    mediumPlanSpecs: [new PricingSpecWidget({ variable: '15', unit: 'projects' })],
+    largePlanSpecs: [new PricingSpecWidget({ variable: 'unlimited', unit: 'projects' })],
+    smallPlanButton: new Scrivito.Link({ title: 'Buy now', url: 'https://scrivito.com' }),
+    mediumPlanButton: new Scrivito.Link({ title: 'Buy now', url: 'https://scrivito.com' }),
+    largePlanButton: new Scrivito.Link({ title: 'Buy now', url: 'https://scrivito.com' }),
+  },
 });

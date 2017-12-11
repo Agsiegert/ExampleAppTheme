@@ -1,3 +1,5 @@
+import SectionWidget from 'Widgets/SectionWidget/SectionWidgetClass';
+
 const defaultPageAttributes = {
   body: ['widgetlist', { only: 'SectionWidget' }],
   navigationBackgroundImage: 'reference',
@@ -47,8 +49,15 @@ const defaultGeneralProperties = [
   'navigationBackgroundImageGradient',
 ];
 
+const defaultInitialContent = {
+  body: [new SectionWidget({})],
+  navigationHeight: 'small',
+  navigationBackgroundImageGradient: 'no',
+};
+
 export {
   defaultGeneralProperties,
+  defaultInitialContent,
   defaultPageAttributes,
   defaultPageUiConfigAttributes,
 };

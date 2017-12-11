@@ -2,13 +2,8 @@ import iconWidgetIcon from 'assets/images/icon_widget.svg';
 
 Scrivito.provideEditingConfig('IconWidget', {
   title: 'Icon',
-  description: 'A widget with a Font Awesome icon.',
   thumbnail: `/${iconWidgetIcon}`,
   attributes: {
-    icon: {
-      title: 'Font awesome icon',
-      description: 'E.g. "fa-address-book". See http://fontawesome.io/icons/ for all icons.',
-    },
     size: {
       title: 'Size',
       description: 'Default: 100% (Normal)',
@@ -35,11 +30,24 @@ Scrivito.provideEditingConfig('IconWidget', {
       description: 'The link where this icon should lead.',
     },
   },
-  properties: [
-    'icon',
-    'size',
-    'alignment',
-    'link',
+  propertiesGroups: [
+    {
+      title: 'Icon',
+      component: 'IconEditorTab',
+    },
+    {
+      title: 'Optional attributes',
+      properties: [
+        'size',
+        'alignment',
+        'link',
+      ],
+    },
   ],
-  titleForContent: widget => widget.get('icon'),
+  initialContent: {
+    icon: 'fa-check-square-o',
+    size: 'fa-1x',
+    alignment: 'left',
+  },
+  titleForContent: widget => widget.get('icon').replace(/^fa-/, ''),
 });

@@ -1,5 +1,4 @@
 import Event from 'Objs/Event/EventObjClass';
-import fullWidthTransformedUrl from 'utils/fullWidthTransformedUrl';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import TagList from 'Components/TagList';
 import twoDigitNumber from 'utils/twoDigitNumber';
@@ -70,30 +69,33 @@ Scrivito.provideComponent('EventOverviewWidget', EventOverviewWidgetComponent);
 
 const EventItem = Scrivito.connect(({ event }) =>
   <div className="col-sm-6">
-    <Scrivito.LinkTag
-      to={ event }
-      className="box-card"
-      style={ {
-        background: 'no-repeat center / cover',
-        backgroundImage: `linear-gradient(rgba(46, 53, 60, 0.7),
-          rgba(46, 53, 60, 0.7)),
-          url(${fullWidthTransformedUrl(event.get('image'))})`,
-      } }
-    >
-      <span className="box-date">
-        { formatDate(event.get('date')) }
-      </span>
-      <span className="box-topic dark-background">
-        <h3 className="h3">{ event.get('title') }</h3>
-        <span>
-          <i
-            className={ `fa ${event.get('location') ? 'fa-map-marker' : ''} fa-2x` }
-            aria-hidden="true"
-            title="location"
-          />
-          <span>{ event.get('location') }</span>
+    <Scrivito.LinkTag to={ event }>
+      <Scrivito.BackgroundImageTag
+        className="box-card"
+        style={
+          {
+            background: [
+              { image: 'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))' },
+              { image: event.get('image') },
+            ],
+          }
+        }
+      >
+        <span className="box-date">
+          { formatDate(event.get('date')) }
         </span>
-      </span>
+        <span className="box-topic dark-background">
+          <h3 className="h3">{ event.get('title') }</h3>
+          <span>
+            <i
+              className={ `fa ${event.get('location') ? 'fa-map-marker' : ''} fa-2x` }
+              aria-hidden="true"
+              title="location"
+            />
+            <span>{ event.get('location') }</span>
+          </span>
+        </span>
+      </Scrivito.BackgroundImageTag>
     </Scrivito.LinkTag>
   </div>
 );

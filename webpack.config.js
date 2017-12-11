@@ -55,6 +55,10 @@ module.exports = (env = {}) => {
         },
       })
     );
+  } else {
+    plugins.push(
+      new webpack.SourceMapDevToolPlugin({})
+    );
   }
 
   return {

@@ -3,7 +3,6 @@ import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Author', {
   title: 'Author',
-  description: 'An Author',
   thumbnail: `/${authorObjIcon}`,
   attributes: {
     title: {

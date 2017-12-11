@@ -3,7 +3,6 @@ import truncate from 'lodash/truncate';
 
 Scrivito.provideEditingConfig('AddressListItemWidget', {
   title: 'Address List Item',
-  description: 'List Items for an Address Widget.',
   attributes: {
     key: {
       title: 'Key',
@@ -18,6 +17,10 @@ Scrivito.provideEditingConfig('AddressListItemWidget', {
     'key',
     'value',
   ],
+  initialContent: {
+    key: 'Phone:',
+    value: '<a href="tel:+8001233567">800 123 3567</a>',
+  },
   titleForContent:
     widget => `${widget.get('key')} ${truncate(textExtractFromHtml(widget.get('value')))}`,
 });

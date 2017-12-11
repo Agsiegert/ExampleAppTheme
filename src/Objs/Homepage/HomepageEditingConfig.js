@@ -1,13 +1,13 @@
 import homepageObjIcon from 'assets/images/homepage_obj.svg';
 import {
   defaultGeneralProperties,
+  defaultInitialContent,
   defaultPageUiConfigAttributes,
 } from '../_defaultPageAttributes';
 import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('Homepage', {
   title: 'Homepage',
-  description: 'A Homepage. This class is only intended for Obj.root() (aka "_path" "/")',
   thumbnail: `/${homepageObjIcon}`,
   attributes: {
     ...defaultPageUiConfigAttributes,
@@ -48,5 +48,8 @@ Scrivito.provideEditingConfig('Homepage', {
     },
     socialCardsCustomGroup,
   ],
+  initialContent: {
+    ...defaultInitialContent,
+  },
   titleForContent: obj => obj.get('title'),
 });

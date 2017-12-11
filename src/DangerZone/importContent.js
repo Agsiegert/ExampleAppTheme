@@ -148,8 +148,10 @@ const IconContainerWidget = Scrivito.getClass('IconContainerWidget');
 const IconWidget = Scrivito.getClass('IconWidget');
 const ImageWidget = Scrivito.getClass('ImageWidget');
 const JobOverviewWidget = Scrivito.getClass('JobOverviewWidget');
+const LinkContainerWidget = Scrivito.getClass('LinkContainerWidget');
+const LinkWidget = Scrivito.getClass('LinkWidget');
 const LoginFormWidget = Scrivito.getClass('LoginFormWidget');
-const PageListWidget = Scrivito.getClass('PageListWidget');
+const PriceWidget = Scrivito.getClass('PriceWidget');
 const PricingSpecWidget = Scrivito.getClass('PricingSpecWidget');
 const PricingWidget = Scrivito.getClass('PricingWidget');
 const SectionWidget = Scrivito.getClass('SectionWidget');
@@ -781,38 +783,44 @@ function importContent() {
       navigationBackgroundImageGradient: 'yes',
       navigationBackgroundImage: unsplashMouseWoodenDesk,
       navigationSection: [
-        createEvenColumnContainerWidget({
+        new ColumnContainerWidget({
           verticallyAligned: 'yes',
           columns: [
             // col 1
-            [
-              new HeadlineWidget({
-                headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
-              }),
-              new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
+            new ColumnWidget({
+              colSize: 9,
+              content: [
+                new HeadlineWidget({
+                  headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
                 }),
-              }),
-              new ButtonWidget({
-                target: new Scrivito.Link({
-                  title: 'Call to action',
-                  obj: root,
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
                 }),
-              }),
-            ],
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+            }),
             // col 2
-            [
-              new SignUpFormWidget({
-                isTransparent: 'yes',
-                title: 'Sign up to Scrivito',
-                buttonText: 'Sign up to Scrivito now',
-              }),
-            ],
+            new ColumnWidget({
+              colSize: 3,
+              content: [
+                new SignUpFormWidget({
+                  isTransparent: 'yes',
+                  title: 'Sign up to Scrivito',
+                  buttonText: 'Sign up to Scrivito now',
+                }),
+              ],
+            }),
           ],
         }),
       ],
@@ -1056,114 +1064,6 @@ function importContent() {
             createPricingWidget(root),
           ],
         }),
-      ],
-    });
-
-    // PRODUCT
-    const product = Page.create({
-      _path: '/product',
-      title: 'Product',
-      body: [
-        new SectionWidget({
-          backgroundImage: unsplashTidyDeskTouchScreen,
-          content: [
-            createEvenColumnContainerWidget({
-              verticallyAligned: 'yes',
-              columns: [
-                // col 1
-                [
-                  new HeadlineWidget({
-                    style: 'h1',
-                    headline: 'Amazing video hero widget',
-                  }),
-                  new TextWidget({
-                    text: loremIpsum({
-                      units: 'paragraphs',
-                      format: 'html',
-                      count: 1,
-                      paragraphLowerBound: 3,
-                      paragraphUpperBound: 5,
-                    }),
-                  }),
-                  new ButtonWidget({
-                    target: new Scrivito.Link({
-                      title: 'Call to action',
-                      obj: root,
-                    }),
-                  }),
-                ],
-                // col 2
-                [new ImageWidget({ image: iphone })],
-              ],
-            }),
-          ],
-        }),
-        new SectionWidget({ content: [
-          new HeadlineWidget({
-            level: 'h1',
-            style: 'h2',
-            showDividingLine: 'yes',
-            headline: 'Great feature overview',
-          }),
-          new HeadlineWidget({
-            level: 'h2',
-            style: 'h4',
-            alignment: 'center',
-            headline: loremIpsum({ count: 2 }),
-          }),
-          createEvenColumnContainerWidget({
-            columns: [
-              [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
-              [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
-              [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
-            ],
-          }),
-          createEvenColumnContainerWidget({
-            columns: [
-              [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
-              [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
-              [createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive')],
-            ],
-          }),
-          new ButtonWidget({
-            alignment: 'center',
-            target: new Scrivito.Link({
-              title: 'Call to action',
-              obj: root,
-            }),
-          }),
-        ] }),
-        new SectionWidget({
-          useFullWidth: 'yes',
-          showPadding: 'no',
-          content: [
-            new GalleryWidget({
-              images: [
-                unsplashSkylineHarbor,
-                unsplashHighrise,
-                unsplashGrandCentralStation,
-                unsplashSkylineNight,
-                unsplashSolePalmtreeHighrise,
-                unsplashSkylineDusk,
-              ],
-            }),
-          ],
-        }),
-        new SectionWidget({ content: [
-          new HeadlineWidget({
-            level: 'h1',
-            style: 'h2',
-            showDividingLine: 'yes',
-            headline: 'Choose your plan',
-          }),
-          new HeadlineWidget({
-            level: 'h2',
-            style: 'h4',
-            alignment: 'center',
-            headline: loremIpsum({ count: 2 }),
-          }),
-          createPricingWidget(root),
-        ] }),
       ],
     });
 
@@ -1588,6 +1488,114 @@ function importContent() {
       ],
     });
 
+    // PRODUCT
+    const product = Page.create({
+      _path: '/product',
+      title: 'Product',
+      body: [
+        new SectionWidget({
+          backgroundImage: unsplashTidyDeskTouchScreen,
+          content: [
+            createEvenColumnContainerWidget({
+              verticallyAligned: 'yes',
+              columns: [
+                // col 1
+                [
+                  new HeadlineWidget({
+                    style: 'h1',
+                    headline: 'Amazing video hero widget',
+                  }),
+                  new TextWidget({
+                    text: loremIpsum({
+                      units: 'paragraphs',
+                      format: 'html',
+                      count: 1,
+                      paragraphLowerBound: 3,
+                      paragraphUpperBound: 5,
+                    }),
+                  }),
+                  new ButtonWidget({
+                    target: new Scrivito.Link({
+                      title: 'Call to action',
+                      obj: about,
+                    }),
+                  }),
+                ],
+                // col 2
+                [new ImageWidget({ image: iphone })],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Great feature overview',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            alignment: 'center',
+            headline: loremIpsum({ count: 2 }),
+          }),
+          createEvenColumnContainerWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-picture-o', 'Drag & drop widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mouse-pointer', 'WYSIWYG editing')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-cogs', 'Easy customization')],
+            ],
+          }),
+          createEvenColumnContainerWidget({
+            columns: [
+              [createBoxWidgetWithIconHeadlineAndText('fa-comments-o', 'Full support')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-clone', 'Tons of widgets')],
+              [createBoxWidgetWithIconHeadlineAndText('fa-mobile', 'Fully responsive')],
+            ],
+          }),
+          new ButtonWidget({
+            alignment: 'center',
+            target: new Scrivito.Link({
+              title: 'Call to action',
+              obj: root,
+            }),
+          }),
+        ] }),
+        new SectionWidget({
+          useFullWidth: 'yes',
+          showPadding: 'no',
+          content: [
+            new GalleryWidget({
+              images: [
+                unsplashSkylineHarbor,
+                unsplashHighrise,
+                unsplashGrandCentralStation,
+                unsplashSkylineNight,
+                unsplashSolePalmtreeHighrise,
+                unsplashSkylineDusk,
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({ content: [
+          new HeadlineWidget({
+            level: 'h1',
+            style: 'h2',
+            showDividingLine: 'yes',
+            headline: 'Choose your plan',
+          }),
+          new HeadlineWidget({
+            level: 'h2',
+            style: 'h4',
+            alignment: 'center',
+            headline: loremIpsum({ count: 2 }),
+          }),
+          createPricingWidget(root),
+        ] }),
+      ],
+    });
+
     // PRICING
     const pricing = Page.create({
       _path: '/pricing',
@@ -1725,72 +1733,78 @@ function importContent() {
             new TableWidget({
               rows: [
                 new TableRowWidget({
-                  feature: 'Key feature 1',
-                  basicFeature: [new TextWidget({ text: '<p><b>5</b></p>' })],
-                  teamFeature: [new TextWidget({ text: '<p><b>10</b></p>' })],
-                  corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                  cell1: 'Key feature 1',
+                  cell2: [new TextWidget({ text: '<p><b>5</b></p>' })],
+                  cell3: [new TextWidget({ text: '<p><b>10</b></p>' })],
+                  cell4: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 2',
-                  basicFeature: [new TextWidget({ text: '<p><b>20</b></p>' })],
-                  teamFeature: [new TextWidget({ text: '<p><b>40</b></p>' })],
-                  corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                  cell1: 'Key feature 2',
+                  cell2: [new TextWidget({ text: '<p><b>20</b></p>' })],
+                  cell3: [new TextWidget({ text: '<p><b>40</b></p>' })],
+                  cell4: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 3',
-                  basicFeature: [new TextWidget({ text: '<p><b>9/5</b></p>' })],
-                  teamFeature: [new TextWidget({ text: '<p><b>12/7</b></p>' })],
-                  corporateFeature: [new TextWidget({ text: '<p><b>24/7</b></p>' })],
+                  cell1: 'Key feature 3',
+                  cell2: [new TextWidget({ text: '<p><b>9/5</b></p>' })],
+                  cell3: [new TextWidget({ text: '<p><b>12/7</b></p>' })],
+                  cell4: [new TextWidget({ text: '<p><b>24/7</b></p>' })],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 4',
-                  basicFeature: [createCheckIcon()],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 4',
+                  cell2: [createCheckIcon()],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 5',
-                  basicFeature: [createCheckIcon()],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 5',
+                  cell2: [createCheckIcon()],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 6',
-                  basicFeature: [createCheckIcon()],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 6',
+                  cell2: [createCheckIcon()],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 7',
-                  basicFeature: [createCheckIcon()],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 7',
+                  cell2: [createCheckIcon()],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 8',
-                  basicFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
-                  teamFeature: [createCheckIcon()],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 8',
+                  cell2: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  cell3: [createCheckIcon()],
+                  cell4: [createCheckIcon()],
                 }),
                 new TableRowWidget({
-                  feature: 'Key feature 9',
-                  basicFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
-                  teamFeature: [new TextWidget({ text: '<p><b>-</b></p>' })],
-                  corporateFeature: [createCheckIcon()],
+                  cell1: 'Key feature 9',
+                  cell2: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  cell3: [new TextWidget({ text: '<p><b>-</b></p>' })],
+                  cell4: [createCheckIcon()],
                 }),
               ],
-              featureHeadline: 'Features',
-              basicPlanHeadline: 'Basic',
-              teamPlanHeadline: 'Team',
-              corporatePlanHeadline: 'Corporate',
-              pricingRow: 'Prices',
-              currency: '€',
-              basicPlanPrice: '29',
-              teamPlanPrice: '59',
-              corporatePlanPrice: '199',
-              basicPlanPeriod: '/mo',
-              teamPlanPeriod: '/mo',
-              corporatePlanPeriod: '/mo',
+              summaryRows: [
+                new TableRowWidget({
+                  cell1: 'Prices',
+                  cell2: [
+                    new PriceWidget({ price: '29', currency: '€', period: '/mo' }),
+                  ],
+                  cell3: [
+                    new PriceWidget({ price: '59', currency: '€', period: '/mo' }),
+                  ],
+                  cell4: [
+                    new PriceWidget({ price: '199', currency: '€', period: '/mo' }),
+                  ],
+                }),
+              ],
+              header1: 'Features',
+              header2: 'Basic',
+              header3: 'Team',
+              header4: 'Corporate',
             }),
           ],
         }),
@@ -2038,37 +2052,43 @@ function importContent() {
       navigationBackgroundImage: unsplashArchitecture,
       navigationHeight: 'full-height',
       navigationSection: [
-        createEvenColumnContainerWidget({
+        new ColumnContainerWidget({
           verticallyAligned: 'yes',
           columns: [
             // col 1
-            [
-              new HeadlineWidget({
-                headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
-              }),
-              new TextWidget({
-                text: loremIpsum({
-                  units: 'paragraphs',
-                  format: 'html',
-                  count: 1,
-                  paragraphLowerBound: 3,
-                  paragraphUpperBound: 5,
+            new ColumnWidget({
+              colSize: 9,
+              content: [
+                new HeadlineWidget({
+                  headline: capitalizeFirstLetter(loremIpsum({ units: 'words', count: 4 })),
                 }),
-              }),
-              new ButtonWidget({
-                target: new Scrivito.Link({
-                  title: 'Call to action',
-                  obj: root,
+                new TextWidget({
+                  text: loremIpsum({
+                    units: 'paragraphs',
+                    format: 'html',
+                    count: 1,
+                    paragraphLowerBound: 3,
+                    paragraphUpperBound: 5,
+                  }),
                 }),
-              }),
-            ],
+                new ButtonWidget({
+                  target: new Scrivito.Link({
+                    title: 'Call to action',
+                    obj: root,
+                  }),
+                }),
+              ],
+            }),
             // col 2
-            [
-              new SignUpFormWidget({
-                title: 'Sign up to Scrivito',
-                buttonText: 'Sign up to Scrivito now',
-              }),
-            ],
+            new ColumnWidget({
+              colSize: 3,
+              content: [
+                new SignUpFormWidget({
+                  title: 'Sign up to Scrivito',
+                  buttonText: 'Sign up to Scrivito now',
+                }),
+              ],
+            }),
           ],
         }),
       ],
@@ -2503,7 +2523,7 @@ function importContent() {
             new HeadlineWidget({
               alignment: 'center',
               style: 'h1',
-              headline: 'Widgets & Page',
+              headline: 'Widgets & Pages',
             }),
             new HeadlineWidget({
               alignment: 'center',
@@ -3056,6 +3076,52 @@ function importContent() {
           showPadding: 'no',
           content: [
             new HeadlineWidget({
+              headline: 'Link List Widget',
+            }),
+            create3to9ColumnContainerWidget({
+              columns: [
+                // col 1
+                [
+                  new TextWidget({
+                    alignment: 'left',
+                    text: `<p>Widget properties:</p>
+                      <ul>
+                        <li>Headline</li>
+                        <li>Links</li>
+                      </ul>`,
+                  }),
+                ],
+                // col 2
+                [
+                  createEvenColumnContainerWidget({
+                    columns: [
+                      // inner col 1
+                      [],
+                      // inner col 2
+                      [
+                        new LinkContainerWidget({
+                          headline: 'This is a Link List',
+                          links: [
+                            new LinkWidget({ link: new Scrivito.Link({ obj: root }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: homeV1 }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: homeV2 }) }),
+                            new LinkWidget({ link: new Scrivito.Link({ obj: landingPage }) }),
+                          ],
+                        }),
+                      ],
+                      // inner col 3
+                      [],
+                    ],
+                  }),
+                ],
+              ],
+            }),
+          ],
+        }),
+        new SectionWidget({
+          showPadding: 'no',
+          content: [
+            new HeadlineWidget({
               headline: 'Login Form Widget',
             }),
             create3to9ColumnContainerWidget({
@@ -3069,47 +3135,6 @@ function importContent() {
                 ],
                 // col 2
                 [new LoginFormWidget({})],
-              ],
-            }),
-          ],
-        }),
-        new SectionWidget({
-          showPadding: 'no',
-          content: [
-            new HeadlineWidget({
-              headline: 'Page List Widget',
-            }),
-            create3to9ColumnContainerWidget({
-              columns: [
-                // col 1
-                [
-                  new TextWidget({
-                    alignment: 'left',
-                    text: `<p>Widget properties:</p>
-                      <ul>
-                        <li>Headline</li>
-                        <li>Pages</li>
-                      </ul>`,
-                  }),
-                ],
-                // col 2
-                [
-                  createEvenColumnContainerWidget({
-                    columns: [
-                      // inner col 1
-                      [],
-                      // inner col 2
-                      [
-                        new PageListWidget({
-                          headline: 'This is a Page List',
-                          pages: [root, homeV1, homeV2, landingPage],
-                        }),
-                      ],
-                      // inner col 3
-                      [],
-                    ],
-                  }),
-                ],
               ],
             }),
           ],
@@ -3219,8 +3244,8 @@ function importContent() {
                     alignment: 'left',
                     text: `<p>Widget properties:</p>
                       <ul>
-                        <li>Currency</li>
-                        <li>Feature rows</li>
+                        <li>Rows</li>
+                        <li>Summary rows</li>
                       </ul>`,
                   }),
                 ],
@@ -3229,30 +3254,36 @@ function importContent() {
                   new TableWidget({
                     rows: [
                       new TableRowWidget({
-                        feature: 'Key feature 1',
-                        basicFeature: [new TextWidget({ text: '<p><b>5</b></p>' })],
-                        teamFeature: [new TextWidget({ text: '<p><b>10</b></p>' })],
-                        corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                        cell1: 'Key feature 1',
+                        cell2: [new TextWidget({ text: '<p><b>5</b></p>' })],
+                        cell3: [new TextWidget({ text: '<p><b>10</b></p>' })],
+                        cell4: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                       }),
                       new TableRowWidget({
-                        feature: 'Key feature 2',
-                        basicFeature: [new TextWidget({ text: '<p><b>20</b></p>' })],
-                        teamFeature: [new TextWidget({ text: '<p><b>40</b></p>' })],
-                        corporateFeature: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
+                        cell1: 'Key feature 2',
+                        cell2: [new TextWidget({ text: '<p><b>20</b></p>' })],
+                        cell3: [new TextWidget({ text: '<p><b>40</b></p>' })],
+                        cell4: [new TextWidget({ text: '<p><b>unlimited</b></p>' })],
                       }),
                     ],
-                    featureHeadline: 'Features',
-                    basicPlanHeadline: 'Basic',
-                    teamPlanHeadline: 'Team',
-                    corporatePlanHeadline: 'Corporate',
-                    pricingRow: 'Prices',
-                    currency: '€',
-                    basicPlanPrice: '29',
-                    teamPlanPrice: '59',
-                    corporatePlanPrice: '99',
-                    basicPlanPeriod: '/mo',
-                    teamPlanPeriod: '/mo',
-                    corporatePlanPeriod: '/mo',
+                    summaryRows: [
+                      new TableRowWidget({
+                        cell1: 'Prices',
+                        cell2: [
+                          new PriceWidget({ price: '29', currency: '€', period: '/mo' }),
+                        ],
+                        cell3: [
+                          new PriceWidget({ price: '59', currency: '€', period: '/mo' }),
+                        ],
+                        cell4: [
+                          new PriceWidget({ price: '99', currency: '€', period: '/mo' }),
+                        ],
+                      }),
+                    ],
+                    header1: 'Features',
+                    header2: 'Basic',
+                    header3: 'Team',
+                    header4: 'Corporate',
                   }),
                 ],
               ],
@@ -3489,7 +3520,7 @@ function importContent() {
           alignment: 'center',
           target: new Scrivito.Link({
             title: 'Call to action',
-            obj: root,
+            obj: product,
           }),
         }),
       ],
@@ -3772,13 +3803,24 @@ function importContent() {
     });
 
     // Footer
-    const footerLinks1 = new PageListWidget({
+    const footerLinks1 = new LinkContainerWidget({
       headline: 'Homepages',
-      pages: [root, homeV1, homeV2, landingPage],
+      links: [
+        new LinkWidget({ link: new Scrivito.Link({ obj: root }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: homeV1 }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: homeV2 }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: landingPage }) }),
+      ],
     });
-    const footerLinks2 = new PageListWidget({
+    const footerLinks2 = new LinkContainerWidget({
       headline: 'About',
-      pages: [jobs, contact, imprint, events, login],
+      links: [
+        new LinkWidget({ link: new Scrivito.Link({ obj: jobs }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: contact }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: imprint }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: events }) }),
+        new LinkWidget({ link: new Scrivito.Link({ obj: login }) }),
+      ],
     });
 
     root.update({

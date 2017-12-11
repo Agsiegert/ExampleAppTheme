@@ -1,8 +1,8 @@
 import addressWidgetIcon from 'assets/images/address_widget.svg';
+import AddressListItemWidget from 'Widgets/AddressListItemWidget/AddressListItemWidgetClass';
 
 Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',
-  description: 'A widget, which shows an address.',
   thumbnail: `/${addressWidgetIcon}`,
   attributes: {
     address: {
@@ -36,4 +36,10 @@ Scrivito.provideEditingConfig('AddressWidget', {
     'listItems',
     'showBorderBottom',
   ],
+  initialContent: {
+    address: 'The actual address.',
+    listItems: [new AddressListItemWidget({})],
+    showBorderBottom: 'no',
+    showLogo: 'yes',
+  },
 });

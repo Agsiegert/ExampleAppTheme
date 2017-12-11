@@ -2,7 +2,6 @@ import headlineWidgetIcon from 'assets/images/headline_widget.svg';
 
 Scrivito.provideEditingConfig('HeadlineWidget', {
   title: 'Headline',
-  description: 'A widget with a headline.',
   thumbnail: `/${headlineWidgetIcon}`,
   attributes: {
     style: {
@@ -63,5 +62,12 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
     'showDividingLine',
     'showMargin',
   ],
+  initialContent: {
+    alignment: 'left',
+    headline: 'Lorem Ipsum',
+    showDividingLine: 'no',
+    showMargin: 'yes',
+    style: 'h1',
+  },
   titleForContent: widget => widget.get('headline'),
 });

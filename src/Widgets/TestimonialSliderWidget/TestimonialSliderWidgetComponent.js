@@ -1,5 +1,4 @@
 import Slider from 'react-slick';
-import devicePixelRatio from 'utils/devicePixelRatio';
 import placeholderCss from 'utils/placeholderCss';
 import TestimonialWidget from 'Widgets/TestimonialWidget/TestimonialWidgetClass';
 
@@ -7,54 +6,63 @@ Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
   const testimonials = widget.get('testimonials');
   const settings = sliderSettings(testimonials);
 
-  return ([
-    <Slider key="slider" { ...settings }>
-      {
-        testimonials.map(testimonial =>
-          <div key={ testimonial.id() }>
-            <h1 className="quote-headline text-center">&quot;</h1>
-            <Scrivito.ContentTag
-              content={ testimonial }
-              attribute="testimonial"
-              tag="p"
-              className="h4 text-center"
-            />
-            <Scrivito.ContentTag
-              content={ testimonial }
-              attribute="author"
-              tag="p"
-              className="small text-center"
-            />
-          </div>
-        )
-      }
-    </Slider>,
-    <AddTestimonial key="add testimonial" widget={ widget } />,
-  ]);
+  return (
+    <React.Fragment>
+      <Slider { ...settings }>
+        {
+          testimonials.map(testimonial =>
+            <div key={ testimonial.id() }>
+              <h1 className="quote-headline text-center">&quot;</h1>
+              <Scrivito.ContentTag
+                content={ testimonial }
+                attribute="testimonial"
+                tag="p"
+                className="h4 text-center"
+              />
+              <Scrivito.ContentTag
+                content={ testimonial }
+                attribute="author"
+                tag="p"
+                className="small text-center"
+              />
+            </div>
+          )
+        }
+      </Slider>
+      <AddTestimonial widget={ widget } />
+    </React.Fragment>
+  );
 });
 
 function sliderSettings(testimonials) {
-  const testimonialAuthorImageUrls = testimonials.map(testimonial => {
+  const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get('authorImage');
-    if (!authorImage) { return fallbackImageUrl; }
+    if (!authorImage) {
+      return <img className="image" src={ fallbackImageUrl } />;
+    }
 
-    const binary = authorImage.get('blob');
-    const croppedBinary = binary.transform({
-      width: 200 * devicePixelRatio(),
-      height: 200 * devicePixelRatio(),
-      fit: 'crop',
-    });
-    return croppedBinary.url();
+    return (
+      <Scrivito.BackgroundImageTag
+        key={ testimonial.id }
+        className="image"
+        style={
+          {
+            background: { image: authorImage },
+          }
+        }
+      />
+    );
   });
 
   return {
+    autoplay: true,
     dots: true,
     infinite: true,
     speed: 500,
     dotsClass: 'quote-portrait-wrapper',
     customPaging: i => {
-      const imageUrl = testimonialAuthorImageUrls[i];
-      return (<a><img src={ imageUrl } alt="" /></a>);
+      const image = testimonialAuthorImages[i];
+      return (<a>{ image }</a>);
     },
   };
 }
@@ -69,7 +77,7 @@ const AddTestimonial = ({ widget }) => {
   }
 
   return (
-    <div key="add more" className="text-center">
+    <div className="text-center">
       <a
         href="#"
         style={ placeholderCss }

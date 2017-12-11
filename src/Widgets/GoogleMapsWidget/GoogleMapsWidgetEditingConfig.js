@@ -2,7 +2,6 @@ import googleMapsWidgetIcon from 'assets/images/google_maps_widget.svg';
 
 Scrivito.provideEditingConfig('GoogleMapsWidget', {
   title: 'Google Maps',
-  description: 'A widget with google maps.',
   thumbnail: `/${googleMapsWidgetIcon}`,
   attributes: {
     address: {
@@ -50,4 +49,9 @@ Scrivito.provideEditingConfig('GoogleMapsWidget', {
     'zoom',
     'showWidgets',
   ],
+  initialContent: {
+    address: 'Brandenburg Gate, Berlin, Germany',
+    showWidgets: 'no',
+    zoom: '15',
+  },
 });

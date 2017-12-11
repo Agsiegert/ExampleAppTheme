@@ -2,7 +2,6 @@ import truncate from 'lodash/truncate';
 
 Scrivito.provideEditingConfig('TestimonialWidget', {
   title: 'Testimonial',
-  description: 'A testimonial',
   attributes: {
     testimonial: {
       title: 'Testimonial',
@@ -20,5 +19,9 @@ Scrivito.provideEditingConfig('TestimonialWidget', {
     'author',
     'authorImage',
   ],
+  initialContent: {
+    author: 'Someone',
+    testimonial: 'This is great!',
+  },
   titleForContent: widget => `${widget.get('author')}: ${truncate(widget.get('testimonial'))}`,
 });

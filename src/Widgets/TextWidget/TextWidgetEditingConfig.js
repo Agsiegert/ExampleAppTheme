@@ -2,7 +2,6 @@ import textWidgetIcon from 'assets/images/text_widget.svg';
 
 Scrivito.provideEditingConfig('TextWidget', {
   title: 'Text',
-  description: 'A widget with html text.',
   thumbnail: `/${textWidgetIcon}`,
   attributes: {
     alignment: {
@@ -23,4 +22,8 @@ Scrivito.provideEditingConfig('TextWidget', {
     'alignment',
     'text',
   ],
+  initialContent: {
+    alignment: 'left',
+    text: '<p>Lorem ipsum dolor sit amet.</p>',
+  },
 });

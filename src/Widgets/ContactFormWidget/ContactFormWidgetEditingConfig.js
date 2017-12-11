@@ -2,11 +2,11 @@ import contactFormWidgetIcon from 'assets/images/contact_form_widget.svg';
 
 Scrivito.provideEditingConfig('ContactFormWidget', {
   title: 'Contact Form',
-  description: 'A widget with contact form.',
   thumbnail: `/${contactFormWidgetIcon}`,
   attributes: {
     agreementText: {
       title: 'Agreement text',
+      description: 'Optional',
     },
     buttonText: {
       title: 'Submit button text',
@@ -17,4 +17,7 @@ Scrivito.provideEditingConfig('ContactFormWidget', {
     'agreementText',
     'buttonText',
   ],
+  initialContent: {
+    buttonText: 'send message',
+  },
 });
