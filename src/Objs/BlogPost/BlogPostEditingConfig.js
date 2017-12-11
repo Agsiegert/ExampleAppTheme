@@ -3,7 +3,7 @@ import SectionWidget from 'Widgets/SectionWidget/SectionWidgetClass';
 import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('BlogPost', {
-  title: 'BlogPost',
+  title: 'Blog Post',
   thumbnail: `/${blogPostObjIcon}`,
   attributes: {
     author: {

@@ -7,7 +7,7 @@ import {
 } from '../_defaultPageAttributes';
 
 Scrivito.provideEditingConfig('LandingPage', {
-  title: 'LandingPage',
+  title: 'Landing Page',
   thumbnail: `/${landingPageObjIcon}`,
   attributes: {
     ...defaultPageUiConfigAttributes,
