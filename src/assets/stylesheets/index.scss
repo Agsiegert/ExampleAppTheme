@@ -752,14 +752,14 @@ footer {
   }
 .quote-portrait-wrapper { text-align: center; height: 75px; }
 .quote-portrait-wrapper a { display: inline-block; vertical-align: middle; }
-.quote-portrait-wrapper a img {
-  width: 40px; @include transition(all .3s ease-in-out);
+.quote-portrait-wrapper a .image {
+  width: 40px; height: 40px; @include transition(all .3s ease-in-out);
   display: block; border-radius: 50%;
-  border: 3px solid rgba(188,188,188,.4);
+  border: 3px solid rgb(188,188,188);
   margin: 5px;
   }
-.quote-portrait-wrapper a:hover img,
-.quote-portrait-wrapper .slick-active img { width: 75px; }
+.quote-portrait-wrapper a:hover .image,
+.quote-portrait-wrapper .slick-active .image { width: 75px; height: 75px; }
 
 .quote-portrait-wrapper li {
   position: relative;
