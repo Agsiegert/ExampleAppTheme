@@ -3,14 +3,11 @@ import featurePanelWidgetIcon from 'assets/images/feature_panel_widget.svg';
 Scrivito.provideEditingConfig('FeaturePanelWidget', {
   title: 'Feature Panel',
   thumbnail: `/${featurePanelWidgetIcon}`,
-  attributes: {
-    icon: {
+  propertiesGroups: [
+    {
       title: 'Icon',
-      description: 'Default: fa-check',
+      component: 'IconEditorTab',
     },
-  },
-  properties: [
-    'icon',
   ],
   initialContent: {
     icon: 'fa-check',
