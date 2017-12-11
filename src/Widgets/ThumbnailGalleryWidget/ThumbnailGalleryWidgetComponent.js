@@ -117,11 +117,10 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const image = widget.get('image');
   const tags = widget.get('tags');
 
-  let imageUrl = '';
+  let transformedBinary = null;
   if (image) {
     // Transform image to max. 50% of the screen width
-    const binary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
-    imageUrl = binary.url();
+    transformedBinary = image.get('blob').transform({ width: fullScreenWidthPixels() / 2 });
   }
 
   const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box', 'gutter0'];
@@ -129,10 +128,10 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
 
   return (
     <div className={ classNames.join(' ') }>
-      <div
+      <Scrivito.BackgroundImageTag
         className="gallery-box-image"
-        style={ { background: 'no-repeat center / cover', backgroundImage: `url(${imageUrl})` } }>
-      </div>
+        style={ { background: { image: transformedBinary } } }
+      />
       <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
         <span className="gallery-box-content">
           <i className="fa fa-camera" aria-hidden="true" />
