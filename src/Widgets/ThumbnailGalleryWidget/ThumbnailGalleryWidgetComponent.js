@@ -1,5 +1,4 @@
 import Lightbox from 'react-images';
-import devicePixelRatio from 'utils/devicePixelRatio';
 import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import TagList from 'Components/TagList';
@@ -159,21 +158,15 @@ function allTags(images) {
 function lightboxOptions(galleryImageWidget) {
   const image = galleryImageWidget.get('image');
   let srcUrl = '';
-  let thumbnailUrl = '';
 
   if (image) {
     const binary = image.get('blob');
-
     srcUrl = binary.transform({ width: fullScreenWidthPixels() }).url();
-
-    const thumbnailSize = 50 * devicePixelRatio();
-    thumbnailUrl = binary.transform(
-      { width: thumbnailSize, height: thumbnailSize, fit: 'crop' }).url();
   }
 
   return {
     src: srcUrl,
-    thumbnail: thumbnailUrl,
+    thumbnail: srcUrl,
     caption: [galleryImageWidget.get('title'), galleryImageWidget.get('subtitle')].join(' - '),
   };
 }
