@@ -1,3 +1,3 @@
 Scrivito.provideEditingConfig('PricingSpecWidget', {
-  title: 'PricingSpec',
+  title: 'Pricing Spec',
 });

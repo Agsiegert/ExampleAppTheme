@@ -1,5 +1,5 @@
 Scrivito.provideEditingConfig('TickListItemWidget', {
-  title: 'Tick List Widget Item',
+  title: 'Tick List Item',
   attributes: {
     statement: {
       title: 'Statement',
