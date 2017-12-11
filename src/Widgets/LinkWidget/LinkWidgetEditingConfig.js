@@ -1,6 +1,5 @@
 Scrivito.provideEditingConfig('LinkWidget', {
   title: 'Link List item',
-  description: 'A widget for the link list widget.',
   attributes: {
     link: {
       title: 'Link',

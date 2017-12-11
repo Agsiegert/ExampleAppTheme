@@ -1,5 +1,4 @@
 Scrivito.provideEditingConfig('TableRowWidget', {
-  title: 'TableRowWidget',
-  description: 'A table row widget.',
+  title: 'Table Row',
   titleForContent: widget => widget.get('cell1'),
 });

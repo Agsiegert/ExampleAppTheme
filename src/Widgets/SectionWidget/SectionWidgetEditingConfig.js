@@ -2,7 +2,6 @@ import sectionWidgetIcon from 'assets/images/section_widget.svg';
 
 Scrivito.provideEditingConfig('SectionWidget', {
   title: 'Section',
-  description: 'A section',
   thumbnail: `/${sectionWidgetIcon}`,
   attributes: {
     backgroundColor: {

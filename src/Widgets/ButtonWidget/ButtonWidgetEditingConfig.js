@@ -2,7 +2,6 @@ import buttonWidgetIcon from 'assets/images/button_widget.svg';
 
 Scrivito.provideEditingConfig('ButtonWidget', {
   title: 'Button',
-  description: 'A widget with a button.',
   thumbnail: `/${buttonWidgetIcon}`,
   attributes: {
     alignment: {

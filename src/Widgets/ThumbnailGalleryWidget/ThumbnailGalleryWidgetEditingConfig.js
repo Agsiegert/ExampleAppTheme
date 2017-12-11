@@ -2,7 +2,6 @@ import thumbnailGalleryWidgetIcon from 'assets/images/thumbnail_gallery_widget.s
 
 Scrivito.provideEditingConfig('ThumbnailGalleryWidget', {
   title: 'Thumbnail Gallery',
-  description: 'A widget with an thumbnail image gallery.',
   thumbnail: `/${thumbnailGalleryWidgetIcon}`,
   attributes: {
     images: {

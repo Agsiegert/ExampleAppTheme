@@ -3,7 +3,6 @@ import { socialCardsCustomGroup } from '../_socialCardsAttributes';
 
 Scrivito.provideEditingConfig('SearchResults', {
   title: 'Search Results',
-  description: 'A Search Results Page',
   thumbnail: `/${SearchResultsObjIcon}`,
   attributes: {
     navigationBackgroundImage: {

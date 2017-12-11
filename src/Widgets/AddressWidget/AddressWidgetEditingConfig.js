@@ -3,7 +3,6 @@ import AddressListItemWidget from 'Widgets/AddressListItemWidget/AddressListItem
 
 Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',
-  description: 'A widget, which shows an address.',
   thumbnail: `/${addressWidgetIcon}`,
   attributes: {
     address: {

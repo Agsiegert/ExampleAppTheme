@@ -2,7 +2,6 @@ import iconWidgetIcon from 'assets/images/icon_widget.svg';
 
 Scrivito.provideEditingConfig('IconWidget', {
   title: 'Icon',
-  description: 'A widget with a Font Awesome icon.',
   thumbnail: `/${iconWidgetIcon}`,
   attributes: {
     size: {

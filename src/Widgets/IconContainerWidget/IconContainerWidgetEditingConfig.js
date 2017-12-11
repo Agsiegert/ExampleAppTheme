@@ -3,7 +3,6 @@ import IconWidget from 'Widgets/IconWidget/IconWidgetClass';
 
 Scrivito.provideEditingConfig('IconContainerWidget', {
   title: 'Icon List',
-  description: 'A list of icons.',
   thumbnail: `/${iconContainerWidgetIcon}`,
   attributes: {
     iconList: {

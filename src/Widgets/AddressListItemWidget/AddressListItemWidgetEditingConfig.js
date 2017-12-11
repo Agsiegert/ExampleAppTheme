@@ -3,7 +3,6 @@ import truncate from 'lodash/truncate';
 
 Scrivito.provideEditingConfig('AddressListItemWidget', {
   title: 'Address List Item',
-  description: 'List Items for an Address Widget.',
   attributes: {
     key: {
       title: 'Key',

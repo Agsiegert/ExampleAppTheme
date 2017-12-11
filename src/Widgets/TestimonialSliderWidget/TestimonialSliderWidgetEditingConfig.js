@@ -3,7 +3,6 @@ import TestimonialWidget from 'Widgets/TestimonialWidget/TestimonialWidgetClass'
 
 Scrivito.provideEditingConfig('TestimonialSliderWidget', {
   title: 'Testimonial Slider',
-  description: 'A testimonial slider.',
   thumbnail: `/${testimonialSliderWidgetIcon}`,
   attributes: {
     testimonials: {
