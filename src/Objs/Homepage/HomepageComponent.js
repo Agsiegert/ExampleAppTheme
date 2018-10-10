@@ -1,3 +1,7 @@
+import Pic01 from "../../assets/images/pic01.jpg";
+import Pic02 from "../../assets/images/pic02.jpg";
+import Pic03 from "../../assets/images/pic03.jpg";
+
 Scrivito.provideComponent('Homepage', ({ page }) =>
     <div>
       <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
@@ -24,7 +28,7 @@ Scrivito.provideComponent('Homepage', ({ page }) =>
         <div className="box alt container">
           <section className="feature left">
             <a href="#" className="image icon fa-signal">
-              <img src="images/pic01.jpg" alt="" /></a>
+              <img src={ Pic01 } alt="" /></a>
             <div className="content">
               <h3>The First Thing</h3>
               <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
@@ -33,7 +37,7 @@ Scrivito.provideComponent('Homepage', ({ page }) =>
             </div>
           </section>
           <section className="feature right">
-            <a href="#" className="image icon fa-code"><img src="images/pic02.jpg" alt="" /></a>
+            <a href="#" className="image icon fa-code"><img src={ Pic02 } alt="" /></a>
             <div className="content">
               <h3>The Second Thing</h3>
               <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
@@ -42,7 +46,7 @@ Scrivito.provideComponent('Homepage', ({ page }) =>
             </div>
           </section>
           <section className="feature left">
-            <a href="#" className="image icon fa-mobile"><img src="images/pic03.jpg" alt="" /></a>
+            <a href="#" className="image icon fa-mobile"><img src={ Pic03 } alt="" /></a>
             <div className="content">
               <h3>The Third Thing</h3>
               <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
